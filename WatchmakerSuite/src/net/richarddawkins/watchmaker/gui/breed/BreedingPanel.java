@@ -15,7 +15,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import net.richarddawkins.watchmaker.draw.QuickDrawState;
 import net.richarddawkins.watchmaker.drawer.Boxes;
 import net.richarddawkins.watchmaker.drawer.GraphicsDrawer;
 import net.richarddawkins.watchmaker.drawer.MorphDrawer;
