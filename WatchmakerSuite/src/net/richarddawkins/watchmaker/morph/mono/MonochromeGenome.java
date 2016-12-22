@@ -6,6 +6,8 @@ import net.richarddawkins.watchmaker.morph.common.Biomorph;
 import net.richarddawkins.watchmaker.morph.common.BiomorphGenomeImpl;
 import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
@@ -52,10 +54,12 @@ public class MonochromeGenome extends BiomorphGenomeImpl {
   }
 
   public Genome reproduce(Morph newMorph) {
-    MonochromeGenome child = new MonochromeGenome(newMorph);
-    super.copy(child);
-    newMorph.getMorphConfig().getMutagen().mutate(child);
-    return child;
+    MonochromeGenome childGenome = new MonochromeGenome(newMorph);
+    super.copy(childGenome);
+    MorphConfig config = newMorph.getMorphConfig();
+    Mutagen mutagen = config.getMutagen();
+    mutagen.mutate(childGenome);
+    return childGenome;
   }
 
   void plugIn(int[] gene, int[] dx, int[] dy) {

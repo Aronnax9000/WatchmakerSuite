@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
@@ -17,6 +18,16 @@ import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
 
+	WatchmakerPanel watchmakerPanel;
+	
+	
+	public WatchmakerPanel getWatchmakerPanel() {
+		return watchmakerPanel;
+	}
+
+	public void setWatchmakerPanel(WatchmakerPanel watchmakerPanel) {
+		this.watchmakerPanel = watchmakerPanel;
+	}
 	protected GeneBoxStrip geneBoxStrip;
 	protected JPanel centrePanel;
 	public GeneBoxStrip getGeneBoxStrip() {

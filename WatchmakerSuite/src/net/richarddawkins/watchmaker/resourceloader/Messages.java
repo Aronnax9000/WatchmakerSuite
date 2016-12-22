@@ -8,7 +8,7 @@ public class Messages {
 
   public static ResourceBundle getMessages() {
     if (messages == null)
-      messages = ResourceBundle.getBundle("net.richarddawkins.watchmaker.watchmaker.strings.watchmaker",
+      messages = ResourceBundle.getBundle("net.richarddawkins.watchmaker.strings.watchmaker",
           Locale.getDefault());
     return messages;
   }

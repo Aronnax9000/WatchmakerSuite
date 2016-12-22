@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morph.mono;
 
+import net.richarddawkins.watchmaker.gui.breed.BreedingPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfigImpl;
@@ -16,20 +17,21 @@ public class MonochromeMorphConfig extends BiomorphConfigImpl {
 	public Mutagen getMutagen() { return mutagen; }
 	
 	
-	
 	public MonochromeMorphConfig() {
-		mutagen = new MonochromeMutagen(this);
+		setIconFromFilename("BWSpiderLogoMono_ICNO_23096_32x32");		
 		geneBoxCount = 16;
+		menuBuilder = new MonochromeMenuBuilder(this);
 		geneBoxStrip = new MonochromeGeneBoxStrip(this);
 		name = "Monochrome";
 		toolTip = "Blind Watchmaker (Monochrome)";
+		mutagen = new MonochromeMutagen(this);
 		mut = new boolean[MutTypeNo];
-		setIconFromFilename("BWSpiderLogoMono_ICNO_23096_32x32");		
 		for(int i = 0; i < MutTypeNo; i++)
 			mut[i] = true;
 		
-    setDefaultBreedingRows(3);
-    setDefaultBreedingCols(5);
+	    setDefaultBreedingRows(3);
+	    setDefaultBreedingCols(5);
+		centrePanel = new BreedingPanel(this);
     
 	}
 	@Override
@@ -37,7 +39,7 @@ public class MonochromeMorphConfig extends BiomorphConfigImpl {
 		return new MonochromeMorph(this, type);
 	}
 	
-	protected MenuBuilder menuBuilder = new MonochromeMenuBuilder(this);
+	protected MenuBuilder menuBuilder;
 	@Override
 	public MenuBuilder getMenuBuilder() {
 		return menuBuilder;

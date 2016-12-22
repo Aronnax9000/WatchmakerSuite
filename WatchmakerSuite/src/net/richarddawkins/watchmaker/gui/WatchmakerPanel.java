@@ -14,19 +14,20 @@ public class WatchmakerPanel extends JPanel {
 	
 	public WatchmakerPanel(JPanel pageStartPanel, JPanel centrePanel) {
 		this.setLayout(new BorderLayout());
-		this.setpageStartPanel(pageStartPanel);
+		this.setPageStartPanel(pageStartPanel);
 		this.setCentrePanel(centrePanel); 
 	}
 
-	public JPanel getpageStartPanel() {
+	public JPanel getPageStartPanel() {
 		return pageStartPanel;
 	}
 
-	public void setpageStartPanel(JPanel pageStartPanel) {
+	public void setPageStartPanel(JPanel pageStartPanel) {
 		if(this.pageStartPanel != null)
 			this.remove(this.pageStartPanel);
 		this.pageStartPanel = pageStartPanel;
-		this.add(this.pageStartPanel, BorderLayout.PAGE_START);
+		if(this.pageStartPanel != null)
+			this.add(this.pageStartPanel, BorderLayout.PAGE_START);
 		
 	}
 
@@ -38,6 +39,6 @@ public class WatchmakerPanel extends JPanel {
 		if(this.centrePanel != null)
 			this.remove(this.centrePanel);
 		this.centrePanel = centrePanel;
-		this.add(this.pageStartPanel, BorderLayout.PAGE_START);
+		this.add(this.centrePanel, BorderLayout.CENTER);
 	}
 }

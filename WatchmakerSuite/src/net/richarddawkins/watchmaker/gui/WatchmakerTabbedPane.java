@@ -7,11 +7,37 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.MorphConfigFactory;
+import net.richarddawkins.watchmaker.morph.common.MorphType;
+import net.richarddawkins.watchmaker.morph.common.MorphTypeNotSupportedException;
 
 public class WatchmakerTabbedPane extends JTabbedPane {
 	
-	public WatchmakerTabbedPane() {
-	    addChangeListener(new TabChangeListener());
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9105080336982806166L;
+
+	public WatchmakerTabbedPane(WatchmakerFrame frame) {
+    	for (MorphType morphType : MorphType.values()) {
+    		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType); 
+	    	if(factory != null) {
+	    		try {
+	    			for(int i = 0; i < 2; i++) {
+			 	    	MorphConfig config = factory.createConfig();
+			 	    	config.setFrame(frame);
+					    addMorphConfig(config);
+	    			}
+	    		}
+	    		catch(MorphTypeNotSupportedException e) {
+	    			// Just go on to the next MorphType
+	    		}
+		    }	   
+    	}
+    	if(this.getTabCount() != 0)
+    		changeToTab(0);
+		addChangeListener(new TabChangeListener());
+	    
 	}
 	
 	protected Vector<MorphConfig> configs = new Vector<MorphConfig>();
@@ -27,11 +53,15 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		setSelectedIndex(this.getTabCount() - 1);
 	}
 	
+	public void changeToTab(int selectedIndex) {
+	      MorphConfig config = configs.get(selectedIndex);
+	      config.getMenuBuilder().buildMenu(config.getFrame().getJMenuBar());
+		
+	}
 	
     class TabChangeListener implements ChangeListener {
 	    public void stateChanged(ChangeEvent e) {
-	      MorphConfig config = configs.get(getSelectedIndex());
-	      config.getMenuBuilder().buildMenu(config.getFrame().getJMenuBar());
+	    	changeToTab(getSelectedIndex());
 	    }
    }
 }

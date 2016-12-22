@@ -33,8 +33,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	 */
 	private static final long serialVersionUID = 8668997028542499649L;
 
-	private QuickDrawState quickDrawState = new QuickDrawState();
-
+	
 	private Vector<GraphicsDrawer> thingsToDraw = new Vector<GraphicsDrawer>();	
 
     public Boxes boxesDrawer;
@@ -169,12 +168,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
         }
 		
 	}
-	public QuickDrawState getQuickDrawState() {
-		return quickDrawState;
-	}
-	public void setQuickDrawState(QuickDrawState quickDrawState) {
-		this.quickDrawState = quickDrawState;
-	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.repaint();
