@@ -32,14 +32,14 @@ private MonochromeGenome genome;
 	  case 7: // 8 in Pascal - ABC
 	  case 8: // 9 in Pascal - ABC
 		geneBox.setValueLabelValue(genome.getGene(geneBoxIndex));
-		geneBox.setSwell(genome.getDGene(geneBoxIndex));
+		
 		break;
 	  case 9: // 10 in Pascal - ABC
 		geneBox.setValueLabelValue(genome.getSegNoGene());
 		break;
 	  case 10: // 11 in Pascal - ABC
 		geneBox.setValueLabelValue(genome.getSegDistGene());
-		geneBox.setSwell(genome.getDGene(9)); // 10 in pascal
+		
 		break;
 	  case 11: // 12 in Pascal - ABC
 		  geneBox.setCompleteness(genome.getCompletenessGene());
@@ -75,11 +75,18 @@ private MonochromeGenome genome;
     constraints.weightx = 1;
     constraints.gridy = 0;
     for(int i = 0; i < numberOfGeneBoxes; i++) {
-      GeneBox geneBox = new GeneBox(this, numberOfGeneBoxes);
+      GeneBox geneBox = new GeneBox(this, numberOfGeneBoxes, i);
       if(i < 9) geneBox.setHasSwell(true);
       constraints.gridx = i;
       this.add(geneBox, constraints);
     }
 
   }
+
+
+@Override
+public Genome getGenome() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

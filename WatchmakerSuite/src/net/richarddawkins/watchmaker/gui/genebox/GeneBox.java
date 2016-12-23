@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.gui.genebox;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
@@ -80,15 +79,6 @@ public class GeneBox extends JPanel {
   }
 
 
-  public SwellType getSwell() {
-    return swell;
-  }
-
-
-  public void setSwell(SwellType swell) {
-    this.gradientPanel.setSwell(swell);
-  }
-
 
   public boolean isNegative() {
     return negative;
@@ -138,8 +128,17 @@ protected boolean hasCompleteness = false;
   protected boolean negative;
   
   
+  protected GeneBoxStrip geneBoxStrip;
+  public GeneBoxStrip getGeneBoxStrip() {
+	return geneBoxStrip;
+}
 
-  protected GradientPanel gradientPanel = new GradientPanel();
+
+public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
+	this.geneBoxStrip = geneBoxStrip;
+}
+
+protected GradientPanel gradientPanel;
   protected JPanel valuePanel = new JPanel();
   protected JLabel valueLabel = new JLabel("X");
   enum HorizPos {LeftThird, MidThird, RightThird}
@@ -150,8 +149,9 @@ protected boolean hasCompleteness = false;
 	  valueLabel.setText(new Integer(value).toString());
   }
   
-  public GeneBox(Component c, int numberSharingStrip) {
-    
+  public GeneBox(GeneBoxStrip geneBoxStrip, int numberSharingStrip, int dGeneIndex) {
+    this.geneBoxStrip = geneBoxStrip;
+    gradientPanel = new GradientPanel(this, dGeneIndex);
     
     this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
     this.setLayout(new BorderLayout());

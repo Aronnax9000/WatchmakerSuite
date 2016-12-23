@@ -12,5 +12,6 @@ public abstract class GeneBoxStrip extends JPanel {
    */
   private static final long serialVersionUID = 1L;
   public abstract void setGenome(Genome genome);
+  public abstract Genome getGenome();
   public abstract void setMorphConfig(MorphConfig morphConfig);
 }
