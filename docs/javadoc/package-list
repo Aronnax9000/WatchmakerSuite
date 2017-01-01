@@ -1,0 +1,17 @@
+net.richarddawkins.watchmaker.draw
+net.richarddawkins.watchmaker.drawer
+net.richarddawkins.watchmaker.gui
+net.richarddawkins.watchmaker.gui.breed
+net.richarddawkins.watchmaker.gui.genebox
+net.richarddawkins.watchmaker.gui.menu
+net.richarddawkins.watchmaker.morph.arthro
+net.richarddawkins.watchmaker.morph.colour
+net.richarddawkins.watchmaker.morph.common
+net.richarddawkins.watchmaker.morph.common.geom
+net.richarddawkins.watchmaker.morph.mono
+net.richarddawkins.watchmaker.morph.mono.gui
+net.richarddawkins.watchmaker.morph.mono.gui.genebox
+net.richarddawkins.watchmaker.morph.mono.gui.menu
+net.richarddawkins.watchmaker.morph.simple
+net.richarddawkins.watchmaker.morph.util
+net.richarddawkins.watchmaker.resourceloader
