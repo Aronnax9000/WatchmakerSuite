@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="Snails"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <Units Count="19">
+      <Unit0>
+        <Filename Value="program_main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="program_main"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit_engineering.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_engineering"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="unit_biomorphs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_biomorphs"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unit_error.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit_miscellaneous.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_miscellaneous"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_globals"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="unit_album.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_album"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit_pedigree.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_pedigree"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unit_standard_get_folder.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit_triangle.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit_initialize.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_initialize"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit_user_interface.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_user_interface"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../RomanaII/think_pascal.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="unit_develop.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_develop"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="unit_snapshot.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="unit_snail_types.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_snail_types"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="unit_findthescale.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_findthescale"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="unit_drawpic.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="unit_array.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_array"/>
+      </Unit18>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="Snails"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../Common;../RomanaII"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <SyntaxMode Value="macpas"/>
+      </SyntaxOptions>
+    </Parsing>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

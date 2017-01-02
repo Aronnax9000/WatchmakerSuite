@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="TextDemo"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <Units Count="27">
+      <Unit0>
+        <Filename Value="Text1Pascal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Text1Pascal"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="UHelpDialogPascal.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="unit_doerroralert.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unit_doupdate.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit_docrec.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit_dodrawdatapanel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_dodrawdatapanel"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="unit_donewdocwindow.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit_docwindow_activate.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_docwindow_activate"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doadjustscrollbar"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit_eventloop.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_eventloop"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit_doinitmanagers.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit_doevents.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doevents"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="unit_scrollactionproc.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="unit_domousedown.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_domousedown"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="unit_dokeyevent.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="unit_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="unit_dogetselectlength.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="unit_doadjustcursor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doadjustcursor"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="unit_doidle.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doidle"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="unit_doadjustmenus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doadjustmenus"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="unit_files.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_files"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="unit_doeditmenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doeditmenu"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="unit_domenuchoice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_domenuchoice"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="unit_dofilemenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_dofilemenu"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="unit_doopsysevent.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doopsysevent"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="unit_dohelpmenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_dohelpmenu"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="unit_doclosewindow.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doclosewindow"/>
+      </Unit26>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="TextDemo"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../Common;../RomanaII"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <SyntaxMode Value="macpas"/>
+      </SyntaxOptions>
+    </Parsing>
+    <Other>
+      <Verbosity>
+        <ShowHintsForUnusedUnitsInMainSrc Value="True"/>
+      </Verbosity>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

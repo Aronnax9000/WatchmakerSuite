@@ -1,0 +1,8 @@
+#!/bin/bash
+mkdir -p ~/SheepShaverHome/Arthromorphs
+rm -f ~/SheepShaverHome/Arthromorphs/*
+cp *.pas ~/SheepShaverHome/Arthromorphs
+mkdir -p ~/SheepShaverHome/MacPascal
+rm -f ~/SheepShaverHome/MacPascal/*
+cp ../MacPascal/*.pas ~/SheepShaverHome/MacPascal
+

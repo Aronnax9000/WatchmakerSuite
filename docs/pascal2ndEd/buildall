@@ -1,0 +1,6 @@
+lazbuild -B Monochrome/Monochrome.lpi && \
+lazbuild -B Colour/Colour.lpi  && \ 
+lazbuild -B Snails/Snails.lpi  && \
+lazbuild -B Arthromorphs/Arthromorphs.lpi 
+
+

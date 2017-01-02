@@ -1,0 +1,25 @@
+makeskel  --package=Colour --input=program_main_exhibition.pas \
+--input=unit_about_box.pas \
+--input=unit_apple_menu.pas \
+--input=unit_biomorphs.pas \
+--input=unit_breed_window.pas \
+--input=unit_common_exhibition.pas \
+--input=unit_do_menu_exhibition.pas \
+--input=unit_edit3_menu.pas \
+--input=unit_events_exhibition.pas \
+--input=unit_file_menu.pas \
+--input=unit_init_exit_exhibition.pas \
+--input=unit_init_menu_exhibition.pas \
+--input=unit_operation_menu.pas \
+--input=unit_pa_warning_alert.pas \
+--input=unit_pcommon_exhibition.pas \
+--input=unit_pd_about_box.pas \
+--input=unit_pdo_menu_exhibition.pas \
+--input=unit_pd_timing_dialogue.pas \
+--input=unit_pimenu_exhibition.pas \
+--input=unit_putils_exhibition.pas \
+--input=unit_pw_breedwindow.pas \
+--input=unit_timing_dialogue.pas \
+--input=unit_utils_exhibition.pas \
+--input=unit_warning_alert.pas \
+--output=program_main_exhibition.fpdescription.skel 

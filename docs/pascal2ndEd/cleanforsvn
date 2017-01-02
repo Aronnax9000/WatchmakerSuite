@@ -1,0 +1,2 @@
+#!/bin/bash
+rm -rf Arthromorphs/lib Colour/lib Snails/lib Monochrome/lib

@@ -1,0 +1,4032 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<fpdoc-descriptions>
+<package name="Colour">
+
+<!--
+  ====================================================================
+    program_main_exhibition
+  ====================================================================
+-->
+
+<module name="program_main_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- variable Visibility: default -->
+<element name="DoIt">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="code">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="whichWindow">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="mResult">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theMenu">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theItem">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: default -->
+<element name="WNEIsImplemented">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="WNEIsImplemented.Result">
+<short></short>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="WNETrapNumber">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theWorld">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="discardError">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Handle_User_Event">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="TheUserEvent">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoKeyEvent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="charCode">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="ch">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoDiskEvent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theError">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoGrow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DoGrow.WhichWindow">
+<short></short>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="OldRect">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="myPt">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="GrowRect">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoDrag">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DoDrag.WhichWindow">
+<short></short>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="tempRect">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoGoAway">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DoGoAway.WhichWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoInContent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DoInContent.WhichWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoUpdate">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoActivate">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Do_An_Activate">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- program_main_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_about_box
+  ====================================================================
+-->
+
+<module name="unit_about_box">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="D_Init_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: default -->
+<element name="D_Filter_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="D_Filter_About_Box.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Filter_About_Box.theDialog">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Filter_About_Box.theEvent">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Filter_About_Box.itemHit">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Refresh_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Refresh_About_Box.theDialog">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Setup_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Setup_About_Box.theDialog">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Hit_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Hit_About_Box.theDialog">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Hit_About_Box.itemHit">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Hit_About_Box.ExitDialog">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Exit_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Exit_About_Box.theDialog">
+<short></short>
+</element>
+
+</module> <!-- unit_about_box -->
+
+
+<!--
+  ====================================================================
+    unit_apple_menu
+  ====================================================================
+-->
+
+<module name="unit_apple_menu">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Do_AppleMenu">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_AppleMenu.Doing_Pre">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_AppleMenu.theItem">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_AppleMenu.SkipProcessing">
+<short></short>
+</element>
+
+</module> <!-- unit_apple_menu -->
+
+
+<!--
+  ====================================================================
+    unit_biomorphs
+  ====================================================================
+-->
+
+<module name="unit_biomorphs">
+<short></short>
+<descr>
+</descr>
+
+<!-- function Visibility: default -->
+<element name="chooseColor">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="chooseColor.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="chooseColor.index">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="Rainbow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="Rainbow.Result">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="Randint">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="Randint.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Randint.Max">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="Odd">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="Odd.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Odd.i">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="RandSwell">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="RandSwell.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="RandSwell.Indgene">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="EraseInnerRect">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="EraseInnerRect.box">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="FrameOuterRect">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="FrameOuterRect.box">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="FrameInnerRect">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="FrameInnerRect.box">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="RandLimbType">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="RandLimbType.Result">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="RandLimbFill">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="RandLimbFill.Result">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Reproduce">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Reproduce.parent">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Reproduce.child">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="Sgn">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="Sgn.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Sgn.x">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Slide">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Slide.LiveRect">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Slide.DestRect">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="SetUpBoxes">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetUpBoxes.drawing">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="PicLine">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="PicLine.ThisPic">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="PicLine.x">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="PicLine.y">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="PicLine.xnew">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="PicLine.ynew">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="PicLine.color">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ZeroPic">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ZeroPic.ThisPic">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ZeroPic.Here">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DrawPic">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DrawPic.ThisPic">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DrawPic.Place">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DrawPic.Biomorph">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="CheckAbort">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="CheckAbort.Result">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="ThisColor">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="ThisColor.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ThisColor.j">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="LongintColour">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="LongintColour.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="LongintColour.IntColour">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="IntColour">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="IntColour.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="IntColour.LongintColour">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Message">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Message.s">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Develop">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Develop.biomorph">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Develop.Here">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Delayvelop">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Delayvelop.Biomorph">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Delayvelop.Here">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DrawAllBoxes">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Evolve">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Evolve.MLoc">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="GeneBoxTemplate">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ShowGeneBox">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ShowGeneBox.j">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ShowGeneBox.biomorph">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ShowChangedGene">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ShowChangedGene.an1">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ShowChangedGene.an2">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="MakeGeneBox">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="MakeGeneBox.biomorph">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoBreed">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="BasicTree">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="BasicTree.genotype">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="RandomForeColour">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="RandomForeColour.theBiomorph">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="RandomBackColour">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="RandomBackColour.theBiomorph">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DeliverSaltation">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="DeliverSaltation.theBiomorph">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoSaltation">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="DoPaste">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="SendToClipBoard">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Suzy">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="myDoEvent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="myDoEvent.loc">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="myUpdate">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="myUpdate.theWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="myOpen">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="myOpen.theWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="myApplLoop">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="oldSpecial">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="dullRgn">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="midRgn">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_biomorphs -->
+
+
+<!--
+  ====================================================================
+    unit_breed_window
+  ====================================================================
+-->
+
+<module name="unit_breed_window">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="U_Init_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_Close_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_Resized_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="U_Resized_BreedWindow.OldRect">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_Moved_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="U_Moved_BreedWindow.OldRect">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_Update_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_Open_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_Activate_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="U_Activate_BreedWindow.Do_An_Activate">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="U_DoEvent_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="U_DoEvent_BreedWindow.myEvent">
+<short></short>
+</element>
+
+</module> <!-- unit_breed_window -->
+
+
+<!--
+  ====================================================================
+    unit_common_exhibition
+  ====================================================================
+-->
+
+<module name="unit_common_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- constant Visibility: default -->
+<element name="MutTypeNo">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="GenesHeight">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="maxBoxes">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="PicSizeMax">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="GeneCount">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="trickle">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="DiceID">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="HandID">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="SwellType">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="SwellType.Swell">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="SwellType.Same">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="SwellType.Shrink">
+<short></short>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="HorizPos">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="HorizPos.LeftThird">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="HorizPos.MidThird">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="HorizPos.RightThird">
+<short></short>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="VertPos">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="VertPos.TopRung">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="VertPos.MidRung">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="VertPos.BottomRung">
+<short></short>
+</element>
+
+<!-- range type Visibility: default -->
+<element name="SmallNumber">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- array type Visibility: default -->
+<element name="chromosome">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="Compass">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="Compass.NorthSouth">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="Compass.EastWest">
+<short></short>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="CompletenessType">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="CompletenessType.Single">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="CompletenessType.Double">
+<short></short>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="SpokesType">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="SpokesType.NorthOnly">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="SpokesType.NSouth">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="SpokesType.Radial">
+<short></short>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="LimbType">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="LimbType.Stick">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="LimbType.Oval">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="LimbType.Rectangle">
+<short></short>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="LimbFillType">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="LimbFillType.Open">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="LimbFillType.Filled">
+<short></short>
+</element>
+
+<!-- record type Visibility: default -->
+<element name="person">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.gene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.colorgene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.BackColorGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.dgene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.SegNoGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.SegDistGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.CompletenessGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.SpokesGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.tricklegene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.mutsizegene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.mutprobgene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.LimbShapeGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.LimbFillGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.ThicknessGene">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="person.bioPicture">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- record type Visibility: default -->
+<element name="Lin">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Lin.StartPt">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Lin.EndPt">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Lin.Col">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- pointer type Visibility: default -->
+<element name="LinPtr">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- record type Visibility: default -->
+<element name="Pic">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Pic.BasePtr">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Pic.MovePtr">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Pic.Origin">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Pic.PicSize">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Pic.PicPerson">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- pointer type Visibility: default -->
+<element name="BaseHandle">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="mode">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.preliminary">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.breeding">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.albuming">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.randoming">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.engineering">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.drifting">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.highlighting">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.PlayingBack">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.triangling">
+<short></short>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="mode.sweeping">
+<short></short>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Mut">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theMode">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="upregion">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="nRows">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="nCols">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="nBoxes">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="nActiveBoxes">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="MidBox">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Special">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="myPenSize">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="oldBox">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="PRect">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="BusinessPart">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="ThumbStrip">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Margin">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="box">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="centre">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="MyPic">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="child">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theBiomorph">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="copiedanimal">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="PasteBiomorph">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="ClipBiomorph">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="ourHero">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="abortFlag">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="deskScrap">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="deskPaste">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="clipFull">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="YesRevert">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="YesRhythm">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="FileMenuEnabled">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="GeneBox">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="LastMouse">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="NowMouse">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="MonsterInterval">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="MonsterRevert">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="TimeOfEvent">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theTime">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="OldCount">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="NewCount">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="AfterAppmenuCount">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="BeforeAppmenuCount">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="MyPicture">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Dice">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Hand">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Watch">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_common_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_do_menu_exhibition
+  ====================================================================
+-->
+
+<module name="unit_do_menu_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Handle_Other_Menus">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Handle_Other_Menus.theMenu">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Handle_Other_Menus.theItem">
+<short></short>
+</element>
+
+</module> <!-- unit_do_menu_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_edit3_menu
+  ====================================================================
+-->
+
+<module name="unit_edit3_menu">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Do_Edit3Menu">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_Edit3Menu.Doing_Pre">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_Edit3Menu.theItem">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_Edit3Menu.SkipProcessing">
+<short></short>
+</element>
+
+</module> <!-- unit_edit3_menu -->
+
+
+<!--
+  ====================================================================
+    unit_events_exhibition
+  ====================================================================
+-->
+
+<module name="unit_events_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- function Visibility: default -->
+<element name="HandleKey">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="HandleKey.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="HandleKey.myevent">
+<short></short>
+</element>
+
+<!-- function Visibility: default -->
+<element name="HandleDisk">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="HandleDisk.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="HandleDisk.myevent">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ApplLoop_Exhibition">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ApplEvent_Exhibition">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ApplEvent_Exhibition.DoIt">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="ApplEvent_Exhibition.myEvent">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Handle_UserEvent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Handle_UserEvent.TheUserEvent">
+<short></short>
+</element>
+
+</module> <!-- unit_events_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_file_menu
+  ====================================================================
+-->
+
+<module name="unit_file_menu">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Do_FileMenu">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_FileMenu.Doing_Pre">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_FileMenu.theItem">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_FileMenu.SkipProcessing">
+<short></short>
+</element>
+
+</module> <!-- unit_file_menu -->
+
+
+<!--
+  ====================================================================
+    unit_init_exit_exhibition
+  ====================================================================
+-->
+
+<module name="unit_init_exit_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="ApplInit_Exhibition">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ApplExit_Exhibition">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_init_exit_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_init_menu_exhibition
+  ====================================================================
+-->
+
+<module name="unit_init_menu_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="AddExtraMenus">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_init_menu_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_operation_menu
+  ====================================================================
+-->
+
+<module name="unit_operation_menu">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Do_OperationMenu">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_OperationMenu.Doing_Pre">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_OperationMenu.theItem">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_OperationMenu.SkipProcessing">
+<short></short>
+</element>
+
+</module> <!-- unit_operation_menu -->
+
+
+<!--
+  ====================================================================
+    unit_pa_warning_alert
+  ====================================================================
+-->
+
+<module name="unit_pa_warning_alert">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="I_A_PA_Warning_Alert">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="A_PA_Warning_Alert">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_pa_warning_alert -->
+
+
+<!--
+  ====================================================================
+    unit_pcommon_exhibition
+  ====================================================================
+-->
+
+<module name="unit_pcommon_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- constant Visibility: default -->
+<element name="UserEvent_None">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="UserEvent_Open_Window">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="UserEvent_Close_Window">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Menu_Apple">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_About_Colour_Wa">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Menu_File">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_Timing">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_Quit2">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Menu_Edit3">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_Copy4">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_Paste3">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Menu_Operation">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_Breed">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="MItem_New_Random_Star">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_A_Warning_Alert">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Alrt_OK3">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_D_About_Box">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_OK2">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_D_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_OK">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_Revert_to_New_S">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_Don_t_revert_au">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_Random_New_Star">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_Random_New_Star2">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_2">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_Dlg_5">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="Res_W_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- pointer type Visibility: default -->
+<element name="UserEventHRec">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- pointer type Visibility: default -->
+<element name="UserEventPRec">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- record type Visibility: default -->
+<element name="UserEventRec">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventRec.ID">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventRec.ID2">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventRec.Data1">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventRec.Data2">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventRec.theHandle">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventRec.Next">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="UserEventList">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="myEvent">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="WNE">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="SleepValue">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="doneFlag">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="theInput">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="tempRect">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="sTemp">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="HasColorQD">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="HasFPU">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="InTheForeground">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="tempChar">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Menu_Apple">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Menu_File">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Menu_Edit3">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="Menu_Operation">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="WPtr_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="DRSelected_G1_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: default -->
+<element name="DRSelected_G2_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_pcommon_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_pd_about_box
+  ====================================================================
+-->
+
+<module name="unit_pd_about_box">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="I_PD_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="M_PD_About_Box">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_pd_about_box -->
+
+
+<!--
+  ====================================================================
+    unit_pdo_menu_exhibition
+  ====================================================================
+-->
+
+<module name="unit_pdo_menu_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Handle_My_Menu">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Handle_My_Menu.theMenu">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Handle_My_Menu.theItem">
+<short></short>
+</element>
+
+</module> <!-- unit_pdo_menu_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_pd_timing_dialogue
+  ====================================================================
+-->
+
+<module name="unit_pd_timing_dialogue">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="I_PD_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="M_PD_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_pd_timing_dialogue -->
+
+
+<!--
+  ====================================================================
+    unit_pimenu_exhibition
+  ====================================================================
+-->
+
+<module name="unit_pimenu_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Init_My_Menus">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_pimenu_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_putils_exhibition
+  ====================================================================
+-->
+
+<module name="unit_putils_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- function Visibility: default -->
+<element name="TrapAvailable">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="TrapAvailable.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TrapAvailable.trapNumber">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TrapAvailable.tType">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="GetUserEvent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="GetUserEvent.TheUserEvent">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Add_UserEvent">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Add_UserEvent.ID">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Add_UserEvent.ID2">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Add_UserEvent.Data1">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Add_UserEvent.Data2">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Add_UserEvent.theHandle">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Get_TE_String">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Get_TE_String.theTEArea">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Get_TE_String.theString">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Make_TE_Area">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Make_TE_Area.theTEArea">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Make_TE_Area.Position">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Make_TE_Area.theFontSize">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Make_TE_Area.theFont">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Make_TE_Area.DefaultStringID">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="SetupTheItem">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.theDialog">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.ItemID">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.SizeIt">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.ShowIt">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.EnableIt">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.SetTheMax">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.thePosition">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.ExtraData">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="SetupTheItem.StringID">
+<short></short>
+</element>
+
+</module> <!-- unit_putils_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_pw_breedwindow
+  ====================================================================
+-->
+
+<module name="unit_pw_breedwindow">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Init_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Close_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Close_BreedWindow.whichWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Resized_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Resized_BreedWindow.OldRect">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Resized_BreedWindow.whichWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Moved_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Moved_BreedWindow.OldRect">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Moved_BreedWindow.whichWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Update_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Update_BreedWindow.whichWindow">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Open_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Activate_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Activate_BreedWindow.whichWindow">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Activate_BreedWindow.Do_An_Activate">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="Do_BreedWindow">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Do_BreedWindow.myEvent">
+<short></short>
+</element>
+
+</module> <!-- unit_pw_breedwindow -->
+
+
+<!--
+  ====================================================================
+    unit_timing_dialogue
+  ====================================================================
+-->
+
+<module name="unit_timing_dialogue">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="D_Init_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: default -->
+<element name="D_Filter_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="D_Filter_Timing_Dialogue.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Filter_Timing_Dialogue.theDialog">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Filter_Timing_Dialogue.theEvent">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Filter_Timing_Dialogue.itemHit">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Refresh_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Refresh_Timing_Dialogue.theDialog">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Setup_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Setup_Timing_Dialogue.theDialog">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Hit_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Hit_Timing_Dialogue.theDialog">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Hit_Timing_Dialogue.itemHit">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Hit_Timing_Dialogue.ExitDialog">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="D_Exit_Timing_Dialogue">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="D_Exit_Timing_Dialogue.theDialog">
+<short></short>
+</element>
+
+</module> <!-- unit_timing_dialogue -->
+
+
+<!--
+  ====================================================================
+    unit_utils_exhibition
+  ====================================================================
+-->
+
+<module name="unit_utils_exhibition">
+<short></short>
+<descr>
+</descr>
+
+<!-- function Visibility: default -->
+<element name="stripped">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="stripped.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="stripped.s">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="FilledClip">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="EmptiedClip">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="ResetClock">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- unit_utils_exhibition -->
+
+
+<!--
+  ====================================================================
+    unit_warning_alert
+  ====================================================================
+-->
+
+<module name="unit_warning_alert">
+<short></short>
+<descr>
+</descr>
+
+<!-- procedure Visibility: default -->
+<element name="Init_A_Warning_Alert">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: default -->
+<element name="Filter_Warning_Alert">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: default -->
+<element name="Filter_Warning_Alert.Result">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Filter_Warning_Alert.theDialog">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Filter_Warning_Alert.theEvent">
+<short></short>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="Filter_Warning_Alert.itemHit">
+<short></short>
+</element>
+
+<!-- procedure Visibility: default -->
+<element name="A_Hit_Warning_Alert">
+<short></short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="A_Hit_Warning_Alert.itemHit">
+<short></short>
+</element>
+
+</module> <!-- unit_warning_alert -->
+
+</package>
+</fpdoc-descriptions>

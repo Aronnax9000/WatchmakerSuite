@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<docproject>  
+  <options>  
+    <option name="ostarget" value="Linux"/>  
+    <option name="cputarget" value="x86_64"/>  
+    <option name="show-private" value="false"/>  
+    <option name="stop-on-parser-error" value="false"/>  
+  </options>  
+  <packages>  
+    <package name="Colour" output="../fpdocs/Colour">  
+      <units>
+        <unit file="program_main_exhibition.pas" />
+        <unit file="unit_about_box.pas" />
+        <unit file="unit_apple_menu.pas" />
+        <unit file="unit_biomorphs.pas" />
+        <unit file="unit_breed_window.pas" />
+        <unit file="unit_common_exhibition.pas" />
+        <unit file="unit_do_menu_exhibition.pas" />
+        <unit file="unit_edit3_menu.pas" />
+        <unit file="unit_events_exhibition.pas" />
+        <unit file="unit_file_menu.pas" />
+        <unit file="unit_init_exit_exhibition.pas" />
+        <unit file="unit_init_menu_exhibition.pas" />
+        <unit file="unit_operation_menu.pas" />
+        <unit file="unit_pa_warning_alert.pas" />
+        <unit file="unit_pcommon_exhibition.pas" />
+        <unit file="unit_pd_about_box.pas" />
+        <unit file="unit_pdo_menu_exhibition.pas" />
+        <unit file="unit_pd_timing_dialogue.pas" />
+        <unit file="unit_pimenu_exhibition.pas" />
+        <unit file="unit_putils_exhibition.pas" />
+        <unit file="unit_pw_breedwindow.pas" />
+        <unit file="unit_timing_dialogue.pas" />
+        <unit file="unit_utils_exhibition.pas" />
+        <unit file="unit_warning_alert.pas" />
+      </units>  
+      <descriptions>  
+        <description file="Colour.fpdescription"/>  
+      </descriptions>  
+    </package>  
+  </packages>  
+</docproject>
+

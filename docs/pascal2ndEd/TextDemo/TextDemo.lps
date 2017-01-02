@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="35">
+      <Unit0>
+        <Filename Value="Text1Pascal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Text1Pascal"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="57"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="UHelpDialogPascal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UHelpDialogPascal"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="232"/>
+        <CursorPos X="21" Y="31"/>
+        <UsageCount Value="57"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="UText1Pascal.pas"/>
+        <UnitName Value="UText1Pascal"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="9"/>
+        <UsageCount Value="55"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unit_doerroralert.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="57" Y="16"/>
+        <UsageCount Value="53"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit_doupdate.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doupdate"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="50" Y="36"/>
+        <UsageCount Value="53"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit_docrec.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="11"/>
+        <UsageCount Value="52"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="unit_dodrawdatapanel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_dodrawdatapanel"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="17"/>
+        <CursorPos X="4" Y="64"/>
+        <UsageCount Value="52"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit_donewdocwindow.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_donewdocwindow"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="116"/>
+        <CursorPos X="25" Y="147"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unit_docwindow_activate.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_docwindow_activate"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="11" Y="16"/>
+        <UsageCount Value="48"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doadjustscrollbar"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="9"/>
+        <CursorPos Y="29"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit_eventloop.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_eventloop"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="7"/>
+        <UsageCount Value="47"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit_doinitmanagers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12" Y="13"/>
+        <UsageCount Value="47"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="unit_doevents.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doevents"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="57" Y="21"/>
+        <UsageCount Value="47"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="unit_scrollactionproc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="46"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="unit_domousedown.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_domousedown"/>
+        <TopLine Value="123"/>
+        <CursorPos X="40" Y="156"/>
+        <UsageCount Value="46"/>
+        <Loaded Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="unit_dokeyevent.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25" Y="21"/>
+        <UsageCount Value="46"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="unit_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="10" Y="9"/>
+        <UsageCount Value="45"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="unit_dogetselectlength.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="6"/>
+        <UsageCount Value="45"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="unit_doadjustcursor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doadjustcursor"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="8" Y="12"/>
+        <UsageCount Value="45"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="unit_doidle.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doidle"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="30" Y="9"/>
+        <UsageCount Value="45"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../RomanaII/Processes.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="43"/>
+        <CursorPos X="27" Y="68"/>
+        <UsageCount Value="9"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../RomanaII/Devices.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="113"/>
+        <CursorPos X="78" Y="137"/>
+        <UsageCount Value="9"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../RomanaII/Balloons.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="26"/>
+        <CursorPos X="23" Y="47"/>
+        <UsageCount Value="8"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="../RomanaII/OSUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="447"/>
+        <CursorPos X="11" Y="468"/>
+        <UsageCount Value="9"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../RomanaII/TextEdit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="296"/>
+        <CursorPos X="69" Y="317"/>
+        <UsageCount Value="8"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="../RomanaII/Controls.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="109"/>
+        <CursorPos X="11" Y="130"/>
+        <UsageCount Value="8"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="unit_getselectlength.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="13"/>
+        <UsageCount Value="18"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="unit_doadjustmenus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doadjustmenus"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="7" Y="16"/>
+        <UsageCount Value="23"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="unit_files.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_files"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="35" Y="15"/>
+        <UsageCount Value="22"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="unit_doeditmenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doeditmenu"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="21"/>
+        <UsageCount Value="22"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="unit_domenuchoice.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_domenuchoice"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="17"/>
+        <UsageCount Value="22"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="unit_dofilemenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_dofilemenu"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="35" Y="17"/>
+        <UsageCount Value="22"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="unit_doopsysevent.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doopsysevent"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="22"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="unit_dohelpmenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_dohelpmenu"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="45" Y="20"/>
+        <UsageCount Value="22"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="unit_doclosewindow.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_doclosewindow"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="90" Y="20"/>
+        <UsageCount Value="22"/>
+      </Unit34>
+    </Units>
+    <JumpHistory Count="16" HistoryIndex="15">
+      <Position1>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="26" Column="22" TopLine="19"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="122" Column="68" TopLine="118"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="93" Column="33" TopLine="72"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="157" Column="49" TopLine="119"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="154" Column="25" TopLine="117"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <Caret Line="29" TopLine="8"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <Caret Line="9" Column="48"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <Caret Line="19" Column="42" TopLine="2"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <Caret Line="9" Column="42"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="154" Column="25" TopLine="117"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="18" Column="22"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="19" Column="2"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="124" Column="45" TopLine="104"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="18" Column="64" TopLine="11"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit_domousedown.pas"/>
+        <Caret Line="158" TopLine="117"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit_doadjustscrollbar.pas"/>
+        <Caret Line="19" Column="29"/>
+      </Position16>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="19">
+      <Unit0>
+        <Filename Value="program_main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="program_main"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="335"/>
+        <CursorPos X="39" Y="356"/>
+        <UsageCount Value="28"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit_engineering.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_engineering"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="133"/>
+        <CursorPos X="23" Y="155"/>
+        <UsageCount Value="28"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="unit_biomorphs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_biomorphs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="254"/>
+        <CursorPos X="24" Y="277"/>
+        <UsageCount Value="28"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unit_error.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit_miscellaneous.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_miscellaneous"/>
+        <TopLine Value="1785"/>
+        <CursorPos X="17" Y="1807"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_globals"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="58"/>
+        <CursorPos X="3" Y="80"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="unit_album.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_album"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="798"/>
+        <CursorPos X="66" Y="804"/>
+        <UsageCount Value="28"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit_pedigree.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_pedigree"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1154"/>
+        <CursorPos X="18" Y="1174"/>
+        <UsageCount Value="28"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unit_standard_get_folder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit_triangle.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit_initialize.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_initialize"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="381"/>
+        <CursorPos X="31" Y="403"/>
+        <UsageCount Value="28"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit_user_interface.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_user_interface"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="854"/>
+        <CursorPos X="28" Y="877"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../RomanaII/think_pascal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="unit_develop.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_develop"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="230"/>
+        <CursorPos X="27" Y="251"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="unit_snapshot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="unit_snail_types.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_snail_types"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="277"/>
+        <CursorPos X="3" Y="299"/>
+        <UsageCount Value="28"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="unit_findthescale.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_findthescale"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="337"/>
+        <CursorPos X="63" Y="355"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="unit_drawpic.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="unit_array.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_array"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="174"/>
+        <CursorPos X="34" Y="194"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit18>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="unit_array.pas"/>
+        <Caret Line="254" Column="64" TopLine="4"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit_array.pas"/>
+        <Caret Line="68" Column="24" TopLine="47"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit_array.pas"/>
+        <Caret Line="75" Column="24" TopLine="54"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit_array.pas"/>
+        <Caret Line="106" Column="24" TopLine="85"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit_array.pas"/>
+        <Caret Line="113" Column="24" TopLine="93"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit_array.pas"/>
+        <Caret Line="187" Column="24" TopLine="168"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="480" Column="43" TopLine="457"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="277" Column="28" TopLine="256"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="407" Column="24" TopLine="386"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="486" Column="24" TopLine="465"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="493" Column="24" TopLine="473"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="500" Column="24" TopLine="479"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="507" Column="24" TopLine="486"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="514" Column="24" TopLine="493"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="521" Column="24" TopLine="500"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="528" Column="24" TopLine="507"/>
+      </Position16>
+      <Position17>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="535" Column="24" TopLine="514"/>
+      </Position17>
+      <Position18>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="542" Column="24" TopLine="521"/>
+      </Position18>
+      <Position19>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="549" Column="24" TopLine="528"/>
+      </Position19>
+      <Position20>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="556" Column="24" TopLine="535"/>
+      </Position20>
+      <Position21>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="563" Column="24" TopLine="542"/>
+      </Position21>
+      <Position22>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="570" Column="24" TopLine="549"/>
+      </Position22>
+      <Position23>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="577" Column="24" TopLine="556"/>
+      </Position23>
+      <Position24>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="584" Column="24" TopLine="563"/>
+      </Position24>
+      <Position25>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="591" Column="24" TopLine="570"/>
+      </Position25>
+      <Position26>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="598" Column="24" TopLine="577"/>
+      </Position26>
+      <Position27>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="605" Column="24" TopLine="584"/>
+      </Position27>
+      <Position28>
+        <Filename Value="unit_findthescale.pas"/>
+        <Caret Line="356" Column="57" TopLine="337"/>
+      </Position28>
+      <Position29>
+        <Filename Value="unit_findthescale.pas"/>
+        <Caret Line="10" Column="57"/>
+      </Position29>
+      <Position30>
+        <Filename Value="unit_develop.pas"/>
+        <Caret Line="251" Column="35" TopLine="230"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
