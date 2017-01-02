@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0308B5EC1AC98C9200350723 /* AlbumPlayback.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5B21AC98C9200350723 /* AlbumPlayback.pas */; };
+		0308B5ED1AC98C9200350723 /* AlbumUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5B31AC98C9200350723 /* AlbumUtil.pas */; };
+		0308B5EE1AC98C9200350723 /* AlbumDoClear.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5B51AC98C9200350723 /* AlbumDoClear.pas */; };
+		0308B5EF1AC98C9200350723 /* BiomorphCommandDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5B61AC98C9200350723 /* BiomorphCommandDef.pas */; };
+		0308B5F01AC98C9200350723 /* BW.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0308B5B71AC98C9200350723 /* BW.nib */; };
+		0308B5F11AC98C9200350723 /* BW.r in Rez */ = {isa = PBXBuildFile; fileRef = 0308B5B81AC98C9200350723 /* BW.r */; };
+		0308B5F21AC98C9200350723 /* CheckPastableDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5B91AC98C9200350723 /* CheckPastableDef.pas */; };
+		0308B5F31AC98C9200350723 /* ConcoctDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5BA1AC98C9200350723 /* ConcoctDefs.pas */; };
+		0308B5F41AC98C9200350723 /* DevelopDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5BB1AC98C9200350723 /* DevelopDefs.pas */; };
+		0308B5F51AC98C9200350723 /* DoSaltationDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5BC1AC98C9200350723 /* DoSaltationDef.pas */; };
+		0308B5F61AC98C9200350723 /* DrawPicDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5BD1AC98C9200350723 /* DrawPicDefs.pas */; };
+		0308B5F71AC98C9200350723 /* FlickerTriangleDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5BE1AC98C9200350723 /* FlickerTriangleDefs.pas */; };
+		0308B5F81AC98C9200350723 /* GeneboxDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5BF1AC98C9200350723 /* GeneboxDefs.pas */; };
+		0308B5F91AC98C9200350723 /* InitializeAnimalsDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C01AC98C9200350723 /* InitializeAnimalsDefs.pas */; };
+		0308B5FA1AC98C9200350723 /* InitializeMorphMenusDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C11AC98C9200350723 /* InitializeMorphMenusDef.pas */; };
+		0308B5FB1AC98C9200350723 /* InitialModeDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C21AC98C9200350723 /* InitialModeDef.pas */; };
+		0308B5FC1AC98C9200350723 /* ManipulationDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C31AC98C9200350723 /* ManipulationDef.pas */; };
+		0308B5FD1AC98C9200350723 /* MenuGreyAdjustDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C41AC98C9200350723 /* MenuGreyAdjustDefs.pas */; };
+		0308B5FE1AC98C9200350723 /* MorphGlobals.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C51AC98C9200350723 /* MorphGlobals.pas */; };
+		0308B5FF1AC98C9200350723 /* PersonDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C61AC98C9200350723 /* PersonDefs.pas */; };
+		0308B6001AC98C9200350723 /* PersonSerialization.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C71AC98C9200350723 /* PersonSerialization.pas */; };
+		0308B6011AC98C9200350723 /* RandSwellDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C81AC98C9200350723 /* RandSwellDef.pas */; };
+		0308B6021AC98C9200350723 /* ReproduceDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5C91AC98C9200350723 /* ReproduceDef.pas */; };
+		0308B6031AC98C9200350723 /* Blind_Watchmaker.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5CA1AC98C9200350723 /* Blind_Watchmaker.pas */; };
+		0308B6041AC98C9200350723 /* BoxesDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5CB1AC98C9200350723 /* BoxesDefs.pas */; };
+		0308B6051AC98C9200350723 /* CommandHandlerDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5CC1AC98C9200350723 /* CommandHandlerDef.pas */; };
+		0308B6061AC98C9200350723 /* CreateHistoryFileCarbon.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5CD1AC98C9200350723 /* CreateHistoryFileCarbon.pas */; };
+		0308B6071AC98C9200350723 /* CursorAdjustDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5CE1AC98C9200350723 /* CursorAdjustDefs.pas */; };
+		0308B6081AC98C9200350723 /* DialogGeomDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5CF1AC98C9200350723 /* DialogGeomDefs.pas */; };
+		0308B6091AC98C9200350723 /* DoAboutDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D01AC98C9200350723 /* DoAboutDef.pas */; };
+		0308B60A1AC98C9200350723 /* DriftSweep.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D11AC98C9200350723 /* DriftSweep.pas */; };
+		0308B60B1AC98C9200350723 /* EngineeringDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D21AC98C9200350723 /* EngineeringDefs.pas */; };
+		0308B60C1AC98C9200350723 /* ErrorUnit.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D31AC98C9200350723 /* ErrorUnit.pas */; };
+		0308B60D1AC98C9200350723 /* EvolveDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D41AC98C9200350723 /* EvolveDefs.pas */; };
+		0308B60E1AC98C9200350723 /* FossilsExistDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D51AC98C9200350723 /* FossilsExistDefs.pas */; };
+		0308B60F1AC98C9200350723 /* Globals.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D61AC98C9200350723 /* Globals.pas */; };
+		0308B6101AC98C9200350723 /* Initialize.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D71AC98C9200350723 /* Initialize.pas */; };
+		0308B6111AC98C9200350723 /* InitializeMenusDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D81AC98C9200350723 /* InitializeMenusDef.pas */; };
+		0308B6121AC98C9200350723 /* LeftRightPosRung.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5D91AC98C9200350723 /* LeftRightPosRung.pas */; };
+		0308B6131AC98C9200350723 /* MainWindowDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5DA1AC98C9200350723 /* MainWindowDefs.pas */; };
+		0308B6141AC98C9200350723 /* MainWindowInit.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5DB1AC98C9200350723 /* MainWindowInit.pas */; };
+		0308B6151AC98C9200350723 /* MessageDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5DC1AC98C9200350723 /* MessageDefs.pas */; };
+		0308B6161AC98C9200350723 /* Miscellaneous.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5DD1AC98C9200350723 /* Miscellaneous.pas */; };
+		0308B6171AC98C9200350723 /* ModeDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5DE1AC98C9200350723 /* ModeDefs.pas */; };
+		0308B6181AC98C9200350723 /* Pedigree.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5DF1AC98C9200350723 /* Pedigree.pas */; };
+		0308B6191AC98C9200350723 /* PicDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E01AC98C9200350723 /* PicDefs.pas */; };
+		0308B61A1AC98C9200350723 /* PlaybackGeomUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E11AC98C9200350723 /* PlaybackGeomUtil.pas */; };
+		0308B61B1AC98C9200350723 /* PlaybackWindowDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E21AC98C9200350723 /* PlaybackWindowDefs.pas */; };
+		0308B61C1AC98C9200350723 /* RectDrawDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E31AC98C9200350723 /* RectDrawDefs.pas */; };
+		0308B61D1AC98C9200350723 /* Serialization.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E41AC98C9200350723 /* Serialization.pas */; };
+		0308B61E1AC98C9200350723 /* SetItemStateDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E51AC98C9200350723 /* SetItemStateDefs.pas */; };
+		0308B61F1AC98C9200350723 /* SlideDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E61AC98C9200350723 /* SlideDefs.pas */; };
+		0308B6201AC98C9200350723 /* SnapDevelopDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E71AC98C9200350723 /* SnapDevelopDef.pas */; };
+		0308B6211AC98C9200350723 /* TriangleDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E81AC98C9200350723 /* TriangleDefs.pas */; };
+		0308B6221AC98C9200350723 /* TriangleUtils.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5E91AC98C9200350723 /* TriangleUtils.pas */; };
+		0308B6231AC98C9200350723 /* WatchmakerCommands.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5EA1AC98C9200350723 /* WatchmakerCommands.pas */; };
+		0308B6241AC98C9200350723 /* WindowAdjustDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B5EB1AC98C9200350723 /* WindowAdjustDef.pas */; };
+		0308B6261AC98CC700350723 /* SerializationUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0308B6251AC98CC700350723 /* SerializationUtil.pas */; };
+		48C60A570AB971A3004EF347 /* libfpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4809C4EA0AB9580800D1B097 /* libfpc.a */; };
+		48C60B090AB972B4004EF347 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C60B080AB972B4004EF347 /* Carbon.framework */; };
+		DD9A81CE0BE62E840073A464 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD9A81C80BE62E840073A464 /* InfoPlist.strings */; };
+		DD9A81CF0BE62E840073A464 /* locversion.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9A81CA0BE62E840073A464 /* locversion.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4809C46B0AB8C19800D1B097 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.pascal;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_SOURCES_DIR)-$(CURRENT_VARIANT)/$(CURRENT_ARCH)/$(INPUT_FILE_BASE).s",
+			);
+			script = "#!/bin/bash\n\n# Xcode's up-to-date checks are overzealous for us: a different SDK does not necessarily\n# mean we recompile all sources, because we do not have different units for different SDK\n# versions yet (and even if we did, not necessarily all files would be recompiled)...\n\ndestdir=\"${DERIVED_SOURCES_DIR}-${CURRENT_VARIANT}/${CURRENT_ARCH}\"\nif [ ! -f \"$destdir/compilefailed\" ]; then\n  # check whether the assembler code is newer than the source code\n  if [ \"$destdir/${INPUT_FILE_BASE}.s\" -nt \"$INPUT_FILE_PATH\" ]; then\n    # in this case we're ok, just touch the assembler file to avoid us getting here again next time\n    echo Updating assembler time stamp of \"$destdir/${INPUT_FILE_BASE}.s\"\n    touch \"$destdir/${INPUT_FILE_BASE}.s\"\n    exit 0\n  fi\n\n  echo File not found or not up-to-date: $destdir/${INPUT_FILE_BASE}.s\n  echo \"$INPUT_FILE_PATH:1: error: 1: \\\"$INPUT_FILE_PATH\\\" was not (re)compiled. If it is no longer used, please remove it from the \\\"Compile Sources\\\" phase of the \\\"$TARGETNAME\\\" target.\"\n  exit 1\nfi";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		48C60A540AB97176004EF347 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 488D39340AB5966900DA2F98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4809C4E90AB9580800D1B097;
+			remoteInfo = fpc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0308B5B21AC98C9200350723 /* AlbumPlayback.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AlbumPlayback.pas; path = "../../Source code/Monochrome WatchMaker/AlbumPlayback.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5B31AC98C9200350723 /* AlbumUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AlbumUtil.pas; path = "../../Source code/Monochrome WatchMaker/AlbumUtil.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5B51AC98C9200350723 /* AlbumDoClear.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = AlbumDoClear.pas; sourceTree = "<group>"; };
+		0308B5B61AC98C9200350723 /* BiomorphCommandDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = BiomorphCommandDef.pas; sourceTree = "<group>"; };
+		0308B5B71AC98C9200350723 /* BW.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = BW.nib; path = "../../Source code/Monochrome WatchMaker/Arth/BW.nib"; sourceTree = "<group>"; };
+		0308B5B81AC98C9200350723 /* BW.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = BW.r; path = "../../Source code/Monochrome WatchMaker/Arth/BW.r"; sourceTree = "<group>"; };
+		0308B5B91AC98C9200350723 /* CheckPastableDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = CheckPastableDef.pas; sourceTree = "<group>"; };
+		0308B5BA1AC98C9200350723 /* ConcoctDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = ConcoctDefs.pas; sourceTree = "<group>"; };
+		0308B5BB1AC98C9200350723 /* DevelopDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = DevelopDefs.pas; sourceTree = "<group>"; };
+		0308B5BC1AC98C9200350723 /* DoSaltationDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = DoSaltationDef.pas; sourceTree = "<group>"; };
+		0308B5BD1AC98C9200350723 /* DrawPicDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = DrawPicDefs.pas; sourceTree = "<group>"; };
+		0308B5BE1AC98C9200350723 /* FlickerTriangleDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = FlickerTriangleDefs.pas; sourceTree = "<group>"; };
+		0308B5BF1AC98C9200350723 /* GeneboxDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = GeneboxDefs.pas; sourceTree = "<group>"; };
+		0308B5C01AC98C9200350723 /* InitializeAnimalsDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitializeAnimalsDefs.pas; sourceTree = "<group>"; };
+		0308B5C11AC98C9200350723 /* InitializeMorphMenusDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitializeMorphMenusDef.pas; sourceTree = "<group>"; };
+		0308B5C21AC98C9200350723 /* InitialModeDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitialModeDef.pas; sourceTree = "<group>"; };
+		0308B5C31AC98C9200350723 /* ManipulationDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = ManipulationDef.pas; sourceTree = "<group>"; };
+		0308B5C41AC98C9200350723 /* MenuGreyAdjustDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = MenuGreyAdjustDefs.pas; sourceTree = "<group>"; };
+		0308B5C51AC98C9200350723 /* MorphGlobals.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = MorphGlobals.pas; sourceTree = "<group>"; };
+		0308B5C61AC98C9200350723 /* PersonDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = PersonDefs.pas; sourceTree = "<group>"; };
+		0308B5C71AC98C9200350723 /* PersonSerialization.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = PersonSerialization.pas; sourceTree = "<group>"; };
+		0308B5C81AC98C9200350723 /* RandSwellDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = RandSwellDef.pas; sourceTree = "<group>"; };
+		0308B5C91AC98C9200350723 /* ReproduceDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = ReproduceDef.pas; sourceTree = "<group>"; };
+		0308B5CA1AC98C9200350723 /* Blind_Watchmaker.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Blind_Watchmaker.pas; path = "../../Source code/Monochrome WatchMaker/Blind_Watchmaker.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5CB1AC98C9200350723 /* BoxesDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = BoxesDefs.pas; path = "../../Source code/Monochrome WatchMaker/BoxesDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5CC1AC98C9200350723 /* CommandHandlerDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CommandHandlerDef.pas; path = "../../Source code/Monochrome WatchMaker/CommandHandlerDef.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5CD1AC98C9200350723 /* CreateHistoryFileCarbon.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CreateHistoryFileCarbon.pas; path = "../../Source code/Monochrome WatchMaker/CreateHistoryFileCarbon.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5CE1AC98C9200350723 /* CursorAdjustDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CursorAdjustDefs.pas; path = "../../Source code/Monochrome WatchMaker/CursorAdjustDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5CF1AC98C9200350723 /* DialogGeomDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = DialogGeomDefs.pas; path = "../../Source code/Monochrome WatchMaker/DialogGeomDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D01AC98C9200350723 /* DoAboutDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = DoAboutDef.pas; path = "../../Source code/Monochrome WatchMaker/DoAboutDef.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D11AC98C9200350723 /* DriftSweep.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = DriftSweep.pas; path = "../../Source code/Monochrome WatchMaker/DriftSweep.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D21AC98C9200350723 /* EngineeringDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = EngineeringDefs.pas; path = "../../Source code/Monochrome WatchMaker/EngineeringDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D31AC98C9200350723 /* ErrorUnit.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = ErrorUnit.pas; path = "../../Source code/Monochrome WatchMaker/ErrorUnit.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D41AC98C9200350723 /* EvolveDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = EvolveDefs.pas; path = "../../Source code/Monochrome WatchMaker/EvolveDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D51AC98C9200350723 /* FossilsExistDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = FossilsExistDefs.pas; path = "../../Source code/Monochrome WatchMaker/FossilsExistDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D61AC98C9200350723 /* Globals.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Globals.pas; path = "../../Source code/Monochrome WatchMaker/Globals.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D71AC98C9200350723 /* Initialize.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Initialize.pas; path = "../../Source code/Monochrome WatchMaker/Initialize.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D81AC98C9200350723 /* InitializeMenusDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = InitializeMenusDef.pas; path = "../../Source code/Monochrome WatchMaker/InitializeMenusDef.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5D91AC98C9200350723 /* LeftRightPosRung.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = LeftRightPosRung.pas; path = "../../Source code/Monochrome WatchMaker/LeftRightPosRung.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5DA1AC98C9200350723 /* MainWindowDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = MainWindowDefs.pas; path = "../../Source code/Monochrome WatchMaker/MainWindowDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5DB1AC98C9200350723 /* MainWindowInit.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = MainWindowInit.pas; path = "../../Source code/Monochrome WatchMaker/MainWindowInit.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5DC1AC98C9200350723 /* MessageDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = MessageDefs.pas; path = "../../Source code/Monochrome WatchMaker/MessageDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5DD1AC98C9200350723 /* Miscellaneous.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Miscellaneous.pas; path = "../../Source code/Monochrome WatchMaker/Miscellaneous.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5DE1AC98C9200350723 /* ModeDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = ModeDefs.pas; path = "../../Source code/Monochrome WatchMaker/ModeDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5DF1AC98C9200350723 /* Pedigree.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Pedigree.pas; path = "../../Source code/Monochrome WatchMaker/Pedigree.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E01AC98C9200350723 /* PicDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PicDefs.pas; path = "../../Source code/Monochrome WatchMaker/PicDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E11AC98C9200350723 /* PlaybackGeomUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PlaybackGeomUtil.pas; path = "../../Source code/Monochrome WatchMaker/PlaybackGeomUtil.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E21AC98C9200350723 /* PlaybackWindowDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PlaybackWindowDefs.pas; path = "../../Source code/Monochrome WatchMaker/PlaybackWindowDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E31AC98C9200350723 /* RectDrawDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = RectDrawDefs.pas; path = "../../Source code/Monochrome WatchMaker/RectDrawDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E41AC98C9200350723 /* Serialization.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Serialization.pas; path = "../../Source code/Monochrome WatchMaker/Serialization.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E51AC98C9200350723 /* SetItemStateDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SetItemStateDefs.pas; path = "../../Source code/Monochrome WatchMaker/SetItemStateDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E61AC98C9200350723 /* SlideDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SlideDefs.pas; path = "../../Source code/Monochrome WatchMaker/SlideDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E71AC98C9200350723 /* SnapDevelopDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SnapDevelopDef.pas; path = "../../Source code/Monochrome WatchMaker/SnapDevelopDef.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E81AC98C9200350723 /* TriangleDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = TriangleDefs.pas; path = "../../Source code/Monochrome WatchMaker/TriangleDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5E91AC98C9200350723 /* TriangleUtils.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = TriangleUtils.pas; path = "../../Source code/Monochrome WatchMaker/TriangleUtils.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5EA1AC98C9200350723 /* WatchmakerCommands.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = WatchmakerCommands.pas; path = "../../Source code/Monochrome WatchMaker/WatchmakerCommands.pas"; sourceTree = SOURCE_ROOT; };
+		0308B5EB1AC98C9200350723 /* WindowAdjustDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = WindowAdjustDef.pas; path = "../../Source code/Monochrome WatchMaker/WindowAdjustDef.pas"; sourceTree = SOURCE_ROOT; };
+		0308B6251AC98CC700350723 /* SerializationUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SerializationUtil.pas; path = "../../Source code/Common/SerializationUtil.pas"; sourceTree = SOURCE_ROOT; };
+		4809C4EA0AB9580800D1B097 /* libfpc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfpc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D39650AB597CC00DA2F98 /* ArthroWatchmaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArthroWatchmaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D39A30AB59A5B00DA2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48C60B080AB972B4004EF347 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		DD9A81C90BE62E840073A464 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD9A81CB0BE62E840073A464 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = locversion.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4809C48A0AB8CADC00D1B097 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48C60A570AB971A3004EF347 /* libfpc.a in Frameworks */,
+				48C60B090AB972B4004EF347 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0308B5B41AC98C9200350723 /* Arth */ = {
+			isa = PBXGroup;
+			children = (
+				0308B5B51AC98C9200350723 /* AlbumDoClear.pas */,
+				0308B5B61AC98C9200350723 /* BiomorphCommandDef.pas */,
+				0308B5B91AC98C9200350723 /* CheckPastableDef.pas */,
+				0308B5BA1AC98C9200350723 /* ConcoctDefs.pas */,
+				0308B5BB1AC98C9200350723 /* DevelopDefs.pas */,
+				0308B5BC1AC98C9200350723 /* DoSaltationDef.pas */,
+				0308B5BD1AC98C9200350723 /* DrawPicDefs.pas */,
+				0308B5BE1AC98C9200350723 /* FlickerTriangleDefs.pas */,
+				0308B5BF1AC98C9200350723 /* GeneboxDefs.pas */,
+				0308B5C01AC98C9200350723 /* InitializeAnimalsDefs.pas */,
+				0308B5C11AC98C9200350723 /* InitializeMorphMenusDef.pas */,
+				0308B5C21AC98C9200350723 /* InitialModeDef.pas */,
+				0308B5C31AC98C9200350723 /* ManipulationDef.pas */,
+				0308B5C41AC98C9200350723 /* MenuGreyAdjustDefs.pas */,
+				0308B5C51AC98C9200350723 /* MorphGlobals.pas */,
+				0308B5C61AC98C9200350723 /* PersonDefs.pas */,
+				0308B5C71AC98C9200350723 /* PersonSerialization.pas */,
+				0308B5C81AC98C9200350723 /* RandSwellDef.pas */,
+				0308B5C91AC98C9200350723 /* ReproduceDef.pas */,
+			);
+			name = Arth;
+			path = "../../Source code/Monochrome WatchMaker/Arth";
+			sourceTree = SOURCE_ROOT;
+		};
+		488D39320AB5966900DA2F98 = {
+			isa = PBXGroup;
+			children = (
+				488D399A0AB599C800DA2F98 /* Source */,
+				488D399B0AB599D400DA2F98 /* Resources */,
+				488D39660AB597CC00DA2F98 /* Products */,
+				48C60B080AB972B4004EF347 /* Carbon.framework */,
+				488D39A30AB59A5B00DA2F98 /* Info.plist */,
+			);
+			comments = "Template for Pascal/C/C++ development.";
+			sourceTree = "<group>";
+		};
+		488D39660AB597CC00DA2F98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				488D39650AB597CC00DA2F98 /* ArthroWatchmaker.app */,
+				4809C4EA0AB9580800D1B097 /* libfpc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		488D399A0AB599C800DA2F98 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0308B6251AC98CC700350723 /* SerializationUtil.pas */,
+				0308B5B21AC98C9200350723 /* AlbumPlayback.pas */,
+				0308B5B31AC98C9200350723 /* AlbumUtil.pas */,
+				0308B5B41AC98C9200350723 /* Arth */,
+				0308B5CA1AC98C9200350723 /* Blind_Watchmaker.pas */,
+				0308B5CB1AC98C9200350723 /* BoxesDefs.pas */,
+				0308B5CC1AC98C9200350723 /* CommandHandlerDef.pas */,
+				0308B5CD1AC98C9200350723 /* CreateHistoryFileCarbon.pas */,
+				0308B5CE1AC98C9200350723 /* CursorAdjustDefs.pas */,
+				0308B5CF1AC98C9200350723 /* DialogGeomDefs.pas */,
+				0308B5D01AC98C9200350723 /* DoAboutDef.pas */,
+				0308B5D11AC98C9200350723 /* DriftSweep.pas */,
+				0308B5D21AC98C9200350723 /* EngineeringDefs.pas */,
+				0308B5D31AC98C9200350723 /* ErrorUnit.pas */,
+				0308B5D41AC98C9200350723 /* EvolveDefs.pas */,
+				0308B5D51AC98C9200350723 /* FossilsExistDefs.pas */,
+				0308B5D61AC98C9200350723 /* Globals.pas */,
+				0308B5D71AC98C9200350723 /* Initialize.pas */,
+				0308B5D81AC98C9200350723 /* InitializeMenusDef.pas */,
+				0308B5D91AC98C9200350723 /* LeftRightPosRung.pas */,
+				0308B5DA1AC98C9200350723 /* MainWindowDefs.pas */,
+				0308B5DB1AC98C9200350723 /* MainWindowInit.pas */,
+				0308B5DC1AC98C9200350723 /* MessageDefs.pas */,
+				0308B5DD1AC98C9200350723 /* Miscellaneous.pas */,
+				0308B5DE1AC98C9200350723 /* ModeDefs.pas */,
+				0308B5DF1AC98C9200350723 /* Pedigree.pas */,
+				0308B5E01AC98C9200350723 /* PicDefs.pas */,
+				0308B5E11AC98C9200350723 /* PlaybackGeomUtil.pas */,
+				0308B5E21AC98C9200350723 /* PlaybackWindowDefs.pas */,
+				0308B5E31AC98C9200350723 /* RectDrawDefs.pas */,
+				0308B5E41AC98C9200350723 /* Serialization.pas */,
+				0308B5E51AC98C9200350723 /* SetItemStateDefs.pas */,
+				0308B5E61AC98C9200350723 /* SlideDefs.pas */,
+				0308B5E71AC98C9200350723 /* SnapDevelopDef.pas */,
+				0308B5E81AC98C9200350723 /* TriangleDefs.pas */,
+				0308B5E91AC98C9200350723 /* TriangleUtils.pas */,
+				0308B5EA1AC98C9200350723 /* WatchmakerCommands.pas */,
+				0308B5EB1AC98C9200350723 /* WindowAdjustDef.pas */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		488D399B0AB599D400DA2F98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0308B5B71AC98C9200350723 /* BW.nib */,
+				0308B5B81AC98C9200350723 /* BW.r */,
+				DD9A81C70BE62E840073A464 /* English.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DD9A81C70BE62E840073A464 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				DD9A81C80BE62E840073A464 /* InfoPlist.strings */,
+				DD9A81CA0BE62E840073A464 /* locversion.plist */,
+			);
+			path = English.lproj;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4809C4E90AB9580800D1B097 /* fpc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4809C4ED0AB9584400D1B097 /* Build configuration list for PBXNativeTarget "fpc" */;
+			buildPhases = (
+				4809C4EB0AB9581800D1B097 /* Build libfpc.a */,
+				48D58C590ABAA14B00D2D511 /* Compile Pascal Sources */,
+			);
+			buildRules = (
+			);
+			comments = "This target takes care of FPC everything. It has two trivial custom scripts: one to build the FPC runtime (libfpc.a) and one two compile pascal source code.\n";
+			dependencies = (
+			);
+			name = fpc;
+			productName = fpc;
+			productReference = 4809C4EA0AB9580800D1B097 /* libfpc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		488D39640AB597CC00DA2F98 /* ArthroWatchmaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 488D39690AB597CD00DA2F98 /* Build configuration list for PBXNativeTarget "ArthroWatchmaker" */;
+			buildPhases = (
+				488D39610AB597CC00DA2F98 /* Resources */,
+				488D39980AB599BA00DA2F98 /* Rez */,
+				4809C4340AB8B93B00D1B097 /* Sources */,
+				4809C48A0AB8CADC00D1B097 /* Frameworks */,
+			);
+			buildRules = (
+				4809C46B0AB8C19800D1B097 /* PBXBuildRule */,
+			);
+			dependencies = (
+				48C60A550AB97176004EF347 /* PBXTargetDependency */,
+			);
+			name = ArthroWatchmaker;
+			productName = ArthroWatchmaker;
+			productReference = 488D39650AB597CC00DA2F98 /* ArthroWatchmaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		488D39340AB5966900DA2F98 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 488D39350AB5966900DA2F98 /* Build configuration list for PBXProject "ArthroWatchmaker" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 488D39320AB5966900DA2F98;
+			productRefGroup = 488D39660AB597CC00DA2F98 /* Products */;
+			projectDirPath = "";
+			projectRoot = ../..;
+			targets = (
+				488D39640AB597CC00DA2F98 /* ArthroWatchmaker */,
+				4809C4E90AB9580800D1B097 /* fpc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		488D39610AB597CC00DA2F98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9A81CE0BE62E840073A464 /* InfoPlist.strings in Resources */,
+				DD9A81CF0BE62E840073A464 /* locversion.plist in Resources */,
+				0308B5F01AC98C9200350723 /* BW.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		488D39980AB599BA00DA2F98 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0308B5F11AC98C9200350723 /* BW.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4809C4EB0AB9581800D1B097 /* Build libfpc.a */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "The current FPC runtime is distributed as (a massive) collection of .o files. This run script combines the .o files into an archive, making linking (a lot) easier since we don't have to think about what to link with (i.e the linker will extract what's needed from the archive).";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build libfpc.a";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/libfpc.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Build libfpc.a\n# 9 July 2006 (Jonas Maebe)\n#   * original version\n# 15 September 2006 (Erling Johansen)\n#   * simplified\n# 26 April 2007 (Jonas Maebe)\n#  * added support for ppc64/x86_64 (future proofing)\n# 4 August 2007 (Jonas Maebe)\n#  * call ranlib after ar so the toc of the library is up-to-date\n# 3 January 2009 (Jonas Maebe)\n#  * support for ARM\n# 24 October 2009 (Jonas Maebe)\n#  * don't hardcode version 2.3.1 anymore under certain circumstances\n#  * use the FPC_RTL_UNITS_BASE setting\n\nrm -f \"$TARGET_TEMP_DIR\"/*.a\nnarch=\n\nfor arch in $ARCHS\ndo\n\tcase $arch in\n\t\tppc) fpc_arch=ppc; fpc_rtl=powerpc ;;\n\t\ti386) fpc_arch=386; fpc_rtl=i386 ;;\n\t\tppc64) fpc_arch=ppc64; fpc_rtl=powerpc64 ;;\n\t\tx86_64) fpc_arch=x64; fpc_rtl=x86_64 ;;\n\t\tarm*) fpc_arch=arm; fpc_rtl=arm ;;\n\t\t*) continue\n\tesac\n\tif test -e /usr/local/bin/ppc${fpc_arch}\n\tthen\n\t\tupath=\"$FPC_RTL_UNITS_BASE\"/`/usr/local/bin/ppc${fpc_arch} -iV`/units/${fpc_rtl}-darwin\n\t\tar -q \"$TARGET_TEMP_DIR\"/libfpc${narch}.a `ls \"$upath\"/*/*.o | grep -v 'darwin/fv/'`\n\t\tranlib \"$TARGET_TEMP_DIR\"/libfpc${narch}.a\n\t\tnarch=${narch}x\n\telse\n\t\techo error: can\\'t build libfpc.a for $arch \\(/usr/local/bin/ppc${fpc_arch} not found\\)\n\tfi\ndone\n\nif test ${#narch} -gt 1\nthen\n\tlipo -create \"$TARGET_TEMP_DIR\"/libfpc*.a -output \"$TARGET_BUILD_DIR\"/libfpc.a\n\trm -f \"$TARGET_TEMP_DIR\"/*.a\nelse\n\tmv \"$TARGET_TEMP_DIR\"/libfpc.a \"$TARGET_BUILD_DIR\"\nfi\n";
+		};
+		48D58C590ABAA14B00D2D511 /* Compile Pascal Sources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "This run script compiles (all) pascal sources into assembler by calling FPC with the main program (only) as argument. FPC will in turn compile dependent units as necessary. The Compile Sources build phase will detect the outdated .o files and assemble the modified sources (because the Pascal source files rule states that output from pascal compilation is assembler files in derived source folders).   ";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Pascal Sources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Compile Pascal Sources\n# 15sep06,ejo  written.\n# 26 April 2007 - Jonas Maebe\n#  * support for ppc64 and x86_64\n#  * don't run when cleaning (in case running scripts when cleaning is ever fixed by Apple)\n#  * split the options in FPC_COMMON_FLAGS (common to all configurations) and FPC_CFG_SPECIFIC_FLAGS (per configuration)\n# 4 January 2009 - Jonas Maebe\n#  * support for ARM\n# 24 October 2009 - Jonas Maebe\n#  * don't hardcode 2.3.1 in some cases anymore\n\nif [ x\"$ACTION\" != \"xbuild\" ]; then\n  # in case running scripts during cleaning gets fixed\n  exit 0\nfi\n\nif test ! -e \"$FPC_MAIN_FILE\"\nthen\n\techo error: FPC_MAIN_FILE not found \\($FPC_MAIN_FILE\\)\n\texit 2\nfi\n\nfor variant in $BUILD_VARIANTS\ndo\n\tfor arch in $ARCHS\n\tdo\n\t\tcase $arch in\n\t\t\tppc) fpc_arch=ppc; fpc_rtl=powerpc ;;\n\t\t\ti386) fpc_arch=386; fpc_rtl=i386 ;;\n\t\t\tppc64) fpc_arch=ppc64; fpc_rtl=powerpc64 ;;\n\t\t\tx86_64) fpc_arch=x64; fpc_rtl=x86_64 ;;\n\t\t\tarm*) fpc_arch=arm; fpc_rtl=arm ;;\n\t\t\t*) continue\n\t\tesac\n\n\t\tapp_target_temp_dir=$CONFIGURATION_TEMP_DIR/`basename \"$PROJECT_TEMP_DIR\"`\n\t\tout_dir=$app_target_temp_dir/`basename \"$DERIVED_SOURCES_DIR\"`-$variant/$arch\n\t\tfpccompiler=\"/usr/local/bin/ppc${fpc_arch}\"\n\t\tif test -e \"$fpccompiler\"\n\t\tthen\n\t\t\tfpcversion=`\"$fpccompiler\" -iV`\n\t\t\tmainunitdir=\"$FPC_RTL_UNITS_BASE/$fpcversion/units/${fpc_rtl}-darwin/\"\n\t\t\tmkdir -p \"$out_dir\"\n\t\t\tcd \"$out_dir\"\n\t\t\techo \"Compiling to $out_dir\"\n\t\t\trm -f compilefailed\n\t\n\t\t\t# delete any ppu files for which the \".s\" file was somehow deleted (Xcode does that sometimes in case of errors),\n\t\t\t# so that FPC will recompile the unit\n\t\t\tfor file in *.ppu\n\t\t\tdo\n\t\t\t\tasmname=`basename \"$file\" ppu`s\n\t\t\t\tif [ ! -f \"$asmname\" ]; then\n\t\t\t\t\t# can fail in case there are no .ppu files, since then it will try to erase the file with name '*.ppu'\n\t\t\t\t\t# -> use -f so it won't give an error message\n\t\t\t\t\trm -f \"$file\"\n\t\t\t\tfi\n\t\t\tdone\n\n\t\t\techo $fpccompiler -n -l -viwn -a -s -vbr -FE. $FPC_COMMON_OPTIONS $FPC_SPECIFIC_OPTIONS '\\' >ppccmd.sh\n\t\t\techo -Fi\\\"`dirname \"$FPC_MAIN_FILE\"`\\\" '\\' >>ppccmd.sh\n\t\t\techo -Fu\"$mainunitdir/*\" -Fu\"$mainunitdir/rtl\" '\\' >>ppccmd.sh\n\t\t\t# allow FPC_UNIT_PATHS to override default search directory\n\t\t\techo $FPC_UNIT_PATHS '\\' >>ppccmd.sh\n\t\t\techo \\\"$FPC_MAIN_FILE\\\" >>ppccmd.sh\n\t\t\t# cat ppccmd.sh\n\n\t\t\t/bin/sh ppccmd.sh\n\t\t\tif [ $? != 0 ]; then\n\t\t\t\ttouch \"$out_dir\"/compilefailed\n\t\t\t\texit 1\n\t\t\tfi\n\t\telse\n\t\t\ttouch \"$out_dir\"/compilefailed\n\t\t\techo $FPC_MAIN_FILE:1: error: 1: can\\'t compile for $arch \\(ppc${fpc_arch} not found\\)\n\t\t\texit 2\n\t\tfi\n\tdone\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4809C4340AB8B93B00D1B097 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0308B5EC1AC98C9200350723 /* AlbumPlayback.pas in Sources */,
+				0308B5ED1AC98C9200350723 /* AlbumUtil.pas in Sources */,
+				0308B5EE1AC98C9200350723 /* AlbumDoClear.pas in Sources */,
+				0308B5EF1AC98C9200350723 /* BiomorphCommandDef.pas in Sources */,
+				0308B5F21AC98C9200350723 /* CheckPastableDef.pas in Sources */,
+				0308B5F31AC98C9200350723 /* ConcoctDefs.pas in Sources */,
+				0308B5F41AC98C9200350723 /* DevelopDefs.pas in Sources */,
+				0308B5F51AC98C9200350723 /* DoSaltationDef.pas in Sources */,
+				0308B5F61AC98C9200350723 /* DrawPicDefs.pas in Sources */,
+				0308B5F71AC98C9200350723 /* FlickerTriangleDefs.pas in Sources */,
+				0308B5F81AC98C9200350723 /* GeneboxDefs.pas in Sources */,
+				0308B5F91AC98C9200350723 /* InitializeAnimalsDefs.pas in Sources */,
+				0308B5FA1AC98C9200350723 /* InitializeMorphMenusDef.pas in Sources */,
+				0308B5FB1AC98C9200350723 /* InitialModeDef.pas in Sources */,
+				0308B5FC1AC98C9200350723 /* ManipulationDef.pas in Sources */,
+				0308B5FD1AC98C9200350723 /* MenuGreyAdjustDefs.pas in Sources */,
+				0308B5FE1AC98C9200350723 /* MorphGlobals.pas in Sources */,
+				0308B5FF1AC98C9200350723 /* PersonDefs.pas in Sources */,
+				0308B6001AC98C9200350723 /* PersonSerialization.pas in Sources */,
+				0308B6011AC98C9200350723 /* RandSwellDef.pas in Sources */,
+				0308B6021AC98C9200350723 /* ReproduceDef.pas in Sources */,
+				0308B6031AC98C9200350723 /* Blind_Watchmaker.pas in Sources */,
+				0308B6041AC98C9200350723 /* BoxesDefs.pas in Sources */,
+				0308B6051AC98C9200350723 /* CommandHandlerDef.pas in Sources */,
+				0308B6061AC98C9200350723 /* CreateHistoryFileCarbon.pas in Sources */,
+				0308B6071AC98C9200350723 /* CursorAdjustDefs.pas in Sources */,
+				0308B6081AC98C9200350723 /* DialogGeomDefs.pas in Sources */,
+				0308B6091AC98C9200350723 /* DoAboutDef.pas in Sources */,
+				0308B60A1AC98C9200350723 /* DriftSweep.pas in Sources */,
+				0308B60B1AC98C9200350723 /* EngineeringDefs.pas in Sources */,
+				0308B60C1AC98C9200350723 /* ErrorUnit.pas in Sources */,
+				0308B60D1AC98C9200350723 /* EvolveDefs.pas in Sources */,
+				0308B60E1AC98C9200350723 /* FossilsExistDefs.pas in Sources */,
+				0308B60F1AC98C9200350723 /* Globals.pas in Sources */,
+				0308B6101AC98C9200350723 /* Initialize.pas in Sources */,
+				0308B6111AC98C9200350723 /* InitializeMenusDef.pas in Sources */,
+				0308B6121AC98C9200350723 /* LeftRightPosRung.pas in Sources */,
+				0308B6131AC98C9200350723 /* MainWindowDefs.pas in Sources */,
+				0308B6141AC98C9200350723 /* MainWindowInit.pas in Sources */,
+				0308B6151AC98C9200350723 /* MessageDefs.pas in Sources */,
+				0308B6161AC98C9200350723 /* Miscellaneous.pas in Sources */,
+				0308B6171AC98C9200350723 /* ModeDefs.pas in Sources */,
+				0308B6181AC98C9200350723 /* Pedigree.pas in Sources */,
+				0308B6191AC98C9200350723 /* PicDefs.pas in Sources */,
+				0308B61A1AC98C9200350723 /* PlaybackGeomUtil.pas in Sources */,
+				0308B61B1AC98C9200350723 /* PlaybackWindowDefs.pas in Sources */,
+				0308B61C1AC98C9200350723 /* RectDrawDefs.pas in Sources */,
+				0308B61D1AC98C9200350723 /* Serialization.pas in Sources */,
+				0308B61E1AC98C9200350723 /* SetItemStateDefs.pas in Sources */,
+				0308B61F1AC98C9200350723 /* SlideDefs.pas in Sources */,
+				0308B6201AC98C9200350723 /* SnapDevelopDef.pas in Sources */,
+				0308B6211AC98C9200350723 /* TriangleDefs.pas in Sources */,
+				0308B6221AC98C9200350723 /* TriangleUtils.pas in Sources */,
+				0308B6231AC98C9200350723 /* WatchmakerCommands.pas in Sources */,
+				0308B6241AC98C9200350723 /* WindowAdjustDef.pas in Sources */,
+				0308B6261AC98CC700350723 /* SerializationUtil.pas in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48C60A550AB97176004EF347 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4809C4E90AB9580800D1B097 /* fpc */;
+			targetProxy = 48C60A540AB97176004EF347 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD9A81C80BE62E840073A464 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9A81C90BE62E840073A464 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DD9A81CA0BE62E840073A464 /* locversion.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9A81CB0BE62E840073A464 /* English */,
+			);
+			name = locversion.plist;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4809C4EE0AB9584400D1B097 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = fpc;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		4809C4EF0AB9584400D1B097 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = fpc;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		488D39360AB5966900DA2F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FPC_COMMON_OPTIONS = "-Mmacpas -Sgi";
+				FPC_MAIN_FILE = "$(PROJECT_DIR)/../../Source code/Monochrome WatchMaker/Blind_Watchmaker.pas";
+				FPC_RTL_UNITS_BASE = /usr/local/lib/fpc;
+				FPC_SPECIFIC_OPTIONS = "-ghlttt -O-1 -CRrio";
+				FPC_UNIT_PATHS = "-Fu\"$(PROJECT_DIR)/../../Source code/Monochrome WatchMaker/\" -Fu\"$(PROJECT_DIR)/../../Source code/Common/\" -Fu\"$(PROJECT_DIR)/../../Source code/Monochrome WatchMaker/Arth\" ";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+			};
+			name = Debug;
+		};
+		488D39370AB5966900DA2F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FPC_COMMON_OPTIONS = "-Mmacpas -Sgi";
+				FPC_MAIN_FILE = "$(PROJECT_DIR)/Start.pas";
+				FPC_RTL_UNITS_BASE = /usr/local/lib/fpc;
+				FPC_SPECIFIC_OPTIONS = "-Ci- -Cr- -Co- -O3 -Xs";
+				FPC_UNIT_PATHS = "-Fu\"$(PROJECT_DIR)/Source\"";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				PRODUCT_NAME = ArthroWatchmaker;
+			};
+			name = Release;
+		};
+		488D396A0AB597CD00DA2F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = ArthroWatchmaker;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		488D396B0AB597CD00DA2F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = ArthroWatchmaker;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4809C4ED0AB9584400D1B097 /* Build configuration list for PBXNativeTarget "fpc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4809C4EE0AB9584400D1B097 /* Debug */,
+				4809C4EF0AB9584400D1B097 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		488D39350AB5966900DA2F98 /* Build configuration list for PBXProject "ArthroWatchmaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488D39360AB5966900DA2F98 /* Debug */,
+				488D39370AB5966900DA2F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		488D39690AB597CD00DA2F98 /* Build configuration list for PBXNativeTarget "ArthroWatchmaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488D396A0AB597CD00DA2F98 /* Debug */,
+				488D396B0AB597CD00DA2F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 488D39340AB5966900DA2F98 /* Project object */;
+}

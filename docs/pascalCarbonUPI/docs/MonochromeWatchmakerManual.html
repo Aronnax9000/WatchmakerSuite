@@ -1,0 +1,405 @@
+<html>
+<head>
+  <title>Blind Watchmaker Manual by Richard Dawkins (Version 2)</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("#hide").click(function(){
+			$("p").hide();
+		});
+		$("#show").click(function(){
+			$("p").show();
+		});
+	});
+	</script>
+</head>
+<body>
+
+<h1>Blind Watchmaker<h1>
+
+<h2>An Application for the Apple Macintosh Computer</h2>
+<p>
+<strong>By Richard Dawkins<sup><a href="#note1">1</a></sup></strong>
+</p>
+<p>
+<em>Originally published in The Blind Watchmaker, Copyright 1986 by Richard Dawkins. Used by permission of the author.</em>
+</p>
+<p>
+<em>Version 2.0 Revisions by Alan Canon</em>
+</p>
+
+<h3>Contents<h3>
+
+<ul>
+<li><a href="#SecBackground">Background</a></li>
+<li><a href="#SecToStartUp">To Start Up</a></li>
+<li><a href="#">To Breed</a></li>
+<li><a href="#">The Active Biomorph</a></li>
+<li><a href="#">To Save</a></li>
+<li><a href="#">Albums</a></li>
+<li><a href="#">To Load Bimorphs</a></li>
+<li><a href="#">Pedigrees</a></li>
+<li><a href="#">Hopeful Monster</a></li>
+<li><a href="#">Drift</a></li>
+<li><a href="#">Engineering</a></li>
+<li><a href="#">What Does Each Gene Do?</a></li>
+<li><a href="#">Developmental Constraints</a></li>
+<li><a href="#">Mutations of Scale</a></li>
+<li><a href="#">The Mutator Gene</a></li>
+<li><a href="#">Biomorph Land</a></li>
+<li><a href="#">Making Your Own Icons</a></li>
+<li><a href="#">Exporting to Other Software</a></li>
+<li><a href="#">Taxonomy of Biomorphs</a></li>
+<li><a href="#">Holy Grail</a></li>
+</ul>
+<a name="SecBackground"></a>
+<h3>Background</h3>
+<div class="sectionbody">
+<p>
+These instructions are written on the assumption that the user has read The Blind Watchmaker, is accustomed to the Macintosh, and is ready to start running the program without further ado. Only where the new version of the program goes beyond the version used in the book will a more lengthy, biological rationale be given (e.g. Developmental Constraints -- see below).
+</p>
+<p><a name="note1"></a><sup>1</sup> At every stage of the writing of this program, I have benefited from the expert advice of Dr Alan Graefen. This program was compiled by the Turbo Pascal compiler, the easiest to use, and certainly the fastest compiler I have ever encountered for any computer. Macintosh is the registered trademark of the Apple Computer Corporation.</p>
+
+</div>
+<a name="SecToStartUp"></a>
+<h3>To Start Up</h3>
+<div class="sectionbody">
+<p>
+Open up the Watchmaker folder, and you should see something like this.
+</p>
+
+{Figure 1: Contents of the Watchmaker disc}
+
+<p>
+{Icon 1} is the Blind Watchmaker program itself, the only file you must be careful not to throw away. You can start the program running by double-clicking this icon, in which case the standard tree biomorph will be loaded.
+</p>
+<p>
+The other files are of two main types. Those, like Moth {Icon 2}, with no suffix, are single biomorphs. Double-click one of them and the program will start with that biomorph loaded. Those with suffixes .alb (or .fsl) are 'albums' or ('fossil records'), collections of biomorphs, to be explained below. You can also select several biomorphs and/or albums at a time, using standard Macintosh procedure. Then, if you double-click any of them, the program will start with all of them loaded (into an album).
+</p>
+<p>
+For the moment do the simplest thing and double-click on a single one of my biomorphs such as Moth. You'll see the screen fill with 15 boxes. The central box contains the 'parent' biomorph. It is surrounded by 14 (asexual) progeny, many of which will have mutated. You are now ready to breed.
+</p>
+<img style="width: 50%" src="img/Breeding.png" alt="Breeding Window of Monochrome biomorphs" />
+</div>
+<h3>To Breed</h3>
+<div class="sectionbody">
+<p>
+Click once anywhere in the box of the biomorph that you wish to select as the parent of the next generation. It will glide to the centre of the screen, then a new set of 14 mutant prgeny will appear. Carry on for as many generations as you like. As you move the mouse from box to box, notice the changing gene values in the 'chromosome' at the top of the screen. The genes of the biomorph whose box currently contains the cursor are displayed. If the biomorphs that you evolve become very large (not recommended, as they may also be slow-growing), or very small, you may wish to change the number of boxes (i.e. the 'litter size' in each generation). The Boxes option in the View Menu serves this purpose and is self-explanatory. When you change Boxes, only one biomorph remains on the screen. To resume breeding, choose Breed from the Operations Menu.
+</p>
+</div>
+<h3>The Active Biomorph</h3>
+<div class="sectionbody">
+<p>
+Many of the program's operations perform actions on a single biomorph, so the system has to know which biomorph. I shall call it the 'Active Biomorph'. The default Active Biomorph is normally the last one that had anything done to it. FOr instance, when you are Breeding, the Active Biomorph is the parent of the current generation. Sometimes, however, it is necessary to designate the Active Biomorph explicitly. When Breeding, you can Highlight a biomorph by choosing that option from the Album Menu. Now, when you click in a biomorph's box, it will not breed but will simply go black. This biomorph now becomes the Active Biomorph. What might you do with it, now that you've Activated it? Read on.
+</p>
+</div>
+<h3>To Save</h3>
+<div class="sectionbody">
+<p>
+From time to time you will breed a nice biomorph that you want to preserve for the future. First, ensure that the one you want is the Active Biomorph, if necessary by Highlighting it. Now choose Save Biomorph from the File Menu. You will be given a standard Macintosh dialogue box which will prompt you for a name for the file, offer you the chance to change disc drives, open folders etc, and finally save the file.
+</p>
+<p>
+Devoting an entire file to one biomorph is a bit wasteful of disc space. An alternative is to save a collection of biomorphs together as an Album.
+</p>
+</div>
+<h3>Albums</h3>
+<div class="sectionbody">
+<p>
+An Album is a collection of up to 100 biomorphs, which can be viewed all together (or in up to four 'pages' if there are too many to fit on the screen at one time). To stick the Active Biomorph into the album when Breeding, choose Add To Album from the Album Menu. You'll see the biomorph briefly flash up on the current album page, then the breeding screen will reappear. The other way to put biomorphs into the album on the screen is to Load them from disc (see below).
+</p>
+<p>
+{Figure: A 5 x 3 biomorph album page (perhaps from "Exhibition Zoo", page 4?). Biomorphs only no, no Window components.}
+</p>
+<p>
+There are various ways to view the album on the screen, all of them options on the Album Menu. Show Latest Album Page, Previous Album Page and Next Album Page are self-explanatory. Roll Album Pages rotates continuously through the (up to four) pages, until you click the mouse button to freeze the current page on the screen. Zoom Album shows a miniaturized picture of all the (up to four) pages, until you click the mouse button to freeze the current page on the screen. Zoom Album shows a miniaturized picture of all the (up to four) pages similtaneously. Click in any one of the miniaturized pages to zoom in on it full-size. The current page will then be shown. Above is an example of an album page, a collection of biomorphs gathered together because I thought they vaguely resembled animals of the Echinoderm phylum (starfish, sea urchins, etc).
+</p>
+<p>
+When you are looking at an album page, if you click on a biomorph you will Highlight it. This makes it the Active Biomorph for further menu action (e.g. Breed). If you wish to remove the highlighted biomorph from the album on the scrreen, Clear, on the Edit Menu, will do so, leaving a blank space. When the album is subsequently Saved and reLoaded (see below), these blank spaces will be eliminated. If you Clear a biomorph by mistake and want to recover it, you cannot use Paste or Undo. All is not lost, however. If you immediately choose Breed (or Engineering or New Pedigree -- see below), the Active Biomorph used for this operation will still be the one that you Cleared. Having rescued it in this way, you can replace it (in a different place) in the Album by Add to Album.
+</p>
+<p>
+Save Album, on the File Menu, asks for a file name in the usual way, then saves the entire album to that file. Close Album clears the current album from memory, and the screen goes blank. It may be useful to do this before loading a new set of biomorphs or albums from disc.
+</p>
+</div>
+<h3>To Load Biomorphs</h3>
+<div class="sectionbody">
+<p>
+Obviously it's no use saving biomorphs or albums to a disc unless you can subsequently reload them. Choose Load ALbum from the File Menu, and you'll get a standard Macintosh selection box, displaying available files and allowing you to change discs, open folders, and finally select a file by double-clicking on it. Some of the files contain just a single biomorph. Others are previously-saved album files. In either case, the biomorphs are appended to the current album in memory, and you will be left looking at the last page of the current album on the screen.
+</p>
+<p>
+The Breed option is fast, but it has the disadvantage of allowing you to see only the current generation on the screen. History is lost. The ancestors are dead and forgotten. They do not have to be forgotten, however. As an option, you can automatically record every biomorph from which you breed, in sequence, in a Fossil Record. To record fossils when Breeding, choose Initialize Fossil Record from the Operations Menu. You will notice that a check mark appears opposite Recording Fossils in the same menu, to indicate that fossils are being quietly recorded until further notice. You can examine the fossil record at any time by choosing Play Back Fossils from the Operations Menu. You will now see a standard Macintosh window with a slide box at the right hand side and the most recent fossil displayed in the middle of the window. The window can be moved and shrunk, and the slide moved, in standard Macintosh ways.
+</p>
+<p>
+Move the slide down, and you'll move down through the fossil strata, i.e. backwards in time along the fossil record. The picture below shows the oldest fossil in the sequence. You'll notice that its wings are shorter than those of the current generation, visible in the main window behind the fossil window. Move the slide up or down to any position, and you'll see the fossil of the appropriate age.
+</p>
+<p>
+{Figure: "Fossils" window, with the scrollbar thumb at the bottom and the mouse pointer poised above the GoAway box. The Fossil Record window is superimposed upon a detail of the Breeding Window showing a 5x3 matrix of biomorphs with box lines but without the outer border or any other Window details.}
+</p>
+<p>
+While the fossil window is displayed most Menu headings go dead. To leave the fossil window you have to use one of the standard Macintosh ways of closing a window: click in the Go-away box, or click in the main breeding window (which you won't be able to see unless you have shrunk the fossil window, as in the picture above). Recording Fossils can be turned off and on again, as many times as you like, by choosing that option in the Operations Menu. Look at the check mark to see the current status.
+</p>
+<p>
+To save the current fossil file permanently, choose Save Fossils from the File Menu and respond in the dialogue in the usual way. Then, at any future time, you can reload that fossil file or any other. TO do this, first ensure that Recording Fossils is turned off. Then choose Load Fossils from the File Menu and respond in the dialogue box. After a short pause, the most recent biomorph of that fossil record will appear in the centre of a breeding screen, surrounded by new progeny. You can examine the whole fossil record by choosing Play Back Fossils. Recording Fossils is automatically turned on, so you can resume breeding that lineage from precisely where you left off last time. Then you can save the augmented fossil record, and so on. If you don't want to resume recording fossils, you must explicitly turn off Recording Fossils.
+</p>
+<p>
+The system cannot tell the difference between a fossil file and an album file. It follows that you can, if you wish, 'Load Album' a fossil file, or 'Load Fossils' an Album file. As long as you are not confused by the Fossils label at the top of the window, you can, therefore, use the Fossil Window as a 'Scrapbook' for an album of miscellaneous biomorphs previously Saved as an album file. Conversely, you can display up to 100 fossils side by side, using the Zoom Album facility.
+</p>
+</div>
+<h3>Pedigrees</h3>
+<div class="sectionbody">
+<p>
+Fossil records remember only the successive parents of each generation. Collateral relatives and side branches of evolution are forgotten. Somtimes it is nice to hold, on the screen, an entire branching family tree, with the history of all collateral branches. The Macintosh is ideally suited to this: you can use the mouse to 'drag out' new offspring from any biomorph already on the screen.
+</p>
+<img style="width: 50%" src="img/Pedigree.png" alt="Pedigree view" />
+<p>
+Choose New Pedigree from the Pedigree Menu. The Active Biomorph will now be redrawn in the middle of the screen, surrounded by a thick black border. The cursor will become a hand, with which you can push the biomorph around into a convenient position on the screen (as with the MacPaint hand). Now choose Draw Out Offspring from the same menu.
+</p>
+<p>
+{Figure: Pedigree window area (window border but no menu or title bar) with branching family tree of biomorphs rooted at the bottom. Hand pointer shown near bottom of right hand side between two biomorph nodes.}
+</p>
+<p>
+Move the mouse into the biomorph, press the button and drag a line out from the biomorph. This line is the umbilical cord of a new mutant biomorph. Release the button when you have reached the place where you want the new one to grow. YOu now have two biomorphs, and you can breed from either of them in the same way. Then you will have three, and you can breed from any of these. Carry on breeding an indefinite number of biomorphs in this way. When you are in pedigree mode, all biomorphs on the screen are available for breeding, and the lines indicate the family history. You can return to any biomorph, however many generations back, and breed another offspring from it.
+</p>
+<p>
+To Move a biomorph into a more convenient position, choose Move from the Pedigree Menu. The hand cursor will reappar, and you can push any biomorph to wherever you like. This is useful for tidying up a pedigree on the screen. Notice that the lines connected to the moved bimorph move too. Notice also that you can stack biomorphs on top of one another to an indefinite depth (within reaon; don't tease the system by piling too many on top of each other!) and then unstack them, all the time using the hand cursor. In this mode the biomorph boxes behave rather like standard Macintosh windows. They can temporarily obscure each other; then, when you click in lower ones, or move upper ones away, the lower ones will reappear.
+</p>
+<p>
+The other options in the Pedigree Menu are pretty self-explanatory when you try them. The various Mirror options are devices to speed up breeding by having 'litters' of two or four at a time. Try them to see exactly what happens. Kill produces a gun cursor with which you can shoot a biomorph to get it off the screen. This kills not only the biomorph but all its descendants too, so mind where you're pointing that gun. There is no recovery from a mistaken Killing. Detach separates a biomorph from its ancesotors, but leaves it connected to its descendants. A biomorph with no ancestors is surrounded by an extra thick border. (Incidentally, in the program I used the name Adam for such detached ancestral biomorphs. To my surprise, I noticed, in the Pascal listing of the program, the potentious line: theGod^^.Adam := Created --- I had no memory of writing it.) Detach is mainly useful as a prelude to Killing all the other biomorphs, leaving you with a new 'Noah' for future breeding. There is another, special use for it: see 'Biomorph Land', below.
+</p>
+<p>
+When you leave the pedigree, by choosing another option, the Active Biomorph, used by the new option, will be the one last dealt with on the pedigree. If in doubt, designate the Active Biomorph explicitly by choosing Move and clicking with the mouse in the biomorph you want. When you choose New Pedigree subsequently, you'll see your old pedigree still there. The new bimorph that yuo have just added will be sitting in the middle of the screen. It may therefore, of course, be obscuring a member of your old pedigree. JUst Move it aside, and the old one will spring back to life!
+</p>
+</div>
+<h3>Hopeful Monster</h3>
+<div class="sectionbody">
+<p>
+Choose this option to see an entirely random biomorph (within the constraints set up by the current settings of the Mutations Menu, and also within certain size constraints imposed to avoid wasting time drawing horribly big biomorphs). Once this option has been selected, further hopeful monsters may be drawn by clicking the mouse button anywhere. THis is equivalent to jumping to an entirely random spot in 'biomorph land'. At any time you can choose another option, such as Breed or Pedigree, and the current hopeful monster will be the Active Biomorph for the new operation. Incidentally Goldschmidt's phrase 'Hopeful MOnster' is slightly misused here: my monsters are even more hopeless than Goldschmidt's.
+</p>
+</div>
+<h3>Drift</h3>
+<div class="sectionbody">
+<p>
+This is random evolution as opposed to the random saltation of the previous option. In every generation, the biomorph is only slightly different from that of the previous generation. Drifting has the same effect as Breeding would if you always chose a random child from ecah litter, but it is faster because only the succesful biomorph is drawn on the screen. Drifting continues automatically, as long as the mouse is below the menu bar. Move it up into the manu bar (no need to press the mouse button), and drifting will temporarily halt, after drawing of the current biomorph is completed. To quit from Driftin, choose another option. Otherwise Drifting will go on forever, or until terminated by a 'Biomorph Too Large' error message.
+</p>
+<p>
+There are two ways of Viewing random drift. The default is a cinematically changing picture in the middle of the screen. The other way is a sweep of pictures across the screen. You switch from one way of viewing to the other (and back) by choosing Drift Sweep on the View Menu. When Drift Sweep is on, a check mark appears beside it in the menu.
+</p>
+</div>
+<h3>Engineering</h3>
+<div class="sectionbody">
+<p>
+So far, the only way I have mentioned for you to alter genomes is to wait for random mutations and then select. This was the only way in real biology too until the development of genetic engineering. Genetic Engineering is also an option for biomorphs. Choose Engineering from the Operations Menu.
+</p>
+<p>
+The Active Biomorph will be redrawn in the middle of the screen, and the cursor will become a hypodermic needle. Move the needle up into the 'Chromosome' at the top of the screen. It will change from a hypodermic needle into something else, either a little black arrowhead or an equals sign. Slide it from one end of the chromosome to the other and watch it change many times as it passes over the 16 genes. The shape of the cursor at any given time tells you what will happen to the gene concerned if you press the button. A left-pointing arrowhead reduces the value of the gene. A right-pointing arrowhead increases the value of the gene. Upward and downward pointing arrowheads, and the equals sign, have special effects on segmentation gradients (see below). Move the cursor around in a box to see how it changes shape. It is a bit complicated to explain all the details -- best just to play around and see what happens.
+</p>
+<p>
+{Figure: Detail of upper left two thirds of Engineering window with menu bar and gene box shown. The cursor is over the left arrow for Gene 8, and a "callout" (actually "callin" points to it with the legend "Left-pointing cursor, therefore when button pressed gene value will decrease."}
+</p>
+</div>
+<h3>What Does Each Gene Do?</h3>
+<div class="sectionbody">
+<p>
+This question, one that I am frequently asked, is difficult to answer. In many ways, the best way to answer it is to simply play around with Engineering for yourself. The reason it is a difficult question is that, as in real animals, the effects of genes on developing embryos are complicated because the genes interact with each other. Genes 1 to 3 (numbering from the left), for instance, affect the horizontal extent of lines drawn in the biomorph, but the exact effect cannot be predicted because of interactions with other genes. Genes 4 to 8 affect the vertical extent of lines, in various ways, but again their effects interact in ways that are complex and hard to predict. Gene 9 controls the number of branchings during development.
+</p>
+<p>
+This new version of the computer program has an additional 7 genes, whose effects are rather easier to describe. Mutations in ecah of these 7 genes can be turned on or off as menu options. I shall discuss them below in detail. Meanwhile, here is a diagram summarising the effects of all 16 genes. Refer to it while playing with Engineering, and while reading the sections on Dvelopmental Constraint, Mutations of Scale and The Mutator Gene.
+</p>
+<p>
+{Figure: "Diagram of 'Chromosome' Indicating what each gene does" showing an abstracted 16-box genebox, empty of numbers, but with decreasing gradient turned on for gene 1 and increasing gradient turned on for gene 4.} The following callouts are located above the genebox:
+Gene 1: Decreasing Gradient (pointing to the gradient arrow)
+Gene 4: Increasing Gradient (pointing to the gradient arrow)
+Gene 10: Number of Segments
+Gene 12: 2 or 1-Sided
+Gene 14: Scaling Factor
+Gene 16: Mutation Rate
+
+Callouts located below the genebox:
+
+Genes 1-3: Horizontal Extent
+Genes 4-8: Vertical Extent
+Gene 9: Number of Branches
+Gene 11: Distance Between Segments
+Gene 13: Up-Down & Radial Symmetry
+Gene 15: Mutation Size
+
+}
+</p>
+</div>
+<h3>Developmental Constraints</h3>
+<div class="sectionbody">
+<p>
+The biomorphs described in The Blind Watchmaker had only nine genes, and their body plans were all constrained to be symmetrical about the left/right axis. Here are some typical ones.
+</p>
+<p>
+{Figure: Album page matrix showing left/right symmetrical biomorphs}
+</p>
+<p>
+In real life, major evolutionary innovations perhaps had to wait for radical mutational 'inventions' that fundamentally altered the basic body plan. Once such a radical change in body plan had arisen, a whole rush of new evolution became possible. An example might be the invention of segmented early in the ancestral history of annelid worms, arthropods and vertebrates. What radical new classes of mutation might we 'turn on' for the biomorphs? Could we allow them, for instance, to evolve segmentation in the same kind of way as real animals?
+</p>
+<p>
+<img style="width: 25%" src="img/SegmentedBiomorph.png" alt="Segmented biomorph" />
+</p>
+<p>
+Segmentation is the phenomenon of repetition of units as you proceed from front to rear along the animal's body. In the vertebral column, for instance, all the vertebrae are variants on the same basic plan. All are surrounded by the same basic arrangement of muscles, nerves and blood vessels. Once you have described on segment you can describe the rest in terms of their minor variations from the basic segment. In many animals, for instance millipedes, the segments over long stretches of the body are the same. Segmentation in biomorphs is achieved by drawing a series of repeated biomorphic structures in a line from front to rear.
+</p>
+<p>
+{Figure: a centipede-like biomorph}
+</p>
+<p>
+If the Segmentation option in the Mutations Menu is turned on (look at the check mark to see its status), you'll evolve animals like this. Each segment is equivalent to a whole original biomorph. The number of segments is governed by Gene 10, and the distance between segments is governed by Gene 11. Only when the number of segments reaches a fairly high value will you start getting animals that look like millipedes or annelid worms. In this animal, all the segments are the same. Here, on the other hand, are some segmented biomorphs where the segments are not necessarily all the same.
+</p>
+<p>
+<img style="width: 50%" src="img/AlbumPage2.png" alt="Album page of gradient-using segmented biomorphs" />
+</p>
+<p>
+To evolve these, Gradient mutations were turned on (Mutations Menu). Gradient means that a particular gene is progressively more expressed, or progressively less expressed, as the segments proceed from front to rear of the animal's body. When a chromosome is displayed at the top of the screen (Breeding or Engineering), gradients are indicated by a round black blob either at the top or bottom of the box to the gene concerned. Gene 11 (controlling the distance between segments) can also have a gradient.
+</p>
+<p>
+{Figure: Swallowtail Butterfly in Engineering Mode.} Hypodermic hovers below left edge of gene 5 box.
+Genes shown, with value and (gradient)
+Gene 1: +5 (down)
+Gene 2: +5
+Gene 3: -5 (up)
+Gene 4: +2
+Gene 5: -9 (up)
+Gene 6: -3 (up)
+Gene 7: +5
+}
+</p>
+<p>
+Here is part of the screen seen when Engineering one of these gradient segmented biomorphs. You will notice from the little black blobs that there is a decreasing gradient on Gene 1, and increasing gradients on genes 3, 5 and 6. The biomorph, incidentally, is called Swallowtail Butterfly.
+</p>
+<p>
+Never mind the details. Just switch on Gradient mutations, and Breed, (or Engineering) Gradient mutations, and see what happens. You will see that in many cases the biomorphs are considerably more 'biologically interesting' than the original unsegmented ones. When in Engineering, notice that you can place blobs in a box by clicking near the top of the box, or near the bottom. If you click in the middle of the box, when the cursor is an equals sign, you remove any blobs, and therefore gradients, that there may be.
+</p>
+<p>
+{Figure: "Wheat stalk" page of Exhibition Zoo?}
+</p>
+<p>
+The constraint of bilateral symmetry can also be turned off. Choose Asymmetry from the Mutations Menu, and you'll start to get mutant biomorphs that grow out on one side of the veritcal axis only. Unsegmented asymmetrical biomorphs don't look very biologically natural. Segmented ones do, largely because I have introduced a further constrain for them. This is that alternate segments, when asymmetrical, must stick out on opposite sides. This often makes the biomorphs plant-like Or (see above, they sometimes turn into elegant spirals, almost like DNA . . . 
+</p>
+<p>
+Finally, there are two further classes of mutation that affect symmetry in the up-down direction, as opposed to the left-right direction. Turn on Radial Sym in the Mutations Menu, and you'll find that you can breed biomorphs like these.
+</p>
+<p>
+<img style="width: 50%" src="img/AlbumPage4.png" alt="Radially symmetrical biomorphs" />
+{Figure: Radial symmetry page from Album}
+</p>
+<p>
+When all classes of mutations are turned on, the full range of biomorph variation is free to evolve.
+</p>
+<p>
+Remember that, when you turn on a given class of mutations, you do not immediately change the appearance of biomorphs. All that you do is make that class of mutational change possible. Similarly, if you turn off a given class of mutation, when the current biomorph is, say, radially symmetrical, all subsequent bimorphs will be radially symmetrical. This is because you have turned off the possibility of mutations in radial symmetry, and this includes back mutations to radial asymmetry.
+</p>
+</div>
+<h3>Mutations of Scale</h3>
+<div class="sectionbody">
+<p>
+Gene 14 (counting from the left of the chromosome) controls the scale with which all lines in a biomorph are drawn. The larger the value of Gene 14, the smaller the biomorph. Get into Engineering and try it. If you make a biomorph small by means of Gene 14, you can restore it to its original appearance by proportionately increasing the magnitudes of Genes 1 to 8 and Gene 11.
+</p>
+<p>
+Gene 15 controls the magnitude of each mutational step. If Gene 15 has a small value, compared to Gene 14, each mutational step will be relatively small in extent. In other words, evolution will seem more 'fine-grained'. If Gene 15 has a high value, in relation to Gene 14's, evolution will proceed in large steps.
+</p>
+<p>
+Genes 14 and 15 are free to evolve like any other geenes, unless their mutating is turned off using the Mutations Menu.
+</p>
+</div>
+<h3>The Mutator Gene</h3>
+<div class="sectionbody">
+<p>
+Finally, Gene 16 controls the mutation rate, or probability of mutating, of all the genes (including itself). Most genes mutate at the full rate indicated by Gene 16. Others mutate at half the rate.
+</p>
+<p>
+Gene 16 too can have its capacity to change its own value turned off, and the default state is off. Turn it on using the Mutations Menu if you want to imitate the effect of so-called 'mutator genes'.
+</p>
+</div>
+<h3>Biomorph Land</h3>
+<div class="sectionbody">
+<p>
+For an explanation of this heading, see The Blind Watchmaker (pages 66-74). To set up the triangle, choose Triangle from the Operations Menu. You are now looking at a plane in biomorph land. To sample the biomorph that is sitting at any point in the plane, move the mouse there and click the button. To see the 'anchor biomorphs', click on the corners of the triangle. Default anchor biomorphs are provided, but you can change them. If there are any detached biomorphs ('Adams') on the pedigree page (see above) the first three of these to have been created will become the anchor biomorphs at the apices of the triangle.
+</p>
+</div>
+<h3>Making Your Own Icons</h3>
+<div class="editorsnote">
+<p>Note: This feature is not yet implemented for the OS X version of Watchmaker</p>
+</div>
+<div class="sectionbody">
+<p>
+Macintosh Icons are normally designed once and for all, then associated with files later. I should have designed one icon representing a typical biomorph, say an 'insect', and then used it for all biomorph files on the desktop. The only way of recalling which biomorph was which would have been by name. This seemed a pity, since the names that one dreams up are often far from adequately descriptive, and the whole point of icons is to suggest to the human user, immediately, the file that they represent. Biomorphs semmed ideally suited to becoming their own icons! Thanks to my colleague Alan Graefen, who conceived and wrote the crucial procedure, the Blind Watchmaker program is capable of manufacturing its own icons, copying the pattern of bits from a biomorph on the screen and making them available to the Macintosh desktop. This is how the icons on the disc that you have purchased were created. It is an option, however, which has to be turned on. If you don't turn it on, you can still save biomorphs but they will all have the same, boring standard icon.
+</p>
+<p>
+You turn the option on by choosing "Make Icon" from the Operations Menu. Turn it off again by choosing it again. The current status is indicated by a check mark. No icons are actually made until you subsequently Save. Albums and fossil records can also be Saved with icons, in the same way. The icon in these cases is a picture of the whole screen, with the Active Biomorph enlarged as with a lens.
+</p>
+<p>
+When you choose the Make Icons option, you get a somewhat dire message encouraging you to turn it off again! Some explanation for this, and for the for the fact that the default status of the Make Icons option is off, is clearly in order. We are really just covering ourselves. The fact is that this part of the program strays outside the official guidelines recommended for Macintosh programmers, and we are not sure of all the consequences. Alan Graefen still has not dared to use the Make Icons facility with his hard disc, although I have been using it quite happily with mine for a while now!
+</p>
+<p>
+There are other problems with the Make Icons option. These are listed in the warning message which you get whenever you turn it on. The most annoying one is that, for reasons to tedious to go into, you will sometimes find that, when you copy a biomorph icon to another disc, although the file travels quite happily the icon does not. It turns into the boring default icon. You can make the biomorph icon again, by loading the biomorph (or album) into the Blind Watchmaker program and saving it again using a different name (you can always give it the old name again, later). If that is the most annoying problem, a more insidious one is that an old disc that has many biomorph icons saved to it never loses those icons, even though the files have long since discarded and the icons are no longer visible. They are still using up space. Icons can only be saved to the disc from which the Blind Watchmaker program is currently being run (and into the same folder, if any). More minor problems are that saving with icons is slow, and large biomorphs sometimes create visually disappointing icons because of the need to shrink them to the standard icon size. Small biomorphs, however, like the Moth on Appendix Page 1, make good icons.
+</p>
+<p>
+My advice is not to be intimidated by the warning message, but to reserve the Make Icons option for particularly favourite biomorphs. It is probably a good idea to turn the option off, after saving an icon.
+</p>
+</div>
+<h3>Exporting to Other Software</h3>
+<div class="editorsnote">
+<p>Note: This feature is not yet implemented for the OS X version of Watchmaker</p>
+</div>
+<div class="sectionbody">
+<p>
+The program does not provide any printing facilities (other than the standard Macintosh screen dump). It is better to use the printing facilities provided by standard software such as MacPaint, MacDraw, or word processors. In order to do this, you must Copy (Edit Menu) a biomorph to the ClipBoard, and then use Paste to hand it over to the other software, optionally via the ScrapBook. The Active Biomorph will be sent to the ClipBoard when Copy is chosen.
+</p>
+<p>
+Incidentally, the Undo and Paste options in the File Menu never go black and are never available within the Blind Watchmaker program. They are there because Desk Accesories such as the ScrapBook may need them (and will make them go black). In particular you may find it useful to Paste a biomorph that you have Copied into the ScrapBook. From there it is easy to hand it on the MacDraw, MacPaint, word processing programs, etc.
+</p>
+<p>
+Of course, having got a biomorph into a program like MacDraw, there's a lot more that you can do with it than just print it out! You could, for intance, edit a set of biomorphs into a collage with explantory text, enlarge them, rotate them, etc. MacDraw is recommended for this rather than MacPaint (although MacPaint also works) because MacDraw retains the original drawing instructions that made the biomorph. Distortions and changes are therefore reversable. MacPaint retains only a bit image, and distortions are likely to be irreversible and will lead to progressive deterioration. Yes, and there's an evolutionary moral there, too!
+</p>
+</div>
+<h3>Taxonomy of Biomorphs</h3>
+<div class="sectionbody">
+<p>
+In The Blind Watchmaker, the biomorphs were used to make a variety of biological points. One field of biology teaching in which they have not so far been used is taxonomy. The biomorphs bred in a pedigree have a precisely known relationship to one another, and their genetic make-up is also precisely known. These facts make them ideally suited to verifying methods of taxonomy, and also to teaching the principles of taxonomy. Biology instructors might stick biomorphs on cards and invite students to classify them, using, say, numerical taxonomic techniques, cladistic techniques, and visual intuitive techniques. The resulting taxonomies can then be compared with the true pedigrees, or with the 'molecular' taxonomy obtained when the biomorphs' genotypes are considered.
+</p>
+</div>
+{Icon: Holy Grail biomorph}
+<h3>Holy Grail</h3>
+<div class="sectionbody">
+<p>
+Buried deep in a remote corner of Biomorph Land is a beautiful, jewelled chalice. The genetic formula of this Holy Grail Biomorph has been lost. All that we posses is a bit-image, faithfully copied by the only traveller who has ever returned from that distant country. He is now offering a reward to anybody who can find the Holy Grail Biomorph again.
+</p>
+<p>
+The image of the Holy Grail is supplied as a MacPaint File on your disc, so you can examine it pixel by pixel if you wish. To win the competition, you must breed a biomorph which produces precisely this bit image. Enter the genetic formula on the competition coupon and send it to 
+</p>
+<p>
+Blind Watchmaker Competition
+c/o W.W. Norton & Co
+500 Fifth Avenue
+New York 10110
+USA.
+</p>
+<p>
+Your genetic formula will be fed into the Blind Watchmaker program, using Engineering. The biomorph that it produces will be compared, pixel-by-pixel, with the Holy Grail biomorph in the MacPaint file supplied on every Blind Watchmaker disc. Here, for reference, is an enlargement of the Holy Grail bit image.
+</p>
+<p>
+
+{Figure of the Holy Grail biomorph.}
+
+The first genetic formula received that produces an exact fit to the Holy Grail bit-image will win the prize of one thousand United States Dollars. The closing date for the competition is 31st December 1990.
+</p>
+</div>
+<h1>BLIND WATCHMAKER<br />
+COMPETITION ENTRY FORM</h1>
+<div class="sectionbody">
+<p>
+To register for the competition you must send the coupon below to the address listed on the facing page. NO PHOTOCOPIES OF THE COUPON WILL BE ACCEPTED FOR THE COMPETITION.
+</p>
+<p>
+{Figure: Holy Grail competition form, with Genebox at the top, captioned underneath: "Holy Grail Competition. Fill in your genetic formula in the space above" Holy grail biomorph centered on form. Name: and Address: fields.}
+</p>
+<p>
+
+{END OF BLIND WATCHMAKER MANUAL AS TYPED BY ALAN CANON}
+</p>
+</div>
+</body>
+</html>

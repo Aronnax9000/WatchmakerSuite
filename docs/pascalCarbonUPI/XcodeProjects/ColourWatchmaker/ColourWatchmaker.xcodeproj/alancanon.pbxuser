@@ -1,0 +1,85 @@
+// !$*UTF8*$!
+{
+	4809C4E90AB9580800D1B097 /* fpc */ = {
+		activeExec = 0;
+	};
+	488D39340AB5966900DA2F98 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = F967F3DE1AC9810900B042CD /* ColourWatchmaker */;
+		activeTarget = 488D39640AB597CC00DA2F98 /* ColourWatchmaker */;
+		codeSenseManager = F967F3E91AC9812B00B042CD /* Code sense */;
+		executables = (
+			F967F3DE1AC9810900B042CD /* ColourWatchmaker */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 449414208;
+			PBXWorkspaceStateSaveDate = 449414208;
+		};
+		sourceControlManager = F967F3E81AC9812B00B042CD /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	488D39640AB597CC00DA2F98 /* ColourWatchmaker */ = {
+		activeExec = 0;
+		executables = (
+			F967F3DE1AC9810900B042CD /* ColourWatchmaker */,
+		);
+	};
+	F967F3DE1AC9810900B042CD /* ColourWatchmaker */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ColourWatchmaker;
+		sourceDirectories = (
+		);
+	};
+	F967F3E81AC9812B00B042CD /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = WatchmakerSuite;
+		};
+	};
+	F967F3E91AC9812B00B042CD /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}

@@ -1,0 +1,197 @@
+<?xml version="1.0" standalone="yes"?>
+<object class="NSIBObjectData">
+  <object name="rootObject" class="NSCustomObject" id="1">
+  </object>
+  <array count="19" name="allObjects">
+    <object class="IBCarbonStaticText" id="179">
+      <int name="controlID">8</int>
+      <boolean name="enabled">FALSE</boolean>
+      <string name="title">seconds </string>
+      <string name="viewFrame">265 181 59 16 </string>
+      <string name="bounds">181 265 197 324 </string>
+    </object>
+    <object class="IBCarbonEditText" id="182">
+      <int name="controlID">11</int>
+      <boolean name="isUnicode">TRUE</boolean>
+      <string name="title">60</string>
+      <string name="viewFrame">219 82 34 14 </string>
+      <string name="bounds">82 219 96 253 </string>
+    </object>
+    <object class="IBCarbonRootControl" id="185">
+      <array count="1" name="subviews">
+        <object class="IBCarbonPicture" id="186">
+          <int name="controlID">1</int>
+          <int name="contentResID">257</int>
+          <string name="bounds">2 2 439 614 </string>
+        </object>
+      </array>
+      <string name="bounds">0 0 444 622 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="177">
+      <int name="controlID">6</int>
+      <boolean name="enabled">FALSE</boolean>
+      <string name="title">     TIME-OUTS&#13;after no activity</string>
+      <string name="viewFrame">121 7 141 38 </string>
+      <string name="bounds">7 121 45 262 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="178">
+      <int name="controlID">7</int>
+      <boolean name="enabled">FALSE</boolean>
+      <string name="title">seconds </string>
+      <string name="viewFrame">263 81 58 15 </string>
+      <string name="bounds">81 263 96 321 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="180">
+      <int name="controlID">9</int>
+      <boolean name="enabled">FALSE</boolean>
+      <string name="title">In Breeding Mode... </string>
+      <string name="viewFrame">6 62 160 15 </string>
+      <string name="bounds">62 6 77 166 </string>
+    </object>
+    <object class="IBCarbonRadioButton" id="175">
+      <int name="controlID">4</int>
+      <string name="title">Random New Start every</string>
+      <string name="viewFrame">18 179 194 18 </string>
+      <string name="bounds">179 18 197 212 </string>
+    </object>
+    <reference idRef="186"/>
+    <object class="IBCarbonWindow" id="184">
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="hasCollapseBox">FALSE</boolean>
+      <boolean name="hasHorizontalZoom">FALSE</boolean>
+      <boolean name="isResizable">FALSE</boolean>
+      <boolean name="hasVerticalZoom">FALSE</boolean>
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="scalingMode">1048576</int>
+      <string name="title">About Box</string>
+      <reference name="rootControl" idRef="185"/>
+      <string name="windowRect">44 6 488 628 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <object class="IBCarbonWindow" id="168">
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="hasHorizontalZoom">FALSE</boolean>
+      <boolean name="hasVerticalZoom">FALSE</boolean>
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="scalingMode">1048576</int>
+      <string name="title">BreedWindow</string>
+      <object name="rootControl" class="IBCarbonRootControl" id="169">
+        <string name="bounds">0 0 647 1010 </string>
+      </object>
+      <string name="windowRect">44 0 691 1010 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <reference idRef="169"/>
+    <object class="IBCarbonRadioButton" id="173">
+      <int name="controlID">2</int>
+      <string name="title">Revert to New Start after </string>
+      <string name="viewFrame">18 80 194 18 </string>
+      <string name="bounds">80 18 98 212 </string>
+    </object>
+    <object class="IBCarbonButton" id="172">
+      <int name="controlID">1</int>
+      <string name="title">OK</string>
+      <string name="viewFrame">124 255 60 20 </string>
+      <string name="bounds">255 124 275 184 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="181">
+      <int name="controlID">10</int>
+      <boolean name="enabled">FALSE</boolean>
+      <string name="title">In New Start Mode...</string>
+      <string name="viewFrame">8 160 160 15 </string>
+      <string name="bounds">160 8 175 168 </string>
+    </object>
+    <object class="IBCarbonWindow" id="170">
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="hasCloseBox">FALSE</boolean>
+      <boolean name="hasCollapseBox">FALSE</boolean>
+      <boolean name="hasHorizontalZoom">FALSE</boolean>
+      <boolean name="isResizable">FALSE</boolean>
+      <boolean name="hasVerticalZoom">FALSE</boolean>
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="compositing">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="carbonWindowClass">3</int>
+      <int name="scalingMode">1048576</int>
+      <string name="title">Timing Dialogue</string>
+      <object name="rootControl" class="IBCarbonRootControl" id="171">
+        <string name="viewFrame">0 0 358 304 </string>
+        <array count="12" name="subviews">
+          <reference idRef="172"/>
+          <reference idRef="173"/>
+          <object class="IBCarbonRadioButton" id="174">
+            <int name="controlID">3</int>
+            <string name="title">Don&apos;t revert automatically to New Start </string>
+            <string name="viewFrame">18 103 293 19 </string>
+            <string name="bounds">103 18 122 311 </string>
+          </object>
+          <reference idRef="175"/>
+          <object class="IBCarbonRadioButton" id="176">
+            <int name="controlID">5</int>
+            <string name="title">Random New Start only on mouseclicks</string>
+            <string name="viewFrame">17 203 286 18 </string>
+            <string name="bounds">203 17 221 303 </string>
+          </object>
+          <reference idRef="177"/>
+          <reference idRef="178"/>
+          <reference idRef="179"/>
+          <reference idRef="180"/>
+          <reference idRef="181"/>
+          <reference idRef="182"/>
+          <object class="IBCarbonEditText" id="183">
+            <int name="controlID">12</int>
+            <boolean name="isUnicode">TRUE</boolean>
+            <string name="title">3 </string>
+            <string name="viewFrame">217 181 34 14 </string>
+            <string name="bounds">181 217 195 251 </string>
+          </object>
+        </array>
+        <string name="bounds">0 0 304 358 </string>
+      </object>
+      <string name="windowRect">96 108 400 466 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <reference idRef="176"/>
+    <reference idRef="183"/>
+    <reference idRef="174"/>
+    <reference idRef="171"/>
+  </array>
+  <array count="19" name="allParents">
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="184"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="185"/>
+    <reference idRef="1"/>
+    <reference idRef="1"/>
+    <reference idRef="168"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="1"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="171"/>
+    <reference idRef="170"/>
+  </array>
+  <dictionary count="4" name="nameTable">
+    <string>About Box</string>
+    <reference idRef="184"/>
+    <string>BreedWindow</string>
+    <reference idRef="168"/>
+    <string>File&apos;s Owner</string>
+    <reference idRef="1"/>
+    <string>Timing Dialogue</string>
+    <reference idRef="170"/>
+  </dictionary>
+  <string name="targetFramework">IBCarbonFramework</string>
+  <unsigned_int name="nextObjectID">187</unsigned_int>
+</object>

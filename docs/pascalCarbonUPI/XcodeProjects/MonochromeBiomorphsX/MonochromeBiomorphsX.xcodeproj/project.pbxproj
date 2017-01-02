@@ -1,0 +1,733 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0318B03D1ACFF56800EB2E7B /* BarnYardDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0318B03C1ACFF56800EB2E7B /* BarnYardDefs.pas */; };
+		0318B1AE1AD05DEB00EB2E7B /* AlbumDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0318B1AD1AD05DEB00EB2E7B /* AlbumDefs.pas */; };
+		0352D1DB1AD25929001F3041 /* GeneboxButtonDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0352D1DA1AD25929001F3041 /* GeneboxButtonDefs.pas */; };
+		0352D1E31AD259E6001F3041 /* GeneboxTypes.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0352D1E21AD259E6001F3041 /* GeneboxTypes.pas */; };
+		0365E64B1AAEBB8A00695028 /* PrenatalSonogram.png in Resources */ = {isa = PBXBuildFile; fileRef = 0365E64A1AAEBB8A00695028 /* PrenatalSonogram.png */; };
+		036D235B1AC4041400F53E64 /* InitializeMorphMenusDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 036D235A1AC4041400F53E64 /* InitializeMorphMenusDef.pas */; };
+		0379D4AE1AE16417006A3F03 /* ClipboardingDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0379D4AD1AE16417006A3F03 /* ClipboardingDefs.pas */; };
+		0379D4BA1AE164AD006A3F03 /* BoxesMoreFewer.pas in Sources */ = {isa = PBXBuildFile; fileRef = 0379D4B91AE164AD006A3F03 /* BoxesMoreFewer.pas */; };
+		039F5FF21ACCFD9000DA2BB3 /* HIBoxDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 039F5FF11ACCFD9000DA2BB3 /* HIBoxDefs.pas */; };
+		03AE248B1AC4ACB4006C298A /* BiomorphCommandDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03AE248A1AC4ACB4006C298A /* BiomorphCommandDef.pas */; };
+		03AE249D1AC4ACFC006C298A /* InitializeMenusDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03AE249C1AC4ACFC006C298A /* InitializeMenusDef.pas */; };
+		03AE27141AC4C749006C298A /* BW.nib in Resources */ = {isa = PBXBuildFile; fileRef = 03AE27121AC4C749006C298A /* BW.nib */; };
+		03AE27B11AC4CFB1006C298A /* InitialModeDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03AE27B01AC4CFB1006C298A /* InitialModeDef.pas */; };
+		03AE2CD81AC52E2B006C298A /* EngineeringDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03AE2CD71AC52E2B006C298A /* EngineeringDefs.pas */; };
+		03B4B9B01AC40C4F00ABAC27 /* MenuGreyAdjustDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03B4B9AF1AC40C4F00ABAC27 /* MenuGreyAdjustDefs.pas */; };
+		03B4B9F41AC40EDB00ABAC27 /* WindowAdjustDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03B4B9F31AC40EDB00ABAC27 /* WindowAdjustDef.pas */; };
+		03B4BA601AC4131A00ABAC27 /* DoAboutDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03B4BA5F1AC4131A00ABAC27 /* DoAboutDef.pas */; };
+		03BC7A751AD27EAD00DD5308 /* GeneboxButtonHandleEventDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03BC7A741AD27EAD00DD5308 /* GeneboxButtonHandleEventDef.pas */; };
+		03BC7A851AD2809600DD5308 /* CursorDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03BC7A841AD2809600DD5308 /* CursorDefs.pas */; };
+		03BC7ADC1AD2882800DD5308 /* HIBoxEventHandlerDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03BC7ADB1AD2882800DD5308 /* HIBoxEventHandlerDef.pas */; };
+		03BC7AE21AD288F600DD5308 /* HIBoxTypes.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03BC7AE11AD288F600DD5308 /* HIBoxTypes.pas */; };
+		03BC7B1C1AD28AAA00DD5308 /* HIBoxSlideDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03BC7B1B1AD28AAA00DD5308 /* HIBoxSlideDef.pas */; };
+		03BC7B571AD298FF00DD5308 /* HIBoxControlDrawDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03BC7B561AD298FF00DD5308 /* HIBoxControlDrawDef.pas */; };
+		03C15BFB1AD7C5A8004B5330 /* PedigreeTypes.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C15BFA1AD7C5A8004B5330 /* PedigreeTypes.pas */; };
+		03C15C451AD7C8D0004B5330 /* AnimationTypes.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C15C441AD7C8D0004B5330 /* AnimationTypes.pas */; };
+		03C15CFA1AD7E476004B5330 /* AnimationDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C15CF91AD7E476004B5330 /* AnimationDefs.pas */; };
+		03C3F1031AC2CFD80062D9C4 /* AlbumDoClear.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D11AC2CFD80062D9C4 /* AlbumDoClear.pas */; };
+		03C3F1041AC2CFD80062D9C4 /* CheckPastableDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D21AC2CFD80062D9C4 /* CheckPastableDef.pas */; };
+		03C3F1051AC2CFD80062D9C4 /* ConcoctDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D31AC2CFD80062D9C4 /* ConcoctDefs.pas */; };
+		03C3F1061AC2CFD80062D9C4 /* DevelopDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D41AC2CFD80062D9C4 /* DevelopDefs.pas */; };
+		03C3F1071AC2CFD80062D9C4 /* DoSaltationDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D51AC2CFD80062D9C4 /* DoSaltationDef.pas */; };
+		03C3F1081AC2CFD80062D9C4 /* DrawPicDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D61AC2CFD80062D9C4 /* DrawPicDefs.pas */; };
+		03C3F1091AC2CFD80062D9C4 /* FlickerTriangleDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D71AC2CFD80062D9C4 /* FlickerTriangleDefs.pas */; };
+		03C3F10A1AC2CFD80062D9C4 /* GeneboxDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D81AC2CFD80062D9C4 /* GeneboxDefs.pas */; };
+		03C3F10B1AC2CFD80062D9C4 /* InitializeAnimalsDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0D91AC2CFD80062D9C4 /* InitializeAnimalsDefs.pas */; };
+		03C3F10C1AC2CFD80062D9C4 /* GeneboxManipulationDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0DA1AC2CFD80062D9C4 /* GeneboxManipulationDef.pas */; };
+		03C3F10D1AC2CFD80062D9C4 /* MorphGlobals.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0DB1AC2CFD80062D9C4 /* MorphGlobals.pas */; };
+		03C3F10E1AC2CFD80062D9C4 /* PersonDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0DC1AC2CFD80062D9C4 /* PersonDefs.pas */; };
+		03C3F10F1AC2CFD80062D9C4 /* PersonSerialization.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0DD1AC2CFD80062D9C4 /* PersonSerialization.pas */; };
+		03C3F1101AC2CFD80062D9C4 /* RandSwellDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0DE1AC2CFD80062D9C4 /* RandSwellDef.pas */; };
+		03C3F1111AC2CFD80062D9C4 /* ReproduceDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0DF1AC2CFD80062D9C4 /* ReproduceDef.pas */; };
+		03C3F1121AC2CFD80062D9C4 /* AlbumUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E01AC2CFD80062D9C4 /* AlbumUtil.pas */; };
+		03C3F1141AC2CFD80062D9C4 /* WatchmakerCommands.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E21AC2CFD80062D9C4 /* WatchmakerCommands.pas */; };
+		03C3F1151AC2CFD80062D9C4 /* Serialization.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E31AC2CFD80062D9C4 /* Serialization.pas */; };
+		03C3F1171AC2CFD80062D9C4 /* Initialize.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E51AC2CFD80062D9C4 /* Initialize.pas */; };
+		03C3F1181AC2CFD80062D9C4 /* CommandHandlerDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E61AC2CFD80062D9C4 /* CommandHandlerDef.pas */; };
+		03C3F1191AC2CFD80062D9C4 /* TriangleUtils.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E71AC2CFD80062D9C4 /* TriangleUtils.pas */; };
+		03C3F11A1AC2CFD80062D9C4 /* TriangleDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E81AC2CFD80062D9C4 /* TriangleDefs.pas */; };
+		03C3F11B1AC2CFD80062D9C4 /* SnapDevelopDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0E91AC2CFD80062D9C4 /* SnapDevelopDef.pas */; };
+		03C3F11C1AC2CFD80062D9C4 /* SlideDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0EA1AC2CFD80062D9C4 /* SlideDefs.pas */; };
+		03C3F11D1AC2CFD80062D9C4 /* SetItemStateDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0EB1AC2CFD80062D9C4 /* SetItemStateDefs.pas */; };
+		03C3F11E1AC2CFD80062D9C4 /* RectDrawDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0EC1AC2CFD80062D9C4 /* RectDrawDefs.pas */; };
+		03C3F11F1AC2CFD80062D9C4 /* PlaybackWindowDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0ED1AC2CFD80062D9C4 /* PlaybackWindowDefs.pas */; };
+		03C3F1201AC2CFD80062D9C4 /* PlaybackGeomUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0EE1AC2CFD80062D9C4 /* PlaybackGeomUtil.pas */; };
+		03C3F1211AC2CFD80062D9C4 /* PicDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0EF1AC2CFD80062D9C4 /* PicDefs.pas */; };
+		03C3F1221AC2CFD80062D9C4 /* Pedigree.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F01AC2CFD80062D9C4 /* Pedigree.pas */; };
+		03C3F1231AC2CFD80062D9C4 /* ModeDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F11AC2CFD80062D9C4 /* ModeDefs.pas */; };
+		03C3F1241AC2CFD80062D9C4 /* Miscellaneous.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F21AC2CFD80062D9C4 /* Miscellaneous.pas */; };
+		03C3F1251AC2CFD80062D9C4 /* MessageDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F31AC2CFD80062D9C4 /* MessageDefs.pas */; };
+		03C3F1261AC2CFD80062D9C4 /* MainWindowInit.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F41AC2CFD80062D9C4 /* MainWindowInit.pas */; };
+		03C3F1271AC2CFD80062D9C4 /* MainWindowDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F51AC2CFD80062D9C4 /* MainWindowDefs.pas */; };
+		03C3F1281AC2CFD80062D9C4 /* LeftRightPosRung.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F61AC2CFD80062D9C4 /* LeftRightPosRung.pas */; };
+		03C3F1291AC2CFD80062D9C4 /* Globals.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F71AC2CFD80062D9C4 /* Globals.pas */; };
+		03C3F12A1AC2CFD80062D9C4 /* FossilsExistDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F81AC2CFD80062D9C4 /* FossilsExistDefs.pas */; };
+		03C3F12B1AC2CFD80062D9C4 /* EvolveDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0F91AC2CFD80062D9C4 /* EvolveDefs.pas */; };
+		03C3F12C1AC2CFD80062D9C4 /* ErrorUnit.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0FA1AC2CFD80062D9C4 /* ErrorUnit.pas */; };
+		03C3F12E1AC2CFD80062D9C4 /* DriftSweep.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0FC1AC2CFD80062D9C4 /* DriftSweep.pas */; };
+		03C3F12F1AC2CFD80062D9C4 /* DialogGeomDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0FD1AC2CFD80062D9C4 /* DialogGeomDefs.pas */; };
+		03C3F1301AC2CFD80062D9C4 /* CursorAdjustDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0FE1AC2CFD80062D9C4 /* CursorAdjustDefs.pas */; };
+		03C3F1311AC2CFD80062D9C4 /* CreateHistoryFileCarbon.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F0FF1AC2CFD80062D9C4 /* CreateHistoryFileCarbon.pas */; };
+		03C3F1321AC2CFD80062D9C4 /* BoxesDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F1001AC2CFD80062D9C4 /* BoxesDefs.pas */; };
+		03C3F1331AC2CFD80062D9C4 /* Blind_Watchmaker.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F1011AC2CFD80062D9C4 /* Blind_Watchmaker.pas */; };
+		03C3F1341AC2CFD80062D9C4 /* AlbumPlayback.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F1021AC2CFD80062D9C4 /* AlbumPlayback.pas */; };
+		03C3F1381AC2D0220062D9C4 /* SerializationUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03C3F1371AC2D0220062D9C4 /* SerializationUtil.pas */; };
+		03DFE4CB1AD44A2E00EF918A /* HIBoxesEventHandlerDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03DFE4CA1AD44A2E00EF918A /* HIBoxesEventHandlerDef.pas */; };
+		03DFE72C1AD45BA000EF918A /* GeneboxEventHandlerDef.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03DFE72B1AD45BA000EF918A /* GeneboxEventHandlerDef.pas */; };
+		03DFECF61AD4A1EC00EF918A /* HIBreedModelDefs.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03DFECF51AD4A1EC00EF918A /* HIBreedModelDefs.pas */; };
+		03DFEFE61AD4E06300EF918A /* HIViewUtils.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03DFEFE51AD4E06300EF918A /* HIViewUtils.pas */; };
+		48C60A570AB971A3004EF347 /* libfpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4809C4EA0AB9580800D1B097 /* libfpc.a */; };
+		48C60B090AB972B4004EF347 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C60B080AB972B4004EF347 /* Carbon.framework */; };
+		DD9A81CE0BE62E840073A464 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD9A81C80BE62E840073A464 /* InfoPlist.strings */; };
+		DD9A81CF0BE62E840073A464 /* locversion.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9A81CA0BE62E840073A464 /* locversion.plist */; };
+		F995F0BA1AFBFDD60012A4AA /* BW2.r in Rez */ = {isa = PBXBuildFile; fileRef = F995F0B91AFBFDD60012A4AA /* BW2.r */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4809C46B0AB8C19800D1B097 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.pascal;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_SOURCES_DIR)-$(CURRENT_VARIANT)/$(CURRENT_ARCH)/$(INPUT_FILE_BASE).s",
+			);
+			script = "#!/bin/bash\n\n# Xcode's up-to-date checks are overzealous for us: a different SDK does not necessarily\n# mean we recompile all sources, because we do not have different units for different SDK\n# versions yet (and even if we did, not necessarily all files would be recompiled)...\n\ndestdir=\"${DERIVED_SOURCES_DIR}-${CURRENT_VARIANT}/${CURRENT_ARCH}\"\nif [ ! -f \"$destdir/compilefailed\" ]; then\n  # check whether the assembler code is newer than the source code\n  if [ \"$destdir/${INPUT_FILE_BASE}.s\" -nt \"$INPUT_FILE_PATH\" ]; then\n    # in this case we're ok, just touch the assembler file to avoid us getting here again next time\n    echo Updating assembler time stamp of \"$destdir/${INPUT_FILE_BASE}.s\"\n    touch \"$destdir/${INPUT_FILE_BASE}.s\"\n    exit 0\n  fi\n\n  echo File not found or not up-to-date: $destdir/${INPUT_FILE_BASE}.s\n  echo \"$INPUT_FILE_PATH:1: error: 1: \\\"$INPUT_FILE_PATH\\\" was not (re)compiled. If it is no longer used, please remove it from the \\\"Compile Sources\\\" phase of the \\\"$TARGETNAME\\\" target.\"\n  exit 1\nfi";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		48C60A540AB97176004EF347 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 488D39340AB5966900DA2F98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4809C4E90AB9580800D1B097;
+			remoteInfo = fpc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0318B03C1ACFF56800EB2E7B /* BarnYardDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = BarnYardDefs.pas; path = "../../Source code/Monochrome WatchMaker/BarnYardDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0318B1AD1AD05DEB00EB2E7B /* AlbumDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AlbumDefs.pas; path = "../../Source code/Monochrome WatchMaker/AlbumDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0352D1DA1AD25929001F3041 /* GeneboxButtonDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = GeneboxButtonDefs.pas; path = "../../Source code/Monochrome WatchMaker/GeneboxButtonDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0352D1E21AD259E6001F3041 /* GeneboxTypes.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = GeneboxTypes.pas; sourceTree = "<group>"; };
+		0365E64A1AAEBB8A00695028 /* PrenatalSonogram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PrenatalSonogram.png; sourceTree = "<group>"; };
+		036D235A1AC4041400F53E64 /* InitializeMorphMenusDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitializeMorphMenusDef.pas; sourceTree = "<group>"; };
+		0379D4AD1AE16417006A3F03 /* ClipboardingDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = ClipboardingDefs.pas; path = "../../Source code/Monochrome WatchMaker/ClipboardingDefs.pas"; sourceTree = SOURCE_ROOT; };
+		0379D4B91AE164AD006A3F03 /* BoxesMoreFewer.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = BoxesMoreFewer.pas; path = "../../Source code/Monochrome WatchMaker/BoxesMoreFewer.pas"; sourceTree = SOURCE_ROOT; };
+		039F5FF11ACCFD9000DA2BB3 /* HIBoxDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBoxDefs.pas; path = "../../Source code/Monochrome WatchMaker/HIBoxDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03AE248A1AC4ACB4006C298A /* BiomorphCommandDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = BiomorphCommandDef.pas; sourceTree = "<group>"; };
+		03AE249C1AC4ACFC006C298A /* InitializeMenusDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = InitializeMenusDef.pas; path = "../../Source code/Monochrome WatchMaker/InitializeMenusDef.pas"; sourceTree = SOURCE_ROOT; };
+		03AE27121AC4C749006C298A /* BW.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = BW.nib; path = "../../Source code/Monochrome WatchMaker/Mono/BW.nib"; sourceTree = SOURCE_ROOT; };
+		03AE27B01AC4CFB1006C298A /* InitialModeDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitialModeDef.pas; sourceTree = "<group>"; };
+		03AE2CD71AC52E2B006C298A /* EngineeringDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = EngineeringDefs.pas; path = "../../Source code/Monochrome WatchMaker/EngineeringDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03B4B9AF1AC40C4F00ABAC27 /* MenuGreyAdjustDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = MenuGreyAdjustDefs.pas; sourceTree = "<group>"; };
+		03B4B9F31AC40EDB00ABAC27 /* WindowAdjustDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = WindowAdjustDef.pas; path = "../../Source code/Monochrome WatchMaker/WindowAdjustDef.pas"; sourceTree = SOURCE_ROOT; };
+		03B4BA5F1AC4131A00ABAC27 /* DoAboutDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = DoAboutDef.pas; path = "../../Source code/Monochrome WatchMaker/DoAboutDef.pas"; sourceTree = SOURCE_ROOT; };
+		03BC7A741AD27EAD00DD5308 /* GeneboxButtonHandleEventDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = GeneboxButtonHandleEventDef.pas; path = "../../Source code/Monochrome WatchMaker/GeneboxButtonHandleEventDef.pas"; sourceTree = SOURCE_ROOT; };
+		03BC7A841AD2809600DD5308 /* CursorDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CursorDefs.pas; path = "../../Source code/Monochrome WatchMaker/CursorDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03BC7ADB1AD2882800DD5308 /* HIBoxEventHandlerDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBoxEventHandlerDef.pas; path = "../../Source code/Monochrome WatchMaker/HIBoxEventHandlerDef.pas"; sourceTree = SOURCE_ROOT; };
+		03BC7AE11AD288F600DD5308 /* HIBoxTypes.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBoxTypes.pas; path = "../../Source code/Monochrome WatchMaker/HIBoxTypes.pas"; sourceTree = "<group>"; };
+		03BC7B1B1AD28AAA00DD5308 /* HIBoxSlideDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBoxSlideDef.pas; path = "../../Source code/Monochrome WatchMaker/HIBoxSlideDef.pas"; sourceTree = SOURCE_ROOT; };
+		03BC7B561AD298FF00DD5308 /* HIBoxControlDrawDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBoxControlDrawDef.pas; path = "../../Source code/Monochrome WatchMaker/HIBoxControlDrawDef.pas"; sourceTree = "<group>"; };
+		03C15BFA1AD7C5A8004B5330 /* PedigreeTypes.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PedigreeTypes.pas; path = "../../Source code/Monochrome WatchMaker/PedigreeTypes.pas"; sourceTree = SOURCE_ROOT; };
+		03C15C441AD7C8D0004B5330 /* AnimationTypes.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AnimationTypes.pas; path = "../../Source code/Monochrome WatchMaker/AnimationTypes.pas"; sourceTree = SOURCE_ROOT; };
+		03C15CF91AD7E476004B5330 /* AnimationDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AnimationDefs.pas; path = "../../Source code/Monochrome WatchMaker/AnimationDefs.pas"; sourceTree = "<group>"; };
+		03C3F0D11AC2CFD80062D9C4 /* AlbumDoClear.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = AlbumDoClear.pas; sourceTree = "<group>"; };
+		03C3F0D21AC2CFD80062D9C4 /* CheckPastableDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = CheckPastableDef.pas; sourceTree = "<group>"; };
+		03C3F0D31AC2CFD80062D9C4 /* ConcoctDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = ConcoctDefs.pas; sourceTree = "<group>"; };
+		03C3F0D41AC2CFD80062D9C4 /* DevelopDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = DevelopDefs.pas; sourceTree = "<group>"; };
+		03C3F0D51AC2CFD80062D9C4 /* DoSaltationDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = DoSaltationDef.pas; sourceTree = "<group>"; };
+		03C3F0D61AC2CFD80062D9C4 /* DrawPicDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = DrawPicDefs.pas; sourceTree = "<group>"; };
+		03C3F0D71AC2CFD80062D9C4 /* FlickerTriangleDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = FlickerTriangleDefs.pas; sourceTree = "<group>"; };
+		03C3F0D81AC2CFD80062D9C4 /* GeneboxDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = GeneboxDefs.pas; sourceTree = "<group>"; };
+		03C3F0D91AC2CFD80062D9C4 /* InitializeAnimalsDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitializeAnimalsDefs.pas; sourceTree = "<group>"; };
+		03C3F0DA1AC2CFD80062D9C4 /* GeneboxManipulationDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = GeneboxManipulationDef.pas; sourceTree = "<group>"; };
+		03C3F0DB1AC2CFD80062D9C4 /* MorphGlobals.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = MorphGlobals.pas; sourceTree = "<group>"; };
+		03C3F0DC1AC2CFD80062D9C4 /* PersonDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = PersonDefs.pas; sourceTree = "<group>"; };
+		03C3F0DD1AC2CFD80062D9C4 /* PersonSerialization.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = PersonSerialization.pas; sourceTree = "<group>"; };
+		03C3F0DE1AC2CFD80062D9C4 /* RandSwellDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = RandSwellDef.pas; sourceTree = "<group>"; };
+		03C3F0DF1AC2CFD80062D9C4 /* ReproduceDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = ReproduceDef.pas; sourceTree = "<group>"; };
+		03C3F0E01AC2CFD80062D9C4 /* AlbumUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AlbumUtil.pas; path = "../../Source code/Monochrome WatchMaker/AlbumUtil.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0E21AC2CFD80062D9C4 /* WatchmakerCommands.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = WatchmakerCommands.pas; path = "../../Source code/Monochrome WatchMaker/WatchmakerCommands.pas"; sourceTree = "<group>"; };
+		03C3F0E31AC2CFD80062D9C4 /* Serialization.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Serialization.pas; path = "../../Source code/Monochrome WatchMaker/Serialization.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0E51AC2CFD80062D9C4 /* Initialize.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Initialize.pas; path = "../../Source code/Monochrome WatchMaker/Initialize.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0E61AC2CFD80062D9C4 /* CommandHandlerDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CommandHandlerDef.pas; path = "../../Source code/Monochrome WatchMaker/CommandHandlerDef.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0E71AC2CFD80062D9C4 /* TriangleUtils.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = TriangleUtils.pas; path = "../../Source code/Monochrome WatchMaker/TriangleUtils.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0E81AC2CFD80062D9C4 /* TriangleDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = TriangleDefs.pas; path = "../../Source code/Monochrome WatchMaker/TriangleDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0E91AC2CFD80062D9C4 /* SnapDevelopDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SnapDevelopDef.pas; path = "../../Source code/Monochrome WatchMaker/SnapDevelopDef.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0EA1AC2CFD80062D9C4 /* SlideDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SlideDefs.pas; path = "../../Source code/Monochrome WatchMaker/SlideDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0EB1AC2CFD80062D9C4 /* SetItemStateDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SetItemStateDefs.pas; path = "../../Source code/Monochrome WatchMaker/SetItemStateDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0EC1AC2CFD80062D9C4 /* RectDrawDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = RectDrawDefs.pas; path = "../../Source code/Monochrome WatchMaker/RectDrawDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0ED1AC2CFD80062D9C4 /* PlaybackWindowDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PlaybackWindowDefs.pas; path = "../../Source code/Monochrome WatchMaker/PlaybackWindowDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0EE1AC2CFD80062D9C4 /* PlaybackGeomUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PlaybackGeomUtil.pas; path = "../../Source code/Monochrome WatchMaker/PlaybackGeomUtil.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0EF1AC2CFD80062D9C4 /* PicDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = PicDefs.pas; path = "../../Source code/Monochrome WatchMaker/PicDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F01AC2CFD80062D9C4 /* Pedigree.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Pedigree.pas; path = "../../Source code/Monochrome WatchMaker/Pedigree.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F11AC2CFD80062D9C4 /* ModeDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = ModeDefs.pas; path = "../../Source code/Monochrome WatchMaker/ModeDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F21AC2CFD80062D9C4 /* Miscellaneous.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Miscellaneous.pas; path = "../../Source code/Monochrome WatchMaker/Miscellaneous.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F31AC2CFD80062D9C4 /* MessageDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = MessageDefs.pas; path = "../../Source code/Monochrome WatchMaker/MessageDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F41AC2CFD80062D9C4 /* MainWindowInit.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = MainWindowInit.pas; path = "../../Source code/Monochrome WatchMaker/MainWindowInit.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F51AC2CFD80062D9C4 /* MainWindowDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = MainWindowDefs.pas; path = "../../Source code/Monochrome WatchMaker/MainWindowDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F61AC2CFD80062D9C4 /* LeftRightPosRung.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = LeftRightPosRung.pas; path = "../../Source code/Monochrome WatchMaker/LeftRightPosRung.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F71AC2CFD80062D9C4 /* Globals.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Globals.pas; path = "../../Source code/Monochrome WatchMaker/Globals.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F81AC2CFD80062D9C4 /* FossilsExistDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = FossilsExistDefs.pas; path = "../../Source code/Monochrome WatchMaker/FossilsExistDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0F91AC2CFD80062D9C4 /* EvolveDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = EvolveDefs.pas; path = "../../Source code/Monochrome WatchMaker/EvolveDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0FA1AC2CFD80062D9C4 /* ErrorUnit.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = ErrorUnit.pas; path = "../../Source code/Monochrome WatchMaker/ErrorUnit.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0FC1AC2CFD80062D9C4 /* DriftSweep.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = DriftSweep.pas; path = "../../Source code/Monochrome WatchMaker/DriftSweep.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0FD1AC2CFD80062D9C4 /* DialogGeomDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = DialogGeomDefs.pas; path = "../../Source code/Monochrome WatchMaker/DialogGeomDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0FE1AC2CFD80062D9C4 /* CursorAdjustDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CursorAdjustDefs.pas; path = "../../Source code/Monochrome WatchMaker/CursorAdjustDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F0FF1AC2CFD80062D9C4 /* CreateHistoryFileCarbon.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = CreateHistoryFileCarbon.pas; path = "../../Source code/Monochrome WatchMaker/CreateHistoryFileCarbon.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F1001AC2CFD80062D9C4 /* BoxesDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = BoxesDefs.pas; path = "../../Source code/Monochrome WatchMaker/BoxesDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F1011AC2CFD80062D9C4 /* Blind_Watchmaker.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = Blind_Watchmaker.pas; path = "../../Source code/Monochrome WatchMaker/Blind_Watchmaker.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F1021AC2CFD80062D9C4 /* AlbumPlayback.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = AlbumPlayback.pas; path = "../../Source code/Monochrome WatchMaker/AlbumPlayback.pas"; sourceTree = SOURCE_ROOT; };
+		03C3F1371AC2D0220062D9C4 /* SerializationUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SerializationUtil.pas; path = "../../Source code/Common/SerializationUtil.pas"; sourceTree = SOURCE_ROOT; };
+		03DFE4CA1AD44A2E00EF918A /* HIBoxesEventHandlerDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBoxesEventHandlerDef.pas; path = "../../Source code/Monochrome WatchMaker/HIBoxesEventHandlerDef.pas"; sourceTree = SOURCE_ROOT; };
+		03DFE72B1AD45BA000EF918A /* GeneboxEventHandlerDef.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = GeneboxEventHandlerDef.pas; sourceTree = "<group>"; };
+		03DFECF51AD4A1EC00EF918A /* HIBreedModelDefs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIBreedModelDefs.pas; path = "../../Source code/Monochrome WatchMaker/HIBreedModelDefs.pas"; sourceTree = SOURCE_ROOT; };
+		03DFEFE51AD4E06300EF918A /* HIViewUtils.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = HIViewUtils.pas; path = "../../Source code/Monochrome WatchMaker/HIViewUtils.pas"; sourceTree = SOURCE_ROOT; };
+		4809C4EA0AB9580800D1B097 /* libfpc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfpc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D39650AB597CC00DA2F98 /* MonochromeBiomorphsX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonochromeBiomorphsX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D39A30AB59A5B00DA2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48C60B080AB972B4004EF347 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		DD9A81C90BE62E840073A464 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD9A81CB0BE62E840073A464 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = locversion.plist; sourceTree = "<group>"; };
+		F995F0B91AFBFDD60012A4AA /* BW2.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = BW2.r; path = "../../Source code/Monochrome WatchMaker/Mono/BW2.r"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4809C48A0AB8CADC00D1B097 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48C60A570AB971A3004EF347 /* libfpc.a in Frameworks */,
+				48C60B090AB972B4004EF347 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C3F0D01AC2CFD80062D9C4 /* Mono */ = {
+			isa = PBXGroup;
+			children = (
+				03DFECF51AD4A1EC00EF918A /* HIBreedModelDefs.pas */,
+				03DFE72B1AD45BA000EF918A /* GeneboxEventHandlerDef.pas */,
+				03BC7A841AD2809600DD5308 /* CursorDefs.pas */,
+				03BC7A741AD27EAD00DD5308 /* GeneboxButtonHandleEventDef.pas */,
+				0352D1E21AD259E6001F3041 /* GeneboxTypes.pas */,
+				0352D1DA1AD25929001F3041 /* GeneboxButtonDefs.pas */,
+				0318B03C1ACFF56800EB2E7B /* BarnYardDefs.pas */,
+				03AE248A1AC4ACB4006C298A /* BiomorphCommandDef.pas */,
+				03B4B9AF1AC40C4F00ABAC27 /* MenuGreyAdjustDefs.pas */,
+				036D235A1AC4041400F53E64 /* InitializeMorphMenusDef.pas */,
+				03C3F0D11AC2CFD80062D9C4 /* AlbumDoClear.pas */,
+				03C3F0D21AC2CFD80062D9C4 /* CheckPastableDef.pas */,
+				03C3F0D31AC2CFD80062D9C4 /* ConcoctDefs.pas */,
+				03C3F0D41AC2CFD80062D9C4 /* DevelopDefs.pas */,
+				03C3F0D51AC2CFD80062D9C4 /* DoSaltationDef.pas */,
+				03C3F0D61AC2CFD80062D9C4 /* DrawPicDefs.pas */,
+				03C3F0D71AC2CFD80062D9C4 /* FlickerTriangleDefs.pas */,
+				03C3F0D81AC2CFD80062D9C4 /* GeneboxDefs.pas */,
+				03C3F0D91AC2CFD80062D9C4 /* InitializeAnimalsDefs.pas */,
+				03C3F0DA1AC2CFD80062D9C4 /* GeneboxManipulationDef.pas */,
+				03C3F0DB1AC2CFD80062D9C4 /* MorphGlobals.pas */,
+				03AE27B01AC4CFB1006C298A /* InitialModeDef.pas */,
+				03C3F0DC1AC2CFD80062D9C4 /* PersonDefs.pas */,
+				03C3F0DD1AC2CFD80062D9C4 /* PersonSerialization.pas */,
+				03C3F0DE1AC2CFD80062D9C4 /* RandSwellDef.pas */,
+				03C3F0DF1AC2CFD80062D9C4 /* ReproduceDef.pas */,
+			);
+			name = Mono;
+			path = "../../Source code/Monochrome WatchMaker/Mono";
+			sourceTree = SOURCE_ROOT;
+		};
+		488D39320AB5966900DA2F98 = {
+			isa = PBXGroup;
+			children = (
+				488D399A0AB599C800DA2F98 /* Source */,
+				488D399B0AB599D400DA2F98 /* Resources */,
+				488D39660AB597CC00DA2F98 /* Products */,
+				48C60B080AB972B4004EF347 /* Carbon.framework */,
+				488D39A30AB59A5B00DA2F98 /* Info.plist */,
+			);
+			comments = "Template for Pascal/C/C++ development.";
+			sourceTree = "<group>";
+		};
+		488D39660AB597CC00DA2F98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				488D39650AB597CC00DA2F98 /* MonochromeBiomorphsX.app */,
+				4809C4EA0AB9580800D1B097 /* libfpc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		488D399A0AB599C800DA2F98 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0379D4B91AE164AD006A3F03 /* BoxesMoreFewer.pas */,
+				0379D4AD1AE16417006A3F03 /* ClipboardingDefs.pas */,
+				03C15C441AD7C8D0004B5330 /* AnimationTypes.pas */,
+				03C15CF91AD7E476004B5330 /* AnimationDefs.pas */,
+				03C15BFA1AD7C5A8004B5330 /* PedigreeTypes.pas */,
+				03DFEFE51AD4E06300EF918A /* HIViewUtils.pas */,
+				03DFE4CA1AD44A2E00EF918A /* HIBoxesEventHandlerDef.pas */,
+				03BC7B561AD298FF00DD5308 /* HIBoxControlDrawDef.pas */,
+				03BC7B1B1AD28AAA00DD5308 /* HIBoxSlideDef.pas */,
+				03BC7AE11AD288F600DD5308 /* HIBoxTypes.pas */,
+				03BC7ADB1AD2882800DD5308 /* HIBoxEventHandlerDef.pas */,
+				0318B1AD1AD05DEB00EB2E7B /* AlbumDefs.pas */,
+				039F5FF11ACCFD9000DA2BB3 /* HIBoxDefs.pas */,
+				03AE2CD71AC52E2B006C298A /* EngineeringDefs.pas */,
+				03AE249C1AC4ACFC006C298A /* InitializeMenusDef.pas */,
+				03B4BA5F1AC4131A00ABAC27 /* DoAboutDef.pas */,
+				03B4B9F31AC40EDB00ABAC27 /* WindowAdjustDef.pas */,
+				03C3F1371AC2D0220062D9C4 /* SerializationUtil.pas */,
+				03C3F0D01AC2CFD80062D9C4 /* Mono */,
+				03C3F0E01AC2CFD80062D9C4 /* AlbumUtil.pas */,
+				03C3F0E21AC2CFD80062D9C4 /* WatchmakerCommands.pas */,
+				03C3F0E31AC2CFD80062D9C4 /* Serialization.pas */,
+				03C3F0E51AC2CFD80062D9C4 /* Initialize.pas */,
+				03C3F0E61AC2CFD80062D9C4 /* CommandHandlerDef.pas */,
+				03C3F0E71AC2CFD80062D9C4 /* TriangleUtils.pas */,
+				03C3F0E81AC2CFD80062D9C4 /* TriangleDefs.pas */,
+				03C3F0E91AC2CFD80062D9C4 /* SnapDevelopDef.pas */,
+				03C3F0EA1AC2CFD80062D9C4 /* SlideDefs.pas */,
+				03C3F0EB1AC2CFD80062D9C4 /* SetItemStateDefs.pas */,
+				03C3F0EC1AC2CFD80062D9C4 /* RectDrawDefs.pas */,
+				03C3F0ED1AC2CFD80062D9C4 /* PlaybackWindowDefs.pas */,
+				03C3F0EE1AC2CFD80062D9C4 /* PlaybackGeomUtil.pas */,
+				03C3F0EF1AC2CFD80062D9C4 /* PicDefs.pas */,
+				03C3F0F01AC2CFD80062D9C4 /* Pedigree.pas */,
+				03C3F0F31AC2CFD80062D9C4 /* MessageDefs.pas */,
+				03C3F0F11AC2CFD80062D9C4 /* ModeDefs.pas */,
+				03C3F0F21AC2CFD80062D9C4 /* Miscellaneous.pas */,
+				03C3F0F41AC2CFD80062D9C4 /* MainWindowInit.pas */,
+				03C3F0F51AC2CFD80062D9C4 /* MainWindowDefs.pas */,
+				03C3F0F61AC2CFD80062D9C4 /* LeftRightPosRung.pas */,
+				03C3F0F71AC2CFD80062D9C4 /* Globals.pas */,
+				03C3F0F81AC2CFD80062D9C4 /* FossilsExistDefs.pas */,
+				03C3F0F91AC2CFD80062D9C4 /* EvolveDefs.pas */,
+				03C3F0FA1AC2CFD80062D9C4 /* ErrorUnit.pas */,
+				03C3F0FC1AC2CFD80062D9C4 /* DriftSweep.pas */,
+				03C3F0FD1AC2CFD80062D9C4 /* DialogGeomDefs.pas */,
+				03C3F0FE1AC2CFD80062D9C4 /* CursorAdjustDefs.pas */,
+				03C3F0FF1AC2CFD80062D9C4 /* CreateHistoryFileCarbon.pas */,
+				03C3F1001AC2CFD80062D9C4 /* BoxesDefs.pas */,
+				03C3F1011AC2CFD80062D9C4 /* Blind_Watchmaker.pas */,
+				03C3F1021AC2CFD80062D9C4 /* AlbumPlayback.pas */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		488D399B0AB599D400DA2F98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03AE27121AC4C749006C298A /* BW.nib */,
+				F995F0B91AFBFDD60012A4AA /* BW2.r */,
+				0365E64A1AAEBB8A00695028 /* PrenatalSonogram.png */,
+				DD9A81C70BE62E840073A464 /* English.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DD9A81C70BE62E840073A464 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				DD9A81C80BE62E840073A464 /* InfoPlist.strings */,
+				DD9A81CA0BE62E840073A464 /* locversion.plist */,
+			);
+			path = English.lproj;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4809C4E90AB9580800D1B097 /* fpc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4809C4ED0AB9584400D1B097 /* Build configuration list for PBXNativeTarget "fpc" */;
+			buildPhases = (
+				4809C4EB0AB9581800D1B097 /* Build libfpc.a */,
+				48D58C590ABAA14B00D2D511 /* Compile Pascal Sources */,
+			);
+			buildRules = (
+			);
+			comments = "This target takes care of FPC everything. It has two trivial custom scripts: one to build the FPC runtime (libfpc.a) and one two compile pascal source code.\n";
+			dependencies = (
+			);
+			name = fpc;
+			productName = fpc;
+			productReference = 4809C4EA0AB9580800D1B097 /* libfpc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		488D39640AB597CC00DA2F98 /* MonochromeBiomorphsX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 488D39690AB597CD00DA2F98 /* Build configuration list for PBXNativeTarget "MonochromeBiomorphsX" */;
+			buildPhases = (
+				488D39610AB597CC00DA2F98 /* Resources */,
+				488D39980AB599BA00DA2F98 /* Rez */,
+				4809C4340AB8B93B00D1B097 /* Sources */,
+				4809C48A0AB8CADC00D1B097 /* Frameworks */,
+			);
+			buildRules = (
+				4809C46B0AB8C19800D1B097 /* PBXBuildRule */,
+			);
+			dependencies = (
+				48C60A550AB97176004EF347 /* PBXTargetDependency */,
+			);
+			name = MonochromeBiomorphsX;
+			productName = MonochromeBiomorphsX;
+			productReference = 488D39650AB597CC00DA2F98 /* MonochromeBiomorphsX.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		488D39340AB5966900DA2F98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+			};
+			buildConfigurationList = 488D39350AB5966900DA2F98 /* Build configuration list for PBXProject "MonochromeBiomorphsX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 488D39320AB5966900DA2F98;
+			productRefGroup = 488D39660AB597CC00DA2F98 /* Products */;
+			projectDirPath = "";
+			projectRoot = ../..;
+			targets = (
+				488D39640AB597CC00DA2F98 /* MonochromeBiomorphsX */,
+				4809C4E90AB9580800D1B097 /* fpc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		488D39610AB597CC00DA2F98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9A81CE0BE62E840073A464 /* InfoPlist.strings in Resources */,
+				DD9A81CF0BE62E840073A464 /* locversion.plist in Resources */,
+				0365E64B1AAEBB8A00695028 /* PrenatalSonogram.png in Resources */,
+				03AE27141AC4C749006C298A /* BW.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		488D39980AB599BA00DA2F98 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F995F0BA1AFBFDD60012A4AA /* BW2.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4809C4EB0AB9581800D1B097 /* Build libfpc.a */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "The current FPC runtime is distributed as (a massive) collection of .o files. This run script combines the .o files into an archive, making linking (a lot) easier since we don't have to think about what to link with (i.e the linker will extract what's needed from the archive).";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build libfpc.a";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/libfpc.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Build libfpc.a\n# 9 July 2006 (Jonas Maebe)\n#   * original version\n# 15 September 2006 (Erling Johansen)\n#   * simplified\n# 26 April 2007 (Jonas Maebe)\n#  * added support for ppc64/x86_64 (future proofing)\n# 4 August 2007 (Jonas Maebe)\n#  * call ranlib after ar so the toc of the library is up-to-date\n# 3 January 2009 (Jonas Maebe)\n#  * support for ARM\n# 24 October 2009 (Jonas Maebe)\n#  * don't hardcode version 2.3.1 anymore under certain circumstances\n#  * use the FPC_RTL_UNITS_BASE setting\n\nrm -f \"$TARGET_TEMP_DIR\"/*.a\nnarch=\n\nfor arch in $ARCHS\ndo\n\tcase $arch in\n\t\tppc) fpc_arch=ppc; fpc_rtl=powerpc ;;\n\t\ti386) fpc_arch=386; fpc_rtl=i386 ;;\n\t\tppc64) fpc_arch=ppc64; fpc_rtl=powerpc64 ;;\n\t\tx86_64) fpc_arch=x64; fpc_rtl=x86_64 ;;\n\t\tarm*) fpc_arch=arm; fpc_rtl=arm ;;\n\t\t*) continue\n\tesac\n\tif test -e /usr/local/bin/ppc${fpc_arch}\n\tthen\n\t\tupath=\"$FPC_RTL_UNITS_BASE\"/`/usr/local/bin/ppc${fpc_arch} -iV`/units/${fpc_rtl}-darwin\n\t\tar -q \"$TARGET_TEMP_DIR\"/libfpc${narch}.a `ls \"$upath\"/*/*.o | grep -v 'darwin/fv/'`\n\t\tranlib \"$TARGET_TEMP_DIR\"/libfpc${narch}.a\n\t\tnarch=${narch}x\n\telse\n\t\techo error: can\\'t build libfpc.a for $arch \\(/usr/local/bin/ppc${fpc_arch} not found\\)\n\tfi\ndone\n\nif test ${#narch} -gt 1\nthen\n\tlipo -create \"$TARGET_TEMP_DIR\"/libfpc*.a -output \"$TARGET_BUILD_DIR\"/libfpc.a\n\trm -f \"$TARGET_TEMP_DIR\"/*.a\nelse\n\tmv \"$TARGET_TEMP_DIR\"/libfpc.a \"$TARGET_BUILD_DIR\"\nfi\n";
+		};
+		48D58C590ABAA14B00D2D511 /* Compile Pascal Sources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "This run script compiles (all) pascal sources into assembler by calling FPC with the main program (only) as argument. FPC will in turn compile dependent units as necessary. The Compile Sources build phase will detect the outdated .o files and assemble the modified sources (because the Pascal source files rule states that output from pascal compilation is assembler files in derived source folders).   ";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Pascal Sources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Compile Pascal Sources\n# 15sep06,ejo  written.\n# 26 April 2007 - Jonas Maebe\n#  * support for ppc64 and x86_64\n#  * don't run when cleaning (in case running scripts when cleaning is ever fixed by Apple)\n#  * split the options in FPC_COMMON_FLAGS (common to all configurations) and FPC_CFG_SPECIFIC_FLAGS (per configuration)\n# 4 January 2009 - Jonas Maebe\n#  * support for ARM\n# 24 October 2009 - Jonas Maebe\n#  * don't hardcode 2.3.1 in some cases anymore\n\nif [ x\"$ACTION\" != \"xbuild\" ]; then\n  # in case running scripts during cleaning gets fixed\n  exit 0\nfi\n\nif test ! -e \"$FPC_MAIN_FILE\"\nthen\n\techo error: FPC_MAIN_FILE not found \\($FPC_MAIN_FILE\\)\n\texit 2\nfi\n\nfor variant in $BUILD_VARIANTS\ndo\n\tfor arch in $ARCHS\n\tdo\n\t\tcase $arch in\n\t\t\tppc) fpc_arch=ppc; fpc_rtl=powerpc ;;\n\t\t\ti386) fpc_arch=386; fpc_rtl=i386 ;;\n\t\t\tppc64) fpc_arch=ppc64; fpc_rtl=powerpc64 ;;\n\t\t\tx86_64) fpc_arch=x64; fpc_rtl=x86_64 ;;\n\t\t\tarm*) fpc_arch=arm; fpc_rtl=arm ;;\n\t\t\t*) continue\n\t\tesac\n\n\t\tapp_target_temp_dir=$CONFIGURATION_TEMP_DIR/`basename \"$PROJECT_TEMP_DIR\"`\n\t\tout_dir=$app_target_temp_dir/`basename \"$DERIVED_SOURCES_DIR\"`-$variant/$arch\n\t\tfpccompiler=\"/usr/local/bin/ppc${fpc_arch}\"\n\t\tif test -e \"$fpccompiler\"\n\t\tthen\n\t\t\tfpcversion=`\"$fpccompiler\" -iV`\n\t\t\tmainunitdir=\"$FPC_RTL_UNITS_BASE/$fpcversion/units/${fpc_rtl}-darwin/\"\n\t\t\tmkdir -p \"$out_dir\"\n\t\t\tcd \"$out_dir\"\n\t\t\techo \"Compiling to $out_dir\"\n\t\t\trm -f compilefailed\n\t\n\t\t\t# delete any ppu files for which the \".s\" file was somehow deleted (Xcode does that sometimes in case of errors),\n\t\t\t# so that FPC will recompile the unit\n\t\t\tfor file in *.ppu\n\t\t\tdo\n\t\t\t\tasmname=`basename \"$file\" ppu`s\n\t\t\t\tif [ ! -f \"$asmname\" ]; then\n\t\t\t\t\t# can fail in case there are no .ppu files, since then it will try to erase the file with name '*.ppu'\n\t\t\t\t\t# -> use -f so it won't give an error message\n\t\t\t\t\trm -f \"$file\"\n\t\t\t\tfi\n\t\t\tdone\n\n\t\t\techo $fpccompiler -n -l -viwn -a -s -vbr -FE. $FPC_COMMON_OPTIONS $FPC_SPECIFIC_OPTIONS '\\' >ppccmd.sh\n\t\t\techo -Fi\\\"`dirname \"$FPC_MAIN_FILE\"`\\\" '\\' >>ppccmd.sh\n\t\t\techo -Fu\"$mainunitdir/*\" -Fu\"$mainunitdir/rtl\" '\\' >>ppccmd.sh\n\t\t\t# allow FPC_UNIT_PATHS to override default search directory\n\t\t\techo $FPC_UNIT_PATHS '\\' >>ppccmd.sh\n\t\t\techo \\\"$FPC_MAIN_FILE\\\" >>ppccmd.sh\n\t\t\t# cat ppccmd.sh\n\n\t\t\t/bin/sh ppccmd.sh\n\t\t\tif [ $? != 0 ]; then\n\t\t\t\ttouch \"$out_dir\"/compilefailed\n\t\t\t\texit 1\n\t\t\tfi\n\t\telse\n\t\t\ttouch \"$out_dir\"/compilefailed\n\t\t\techo $FPC_MAIN_FILE:1: error: 1: can\\'t compile for $arch \\(ppc${fpc_arch} not found\\)\n\t\t\texit 2\n\t\tfi\n\tdone\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4809C4340AB8B93B00D1B097 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C3F1031AC2CFD80062D9C4 /* AlbumDoClear.pas in Sources */,
+				03C3F1041AC2CFD80062D9C4 /* CheckPastableDef.pas in Sources */,
+				03C3F1051AC2CFD80062D9C4 /* ConcoctDefs.pas in Sources */,
+				03C3F1061AC2CFD80062D9C4 /* DevelopDefs.pas in Sources */,
+				03C3F1071AC2CFD80062D9C4 /* DoSaltationDef.pas in Sources */,
+				03C3F1081AC2CFD80062D9C4 /* DrawPicDefs.pas in Sources */,
+				03C3F1091AC2CFD80062D9C4 /* FlickerTriangleDefs.pas in Sources */,
+				03C3F10A1AC2CFD80062D9C4 /* GeneboxDefs.pas in Sources */,
+				03C3F10B1AC2CFD80062D9C4 /* InitializeAnimalsDefs.pas in Sources */,
+				03C3F10C1AC2CFD80062D9C4 /* GeneboxManipulationDef.pas in Sources */,
+				03C3F10D1AC2CFD80062D9C4 /* MorphGlobals.pas in Sources */,
+				03C3F10E1AC2CFD80062D9C4 /* PersonDefs.pas in Sources */,
+				03C3F10F1AC2CFD80062D9C4 /* PersonSerialization.pas in Sources */,
+				03C3F1101AC2CFD80062D9C4 /* RandSwellDef.pas in Sources */,
+				03C3F1111AC2CFD80062D9C4 /* ReproduceDef.pas in Sources */,
+				03C3F1121AC2CFD80062D9C4 /* AlbumUtil.pas in Sources */,
+				03C3F1141AC2CFD80062D9C4 /* WatchmakerCommands.pas in Sources */,
+				03C3F1151AC2CFD80062D9C4 /* Serialization.pas in Sources */,
+				03C3F1171AC2CFD80062D9C4 /* Initialize.pas in Sources */,
+				03C3F1181AC2CFD80062D9C4 /* CommandHandlerDef.pas in Sources */,
+				03C3F1191AC2CFD80062D9C4 /* TriangleUtils.pas in Sources */,
+				03C3F11A1AC2CFD80062D9C4 /* TriangleDefs.pas in Sources */,
+				03C3F11B1AC2CFD80062D9C4 /* SnapDevelopDef.pas in Sources */,
+				03C3F11C1AC2CFD80062D9C4 /* SlideDefs.pas in Sources */,
+				03C3F11D1AC2CFD80062D9C4 /* SetItemStateDefs.pas in Sources */,
+				03C3F11E1AC2CFD80062D9C4 /* RectDrawDefs.pas in Sources */,
+				03C3F11F1AC2CFD80062D9C4 /* PlaybackWindowDefs.pas in Sources */,
+				03C3F1201AC2CFD80062D9C4 /* PlaybackGeomUtil.pas in Sources */,
+				03C3F1211AC2CFD80062D9C4 /* PicDefs.pas in Sources */,
+				03C3F1221AC2CFD80062D9C4 /* Pedigree.pas in Sources */,
+				03C3F1231AC2CFD80062D9C4 /* ModeDefs.pas in Sources */,
+				03C3F1241AC2CFD80062D9C4 /* Miscellaneous.pas in Sources */,
+				03C3F1251AC2CFD80062D9C4 /* MessageDefs.pas in Sources */,
+				03C3F1261AC2CFD80062D9C4 /* MainWindowInit.pas in Sources */,
+				03C3F1271AC2CFD80062D9C4 /* MainWindowDefs.pas in Sources */,
+				03C3F1281AC2CFD80062D9C4 /* LeftRightPosRung.pas in Sources */,
+				03C3F1291AC2CFD80062D9C4 /* Globals.pas in Sources */,
+				03C3F12A1AC2CFD80062D9C4 /* FossilsExistDefs.pas in Sources */,
+				03C3F12B1AC2CFD80062D9C4 /* EvolveDefs.pas in Sources */,
+				03C3F12C1AC2CFD80062D9C4 /* ErrorUnit.pas in Sources */,
+				03C3F12E1AC2CFD80062D9C4 /* DriftSweep.pas in Sources */,
+				03C3F12F1AC2CFD80062D9C4 /* DialogGeomDefs.pas in Sources */,
+				03C3F1301AC2CFD80062D9C4 /* CursorAdjustDefs.pas in Sources */,
+				03C3F1311AC2CFD80062D9C4 /* CreateHistoryFileCarbon.pas in Sources */,
+				03C3F1321AC2CFD80062D9C4 /* BoxesDefs.pas in Sources */,
+				03C3F1331AC2CFD80062D9C4 /* Blind_Watchmaker.pas in Sources */,
+				03C3F1341AC2CFD80062D9C4 /* AlbumPlayback.pas in Sources */,
+				03C3F1381AC2D0220062D9C4 /* SerializationUtil.pas in Sources */,
+				036D235B1AC4041400F53E64 /* InitializeMorphMenusDef.pas in Sources */,
+				03B4B9B01AC40C4F00ABAC27 /* MenuGreyAdjustDefs.pas in Sources */,
+				03B4B9F41AC40EDB00ABAC27 /* WindowAdjustDef.pas in Sources */,
+				03B4BA601AC4131A00ABAC27 /* DoAboutDef.pas in Sources */,
+				03AE248B1AC4ACB4006C298A /* BiomorphCommandDef.pas in Sources */,
+				03AE249D1AC4ACFC006C298A /* InitializeMenusDef.pas in Sources */,
+				03AE27B11AC4CFB1006C298A /* InitialModeDef.pas in Sources */,
+				03AE2CD81AC52E2B006C298A /* EngineeringDefs.pas in Sources */,
+				039F5FF21ACCFD9000DA2BB3 /* HIBoxDefs.pas in Sources */,
+				0318B03D1ACFF56800EB2E7B /* BarnYardDefs.pas in Sources */,
+				0318B1AE1AD05DEB00EB2E7B /* AlbumDefs.pas in Sources */,
+				0352D1DB1AD25929001F3041 /* GeneboxButtonDefs.pas in Sources */,
+				0352D1E31AD259E6001F3041 /* GeneboxTypes.pas in Sources */,
+				03BC7A751AD27EAD00DD5308 /* GeneboxButtonHandleEventDef.pas in Sources */,
+				03BC7A851AD2809600DD5308 /* CursorDefs.pas in Sources */,
+				03BC7ADC1AD2882800DD5308 /* HIBoxEventHandlerDef.pas in Sources */,
+				03BC7AE21AD288F600DD5308 /* HIBoxTypes.pas in Sources */,
+				03BC7B1C1AD28AAA00DD5308 /* HIBoxSlideDef.pas in Sources */,
+				03BC7B571AD298FF00DD5308 /* HIBoxControlDrawDef.pas in Sources */,
+				03DFE4CB1AD44A2E00EF918A /* HIBoxesEventHandlerDef.pas in Sources */,
+				03DFE72C1AD45BA000EF918A /* GeneboxEventHandlerDef.pas in Sources */,
+				03DFECF61AD4A1EC00EF918A /* HIBreedModelDefs.pas in Sources */,
+				03DFEFE61AD4E06300EF918A /* HIViewUtils.pas in Sources */,
+				03C15BFB1AD7C5A8004B5330 /* PedigreeTypes.pas in Sources */,
+				03C15C451AD7C8D0004B5330 /* AnimationTypes.pas in Sources */,
+				03C15CFA1AD7E476004B5330 /* AnimationDefs.pas in Sources */,
+				0379D4AE1AE16417006A3F03 /* ClipboardingDefs.pas in Sources */,
+				0379D4BA1AE164AD006A3F03 /* BoxesMoreFewer.pas in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48C60A550AB97176004EF347 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4809C4E90AB9580800D1B097 /* fpc */;
+			targetProxy = 48C60A540AB97176004EF347 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD9A81C80BE62E840073A464 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9A81C90BE62E840073A464 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DD9A81CA0BE62E840073A464 /* locversion.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9A81CB0BE62E840073A464 /* English */,
+			);
+			name = locversion.plist;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4809C4EE0AB9584400D1B097 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = fpc;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		4809C4EF0AB9584400D1B097 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = fpc;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		488D39360AB5966900DA2F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FPC_COMMON_OPTIONS = "-Mmacpas -Sgi";
+				FPC_MAIN_FILE = "$(PROJECT_DIR)/../../Source code/Monochrome WatchMaker/Blind_Watchmaker.pas";
+				FPC_RTL_UNITS_BASE = /usr/local/lib/fpc;
+				FPC_SPECIFIC_OPTIONS = " -O-1 -CRrio";
+				FPC_UNIT_PATHS = "-Fu\"$(PROJECT_DIR)/../../Source code/Monochrome WatchMaker/\" -Fu\"$(PROJECT_DIR)/../../Source code/Common/\" -Fu\"$(PROJECT_DIR)/../../Source code/Monochrome WatchMaker/Mono\" ";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.9;
+			};
+			name = Debug;
+		};
+		488D39370AB5966900DA2F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				FPC_COMMON_OPTIONS = "-Mmacpas -Sgi";
+				FPC_MAIN_FILE = "$(PROJECT_DIR)/Start.pas";
+				FPC_RTL_UNITS_BASE = /usr/local/lib/fpc;
+				FPC_SPECIFIC_OPTIONS = "-Ci- -Cr- -Co- -O3 -Xs";
+				FPC_UNIT_PATHS = "-Fu\"$(PROJECT_DIR)/Source\"";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				PRODUCT_NAME = MonochromeBiomorphsX;
+				SDKROOT = macosx10.9;
+			};
+			name = Release;
+		};
+		488D396A0AB597CD00DA2F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = MonochromeBiomorphsX;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		488D396B0AB597CD00DA2F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = MonochromeBiomorphsX;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4809C4ED0AB9584400D1B097 /* Build configuration list for PBXNativeTarget "fpc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4809C4EE0AB9584400D1B097 /* Debug */,
+				4809C4EF0AB9584400D1B097 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		488D39350AB5966900DA2F98 /* Build configuration list for PBXProject "MonochromeBiomorphsX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488D39360AB5966900DA2F98 /* Debug */,
+				488D39370AB5966900DA2F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		488D39690AB597CD00DA2F98 /* Build configuration list for PBXNativeTarget "MonochromeBiomorphsX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488D396A0AB597CD00DA2F98 /* Debug */,
+				488D396B0AB597CD00DA2F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 488D39340AB5966900DA2F98 /* Project object */;
+}

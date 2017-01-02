@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		036E19ED1AA7A496007477E4 /* Drawing.pas in Sources */ = {isa = PBXBuildFile; fileRef = 036E19EC1AA7A496007477E4 /* Drawing.pas */; };
+		03D9500A1AAF935900A56C2A /* SerializationUtil.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03D950091AAF935900A56C2A /* SerializationUtil.pas */; };
+		03DC4B2B1AA65FCF00BA5120 /* Serialization.pas in Sources */ = {isa = PBXBuildFile; fileRef = 03DC4B2A1AA65FCF00BA5120 /* Serialization.pas */; };
+		48C60A570AB971A3004EF347 /* libfpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4809C4EA0AB9580800D1B097 /* libfpc.a */; };
+		48C60B090AB972B4004EF347 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C60B080AB972B4004EF347 /* Carbon.framework */; };
+		DD9A81CE0BE62E840073A464 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD9A81C80BE62E840073A464 /* InfoPlist.strings */; };
+		DD9A81CF0BE62E840073A464 /* locversion.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9A81CA0BE62E840073A464 /* locversion.plist */; };
+		F939426C1A8A6BC0009EFD24 /* Brand_New.r in Rez */ = {isa = PBXBuildFile; fileRef = F939426B1A8A6BC0009EFD24 /* Brand_New.r */; };
+		F95CA01B1A86C998005BEEDD /* About_Arthromorphs.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95C9FF11A86C997005BEEDD /* About_Arthromorphs.pas */; };
+		F95CA0231A86C998005BEEDD /* Boxes.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95C9FF91A86C998005BEEDD /* Boxes.pas */; };
+		F95CA0241A86C998005BEEDD /* Brand_New.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95C9FFA1A86C998005BEEDD /* Brand_New.pas */; };
+		F95CA0261A86C998005BEEDD /* Breeding_Window.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95C9FFC1A86C998005BEEDD /* Breeding_Window.pas */; };
+		F95CA02A1A86C998005BEEDD /* Engineering_Window.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0001A86C998005BEEDD /* Engineering_Window.pas */; };
+		F95CA02B1A86C998005BEEDD /* Error_Alert.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0011A86C998005BEEDD /* Error_Alert.pas */; };
+		F95CA02D1A86C998005BEEDD /* Genome_Window.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0031A86C998005BEEDD /* Genome_Window.pas */; };
+		F95CA02E1A86C998005BEEDD /* HandleTheMenus.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0041A86C998005BEEDD /* HandleTheMenus.pas */; };
+		F95CA02F1A86C998005BEEDD /* Initialize.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0051A86C998005BEEDD /* Initialize.pas */; };
+		F95CA0301A86C998005BEEDD /* InitTheMenus.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0061A86C998005BEEDD /* InitTheMenus.pas */; };
+		F95CA0311A86C998005BEEDD /* MyGlobals.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0071A86C998005BEEDD /* MyGlobals.pas */; };
+		F95CA0321A86C998005BEEDD /* Preferences.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA0081A86C998005BEEDD /* Preferences.pas */; };
+		F95CA0341A86C998005BEEDD /* Richard.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA00A1A86C998005BEEDD /* Richard.pas */; };
+		F95CA0371A86C998005BEEDD /* Ted.pas in Sources */ = {isa = PBXBuildFile; fileRef = F95CA00D1A86C998005BEEDD /* Ted.pas */; };
+		F991CFE31AA0D15400A28C9E /* Brand_New.nib in Resources */ = {isa = PBXBuildFile; fileRef = F991CFE21AA0D15400A28C9E /* Brand_New.nib */; };
+		F991D1F71AA3909A00A28C9E /* Engineering_Window_Classic.pas in Sources */ = {isa = PBXBuildFile; fileRef = F991D1F61AA3909A00A28C9E /* Engineering_Window_Classic.pas */; };
+		F991D2031AA3915800A28C9E /* Engineering_Window_Carbon.pas in Sources */ = {isa = PBXBuildFile; fileRef = F991D2021AA3915800A28C9E /* Engineering_Window_Carbon.pas */; };
+		F991D20B1AA3922C00A28C9E /* Engineering_Window_Constants.pas in Sources */ = {isa = PBXBuildFile; fileRef = F991D20A1AA3922C00A28C9E /* Engineering_Window_Constants.pas */; };
+		F9E16EDD1A9B691B000171E1 /* HandleEvents.pas in Sources */ = {isa = PBXBuildFile; fileRef = F9E16EDC1A9B691B000171E1 /* HandleEvents.pas */; };
+		F9E16F1B1A9B7CBA000171E1 /* CarbonEventHandlers.pas in Sources */ = {isa = PBXBuildFile; fileRef = F9E16F1A1A9B7CBA000171E1 /* CarbonEventHandlers.pas */; };
+		F9E16F571A9B972A000171E1 /* MenuConstants.pas in Sources */ = {isa = PBXBuildFile; fileRef = F9E16F561A9B972A000171E1 /* MenuConstants.pas */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4809C46B0AB8C19800D1B097 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.pascal;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_SOURCES_DIR)-$(CURRENT_VARIANT)/$(CURRENT_ARCH)/$(INPUT_FILE_BASE).s",
+			);
+			script = "#!/bin/bash\n\n# Xcode's up-to-date checks are overzealous for us: a different SDK does not necessarily\n# mean we recompile all sources, because we do not have different units for different SDK\n# versions yet (and even if we did, not necessarily all files would be recompiled)...\n\ndestdir=\"${DERIVED_SOURCES_DIR}-${CURRENT_VARIANT}/${CURRENT_ARCH}\"\nif [ ! -f \"$destdir/compilefailed\" ]; then\n  # check whether the assembler code is newer than the source code\n  if [ \"$destdir/${INPUT_FILE_BASE}.s\" -nt \"$INPUT_FILE_PATH\" ]; then\n    # in this case we're ok, just touch the assembler file to avoid us getting here again next time\n    echo Updating assembler time stamp of \"$destdir/${INPUT_FILE_BASE}.s\"\n    touch \"$destdir/${INPUT_FILE_BASE}.s\"\n    exit 0\n  fi\n\n  echo File not found or not up-to-date: $destdir/${INPUT_FILE_BASE}.s\n  echo \"$INPUT_FILE_PATH:1: error: 1: \\\"$INPUT_FILE_PATH\\\" was not (re)compiled. If it is no longer used, please remove it from the \\\"Compile Sources\\\" phase of the \\\"$TARGETNAME\\\" target.\"\n  exit 1\nfi";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		48C60A540AB97176004EF347 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 488D39340AB5966900DA2F98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4809C4E90AB9580800D1B097;
+			remoteInfo = fpc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		036E19EC1AA7A496007477E4 /* Drawing.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Drawing.pas; sourceTree = "<group>"; };
+		03D950091AAF935900A56C2A /* SerializationUtil.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = SerializationUtil.pas; path = "../../Source code/Common/SerializationUtil.pas"; sourceTree = SOURCE_ROOT; };
+		03DC4B2A1AA65FCF00BA5120 /* Serialization.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Serialization.pas; sourceTree = "<group>"; };
+		4809C4EA0AB9580800D1B097 /* libfpc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfpc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D39650AB597CC00DA2F98 /* ArthromorphsX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArthromorphsX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D39A30AB59A5B00DA2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48C60B080AB972B4004EF347 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		DD9A81C90BE62E840073A464 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD9A81CB0BE62E840073A464 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = locversion.plist; sourceTree = "<group>"; };
+		F939426B1A8A6BC0009EFD24 /* Brand_New.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = Brand_New.r; path = "../../Source code/Arthromorphs/Brand_New.r"; sourceTree = SOURCE_ROOT; };
+		F95C9FF11A86C997005BEEDD /* About_Arthromorphs.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = About_Arthromorphs.pas; sourceTree = "<group>"; };
+		F95C9FF91A86C998005BEEDD /* Boxes.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Boxes.pas; sourceTree = "<group>"; };
+		F95C9FFA1A86C998005BEEDD /* Brand_New.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Brand_New.pas; sourceTree = "<group>"; };
+		F95C9FFC1A86C998005BEEDD /* Breeding_Window.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Breeding_Window.pas; sourceTree = "<group>"; };
+		F95CA0001A86C998005BEEDD /* Engineering_Window.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Engineering_Window.pas; sourceTree = "<group>"; };
+		F95CA0011A86C998005BEEDD /* Error_Alert.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Error_Alert.pas; sourceTree = "<group>"; };
+		F95CA0031A86C998005BEEDD /* Genome_Window.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Genome_Window.pas; sourceTree = "<group>"; };
+		F95CA0041A86C998005BEEDD /* HandleTheMenus.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = HandleTheMenus.pas; sourceTree = "<group>"; };
+		F95CA0051A86C998005BEEDD /* Initialize.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Initialize.pas; sourceTree = "<group>"; };
+		F95CA0061A86C998005BEEDD /* InitTheMenus.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = InitTheMenus.pas; sourceTree = "<group>"; };
+		F95CA0071A86C998005BEEDD /* MyGlobals.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = MyGlobals.pas; sourceTree = "<group>"; };
+		F95CA0081A86C998005BEEDD /* Preferences.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Preferences.pas; sourceTree = "<group>"; };
+		F95CA00A1A86C998005BEEDD /* Richard.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Richard.pas; sourceTree = "<group>"; };
+		F95CA00D1A86C998005BEEDD /* Ted.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Ted.pas; sourceTree = "<group>"; };
+		F991CFE21AA0D15400A28C9E /* Brand_New.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Brand_New.nib; path = "../../Source code/Arthromorphs/Brand_New.nib"; sourceTree = SOURCE_ROOT; };
+		F991D1F61AA3909A00A28C9E /* Engineering_Window_Classic.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Engineering_Window_Classic.pas; sourceTree = "<group>"; };
+		F991D2021AA3915800A28C9E /* Engineering_Window_Carbon.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Engineering_Window_Carbon.pas; sourceTree = "<group>"; };
+		F991D20A1AA3922C00A28C9E /* Engineering_Window_Constants.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = Engineering_Window_Constants.pas; sourceTree = "<group>"; };
+		F9E16EDC1A9B691B000171E1 /* HandleEvents.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = HandleEvents.pas; sourceTree = "<group>"; };
+		F9E16F1A1A9B7CBA000171E1 /* CarbonEventHandlers.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = CarbonEventHandlers.pas; sourceTree = "<group>"; };
+		F9E16F561A9B972A000171E1 /* MenuConstants.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = MenuConstants.pas; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4809C48A0AB8CADC00D1B097 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48C60A570AB971A3004EF347 /* libfpc.a in Frameworks */,
+				48C60B090AB972B4004EF347 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		488D39320AB5966900DA2F98 = {
+			isa = PBXGroup;
+			children = (
+				488D399A0AB599C800DA2F98 /* Source */,
+				488D399B0AB599D400DA2F98 /* Resources */,
+				488D39660AB597CC00DA2F98 /* Products */,
+				48C60B080AB972B4004EF347 /* Carbon.framework */,
+				488D39A30AB59A5B00DA2F98 /* Info.plist */,
+			);
+			comments = "Template for Pascal/C/C++ development.";
+			sourceTree = "<group>";
+		};
+		488D39660AB597CC00DA2F98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				488D39650AB597CC00DA2F98 /* ArthromorphsX.app */,
+				4809C4EA0AB9580800D1B097 /* libfpc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		488D399A0AB599C800DA2F98 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F95C9FF01A86C997005BEEDD /* Arthromorphs */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		488D399B0AB599D400DA2F98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F991CFE21AA0D15400A28C9E /* Brand_New.nib */,
+				F939426B1A8A6BC0009EFD24 /* Brand_New.r */,
+				DD9A81C70BE62E840073A464 /* English.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DD9A81C70BE62E840073A464 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				DD9A81C80BE62E840073A464 /* InfoPlist.strings */,
+				DD9A81CA0BE62E840073A464 /* locversion.plist */,
+			);
+			path = English.lproj;
+			sourceTree = "<group>";
+		};
+		F95C9FF01A86C997005BEEDD /* Arthromorphs */ = {
+			isa = PBXGroup;
+			children = (
+				03D950091AAF935900A56C2A /* SerializationUtil.pas */,
+				036E19EC1AA7A496007477E4 /* Drawing.pas */,
+				03DC4B2A1AA65FCF00BA5120 /* Serialization.pas */,
+				F991D20A1AA3922C00A28C9E /* Engineering_Window_Constants.pas */,
+				F991D2021AA3915800A28C9E /* Engineering_Window_Carbon.pas */,
+				F991D1F61AA3909A00A28C9E /* Engineering_Window_Classic.pas */,
+				F9E16F561A9B972A000171E1 /* MenuConstants.pas */,
+				F9E16F1A1A9B7CBA000171E1 /* CarbonEventHandlers.pas */,
+				F9E16EDC1A9B691B000171E1 /* HandleEvents.pas */,
+				F95C9FF11A86C997005BEEDD /* About_Arthromorphs.pas */,
+				F95C9FF91A86C998005BEEDD /* Boxes.pas */,
+				F95C9FFA1A86C998005BEEDD /* Brand_New.pas */,
+				F95C9FFC1A86C998005BEEDD /* Breeding_Window.pas */,
+				F95CA0001A86C998005BEEDD /* Engineering_Window.pas */,
+				F95CA0011A86C998005BEEDD /* Error_Alert.pas */,
+				F95CA0031A86C998005BEEDD /* Genome_Window.pas */,
+				F95CA0041A86C998005BEEDD /* HandleTheMenus.pas */,
+				F95CA0051A86C998005BEEDD /* Initialize.pas */,
+				F95CA0061A86C998005BEEDD /* InitTheMenus.pas */,
+				F95CA0071A86C998005BEEDD /* MyGlobals.pas */,
+				F95CA0081A86C998005BEEDD /* Preferences.pas */,
+				F95CA00A1A86C998005BEEDD /* Richard.pas */,
+				F95CA00D1A86C998005BEEDD /* Ted.pas */,
+			);
+			name = Arthromorphs;
+			path = "../../Source code/Arthromorphs";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4809C4E90AB9580800D1B097 /* fpc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4809C4ED0AB9584400D1B097 /* Build configuration list for PBXNativeTarget "fpc" */;
+			buildPhases = (
+				4809C4EB0AB9581800D1B097 /* Build libfpc.a */,
+				48D58C590ABAA14B00D2D511 /* Compile Pascal Sources */,
+			);
+			buildRules = (
+			);
+			comments = "This target takes care of FPC everything. It has two trivial custom scripts: one to build the FPC runtime (libfpc.a) and one two compile pascal source code.\n";
+			dependencies = (
+			);
+			name = fpc;
+			productName = fpc;
+			productReference = 4809C4EA0AB9580800D1B097 /* libfpc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		488D39640AB597CC00DA2F98 /* ArthromorphsX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 488D39690AB597CD00DA2F98 /* Build configuration list for PBXNativeTarget "ArthromorphsX" */;
+			buildPhases = (
+				488D39610AB597CC00DA2F98 /* Resources */,
+				488D39980AB599BA00DA2F98 /* Rez */,
+				4809C4340AB8B93B00D1B097 /* Sources */,
+				4809C48A0AB8CADC00D1B097 /* Frameworks */,
+			);
+			buildRules = (
+				4809C46B0AB8C19800D1B097 /* PBXBuildRule */,
+			);
+			dependencies = (
+				48C60A550AB97176004EF347 /* PBXTargetDependency */,
+			);
+			name = ArthromorphsX;
+			productName = ArthromorphsX;
+			productReference = 488D39650AB597CC00DA2F98 /* ArthromorphsX.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		488D39340AB5966900DA2F98 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 488D39350AB5966900DA2F98 /* Build configuration list for PBXProject "ArthromorphsX" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 488D39320AB5966900DA2F98;
+			productRefGroup = 488D39660AB597CC00DA2F98 /* Products */;
+			projectDirPath = "";
+			projectRoot = ../..;
+			targets = (
+				488D39640AB597CC00DA2F98 /* ArthromorphsX */,
+				4809C4E90AB9580800D1B097 /* fpc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		488D39610AB597CC00DA2F98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9A81CE0BE62E840073A464 /* InfoPlist.strings in Resources */,
+				DD9A81CF0BE62E840073A464 /* locversion.plist in Resources */,
+				F991CFE31AA0D15400A28C9E /* Brand_New.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		488D39980AB599BA00DA2F98 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F939426C1A8A6BC0009EFD24 /* Brand_New.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4809C4EB0AB9581800D1B097 /* Build libfpc.a */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "The current FPC runtime is distributed as (a massive) collection of .o files. This run script combines the .o files into an archive, making linking (a lot) easier since we don't have to think about what to link with (i.e the linker will extract what's needed from the archive).";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build libfpc.a";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/libfpc.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Build libfpc.a\n# 9 July 2006 (Jonas Maebe)\n#   * original version\n# 15 September 2006 (Erling Johansen)\n#   * simplified\n# 26 April 2007 (Jonas Maebe)\n#  * added support for ppc64/x86_64 (future proofing)\n# 4 August 2007 (Jonas Maebe)\n#  * call ranlib after ar so the toc of the library is up-to-date\n# 3 January 2009 (Jonas Maebe)\n#  * support for ARM\n# 24 October 2009 (Jonas Maebe)\n#  * don't hardcode version 2.3.1 anymore under certain circumstances\n#  * use the FPC_RTL_UNITS_BASE setting\n\nrm -f \"$TARGET_TEMP_DIR\"/*.a\nnarch=\n\nfor arch in $ARCHS\ndo\n\tcase $arch in\n\t\tppc) fpc_arch=ppc; fpc_rtl=powerpc ;;\n\t\ti386) fpc_arch=386; fpc_rtl=i386 ;;\n\t\tppc64) fpc_arch=ppc64; fpc_rtl=powerpc64 ;;\n\t\tx86_64) fpc_arch=x64; fpc_rtl=x86_64 ;;\n\t\tarm*) fpc_arch=arm; fpc_rtl=arm ;;\n\t\t*) continue\n\tesac\n\tif test -e /usr/local/bin/ppc${fpc_arch}\n\tthen\n\t\tupath=\"$FPC_RTL_UNITS_BASE\"/`/usr/local/bin/ppc${fpc_arch} -iV`/units/${fpc_rtl}-darwin\n\t\tar -q \"$TARGET_TEMP_DIR\"/libfpc${narch}.a `ls \"$upath\"/*/*.o | grep -v 'darwin/fv/'`\n\t\tranlib \"$TARGET_TEMP_DIR\"/libfpc${narch}.a\n\t\tnarch=${narch}x\n\telse\n\t\techo error: can\\'t build libfpc.a for $arch \\(/usr/local/bin/ppc${fpc_arch} not found\\)\n\tfi\ndone\n\nif test ${#narch} -gt 1\nthen\n\tlipo -create \"$TARGET_TEMP_DIR\"/libfpc*.a -output \"$TARGET_BUILD_DIR\"/libfpc.a\n\trm -f \"$TARGET_TEMP_DIR\"/*.a\nelse\n\tmv \"$TARGET_TEMP_DIR\"/libfpc.a \"$TARGET_BUILD_DIR\"\nfi\n";
+		};
+		48D58C590ABAA14B00D2D511 /* Compile Pascal Sources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "This run script compiles (all) pascal sources into assembler by calling FPC with the main program (only) as argument. FPC will in turn compile dependent units as necessary. The Compile Sources build phase will detect the outdated .o files and assemble the modified sources (because the Pascal source files rule states that output from pascal compilation is assembler files in derived source folders).   ";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Pascal Sources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Compile Pascal Sources\n# 15sep06,ejo  written.\n# 26 April 2007 - Jonas Maebe\n#  * support for ppc64 and x86_64\n#  * don't run when cleaning (in case running scripts when cleaning is ever fixed by Apple)\n#  * split the options in FPC_COMMON_FLAGS (common to all configurations) and FPC_CFG_SPECIFIC_FLAGS (per configuration)\n# 4 January 2009 - Jonas Maebe\n#  * support for ARM\n# 24 October 2009 - Jonas Maebe\n#  * don't hardcode 2.3.1 in some cases anymore\n\nif [ x\"$ACTION\" != \"xbuild\" ]; then\n  # in case running scripts during cleaning gets fixed\n  exit 0\nfi\n\nif test ! -e \"$FPC_MAIN_FILE\"\nthen\n\techo error: FPC_MAIN_FILE not found \\($FPC_MAIN_FILE\\)\n\texit 2\nfi\n\nfor variant in $BUILD_VARIANTS\ndo\n\tfor arch in $ARCHS\n\tdo\n\t\tcase $arch in\n\t\t\tppc) fpc_arch=ppc; fpc_rtl=powerpc ;;\n\t\t\ti386) fpc_arch=386; fpc_rtl=i386 ;;\n\t\t\tppc64) fpc_arch=ppc64; fpc_rtl=powerpc64 ;;\n\t\t\tx86_64) fpc_arch=x64; fpc_rtl=x86_64 ;;\n\t\t\tarm*) fpc_arch=arm; fpc_rtl=arm ;;\n\t\t\t*) continue\n\t\tesac\n\n\t\tapp_target_temp_dir=$CONFIGURATION_TEMP_DIR/`basename \"$PROJECT_TEMP_DIR\"`\n\t\tout_dir=$app_target_temp_dir/`basename \"$DERIVED_SOURCES_DIR\"`-$variant/$arch\n\t\tfpccompiler=\"/usr/local/bin/ppc${fpc_arch}\"\n\t\tif test -e \"$fpccompiler\"\n\t\tthen\n\t\t\tfpcversion=`\"$fpccompiler\" -iV`\n\t\t\tmainunitdir=\"$FPC_RTL_UNITS_BASE/$fpcversion/units/${fpc_rtl}-darwin/\"\n\t\t\tmkdir -p \"$out_dir\"\n\t\t\tcd \"$out_dir\"\n\t\t\techo \"Compiling to $out_dir\"\n\t\t\trm -f compilefailed\n\t\n\t\t\t# delete any ppu files for which the \".s\" file was somehow deleted (Xcode does that sometimes in case of errors),\n\t\t\t# so that FPC will recompile the unit\n\t\t\tfor file in *.ppu\n\t\t\tdo\n\t\t\t\tasmname=`basename \"$file\" ppu`s\n\t\t\t\tif [ ! -f \"$asmname\" ]; then\n\t\t\t\t\t# can fail in case there are no .ppu files, since then it will try to erase the file with name '*.ppu'\n\t\t\t\t\t# -> use -f so it won't give an error message\n\t\t\t\t\trm -f \"$file\"\n\t\t\t\tfi\n\t\t\tdone\n\n\t\t\techo $fpccompiler -n -l -viwn -a -s -vbr -FE. $FPC_COMMON_OPTIONS $FPC_SPECIFIC_OPTIONS '\\' >ppccmd.sh\n\t\t\techo -Fi\\\"`dirname \"$FPC_MAIN_FILE\"`\\\" '\\' >>ppccmd.sh\n\t\t\techo -Fu\"$mainunitdir/*\" -Fu\"$mainunitdir/rtl\" '\\' >>ppccmd.sh\n\t\t\t# allow FPC_UNIT_PATHS to override default search directory\n\t\t\techo $FPC_UNIT_PATHS '\\' >>ppccmd.sh\n\t\t\techo \\\"$FPC_MAIN_FILE\\\" >>ppccmd.sh\n\t\t\t# cat ppccmd.sh\n\n\t\t\t/bin/sh ppccmd.sh\n\t\t\tif [ $? != 0 ]; then\n\t\t\t\ttouch \"$out_dir\"/compilefailed\n\t\t\t\texit 1\n\t\t\tfi\n\t\telse\n\t\t\ttouch \"$out_dir\"/compilefailed\n\t\t\techo $FPC_MAIN_FILE:1: error: 1: can\\'t compile for $arch \\(ppc${fpc_arch} not found\\)\n\t\t\texit 2\n\t\tfi\n\tdone\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4809C4340AB8B93B00D1B097 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F95CA01B1A86C998005BEEDD /* About_Arthromorphs.pas in Sources */,
+				F95CA0231A86C998005BEEDD /* Boxes.pas in Sources */,
+				F95CA0241A86C998005BEEDD /* Brand_New.pas in Sources */,
+				F95CA0261A86C998005BEEDD /* Breeding_Window.pas in Sources */,
+				F95CA02A1A86C998005BEEDD /* Engineering_Window.pas in Sources */,
+				F95CA02B1A86C998005BEEDD /* Error_Alert.pas in Sources */,
+				F95CA02D1A86C998005BEEDD /* Genome_Window.pas in Sources */,
+				F95CA02E1A86C998005BEEDD /* HandleTheMenus.pas in Sources */,
+				F95CA02F1A86C998005BEEDD /* Initialize.pas in Sources */,
+				F95CA0301A86C998005BEEDD /* InitTheMenus.pas in Sources */,
+				F95CA0311A86C998005BEEDD /* MyGlobals.pas in Sources */,
+				F95CA0321A86C998005BEEDD /* Preferences.pas in Sources */,
+				F95CA0341A86C998005BEEDD /* Richard.pas in Sources */,
+				F95CA0371A86C998005BEEDD /* Ted.pas in Sources */,
+				F9E16EDD1A9B691B000171E1 /* HandleEvents.pas in Sources */,
+				F9E16F1B1A9B7CBA000171E1 /* CarbonEventHandlers.pas in Sources */,
+				F9E16F571A9B972A000171E1 /* MenuConstants.pas in Sources */,
+				F991D1F71AA3909A00A28C9E /* Engineering_Window_Classic.pas in Sources */,
+				F991D2031AA3915800A28C9E /* Engineering_Window_Carbon.pas in Sources */,
+				F991D20B1AA3922C00A28C9E /* Engineering_Window_Constants.pas in Sources */,
+				03DC4B2B1AA65FCF00BA5120 /* Serialization.pas in Sources */,
+				036E19ED1AA7A496007477E4 /* Drawing.pas in Sources */,
+				03D9500A1AAF935900A56C2A /* SerializationUtil.pas in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48C60A550AB97176004EF347 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4809C4E90AB9580800D1B097 /* fpc */;
+			targetProxy = 48C60A540AB97176004EF347 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD9A81C80BE62E840073A464 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9A81C90BE62E840073A464 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DD9A81CA0BE62E840073A464 /* locversion.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9A81CB0BE62E840073A464 /* English */,
+			);
+			name = locversion.plist;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4809C4EE0AB9584400D1B097 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = fpc;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		4809C4EF0AB9584400D1B097 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = fpc;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		488D39360AB5966900DA2F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FPC_COMMON_OPTIONS = "-Mmacpas -Sgi";
+				FPC_MAIN_FILE = "$(PROJECT_DIR)/../../Source code/Arthromorphs/Brand_New.pas";
+				FPC_RTL_UNITS_BASE = /usr/local/lib/fpc;
+				FPC_SPECIFIC_OPTIONS = "-ghlttt -O-1 -CRrio";
+				FPC_UNIT_PATHS = " -Fu\"$(PROJECT_DIR)/../../Source code/Arthromorphs\"  -Fu\"$(PROJECT_DIR)/../../Source code/Common\" ";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+			};
+			name = Debug;
+		};
+		488D39370AB5966900DA2F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FPC_COMMON_OPTIONS = "-Mmacpas -Sgi";
+				FPC_MAIN_FILE = "$(PROJECT_DIR)/Start.pas";
+				FPC_RTL_UNITS_BASE = /usr/local/lib/fpc;
+				FPC_SPECIFIC_OPTIONS = "-Ci- -Cr- -Co- -O3 -Xs";
+				FPC_UNIT_PATHS = "-Fu\"$(PROJECT_DIR)/Source\"";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				PRODUCT_NAME = ArthromorphsX;
+			};
+			name = Release;
+		};
+		488D396A0AB597CD00DA2F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FPC_UNIT_PATHS = " -Fu\"$(PROJECT_DIR)/../../Source code/Arthromorphs\" -Fu\"$(PROJECT_DIR)/Source\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = ArthromorphsX;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		488D396B0AB597CD00DA2F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = ArthromorphsX;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4809C4ED0AB9584400D1B097 /* Build configuration list for PBXNativeTarget "fpc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4809C4EE0AB9584400D1B097 /* Debug */,
+				4809C4EF0AB9584400D1B097 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		488D39350AB5966900DA2F98 /* Build configuration list for PBXProject "ArthromorphsX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488D39360AB5966900DA2F98 /* Debug */,
+				488D39370AB5966900DA2F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		488D39690AB597CD00DA2F98 /* Build configuration list for PBXNativeTarget "ArthromorphsX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488D396A0AB597CD00DA2F98 /* Debug */,
+				488D396B0AB597CD00DA2F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 488D39340AB5966900DA2F98 /* Project object */;
+}

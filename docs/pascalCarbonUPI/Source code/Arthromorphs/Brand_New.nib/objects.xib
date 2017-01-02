@@ -1,0 +1,418 @@
+<?xml version="1.0" standalone="yes"?>
+<object class="NSIBObjectData">
+  <object name="rootObject" class="NSCustomObject" id="1">
+  </object>
+  <array count="44" name="allObjects">
+    <object class="IBCarbonWindow" id="172">
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="scalingMode">1048576</int>
+      <string name="frameClassID">0</string>
+      <string name="title">About Arthromorphs</string>
+      <object name="rootControl" class="IBCarbonRootControl" id="173">
+        <string name="bounds">0 0 116 282 </string>
+      </object>
+      <string name="windowRect">80 130 196 412 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <object class="IBCarbonStaticText" id="238">
+      <string name="title">Mutation Pressure</string>
+      <string name="bounds">218 194 234 312 </string>
+    </object>
+    <object class="IBCarbonWindow" id="206">
+      <boolean name="hasCloseBox">TRUE</boolean>
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="hasHorizontalZoom">FALSE</boolean>
+      <boolean name="hasVerticalZoom">FALSE</boolean>
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="carbonWindowClass">4</int>
+      <int name="scalingMode">1048576</int>
+      <string name="frameClassID">0</string>
+      <string name="title">Preferences</string>
+      <object name="rootControl" class="IBCarbonRootControl" id="207">
+        <ostype name="controlSignature">DAWK</ostype>
+        <string name="classID">4</string>
+        <array count="8" name="subviews">
+          <object class="IBCarbonButton" id="208">
+            <ostype name="controlSignature">DAWK</ostype>
+            <int name="controlID">1</int>
+            <int name="buttonType">1</int>
+            <string name="title">OK</string>
+            <string name="bounds">151 81 171 161 </string>
+          </object>
+          <object class="IBCarbonCheckBox" id="209">
+            <ostype name="controlSignature">DAWK</ostype>
+            <int name="controlID">2</int>
+            <string name="title">Colour</string>
+            <string name="bounds">39 21 54 116 </string>
+          </object>
+          <object class="IBCarbonCheckBox" id="210">
+            <ostype name="controlSignature">DAWK</ostype>
+            <int name="controlID">3</int>
+            <string name="title">Sideways</string>
+            <string name="bounds">39 157 54 244 </string>
+          </object>
+          <object class="IBCarbonStaticText" id="211">
+            <int name="controlID">4</int>
+            <boolean name="enabled">FALSE</boolean>
+            <string name="title">PREFERENCES </string>
+            <string name="bounds">8 82 22 168 </string>
+          </object>
+          <object class="IBCarbonStaticText" id="212">
+            <int name="controlID">5</int>
+            <string name="title">How Many Rows </string>
+            <string name="bounds">78 19 95 141 </string>
+          </object>
+          <object class="IBCarbonStaticText" id="213">
+            <int name="controlID">6</int>
+            <string name="title">How Many Columns</string>
+            <string name="bounds">110 15 125 155 </string>
+          </object>
+          <object class="IBCarbonEditText" id="214">
+            <ostype name="controlSignature">DAWK</ostype>
+            <int name="controlID">7</int>
+            <boolean name="isUnicode">TRUE</boolean>
+            <string name="bounds">79 177 93 206 </string>
+          </object>
+          <object class="IBCarbonEditText" id="215">
+            <ostype name="controlSignature">DAWK</ostype>
+            <int name="controlID">8</int>
+            <boolean name="isUnicode">TRUE</boolean>
+            <string name="bounds">108 177 122 206 </string>
+          </object>
+        </array>
+        <string name="bounds">0 0 191 264 </string>
+      </object>
+      <string name="windowRect">50 120 241 384 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <object class="IBCarbonButton" id="180">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">5</int>
+      <ostype name="command">MTNO</ostype>
+      <string name="title">None</string>
+      <string name="bounds">162 263 182 312 </string>
+    </object>
+    <object class="IBCarbonButton" id="179">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">4</int>
+      <ostype name="command">MTAL</ostype>
+      <string name="title">All </string>
+      <string name="bounds">162 211 182 251 </string>
+    </object>
+    <object class="IBCarbonCheckBox" id="186">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">11</int>
+      <string name="title">Section Legs</string>
+      <string name="bounds">120 40 140 140 </string>
+    </object>
+    <object class="IBCarbonCheckBox" id="194">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">19</int>
+      <string name="title">Duplication </string>
+      <string name="bounds">122 212 142 312 </string>
+    </object>
+    <object class="IBCarbonCheckBox" id="192">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">17</int>
+      <string name="title">Height</string>
+      <string name="bounds">82 212 97 292 </string>
+    </object>
+    <object class="IBCarbonCheckBox" id="193">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">18</int>
+      <string name="title">Angle </string>
+      <string name="bounds">102 212 117 292 </string>
+    </object>
+    <object class="IBCarbonCheckBox" id="187">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">12</int>
+      <string name="title">Section Claws </string>
+      <string name="bounds">140 40 160 160 </string>
+    </object>
+    <object class="IBCarbonCheckBox" id="195">
+      <ostype name="controlSignature">DAWK</ostype>
+      <int name="controlID">20</int>
+      <string name="title">Deletion</string>
+      <string name="bounds">142 212 157 292 </string>
+    </object>
+    <object class="IBCarbonRootControl" id="175">
+      <ostype name="controlSignature">DAWK</ostype>
+      <array count="26" name="subviews">
+        <object class="IBCarbonButton" id="176">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">1</int>
+          <ostype name="command">OKBT</ostype>
+          <string name="title">OK</string>
+          <string name="bounds">332 220 352 300 </string>
+        </object>
+        <object class="IBCarbonButton" id="177">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">2</int>
+          <ostype name="command">SGAL</ostype>
+          <string name="title">All </string>
+          <string name="bounds">260 40 280 80 </string>
+        </object>
+        <object class="IBCarbonButton" id="178">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">3</int>
+          <ostype name="command">SGNO</ostype>
+          <string name="title">None</string>
+          <string name="bounds">260 92 280 140 </string>
+        </object>
+        <reference idRef="179"/>
+        <reference idRef="180"/>
+        <object class="IBCarbonButton" id="181">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">6</int>
+          <ostype name="command">CNCL</ostype>
+          <string name="title">Cancel</string>
+          <string name="bounds">290 221 310 301 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="182">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">7</int>
+          <string name="title">Animal Trunk</string>
+          <string name="bounds">40 40 55 147 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="183">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">8</int>
+          <string name="title">Animal Legs </string>
+          <string name="bounds">60 40 75 136 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="184">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">9</int>
+          <string name="title">Animal Claws</string>
+          <string name="bounds">80 40 100 160 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="185">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">10</int>
+          <string name="title">Section Trunk </string>
+          <string name="bounds">100 40 120 160 </string>
+        </object>
+        <reference idRef="186"/>
+        <reference idRef="187"/>
+        <object class="IBCarbonCheckBox" id="188">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">13</int>
+          <string name="title">Segment Trunk </string>
+          <string name="bounds">160 40 180 160 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="189">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">14</int>
+          <string name="title">Segment Legs</string>
+          <string name="bounds">180 40 200 160 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="190">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">15</int>
+          <string name="title">Segment Claws </string>
+          <string name="bounds">200 40 220 160 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="191">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">16</int>
+          <string name="title">Width</string>
+          <string name="bounds">62 212 76 292 </string>
+        </object>
+        <reference idRef="192"/>
+        <reference idRef="193"/>
+        <reference idRef="194"/>
+        <reference idRef="195"/>
+        <object class="IBCarbonCheckBox" id="196">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">21</int>
+          <string name="title">Legs</string>
+          <string name="bounds">220 40 240 160 </string>
+        </object>
+        <object class="IBCarbonCheckBox" id="197">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">22</int>
+          <string name="title">Claws </string>
+          <string name="bounds">240 40 260 160 </string>
+        </object>
+        <object class="IBCarbonStaticText" id="205">
+          <int name="controlID">30</int>
+          <boolean name="enabled">FALSE</boolean>
+          <string name="title">Allowed Mutations</string>
+          <string name="bounds">7 116 24 251 </string>
+        </object>
+        <object class="IBCarbonRadioGroup" id="230">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">40</int>
+          <int name="numRows">1</int>
+          <int name="numCols">3</int>
+          <int name="selectedCol">3</int>
+          <int name="intercellHeight">1</int>
+          <array count="1" name="radioTitles">
+            <array count="3">
+              <string>+</string>
+              <string>0</string>
+              <string>-</string>
+            </array>
+          </array>
+          <string name="bounds">242 194 260 319 </string>
+        </object>
+        <object class="IBCarbonRadioGroup" id="231">
+          <ostype name="controlSignature">DAWK</ostype>
+          <int name="controlID">41</int>
+          <int name="numRows">3</int>
+          <int name="selectedRow">3</int>
+          <int name="intercellHeight">1</int>
+          <array count="3" name="radioTitles">
+            <array count="1">
+              <string>Focus on 1st seg</string>
+            </array>
+            <array count="1">
+              <string>Focus on last seg</string>
+            </array>
+            <array count="1">
+              <string>No focus</string>
+            </array>
+          </array>
+          <string name="bounds">295 24 351 177 </string>
+        </object>
+        <reference idRef="238"/>
+      </array>
+      <string name="bounds">0 0 378 350 </string>
+    </object>
+    <reference idRef="197"/>
+    <reference idRef="211"/>
+    <object class="IBCarbonRootControl" id="169">
+      <string name="bounds">0 0 433 628 </string>
+    </object>
+    <reference idRef="210"/>
+    <reference idRef="230"/>
+    <reference idRef="205"/>
+    <reference idRef="181"/>
+    <reference idRef="207"/>
+    <reference idRef="191"/>
+    <reference idRef="215"/>
+    <reference idRef="182"/>
+    <reference idRef="183"/>
+    <object class="IBCarbonWindow" id="170">
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="scalingMode">1048576</int>
+      <string name="frameClassID">0</string>
+      <string name="title">Breeding Window</string>
+      <object name="rootControl" class="IBCarbonRootControl" id="171">
+        <string name="bounds">0 0 433 629 </string>
+      </object>
+      <string name="windowRect">44 5 477 634 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <reference idRef="176"/>
+    <reference idRef="173"/>
+    <reference idRef="189"/>
+    <object class="IBCarbonWindow" id="174">
+      <boolean name="hasCloseBox">TRUE</boolean>
+      <boolean name="hasHorizontalZoom">FALSE</boolean>
+      <boolean name="hasVerticalZoom">FALSE</boolean>
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="carbonWindowClass">4</int>
+      <int name="scalingMode">1048576</int>
+      <string name="frameClassID">0</string>
+      <string name="title">Engineering Window</string>
+      <reference name="rootControl" idRef="175"/>
+      <string name="windowRect">44 12 422 362 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <reference idRef="213"/>
+    <reference idRef="185"/>
+    <reference idRef="209"/>
+    <reference idRef="208"/>
+    <reference idRef="188"/>
+    <reference idRef="178"/>
+    <reference idRef="231"/>
+    <reference idRef="190"/>
+    <reference idRef="177"/>
+    <reference idRef="212"/>
+    <reference idRef="214"/>
+    <reference idRef="184"/>
+    <reference idRef="171"/>
+    <object class="IBCarbonWindow" id="168">
+      <boolean name="liveResize">TRUE</boolean>
+      <boolean name="isConstrained">FALSE</boolean>
+      <int name="scalingMode">1048576</int>
+      <string name="frameClassID">0</string>
+      <string name="title">Genome Window</string>
+      <reference name="rootControl" idRef="169"/>
+      <string name="windowRect">42 5 475 633 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+      <int name="WindowMinHeight">-22</int>
+    </object>
+    <reference idRef="196"/>
+  </array>
+  <array count="44" name="allParents">
+    <reference idRef="1"/>
+    <reference idRef="175"/>
+    <reference idRef="1"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="174"/>
+    <reference idRef="175"/>
+    <reference idRef="207"/>
+    <reference idRef="168"/>
+    <reference idRef="207"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="206"/>
+    <reference idRef="175"/>
+    <reference idRef="207"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="1"/>
+    <reference idRef="175"/>
+    <reference idRef="172"/>
+    <reference idRef="175"/>
+    <reference idRef="1"/>
+    <reference idRef="207"/>
+    <reference idRef="175"/>
+    <reference idRef="207"/>
+    <reference idRef="207"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="175"/>
+    <reference idRef="207"/>
+    <reference idRef="207"/>
+    <reference idRef="175"/>
+    <reference idRef="170"/>
+    <reference idRef="1"/>
+    <reference idRef="175"/>
+  </array>
+  <dictionary count="6" name="nameTable">
+    <string>About Arthromorphs</string>
+    <reference idRef="172"/>
+    <string>Breeding Window</string>
+    <reference idRef="170"/>
+    <string>Engineering Window</string>
+    <reference idRef="174"/>
+    <string>File&apos;s Owner</string>
+    <reference idRef="1"/>
+    <string>Genome Window</string>
+    <reference idRef="168"/>
+    <string>Preferences</string>
+    <reference idRef="206"/>
+  </dictionary>
+  <string name="targetFramework">IBCarbonFramework</string>
+  <unsigned_int name="nextObjectID">239</unsigned_int>
+</object>
