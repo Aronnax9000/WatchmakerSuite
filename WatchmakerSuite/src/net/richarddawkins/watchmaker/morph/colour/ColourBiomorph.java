@@ -4,9 +4,10 @@ import java.awt.Point;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.watchmaker.morph.common.SimpleMorphImpl;
+import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 /**
  * <h2>Original sources</h2>
  * <pre>
@@ -30,19 +31,29 @@ import net.richarddawkins.watchmaker.morph.common.SimpleMorphImpl;
  * @author alan
  *
  */
-public class ColourBiomorphImpl extends SimpleMorphImpl  {
+public class ColourBiomorph extends SimpleMorph  {
 	public static final int RAINBOW = 1 << 8;
-	ColourBiomorphImpl() {
-		setGenome(new ColourPersonImpl(this));
+	ColourGenome genome;
+	
+	public Genome getGenome() {
+		return genome;
+	}
+
+	public void setGenome(Genome genome) {
+		this.genome = (ColourGenome)genome;
+	}
+
+	ColourBiomorph() {
+		setGenome(new ColourGenome(this));
 		pic = new ColourPic();	
 	}
 	
-	public ColourBiomorphImpl(MorphConfig config) {
+	public ColourBiomorph(MorphConfig config) {
 		this();
 		this.setMorphConfig(config);
 	}
 	
-	public ColourBiomorphImpl(MorphConfig config, int basicType) {
+	public ColourBiomorph(MorphConfig config, int basicType) {
 		this(config);
 		genome.setBasicType(basicType);
 	}
@@ -51,7 +62,7 @@ public class ColourBiomorphImpl extends SimpleMorphImpl  {
 	 */
 	@Override
 	public Morph reproduce() {
-		ColourBiomorphImpl child = new ColourBiomorphImpl(config);
+		ColourBiomorph child = new ColourBiomorph(config);
 		child.setGenome(genome.reproduce(child));
 		child.setParent(this);
 		return child;

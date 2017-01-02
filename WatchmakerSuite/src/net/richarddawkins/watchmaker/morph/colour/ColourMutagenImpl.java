@@ -39,7 +39,7 @@ public class ColourMutagenImpl extends BiomorphMutagenImpl {
   }
 
   public boolean mutate(Genome genome) {
-    ColourPerson target = (ColourPerson) genome;
+    ColourGenome target = (ColourGenome) genome;
     boolean success = false;
     boolean[] mut = config.getMut();
     if (mut[6] && randInt(100) < target.getMutProbGene()) {

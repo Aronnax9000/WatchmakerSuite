@@ -4,6 +4,7 @@ import static net.richarddawkins.watchmaker.morph.util.Random.nextBoolean;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.Random;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
@@ -12,11 +13,15 @@ import net.richarddawkins.watchmaker.draw.SetColor;
 import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.watchmaker.morph.common.SimpleMorphImpl;
+import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
-public class OvalMorph extends SimpleMorphImpl implements Morph {
-    OvalMorphGenome genome = new OvalMorphGenome();
+public class OvalMorph extends SimpleMorph implements Morph {
+    public void setGenome(Genome genome) {
+		this.genome = (OvalMorphGenome) genome;
+	}
 
+	OvalMorphGenome genome = new OvalMorphGenome();
+    public static Random random = new Random();
 	@Override
 	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
 		primitives.removeAllElements();

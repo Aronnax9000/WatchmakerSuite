@@ -23,8 +23,14 @@ import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 
 public class BreedingPanel extends JPanel implements ActionListener {
 	
-	private MorphConfig morphConfig;
-	private MouseAdapter mouseAdapter;
+	protected MorphConfig morphConfig;
+	protected MouseAdapter mouseAdapter;
+	public MorphConfig getMorphConfig() {
+		return morphConfig;
+	}
+	public void setMorphConfig(MorphConfig morphConfig) {
+		this.morphConfig = morphConfig;
+	}
 	private int cols = 5;	
 	private int rows = 3;
 	/**
@@ -40,14 +46,21 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	
 	public void add(GraphicsDrawer gd) { thingsToDraw.add(gd); }
 	public void remove(GraphicsDrawer gd) { thingsToDraw.remove(gd); }
-    private Vector<Morph> morphs = new Vector<Morph>();
+    protected Vector<Morph> morphs = new Vector<Morph>();
 	
     
     
+	public Vector<Morph> getMorphs() {
+		return morphs;
+	}
+	public void setMorphs(Vector<Morph> morphs) {
+		this.morphs = morphs;
+	}
 	public BreedingPanel(MorphConfig morphConfig) {
 		this.morphConfig = morphConfig;
 		boxesDrawer = new Boxes(cols,rows);
 		mouseAdapter = new BreedingPanelMouseAdapter(this);
+		this.addMouseMotionListener(new BreedingPanelMouseMotionAdapter(this));
 		this.addMouseListener(mouseAdapter);
 		setPreferredSize(new Dimension(640,480));
         setBorder(BorderFactory.createLineBorder(Color.black));

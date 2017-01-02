@@ -6,7 +6,7 @@ import javax.swing.JMenuBar;
 
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 
-public abstract class SimpleMorphImpl implements Morph {
+public abstract class SimpleMorph implements Morph {
   Morph parent;
   Morph firstBorn;
   Morph lastBorn;
@@ -112,15 +112,7 @@ public abstract class SimpleMorphImpl implements Morph {
     this.pic = pic;
   }
 
-  protected Genome genome;
 
-  public Genome getGenome() {
-    return genome;
-  }
-
-  public void setGenome(Genome genome) {
-    this.genome = genome;
-  }
 
   protected MorphConfig config;
 

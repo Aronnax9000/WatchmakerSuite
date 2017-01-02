@@ -4,7 +4,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
-import net.richarddawkins.watchmaker.morph.common.BiomorphGenomeImpl;
+import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
@@ -15,7 +15,8 @@ import net.richarddawkins.watchmaker.morph.mono.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 
-public class ColourPersonImpl extends BiomorphGenomeImpl implements ColourPerson {
+public class ColourGenome extends BiomorphGenome  {
+	public static final int RAINBOW = 256;
   int[] colorGene = new int[8];
   long backColorGene;
   LimbType limbShapeGene;
@@ -64,12 +65,12 @@ public class ColourPersonImpl extends BiomorphGenomeImpl implements ColourPerson
     this.thicknessGene = thicknessGene;
   }
 
-  ColourPersonImpl(Morph morph) {
+  ColourGenome(Morph morph) {
     this.morph = morph;
   }
 
   public Genome reproduce(Morph newMorph) {
-    ColourPersonImpl child = new ColourPersonImpl(newMorph);
+	  ColourGenome child = new ColourGenome(newMorph);
     copy(child);
     newMorph.getMorphConfig().getMutagen().mutate(child);
     return child;
@@ -77,7 +78,7 @@ public class ColourPersonImpl extends BiomorphGenomeImpl implements ColourPerson
 
   @Override
   public void copy(Genome person) {
-    ColourPerson child = (ColourPerson) person;
+	  ColourGenome child = (ColourGenome) person;
     super.copy(child);
     child.setColorGene(colorGene.clone());
     child.setBackColorGene(backColorGene);
@@ -322,7 +323,7 @@ public class ColourPersonImpl extends BiomorphGenomeImpl implements ColourPerson
     thicknessGene = 1;
   }
 
-  @Override
+
   /**
    * Doesn't allow thicknessGene to fall below 1.
    */
@@ -334,7 +335,7 @@ public class ColourPersonImpl extends BiomorphGenomeImpl implements ColourPerson
 
   }
 
-  @Override
+
   public void addToColorGene(int j, int summand) {
     colorGene[j] += summand;
     if (colorGene[j] > RAINBOW) {

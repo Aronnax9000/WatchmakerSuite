@@ -7,6 +7,7 @@ import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 
@@ -62,7 +63,7 @@ public interface MorphConfig {
 
 	void setDefaultBreedingCols(int defaultBreedingCols);
 
-	void setFrame(JFrame frame);
+	void setFrame(WatchmakerTabbedPane frame);
 
-	JFrame getFrame();
+	WatchmakerTabbedPane getFrame();
 }

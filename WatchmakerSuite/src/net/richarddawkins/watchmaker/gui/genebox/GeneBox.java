@@ -149,13 +149,15 @@ protected GradientPanel gradientPanel;
 	  valueLabel.setText(new Integer(value).toString());
   }
   
-  public GeneBox(GeneBoxStrip geneBoxStrip, int numberSharingStrip, int dGeneIndex) {
+  public GeneBox(GeneBoxStrip geneBoxStrip, int dGeneIndex, boolean hasSwell) {
     this.geneBoxStrip = geneBoxStrip;
-    gradientPanel = new GradientPanel(this, dGeneIndex);
-    
+    this.hasSwell = hasSwell;
     this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
     this.setLayout(new BorderLayout());
-    this.add(gradientPanel, BorderLayout.WEST);
+    if(hasSwell) {
+    	gradientPanel = new GradientPanel(this, dGeneIndex);
+        this.add(gradientPanel, BorderLayout.WEST);
+    }
     this.add(valuePanel, BorderLayout.CENTER);
     valuePanel.add(valueLabel);
     this.addMouseMotionListener(new MouseMotionListener() {

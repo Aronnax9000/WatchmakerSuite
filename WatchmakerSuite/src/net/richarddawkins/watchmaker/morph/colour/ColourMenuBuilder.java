@@ -25,7 +25,7 @@ import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
  */
 public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
 
-	public ColourMenuBuilder(ColourBiomorphConfigImpl config) {
+	public ColourMenuBuilder(ColourBiomorphConfig config) {
 		config.addPropertyChangeListener(this);
 	}
 	

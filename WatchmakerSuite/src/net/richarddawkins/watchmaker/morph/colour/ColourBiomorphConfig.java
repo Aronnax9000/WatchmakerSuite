@@ -1,17 +1,17 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.common.BiomorphConfigImpl;
+import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 
-public class ColourBiomorphConfigImpl extends BiomorphConfigImpl {
+public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public static final int MutTypeNo = 13;
 	private ColourMutagenImpl mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
 	
-	public ColourBiomorphConfigImpl() {
+	public ColourBiomorphConfig() {
 		menuBuilder = new ColourMenuBuilder(this);
 		name = "Colour";
 		toolTip = "Blind Watchmaker (Colour)";
@@ -25,7 +25,7 @@ public class ColourBiomorphConfigImpl extends BiomorphConfigImpl {
 
 	@Override
 	public Morph createMorph(int type) {
-		return new ColourBiomorphImpl(this, type);
+		return (Morph) new ColourBiomorph(this, type);
 	}
 
 	@Override

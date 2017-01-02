@@ -40,4 +40,5 @@ public interface Morph {
 	public void setPic(Pic pic);
 	public Pic getPic();
 	public Genome getGenome();
+	void setGenome(Genome genome);
 }

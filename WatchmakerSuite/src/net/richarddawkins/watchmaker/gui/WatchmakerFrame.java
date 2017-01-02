@@ -26,7 +26,7 @@ public class WatchmakerFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setJMenuBar(new JMenuBar());
 		getContentPane().setLayout(new BorderLayout());
-		morphTypePane = new WatchmakerTabbedPane(this);
+		morphTypePane = new WatchmakerTabbedPane(this.getJMenuBar());
 		getContentPane().add(morphTypePane);
 
 

@@ -100,7 +100,7 @@ public class ArthromorphMutagenImpl implements Mutagen {
   }
 
   public boolean mutate(Genome genome) {
-    ArthromorphPerson targetGenome = (ArthromorphPerson) genome;
+	  ArthromorphGenome targetGenome = (ArthromorphGenome) genome;
     // size, pick, count, target, change, extraclaw, thisSegment, lastSegment, AtomNumber: integer;
     // this, targetAtom: Atom;
     // ok, mutOK, CouldBe: boolean;

@@ -5,12 +5,11 @@ import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
-import net.richarddawkins.watchmaker.morph.common.SimpleGenomeImpl;
+import net.richarddawkins.watchmaker.morph.common.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
-public class ArthromorphPersonImpl 
-extends SimpleGenomeImpl 
-implements ArthromorphPerson {
+public class ArthromorphGenome 
+extends SimpleGenome {
 	Atom animalTrunk;
 
 	int atomCount;
@@ -27,12 +26,12 @@ implements ArthromorphPerson {
 
 	protected int westPole = 0;
 
-	public ArthromorphPersonImpl(Morph morph) {
+	public ArthromorphGenome(Morph morph) {
 		this.morph = morph;
 	}
 
 	void copy(Genome person) {
-		((ArthromorphPerson)person).setAnimalTrunk(animalTrunk.copy());
+		((ArthromorphGenome)person).setAnimalTrunk(animalTrunk.copy());
 	}
 	
 	public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
@@ -129,7 +128,7 @@ implements ArthromorphPerson {
 
 	@Override
 	public Genome reproduce(Morph newMorph) {
-		ArthromorphPerson child = new ArthromorphPersonImpl(newMorph);
+		ArthromorphGenome child = new ArthromorphGenome(newMorph);
 		// A bit of a cheat, because reproduce needs access to the Config object.
 		copy(child);
 		int counter = 0;

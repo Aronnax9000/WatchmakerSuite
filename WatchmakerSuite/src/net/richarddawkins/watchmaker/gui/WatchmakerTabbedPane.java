@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.gui;
 
 import java.util.Vector;
 
+import javax.swing.JMenuBar;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -13,19 +14,23 @@ import net.richarddawkins.watchmaker.morph.common.MorphTypeNotSupportedException
 
 public class WatchmakerTabbedPane extends JTabbedPane {
 	
+	
+	protected JMenuBar jMenuBar;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -9105080336982806166L;
 
-	public WatchmakerTabbedPane(WatchmakerFrame frame) {
+	public WatchmakerTabbedPane(JMenuBar jMenuBar) {
+		super();
+		this.jMenuBar = jMenuBar;	
     	for (MorphType morphType : MorphType.values()) {
     		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType); 
 	    	if(factory != null) {
 	    		try {
 	    			for(int i = 0; i < 2; i++) {
 			 	    	MorphConfig config = factory.createConfig();
-			 	    	config.setFrame(frame);
+			 	    	config.setFrame(this);
 					    addMorphConfig(config);
 	    			}
 	    		}
@@ -55,7 +60,7 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 	
 	public void changeToTab(int selectedIndex) {
 	      MorphConfig config = configs.get(selectedIndex);
-	      config.getMenuBuilder().buildMenu(config.getFrame().getJMenuBar());
+	      config.getMenuBuilder().buildMenu(jMenuBar);
 		
 	}
 	

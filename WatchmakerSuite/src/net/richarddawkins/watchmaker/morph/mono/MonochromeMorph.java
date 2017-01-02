@@ -5,14 +5,25 @@ import java.awt.Rectangle;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.watchmaker.morph.common.SimpleMorphImpl;
+import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
-public class MonochromeMorph extends SimpleMorphImpl {
+public class MonochromeMorph extends SimpleMorph {
 	
+	MonochromeGenome genome;
+	
+	@Override
+	public MonochromeGenome getGenome() {
+		return genome;
+	}
+	@Override
+	public void setGenome(Genome genome) {
+		this.genome = (MonochromeGenome) genome;
+	}
 	MonochromeMorph() {
-		setGenome(new MonochromeGenome(this));
+		setGenome((Genome) new MonochromeGenome((Morph) this));
 		pic = new MonoPic();
 	}
 	MonochromeMorph(MorphConfig config) {
@@ -27,7 +38,7 @@ public class MonochromeMorph extends SimpleMorphImpl {
 
 	public Morph reproduce() {
 		MonochromeMorph child = new MonochromeMorph(config);
-		child.setGenome(genome.reproduce(child));
+		child.setGenome((Genome) genome.reproduce((Morph) child));
 		child.setParent(this);
 		return child;
 	}

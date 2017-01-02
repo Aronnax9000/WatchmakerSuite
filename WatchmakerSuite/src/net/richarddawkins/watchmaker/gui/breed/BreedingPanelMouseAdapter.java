@@ -12,6 +12,10 @@ public class BreedingPanelMouseAdapter extends MouseAdapter {
 	public BreedingPanelMouseAdapter(BreedingPanel panel) {
 		this.panel = panel;
 	}
+	
+	
+	
+	@Override
 	public void mousePressed(MouseEvent e) {
 		
 		Point myPt = e.getPoint();
@@ -26,4 +30,6 @@ public class BreedingPanelMouseAdapter extends MouseAdapter {
 		}
 		
 	}
+	
+
 }

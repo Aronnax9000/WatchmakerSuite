@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
 public class Atom implements Cloneable {
 
-  public ArthromorphPerson genome;
+  public ArthromorphGenome genome;
 
   static int[] paramOffset = new int[AtomKind.values().length];
 
@@ -31,7 +31,7 @@ public class Atom implements Cloneable {
 
   protected int segmentNumber = 0;
 
-  public Atom(AtomKind kind, ArthromorphPerson genome) {
+  public Atom(AtomKind kind, ArthromorphGenome genome) {
     this.kind = kind;
     this.genome = genome;
     height = 1.0;

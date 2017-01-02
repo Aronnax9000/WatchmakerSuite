@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morph.common;
 
-public abstract class BiomorphConfigImpl extends SimpleMorphConfig {
+public abstract class BiomorphConfig extends SimpleMorphConfig {
   protected boolean[] mut;
 
   public void setMut(int i, boolean newValue) {

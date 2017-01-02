@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.morph.mono;
 import java.awt.Color;
 
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
-import net.richarddawkins.watchmaker.morph.common.BiomorphGenomeImpl;
+import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
@@ -12,7 +12,7 @@ import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
-public class MonochromeGenome extends BiomorphGenomeImpl {
+public class MonochromeGenome extends BiomorphGenome {
 
   MonochromeGenome(Morph morph) {
     setMorph(morph);

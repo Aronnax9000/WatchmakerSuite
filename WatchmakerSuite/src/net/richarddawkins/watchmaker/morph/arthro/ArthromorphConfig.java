@@ -6,7 +6,7 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
 
-public class ArthromorphConfigImpl extends SimpleMorphConfig implements ArthromorphConfig {
+public class ArthromorphConfig extends SimpleMorphConfig  {
 
 	
 	
@@ -41,7 +41,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 	protected boolean wantColor = true;
 	protected boolean widthMut;
 
-	public ArthromorphConfigImpl() {
+	public ArthromorphConfig() {
 		mutagen = new ArthromorphMutagenImpl(this);
 		setIconFromFilename("Arthromorph_ALAN_00010_32x32");
 		name = "Arthromorphs";
@@ -56,131 +56,115 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 	}
 
 	public Morph createMorph(int basicType) {
-		return new ArthromorphImpl(this, basicType);
+		return new Arthromorph(this, basicType);
 	}
 
-	@Override
 	public Concentration getFocusOfAttention() {
 		return focusOfAttention;
 	}
 
-	@Override
 	public MenuBuilder getMenuBuilder() {
 		return menuBuilder;
 	}
 
-	@Override
 	public boolean[] getMut() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Pressure getMutationPressure() {
 		return mutationPressure;
 	}
 
-	@Override
 	public boolean isAngleMut() {
 		return angleMut;
 	}
 
-	@Override
 	public boolean isAnimalClawsMut() {
 		return animalClawsMut;
 	}
 
-	@Override
 	public boolean isAnimalLegsMut() {
 		return animalLegsMut;
 	}
 
-	@Override
 	public boolean isAnimalTrunkMut() {
 		return animalTrunkMut;
 	}
 
-	@Override
 	public boolean isCentring() {
 		return centring;
 	}
 
-	@Override
 	public boolean isClawsMut() {
 		return clawsMut;
 	}
 
-	@Override
 	public boolean isDeletionMut() {
 		return deletionMut;
 	}
 
-	@Override
 	public boolean isDuplicationMut() {
 		return duplicationMut;
 	}
 
-	@Override
+	
 	public boolean isHeightMut() {
 		return heightMut;
 	}
 
-	@Override
+	
 	public boolean isLegsMut() {
 		return legsMut;
 	}
 
-	@Override
 	public boolean isSectionClawsMut() {
 		return sectionClawsMut;
 	}
 
-	@Override
 	public boolean isSectionLegsMut() {
 		return sectionLegsMut;
 	}
 
-	@Override
 	public boolean isSectionTrunkMut() {
 		return sectionTrunkMut;
 	}
 
-	@Override
 	public boolean isSegmentClawsMut() {
 		return segmentClawsMut;
 	}
 
-	@Override
+	
 	public boolean isSegmentLegsMut() {
 		return segmentLegsMut;
 	}
 
-	@Override
+	
 	public boolean isSegmentTrunkMut() {
 		return segmentTrunkMut;
 	}
 
-	@Override
+	
 	public boolean isSideways() {
 		return sideways;
 	}
 
-	@Override
+	
 	public boolean isTrunkMut() {
 		return trunkMut;
 	}
 
-	@Override
+	
 	public boolean isWantColor() {
 		return wantColor;
 	}
 
-	@Override
+	
 	public boolean isWidthMut() {
 		return widthMut;
 	}
 
-	@Override
+	
 	public void makeAllAtomMutations(boolean state) {
 		setWidthMut(state);
 		setHeightMut(state);
@@ -189,7 +173,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		setDeletionMut(state);
 	}
 
-	@Override
+	
 	public void makeAllBodyMutations(boolean state) {
 		setTrunkMut(state);
 		setLegsMut(state);
@@ -205,7 +189,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		setSegmentClawsMut(state);
 	}
 
-	@Override
+	
 	public void setAngleMut(boolean newValue) {
 		boolean oldValue = angleMut;
 		angleMut = newValue;
@@ -214,7 +198,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setAnimalClawsMut(boolean newValue) {
 		boolean oldValue = animalClawsMut;
 		animalClawsMut = newValue;
@@ -223,7 +207,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setAnimalLegsMut(boolean newValue) {
 		boolean oldValue = animalLegsMut;
 		animalLegsMut = newValue;
@@ -232,7 +216,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setAnimalTrunkMut(boolean newValue) {
 		boolean oldValue = animalTrunkMut;
 		animalTrunkMut = newValue;
@@ -241,7 +225,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setCentring(boolean newValue) {
 		boolean oldValue = clawsMut;
 		centring = newValue;
@@ -251,7 +235,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 
 	}
 
-	@Override
+	
 	public void setClawsMut(boolean newValue) {
 		boolean oldValue = clawsMut;
 		clawsMut = newValue;
@@ -260,7 +244,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setDeletionMut(boolean newValue) {
 		boolean oldValue = deletionMut;
 		deletionMut = newValue;
@@ -269,7 +253,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setDuplicationMut(boolean newValue) {
 		boolean oldValue = duplicationMut;
 		duplicationMut = newValue;
@@ -278,7 +262,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setFocusOfAttention(Concentration newValue) {
 		Concentration oldValue = focusOfAttention;
 		focusOfAttention = newValue;
@@ -287,7 +271,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setHeightMut(boolean newValue) {
 		boolean oldValue = heightMut;
 		heightMut = newValue;
@@ -296,7 +280,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setLegsMut(boolean newValue) {
 		boolean oldValue = legsMut;
 		legsMut = newValue;
@@ -305,7 +289,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setMutationPressure(Pressure newValue) {
 		Pressure oldValue = mutationPressure;
 		mutationPressure = newValue;
@@ -314,7 +298,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSectionClawsMut(boolean newValue) {
 		boolean oldValue = sectionClawsMut;
 		sectionClawsMut = newValue;
@@ -323,7 +307,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSectionLegsMut(boolean newValue) {
 		boolean oldValue = sectionLegsMut;
 		sectionLegsMut = newValue;
@@ -332,7 +316,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSectionTrunkMut(boolean newValue) {
 		boolean oldValue = sectionTrunkMut;
 		sectionTrunkMut = newValue;
@@ -341,7 +325,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSegmentClawsMut(boolean newValue) {
 		boolean oldValue = segmentClawsMut;
 		segmentClawsMut = newValue;
@@ -350,7 +334,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSegmentLegsMut(boolean newValue) {
 		boolean oldValue = segmentLegsMut;
 		segmentLegsMut = newValue;
@@ -359,7 +343,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSegmentTrunkMut(boolean newValue) {
 		boolean oldValue = segmentTrunkMut;
 		segmentTrunkMut = newValue;
@@ -368,7 +352,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setSideways(boolean newValue) {
 		boolean oldValue = clawsMut;
 		sideways = newValue;
@@ -377,7 +361,7 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setTrunkMut(boolean newValue) {
 		boolean oldValue = trunkMut;
 		trunkMut = newValue;
@@ -386,12 +370,12 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public void setWantColor(boolean wantColor) {
 		this.wantColor = wantColor;
 	}
 
-	@Override
+	
 	public void setWidthMut(boolean newValue) {
 		boolean oldValue = widthMut;
 		widthMut = newValue;
@@ -400,13 +384,13 @@ public class ArthromorphConfigImpl extends SimpleMorphConfig implements Arthromo
 		}
 	}
 
-	@Override
+	
 	public GeneBoxStrip getGeneBoxStrip() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
 		// TODO Auto-generated method stub
 		

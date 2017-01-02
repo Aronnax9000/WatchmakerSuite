@@ -1,15 +1,17 @@
 package net.richarddawkins.watchmaker.morph.common;
 
-import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
 import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
-public abstract class BiomorphGenomeImpl extends SimpleGenomeImpl implements BiomorphGenome {
+public abstract class BiomorphGenome extends SimpleGenome {
 
   protected boolean oddOne;
   protected int order;
 
+  abstract public void basicTree();
+  abstract public void chess();
+  abstract public void insect();
   public void setBasicType(int basicType) {
     switch (basicType) {
     case 1:
@@ -98,9 +100,6 @@ public abstract class BiomorphGenomeImpl extends SimpleGenomeImpl implements Bio
     this.mutProbGene = mutProbGene;
   }
 
-  public void setMorph(Morph morph) {
-    this.morph = morph;
-  }
 
   /**
    * Add a quantity to the mutProbGene. If the the result is less than one, it is set to one. If the

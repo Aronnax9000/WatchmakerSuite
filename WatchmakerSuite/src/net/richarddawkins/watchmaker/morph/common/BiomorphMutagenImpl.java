@@ -10,7 +10,12 @@ public abstract class BiomorphMutagenImpl
 	protected SwellType randSwell(SwellType indGene) {
 		switch(indGene) {
 		case Shrink: return SwellType.Same;
-		case Same: return randInt(2) == 1 ? SwellType.Shrink : SwellType.Swell;
+		
+		case Same: 
+			if(randInt(2) == 1)
+				return SwellType.Shrink; 
+			else 
+				return SwellType.Swell;
 		case Swell: return SwellType.Same;
 		default: return indGene; // Can't happen
 		}

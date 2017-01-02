@@ -17,7 +17,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip  {
    * 
    */
   private static final long serialVersionUID = 1L;
-private MonochromeGenome genome;
+  private MonochromeGenome genome;
 
   private void updateGeneBox(int geneBoxIndex) {
 	  GeneBox geneBox = (GeneBox) this.getComponent(geneBoxIndex);
@@ -57,9 +57,7 @@ private MonochromeGenome genome;
 			geneBox.setValueLabelValue(genome.getMutProbGene());
 			break;
 	  }
-
-	  }
-
+  }
 
   public void setGenome(Genome genome) {
 	  this.genome = (MonochromeGenome) genome;
@@ -75,18 +73,16 @@ private MonochromeGenome genome;
     constraints.weightx = 1;
     constraints.gridy = 0;
     for(int i = 0; i < numberOfGeneBoxes; i++) {
-      GeneBox geneBox = new GeneBox(this, numberOfGeneBoxes, i);
-      if(i < 9) geneBox.setHasSwell(true);
+      GeneBox geneBox = new GeneBox(this, i, i < 9);
       constraints.gridx = i;
       this.add(geneBox, constraints);
     }
 
   }
 
-
-@Override
-public Genome getGenome() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	
+	@Override
+	public Genome getGenome() {
+		return genome;
+	}
 }

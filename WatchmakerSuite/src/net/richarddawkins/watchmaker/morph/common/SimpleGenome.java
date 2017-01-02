@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.morph.common;
 
 import net.richarddawkins.watchmaker.morph.common.Morph;
 
-public abstract class SimpleGenomeImpl implements Genome {
+public abstract class SimpleGenome implements Genome {
 
   protected Morph morph;
 

@@ -3,13 +3,13 @@ package net.richarddawkins.watchmaker.morph.mono;
 import net.richarddawkins.watchmaker.gui.breed.BreedingPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.morph.common.BiomorphConfigImpl;
+import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.gui.genebox.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
 
-public class MonochromeMorphConfig extends BiomorphConfigImpl {
+public class MonochromeMorphConfig extends BiomorphConfig {
 	public static final int MutTypeNo = 9;
 	private MonochromeGeneBoxStrip geneBoxStrip;
 	
@@ -36,7 +36,7 @@ public class MonochromeMorphConfig extends BiomorphConfigImpl {
 	}
 	@Override
 	public Morph createMorph(int type) {
-		return new MonochromeMorph(this, type);
+		return (Morph) new MonochromeMorph(this, type);
 	}
 	
 	protected MenuBuilder menuBuilder;
