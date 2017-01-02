@@ -8,7 +8,7 @@
     </information>
     <resources>
         <!-- Application Resources -->
-        <j2se version="1.8+" href=
+        <j2se version="1.6+" href=
            "http://java.sun.com/products/autodl/j2se"/>
         <jar href="https://aronnax9000.github.io/WatchmakerSuite/jars/WatchmakerSuite.jar"
             main="true" />
