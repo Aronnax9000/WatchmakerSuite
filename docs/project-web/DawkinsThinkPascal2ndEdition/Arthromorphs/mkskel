@@ -1,0 +1,17 @@
+makeskel  --package=Arthromorphs \
+--input=program_brand_new.pas \
+--input=unit_about_arthromorphs.pas \
+--input=unit_boxes.pas \
+--input=unit_breeding_window.pas \
+--input=unit_engineering_window.pas \
+--input=unit_error_alert.pas \
+--input=unit_genome_window.pas \
+--input=unit_handle_the_menus.pas \
+--input=unit_initialize.pas \
+--input=unit_init_the_menus.pas \
+--input=unit_my_globals.pas \
+--input=unit_preferences.pas \
+--input=unit_richard.pas \
+--input=unit_ted.pas \
+--output=program_brand_new.fpdescription.skel 
+

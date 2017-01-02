@@ -1,0 +1,478 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Monochrome: Richard Dawkins Blind Watchmaker: Miscellaneous</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Monochrome: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit Miscellaneous</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td>Classes, Interfaces, Objects and Records</td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td>Types</td><td>Constants</td><td>Variables</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+<p>
+</p>
+
+<pre class="preformatted">v1.1 Sept 1993Changed Message procs to use AlertsRemoved PictMessage (never called), change Message calls to DisplayErrorAdded positioning to alerts and dialogsAlert now uses STR# for closing, quitting, etcAdded several functions, for EOF and checking system (see below)Validated the rect after RestoreOffscreen to prevent drawing twice</pre>
+
+<p></p>
+<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="MacPascal.html">MacPascal</a></li><li><a  href="Globals.html">Globals</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#FossilsExist">FossilsExist</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DireMessage">DireMessage</a></b> (string1ID, string2ID: Integer; VAR Verdict: Integer; YesNo: Boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#MemoryMessage">MemoryMessage</a></b> (ID: Integer; InMessage: <a  href="MacPascal.html#Str255">Str255</a>; VAR Verdict: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SimpleMessage">SimpleMessage</a></b> (ID: Integer; VAR Verdict: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#HelpMessage">HelpMessage</a></b> (StrID: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SyringeMessage">SyringeMessage</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Pause">Pause</a></b> (Message: <a  href="MacPascal.html#Str255">Str255</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SetItemState">SetItemState</a></b> (Mndx, Indx: Integer; Flag: Boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#RandInt">RandInt</a></b> (Max: Integer): Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Odd">Odd</a></b> (i: Integer): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#RandSwell">RandSwell</a></b> (Indgene: <a  href="Globals.html#SwellType">Swelltype</a>): <a  href="Globals.html#SwellType">SwellType</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#EraseInnerRect">EraseInnerRect</a></b> (box: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FrameOuterRect">FrameOuterRect</a></b> (box: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FrameInnerRect">FrameInnerRect</a></b> (box: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#StoreOffScreen">StoreOffScreen</a></b> (box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Snapshot: <a  href="MacPascal.BitMap.html">BitMap</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#RestoreOffScreen">RestoreOffScreen</a></b> (box: <a  href="MacPascal.Rect.html">Rect</a>; Snapshot: <a  href="MacPascal.BitMap.html">BitMap</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#CleanUp">CleanUp</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#MakeOffScreen">MakeOffScreen</a></b> (box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Snapshot: <a  href="MacPascal.BitMap.html">BitMap</a>; VAR Burst: Boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DrawInt">DrawInt</a></b> (i: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Drawi">Drawi</a></b> (i: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Grow">Grow</a></b> (VAR Box: <a  href="MacPascal.Rect.html">Rect</a>; d: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#BoxesOnly">BoxesOnly</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#OwnEditMenu">OwnEditMenu</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#DawkFilter">DawkFilter</a></b> (param: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SmallMenus">SmallMenus</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#LargeMenus">LargeMenus</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#BigFuncBox">BigFuncBox</a></b> (Box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Outbox: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SmallFuncBox">SmallFuncBox</a></b> (Box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Outbox: <a  href="MacPascal.Rect.html">Rect</a>; BoxSize: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FuncBox">FuncBox</a></b> (Box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Outbox: <a  href="MacPascal.Rect.html">Rect</a>; BoxSize: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Poop">Poop</a></b> (n: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#StartDocuments">StartDocuments</a></b> (DocumentCount: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#TwoToThe">TwoToThe</a></b> (n: integer): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#TrapAvailable">TrapAvailable</a></b> (theTrap: integer): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#WNEIsImplemented">WNEIsImplemented</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#TempMemCallsAvailable">TempMemCallsAvailable</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DeleteOldFile">DeleteOldFile</a></b> (volRefNum: Integer; dirID: LongInt; fileName: <a  href="MacPascal.html#Str255">Str255</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#PositionDialog">PositionDialog</a></b> (theType: <a  href="MacPascal.ResType.html">ResType</a>; theID: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FindDlogPosition">FindDlogPosition</a></b> (theType: <a  href="MacPascal.ResType.html">ResType</a>; theID: integer; VAR corner: <a  href="MacPascal.Point.html">Point</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#IsEOF">IsEOF</a></b> (refNum: Integer; howClose: LongInt): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#FileSize">FileSize</a></b> (refNum: Integer): LongInt;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FossilsExist"></a><code>FUNCTION <b>FossilsExist</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+replace, but not precisely mimic, Turbo's built-in function</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DireMessage"></a><code>PROCEDURE <b>DireMessage</b> (string1ID, string2ID: Integer; VAR Verdict: Integer; YesNo: Boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 changed DLOGs to ALRTs.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MemoryMessage"></a><code>PROCEDURE <b>MemoryMessage</b> (ID: Integer; InMessage: <a  href="MacPascal.html#Str255">Str255</a>; VAR Verdict: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+27291 for Fewer <a class="normal" href="Globals.html#Album">album</a> screens, 27295 for Careful. *** Change this to <a class="normal" href="MacPascal.html#Handle">handle</a> appropriate type alerts with strings from STR# ***. v1.1 changed to alerts, position correctly on screen, ID 4405 (got to quit) message changed to <a class="normal" href="ErrorUnit.html#DisplayError">DisplayError</a> call.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SimpleMessage"></a><code>PROCEDURE <b>SimpleMessage</b> (ID: Integer; VAR Verdict: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 redesigned the alert slightly and made it <a class="normal" href="Globals.html#a">a</a> Caution Alert. This procedure seems to be always called with the same string ID. If more are added, the alert may need to be made less specific</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HelpMessage"></a><code>PROCEDURE <b>HelpMessage</b> (StrID: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SyringeMessage"></a><code>PROCEDURE <b>SyringeMessage</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Pause"></a><code>PROCEDURE <b>Pause</b> (Message: <a  href="MacPascal.html#Str255">Str255</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetItemState"></a><code>PROCEDURE <b>SetItemState</b> (Mndx, Indx: Integer; Flag: Boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandInt"></a><code>FUNCTION <b>RandInt</b> (Max: Integer): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Odd"></a><code>FUNCTION <b>Odd</b> (i: Integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandSwell"></a><code>FUNCTION <b>RandSwell</b> (Indgene: <a  href="Globals.html#SwellType">Swelltype</a>): <a  href="Globals.html#SwellType">SwellType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EraseInnerRect"></a><code>PROCEDURE <b>EraseInnerRect</b> (box: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FrameOuterRect"></a><code>PROCEDURE <b>FrameOuterRect</b> (box: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FrameInnerRect"></a><code>PROCEDURE <b>FrameInnerRect</b> (box: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StoreOffScreen"></a><code>PROCEDURE <b>StoreOffScreen</b> (box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Snapshot: <a  href="MacPascal.BitMap.html">BitMap</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RestoreOffScreen"></a><code>PROCEDURE <b>RestoreOffScreen</b> (box: <a  href="MacPascal.Rect.html">Rect</a>; Snapshot: <a  href="MacPascal.BitMap.html">BitMap</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CleanUp"></a><code>PROCEDURE <b>CleanUp</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MakeOffScreen"></a><code>PROCEDURE <b>MakeOffScreen</b> (box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Snapshot: <a  href="MacPascal.BitMap.html">BitMap</a>; VAR Burst: Boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawInt"></a><code>PROCEDURE <b>DrawInt</b> (i: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Drawi"></a><code>PROCEDURE <b>Drawi</b> (i: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Grow"></a><code>PROCEDURE <b>Grow</b> (VAR Box: <a  href="MacPascal.Rect.html">Rect</a>; d: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BoxesOnly"></a><code>PROCEDURE <b>BoxesOnly</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OwnEditMenu"></a><code>PROCEDURE <b>OwnEditMenu</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DawkFilter"></a><code>FUNCTION <b>DawkFilter</b> (param: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SmallMenus"></a><code>PROCEDURE <b>SmallMenus</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LargeMenus"></a><code>PROCEDURE <b>LargeMenus</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BigFuncBox"></a><code>PROCEDURE <b>BigFuncBox</b> (Box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Outbox: <a  href="MacPascal.Rect.html">Rect</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SmallFuncBox"></a><code>PROCEDURE <b>SmallFuncBox</b> (Box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Outbox: <a  href="MacPascal.Rect.html">Rect</a>; BoxSize: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FuncBox"></a><code>PROCEDURE <b>FuncBox</b> (Box: <a  href="MacPascal.Rect.html">Rect</a>; VAR Outbox: <a  href="MacPascal.Rect.html">Rect</a>; BoxSize: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Poop"></a><code>PROCEDURE <b>Poop</b> (n: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StartDocuments"></a><code>PROCEDURE <b>StartDocuments</b> (DocumentCount: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 The original procedure would fail if you double click on <a class="normal" href="Globals.html#a">a</a> colour biomorph file, because those files have the same creator signiture but different file formats. Added check of file format - Alun</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TwoToThe"></a><code>FUNCTION <b>TwoToThe</b> (n: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TrapAvailable"></a><code>FUNCTION <b>TrapAvailable</b> (theTrap: integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>TrapAvailable</code> - Check whether <a class="normal" href="Globals.html#a">a</a> certain trap exists on this machine. this function uses the new approved method as per IM-VI p. 3-8. Operating System utility added for v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WNEIsImplemented"></a><code>FUNCTION <b>WNEIsImplemented</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>WNEIsImplemented</code> - See if WaitNextEvent is implemented. Operating System utility added for v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TempMemCallsAvailable"></a><code>FUNCTION <b>TempMemCallsAvailable</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>TempMemCallsAvailable</code> - Check whether the MultiFinder temporary memory calls are available. Operating System utility added for v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DeleteOldFile"></a><code>PROCEDURE <b>DeleteOldFile</b> (volRefNum: Integer; dirID: LongInt; fileName: <a  href="MacPascal.html#Str255">Str255</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+If there was <a class="normal" href="Globals.html#a">a</a> crash, the fossil file may be present but busy. We need to convince the finder that it is okay to delete it Operating System utility added for v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PositionDialog"></a><code>PROCEDURE <b>PositionDialog</b> (theType: <a  href="MacPascal.ResType.html">ResType</a>; theID: integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>PositionDialog</code> - Center the bounding <a class="normal" href="Globals.html#box">box</a> of <a class="normal" href="Globals.html#a">a</a> dialog or alert in the upper third of the screen. This is the preferred location according to the Human Interface Guidelines. Dialog Manager utility added for v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FindDlogPosition"></a><code>PROCEDURE <b>FindDlogPosition</b> (theType: <a  href="MacPascal.ResType.html">ResType</a>; theID: integer; VAR corner: <a  href="MacPascal.Point.html">Point</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>FindDLOGPosition</code> - Return the coordinates of the top left corner of <a class="normal" href="Globals.html#a">a</a> dialog or alert which centers the <a class="normal" href="Globals.html#box">box</a> in the upper third of the main screen. This is the preferred location according to the Human Interface Guidelines. Dialog Manager utility added for v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="IsEOF"></a><code>FUNCTION <b>IsEOF</b> (refNum: Integer; howClose: LongInt): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Acts like Pascal's eof() function, but in addition you can specify how close to the end of the file you are allowed to be (takes care of truncated files. File Manager utilities added for v1.1)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FileSize"></a><code>FUNCTION <b>FileSize</b> (refNum: Integer): LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+returns the number of bytes in the file. Same as the toolbox function <a class="normal" href="MacPascal.html#GetEOF">GetEOF</a>, except this returns the <a class="normal" href="MacPascal.Size.html">size</a> instead of an error code. It has this name to emulate the Turbo routine, except this returns bytes (since we don' t use pascal type-files now). File Manager utilities added for v1.1</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

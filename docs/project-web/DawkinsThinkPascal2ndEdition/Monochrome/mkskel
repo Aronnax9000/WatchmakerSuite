@@ -1,0 +1,14 @@
+makeskel  --package=Monochrome --input=program_blind_watchmaker.pas \
+--input=unit_album.pas \
+--input=unit_biomorphs.pas \
+--input=unit_engineering.pas \
+--input=unit_error.pas \
+--input=unit_globals.pas \
+--input=unit_initialize.pas \
+--input=unit_miscellaneous.pas \
+--input=unit_pedigree.pas \
+--input=unit_standard_get_folder.pas \
+--input=unit_triangle.pas \
+--input=unit_user_interface.pas \
+--input=../MacPascal/think_pascal.pas \
+--output=program_blind_watchmaker.fpdescription.skel 

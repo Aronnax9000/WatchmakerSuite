@@ -1,0 +1,3513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Monochrome: Richard Dawkins Blind Watchmaker: Globals</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Monochrome: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit Globals</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></td><td>Functions and Procedures</td><td><a class="section" href="#PasDoc-Types">Types</a></td><td><a class="section" href="#PasDoc-Constants">Constants</a></td><td><a class="section" href="#PasDoc-Variables">Variables</a></td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+<p>
+Original documentation: </p>
+
+<pre class="preformatted">v1.1 sept 1993Made a start at cleaning up all these globals, but still a lot to do.  I have removed acouple of dozen variables which were just wasting memory, and moved others tolocal variable status.  For the most part, they need to be made into parameters orfile-scoped variables with unit initializer; this is too much work for now.</pre>
+
+<p></p>
+<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="MacPascal.html">MacPascal</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Classes"></a><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">packed record&nbsp;<a class="bold" href="Globals.tSystem.html"><code>tSystem</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="Globals.person.html"><code>person</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="Globals.Full.html"><code>Full</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="Globals.God.html"><code>God</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="Globals.Lin.html"><code>Lin</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="Globals.Pic.html"><code>Pic</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="Globals.Menagerie.html"><code>Menagerie</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<a name="PasDoc-Types"></a><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#CursorList">CursorList</a></b> = ARRAY[iBeamCursor..BlankCursor] OF <a  href="MacPascal.html#CursHandle">CursHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PtrInteger">PtrInteger</a></b> = &circ;Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#PtrString">PtrString</a></b> = &circ;<a  href="MacPascal.html#Str255">str255</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SwellType">SwellType</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HorizPos">HorizPos</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#VertPos">VertPos</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SmallNumber">SmallNumber</a></b> = -1..1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#chromosome">chromosome</a></b> = ARRAY[1..9] OF Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Compass">Compass</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#CompletenessType">CompletenessType</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SpokesType">SpokesType</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#FullPtr">FullPtr</a></b> = &circ;<a  href="Globals.Full.html">Full</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FullHandle">FullHandle</a></b> = &circ;<a  href="Globals.html#FullPtr">FullPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#GodPtr">GodPtr</a></b> = &circ;<a  href="Globals.God.html">God</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#GodHandle">GodHandle</a></b> = &circ;<a  href="Globals.html#GodPtr">GodPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PartOfBox">PartOfBox</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#LinPtr">LinPtr</a></b> = &circ;<a  href="Globals.Lin.html">Lin</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#LinHandle">LinHandle</a></b> = &circ;<a  href="Globals.html#LinPtr">LinPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BaseHandle">BaseHandle</a></b> = &circ;<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PointArray">PointArray</a></b> = ARRAY[1..4] OF <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#mode">mode</a></b> = (...);</code></td>
+</tr>
+</table>
+<a name="PasDoc-Constants"></a><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SafetyValve">SafetyValve</a></b> = 20;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#CarefulThreshold">CarefulThreshold</a></b> = 8192;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#trickle">trickle</a></b> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MutSizestart">MutSizestart</a></b> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#iconhalfsize">iconhalfsize</a></b> = 128;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#ScrollBarWidth">ScrollBarWidth</a></b> = 16;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#TopBoxHeight">TopBoxHeight</a></b> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MaxGene9">MaxGene9</a></b> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MaxAlbum">MaxAlbum</a></b> = 100;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MaxBoxes">MaxBoxes</a></b> = 100;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#StackSize">StackSize</a></b> = 100;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#GenesHeight">GenesHeight</a></b> = 20;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#PicSizeMax">PicSizeMax</a></b> = 4095;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#WorryMax">WorryMax</a></b> = 4095;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#TickDelay">TickDelay</a></b> = 20;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MutTypeNo">MutTypeNo</a></b> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MenuCnt">MenuCnt</a></b> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#ApplMenu">ApplMenu</a></b> = 1000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FileMenu">FileMenu</a></b> = 1001;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#LoadAlbumItem">LoadAlbumItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#LoadFossilsItem">LoadFossilsItem</a></b> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveBiomorphItem">SaveBiomorphItem</a></b> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveFossilsItem">SaveFossilsItem</a></b> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveAlbumItem">SaveAlbumItem</a></b> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#CloseAlbumItem">CloseAlbumItem</a></b> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#QuitItem">QuitItem</a></b> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#EditMenu">EditMenu</a></b> = 1002;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#UndoItem">UndoItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#CutItem">CutItem</a></b> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Copyitem">Copyitem</a></b> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#PasteItem">PasteItem</a></b> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#ClearItem">ClearItem</a></b> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HighlightBiomItem">HighlightBiomItem</a></b> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#AddBiomItem">AddBiomItem</a></b> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ShowAlbumItem">ShowAlbumItem</a></b> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#OperMenu">OperMenu</a></b> = 1004;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedItem">BreedItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DriftItem">DriftItem</a></b> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#EngineeringItem">EngineeringItem</a></b> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#HopeMonsterItem">HopeMonsterItem</a></b> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#InitFossRecItem">InitFossRecItem</a></b> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PlayFossilItem">PlayFossilItem</a></b> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#RecordFossilItem">RecordFossilItem</a></b> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#TriangleItem">TriangleItem</a></b> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BoxMenu">BoxMenu</a></b> = 1005;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MoreRowsItem">MoreRowsItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FewerRowsItem">FewerRowsItem</a></b> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MoreColumnsItem">MoreColumnsItem</a></b> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FewerColumnsItem">FewerColumnsItem</a></b> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#ThickerPenItem">ThickerPenItem</a></b> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ThinnerPenItem">ThinnerPenItem</a></b> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DriftSweepItem">DriftSweepItem</a></b> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#TriangleTopItem">TriangleTopItem</a></b> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#TriangleLeftItem">TriangleLeftItem</a></b> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#TriangleRightItem">TriangleRightItem</a></b> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#HideWindowItem">HideWindowItem</a></b> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MutationMenu">MutationMenu</a></b> = 1006;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PedigreeMenu">PedigreeMenu</a></b> = 1007;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DisplayPedigreeItem">DisplayPedigreeItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DrawOutItem">DrawOutItem</a></b> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#NoMirrorsItem">NoMirrorsItem</a></b> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SingleMirrorItem">SingleMirrorItem</a></b> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DoubleMirrorItem">DoubleMirrorItem</a></b> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MoveItem">MoveItem</a></b> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DetachItem">DetachItem</a></b> = 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#KillItem">KillItem</a></b> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HelpMenu">HelpMenu</a></b> = 3238;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#HelpCurrentItem">HelpCurrentItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HelpMiscItem">HelpMiscItem</a></b> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SpecMenu">SpecMenu</a></b> = 21537;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ClosePlaybackItem">ClosePlaybackItem</a></b> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedCurrentItem">BreedCurrentItem</a></b> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#QuitPlaybackItem">QuitPlaybackItem</a></b> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#AM">AM</a></b> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FM">FM</a></b> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#EM">EM</a></b> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#OM">OM</a></b> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BM">BM</a></b> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MM">MM</a></b> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PM">PM</a></b> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HM">HM</a></b> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PascalKind">PascalKind</a></b> = 32700;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MainID">MainID</a></b> = 1000;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#AboutID">AboutID</a></b> = 1000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Text1ID">Text1ID</a></b> = 1000;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Text2ID">Text2ID</a></b> = 1001;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Text3ID">Text3ID</a></b> = 1002;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Text4ID">Text4ID</a></b> = 21950;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#WarnDiscString">WarnDiscString</a></b> = 22773;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveAlbumString">SaveAlbumString</a></b> = 4720;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveFossilString">SaveFossilString</a></b> = 11609;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#WarnIconString">WarnIconString</a></b> = 7852;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#TooLargeString">TooLargeString</a></b> = 13603;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveBiomorphString">SaveBiomorphString</a></b> = 3866;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#kAlertStringsID">kAlertStringsID</a></b> = 128;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#kFossilsID">kFossilsID</a></b> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#kAlbumID">kAlbumID</a></b> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#kBiomorphID">kBiomorphID</a></b> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#kQuittingID">kQuittingID</a></b> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#kClosingID">kClosingID</a></b> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#kResettingID">kResettingID</a></b> = 12;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PlusIconString">PlusIconString</a></b> = 4477;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#AsString">AsString</a></b> = 17474;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#AlbumPageID">AlbumPageID</a></b> = 5102;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ClipID">ClipID</a></b> = 2000;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Clip1ID">Clip1ID</a></b> = 2000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Clip2ID">Clip2ID</a></b> = 2001;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Clip3ID">Clip3ID</a></b> = 2002;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#leftCursID">leftCursID</a></b> = 135;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#leftCursor">leftCursor</a></b> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#rightCursID">rightCursID</a></b> = 136;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#rightCursor">rightCursor</a></b> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#UpCursId">UpCursId</a></b> = 137;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#UpCursor">UpCursor</a></b> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DownCursID">DownCursID</a></b> = 138;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DownCursor">DownCursor</a></b> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#EqCursID">EqCursID</a></b> = 139;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#EqCursor">EqCursor</a></b> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#InjectCursID">InjectCursID</a></b> = 140;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#InjectCursor">InjectCursor</a></b> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#QCursID">QCursID</a></b> = 141;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#QCursor">QCursor</a></b> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BlackCursId">BlackCursId</a></b> = 142;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BlackCursor">BlackCursor</a></b> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BoxCursID">BoxCursID</a></b> = 143;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BoxCursor">BoxCursor</a></b> = 13;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#RandCursID">RandCursID</a></b> = 144;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#RandCursor">RandCursor</a></b> = 14;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedCursID">BreedCursID</a></b> = 145;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedCursor">BreedCursor</a></b> = 15;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HandCursID">HandCursID</a></b> = 146;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#HandCursor">HandCursor</a></b> = 16;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DrawOutCursID">DrawOutCursID</a></b> = 147;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DrawOutCursor">DrawOutCursor</a></b> = 17;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ScissorCursId">ScissorCursId</a></b> = 148;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#ScissorCursor">ScissorCursor</a></b> = 18;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#GunCursID">GunCursID</a></b> = 149;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#GunCursor">GunCursor</a></b> = 19;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#LensCursID">LensCursID</a></b> = 150;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#LensCursor">LensCursor</a></b> = 20;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BlankCursID">BlankCursID</a></b> = 151;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BlankCursor">BlankCursor</a></b> = 21;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BSize">BSize</a></b> = 512;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BCount">BCount</a></b> = 256;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Variables"></a><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Finished">Finished</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DotheSave">DotheSave</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#LoadingFossils">LoadingFossils</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#AlbumChanged">AlbumChanged</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Danger">Danger</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Pastable">Pastable</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Zoomed">Zoomed</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#theEvent">theEvent</a></b>: <a  href="MacPascal.EventRecord.html">EventRecord</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#TV">TV</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#TH">TH</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FossilCounter">FossilCounter</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SizeWorry">SizeWorry</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DragArea">DragArea</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#GrowArea">GrowArea</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ScreenArea">ScreenArea</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#CursList">CursList</a></b>: <a  href="Globals.html#CursorList">CursorList</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#theCursor">theCursor</a></b>: <a  href="MacPascal.Cursor.html">Cursor</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MenuList">MenuList</a></b>: ARRAY[1..<a  href="Globals.html#MenuCnt">MenuCnt</a>] OF <a  href="MacPascal.MenuHandle.html">MenuHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SpecialBreedMenu">SpecialBreedMenu</a></b>: <a  href="MacPascal.MenuHandle.html">MenuHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MainPtr">MainPtr</a></b>: <a  href="MacPascal.WindowPtr.html">WindowPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MainRec">MainRec</a></b>: <a  href="MacPascal.WindowRecord.html">WindowRecord</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PlayBackPtr">PlayBackPtr</a></b>: <a  href="MacPascal.WindowPtr.html">WindowPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#PlayBackRecord">PlayBackRecord</a></b>: <a  href="MacPascal.WindowRecord.html">WindowRecord</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PlayBackRect">PlayBackRect</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MyControl">MyControl</a></b>: <a  href="MacPascal.ControlHandle.html">ControlHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MainPeek">MainPeek</a></b>: <a  href="MacPascal.WindowPeek.html">WindowPeek</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ScreenPort">ScreenPort</a></b>: <a  href="MacPascal.GrafPtr.html">GrafPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#frontw">frontw</a></b>: <a  href="MacPascal.WindowPtr.html">WindowPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#AlbumBitMap">AlbumBitMap</a></b>: ARRAY[0..4] OF <a  href="MacPascal.BitMap.html">BitMap</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#mybitmap">mybitmap</a></b>: <a  href="MacPascal.BitMap.html">bitmap</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#OldBox">OldBox</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#k">k</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#NumberInFile">NumberInFile</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MyPenSize">MyPenSize</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MLoc">MLoc</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MidScreen">MidScreen</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#hideInBackGround">hideInBackGround</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DefaultVolume">DefaultVolume</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#dirID">dirID</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#defaultDir">defaultDir</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#fileName">fileName</a></b>: <a  href="MacPascal.html#Str63">Str63</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#volRefNum">volRefNum</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DefaultVolNum">DefaultVolNum</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MaxPages">MaxPages</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Slides">Slides</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SizeOfPerson">SizeOfPerson</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#LastPutFileName">LastPutFileName</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#LastGetFileName">LastGetFileName</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#FossilsToSave">FossilsToSave</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#FirstTime">FirstTime</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ThereAreLines">ThereAreLines</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SweepOn">SweepOn</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#AlbumEmpty">AlbumEmpty</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#j">j</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#NRows">NRows</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Ncols">Ncols</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#NBoxes">NBoxes</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#NActiveBoxes">NActiveBoxes</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MidBox">MidBox</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#special">special</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#oldspecial">oldspecial</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#width">width</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#height">height</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#AlbumNRows">AlbumNRows</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#AlbumNCols">AlbumNCols</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedNRows">BreedNRows</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedNCols">BreedNCols</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BreedNBoxes">BreedNBoxes</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#RememberSpecial">RememberSpecial</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#margin">margin</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DamageRect">DamageRect</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#PRect">PRect</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BusinessPart">BusinessPart</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DummyRect">DummyRect</a></b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#child">child</a></b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#box">box</a></b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#centre">centre</a></b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="MacPascal.Point.html">point</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#TheMode">TheMode</a></b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveMode">SaveMode</a></b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#OldMode">OldMode</a></b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#RememberMode">RememberMode</a></b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#GeneBox">GeneBox</a></b>: ARRAY[1..16] OF <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ClipBoarding">ClipBoarding</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Fossilizing">Fossilizing</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#naive">naive</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#burst">burst</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#WarningHasBeenGiven">WarningHasBeenGiven</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Midline">Midline</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#CurrentPage">CurrentPage</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DelayedDrawing">DelayedDrawing</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ZeroMargin">ZeroMargin</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DAon">DAon</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#BrokenOut">BrokenOut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MyPic">MyPic</a></b>: <a  href="Globals.Pic.html">Pic</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ThisPic">ThisPic</a></b>: <a  href="MacPascal.PicHandle.html">PicHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Mut">Mut</a></b>: ARRAY[1..<a  href="Globals.html#MutTypeNo">MutTypeNo</a>] OF Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DocumentMessage">DocumentMessage</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DocumentCount">DocumentCount</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Rays">Rays</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Verdict">Verdict</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Album">Album</a></b>: <a  href="Globals.Menagerie.html">Menagerie</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#ThisMenagerie">ThisMenagerie</a></b>: <a  href="Globals.Menagerie.html">Menagerie</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#NPages">NPages</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#Morph">Morph</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Page">Page</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BoxNo">BoxNo</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#DriftOne">DriftOne</a></b>: Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#GodCounter">GodCounter</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#PBoxNo">PBoxNo</a></b>: ARRAY[1..4] OF Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#MyPicture">MyPicture</a></b>: <a  href="MacPascal.PicHandle.html">PicHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#StoreChild">StoreChild</a></b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SomethingToRestore">SomethingToRestore</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#AlreadyTriangling">AlreadyTriangling</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SpecialFull">SpecialFull</a></b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#OldSpecialFull">OldSpecialFull</a></b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#RunningFull">RunningFull</a></b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#ThatFull">ThatFull</a></b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#FullSize">FullSize</a></b>: <a  href="MacPascal.Size.html">Size</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#Region2">Region2</a></b>: <a  href="MacPascal.RgnHandle.html">RgnHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#DestRegion">DestRegion</a></b>: <a  href="MacPascal.RgnHandle.html">RgnHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveRegion">SaveRegion</a></b>: <a  href="MacPascal.RgnHandle.html">RgnHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#RootGod">RootGod</a></b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#theGod">theGod</a></b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#SaveGod">SaveGod</a></b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#HitListHead">HitListHead</a></b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#firstBiomorph">firstBiomorph</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#theBiomorph">theBiomorph</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#topan">topan</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#leftan">leftan</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#rightan">rightan</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#copiedanimal">copiedanimal</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#target">target</a></b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#MidPoint">MidPoint</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#r1">r1</a></b>: real;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#r2">r2</a></b>: real;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#r3">r3</a></b>: real;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#a">a</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#b">b</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#c">c</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#mous">mous</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#LastMouse">LastMouse</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#NowMouse">NowMouse</a></b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#AsymString">AsymString</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#BilatString">BilatString</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#SingleString">SingleString</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#UpDnString">UpDnString</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Globals.html#RadialString">RadialString</a></b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Globals.html#gSystem">gSystem</a></b>: <a  href="Globals.tSystem.html">tSystem</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CursorList"></a><code><b>CursorList</b> = ARRAY[iBeamCursor..BlankCursor] OF <a  href="MacPascal.html#CursHandle">CursHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PtrInteger"></a><code><b>PtrInteger</b> = &circ;Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PtrString"></a><code><b>PtrString</b> = &circ;<a  href="MacPascal.html#Str255">str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SwellType"></a><code><b>SwellType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Swell: &nbsp;</li>
+<li>
+Same: &nbsp;</li>
+<li>
+Shrink: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HorizPos"></a><code><b>HorizPos</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+LeftThird: &nbsp;</li>
+<li>
+MidThird: &nbsp;</li>
+<li>
+RightThird: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="VertPos"></a><code><b>VertPos</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+TopRung: &nbsp;</li>
+<li>
+MidRung: &nbsp;</li>
+<li>
+BottomRung: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SmallNumber"></a><code><b>SmallNumber</b> = -1..1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="chromosome"></a><code><b>chromosome</b> = ARRAY[1..9] OF Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Compass"></a><code><b>Compass</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+NorthSouth: &nbsp;</li>
+<li>
+EastWest: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CompletenessType"></a><code><b>CompletenessType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Single: &nbsp;</li>
+<li>
+Double: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SpokesType"></a><code><b>SpokesType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+NorthOnly: &nbsp;</li>
+<li>
+NSouth: &nbsp;</li>
+<li>
+Radial: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FullPtr"></a><code><b>FullPtr</b> = &circ;<a  href="Globals.Full.html">Full</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FullHandle"></a><code><b>FullHandle</b> = &circ;<a  href="Globals.html#FullPtr">FullPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GodPtr"></a><code><b>GodPtr</b> = &circ;<a  href="Globals.God.html">God</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GodHandle"></a><code><b>GodHandle</b> = &circ;<a  href="Globals.html#GodPtr">GodPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PartOfBox"></a><code><b>PartOfBox</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+MainPart: &nbsp;</li>
+<li>
+MovePart: &nbsp;</li>
+<li>
+GoAwayPart: &nbsp;</li>
+<li>
+AnyPart: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LinPtr"></a><code><b>LinPtr</b> = &circ;<a  href="Globals.Lin.html">Lin</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LinHandle"></a><code><b>LinHandle</b> = &circ;<a  href="Globals.html#LinPtr">LinPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BaseHandle"></a><code><b>BaseHandle</b> = &circ;<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PointArray"></a><code><b>PointArray</b> = ARRAY[1..4] OF <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="mode"></a><code><b>mode</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+preliminary: &nbsp;</li>
+<li>
+breeding: &nbsp;</li>
+<li>
+albuming: &nbsp;</li>
+<li>
+phyloging: &nbsp;</li>
+<li>
+killing: &nbsp;</li>
+<li>
+moving: &nbsp;</li>
+<li>
+detaching: &nbsp;</li>
+<li>
+randoming: &nbsp;</li>
+<li>
+engineering: &nbsp;</li>
+<li>
+drifting: &nbsp;</li>
+<li>
+highlighting: &nbsp;</li>
+<li>
+PlayingBack: &nbsp;</li>
+<li>
+triangling: &nbsp;</li>
+<li>
+sweeping: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SafetyValve"></a><code><b>SafetyValve</b> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CarefulThreshold"></a><code><b>CarefulThreshold</b> = 8192;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="trickle"></a><code><b>trickle</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MutSizestart"></a><code><b>MutSizestart</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="iconhalfsize"></a><code><b>iconhalfsize</b> = 128;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ScrollBarWidth"></a><code><b>ScrollBarWidth</b> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TopBoxHeight"></a><code><b>TopBoxHeight</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MaxGene9"></a><code><b>MaxGene9</b> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MaxAlbum"></a><code><b>MaxAlbum</b> = 100;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 was set to 15, but turbo version said 100</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MaxBoxes"></a><code><b>MaxBoxes</b> = 100;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 was set to 50</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StackSize"></a><code><b>StackSize</b> = 100;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GenesHeight"></a><code><b>GenesHeight</b> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PicSizeMax"></a><code><b>PicSizeMax</b> = 4095;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="Globals.html#height">Height</a> of the GeneBoxes, in pixels</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WorryMax"></a><code><b>WorryMax</b> = 4095;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TickDelay"></a><code><b>TickDelay</b> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MutTypeNo"></a><code><b>MutTypeNo</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MenuCnt"></a><code><b>MenuCnt</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+*** Menu Constants ***</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ApplMenu"></a><code><b>ApplMenu</b> = 1000;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FileMenu"></a><code><b>FileMenu</b> = 1001;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LoadAlbumItem"></a><code><b>LoadAlbumItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LoadFossilsItem"></a><code><b>LoadFossilsItem</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveBiomorphItem"></a><code><b>SaveBiomorphItem</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveFossilsItem"></a><code><b>SaveFossilsItem</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveAlbumItem"></a><code><b>SaveAlbumItem</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CloseAlbumItem"></a><code><b>CloseAlbumItem</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="QuitItem"></a><code><b>QuitItem</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EditMenu"></a><code><b>EditMenu</b> = 1002;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="UndoItem"></a><code><b>UndoItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CutItem"></a><code><b>CutItem</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Copyitem"></a><code><b>Copyitem</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PasteItem"></a><code><b>PasteItem</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ClearItem"></a><code><b>ClearItem</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HighlightBiomItem"></a><code><b>HighlightBiomItem</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AddBiomItem"></a><code><b>AddBiomItem</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ShowAlbumItem"></a><code><b>ShowAlbumItem</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OperMenu"></a><code><b>OperMenu</b> = 1004;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedItem"></a><code><b>BreedItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DriftItem"></a><code><b>DriftItem</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EngineeringItem"></a><code><b>EngineeringItem</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HopeMonsterItem"></a><code><b>HopeMonsterItem</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="InitFossRecItem"></a><code><b>InitFossRecItem</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PlayFossilItem"></a><code><b>PlayFossilItem</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RecordFossilItem"></a><code><b>RecordFossilItem</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TriangleItem"></a><code><b>TriangleItem</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BoxMenu"></a><code><b>BoxMenu</b> = 1005;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MoreRowsItem"></a><code><b>MoreRowsItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FewerRowsItem"></a><code><b>FewerRowsItem</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MoreColumnsItem"></a><code><b>MoreColumnsItem</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FewerColumnsItem"></a><code><b>FewerColumnsItem</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThickerPenItem"></a><code><b>ThickerPenItem</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThinnerPenItem"></a><code><b>ThinnerPenItem</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DriftSweepItem"></a><code><b>DriftSweepItem</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TriangleTopItem"></a><code><b>TriangleTopItem</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TriangleLeftItem"></a><code><b>TriangleLeftItem</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TriangleRightItem"></a><code><b>TriangleRightItem</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HideWindowItem"></a><code><b>HideWindowItem</b> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MutationMenu"></a><code><b>MutationMenu</b> = 1006;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PedigreeMenu"></a><code><b>PedigreeMenu</b> = 1007;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DisplayPedigreeItem"></a><code><b>DisplayPedigreeItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawOutItem"></a><code><b>DrawOutItem</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NoMirrorsItem"></a><code><b>NoMirrorsItem</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SingleMirrorItem"></a><code><b>SingleMirrorItem</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoubleMirrorItem"></a><code><b>DoubleMirrorItem</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MoveItem"></a><code><b>MoveItem</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DetachItem"></a><code><b>DetachItem</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="KillItem"></a><code><b>KillItem</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HelpMenu"></a><code><b>HelpMenu</b> = 3238;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HelpCurrentItem"></a><code><b>HelpCurrentItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HelpMiscItem"></a><code><b>HelpMiscItem</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SpecMenu"></a><code><b>SpecMenu</b> = 21537;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Menu Constant</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ClosePlaybackItem"></a><code><b>ClosePlaybackItem</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedCurrentItem"></a><code><b>BreedCurrentItem</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="QuitPlaybackItem"></a><code><b>QuitPlaybackItem</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 added these menu item constants. Life is too hard without them</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AM"></a><code><b>AM</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+index into <a class="normal" href="Globals.html#MenuList">MenuList</a> for Apple Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FM"></a><code><b>FM</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+index into File Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EM"></a><code><b>EM</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OM"></a><code><b>OM</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+index into Operation Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BM"></a><code><b>BM</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+index into Boxes Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MM"></a><code><b>MM</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+index into Mutations Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PM"></a><code><b>PM</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+index into <a class="normal" href="Pedigree.html">Pedigree</a> Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HM"></a><code><b>HM</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+W for Window Menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PascalKind"></a><code><b>PascalKind</b> = 32700;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+windowKind of pascal windows</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MainID"></a><code><b>MainID</b> = 1000;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+resource ID for MainWindow</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AboutID"></a><code><b>AboutID</b> = 1000;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+resource ID for dialog <a class="normal" href="Globals.html#box">box</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Text1ID"></a><code><b>Text1ID</b> = 1000;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+resource IDs for 'About...' text</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Text2ID"></a><code><b>Text2ID</b> = 1001;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Text3ID"></a><code><b>Text3ID</b> = 1002;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Text4ID"></a><code><b>Text4ID</b> = 21950;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WarnDiscString"></a><code><b>WarnDiscString</b> = 22773;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveAlbumString"></a><code><b>SaveAlbumString</b> = 4720;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveFossilString"></a><code><b>SaveFossilString</b> = 11609;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WarnIconString"></a><code><b>WarnIconString</b> = 7852;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TooLargeString"></a><code><b>TooLargeString</b> = 13603;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveBiomorphString"></a><code><b>SaveBiomorphString</b> = 3866;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kAlertStringsID"></a><code><b>kAlertStringsID</b> = 128;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+new STR# IDs for alerts - v1.1</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kFossilsID"></a><code><b>kFossilsID</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kAlbumID"></a><code><b>kAlbumID</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kBiomorphID"></a><code><b>kBiomorphID</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kQuittingID"></a><code><b>kQuittingID</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kClosingID"></a><code><b>kClosingID</b> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="kResettingID"></a><code><b>kResettingID</b> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PlusIconString"></a><code><b>PlusIconString</b> = 4477;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AsString"></a><code><b>AsString</b> = 17474;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlbumPageID"></a><code><b>AlbumPageID</b> = 5102;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ClipID"></a><code><b>ClipID</b> = 2000;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Clip1ID"></a><code><b>Clip1ID</b> = 2000;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Clip2ID"></a><code><b>Clip2ID</b> = 2001;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Clip3ID"></a><code><b>Clip3ID</b> = 2002;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="leftCursID"></a><code><b>leftCursID</b> = 135;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+CURSORS &gt; made these contiguous numbers so that they can be read in <a class="normal" href="Globals.html#a">a</a> loop and checked - Alun</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="leftCursor"></a><code><b>leftCursor</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="rightCursID"></a><code><b>rightCursID</b> = 136;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="rightCursor"></a><code><b>rightCursor</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="UpCursId"></a><code><b>UpCursId</b> = 137;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="UpCursor"></a><code><b>UpCursor</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DownCursID"></a><code><b>DownCursID</b> = 138;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DownCursor"></a><code><b>DownCursor</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EqCursID"></a><code><b>EqCursID</b> = 139;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EqCursor"></a><code><b>EqCursor</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="InjectCursID"></a><code><b>InjectCursID</b> = 140;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="InjectCursor"></a><code><b>InjectCursor</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="QCursID"></a><code><b>QCursID</b> = 141;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="QCursor"></a><code><b>QCursor</b> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BlackCursId"></a><code><b>BlackCursId</b> = 142;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BlackCursor"></a><code><b>BlackCursor</b> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BoxCursID"></a><code><b>BoxCursID</b> = 143;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BoxCursor"></a><code><b>BoxCursor</b> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandCursID"></a><code><b>RandCursID</b> = 144;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandCursor"></a><code><b>RandCursor</b> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedCursID"></a><code><b>BreedCursID</b> = 145;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedCursor"></a><code><b>BreedCursor</b> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HandCursID"></a><code><b>HandCursID</b> = 146;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HandCursor"></a><code><b>HandCursor</b> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawOutCursID"></a><code><b>DrawOutCursID</b> = 147;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawOutCursor"></a><code><b>DrawOutCursor</b> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ScissorCursId"></a><code><b>ScissorCursId</b> = 148;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ScissorCursor"></a><code><b>ScissorCursor</b> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GunCursID"></a><code><b>GunCursID</b> = 149;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GunCursor"></a><code><b>GunCursor</b> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LensCursID"></a><code><b>LensCursID</b> = 150;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LensCursor"></a><code><b>LensCursor</b> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BlankCursID"></a><code><b>BlankCursID</b> = 151;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BlankCursor"></a><code><b>BlankCursor</b> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BSize"></a><code><b>BSize</b> = 512;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BCount"></a><code><b>BCount</b> = 256;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+****Added for v1.1****</p>
+</td></tr>
+</table>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Finished"></a><code><b>Finished</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DotheSave"></a><code><b>DotheSave</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LoadingFossils"></a><code><b>LoadingFossils</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlbumChanged"></a><code><b>AlbumChanged</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Danger"></a><code><b>Danger</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Pastable"></a><code><b>Pastable</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Zoomed"></a><code><b>Zoomed</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theEvent"></a><code><b>theEvent</b>: <a  href="MacPascal.EventRecord.html">EventRecord</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+event passed from operating system</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TV"></a><code><b>TV</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+location of text</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TH"></a><code><b>TH</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+location of text</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FossilCounter"></a><code><b>FossilCounter</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SizeWorry"></a><code><b>SizeWorry</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DragArea"></a><code><b>DragArea</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+defines area where window can be dragged in</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GrowArea"></a><code><b>GrowArea</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+defines area to which <a class="normal" href="Globals.html#a">a</a> window's <a class="normal" href="MacPascal.Size.html">size</a> can change</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ScreenArea"></a><code><b>ScreenArea</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+defines screen dimensions</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CursList"></a><code><b>CursList</b>: <a  href="Globals.html#CursorList">CursorList</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+used to hold <a class="normal" href="MacPascal.Cursor.html">cursor</a> handles</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theCursor"></a><code><b>theCursor</b>: <a  href="MacPascal.Cursor.html">Cursor</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MenuList"></a><code><b>MenuList</b>: ARRAY[1..<a  href="Globals.html#MenuCnt">MenuCnt</a>] OF <a  href="MacPascal.MenuHandle.html">MenuHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+holds menu info</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SpecialBreedMenu"></a><code><b>SpecialBreedMenu</b>: <a  href="MacPascal.MenuHandle.html">MenuHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MainPtr"></a><code><b>MainPtr</b>: <a  href="MacPascal.WindowPtr.html">WindowPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+pointer to main window</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MainRec"></a><code><b>MainRec</b>: <a  href="MacPascal.WindowRecord.html">WindowRecord</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+holds data for main window</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PlayBackPtr"></a><code><b>PlayBackPtr</b>: <a  href="MacPascal.WindowPtr.html">WindowPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PlayBackRecord"></a><code><b>PlayBackRecord</b>: <a  href="MacPascal.WindowRecord.html">WindowRecord</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PlayBackRect"></a><code><b>PlayBackRect</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MyControl"></a><code><b>MyControl</b>: <a  href="MacPascal.ControlHandle.html">ControlHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MainPeek"></a><code><b>MainPeek</b>: <a  href="MacPascal.WindowPeek.html">WindowPeek</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+pointer to <a class="normal" href="Globals.html#MainRec">MainRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ScreenPort"></a><code><b>ScreenPort</b>: <a  href="MacPascal.GrafPtr.html">GrafPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+pointer to entire screen</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="frontw"></a><code><b>frontw</b>: <a  href="MacPascal.WindowPtr.html">WindowPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+pointer to active window</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlbumBitMap"></a><code><b>AlbumBitMap</b>: ARRAY[0..4] OF <a  href="MacPascal.BitMap.html">BitMap</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="mybitmap"></a><code><b>mybitmap</b>: <a  href="MacPascal.BitMap.html">bitmap</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OldBox"></a><code><b>OldBox</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="k"></a><code><b>k</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NumberInFile"></a><code><b>NumberInFile</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MyPenSize"></a><code><b>MyPenSize</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MLoc"></a><code><b>MLoc</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MidScreen"></a><code><b>MidScreen</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="hideInBackGround"></a><code><b>hideInBackGround</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+added v1.1 if TRUE hide our windows when switched out. Toggled by menu</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DefaultVolume"></a><code><b>DefaultVolume</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+name of disk we are running on</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="dirID"></a><code><b>dirID</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Folder ID for fossil file and app</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="defaultDir"></a><code><b>defaultDir</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Folder ID for fossil file and app</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="fileName"></a><code><b>fileName</b>: <a  href="MacPascal.html#Str63">Str63</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+name of fossil file, normally 'Fossil History'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="volRefNum"></a><code><b>volRefNum</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>volRefNum</code> is volume containing fossil file, <a class="normal" href="Globals.html#DefaultVolNum">DefaultVolNum</a> contains app</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DefaultVolNum"></a><code><b>DefaultVolNum</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="Globals.html#volRefNum">volRefNum</a> is volume containing fossil file, <code>DefaultVolNum</code> contains app</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MaxPages"></a><code><b>MaxPages</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="Globals.html#volRefNum">volRefNum</a> is volume containing fossil file, <a class="normal" href="Globals.html#DefaultVolNum">DefaultVolNum</a> contains app</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Slides"></a><code><b>Slides</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+fileNum of fossil file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SizeOfPerson"></a><code><b>SizeOfPerson</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Record <a class="normal" href="MacPascal.Size.html">size</a> for saving to files.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LastPutFileName"></a><code><b>LastPutFileName</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LastGetFileName"></a><code><b>LastGetFileName</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FossilsToSave"></a><code><b>FossilsToSave</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FirstTime"></a><code><b>FirstTime</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThereAreLines"></a><code><b>ThereAreLines</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SweepOn"></a><code><b>SweepOn</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlbumEmpty"></a><code><b>AlbumEmpty</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="j"></a><code><b>j</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NRows"></a><code><b>NRows</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Ncols"></a><code><b>Ncols</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NBoxes"></a><code><b>NBoxes</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NActiveBoxes"></a><code><b>NActiveBoxes</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MidBox"></a><code><b>MidBox</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="special"></a><code><b>special</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="oldspecial"></a><code><b>oldspecial</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="width"></a><code><b>width</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="height"></a><code><b>height</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlbumNRows"></a><code><b>AlbumNRows</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlbumNCols"></a><code><b>AlbumNCols</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedNRows"></a><code><b>BreedNRows</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedNCols"></a><code><b>BreedNCols</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedNBoxes"></a><code><b>BreedNBoxes</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RememberSpecial"></a><code><b>RememberSpecial</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="margin"></a><code><b>margin</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DamageRect"></a><code><b>DamageRect</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PRect"></a><code><b>PRect</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BusinessPart"></a><code><b>BusinessPart</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DummyRect"></a><code><b>DummyRect</b>: <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="child"></a><code><b>child</b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="box"></a><code><b>box</b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="centre"></a><code><b>centre</b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="MacPascal.Point.html">point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TheMode"></a><code><b>TheMode</b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveMode"></a><code><b>SaveMode</b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OldMode"></a><code><b>OldMode</b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RememberMode"></a><code><b>RememberMode</b>: <a  href="Globals.html#mode">mode</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GeneBox"></a><code><b>GeneBox</b>: ARRAY[1..16] OF <a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ClipBoarding"></a><code><b>ClipBoarding</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Fossilizing"></a><code><b>Fossilizing</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="naive"></a><code><b>naive</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="burst"></a><code><b>burst</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WarningHasBeenGiven"></a><code><b>WarningHasBeenGiven</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Midline"></a><code><b>Midline</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CurrentPage"></a><code><b>CurrentPage</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DelayedDrawing"></a><code><b>DelayedDrawing</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ZeroMargin"></a><code><b>ZeroMargin</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DAon"></a><code><b>DAon</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BrokenOut"></a><code><b>BrokenOut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MyPic"></a><code><b>MyPic</b>: <a  href="Globals.Pic.html">Pic</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThisPic"></a><code><b>ThisPic</b>: <a  href="MacPascal.PicHandle.html">PicHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Mut"></a><code><b>Mut</b>: ARRAY[1..<a  href="Globals.html#MutTypeNo">MutTypeNo</a>] OF Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DocumentMessage"></a><code><b>DocumentMessage</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DocumentCount"></a><code><b>DocumentCount</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Rays"></a><code><b>Rays</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Verdict"></a><code><b>Verdict</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Album"></a><code><b>Album</b>: <a  href="Globals.Menagerie.html">Menagerie</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThisMenagerie"></a><code><b>ThisMenagerie</b>: <a  href="Globals.Menagerie.html">Menagerie</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NPages"></a><code><b>NPages</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Morph"></a><code><b>Morph</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Page"></a><code><b>Page</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BoxNo"></a><code><b>BoxNo</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DriftOne"></a><code><b>DriftOne</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GodCounter"></a><code><b>GodCounter</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBoxNo"></a><code><b>PBoxNo</b>: ARRAY[1..4] OF Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MyPicture"></a><code><b>MyPicture</b>: <a  href="MacPascal.PicHandle.html">PicHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StoreChild"></a><code><b>StoreChild</b>: ARRAY[1..<a  href="Globals.html#MaxBoxes">MaxBoxes</a>] OF <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SomethingToRestore"></a><code><b>SomethingToRestore</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AlreadyTriangling"></a><code><b>AlreadyTriangling</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SpecialFull"></a><code><b>SpecialFull</b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OldSpecialFull"></a><code><b>OldSpecialFull</b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RunningFull"></a><code><b>RunningFull</b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThatFull"></a><code><b>ThatFull</b>: <a  href="Globals.html#FullHandle">FullHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FullSize"></a><code><b>FullSize</b>: <a  href="MacPascal.Size.html">Size</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Region2"></a><code><b>Region2</b>: <a  href="MacPascal.RgnHandle.html">RgnHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DestRegion"></a><code><b>DestRegion</b>: <a  href="MacPascal.RgnHandle.html">RgnHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveRegion"></a><code><b>SaveRegion</b>: <a  href="MacPascal.RgnHandle.html">RgnHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RootGod"></a><code><b>RootGod</b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theGod"></a><code><b>theGod</b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SaveGod"></a><code><b>SaveGod</b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HitListHead"></a><code><b>HitListHead</b>: <a  href="Globals.html#GodHandle">GodHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="firstBiomorph"></a><code><b>firstBiomorph</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theBiomorph"></a><code><b>theBiomorph</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="topan"></a><code><b>topan</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="leftan"></a><code><b>leftan</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="rightan"></a><code><b>rightan</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="copiedanimal"></a><code><b>copiedanimal</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="target"></a><code><b>target</b>: <a  href="Globals.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MidPoint"></a><code><b>MidPoint</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="r1"></a><code><b>r1</b>: real;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="r2"></a><code><b>r2</b>: real;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="r3"></a><code><b>r3</b>: real;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="a"></a><code><b>a</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="b"></a><code><b>b</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="c"></a><code><b>c</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="mous"></a><code><b>mous</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LastMouse"></a><code><b>LastMouse</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NowMouse"></a><code><b>NowMouse</b>: <a  href="MacPascal.Point.html">Point</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AsymString"></a><code><b>AsymString</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BilatString"></a><code><b>BilatString</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SingleString"></a><code><b>SingleString</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="UpDnString"></a><code><b>UpDnString</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RadialString"></a><code><b>RadialString</b>: <a  href="MacPascal.html#Str255">Str255</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="gSystem"></a><code><b>gSystem</b>: <a  href="Globals.tSystem.html">tSystem</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+v1.1 <a class="normal" href="Globals.html#a">A</a> record of info on the capabilities of the current system</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

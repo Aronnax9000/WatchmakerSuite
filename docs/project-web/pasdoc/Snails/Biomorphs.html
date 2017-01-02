@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Snails: Richard Dawkins Blind Watchmaker: Biomorphs</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Snails: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit Biomorphs</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td>Classes, Interfaces, Objects and Records</td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td>Types</td><td>Constants</td><td><a class="section" href="#PasDoc-Variables">Variables</a></td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="ErrorUnit.html">ErrorUnit</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#Develop">Develop</a></b> (VAR theShell: <a  href="Globals.person.html">person</a>; Where: point);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#Delayvelop">Delayvelop</a></b> (VAR Biomorph: <a  href="Globals.person.html">Person</a>; Here: Point; theBox: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#SetUpBoxes">SetUpBoxes</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#MakeGeneBox">MakeGeneBox</a></b> (biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#Snapshot">Snapshot</a></b> (ThisPic: <a  href="Globals.Pic.html">Pic</a>; box: Rect; biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#ShowGeneBox">ShowGeneBox</a></b> (j: Integer; biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#ShowChangedGene">ShowChangedGene</a></b> (an1, an2: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DrawPic">DrawPic</a></b> (ThisPic: <a  href="Globals.Pic.html">Pic</a>; Place: Point; VAR Biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Biomorphs.html#margarine">margarine</a></b> (W: real; direction: integer): real;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#Reproduce">Reproduce</a></b> (parent: <a  href="Globals.person.html">person</a>; VAR child: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#SendToClipBoard">SendToClipBoard</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoHighlight">DoHighlight</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoBreed">DoBreed</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoRowMore">DoRowMore</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoRowLess">DoRowLess</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoColMore">DoColMore</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoColLess">DoColLess</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#Targetevolve">Targetevolve</a></b> (target: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#Evolve">Evolve</a></b> (MLoc: point);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Biomorphs.html#Direction">Direction</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoArray">DoArray</a></b> (theBiomorph: <a  href="Globals.person.html">Person</a>; WDetails, DDetails, TDetails: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Biomorphs.html#DoResources">DoResources</a></b> (theBiomorph: <a  href="Globals.person.html">Person</a>; WDetails, DDetails, TDetails: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>);</code></td>
+</tr>
+</table>
+<a name="PasDoc-Variables"></a><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Biomorphs.html#min">min</a></b>: Integer;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Develop"></a><code>PROCEDURE <b>Develop</b> (VAR theShell: <a  href="Globals.person.html">person</a>; Where: point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Delayvelop"></a><code>PROCEDURE <b>Delayvelop</b> (VAR Biomorph: <a  href="Globals.person.html">Person</a>; Here: Point; theBox: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetUpBoxes"></a><code>PROCEDURE <b>SetUpBoxes</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MakeGeneBox"></a><code>PROCEDURE <b>MakeGeneBox</b> (biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Snapshot"></a><code>PROCEDURE <b>Snapshot</b> (ThisPic: <a  href="Globals.Pic.html">Pic</a>; box: Rect; biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ShowGeneBox"></a><code>PROCEDURE <b>ShowGeneBox</b> (j: Integer; biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ShowChangedGene"></a><code>PROCEDURE <b>ShowChangedGene</b> (an1, an2: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawPic"></a><code>PROCEDURE <b>DrawPic</b> (ThisPic: <a  href="Globals.Pic.html">Pic</a>; Place: Point; VAR Biomorph: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="margarine"></a><code>FUNCTION <b>margarine</b> (W: real; direction: integer): real;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Reproduce"></a><code>PROCEDURE <b>Reproduce</b> (parent: <a  href="Globals.person.html">person</a>; VAR child: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SendToClipBoard"></a><code>PROCEDURE <b>SendToClipBoard</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoHighlight"></a><code>PROCEDURE <b>DoHighlight</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoBreed"></a><code>PROCEDURE <b>DoBreed</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoRowMore"></a><code>PROCEDURE <b>DoRowMore</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoRowLess"></a><code>PROCEDURE <b>DoRowLess</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoColMore"></a><code>PROCEDURE <b>DoColMore</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoColLess"></a><code>PROCEDURE <b>DoColLess</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Targetevolve"></a><code>PROCEDURE <b>Targetevolve</b> (target: <a  href="Globals.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Evolve"></a><code>PROCEDURE <b>Evolve</b> (MLoc: point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Direction"></a><code>FUNCTION <b>Direction</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoArray"></a><code>PROCEDURE <b>DoArray</b> (theBiomorph: <a  href="Globals.person.html">Person</a>; WDetails, DDetails, TDetails: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoResources"></a><code>PROCEDURE <b>DoResources</b> (theBiomorph: <a  href="Globals.person.html">Person</a>; WDetails, DDetails, TDetails: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="min"></a><code><b>min</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

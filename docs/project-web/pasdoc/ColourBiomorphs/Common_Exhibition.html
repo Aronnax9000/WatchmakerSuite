@@ -1,0 +1,832 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Richard Dawkins Blind Watchmaker: Common_Exhibition</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit Common_Exhibition</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></td><td>Functions and Procedures</td><td><a class="section" href="#PasDoc-Types">Types</a></td><td><a class="section" href="#PasDoc-Constants">Constants</a></td><td><a class="section" href="#PasDoc-Variables">Variables</a></td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="PCommonExhibition.html">PCommonExhibition</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Classes"></a><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="Common_Exhibition.person.html"><code>person</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="Common_Exhibition.Lin.html"><code>Lin</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="Common_Exhibition.Pic.html"><code>Pic</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<a name="PasDoc-Types"></a><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#SwellType">SwellType</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#HorizPos">HorizPos</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#VertPos">VertPos</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#SmallNumber">SmallNumber</a></b> = -1..1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#chromosome">chromosome</a></b> = array[1..9] of INTEGER;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Compass">Compass</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#CompletenessType">CompletenessType</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#SpokesType">SpokesType</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#LimbType">LimbType</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#LimbFillType">LimbFillType</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#LinPtr">LinPtr</a></b> = &circ;<a  href="Common_Exhibition.Lin.html">Lin</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#BaseHandle">BaseHandle</a></b> = &circ;Ptr;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#mode">mode</a></b> = (...);</code></td>
+</tr>
+</table>
+<a name="PasDoc-Constants"></a><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#MutTypeNo">MutTypeNo</a></b> = 13;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#GenesHeight">GenesHeight</a></b> = 0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#maxBoxes">maxBoxes</a></b> = 50;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#PicSizeMax">PicSizeMax</a></b> = 3200;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#GeneCount">GeneCount</a></b> = 26;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#trickle">trickle</a></b> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#DiceID">DiceID</a></b> = 15208;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#HandID">HandID</a></b> = 129;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Variables"></a><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Mut">Mut</a></b>: array[1..<a  href="Common_Exhibition.html#MutTypeNo">MutTypeNo</a>] of BOOLEAN;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#theMode">theMode</a></b>: <a  href="Common_Exhibition.html#mode">mode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#upregion">upregion</a></b>: RgnHandle;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#nRows">nRows</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#nCols">nCols</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#nBoxes">nBoxes</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#nActiveBoxes">nActiveBoxes</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#MidBox">MidBox</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Special">Special</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#myPenSize">myPenSize</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#oldBox">oldBox</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#PRect">PRect</a></b>: rect;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#BusinessPart">BusinessPart</a></b>: rect;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#ThumbStrip">ThumbStrip</a></b>: rect;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Margin">Margin</a></b>: rect;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#box">box</a></b>: array[0..<a  href="Common_Exhibition.html#maxBoxes">MaxBoxes</a>] of rect;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#centre">centre</a></b>: array[0..<a  href="Common_Exhibition.html#maxBoxes">MaxBoxes</a>] of point;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#MyPic">MyPic</a></b>: <a  href="Common_Exhibition.Pic.html">Pic</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#child">child</a></b>: array[1..<a  href="Common_Exhibition.html#maxBoxes">maxBoxes</a>] of <a  href="Common_Exhibition.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#theBiomorph">theBiomorph</a></b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#copiedanimal">copiedanimal</a></b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#PasteBiomorph">PasteBiomorph</a></b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#ClipBiomorph">ClipBiomorph</a></b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#ourHero">ourHero</a></b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#abortFlag">abortFlag</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#deskScrap">deskScrap</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#deskPaste">deskPaste</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#clipFull">clipFull</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#YesRevert">YesRevert</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#YesRhythm">YesRhythm</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#FileMenuEnabled">FileMenuEnabled</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#GeneBox">GeneBox</a></b>: array[1..26] of rect;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#LastMouse">LastMouse</a></b>: Point;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#NowMouse">NowMouse</a></b>: Point;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#MonsterInterval">MonsterInterval</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#MonsterRevert">MonsterRevert</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#TimeOfEvent">TimeOfEvent</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#theTime">theTime</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#OldCount">OldCount</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#NewCount">NewCount</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#AfterAppmenuCount">AfterAppmenuCount</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#BeforeAppmenuCount">BeforeAppmenuCount</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#MyPicture">MyPicture</a></b>: PicHandle;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Dice">Dice</a></b>: CursHandle;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Hand">Hand</a></b>: CursHandle;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="Common_Exhibition.html#Watch">Watch</a></b>: CursHandle;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SwellType"></a><code><b>SwellType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Swell: &nbsp;</li>
+<li>
+Same: &nbsp;</li>
+<li>
+Shrink: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HorizPos"></a><code><b>HorizPos</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+LeftThird: &nbsp;</li>
+<li>
+MidThird: &nbsp;</li>
+<li>
+RightThird: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="VertPos"></a><code><b>VertPos</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+TopRung: &nbsp;</li>
+<li>
+MidRung: &nbsp;</li>
+<li>
+BottomRung: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SmallNumber"></a><code><b>SmallNumber</b> = -1..1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="chromosome"></a><code><b>chromosome</b> = array[1..9] of INTEGER;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Compass"></a><code><b>Compass</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+NorthSouth: &nbsp;</li>
+<li>
+EastWest: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CompletenessType"></a><code><b>CompletenessType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Single: &nbsp;</li>
+<li>
+Double: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SpokesType"></a><code><b>SpokesType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+NorthOnly: &nbsp;</li>
+<li>
+NSouth: &nbsp;</li>
+<li>
+Radial: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LimbType"></a><code><b>LimbType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Stick: &nbsp;</li>
+<li>
+Oval: &nbsp;</li>
+<li>
+Rectangle: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LimbFillType"></a><code><b>LimbFillType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Open: &nbsp;</li>
+<li>
+Filled: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LinPtr"></a><code><b>LinPtr</b> = &circ;<a  href="Common_Exhibition.Lin.html">Lin</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BaseHandle"></a><code><b>BaseHandle</b> = &circ;Ptr;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="mode"></a><code><b>mode</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+preliminary: &nbsp;</li>
+<li>
+breeding: &nbsp;</li>
+<li>
+albuming: &nbsp;</li>
+<li>
+randoming: &nbsp;</li>
+<li>
+engineering: &nbsp;</li>
+<li>
+drifting: &nbsp;</li>
+<li>
+highlighting: &nbsp;</li>
+<li>
+PlayingBack: &nbsp;</li>
+<li>
+triangling: &nbsp;</li>
+<li>
+sweeping: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MutTypeNo"></a><code><b>MutTypeNo</b> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GenesHeight"></a><code><b>GenesHeight</b> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="maxBoxes"></a><code><b>maxBoxes</b> = 50;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PicSizeMax"></a><code><b>PicSizeMax</b> = 3200;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GeneCount"></a><code><b>GeneCount</b> = 26;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="trickle"></a><code><b>trickle</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DiceID"></a><code><b>DiceID</b> = 15208;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HandID"></a><code><b>HandID</b> = 129;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Mut"></a><code><b>Mut</b>: array[1..<a  href="Common_Exhibition.html#MutTypeNo">MutTypeNo</a>] of BOOLEAN;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theMode"></a><code><b>theMode</b>: <a  href="Common_Exhibition.html#mode">mode</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="upregion"></a><code><b>upregion</b>: RgnHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="nRows"></a><code><b>nRows</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="nCols"></a><code><b>nCols</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="nBoxes"></a><code><b>nBoxes</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="nActiveBoxes"></a><code><b>nActiveBoxes</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MidBox"></a><code><b>MidBox</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Special"></a><code><b>Special</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="myPenSize"></a><code><b>myPenSize</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="oldBox"></a><code><b>oldBox</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PRect"></a><code><b>PRect</b>: rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BusinessPart"></a><code><b>BusinessPart</b>: rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThumbStrip"></a><code><b>ThumbStrip</b>: rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Margin"></a><code><b>Margin</b>: rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="box"></a><code><b>box</b>: array[0..<a  href="Common_Exhibition.html#maxBoxes">MaxBoxes</a>] of rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="centre"></a><code><b>centre</b>: array[0..<a  href="Common_Exhibition.html#maxBoxes">MaxBoxes</a>] of point;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MyPic"></a><code><b>MyPic</b>: <a  href="Common_Exhibition.Pic.html">Pic</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="child"></a><code><b>child</b>: array[1..<a  href="Common_Exhibition.html#maxBoxes">maxBoxes</a>] of <a  href="Common_Exhibition.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theBiomorph"></a><code><b>theBiomorph</b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="copiedanimal"></a><code><b>copiedanimal</b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PasteBiomorph"></a><code><b>PasteBiomorph</b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ClipBiomorph"></a><code><b>ClipBiomorph</b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ourHero"></a><code><b>ourHero</b>: <a  href="Common_Exhibition.person.html">Person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="abortFlag"></a><code><b>abortFlag</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="deskScrap"></a><code><b>deskScrap</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="deskPaste"></a><code><b>deskPaste</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="clipFull"></a><code><b>clipFull</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="YesRevert"></a><code><b>YesRevert</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="YesRhythm"></a><code><b>YesRhythm</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FileMenuEnabled"></a><code><b>FileMenuEnabled</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GeneBox"></a><code><b>GeneBox</b>: array[1..26] of rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LastMouse"></a><code><b>LastMouse</b>: Point;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NowMouse"></a><code><b>NowMouse</b>: Point;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MonsterInterval"></a><code><b>MonsterInterval</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MonsterRevert"></a><code><b>MonsterRevert</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TimeOfEvent"></a><code><b>TimeOfEvent</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="theTime"></a><code><b>theTime</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OldCount"></a><code><b>OldCount</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NewCount"></a><code><b>NewCount</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AfterAppmenuCount"></a><code><b>AfterAppmenuCount</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BeforeAppmenuCount"></a><code><b>BeforeAppmenuCount</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MyPicture"></a><code><b>MyPicture</b>: PicHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Dice"></a><code><b>Dice</b>: CursHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Hand"></a><code><b>Hand</b>: CursHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Watch"></a><code><b>Watch</b>: CursHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

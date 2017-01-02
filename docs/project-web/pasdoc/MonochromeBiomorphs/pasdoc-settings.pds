@@ -1,0 +1,82 @@
+[Main]
+StoreRelativePaths=1
+Language=en
+OutputDir=../MonochromeBiomorphs
+GenerateFormat=0
+ProjectName=
+Verbosity=2
+ClassMembers_0=1
+ClassMembers_1=1
+ClassMembers_2=1
+ClassMembers_3=1
+ClassMembers_4=1
+ClassMembers_5=1
+ClassMembers_6=1
+ClassMembers_7=1
+ImplicitVisibility=0
+Sorting_0=0
+Sorting_1=0
+Sorting_2=0
+Sorting_3=0
+Sorting_4=0
+Sorting_5=0
+Sorting_6=0
+Sorting_7=0
+Sorting_8=0
+Sorting_9=0
+CssFileName=
+IntroductionFileName=
+ConclusionFileName=
+WriteUsesList=1
+AutoAbstract=1
+AutoLink=1
+HandleMacros=1
+UseTipueSearch=1
+LineBreakQuality=0
+SpecialMarkerTreatment=1
+Title=Monochrome: Richard Dawkins Blind Watchmaker
+VizGraphClasses=0
+VizGraphUses=0
+CheckSpelling=0
+LatexGraphicsPackage=0
+
+[Defines]
+Count=3
+Item_0=FPC
+Item_1=UNIX
+Item_2=LINUX
+
+[Header]
+Count=0
+
+[Footer]
+Count=0
+
+[IncludeDirectories]
+Count=1
+Item_0=../../DawkinsPasDocSource
+
+[Files]
+Count=13
+Item_0=../../DawkinsPasDocSource/MacPascal.pas
+Item_1=../../DawkinsPasDocSource/Monochrome WatchMaker/Album.pas
+Item_2=../../DawkinsPasDocSource/Monochrome WatchMaker/Biomorphs.pas
+Item_3=../../DawkinsPasDocSource/Monochrome WatchMaker/Blind_Watchmaker.pas
+Item_4=../../DawkinsPasDocSource/Monochrome WatchMaker/Engineering.pas
+Item_5=../../DawkinsPasDocSource/Monochrome WatchMaker/ErrorUnit.pas
+Item_6=../../DawkinsPasDocSource/Monochrome WatchMaker/Globals.pas
+Item_7=../../DawkinsPasDocSource/Monochrome WatchMaker/Initialize.pas
+Item_8=../../DawkinsPasDocSource/Monochrome WatchMaker/Miscellaneous.pas
+Item_9=../../DawkinsPasDocSource/Monochrome WatchMaker/Pedigree.pas
+Item_10=../../DawkinsPasDocSource/Monochrome WatchMaker/StandardGetFolder.pas
+Item_11=../../DawkinsPasDocSource/Monochrome WatchMaker/Triangle.pas
+Item_12=../../DawkinsPasDocSource/Monochrome WatchMaker/User_Interface.pas
+
+[HyphenatedWords]
+Count=0
+
+[SpecialMarkers]
+Count=0
+
+[IgnoreWords]
+Count=0

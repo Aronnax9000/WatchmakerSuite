@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="18">
+      <Unit0>
+        <Filename Value="program_brand_new.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="program_brand_new"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="274"/>
+        <CursorPos X="106" Y="299"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit_preferences.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_preferences"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="74" Y="11"/>
+        <UsageCount Value="42"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="unit_initialize.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_initialize"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="7"/>
+        <CursorPos X="42" Y="8"/>
+        <UsageCount Value="42"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unit_my_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_my_globals"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="61"/>
+        <CursorPos X="23" Y="69"/>
+        <UsageCount Value="42"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit_handle_the_menus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_handle_the_menus"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="54" Y="13"/>
+        <UsageCount Value="42"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit_richard.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_richard"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="72"/>
+        <CursorPos X="31" Y="99"/>
+        <UsageCount Value="42"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="unit_ted.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_ted"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="26" Y="4"/>
+        <UsageCount Value="42"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit_engineering_window.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_engineering_window"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="12"/>
+        <UsageCount Value="42"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unit_breeding_window.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_breeding_window"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="10" Y="8"/>
+        <UsageCount Value="42"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit_about_arthromorphs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_about_arthromorphs"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="43" Y="5"/>
+        <UsageCount Value="42"/>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit_error_alert.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_error_alert"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5"/>
+        <CursorPos X="22" Y="21"/>
+        <UsageCount Value="42"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit_genome_window.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_genome_window"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="8"/>
+        <UsageCount Value="42"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="unit_init_the_menus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_init_the_menus"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20" Y="11"/>
+        <UsageCount Value="42"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="unit_boxes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_boxes"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="10"/>
+        <UsageCount Value="42"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../MacPascal/think_pascal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="think_pascal"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="5"/>
+        <CursorPos X="20" Y="11"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/inc/systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="491"/>
+        <CursorPos X="21" Y="512"/>
+        <UsageCount Value="8"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="../MacPascal/unit_mac_pascal.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <UsageCount Value="8"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="../Monochrome/unit_album.pas"/>
+        <UnitName Value="unit_album"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="17"/>
+        <CursorPos X="12" Y="36"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit17>
+    </Units>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="../Monochrome/unit_album.pas"/>
+      </Position1>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

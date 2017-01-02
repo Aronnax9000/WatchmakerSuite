@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="40">
+      <Unit0>
+        <Filename Value="program_blind_watchmaker.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="55"/>
+        <CursorPos X="55" Y="65"/>
+        <UsageCount Value="52"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit_user_interface.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_user_interface"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="562"/>
+        <CursorPos X="37" Y="606"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="unit_miscellaneous.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_miscellaneous"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="165"/>
+        <CursorPos X="73" Y="188"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unit_engineering.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20" Y="5"/>
+        <UsageCount Value="50"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit_pedigree.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="982"/>
+        <CursorPos X="17" Y="1005"/>
+        <UsageCount Value="50"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit_triangle.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4"/>
+        <CursorPos X="122" Y="21"/>
+        <UsageCount Value="50"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="unit_initialize.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="95" Y="19"/>
+        <UsageCount Value="50"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit_standard_get_folder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="86" Y="39"/>
+        <UsageCount Value="50"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unit_biomorphs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="66" Y="5"/>
+        <UsageCount Value="50"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit_globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_globals"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="221"/>
+        <CursorPos X="60" Y="238"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit_error.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="28"/>
+        <CursorPos X="101" Y="38"/>
+        <UsageCount Value="50"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit_album.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unit_album"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="12"/>
+        <CursorPos X="15" Y="36"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../MacPascal/unit_mac_pascal.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="6"/>
+        <UsageCount Value="26"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../MacPascal/Script.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="15"/>
+        <UsageCount Value="7"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../MacPascal/Traps.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="3"/>
+        <UsageCount Value="7"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../MacPascal/Aliases.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="30" Y="15"/>
+        <UsageCount Value="7"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="../PInterfaces/Graf3D.p"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="../PInterfaces/PrintTraps.p"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="../PInterfaces/Resources.p"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="../PInterfaces/Script.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1018"/>
+        <CursorPos X="29" Y="1054"/>
+        <UsageCount Value="8"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../MacPascal/macpascalprocs.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="18"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../PInterfaces/SysEqu.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="2" Y="3"/>
+        <UsageCount Value="7"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../PInterfaces/AppleTalk.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="159"/>
+        <CursorPos X="63" Y="171"/>
+        <UsageCount Value="8"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="program_blind_watchmaker.lpi"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="17"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../MacPascal/macpascaltypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="../MacPascal/macpascalimpls.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="191"/>
+        <CursorPos X="77" Y="226"/>
+        <UsageCount Value="8"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="../PInterfaces/Folders.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3"/>
+        <CursorPos X="32" Y="38"/>
+        <UsageCount Value="8"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="../PInterfaces/Aliases.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="15" Y="75"/>
+        <UsageCount Value="8"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="../Snails/unit_standard_get_folder.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3"/>
+        <CursorPos X="86" Y="38"/>
+        <UsageCount Value="8"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="../PInterfaces_System71/Memory.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="238"/>
+        <CursorPos X="64" Y="265"/>
+        <UsageCount Value="8"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="../PInterfaces_System71/TextUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="276"/>
+        <CursorPos X="32" Y="307"/>
+        <UsageCount Value="8"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="../PInterfaces_System71/Controls.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="167"/>
+        <CursorPos X="94" Y="190"/>
+        <UsageCount Value="8"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="../PInterfaces_System71/OSUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="487"/>
+        <CursorPos X="71" Y="510"/>
+        <UsageCount Value="8"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="../PInterfaces_System71/ToolUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos X="76" Y="84"/>
+        <UsageCount Value="8"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="../PInterfaces_System71/TextEdit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="289"/>
+        <CursorPos X="6" Y="311"/>
+        <UsageCount Value="8"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="../PInterfaces_System71/Dialogs.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="179"/>
+        <CursorPos X="105" Y="202"/>
+        <UsageCount Value="8"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="../PInterfaces_System71/Traps.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="123"/>
+        <CursorPos Y="145"/>
+        <UsageCount Value="8"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="program_blind_watchmaker.fpdescription"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="83" Y="7"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="../MacPascal/think_pascal.pas"/>
+        <UnitName Value="think_pascal"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="18" Y="12"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="../PInterfaces_System71/ErrorsMac.pas"/>
+        <UnitName Value="ErrorsMac"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="417"/>
+        <CursorPos X="40" Y="459"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit39>
+    </Units>
+    <JumpHistory Count="20" HistoryIndex="19">
+      <Position1>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="38" Column="11" TopLine="22"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="39" Column="17" TopLine="22"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="584" Column="18" TopLine="562"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="613" Column="32" TopLine="576"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="38" Column="11" TopLine="17"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit_globals.pas"/>
+        <Caret Line="332" Column="51" TopLine="313"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="3"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="36" Column="14" TopLine="17"/>
+      </Position8>
+      <Position9>
+        <Filename Value="../PInterfaces_System71/ErrorsMac.pas"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit_miscellaneous.pas"/>
+        <Caret Line="131" Column="103" TopLine="120"/>
+      </Position10>
+      <Position11>
+        <Filename Value="program_blind_watchmaker.pas"/>
+        <Caret Line="22" Column="111"/>
+      </Position11>
+      <Position12>
+        <Filename Value="program_blind_watchmaker.pas"/>
+        <Caret Line="93" Column="27" TopLine="62"/>
+      </Position12>
+      <Position13>
+        <Filename Value="program_blind_watchmaker.pas"/>
+        <Caret Line="334" Column="12" TopLine="297"/>
+      </Position13>
+      <Position14>
+        <Filename Value="program_blind_watchmaker.pas"/>
+        <Caret Line="335" Column="12" TopLine="298"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="971" Column="3" TopLine="948"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="211" Column="3" TopLine="167"/>
+      </Position16>
+      <Position17>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="275" Column="21" TopLine="231"/>
+      </Position17>
+      <Position18>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="307" Column="3" TopLine="263"/>
+      </Position18>
+      <Position19>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="454" Column="14" TopLine="410"/>
+      </Position19>
+      <Position20>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="523" Column="3" TopLine="479"/>
+      </Position20>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

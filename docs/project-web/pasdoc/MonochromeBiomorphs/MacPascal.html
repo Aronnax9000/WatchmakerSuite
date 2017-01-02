@@ -1,0 +1,794 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Monochrome: Richard Dawkins Blind Watchmaker: MacPascal</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Monochrome: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit MacPascal</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td>Uses</td><td><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td><a class="section" href="#PasDoc-Types">Types</a></td><td><a class="section" href="#PasDoc-Constants">Constants</a></td><td><a class="section" href="#PasDoc-Variables">Variables</a></td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+<p>
+Routines from the Mac Classic ToolBox used by all Watchmaker programs, with documentation from the 1985 edition of Inside Macintosh.</p>
+<a name="PasDoc-Uses"></a><h2 class="overview">Overview</h2>
+<a name="PasDoc-Classes"></a><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.GenericPtr.html"><code>GenericPtr</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Size.html"><code>Size</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.ResType.html"><code>ResType</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.WindowPtr.html"><code>WindowPtr</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.WindowRecord.html"><code>WindowRecord</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.ControlHandle.html"><code>ControlHandle</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.WindowPeek.html"><code>WindowPeek</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.GrafPtr.html"><code>GrafPtr</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Rect.html"><code>Rect</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.BitMap.html"><code>BitMap</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Bits16.html"><code>Bits16</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.RgnHandle.html"><code>RgnHandle</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Point.html"><code>Point</code></a></td>
+<td class="itemdesc">Inside Macintosh I-202</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Cursor.html"><code>Cursor</code></a></td>
+<td class="itemdesc">Inside Macintosh I-202 Summary of QuickDraw</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.MenuHandle.html"><code>MenuHandle</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.EventRecord.html"><code>EventRecord</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Pic.html"><code>Pic</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.PicHandle.html"><code>PicHandle</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.QElem.html"><code>QElem</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.Proc.html"><code>Proc</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.SignedByte.html"><code>SignedByte</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.FInfo.html"><code>FInfo</code></a></td>
+<td class="itemdesc">Inside Macintosh II-84</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.ParamBlockRec.html"><code>ParamBlockRec</code></a></td>
+<td class="itemdesc">basic File Manager parameter block.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.FXInfo.html"><code>FXInfo</code></a></td>
+<td class="itemdesc">Macintosh Toolbox Essentials 7-49</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.DXInfo.html"><code>DXInfo</code></a></td>
+<td class="itemdesc">Macintosh Toolbox Essentials 7-50</td>
+</tr>
+<tr class="list2">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.DInfo.html"><code>DInfo</code></a></td>
+<td class="itemdesc">Macintosh Toolbox Essentials 7-50</td>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="MacPascal.CInfoPBRec.html"><code>CInfoPBRec</code></a></td>
+<td class="itemdesc">catalog information parameter block File Manager 2-247</td>
+</tr>
+</table>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#GetCursor">GetCursor</a></b>(cursorlD: INTEGER ): <a  href="MacPascal.html#CursHandle">CursHandle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="MacPascal.html#NumToString">NumToString</a></b>(theNum: LONGINT; var theString: <a  href="MacPascal.html#Str255">Str255</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="MacPascal.html#DrawChar">DrawChar</a></b>(ch: CHAR);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#GetResource">GetResource</a></b> (theType: <a  href="MacPascal.ResType.html">ResType</a>; thelD: INTEGER) : <a  href="MacPascal.html#Handle">Handle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#ResError">ResError</a></b> : INTEGER;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#GetMenuBar">GetMenuBar</a></b>: <a  href="MacPascal.html#Handle">Handle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="MacPascal.html#SetMenuBar">SetMenuBar</a></b> (menuList: <a  href="MacPascal.html#Handle">Handle</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#GetMBarHeight">GetMBarHeight</a></b>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBGetCatInfo">PBGetCatInfo</a></b> (paramBlock: <a  href="MacPascal.html#CInfoPBPtr">CInfoPBPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBRead">PBRead</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBReadSync">PBReadSync</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBReadAsync">PBReadAsync</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBWrite">PBWrite</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBWriteSync">PBWriteSync</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBWriteAsync">PBWriteAsync</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBClose">PBClose</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBCloseSync">PBCloseSync</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#PBCloseAsync">PBCloseAsync</a></b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#HCreate">HCreate</a></b> (vRefNum: Integer; dirID: LongInt; fileName: <a  href="MacPascal.html#Str255">Str255</a>; creator: <a  href="MacPascal.html#OSType">OSType</a>; fileType: <a  href="MacPascal.html#OSType">OSType</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#DirCreate">DirCreate</a></b> (vRefNum: Integer; parentDirID: LongInt; directoryName: <a  href="MacPascal.html#Str255">Str255</a>; VAR createdDirID: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#HDelete">HDelete</a></b> (vRefNum: Integer; dirID: LongInt; fileName: <a  href="MacPascal.html#Str255">Str255</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#GetFPos">GetFPos</a></b> (refNum: Integer; VAR filePos: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#SetFPos">SetFPos</a></b> (refNum: Integer; posMode: Integer; posOff: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#GetEOF">GetEOF</a></b> (refNum: Integer; VAR logEOF: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="MacPascal.html#SetEOF">SetEOF</a></b> (refNum: Integer; logEOF: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Types"></a><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#Ptr">Ptr</a></b> = &circ;<a  href="MacPascal.GenericPtr.html">GenericPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#Handle">Handle</a></b> = &circ;<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#Str255">Str255</a></b> = String;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#Str63">Str63</a></b> = String;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#RectPtr">RectPtr</a></b> = &circ;<a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#VHSelect">VHSelect</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#CursPtr">CursPtr</a></b> = &circ;<a  href="MacPascal.Cursor.html">Cursor</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#CursHandle">CursHandle</a></b> = &circ;<a  href="MacPascal.html#CursPtr">CursPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#OSErr">OSErr</a></b> = INTEGER;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#QElemPtr">QElemPtr</a></b> = &circ;<a  href="MacPascal.QElem.html">QElem</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#ProcPtr">ProcPtr</a></b> = &circ;<a  href="MacPascal.Proc.html">Proc</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#StringPtr">StringPtr</a></b> = &circ;String;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#OSType">OSType</a></b> = PACKED ARRAY[1..4] OF CHAR;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#ParamBlkType">ParamBlkType</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a></b> = &circ;<a  href="MacPascal.ParamBlockRec.html">ParamBlockRec</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#CInfoType">CInfoType</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#CInfoPBPtr">CInfoPBPtr</a></b> = &circ;<a  href="MacPascal.CInfoPBRec.html">CInfoPBRec</a>;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Constants"></a><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#NoErr">NoErr</a></b> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#iBeamCursor">iBeamCursor</a></b> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#crossCursor">crossCursor</a></b> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.html#plusCursor">plusCursor</a></b> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#watchCursor">watchCursor</a></b> = 4;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Variables"></a><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.html#screenBits">screenBits</a></b>: <a  href="MacPascal.BitMap.html">BitMap</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GetCursor"></a><code>FUNCTION <b>GetCursor</b>(cursorlD: INTEGER ): <a  href="MacPascal.html#CursHandle">CursHandle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Inside Macintosh, I-474: </p>
+
+<pre class="preformatted">GetCursor returns a handle to the cursor having the given resource ID, reading
+it from the resource file if necessary. It calls the Resource Manager function
+GetResource('CURS',cursorID). If the resource can't be read, GetCursor returns NIL.</pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NumToString"></a><code>PROCEDURE <b>NumToString</b>(theNum: LONGINT; var theString: <a  href="MacPascal.html#Str255">Str255</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Write <a class="normal" href="Globals.html#a">a</a> string representation of an integer to <a class="normal" href="Globals.html#a">a</a> string variable, without using <a class="normal" href="Globals.html#a">a</a> + sign for positive values. Defined in Inside Macintosh Chapter 18, THE BINARY-DECIMAL CONVERSION PACKAGE, I-489: &quot;<code>NumToString</code> converts theNum to <a class="normal" href="Globals.html#a">a</a> string that represents its decimal value, and returns the result in theString. If the value is negative, the string begins with <a class="normal" href="Globals.html#a">a</a> minus sign; otherwise, the sign is omitted. Leading zeroes are suppressed, except that the value 0 produces '0'. For example:
+
+<p></p>
+
+<table class="table_tag">
+  <tr class="head">
+    <th><p>theNum</p></th>
+    <th><p>theString</p></th>
+  </tr>
+  <tr class="odd">
+    <td><p>12</p></td>
+    <td><p>'12'</p></td>
+  </tr>
+  <tr class="even">
+    <td><p>-23</p></td>
+    <td><p>'-23'</p></td>
+  </tr>
+  <tr class="odd">
+    <td><p>0</p></td>
+    <td><p>'0'</p></td>
+  </tr>
+</table>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawChar"></a><code>PROCEDURE <b>DrawChar</b>(ch: CHAR);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Defined in Inside Macintosh Chapter 6, QuickDraw, section QuickDraw Routines I-172 &quot;<code>DrawChar</code> places the given character to the right of the pen location, with the left end of its base line at the pen's location, and advaaces the pen accordingly. If the character isn't in the font, the font's missing symbol is drawn. Note: If you're drawing <a class="normal" href="Globals.html#a">a</a> series of characters, it's faster to make one DrawString or DrawText call rather than <a class="normal" href="Globals.html#a">a</a> series of <code>DrawChar</code> calls.&quot;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GetResource"></a><code>FUNCTION <b>GetResource</b> (theType: <a  href="MacPascal.ResType.html">ResType</a>; thelD: INTEGER) : <a  href="MacPascal.html#Handle">Handle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ResError"></a><code>FUNCTION <b>ResError</b> : INTEGER;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Inside Macintosh I-133</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GetMenuBar"></a><code>FUNCTION <b>GetMenuBar</b>: <a  href="MacPascal.html#Handle">Handle</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetMenuBar"></a><code>PROCEDURE <b>SetMenuBar</b> (menuList: <a  href="MacPascal.html#Handle">Handle</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GetMBarHeight"></a><code>FUNCTION <b>GetMBarHeight</b>: Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBGetCatInfo"></a><code>FUNCTION <b>PBGetCatInfo</b> (paramBlock: <a  href="MacPascal.html#CInfoPBPtr">CInfoPBPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-190</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBRead"></a><code>FUNCTION <b>PBRead</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBReadSync"></a><code>FUNCTION <b>PBReadSync</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBReadAsync"></a><code>FUNCTION <b>PBReadAsync</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBWrite"></a><code>FUNCTION <b>PBWrite</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBWriteSync"></a><code>FUNCTION <b>PBWriteSync</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBWriteAsync"></a><code>FUNCTION <b>PBWriteAsync</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBClose"></a><code>FUNCTION <b>PBClose</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>; async: Boolean): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBCloseSync"></a><code>FUNCTION <b>PBCloseSync</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PBCloseAsync"></a><code>FUNCTION <b>PBCloseAsync</b> (paramBlock: <a  href="MacPascal.html#ParmBlkPtr">ParmBlkPtr</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-254</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HCreate"></a><code>FUNCTION <b>HCreate</b> (vRefNum: Integer; dirID: LongInt; fileName: <a  href="MacPascal.html#Str255">Str255</a>; creator: <a  href="MacPascal.html#OSType">OSType</a>; fileType: <a  href="MacPascal.html#OSType">OSType</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-258</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DirCreate"></a><code>FUNCTION <b>DirCreate</b> (vRefNum: Integer; parentDirID: LongInt; directoryName: <a  href="MacPascal.html#Str255">Str255</a>; VAR createdDirID: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-258</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HDelete"></a><code>FUNCTION <b>HDelete</b> (vRefNum: Integer; dirID: LongInt; fileName: <a  href="MacPascal.html#Str255">Str255</a>): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-258</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GetFPos"></a><code>FUNCTION <b>GetFPos</b> (refNum: Integer; VAR filePos: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-253</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetFPos"></a><code>FUNCTION <b>SetFPos</b> (refNum: Integer; posMode: Integer; posOff: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-253</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GetEOF"></a><code>FUNCTION <b>GetEOF</b> (refNum: Integer; VAR logEOF: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-253</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetEOF"></a><code>FUNCTION <b>SetEOF</b> (refNum: Integer; logEOF: LongInt): <a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-253</p>
+</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Ptr"></a><code><b>Ptr</b> = &circ;<a  href="MacPascal.GenericPtr.html">GenericPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Handle"></a><code><b>Handle</b> = &circ;<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Str255"></a><code><b>Str255</b> = String;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Str63"></a><code><b>Str63</b> = String;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RectPtr"></a><code><b>RectPtr</b> = &circ;<a  href="MacPascal.Rect.html">Rect</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="VHSelect"></a><code><b>VHSelect</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Inside Macintosh I-202</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+v: &nbsp;</li>
+<li>
+h: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CursPtr"></a><code><b>CursPtr</b> = &circ;<a  href="MacPascal.Cursor.html">Cursor</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Inside Macintosh I-474</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CursHandle"></a><code><b>CursHandle</b> = &circ;<a  href="MacPascal.html#CursPtr">CursPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Inside Macintosh I-474: </p>
+
+<pre class="preformatted">(The CursHandle data type is defined in the Toolbox Utilities as follows:)</pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OSErr"></a><code><b>OSErr</b> = INTEGER;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="QElemPtr"></a><code><b>QElemPtr</b> = &circ;<a  href="MacPascal.QElem.html">QElem</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ProcPtr"></a><code><b>ProcPtr</b> = &circ;<a  href="MacPascal.Proc.html">Proc</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StringPtr"></a><code><b>StringPtr</b> = &circ;String;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OSType"></a><code><b>OSType</b> = PACKED ARRAY[1..4] OF CHAR;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Inside Macintosh III-184</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ParamBlkType"></a><code><b>ParamBlkType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+File Manager Reference 2-242</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+ioParam: &nbsp;</li>
+<li>
+fileParam: &nbsp;</li>
+<li>
+volumeParam: &nbsp;</li>
+<li>
+cntrlParam: &nbsp;</li>
+<li>
+slotDevParam: &nbsp;</li>
+<li>
+multiDevParam: &nbsp;</li>
+<li>
+accessParam: &nbsp;</li>
+<li>
+objParam: &nbsp;</li>
+<li>
+copyParam: &nbsp;</li>
+<li>
+wdParam: &nbsp;</li>
+<li>
+fidParam: &nbsp;</li>
+<li>
+csParam: &nbsp;</li>
+<li>
+foreignPrivsParam: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ParmBlkPtr"></a><code><b>ParmBlkPtr</b> = &circ;<a  href="MacPascal.ParamBlockRec.html">ParamBlockRec</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CInfoType"></a><code><b>CInfoType</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+number of unused allocation blocks</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+hfileInfo: &nbsp;</li>
+<li>
+dirInfo: File Manager 2-247</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CInfoPBPtr"></a><code><b>CInfoPBPtr</b> = &circ;<a  href="MacPascal.CInfoPBRec.html">CInfoPBRec</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+folder's view</p>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NoErr"></a><code><b>NoErr</b> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="iBeamCursor"></a><code><b>iBeamCursor</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+to select text Inside Macintosh I-474</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="crossCursor"></a><code><b>crossCursor</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+to draw graphics Inside Macintosh I-474</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="plusCursor"></a><code><b>plusCursor</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+to select cells in structured documents Inside Macintosh I-474</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="watchCursor"></a><code><b>watchCursor</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+to indicate <a class="normal" href="Globals.html#a">a</a> long wait Inside Macintosh I-474</p>
+</td></tr>
+</table>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="screenBits"></a><code><b>screenBits</b>: <a  href="MacPascal.BitMap.html">BitMap</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

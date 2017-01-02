@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Richard Dawkins Blind Watchmaker: Breeding_Window</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit Breeding_Window</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td>Classes, Interfaces, Objects and Records</td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td>Types</td><td>Constants</td><td>Variables</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="myGlobals.html">MyGlobals</a></li><li><a  href="Ted.html">Ted</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="Breeding_Window.html#Init_Breeding_Window">Init_Breeding_Window</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="Breeding_Window.html#Close_Breeding_Window">Close_Breeding_Window</a></b> (whichWindow: WindowPtr; var theInput: TEHandle);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="Breeding_Window.html#Open_Breeding_Window">Open_Breeding_Window</a></b> (var theInput: TEHandle);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="Breeding_Window.html#Update_Breeding_Window">Update_Breeding_Window</a></b> (whichWindow: WindowPtr);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="Breeding_Window.html#Do_Breeding_Window">Do_Breeding_Window</a></b> (myEvent: EventRecord; var theInput: TEHandle);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="Breeding_Window.html#Resized_Breeding_Window">Resized_Breeding_Window</a></b> (OldRect: Rect; whichWindow: WindowPtr);</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Init_Breeding_Window"></a><code>procedure <b>Init_Breeding_Window</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="initialize.html">Initialize</a> us so all our routines can be activated</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Close_Breeding_Window"></a><code>procedure <b>Close_Breeding_Window</b> (whichWindow: WindowPtr; var theInput: TEHandle);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Close our window</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Open_Breeding_Window"></a><code>procedure <b>Open_Breeding_Window</b> (var theInput: TEHandle);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Open our window and <a class="normal" href="Ted.html#Draw">draw</a> everything</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Update_Breeding_Window"></a><code>procedure <b>Update_Breeding_Window</b> (whichWindow: WindowPtr);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Update our window, someone uncovered a part of us</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Do_Breeding_Window"></a><code>procedure <b>Do_Breeding_Window</b> (myEvent: EventRecord; var theInput: TEHandle);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Handle action to our window, like controls</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Resized_Breeding_Window"></a><code>procedure <b>Resized_Breeding_Window</b> (OldRect: Rect; whichWindow: WindowPtr);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Handle <a class="normal" href="myGlobals.html#resizing">resizing</a> scrollbars</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

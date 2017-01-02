@@ -1,0 +1,117 @@
+[Main]
+StoreRelativePaths=1
+Language=en
+OutputDir=../Colour Biomorphs
+GenerateFormat=0
+ProjectName=
+Verbosity=2
+ClassMembers_0=1
+ClassMembers_1=1
+ClassMembers_2=1
+ClassMembers_3=0
+ClassMembers_4=0
+ClassMembers_5=0
+ClassMembers_6=1
+ClassMembers_7=0
+ImplicitVisibility=0
+Sorting_0=0
+Sorting_1=0
+Sorting_2=0
+Sorting_3=0
+Sorting_4=0
+Sorting_5=0
+Sorting_6=0
+Sorting_7=0
+Sorting_8=0
+Sorting_9=0
+CssFileName=
+IntroductionFileName=
+ConclusionFileName=
+WriteUsesList=1
+AutoAbstract=1
+AutoLink=1
+HandleMacros=1
+UseTipueSearch=1
+LineBreakQuality=0
+SpecialMarkerTreatment=1
+Title=Richard Dawkins Blind Watchmaker
+VizGraphClasses=0
+VizGraphUses=0
+CheckSpelling=0
+LatexGraphicsPackage=0
+
+[Defines]
+Count=3
+Item_0=FPC
+Item_1=UNIX
+Item_2=LINUX
+
+[Header]
+Count=0
+
+[Footer]
+Count=0
+
+[IncludeDirectories]
+Count=0
+
+[Files]
+Count=49
+Item_0=../../DawkinsPasDocSource/Arthromorphs/About_Arthromorphs.pas
+Item_1=../../DawkinsPasDocSource/Arthromorphs/Brand_New.pas
+Item_2=../../DawkinsPasDocSource/Arthromorphs/Breeding_Window.pas
+Item_3=../../DawkinsPasDocSource/Arthromorphs/Engineering_Window.pas
+Item_4=../../DawkinsPasDocSource/Arthromorphs/Error_Alert.pas
+Item_5=../../DawkinsPasDocSource/Arthromorphs/Genome_Window.pas
+Item_6=../../DawkinsPasDocSource/Arthromorphs/HandleTheMenus.pas
+Item_7=../../DawkinsPasDocSource/Arthromorphs/Initialize.pas
+Item_8=../../DawkinsPasDocSource/Arthromorphs/InitTheMenus.pas
+Item_9=../../DawkinsPasDocSource/Arthromorphs/MyGlobals.pas
+Item_10=../../DawkinsPasDocSource/Arthromorphs/Preferences.pas
+Item_11=../../DawkinsPasDocSource/Arthromorphs/Richard.pas
+Item_12=../../DawkinsPasDocSource/Arthromorphs/SetupBoxes.pas
+Item_13=../../DawkinsPasDocSource/Arthromorphs/Ted.pas
+Item_14=../../DawkinsPasDocSource/Arthromorphs/Temp/About_Arthromorphs.pas
+Item_15=../../DawkinsPasDocSource/Arthromorphs/Temp/Brand_New.pas
+Item_16=../../DawkinsPasDocSource/Arthromorphs/Temp/Breeding_Window.pas
+Item_17=../../DawkinsPasDocSource/Arthromorphs/Temp/Error_Alert.pas
+Item_18=../../DawkinsPasDocSource/Arthromorphs/Temp/Genome_Window.pas
+Item_19=../../DawkinsPasDocSource/Arthromorphs/Temp/HandleTheMenus.pas
+Item_20=../../DawkinsPasDocSource/Arthromorphs/Temp/InitTheMenus.pas
+Item_21=../../DawkinsPasDocSource/Arthromorphs/Temp/Preferences.pas
+Item_22=../../DawkinsPasDocSource/Monochrome WatchMaker/Album.pas
+Item_23=../../DawkinsPasDocSource/Monochrome WatchMaker/Biomorphs.pas
+Item_24=../../DawkinsPasDocSource/Monochrome WatchMaker/Blind_Watchmaker.pas
+Item_25=../../DawkinsPasDocSource/Monochrome WatchMaker/Engineering.pas
+Item_26=../../DawkinsPasDocSource/Monochrome WatchMaker/ErrorUnit.pas
+Item_27=../../DawkinsPasDocSource/Monochrome WatchMaker/Fossils.pas
+Item_28=../../DawkinsPasDocSource/Monochrome WatchMaker/Globals.pas
+Item_29=../../DawkinsPasDocSource/Monochrome WatchMaker/Initialize.pas
+Item_30=../../DawkinsPasDocSource/Monochrome WatchMaker/Main.pas
+Item_31=../../DawkinsPasDocSource/Monochrome WatchMaker/Miscellaneous.pas
+Item_32=../../DawkinsPasDocSource/Monochrome WatchMaker/Pedigree.pas
+Item_33=../../DawkinsPasDocSource/Monochrome WatchMaker/StandardGetFolder.pas
+Item_34=../../DawkinsPasDocSource/Monochrome WatchMaker/Stunted.pas
+Item_35=../../DawkinsPasDocSource/Monochrome WatchMaker/Triangle.pas
+Item_36=../../DawkinsPasDocSource/Monochrome WatchMaker/User_Interface.pas
+Item_37=../../DawkinsPasDocSource/Snails/Album.pas
+Item_38=../../DawkinsPasDocSource/Snails/Biomorphs.pas
+Item_39=../../DawkinsPasDocSource/Snails/Engineering.pas
+Item_40=../../DawkinsPasDocSource/Snails/ErrorUnit.pas
+Item_41=../../DawkinsPasDocSource/Snails/Fossils.pas
+Item_42=../../DawkinsPasDocSource/Snails/Globals.pas
+Item_43=../../DawkinsPasDocSource/Snails/Initialize.pas
+Item_44=../../DawkinsPasDocSource/Snails/Main.pas
+Item_45=../../DawkinsPasDocSource/Snails/Miscellaneous.pas
+Item_46=../../DawkinsPasDocSource/Snails/Pedigree.pas
+Item_47=../../DawkinsPasDocSource/Snails/Triangle.pas
+Item_48=../../DawkinsPasDocSource/Snails/User_Interface.pas
+
+[HyphenatedWords]
+Count=0
+
+[SpecialMarkers]
+Count=0
+
+[IgnoreWords]
+Count=0

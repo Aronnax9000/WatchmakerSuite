@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<docproject>  
+  <options>  
+    <option name="ostarget" value="Linux"/>  
+    <option name="cputarget" value="x86_64"/>  
+    <option name="show-private" value="false"/>  
+    <option name="stop-on-parser-error" value="false"/>  
+  </options>  
+  <packages>  
+    <package name="Arthromorphs" output="../fpdocs/Arthromorphs">  
+      <units>  
+        <unit file="program_brand_new.pas" />
+        <unit file="unit_about_arthromorphs.pas" />
+        <unit file="unit_boxes.pas" />
+        <unit file="unit_breeding_window.pas" />
+        <unit file="unit_engineering_window.pas" />
+        <unit file="unit_error_alert.pas" />
+        <unit file="unit_genome_window.pas" />
+        <unit file="unit_handle_the_menus.pas" />
+        <unit file="unit_initialize.pas" />
+        <unit file="unit_init_the_menus.pas" />
+        <unit file="unit_my_globals.pas" />
+        <unit file="unit_preferences.pas" />
+        <unit file="unit_richard.pas" />
+        <unit file="unit_ted.pas" />
+      </units>  
+      <descriptions>  
+        <description file="program_brand_new.fpdescription"/>  
+      </descriptions>  
+    </package>  
+  </packages>  
+</docproject>
+

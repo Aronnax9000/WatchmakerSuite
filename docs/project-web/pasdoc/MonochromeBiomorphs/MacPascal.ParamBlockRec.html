@@ -1,0 +1,617 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Monochrome: Richard Dawkins Blind Watchmaker: MacPascal: record ParamBlockRec</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Monochrome: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<a name="ParamBlockRec"></a><h1 class="cio">record ParamBlockRec</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td>Hierarchy</td><td><a class="section" href="#PasDoc-Fields">Fields</a></td><td>Methods</td><td>Properties</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a  href="MacPascal.html">MacPascal</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type ParamBlockRec = record</code></p>
+<h2 class="description">Description</h2>
+<p>
+basic File Manager parameter block. File Manager Reference 2-87.</p>
+<h2 class="overview">Overview</h2>
+<a name="PasDoc-Fields"></a><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#qLink">qLink</a></b>:<a  href="MacPascal.html#QElemPtr">QElemPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#qType">qType</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioTrap">ioTrap</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioCmdAddr">ioCmdAddr</a></b>:<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioCompletion">ioCompletion</a></b>:<a  href="MacPascal.html#ProcPtr">ProcPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioResult">ioResult</a></b>:<a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioNamePtr">ioNamePtr</a></b>:<a  href="MacPascal.html#StringPtr">StringPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVRefNum">ioVRefNum</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioRefNum">ioRefNum</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVersNum">ioVersNum</a></b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioPermssn">ioPermssn</a></b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioMisc">ioMisc</a></b>:<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioBuffer">ioBuffer</a></b>:<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioReqCount">ioReqCount</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioActCount">ioActCount</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioPosMode">ioPosMode</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioPosOffset">ioPosOffset</a></b>:LongInt
+</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFRefNum">ioFRefNum</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFVersNum">ioFVersNum</a></b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#filler1">filler1</a></b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFDirIndex">ioFDirIndex</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlAttrib">ioFlAttrib</a></b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlVersNum">ioFlVersNum</a></b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlFndrInfo">ioFlFndrInfo</a></b>:<a  href="MacPascal.FInfo.html">FInfo</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlNum">ioFlNum</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlStBlk">ioFlStBlk</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlLgLen">ioFlLgLen</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlPyLen">ioFlPyLen</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlRStBlk">ioFlRStBlk</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlRLgLen">ioFlRLgLen</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlRPyLen">ioFlRPyLen</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlCrDat">ioFlCrDat</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioFlMdDat">ioFlMdDat</a></b>:LongInt                  </code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#filler2">filler2</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVolIndex">ioVolIndex</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVCrDate">ioVCrDate</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVLsBkUp">ioVLsBkUp</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVAtrb">ioVAtrb</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVNmFls">ioVNmFls</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVDirSt">ioVDirSt</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVBlLn">ioVBlLn</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVNmAlBlks">ioVNmAlBlks</a></b>:Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVAlBlkSiz">ioVAlBlkSiz</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVClpSiz">ioVClpSiz</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioAlBlSt">ioAlBlSt</a></b>:Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVNxtFNum">ioVNxtFNum</a></b>:LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="MacPascal.ParamBlockRec.html#ioVFrBlk">ioVFrBlk</a></b>:Integer </code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="qLink"></a><code><b>qLink</b>:<a  href="MacPascal.html#QElemPtr">QElemPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="qType"></a><code><b>qType</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+next queue entry</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioTrap"></a><code><b>ioTrap</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+queue type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioCmdAddr"></a><code><b>ioCmdAddr</b>:<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+routine trap</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioCompletion"></a><code><b>ioCompletion</b>:<a  href="MacPascal.html#ProcPtr">ProcPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+routine address</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioResult"></a><code><b>ioResult</b>:<a  href="MacPascal.html#OSErr">OSErr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+pointer to completion routine</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioNamePtr"></a><code><b>ioNamePtr</b>:<a  href="MacPascal.html#StringPtr">StringPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+result code</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVRefNum"></a><code><b>ioVRefNum</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+pointer to pathname</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioRefNum"></a><code><b>ioRefNum</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+volume specification</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVersNum"></a><code><b>ioVersNum</b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+file reference number</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioPermssn"></a><code><b>ioPermssn</b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+version number</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioMisc"></a><code><b>ioMisc</b>:<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+read/write permission</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioBuffer"></a><code><b>ioBuffer</b>:<a  href="MacPascal.html#Ptr">Ptr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="Miscellaneous.html">miscellaneous</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioReqCount"></a><code><b>ioReqCount</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+data buffer</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioActCount"></a><code><b>ioActCount</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+requested number of bytes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioPosMode"></a><code><b>ioPosMode</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+actual number of bytes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioPosOffset"></a><code><b>ioPosOffset</b>:LongInt
+</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+positioning <a class="normal" href="Globals.html#mode">mode</a> and newline char.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFRefNum"></a><code><b>ioFRefNum</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+positioning offset</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFVersNum"></a><code><b>ioFVersNum</b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+file reference number</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="filler1"></a><code><b>filler1</b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+file version number (unused)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFDirIndex"></a><code><b>ioFDirIndex</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+reserved</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlAttrib"></a><code><b>ioFlAttrib</b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+directory index</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlVersNum"></a><code><b>ioFlVersNum</b>:<a  href="MacPascal.SignedByte.html">SignedByte</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+file attributes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlFndrInfo"></a><code><b>ioFlFndrInfo</b>:<a  href="MacPascal.FInfo.html">FInfo</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+file version number (unused)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlNum"></a><code><b>ioFlNum</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+information used by the Finder</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlStBlk"></a><code><b>ioFlStBlk</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+file ID</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlLgLen"></a><code><b>ioFlLgLen</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+first alloc. blk. of data fork</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlPyLen"></a><code><b>ioFlPyLen</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+logical EOF of data fork</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlRStBlk"></a><code><b>ioFlRStBlk</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+physical EOF of data fork</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlRLgLen"></a><code><b>ioFlRLgLen</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+first alloc. blk. of resource fork</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlRPyLen"></a><code><b>ioFlRPyLen</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+logical EOF of resource fork</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlCrDat"></a><code><b>ioFlCrDat</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+physical EOF of resource fork</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioFlMdDat"></a><code><b>ioFlMdDat</b>:LongInt                  </code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+date and time of creation</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="filler2"></a><code><b>filler2</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+date and time of last modification</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVolIndex"></a><code><b>ioVolIndex</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+reserved</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVCrDate"></a><code><b>ioVCrDate</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+volume index</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVLsBkUp"></a><code><b>ioVLsBkUp</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+date and time of initialization</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVAtrb"></a><code><b>ioVAtrb</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+date and time of last modification</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVNmFls"></a><code><b>ioVNmFls</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+volume attributes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVDirSt"></a><code><b>ioVDirSt</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+number of files in root directory</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVBlLn"></a><code><b>ioVBlLn</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+first block of directory</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVNmAlBlks"></a><code><b>ioVNmAlBlks</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+length of directory in blocks</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVAlBlkSiz"></a><code><b>ioVAlBlkSiz</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+number of allocation blocks</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVClpSiz"></a><code><b>ioVClpSiz</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="MacPascal.Size.html">size</a> of allocation blocks</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioAlBlSt"></a><code><b>ioAlBlSt</b>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+default clump <a class="normal" href="MacPascal.Size.html">size</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVNxtFNum"></a><code><b>ioVNxtFNum</b>:LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+first block in block map</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ioVFrBlk"></a><code><b>ioVFrBlk</b>:Integer </code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+next unused file ID</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

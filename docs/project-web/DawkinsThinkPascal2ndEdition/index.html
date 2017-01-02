@@ -1,0 +1,87 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>Dawkins' Watchmaker Source Second Edition by Alan Canon</title>
+</head>
+<body>
+<h2>Dawkins' Watchmaker Source Second Edition</h2>
+<h3>Documentation (fpdoc)</h3>
+<ul>
+<li><a href="fpdocs/Monochrome/index.html">Monochrome</a></li>
+<li><a href="fpdocs/Colour/index.html">Colour</a></li>
+<li><a href="fpdocs/Snails/index.html">Snails</a></li>
+<li><a href="fpdocs/Arthromorphs/index.html">Arthromorphs</a></li>
+</ul>
+<h3>Goals</h3>
+<p>
+The goal of the Second Edition is to produce a fair copy of the original
+Think Pascal 4.0 sources for Blind Watchmaker which satisfy these conditions:
+</p>
+<p>
+<ol>
+<li>Compilable with Free Pascal, against System 7.1 Pascal interfaces patched with
+reference to Inside Macintosh (1985 edition);</li>
+<li>Continued compatibility with Think Pascal 4.0 under Classic Mac OS 9.0.4 emulation using SheepShaver</li>
+<li>Documented using FPCDocs, the automatic documentation generator for Free Pascal</li>
+<li>Line-for-line synchonization between classic source and 2nd edition (no lines added or deleted.)
+</ol>
+<h3>Roadmap for the Second Edition</h3>
+<p>2.0: ("Syntax") Full source cross-compiler compatibility between Think Pascal 4.0 and Free Pascal 2.4.0</p>
+<p>2.1: ("Semantics") Eliminate compiler warnings in Free Pascal (unused variables, unused units, etc.)</p>
+<p>2.2: ("UPI") Convert to using revised Macintosh Universal Pascal Interface, in preparation for compilation with Ingemar's Think Pascal 4.5a1,
+found <a href="Here"></a></p>
+<p>2.3: Compile with CodeWarrior 7.1 using new UPI.</p>
+<h3>Porting back to Think Pascall 
+Think Pascal 4.0 only likes source files which it created itself. These have
+file type attribute TEXT and creator resource PJMM. FileTyper 5.3.1 is used to create an "AutoTyper" which will change these
+attributes when source files are dropped onto it.
+</p>
+<h3>Changes to Dawkins' original source for the Second Edition</h3>
+<p>
+Unit file names have been synchronized with unit names according to these rules:
+</p>
+<ul>
+<li>Files not used in the last Dawkins edition of Watchmaker are excluded from this release.</li>
+<li>Files for each application are placed in a single folder for that application.</li>
+<li>All Pascal source files end with a .pas extension.</li>
+<li>Where the file name differs from the name of the unit contained within it, the file
+is renamed to match the unit (not vice versa.)</li>
+<li>The unit name is capitalized to follow the capitalized naming of the source file.</li>
+<li>Units called "Engineering" unit have been renamed "EngineeringUnit" (their source 
+files renamed to EngineeringUnit to make the source compatible with Free Pascal, which
+balks at having a unit name that is the same as an enumerated type.</li>
+<li>Spaces in file names have been replaced by underscore.</li>
+<li>An additional USES clause entry, 'MacPascal', is added to the top of each source file
+which makes Macintosh toolbox calls.</li>
+<li>An empty unit, 'MacPascal', will satisfy Think Pascal 4.0, as it already has the classic
+toolbox interface installed as its native library.</li>
+<li>An unused variable called "return" was confusing the FreePascal compiler, as "return"
+is a Pascal reserved word. Commented out.</li>
+</ul>
+<h3>Random Numbers in Think Pascal</h3>
+<p>
+From Inside Macintosh, page I-194:
+</p>
+<blockquote>
+<pre>FUNCTION Random: INTEGER;</pre>
+This function returns a pseudo-random integer, uniformly distributed in the range -32767
+through 32767. The value the sequence starts from depends on the global variable randSeed,
+which InitGraf initializes to 1. To start the sequence over again from where it began, reset
+randSeed to 1. To start a new sequence each time, you must reset randSeed to a random number.
+</blockquote>
+<p>From Free Pascal Random reference:</p>
+<blockquote>Random returns a random number larger or equal to 0 and strictly less than L. If the argument L is omitted, a Real number between 0 and 1 is returned (0 included, 1 excluded).
+</blockquote>
+<h3>Macintosh System 7.1 PInterfaces
+<ul>
+<li>Installed CONST _GestaltDispatch (A comment said that it had been added, but it hadn't)</li>
+</ul>
+<h3>Pascal "otherwise" keyword changed to synonym "else".</h3>
+<h3>Missing ThinkPascal 4.0 interfaces</h3>
+<p>It's necessary to provide dummy units for these units not present in the Think Pascal 4.0 interfaces.
+<ul>
+<li>TextUtils</li>
+<li>QuickdrawText</li>
+</ul>
+</body>
+</html>

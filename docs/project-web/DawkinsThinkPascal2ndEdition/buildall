@@ -1,0 +1,6 @@
+lazbuild -B Monochrome/program_blind_watchmaker.lpi 
+lazbuild -B Colour/program_main_exhibition.lpi  
+lazbuild -B Snails/program_main.lpi 
+lazbuild -B Arthromorphs/program_brand_new.lpi 
+
+

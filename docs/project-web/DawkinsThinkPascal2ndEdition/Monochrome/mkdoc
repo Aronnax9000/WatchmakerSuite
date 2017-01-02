@@ -1,0 +1,1 @@
+fpdoc --project=program_blind_watchmaker.fpdoc --format=html --package=Monochrome

@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Richard Dawkins Blind Watchmaker: biomorphs</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit biomorphs</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td>Classes, Interfaces, Objects and Records</td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td>Types</td><td>Constants</td><td><a class="section" href="#PasDoc-Variables">Variables</a></td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="PCommonExhibition.html">PCommonExhibition</a></li><li><a  href="Common_Exhibition.html">Common_Exhibition</a></li><li><a  href="Utils_Exhibition.html">Utils_Exhibition</a></li><li><a  href="PA_Warning_Alert.html">PA_Warning_Alert</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#chooseColor">chooseColor</a></b> (index: integer): RGBColor;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#Rainbow">Rainbow</a></b>: longint;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#Randint">Randint</a></b> (Max: Integer): Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#Odd">Odd</a></b> (i: INTEGER): boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#RandSwell">RandSwell</a></b> (Indgene: <a  href="Common_Exhibition.html#SwellType">Swelltype</a>): <a  href="Common_Exhibition.html#SwellType">SwellType</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#EraseInnerRect">EraseInnerRect</a></b> (box: rect);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#FrameOuterRect">FrameOuterRect</a></b> (box: rect);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#FrameInnerRect">FrameInnerRect</a></b> (box: rect);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#RandLimbType">RandLimbType</a></b>: <a  href="Common_Exhibition.html#LimbType">LimbType</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#RandLimbFill">RandLimbFill</a></b>: <a  href="Common_Exhibition.html#LimbFillType">LimbFillType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Reproduce">Reproduce</a></b> (parent: <a  href="Common_Exhibition.person.html">person</a>; var child: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#Sgn">Sgn</a></b> (x: INTEGER): INTEGER;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Slide">Slide</a></b> (LiveRect, DestRect: Rect);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#SetUpBoxes">SetUpBoxes</a></b> (drawing: BOOLEAN);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#PicLine">PicLine</a></b> (var ThisPic: <a  href="Common_Exhibition.Pic.html">Pic</a>; x, y, xnew, ynew: Integer; color: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#ZeroPic">ZeroPic</a></b> (var ThisPic: <a  href="Common_Exhibition.Pic.html">Pic</a>; Here: Point);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#DrawPic">DrawPic</a></b> (ThisPic: <a  href="Common_Exhibition.Pic.html">Pic</a>; Place: Point; var Biomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#CheckAbort">CheckAbort</a></b>: BOOLEAN;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#ThisColor">ThisColor</a></b> (j: INTEGER): INTEGER;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#LongintColour">LongintColour</a></b> (IntColour: Integer): LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#IntColour">IntColour</a></b> (LongintColour: Longint): Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="biomorphs.html#ChangedColour">ChangedColour</a></b> (oldColour, Amount: integer): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Message">Message</a></b> (s: str255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Develop">Develop</a></b> (var biomorph: <a  href="Common_Exhibition.person.html">person</a>; Here: point);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Delayvelop">Delayvelop</a></b> (var Biomorph: <a  href="Common_Exhibition.person.html">Person</a>; Here: Point);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#DrawAllBoxes">DrawAllBoxes</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Evolve">Evolve</a></b> (MLoc: point);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#GeneBoxTemplate">GeneBoxTemplate</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#ShowGeneBox">ShowGeneBox</a></b> (j: INTEGER; biomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#ShowChangedGene">ShowChangedGene</a></b> (an1, an2: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#MakeGeneBox">MakeGeneBox</a></b> (biomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#DoBreed">DoBreed</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#BasicTree">BasicTree</a></b> (var genotype: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#RandomForeColour">RandomForeColour</a></b> (var theBiomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#RandomBackColour">RandomBackColour</a></b> (var theBiomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#DeliverSaltation">DeliverSaltation</a></b> (var theBiomorph: <a  href="Common_Exhibition.person.html">Person</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#DoSaltation">DoSaltation</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#DoPaste">DoPaste</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#SendToClipBoard">SendToClipBoard</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#Suzy">Suzy</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#myDoEvent">myDoEvent</a></b> (loc: point);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#myUpdate">myUpdate</a></b> (theWindow: WindowPtr);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#myOpen">myOpen</a></b> (theWindow: WindowPtr);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="biomorphs.html#myApplLoop">myApplLoop</a></b>;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Variables"></a><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="biomorphs.html#oldSpecial">oldSpecial</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="biomorphs.html#dullRgn">dullRgn</a></b>: rgnHandle;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="biomorphs.html#midRgn">midRgn</a></b>: rgnHandle;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="chooseColor"></a><code>function <b>chooseColor</b> (index: integer): RGBColor;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Palettes,</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Rainbow"></a><code>function <b>Rainbow</b>: longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Randint"></a><code>function <b>Randint</b> (Max: Integer): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+delivers the number of colours available with the present hardware;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Odd"></a><code>function <b>Odd</b> (i: INTEGER): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandSwell"></a><code>function <b>RandSwell</b> (Indgene: <a  href="Common_Exhibition.html#SwellType">Swelltype</a>): <a  href="Common_Exhibition.html#SwellType">SwellType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EraseInnerRect"></a><code>procedure <b>EraseInnerRect</b> (box: rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FrameOuterRect"></a><code>procedure <b>FrameOuterRect</b> (box: rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FrameInnerRect"></a><code>procedure <b>FrameInnerRect</b> (box: rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandLimbType"></a><code>function <b>RandLimbType</b>: <a  href="Common_Exhibition.html#LimbType">LimbType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandLimbFill"></a><code>function <b>RandLimbFill</b>: <a  href="Common_Exhibition.html#LimbFillType">LimbFillType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Reproduce"></a><code>procedure <b>Reproduce</b> (parent: <a  href="Common_Exhibition.person.html">person</a>; var child: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Sgn"></a><code>function <b>Sgn</b> (x: INTEGER): INTEGER;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Slide"></a><code>procedure <b>Slide</b> (LiveRect, DestRect: Rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetUpBoxes"></a><code>procedure <b>SetUpBoxes</b> (drawing: BOOLEAN);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PicLine"></a><code>procedure <b>PicLine</b> (var ThisPic: <a  href="Common_Exhibition.Pic.html">Pic</a>; x, y, xnew, ynew: Integer; color: integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ZeroPic"></a><code>procedure <b>ZeroPic</b> (var ThisPic: <a  href="Common_Exhibition.Pic.html">Pic</a>; Here: Point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawPic"></a><code>procedure <b>DrawPic</b> (ThisPic: <a  href="Common_Exhibition.Pic.html">Pic</a>; Place: Point; var Biomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CheckAbort"></a><code>function <b>CheckAbort</b>: BOOLEAN;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ThisColor"></a><code>function <b>ThisColor</b> (j: INTEGER): INTEGER;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LongintColour"></a><code>function <b>LongintColour</b> (IntColour: Integer): LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="IntColour"></a><code>function <b>IntColour</b> (LongintColour: Longint): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ChangedColour"></a><code>function <b>ChangedColour</b> (oldColour, Amount: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Message"></a><code>procedure <b>Message</b> (s: str255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Develop"></a><code>procedure <b>Develop</b> (var biomorph: <a  href="Common_Exhibition.person.html">person</a>; Here: point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Delayvelop"></a><code>procedure <b>Delayvelop</b> (var Biomorph: <a  href="Common_Exhibition.person.html">Person</a>; Here: Point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawAllBoxes"></a><code>procedure <b>DrawAllBoxes</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Evolve"></a><code>procedure <b>Evolve</b> (MLoc: point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GeneBoxTemplate"></a><code>procedure <b>GeneBoxTemplate</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ShowGeneBox"></a><code>procedure <b>ShowGeneBox</b> (j: INTEGER; biomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ShowChangedGene"></a><code>procedure <b>ShowChangedGene</b> (an1, an2: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MakeGeneBox"></a><code>procedure <b>MakeGeneBox</b> (biomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoBreed"></a><code>procedure <b>DoBreed</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BasicTree"></a><code>procedure <b>BasicTree</b> (var genotype: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandomForeColour"></a><code>procedure <b>RandomForeColour</b> (var theBiomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandomBackColour"></a><code>procedure <b>RandomBackColour</b> (var theBiomorph: <a  href="Common_Exhibition.person.html">person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DeliverSaltation"></a><code>procedure <b>DeliverSaltation</b> (var theBiomorph: <a  href="Common_Exhibition.person.html">Person</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoSaltation"></a><code>procedure <b>DoSaltation</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DoPaste"></a><code>procedure <b>DoPaste</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SendToClipBoard"></a><code>procedure <b>SendToClipBoard</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Suzy"></a><code>procedure <b>Suzy</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="myDoEvent"></a><code>procedure <b>myDoEvent</b> (loc: point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="myUpdate"></a><code>procedure <b>myUpdate</b> (theWindow: WindowPtr);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="myOpen"></a><code>procedure <b>myOpen</b> (theWindow: WindowPtr);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="myApplLoop"></a><code>procedure <b>myApplLoop</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="oldSpecial"></a><code><b>oldSpecial</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="dullRgn"></a><code><b>dullRgn</b>: rgnHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="midRgn"></a><code><b>midRgn</b>: rgnHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

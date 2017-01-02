@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Monochrome: Richard Dawkins Blind Watchmaker: All Units</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Monochrome: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="allitems">All Units</h1>
+<table class="unitstable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Album.html">Album</a></td>
+<td class="itemdesc"><p></p>
+
+<pre class="preformatted">v1.1 Sept 1993Changed file commands to Mac File managerRemoved Repeat/Until loop in DoClose</pre>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Biomorphs.html">Biomorphs</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Blind_Watchmaker.html">Blind_Watchmaker</a></td>
+<td class="itemdesc"><p></p>
+
+<pre class="preformatted">v1.1 Sept 1993Disabled Mutation-Gradient menu item when segmentation offCall WaitNextEvent if available, else systemTask/GetNextEventRemove Repeat/Until loop on save changes.Added QuitConfirmed function and moved savechanges check thereChanged sleep time - when drift sweep is on, small time for bg  tasks;  other modes give lots of bg time.</pre>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Engineering.html">Engineering</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="ErrorUnit.html">ErrorUnit</a></td>
+<td class="itemdesc"><p>Error message alert tools added for v1.1 for cases where we don't care about saving the <a class="normal" href="MacPascal.BitMap.html">bitmap</a></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Globals.html">Globals</a></td>
+<td class="itemdesc"><p>Original documentation: </p>
+
+<pre class="preformatted">v1.1 sept 1993Made a start at cleaning up all these globals, but still a lot to do.  I have removed acouple of dozen variables which were just wasting memory, and moved others tolocal variable status.  For the most part, they need to be made into parameters orfile-scoped variables with unit initializer; this is too much work for now.</pre>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Initialize.html">Initialize</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="MacPascal.html">MacPascal</a></td>
+<td class="itemdesc"><p>Routines from the Mac Classic ToolBox used by all Watchmaker programs, with documentation from the 1985 edition of Inside Macintosh.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Miscellaneous.html">Miscellaneous</a></td>
+<td class="itemdesc"><p></p>
+
+<pre class="preformatted">v1.1 Sept 1993Changed Message procs to use AlertsRemoved PictMessage (never called), change Message calls to DisplayErrorAdded positioning to alerts and dialogsAlert now uses STR# for closing, quitting, etcAdded several functions, for EOF and checking system (see below)Validated the rect after RestoreOffscreen to prevent drawing twice</pre>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Pedigree.html">Pedigree</a></td>
+<td class="itemdesc"><p><code>Pedigree</code> <a class="normal" href="Globals.html#mode">mode</a> allows the user to draw out family trees.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="StandardGetFolder.html">StandardGetFolder</a></td>
+<td class="itemdesc"><p></p>
+
+<pre class="preformatted">StandardGetFolder.c                                                                                                                                           This little chunk o' code implements a way to let the user choose a           folder to save files in via a StandardFile Dialog.                                                                                                          Since the code uses the CustomGetFile function and depends on the use of      FSSpec records, it only works under System 7.0 or later.                                                                                                    And don't forget to include the custom dialog resources ( a 'DITL' and       'DLOG') in your project.                                                                                                                                     Portions of this code were originally provided by Paul Forrester              (paulf@apple.com) to the think-c internet mailing list in response to my      my question on how to do exactly what this code does.  I've added a           couple of features, such as the ability to handle aliased folders and         the programmer definable prompt.  I also cleaned and tightened the code,      stomped a couple of bugs, and packaged it up neatly.  Bunches of work,        but I learned A LOT about Standard File, the File Manager, the Dialog         Manager, and the Alias Manager.  I tried to include in the comments some      of the neat stuff I discovered in my hours of pouring over Inside Mac.        Hope you find it educational as well as useful.                            Converted to Pascal by Peter N Lewis &lt;peter@cujo.curtin.edu.au&gt; Dec 1992</pre>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Triangle.html">Triangle</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="User_Interface.html">User_Interface</a></td>
+<td class="itemdesc"><p></p>
+
+<pre class="preformatted"></pre>
+
+<p>(v1.1 Sept 1993.</p></td>
+</tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

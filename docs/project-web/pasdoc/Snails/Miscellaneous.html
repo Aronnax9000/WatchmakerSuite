@@ -1,0 +1,718 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Snails: Richard Dawkins Blind Watchmaker: Miscellaneous</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Snails: Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit Miscellaneous</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td>Classes, Interfaces, Objects and Records</td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td>Types</td><td><a class="section" href="#PasDoc-Constants">Constants</a></td><td>Variables</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="Globals.html">Globals</a></li><li>sane</li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#ImportPICT">ImportPICT</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#MirrorBits">MirrorBits</a></b> (SourceBitmap: BitMap; RectOfInterest: Rect; VAR DestBitMap: BitMap);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#FossilsExist">FossilsExist</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DireMessage">DireMessage</a></b> (string1ID, string2ID: Integer; VAR Verdict: Integer; YesNo: Boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#MemoryMessage">MemoryMessage</a></b> (ID: Integer; InMessage: Str255; VAR Verdict: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SimpleMessage">SimpleMessage</a></b> (ID: Integer; VAR Verdict: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#HelpMessage">HelpMessage</a></b> (StrID: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#ArrayDialog">ArrayDialog</a></b> (VAR WDetails, DDetails, TDetails: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>; VAR Verdict: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#LayoutDialog">LayoutDialog</a></b> (VAR HoldConstant, RowChap, ColChap: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>; VAR NRows, NCols: Integer): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#GenesDialog">GenesDialog</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SyringeMessage">SyringeMessage</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Pause">Pause</a></b> (Message: Str255);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SetItemState">SetItemState</a></b> (Mndx, Indx: Integer; Flag: Boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#RandInt">RandInt</a></b> (Max: Integer): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Odd">Odd</a></b> (i: Integer): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#RandSwell">RandSwell</a></b> (Indgene: <a  href="Globals.html#SwellType">Swelltype</a>): <a  href="Globals.html#SwellType">SwellType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#EraseInnerRect">EraseInnerRect</a></b> (box: Rect);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FrameOuterRect">FrameOuterRect</a></b> (box: Rect);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FrameInnerRect">FrameInnerRect</a></b> (box: Rect);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#StoreOffScreen">StoreOffScreen</a></b> (box: Rect; VAR Snapshot: BitMap);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#RestoreOffScreen">RestoreOffScreen</a></b> (box: Rect; Snapshot: BitMap);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#CleanUp">CleanUp</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#MakeOffScreen">MakeOffScreen</a></b> (box: Rect; VAR Snapshot: BitMap; VAR Burst: Boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DrawInt">DrawInt</a></b> (i: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Drawi">Drawi</a></b> (i: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DrawReal">DrawReal</a></b> (r: real);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#RealToString">RealToString</a></b> (r: real; VAR theString: str255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Grow">Grow</a></b> (VAR Box: Rect; d: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#BoxesOnly">BoxesOnly</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#OwnEditMenu">OwnEditMenu</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#DawkFilter">DawkFilter</a></b> (param: ParmBlkPtr): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SmallMenus">SmallMenus</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#LargeMenus">LargeMenus</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#BigFuncBox">BigFuncBox</a></b> (Box: Rect; VAR Outbox: Rect);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#SmallFuncBox">SmallFuncBox</a></b> (Box: Rect; VAR Outbox: Rect; BoxSize: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FuncBox">FuncBox</a></b> (Box: Rect; VAR Outbox: Rect; BoxSize: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#Poop">Poop</a></b> (n: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#StartDocuments">StartDocuments</a></b> (DocumentCount: Integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#TwoToThe">TwoToThe</a></b> (n: integer): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#TrapAvailable">TrapAvailable</a></b> (theTrap: integer): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#WNEIsImplemented">WNEIsImplemented</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#TempMemCallsAvailable">TempMemCallsAvailable</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#DeleteOldFile">DeleteOldFile</a></b> (volRefNum: Integer; dirID: LongInt; fileName: Str255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#PositionDialog">PositionDialog</a></b> (theType: ResType; theID: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>PROCEDURE <b><a  href="Miscellaneous.html#FindDlogPosition">FindDlogPosition</a></b> (theType: ResType; theID: integer; VAR corner: Point);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#IsEOF">IsEOF</a></b> (refNum: Integer; howClose: LongInt): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#FileSize">FileSize</a></b> (refNum: Integer): LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#snail">snail</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Turritella">Turritella</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Bivalve">Bivalve</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Ammonite">Ammonite</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Nautilus">Nautilus</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Brachiopod">Brachiopod</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Cone">Cone</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Whelk">Whelk</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Scallop">Scallop</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Eloise">Eloise</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Gallaghers">Gallaghers</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Rapa">Rapa</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Lightning">Lightning</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Sundial">Sundial</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Fig">Fig</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#Tun">Tun</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#RazorShell">RazorShell</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>FUNCTION <b><a  href="Miscellaneous.html#JapaneseWonder">JapaneseWonder</a></b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Constants"></a><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="Miscellaneous.html#MaxResources">MaxResources</a></b> = 154;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ImportPICT"></a><code>PROCEDURE <b>ImportPICT</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MirrorBits"></a><code>PROCEDURE <b>MirrorBits</b> (SourceBitmap: BitMap; RectOfInterest: Rect; VAR DestBitMap: BitMap);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FossilsExist"></a><code>FUNCTION <b>FossilsExist</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DireMessage"></a><code>PROCEDURE <b>DireMessage</b> (string1ID, string2ID: Integer; VAR Verdict: Integer; YesNo: Boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MemoryMessage"></a><code>PROCEDURE <b>MemoryMessage</b> (ID: Integer; InMessage: Str255; VAR Verdict: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SimpleMessage"></a><code>PROCEDURE <b>SimpleMessage</b> (ID: Integer; VAR Verdict: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+27291 for Fewer <a class="normal" href="Globals.html#Album">album</a> screens, 27295 for Careful</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HelpMessage"></a><code>PROCEDURE <b>HelpMessage</b> (StrID: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ArrayDialog"></a><code>PROCEDURE <b>ArrayDialog</b> (VAR WDetails, DDetails, TDetails: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>; VAR Verdict: integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LayoutDialog"></a><code>FUNCTION <b>LayoutDialog</b> (VAR HoldConstant, RowChap, ColChap: <a  href="Globals.MarchingOrders.html">MarchingOrders</a>; VAR NRows, NCols: Integer): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GenesDialog"></a><code>FUNCTION <b>GenesDialog</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SyringeMessage"></a><code>PROCEDURE <b>SyringeMessage</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Pause"></a><code>PROCEDURE <b>Pause</b> (Message: Str255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SetItemState"></a><code>PROCEDURE <b>SetItemState</b> (Mndx, Indx: Integer; Flag: Boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandInt"></a><code>FUNCTION <b>RandInt</b> (Max: Integer): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Odd"></a><code>FUNCTION <b>Odd</b> (i: Integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RandSwell"></a><code>FUNCTION <b>RandSwell</b> (Indgene: <a  href="Globals.html#SwellType">Swelltype</a>): <a  href="Globals.html#SwellType">SwellType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="EraseInnerRect"></a><code>PROCEDURE <b>EraseInnerRect</b> (box: Rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FrameOuterRect"></a><code>PROCEDURE <b>FrameOuterRect</b> (box: Rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FrameInnerRect"></a><code>PROCEDURE <b>FrameInnerRect</b> (box: Rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StoreOffScreen"></a><code>PROCEDURE <b>StoreOffScreen</b> (box: Rect; VAR Snapshot: BitMap);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RestoreOffScreen"></a><code>PROCEDURE <b>RestoreOffScreen</b> (box: Rect; Snapshot: BitMap);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="CleanUp"></a><code>PROCEDURE <b>CleanUp</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MakeOffScreen"></a><code>PROCEDURE <b>MakeOffScreen</b> (box: Rect; VAR Snapshot: BitMap; VAR Burst: Boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawInt"></a><code>PROCEDURE <b>DrawInt</b> (i: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Drawi"></a><code>PROCEDURE <b>Drawi</b> (i: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DrawReal"></a><code>PROCEDURE <b>DrawReal</b> (r: real);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RealToString"></a><code>PROCEDURE <b>RealToString</b> (r: real; VAR theString: str255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Grow"></a><code>PROCEDURE <b>Grow</b> (VAR Box: Rect; d: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BoxesOnly"></a><code>PROCEDURE <b>BoxesOnly</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OwnEditMenu"></a><code>PROCEDURE <b>OwnEditMenu</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DawkFilter"></a><code>FUNCTION <b>DawkFilter</b> (param: ParmBlkPtr): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SmallMenus"></a><code>PROCEDURE <b>SmallMenus</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LargeMenus"></a><code>PROCEDURE <b>LargeMenus</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BigFuncBox"></a><code>PROCEDURE <b>BigFuncBox</b> (Box: Rect; VAR Outbox: Rect);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SmallFuncBox"></a><code>PROCEDURE <b>SmallFuncBox</b> (Box: Rect; VAR Outbox: Rect; BoxSize: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FuncBox"></a><code>PROCEDURE <b>FuncBox</b> (Box: Rect; VAR Outbox: Rect; BoxSize: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Poop"></a><code>PROCEDURE <b>Poop</b> (n: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="StartDocuments"></a><code>PROCEDURE <b>StartDocuments</b> (DocumentCount: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TwoToThe"></a><code>FUNCTION <b>TwoToThe</b> (n: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TrapAvailable"></a><code>FUNCTION <b>TrapAvailable</b> (theTrap: integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Operating System utilities</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WNEIsImplemented"></a><code>FUNCTION <b>WNEIsImplemented</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TempMemCallsAvailable"></a><code>FUNCTION <b>TempMemCallsAvailable</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DeleteOldFile"></a><code>PROCEDURE <b>DeleteOldFile</b> (volRefNum: Integer; dirID: LongInt; fileName: Str255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="PositionDialog"></a><code>PROCEDURE <b>PositionDialog</b> (theType: ResType; theID: integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Dialog Manager utilities</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FindDlogPosition"></a><code>PROCEDURE <b>FindDlogPosition</b> (theType: ResType; theID: integer; VAR corner: Point);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="IsEOF"></a><code>FUNCTION <b>IsEOF</b> (refNum: Integer; howClose: LongInt): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FileSize"></a><code>FUNCTION <b>FileSize</b> (refNum: Integer): LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="snail"></a><code>FUNCTION <b>snail</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Turbo routine, except this returns bytes (since we don't use pascal type-files now).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Turritella"></a><code>FUNCTION <b>Turritella</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Bivalve"></a><code>FUNCTION <b>Bivalve</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Ammonite"></a><code>FUNCTION <b>Ammonite</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Nautilus"></a><code>FUNCTION <b>Nautilus</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Brachiopod"></a><code>FUNCTION <b>Brachiopod</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Cone"></a><code>FUNCTION <b>Cone</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Whelk"></a><code>FUNCTION <b>Whelk</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Scallop"></a><code>FUNCTION <b>Scallop</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Eloise"></a><code>FUNCTION <b>Eloise</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Gallaghers"></a><code>FUNCTION <b>Gallaghers</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Rapa"></a><code>FUNCTION <b>Rapa</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Lightning"></a><code>FUNCTION <b>Lightning</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Sundial"></a><code>FUNCTION <b>Sundial</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Fig"></a><code>FUNCTION <b>Fig</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Tun"></a><code>FUNCTION <b>Tun</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="RazorShell"></a><code>FUNCTION <b>RazorShell</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="JapaneseWonder"></a><code>FUNCTION <b>JapaneseWonder</b>: <a  href="Globals.person.html">person</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MaxResources"></a><code><b>MaxResources</b> = 154;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

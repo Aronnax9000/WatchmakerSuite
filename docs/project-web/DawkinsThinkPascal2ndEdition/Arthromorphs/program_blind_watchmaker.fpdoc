@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<docproject>  
+  <options>  
+    <option name="ostarget" value="Linux"/>  
+    <option name="cputarget" value="x86_64"/>  
+    <option name="show-private" value="false"/>  
+    <option name="stop-on-parser-error" value="false"/>  
+  </options>  
+  <packages>  
+    <package name="Monochrome" output="Monochrome" content="Monochrome.xct">  
+      <units>  
+        <unit file="program_blind_watchmaker.pas" /> 
+        <unit file="unit_album.pas" />
+        <unit file="unit_biomorphs.pas" />
+        <unit file="unit_engineering.pas" />
+        <unit file="unit_error.pas" />
+        <unit file="unit_globals.pas" />
+        <unit file="unit_initialize.pas" />
+        <unit file="unit_miscellaneous.pas" />
+        <unit file="unit_pedigree.pas" />
+        <unit file="unit_standard_get_folder.pas" />
+        <unit file="unit_triangle.pas" />
+        <unit file="unit_user_interface.pas" />
+      </units>  
+      <descriptions>  
+        <description file="program_blind_watchmaker.fpdescription"/>  
+      </descriptions>  
+    </package>  
+  </packages>  
+</docproject>
+

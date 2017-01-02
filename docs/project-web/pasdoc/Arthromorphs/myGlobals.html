@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Richard Dawkins Blind Watchmaker: myGlobals</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit myGlobals</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td>Uses</td><td>Classes, Interfaces, Objects and Records</td><td>Functions and Procedures</td><td><a class="section" href="#PasDoc-Types">Types</a></td><td><a class="section" href="#PasDoc-Constants">Constants</a></td><td><a class="section" href="#PasDoc-Variables">Variables</a></td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+<p>
+the parts of an animal very easily. Atoms that are not being used are labelled Free.</p>
+<a name="PasDoc-Uses"></a><h2 class="overview">Overview</h2>
+<a name="PasDoc-Types"></a><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#Pressure">Pressure</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#Concentration">Concentration</a></b> = (...);</code></td>
+</tr>
+</table>
+<a name="PasDoc-Constants"></a><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#MaxBoxes">MaxBoxes</a></b> = 15;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Variables"></a><h3 class="summary">Variables</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#NRows">NRows</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#NCols">NCols</a></b>: LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#MidBox">MidBox</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#Special">Special</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#NBoxes">NBoxes</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#Hot">Hot</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#Prect">Prect</a></b>: rect;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#box">box</a></b>: array[0..<a  href="myGlobals.html#MaxBoxes">MaxBoxes</a>] of rect;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#upregion">upregion</a></b>: RgnHandle;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#centre">centre</a></b>: array[0..<a  href="myGlobals.html#MaxBoxes">MaxBoxes</a>] of point;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#BreedWindow">BreedWindow</a></b>: WindowPtr;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#VerticalOffset">VerticalOffset</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#HorizontalOffset">HorizontalOffset</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#OldVerticalOffset">OldVerticalOffset</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#OldHorizontalOffset">OldHorizontalOffset</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#thickscale">thickscale</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#wantColor">wantColor</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#sideways">sideways</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#centring">centring</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#resizing">resizing</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#startingUp">startingUp</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#TrunkMut">TrunkMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#LegsMut">LegsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#ClawsMut">ClawsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#AnimalTrunkMut">AnimalTrunkMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#AnimalLegsMut">AnimalLegsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#AnimalClawsMut">AnimalClawsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#SectionTrunkMut">SectionTrunkMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#SectionLegsMut">SectionLegsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#SectionClawsMut">SectionClawsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#SegmentTrunkMut">SegmentTrunkMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#SegmentLegsMut">SegmentLegsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#SegmentClawsMut">SegmentClawsMut</a></b>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#WidthMut">WidthMut</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#HeightMut">HeightMut</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#AngleMut">AngleMut</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#DuplicationMut">DuplicationMut</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#DeletionMut">DeletionMut</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#AgreeToExit">AgreeToExit</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#MutationPressure">MutationPressure</a></b>: <a  href="myGlobals.html#Pressure">pressure</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#FocusOfAttention">FocusOfAttention</a></b>: <a  href="myGlobals.html#Concentration">concentration</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="myGlobals.html#Overlap">Overlap</a></b>: real;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="myGlobals.html#BreedingWindow">BreedingWindow</a></b>: WindowPtr;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Pressure"></a><code><b>Pressure</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+positive: &nbsp;</li>
+<li>
+zero: &nbsp;</li>
+<li>
+negative: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Concentration"></a><code><b>Concentration</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+FirstSegmentOnly: &nbsp;</li>
+<li>
+LastSegmentOnly: &nbsp;</li>
+<li>
+AnySegment: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MaxBoxes"></a><code><b>MaxBoxes</b> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variables</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NRows"></a><code><b>NRows</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NCols"></a><code><b>NCols</b>: LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MidBox"></a><code><b>MidBox</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Special"></a><code><b>Special</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="NBoxes"></a><code><b>NBoxes</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Hot"></a><code><b>Hot</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Prect"></a><code><b>Prect</b>: rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="box"></a><code><b>box</b>: array[0..<a  href="myGlobals.html#MaxBoxes">MaxBoxes</a>] of rect;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="upregion"></a><code><b>upregion</b>: RgnHandle;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="centre"></a><code><b>centre</b>: array[0..<a  href="myGlobals.html#MaxBoxes">MaxBoxes</a>] of point;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedWindow"></a><code><b>BreedWindow</b>: WindowPtr;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="VerticalOffset"></a><code><b>VerticalOffset</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HorizontalOffset"></a><code><b>HorizontalOffset</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OldVerticalOffset"></a><code><b>OldVerticalOffset</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="OldHorizontalOffset"></a><code><b>OldHorizontalOffset</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="thickscale"></a><code><b>thickscale</b>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="wantColor"></a><code><b>wantColor</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="sideways"></a><code><b>sideways</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="centring"></a><code><b>centring</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="resizing"></a><code><b>resizing</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="startingUp"></a><code><b>startingUp</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TrunkMut"></a><code><b>TrunkMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="LegsMut"></a><code><b>LegsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ClawsMut"></a><code><b>ClawsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AnimalTrunkMut"></a><code><b>AnimalTrunkMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AnimalLegsMut"></a><code><b>AnimalLegsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AnimalClawsMut"></a><code><b>AnimalClawsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SectionTrunkMut"></a><code><b>SectionTrunkMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SectionLegsMut"></a><code><b>SectionLegsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SectionClawsMut"></a><code><b>SectionClawsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SegmentTrunkMut"></a><code><b>SegmentTrunkMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SegmentLegsMut"></a><code><b>SegmentLegsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="SegmentClawsMut"></a><code><b>SegmentClawsMut</b>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="WidthMut"></a><code><b>WidthMut</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HeightMut"></a><code><b>HeightMut</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AngleMut"></a><code><b>AngleMut</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DuplicationMut"></a><code><b>DuplicationMut</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="DeletionMut"></a><code><b>DeletionMut</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="AgreeToExit"></a><code><b>AgreeToExit</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="MutationPressure"></a><code><b>MutationPressure</b>: <a  href="myGlobals.html#Pressure">pressure</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="FocusOfAttention"></a><code><b>FocusOfAttention</b>: <a  href="myGlobals.html#Concentration">concentration</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Overlap"></a><code><b>Overlap</b>: real;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="BreedingWindow"></a><code><b>BreedingWindow</b>: WindowPtr;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

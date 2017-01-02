@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Richard Dawkins Blind Watchmaker: EventsExhibition</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="tipuesearch/jquery.min.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch_data.js"></script>
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Richard Dawkins Blind Watchmaker</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+
+<script>
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+        /* 10 items to display seems standard */
+        'show': 10,
+        /* For PasDoc docs, showing urls is not very useful,
+           since the page title already shows the unit and identifier. */
+        'showURL': false
+    });
+});
+</script>
+</p></td><td class="content">
+<h1 class="unit">Unit EventsExhibition</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Uses">Uses</a></td><td>Classes, Interfaces, Objects and Records</td><td><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></td><td>Types</td><td>Constants</td><td>Variables</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a  href="PCommonExhibition.html">PCommonExhibition</a></li><li><a  href="Common_Exhibition.html">Common_Exhibition</a></li><li><a  href="PUtils_Exhibition.html">PUtils_Exhibition</a></li><li><a  href="Utils_Exhibition.html">Utils_Exhibition</a></li><li><a  href="biomorphs.html">biomorphs</a></li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-FuncsProcs"></a><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="EventsExhibition.html#HandleKey">HandleKey</a></b> (myevent: EventRecord): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="EventsExhibition.html#HandleDisk">HandleDisk</a></b> (myevent: EventRecord): boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="EventsExhibition.html#ApplLoop_Exhibition">ApplLoop_Exhibition</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="EventsExhibition.html#ApplEvent_Exhibition">ApplEvent_Exhibition</a></b> (var DoIt: boolean; myEvent: EventRecord);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="EventsExhibition.html#Handle_UserEvent">Handle_UserEvent</a></b> (TheUserEvent: <a  href="PCommonExhibition.UserEventRec.html">UserEventRec</a>);</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HandleKey"></a><code>function <b>HandleKey</b> (myevent: EventRecord): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Handle <a class="normal" href="Common_Exhibition.html#Special">special</a> key combinations</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="HandleDisk"></a><code>function <b>HandleDisk</b> (myevent: EventRecord): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="Common_Exhibition.html#Special">Special</a> disk inserted handling</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ApplLoop_Exhibition"></a><code>procedure <b>ApplLoop_Exhibition</b>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Let us into the main loop</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="ApplEvent_Exhibition"></a><code>procedure <b>ApplEvent_Exhibition</b> (var DoIt: boolean; myEvent: EventRecord);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Filter events from the main loop</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="Handle_UserEvent"></a><code>procedure <b>Handle_UserEvent</b> (TheUserEvent: <a  href="PCommonExhibition.UserEventRec.html">UserEventRec</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Handle our <a class="normal" href="Common_Exhibition.html#Special">special</a> user events</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>
