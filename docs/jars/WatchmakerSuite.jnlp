@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="" href="">
+    <information>
+        <title>Watchmaker Suite</title>
+        <vendor>Alan Canon</vendor>
+        <icon href="sometree-icon.jpg"/>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.6+" href=
+           "http://java.sun.com/products/autodl/j2se"/>
+        <jar href="https://aronnax9000.github.io/WatchmakerSuite/jars/WatchmakerSuite.jar"
+            main="true" />
+
+    </resources>
+    <applet-desc 
+         name="Richard Dawkins Watchmaker Suite"
+         main-class="net.richarddawkins.watchmaker.gui.WatchmakerApplet"
+         width="1024"
+         height="768">
+     </applet-desc>
+    <application-desc
+         name="Richard Dawkins Watchmaker Suite"
+         main-class="net.richarddawkins.watchmaker.gui.Main"
+         width="1024"
+         height="768">
+     </application-desc>
+     <update check="background"/>
+</jnlp>
