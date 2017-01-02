@@ -44,15 +44,16 @@ public class BreedingPanel extends JPanel {
 
 	ComponentAdapter componentAdapter = new ComponentAdapter() {
     	public void componentResized(ComponentEvent e) {
-    		Component c = e.getComponent();
-    		Dimension d = c.getSize();
-    		setPreferredSize(d);
-    		d = new Dimension(d.width / cols, d.height / rows);
-    		for(MorphPanel panel: morphPanels) {
-        		panel.setPreferredSize(d);
-    		}
-    		c.revalidate();
-    		c.repaint();
+    	  //FIXME
+//    		Component c = e.getComponent();
+//    		Dimension d = c.getSize();
+//    		setPreferredSize(d);
+//    		d = new Dimension(d.width / cols, d.height / rows);
+//    		for(MorphPanel panel: morphPanels) {
+//        		panel.setPreferredSize(d);
+//    		}
+//    		c.revalidate();
+//    		c.repaint();
     	}
 	};
 

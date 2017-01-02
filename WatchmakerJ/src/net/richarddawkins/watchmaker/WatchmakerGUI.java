@@ -100,7 +100,10 @@ public class WatchmakerGUI extends JPanel {
 
     this.add(tabbedPane);
 
-    for (MorphType morphType : MorphType.values()) {
+    
+    MorphType[] morphTypes = new MorphType[] { MorphType.MONOCHROME_BIOMORPH , 
+      MorphType.COLOUR_BIOMORPH, MorphType.ARTHROMORPH };
+    for (MorphType morphType : morphTypes) { // MorphType.values()
       MorphConfig config = MorphConfigFactory.getInstance(morphType).createConfig(this);
       config.setContainer(tabbedPane);
       BreedingAndGeneBoxPanel panel = config.getBreedingAndGeneBoxPanel();
