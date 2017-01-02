@@ -14,6 +14,16 @@
   <h2>Java Port</h2>
   <a href="javadoc/index.html">Javadoc</a>
   <a href="jars/WatchmakerSuite.jnlp">JNLP</a>
+  
+  <h2>Traditional applet tag</h2>
+
+ <applet code='net.richarddawkins.watchmaker.gui.WatchmakerApplet' 
+    archive='jars/WatchmakerSuite.jar'
+        width='1024'
+        height='768' >
+    <param name="permissions" value="sandbox" />
+</applet> 
+  <h2>JNLP applet tag</h2>
     
   <applet code='net.richarddawkins.watchmaker.gui.WatchmakerApplet' 
         jnlp_href='jars/WatchmakerSuiteApplet.jnlp'
