@@ -5,7 +5,7 @@
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.workspace" value="/home/alan/workspace2"/>
-    <property name="dir.jarfile" value="/home/alan/git/docs/jars"/>
+    <property name="dir.jarfile" value="/home/alan/git2/docs/jars"/>
     <target name="create_run_jar">
         <jar destfile="${dir.jarfile}/WatchmakerSuite.jar" filesetmanifest="mergewithoutmain">
             <manifest>

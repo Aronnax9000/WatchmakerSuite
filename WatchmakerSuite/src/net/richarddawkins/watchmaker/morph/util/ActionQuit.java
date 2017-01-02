@@ -14,7 +14,6 @@ public class ActionQuit extends AbstractAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
 	public ActionQuit(Component component)
  {
 		
@@ -25,7 +24,7 @@ public class ActionQuit extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		component.dispatchEvent(
-				new WindowEvent(frame, 
+				new WindowEvent((JFrame) component.getParent(), 
 						WindowEvent.WINDOW_CLOSING));
 		
 	}
