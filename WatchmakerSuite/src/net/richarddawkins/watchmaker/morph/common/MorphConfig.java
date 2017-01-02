@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;

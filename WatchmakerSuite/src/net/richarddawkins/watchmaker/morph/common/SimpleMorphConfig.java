@@ -7,7 +7,6 @@ import java.beans.PropertyChangeSupport;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
