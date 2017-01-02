@@ -43,10 +43,6 @@ public class MonoPic extends SimplePic {
     }
   }
 
-  int vertOffset;
-  int horizOffset;
-  int mid2;
-  int belly2;
 
   void actualLine(Graphics2D g2, Lin line, Point place, PicStyleType picStyle,
       Compass orientation) {
@@ -55,7 +51,8 @@ public class MonoPic extends SimplePic {
     int y1;
     int x0;
     int x1;
-
+    int vertOffset;
+    int horizOffset;
     g2.setStroke(new BasicStroke(line.thickness));
     if (orientation == Compass.NorthSouth) {
       vertOffset = origin.v - place.v;
@@ -72,6 +69,11 @@ public class MonoPic extends SimplePic {
       x0 = line.startPt.v - horizOffset;
       x1 = line.endPt.v - horizOffset;
     }
+    
+    int mid2 = 2 * place.h;
+    int belly2 = 2 * place.v;
+
+    
     switch (picStyle) {
     case LF:
       g2.drawLine(x0, y0, x1, y1);
@@ -110,8 +112,7 @@ public class MonoPic extends SimplePic {
     MonochromePerson genome = (MonochromePerson) morph.getGenome();
     // int j;
 
-    vertOffset = 0;
-    horizOffset = 0;
+
 
     // To correct initialisation bug, due to call in DoUpdate
     PicStyleType picStyle = PicStyleType.FF;
@@ -148,8 +149,6 @@ public class MonoPic extends SimplePic {
     }
 
     g2.setStroke(new BasicStroke(Globals.myPenSize));
-    mid2 = 2 * place.h;
-    belly2 = 2 * place.v;
     for (Lin line : lines) {
       actualLine(g2, line, place, picStyle, Compass.NorthSouth);
       // sometimes rangecheck error
