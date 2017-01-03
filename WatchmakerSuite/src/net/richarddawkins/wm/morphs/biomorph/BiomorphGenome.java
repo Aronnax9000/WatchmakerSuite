@@ -1,8 +1,8 @@
 package net.richarddawkins.wm.morphs.biomorph;
 
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.SimpleGenome;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.SimpleGenome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.wm.morphs.mono.Globals;
 
 public abstract class BiomorphGenome extends SimpleGenome {

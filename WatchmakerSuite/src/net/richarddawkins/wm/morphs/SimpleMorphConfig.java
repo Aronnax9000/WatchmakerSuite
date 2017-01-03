@@ -7,15 +7,14 @@ import java.beans.PropertyChangeSupport;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.ClassicImageLoader;
-import net.richarddawkins.wm.MenuBuilder;
 import net.richarddawkins.wm.WatchmakerGUI;
-import net.richarddawkins.wm.morphs.Morph;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-
-  protected Mutagen mutagen;
 
   protected BreedingPanelOld breedingPanelOld;
   
@@ -24,14 +23,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     if (breedingPanelOld == null)
       breedingPanelOld = new BreedingPanelOld(this);
     return breedingPanelOld;
-  }
-  
-  public Mutagen getMutagen() {
-    return mutagen;
-  }
-
-  public void setMutagen(Mutagen mutagen) {
-    this.mutagen = mutagen;
   }
 
   public int getDefaultBreedingRows() {

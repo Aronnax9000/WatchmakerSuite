@@ -2,11 +2,13 @@ package net.richarddawkins.wm.morphs.mono;
 
 
 import java.awt.Rectangle;
+import java.util.Vector;
 
-import net.richarddawkins.wm.geom.Point;
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.wm.morphs.SimpleMorph;
 /**
  * MonochromeBiomorph is a subinterface of Morph which represents Monochrome Biomorphs.
@@ -103,5 +105,10 @@ public class MonochromeBiomorph extends SimpleMorph {
     this.genome = (MonochromeGenome) genome;
     
   }
+@Override
+public void generatePrimitives(Vector<DrawingPrimitive> primitives, java.awt.Point centre) {
+	// TODO Auto-generated method stub
+	
+}
 
 }

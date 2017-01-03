@@ -9,9 +9,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.wm.SimpleMenuBuilder;
-import net.richarddawkins.wm.morphs.MorphConfig;
 /**
  * Application (About Blind Watchmaker)
  * File (Load to Album..., Load as Fossils..., Save Biomorph...,

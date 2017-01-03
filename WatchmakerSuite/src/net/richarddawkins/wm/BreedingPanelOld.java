@@ -9,8 +9,8 @@ import java.util.Vector;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 
 public class BreedingPanelOld extends JPanel {
 

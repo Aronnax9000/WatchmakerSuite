@@ -1,6 +1,8 @@
 package net.richarddawkins.watchmaker.morph.mono;
 
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.Vector;
 
@@ -65,6 +67,11 @@ public class MonochromeMorph extends SimpleMorph {
 	public void generatePrimitives(Vector<DrawingPrimitive> primitives, java.awt.Point centre) {
 		((MonochromeGenome) genome).generatePic();
 		pic.generatePrimitives(primitives, genome);
+		
+	}
+	@Override
+	public void draw(Graphics2D g2, Dimension size, boolean midBox) {
+		// TODO Auto-generated method stub
 		
 	}
 

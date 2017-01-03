@@ -6,12 +6,13 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
 import net.richarddawkins.wm.BreedingPanelOld;
+import net.richarddawkins.wm.morphs.arthro.ArthromorphMutagen;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 
 	@Override
 	public BreedingPanelOld getBreedingPanel() { return null; }
-	private ArthromorphMutagenImpl mutagen;
+	private ArthromorphMutagen mutagen;
 	public Mutagen getMutagen() {return mutagen;}
 	
 	protected boolean angleMut;
@@ -43,7 +44,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	protected boolean widthMut;
 
 	public ArthromorphConfig() {
-		mutagen = new ArthromorphMutagenImpl(this);
+		mutagen = new ArthromorphMutagen(this);
 		setIconFromFilename("Arthromorph_ALAN_00010_32x32");
 		name = "Arthromorphs";
 		toolTip = "Arthromorphs";
@@ -394,6 +395,12 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	
 	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setMutagen(Mutagen mutagen) {
+		this.mutagen = (ArthromorphMutagen) mutagen;
 		
 	}
 

@@ -1,5 +1,7 @@
 package net.richarddawkins.wm.morphs;
 
+import net.richarddawkins.watchmaker.morph.common.Morph;
+
 /**
  * <h1>net.richarddawkins.watchmaker.morphs.<strong>God</strong></h1>
  * <p>

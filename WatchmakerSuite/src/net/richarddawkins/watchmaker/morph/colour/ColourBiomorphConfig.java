@@ -47,4 +47,10 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 		return null;
 	}
 
+	@Override
+	public void setMutagen(Mutagen mutagen) {
+		this.mutagen = (ColourMutagenImpl) mutagen;
+		
+	}
+
 }

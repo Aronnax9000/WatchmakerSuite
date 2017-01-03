@@ -5,10 +5,10 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import net.richarddawkins.wm.geom.Point;
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.Pic;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.geom.Pic;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.wm.morphs.biomorph.Biomorph;
 import net.richarddawkins.wm.morphs.biomorph.BiomorphGenome;
 import net.richarddawkins.wm.morphs.biomorph.CompletenessType;

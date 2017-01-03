@@ -2,7 +2,7 @@ package net.richarddawkins.wm.morphs.biomorph;
 
 import static net.richarddawkins.wm.Random.randInt;
 
-import net.richarddawkins.wm.morphs.Mutagen;
+import net.richarddawkins.watchmaker.morph.common.Mutagen;
 
 public abstract class BiomorphMutagen implements Mutagen 
 {

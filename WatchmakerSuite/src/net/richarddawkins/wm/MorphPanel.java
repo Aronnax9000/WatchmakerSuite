@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.watchmaker.morph.common.Morph;
 
 public class MorphPanel extends JPanel {
 

@@ -3,6 +3,8 @@ package net.richarddawkins.watchmaker.morph.simple;
 import static net.richarddawkins.watchmaker.morph.util.Random.nextBoolean;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Random;
 import java.util.Vector;
@@ -180,6 +182,12 @@ public class OvalMorph extends SimpleMorph implements Morph {
 	public Genome getGenome() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void draw(Graphics2D g2, Dimension size, boolean midBox) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

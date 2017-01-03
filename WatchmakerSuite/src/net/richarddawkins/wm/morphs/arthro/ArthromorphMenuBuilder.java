@@ -7,7 +7,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.wm.SimpleMenuBuilder;
 /**
  * File (New | Open, Close, Save, Save As... | Quit)

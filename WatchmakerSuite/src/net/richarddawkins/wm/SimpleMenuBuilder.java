@@ -7,7 +7,8 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 
 public abstract class SimpleMenuBuilder implements MenuBuilder {
   protected MorphConfig config;

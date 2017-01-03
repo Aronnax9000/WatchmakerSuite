@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morph.common;
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Vector;
 
@@ -43,4 +45,6 @@ public interface Morph {
 	public Pic getPic();
 	public Genome getGenome();
 	public void setGenome(Genome genome);
+
+	public void draw(Graphics2D g2, Dimension size, boolean midBox);
 }

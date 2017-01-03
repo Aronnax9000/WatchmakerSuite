@@ -1,8 +1,12 @@
 package net.richarddawkins.wm.morphs.colour;
 
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.MorphConfig;
+import java.awt.Point;
+import java.util.Vector;
+
+import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.wm.morphs.SimpleMorph;
 /**
  * <h2>Original sources</h2>
@@ -78,6 +82,12 @@ public class ColourBiomorph extends SimpleMorph   {
     this.genome = (ColourGenome) genome;
     
   }
+
+@Override
+public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
+	// TODO Auto-generated method stub
+	
+}
 
 
 	

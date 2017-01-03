@@ -1,6 +1,8 @@
 package net.richarddawkins.watchmaker.morph.mono;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
@@ -187,5 +189,11 @@ public class MonochromeGenome extends BiomorphGenome {
     makeGenes(Biomorph.TRICKLE, Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, Biomorph.TRICKLE,
         -Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
   }
+
+@Override
+public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+	// TODO Auto-generated method stub
+	
+}
 
 }

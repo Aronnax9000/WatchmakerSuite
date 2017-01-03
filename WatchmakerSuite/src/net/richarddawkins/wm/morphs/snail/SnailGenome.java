@@ -3,11 +3,11 @@ package net.richarddawkins.wm.morphs.snail;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.wm.geom.Point;
-import net.richarddawkins.wm.geom.Rect;
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.SimpleGenome;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.SimpleGenome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
 public class SnailGenome extends SimpleGenome implements Cloneable {
   public static boolean sideView = false;

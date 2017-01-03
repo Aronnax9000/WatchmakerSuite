@@ -5,10 +5,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.util.Vector;
 
-import net.richarddawkins.wm.geom.Lin;
-import net.richarddawkins.wm.geom.Point;
-import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.geom.Lin;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.wm.morphs.SimplePic;
 import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
 import net.richarddawkins.wm.morphs.biomorph.SpokesType;
@@ -208,4 +211,10 @@ public class ColourPic extends SimplePic {
     g2.setStroke(new BasicStroke(1.0f));
     g2.setColor(Color.BLACK);
   }
+
+@Override
+public void generatePrimitives(Vector<DrawingPrimitive> primitives, Genome genome) {
+	// TODO Auto-generated method stub
+	
+}
 }

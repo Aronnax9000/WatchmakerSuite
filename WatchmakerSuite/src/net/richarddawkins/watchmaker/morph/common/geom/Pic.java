@@ -1,6 +1,8 @@
 package net.richarddawkins.watchmaker.morph.common.geom;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
@@ -48,11 +50,11 @@ public abstract class Pic {
 
 	public Rect margin = new Rect();
 	
-	protected enum PicStyleType {
+	public enum PicStyleType {
 			LF, RF, FF, LUD, RUD, FUD, LSW, RSW, FSW
 		}
 
-	protected enum Compass {
+	public enum Compass {
 			NorthSouth, EastWest
 		}
 	public Vector<Lin> lines = new Vector<Lin>();
@@ -74,7 +76,8 @@ public abstract class Pic {
 	abstract public void generatePrimitives(Vector<DrawingPrimitive> primitives, Genome genome);
 	abstract public void picLine(int x, int y, int xnew, int ynew, int thickness, Color color);
 
-
+	abstract public void drawPic(Graphics2D g2, Dimension d, Point offCentre, Morph biomorphPerson);
+	
   abstract public void picLine(int xx1, int yy1, int xx2, int yy2);
   abstract public void picLine(int xx1, int yy1, int xx2, int yy2, int thick);
   abstract public void picLine(int xx1, int yy1, int xx2, int yy2, Color color);

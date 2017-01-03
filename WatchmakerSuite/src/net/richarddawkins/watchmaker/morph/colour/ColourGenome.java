@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
@@ -345,6 +347,12 @@ public class ColourGenome extends BiomorphGenome  {
       colorGene[j] = 0;
     }
   }
+
+@Override
+public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+	// TODO Auto-generated method stub
+	
+}
 
 
 

@@ -3,10 +3,14 @@ package net.richarddawkins.wm.morphs.arthro;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Point;
+import java.util.Vector;
 
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.wm.morphs.SimpleMorph;
 
 /**
@@ -131,7 +135,7 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 		genome.setBasicType(basicType);
 	}
 
-	public Arthromorph(MorphConfig config) {
+	public Arthromorph(ArthromorphConfig config) {
 		this.config = (ArthromorphConfig) config;
 	}
 	@Override
@@ -159,6 +163,21 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 		child.setGenome(genome.reproduce(child));
 		child.setParent(this);
 		return child;
+	}
+	@Override
+	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setPic(Pic pic) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Pic getPic() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

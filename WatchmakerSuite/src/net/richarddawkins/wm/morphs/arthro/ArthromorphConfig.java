@@ -1,11 +1,23 @@
 package net.richarddawkins.wm.morphs.arthro;
 
-import net.richarddawkins.wm.MenuBuilder;
+import javax.swing.JPanel;
+
+import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
+import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.wm.WatchmakerGUI;
-import net.richarddawkins.wm.morphs.Morph;
 import net.richarddawkins.wm.morphs.SimpleMorphConfig;
 
 public class ArthromorphConfig extends SimpleMorphConfig {
+
+	
+	protected ArthromorphMutagen mutagen;
+	@Override
+	public void setMutagen(Mutagen mutagen) {
+		this.mutagen = (ArthromorphMutagen) mutagen;
+	}
 
 	protected boolean angleMut;
 
@@ -59,7 +71,7 @@ public class ArthromorphConfig extends SimpleMorphConfig {
 		return focusOfAttention;
 	}
 
-
+    @Override
 	public MenuBuilder getMenuBuilder() {
 		return menuBuilder;
 	}
@@ -393,6 +405,49 @@ public class ArthromorphConfig extends SimpleMorphConfig {
 		if (oldValue != newValue) {
 			pcs.firePropertyChange("widthMut", oldValue, newValue);
 		}
+	}
+
+	@Override
+	public GeneBoxStrip getGeneBoxStrip() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setCentrePanel(JPanel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public JPanel getCentrePanel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Mutagen getMutagen() {
+		return mutagen;
+	}
+
+	@Override
+	public void setFrame(WatchmakerTabbedPane frame) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public WatchmakerTabbedPane getFrame() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

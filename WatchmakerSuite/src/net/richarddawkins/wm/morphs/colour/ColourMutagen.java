@@ -2,8 +2,8 @@ package net.richarddawkins.wm.morphs.colour;
 
 import static net.richarddawkins.wm.Random.randInt;
 
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.wm.morphs.biomorph.BiomorphMutagen;
 import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
 import net.richarddawkins.wm.morphs.biomorph.SpokesType;

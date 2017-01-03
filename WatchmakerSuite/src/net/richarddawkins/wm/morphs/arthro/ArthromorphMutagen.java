@@ -2,9 +2,9 @@ package net.richarddawkins.wm.morphs.arthro;
 
 import static net.richarddawkins.wm.Random.randInt;
 
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.MorphConfig;
-import net.richarddawkins.wm.morphs.Mutagen;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.Mutagen;
 
 public class ArthromorphMutagen implements Mutagen {
 

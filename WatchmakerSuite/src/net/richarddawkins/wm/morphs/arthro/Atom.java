@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
-import net.richarddawkins.wm.geom.Rect;
+import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
 public class Atom implements Cloneable {
 

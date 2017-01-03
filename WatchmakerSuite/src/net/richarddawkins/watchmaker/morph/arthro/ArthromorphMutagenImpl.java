@@ -9,6 +9,8 @@ import net.richarddawkins.watchmaker.morph.common.Mutagen;
 public class ArthromorphMutagenImpl implements Mutagen {
 
   private ArthromorphConfig config;
+ 
+  
   public ArthromorphMutagenImpl(MorphConfig config) {
     this.config = (ArthromorphConfig) config;
   }
@@ -315,5 +317,17 @@ public class ArthromorphMutagenImpl implements Mutagen {
 
     return ok && mutOK;
   }
+
+@Override
+public void setMorphConfig(MorphConfig morphConfig) {
+	this.config = (ArthromorphConfig) config;
+	
+}
+
+@Override
+public MorphConfig getMorphConfig() {
+	
+	return config;
+}
 
 }

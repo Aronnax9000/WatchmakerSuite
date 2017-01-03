@@ -9,8 +9,9 @@ import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 
 public class MonochromeMutagen extends BiomorphMutagenImpl implements Mutagen {
-
+  MonochromeMorphConfig config;
   public MonochromeMutagen(MorphConfig config) {
+	  this.config = (MonochromeMorphConfig) config;
   }
 
   public boolean mutate(Genome genome) {
@@ -86,5 +87,17 @@ public class MonochromeMutagen extends BiomorphMutagenImpl implements Mutagen {
     }
     return success;
   }
+
+@Override
+public void setMorphConfig(MorphConfig morphConfig) {
+	this.config = (MonochromeMorphConfig) morphConfig;
+	
+}
+
+@Override
+public MorphConfig getMorphConfig() {
+	return config;
+
+}
 
 }

@@ -9,8 +9,9 @@ import java.awt.Rectangle;
 
 import javax.swing.JMenuBar;
 
-import net.richarddawkins.wm.geom.Point;
-import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.geom.Pic;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
 
 public abstract class SimpleMorph implements Morph {
   Morph parent;

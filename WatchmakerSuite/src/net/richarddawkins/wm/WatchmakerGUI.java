@@ -15,7 +15,7 @@ import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.wm.morphs.MorphConfigFactory;
 import net.richarddawkins.wm.morphs.MorphType;
 

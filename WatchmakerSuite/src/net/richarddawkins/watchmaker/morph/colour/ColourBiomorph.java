@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Vector;
 
@@ -83,6 +85,11 @@ public class ColourBiomorph extends SimpleMorph  {
 
 	@Override
 	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void draw(Graphics2D g2, Dimension size, boolean midBox) {
 		// TODO Auto-generated method stub
 		
 	}

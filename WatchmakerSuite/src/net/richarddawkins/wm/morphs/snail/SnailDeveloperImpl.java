@@ -4,13 +4,13 @@ import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import net.richarddawkins.watchmaker.morph.common.geom.Lin;
+import net.richarddawkins.watchmaker.morph.common.geom.Pic;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 import net.richarddawkins.wm.ClassicImage;
 import net.richarddawkins.wm.ClassicImageLoader;
 import net.richarddawkins.wm.WatchmakerCursors;
-import net.richarddawkins.wm.geom.Lin;
-import net.richarddawkins.wm.geom.Point;
-import net.richarddawkins.wm.geom.Rect;
-import net.richarddawkins.wm.morphs.Pic;
 import net.richarddawkins.wm.morphs.mono.ModeType;
 
 public class SnailDeveloperImpl {

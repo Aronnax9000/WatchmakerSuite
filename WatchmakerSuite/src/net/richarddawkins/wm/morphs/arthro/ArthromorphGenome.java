@@ -3,13 +3,24 @@ package net.richarddawkins.wm.morphs.arthro;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.wm.geom.Rect;
-import net.richarddawkins.wm.morphs.Genome;
-import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.SimpleGenome;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
-public class ArthromorphGenome 
-extends SimpleGenome  {
+public class ArthromorphGenome implements Genome {
+	
+	protected Arthromorph morph;
+	
+	@Override
+	public Morph getMorph() {
+		return morph;
+	}
+
+	@Override
+	public void setMorph(Morph morph) {
+		this.morph = (Arthromorph) morph;
+	}
+
 	Atom animalTrunk;
 
 	int atomCount;
@@ -26,8 +37,7 @@ extends SimpleGenome  {
 
 	protected int westPole = 0;
 
-	public ArthromorphGenome(Morph morph) {
-		
+	public ArthromorphGenome(Arthromorph morph) {
 		this.morph = morph;
 	}
 
@@ -133,7 +143,8 @@ extends SimpleGenome  {
 
 	@Override
 	public Genome reproduce(Morph newMorph) {
-		ArthromorphGenome child = new ArthromorphGenome(newMorph);
+		ArthromorphGenome child 
+		= new ArthromorphGenome((Arthromorph)newMorph);
 		// A bit of a cheat, because reproduce needs access to the Config object.
 		copy(child);
 		int counter = 0;

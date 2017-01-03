@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph.mono;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
@@ -239,6 +240,11 @@ public class MonoPic extends SimplePic {
     primitives.add(new PenSize(1.0f));
     // PenSize(1, 1);
   }
+@Override
+public void drawPic(Graphics2D g2, Dimension d, Point offCentre, Morph biomorphPerson) {
+	// TODO Auto-generated method stub
+	
+}
 
 
 }

@@ -44,7 +44,7 @@ public interface MorphConfig {
 	String getName();
 
 	String getToolTip();
-
+    void setMutagen(Mutagen mutagen);
 	Mutagen getMutagen();
 
 	boolean[] getMut();

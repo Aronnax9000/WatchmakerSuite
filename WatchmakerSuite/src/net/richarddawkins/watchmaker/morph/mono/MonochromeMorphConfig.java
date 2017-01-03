@@ -60,5 +60,12 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public void setMutagen(Mutagen mutagen) {
+		this.mutagen = (MonochromeMutagen) mutagen;
+		
+	}
 	
 }
