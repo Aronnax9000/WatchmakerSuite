@@ -1,8 +1,6 @@
-package net.richarddawkins.wm.morphs;
+package net.richarddawkins.wm;
 
 import javax.swing.JApplet;
-
-import net.richarddawkins.wm.WatchmakerGUI;
 
 public class WatchmakerApplet extends JApplet {
 

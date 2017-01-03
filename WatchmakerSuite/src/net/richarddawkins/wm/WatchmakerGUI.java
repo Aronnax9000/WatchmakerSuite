@@ -17,7 +17,6 @@ import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.MorphType;
-import net.richarddawkins.wm.morphs.MorphConfigFactory;
 
 /**
  * Main window of the Watchmaker Suite application.

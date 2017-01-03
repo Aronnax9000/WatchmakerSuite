@@ -1,9 +1,7 @@
-package net.richarddawkins.wm.morphs;
+package net.richarddawkins.wm;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
-
-import net.richarddawkins.wm.WatchmakerGUI;
 
 public class WatchmakerMain {
   /**
