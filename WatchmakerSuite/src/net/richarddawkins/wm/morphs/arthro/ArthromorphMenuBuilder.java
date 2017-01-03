@@ -8,7 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.wm.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
 /**
  * File (New | Open, Close, Save, Save As... | Quit)
  * Edit (Undo | Cut, Copy, Paste, Clear, Select All | Show Clipboard)

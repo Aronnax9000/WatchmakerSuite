@@ -14,7 +14,7 @@ public abstract class SimpleMenuBuilder implements MenuBuilder {
   protected MorphConfig config;
 
   protected void addFileQuitAction(JMenu menu) {
-    menu.add(new JMenuItem(new ActionQuit(config.getFrame())));
+    menu.add(new JMenuItem(new ActionQuit(menu)));
   }
 
   protected JCheckBoxMenuItem viewBoundingBoxes = new JCheckBoxMenuItem(

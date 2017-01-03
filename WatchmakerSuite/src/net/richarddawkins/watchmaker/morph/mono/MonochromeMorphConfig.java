@@ -13,6 +13,7 @@ import net.richarddawkins.wm.WatchmakerGUI;
 public class MonochromeMorphConfig extends BiomorphConfig {
 	
 	public MonochromeMorphConfig(WatchmakerGUI watchmakerGUI) {
+		menuBuilder = new MonochromeMenuBuilder(this);
 		geneBoxCount = 16;
 	    gui = watchmakerGUI;
 		name = "Monochrome";
