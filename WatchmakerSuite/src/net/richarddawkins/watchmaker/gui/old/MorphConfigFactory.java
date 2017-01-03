@@ -1,4 +1,4 @@
-package net.richarddawkins.wm;
+package net.richarddawkins.watchmaker.gui.old;
 
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphMutagen;

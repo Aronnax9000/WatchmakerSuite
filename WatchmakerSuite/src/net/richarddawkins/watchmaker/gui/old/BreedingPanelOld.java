@@ -1,4 +1,4 @@
-package net.richarddawkins.wm;
+package net.richarddawkins.watchmaker.gui.old;
 
 import java.awt.Color;
 import java.awt.GridLayout;

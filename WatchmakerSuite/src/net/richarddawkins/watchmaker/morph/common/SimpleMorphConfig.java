@@ -13,9 +13,9 @@ import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.gui.old.BreedingPanelOld;
+import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
-import net.richarddawkins.wm.BreedingPanelOld;
-import net.richarddawkins.wm.WatchmakerGUI;
 
 
 public abstract class SimpleMorphConfig implements MorphConfig {

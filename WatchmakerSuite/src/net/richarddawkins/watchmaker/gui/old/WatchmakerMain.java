@@ -1,4 +1,4 @@
-package net.richarddawkins.wm;
+package net.richarddawkins.watchmaker.gui.old;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
