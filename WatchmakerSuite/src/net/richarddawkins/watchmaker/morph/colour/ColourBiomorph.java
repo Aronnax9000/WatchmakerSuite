@@ -10,6 +10,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
+import net.richarddawkins.wm.morphs.colour.ColourGenome;
 /**
  * <h2>Original sources</h2>
  * <pre>

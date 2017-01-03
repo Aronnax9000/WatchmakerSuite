@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.colour.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.LimbType;
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
 import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
@@ -69,7 +71,7 @@ public class ColourGenome extends BiomorphGenome {
     this.thicknessGene = thicknessGene;
   }
 
-  ColourGenome(Morph morph) {
+  public ColourGenome(Morph morph) {
     this.morph = morph;
   }
 

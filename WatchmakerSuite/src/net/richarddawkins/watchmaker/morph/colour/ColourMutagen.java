@@ -8,6 +8,7 @@ import net.richarddawkins.watchmaker.morph.common.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
 import net.richarddawkins.watchmaker.morph.mono.SpokesType;
+import net.richarddawkins.wm.morphs.colour.ColourGenome;
 
 public class ColourMutagen extends BiomorphMutagen {
   protected ColourBiomorphConfig config;

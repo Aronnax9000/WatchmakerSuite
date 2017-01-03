@@ -18,9 +18,10 @@ import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
+import net.richarddawkins.wm.morphs.colour.ColourGenome;
 import net.richarddawkins.wm.morphs.colour.ColourPic;
 
-public class ColourGenome extends BiomorphGenome  {
+public class ColourGenomeKillMe extends BiomorphGenome  {
 	public static final int RAINBOW = 256;
   int[] colorGene = new int[8];
   long backColorGene;
@@ -70,7 +71,7 @@ public class ColourGenome extends BiomorphGenome  {
     this.thicknessGene = thicknessGene;
   }
 
-  ColourGenome(Morph morph) {
+  ColourGenomeKillMe(Morph morph) {
     this.morph = morph;
   }
 

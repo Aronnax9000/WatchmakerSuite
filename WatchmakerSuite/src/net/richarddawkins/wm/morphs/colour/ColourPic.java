@@ -9,6 +9,8 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.colour.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.LimbType;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
