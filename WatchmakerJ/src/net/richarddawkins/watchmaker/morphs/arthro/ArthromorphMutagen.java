@@ -3,17 +3,26 @@ package net.richarddawkins.watchmaker.morphs.arthro;
 import static net.richarddawkins.watchmaker.Random.randInt;
 
 import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.SimpleMutagenImpl;
+import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morphs.Mutagen;
 
-public class ArthromorphMutagenImpl extends SimpleMutagenImpl {
+public class ArthromorphMutagen implements Mutagen {
 
-  public ArthromorphMutagenImpl(Genome genome) {
-    this.genome = genome;
+  protected ArthromorphConfig config;
+  @Override
+  public void setMorphConfig(MorphConfig config) {
+    this.config = (ArthromorphConfig) config;
+  }  
+  @Override  
+  public MorphConfig getMorphConfig() {
+    return config;
+  }
+  public ArthromorphMutagen(MorphConfig config) {
+    this.config = (ArthromorphConfig) config;
   }
 
   protected double getFactor() {
     int choose = 0;
-    ArthromorphConfig config = (ArthromorphConfig) genome.getMorph().getMorphConfig();
     switch (config.getMutationPressure()) {
     case Positive:
       choose = 2 + randInt(2);
@@ -98,7 +107,7 @@ public class ArthromorphMutagenImpl extends SimpleMutagenImpl {
     return found;
   }
 
-  public boolean mutate() {
+  public boolean mutate(Genome genome) {
     ArthromorphGenome targetGenome = (ArthromorphGenome) genome;
     // size, pick, count, target, change, extraclaw, thisSegment, lastSegment, AtomNumber: integer;
     // this, targetAtom: Atom;

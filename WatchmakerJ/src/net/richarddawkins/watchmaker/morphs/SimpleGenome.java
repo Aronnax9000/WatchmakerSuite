@@ -14,15 +14,4 @@ public abstract class SimpleGenome implements Genome {
     this.morph = morph;
   }
 
-  protected Mutagen mutagen;
-
-  @Override
-  public Mutagen getMutagen() {
-    return mutagen;
-  }
-
-  @Override
-  public void setMutagen(Mutagen mutagen) {
-    this.mutagen = mutagen;
-  }
 }

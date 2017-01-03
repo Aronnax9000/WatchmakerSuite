@@ -11,7 +11,7 @@ import javax.swing.JMenuBar;
 
 import net.richarddawkins.watchmaker.geom.Point;
 
-public abstract class SimpleMorphImpl implements Morph {
+public abstract class SimpleMorph implements Morph {
   Morph parent;
   Morph firstBorn;
   Morph lastBorn;

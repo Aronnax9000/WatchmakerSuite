@@ -2,13 +2,25 @@ package net.richarddawkins.watchmaker.morphs.snail;
 
 import static net.richarddawkins.watchmaker.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.SimpleMutagenImpl;
+import net.richarddawkins.watchmaker.morphs.Genome;
+import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morphs.Mutagen;
 
-public class SnailMutagen extends SimpleMutagenImpl {
-  public SnailMutagen(SnailPerson snailPerson) {
-    genome = snailPerson;
+public class SnailMutagen implements Mutagen {
+  protected SnailConfig config;
+  public SnailMutagen(MorphConfig config) {
+    this.config = (SnailConfig) config;
   }
 
+  public void setMorphConfig(MorphConfig config) {
+    this.config = (SnailConfig) config;
+  }
+  
+  public MorphConfig getMorphConfig() {
+    return config;
+  }
+  
+  
   public double direction() {
     if (randInt(2) == 2) {
       return 1;
@@ -58,9 +70,8 @@ public class SnailMutagen extends SimpleMutagenImpl {
   public static final double SMUTSIZE = 0.1d;
   public static final double TMUTSIZE = 0.1d;
 
-  public boolean mutate() {
-    SnailPerson target = (SnailPerson) genome;
-    SnailConfig config = (SnailConfig) genome.getMorph().getMorphConfig();
+  public boolean mutate(Genome genome) {
+    SnailGenome target = (SnailGenome) genome;
     int mutProb = target.getMutProb();
     boolean success = false;
     if (randInt(100) < mutProb) {

@@ -1,11 +1,46 @@
 package net.richarddawkins.watchmaker.morphs.snail;
 
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.MenuBuilder;
+import net.richarddawkins.watchmaker.WatchmakerGUI;
+import net.richarddawkins.watchmaker.morphs.Morph;
+import net.richarddawkins.watchmaker.morphs.SimpleMorphConfig;
 
-public interface SnailConfig extends MorphConfig {
+public class SnailConfig  extends SimpleMorphConfig {
 
-	boolean isSideView();
+	protected boolean sideView = false;
+	
+	
+	
+	public boolean isSideView() {
+		return sideView;
+	}
 
-	void setSideView(boolean sideView);
+	public void setSideView(boolean sideView) {
+		this.sideView = sideView;
+	}
 
+	@Override
+	public Morph createMorph(int type) {
+		return new Snail(this, type);
+	}
+	private SnailMenuBuilder menuBuilder = new SnailMenuBuilder(this);
+	@Override
+	public MenuBuilder getMenuBuilder() {
+		return menuBuilder;
+	}
+
+	public SnailConfig(WatchmakerGUI watchmakerGUI) {
+		gui = watchmakerGUI;
+		name = "Snails";
+		toolTip = "Blind Snailmaker";
+		setIconFromFilename("SnailLogoBlackBackground_icl4_17669_32x32");
+    setDefaultBreedingRows(3);
+    setDefaultBreedingCols(5);
+	}
+
+	@Override
+	public boolean[] getMut() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

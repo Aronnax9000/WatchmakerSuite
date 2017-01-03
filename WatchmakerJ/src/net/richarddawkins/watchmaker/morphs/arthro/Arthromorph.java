@@ -1,6 +1,15 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
+import java.awt.Color;
+
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+
 import net.richarddawkins.watchmaker.morphs.Morph;
+import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morphs.Genome;
+import net.richarddawkins.watchmaker.morphs.SimpleMorph;
+
 /**
  * <h2>Original documentation from Arthromorphs/MyGlobals</h2>
  * <p>Arthromorphs   by Richard Dawkins and Ted Kaehler</p>
@@ -91,7 +100,53 @@ import net.richarddawkins.watchmaker.morphs.Morph;
  * @author Richard Dawkins, Ted Kaehler, Alan Canon
  *
  */
+public class Arthromorph extends SimpleMorph implements Cloneable {
+	
+	Arthromorph() {	}
+	
+	public Arthromorph(MorphConfig config, int basicType) {
+		this.config = config;
+		ArthromorphGenome newGenome = new ArthromorphGenome(this);
+		this.genome = newGenome;
+		genome.setBasicType(basicType);
+	}
 
-public interface Arthromorph extends Morph {
+	public Arthromorph(MorphConfig config) {
+		this.config = config;
+	}
+	@Override
+	public void draw(Graphics2D g2, Dimension d, boolean midBox) {
+		g2.setColor(Color.BLACK);
+//		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
+//		g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
+		try {
+			((ArthromorphGenome)genome).drawInBox(g2, d, midBox);
+		} catch (ArthromorphGradientExceeds1000Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void delayvelop(Graphics2D g2, Dimension d, boolean midBox) {
+		
+		
+	}
 
+	@Override
+	public Morph reproduce() {
+		Arthromorph child = new Arthromorph(config);
+		child.setGenome(genome.reproduce(child));
+		child.setParent(this);
+		return child;
+	}
+	
+	@Override
+	public Genome getGenome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	
 }

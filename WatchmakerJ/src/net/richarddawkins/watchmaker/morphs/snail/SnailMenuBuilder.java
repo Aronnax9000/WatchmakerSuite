@@ -38,7 +38,7 @@ implements MenuBuilder, PropertyChangeListener {
 
 	private JCheckBoxMenuItem recordingFossils = new JCheckBoxMenuItem("Recording Fossils");
 	
-	public SnailMenuBuilder(SnailConfigImpl config) {
+	public SnailMenuBuilder(SnailConfig config) {
 		config.addPropertyChangeListener(this);
 	}
 	

@@ -3,17 +3,20 @@ package net.richarddawkins.watchmaker.morphs.mono;
 import static net.richarddawkins.watchmaker.Random.randInt;
 
 import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphMutagenImpl;
+import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
 
-public class MonochromeMutagenImpl extends BiomorphMutagenImpl {
+public class MonochromeMutagen extends BiomorphMutagen {
 
-  public MonochromeMutagenImpl(Genome genome) {
-    this.genome = genome;
+  protected MonochromeBiomorphConfig config;
+  public MonochromeMutagen(MorphConfig config) {
+    this.config = (MonochromeBiomorphConfig) config;
   }
-
-  public boolean mutate() {
+  
+  @Override
+  public boolean mutate(Genome genome) {
     MonochromeGenome target = (MonochromeGenome) genome;
     boolean success = false;
     boolean[] mut = target.getMorph().getMorphConfig().getMut();
@@ -25,7 +28,7 @@ public class MonochromeMutagenImpl extends BiomorphMutagenImpl {
     }
     for (int j = 0; j < 8; j++) {
       if (randInt(100) < target.getMutProbGene()) {
-        target.addToGene(j, direction());
+        target.addToGene(j, direction(target));
         success = true;
       }
     }
@@ -85,6 +88,17 @@ public class MonochromeMutagenImpl extends BiomorphMutagenImpl {
       success = true;
     }
     return success;
+  }
+
+  @Override
+  public void setMorphConfig(MorphConfig morphConfig) {
+    config = (MonochromeBiomorphConfig) morphConfig;
+    
+  }
+
+  @Override
+  public MorphConfig getMorphConfig() {
+    return config;
   }
 
 }

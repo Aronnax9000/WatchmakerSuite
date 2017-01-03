@@ -2,13 +2,29 @@ package net.richarddawkins.watchmaker.morphs.colour;
 
 import static net.richarddawkins.watchmaker.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphMutagenImpl;
+import net.richarddawkins.watchmaker.morphs.Genome;
+import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
 
-public class ColourMutagenImpl extends BiomorphMutagenImpl {
-  public ColourMutagenImpl(ColourGenome colourGenome) {
-    genome = colourGenome;
+
+public class ColourMutagen extends BiomorphMutagen {
+  protected ColourBiomorphConfig config;
+  
+  
+  @Override
+  public void setMorphConfig(MorphConfig config) {
+    this.config = (ColourBiomorphConfig) config;
+  }
+
+  @Override
+  public MorphConfig getMorphConfig() {
+    return config;
+  }
+  
+  public ColourMutagen(MorphConfig config) {
+    this.config = (ColourBiomorphConfig) config;
   }
 
   LimbType randLimbType() {
@@ -35,7 +51,7 @@ public class ColourMutagenImpl extends BiomorphMutagenImpl {
     }
   }
 
-  public boolean mutate() {
+  public boolean mutate(Genome genome) {
     ColourGenome target = (ColourGenome) genome;
     boolean success = false;
     boolean[] mut = genome.getMorph().getMorphConfig().getMut();
@@ -47,7 +63,7 @@ public class ColourMutagenImpl extends BiomorphMutagenImpl {
     if (mut[12]) {
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProbGene) {
-          target.addToGene(j, direction());
+          target.addToGene(j, direction(target));
           success = true;
         }
       if (randInt(100) < mutProbGene) {

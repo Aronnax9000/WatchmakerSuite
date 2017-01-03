@@ -21,7 +21,6 @@ public class MonochromeGenome extends BiomorphGenome {
   MonochromeGenome(Morph morph) {
     setMorph(morph);
     setGene9Max(11);
-    mutagen = new MonochromeMutagenImpl(this);
   }
 
   void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
@@ -69,7 +68,7 @@ public class MonochromeGenome extends BiomorphGenome {
   public Genome reproduce(Morph newMorph) {
     MonochromeGenome child = new MonochromeGenome(newMorph);
     super.copy(child);
-    child.getMutagen().mutate();
+    newMorph.getMorphConfig().getMutagen().mutate(child);
     return child;
   }
 

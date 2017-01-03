@@ -10,8 +10,8 @@ public class MonochromeBreedingAndGeneBoxPanel extends BreedingAndGeneBoxPanel {
   private static final long serialVersionUID = 1L;
 
   public MonochromeBreedingAndGeneBoxPanel(
-      MonochromeBiomorphConfigImpl monochromeBiomorphConfigImpl) {
-    super(monochromeBiomorphConfigImpl);
+      MonochromeBiomorphConfig monochromeBiomorphConfig) {
+    super(monochromeBiomorphConfig);
   }
 
 }

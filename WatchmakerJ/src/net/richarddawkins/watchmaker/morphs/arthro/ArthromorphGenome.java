@@ -27,7 +27,7 @@ extends SimpleGenome  {
 	protected int westPole = 0;
 
 	public ArthromorphGenome(Morph morph) {
-		mutagen = new ArthromorphMutagenImpl(this);
+		
 		this.morph = morph;
 	}
 
@@ -140,7 +140,7 @@ extends SimpleGenome  {
 		boolean done = false;
 		do {
 			counter++;
-			done = child.getMutagen().mutate(); // If it fails, just try again until we succeed at changing something}
+			done = newMorph.getMorphConfig().getMutagen().mutate(child); // If it fails, just try again until we succeed at changing something}
 		} while (! done && counter <= 1000);
 		
 		if(counter > 1000)

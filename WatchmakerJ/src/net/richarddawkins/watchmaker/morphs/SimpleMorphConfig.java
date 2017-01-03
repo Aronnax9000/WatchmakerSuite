@@ -14,6 +14,16 @@ import net.richarddawkins.watchmaker.WatchmakerGUI;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
 
+  protected Mutagen mutagen;
+  
+  public Mutagen getMutagen() {
+    return mutagen;
+  }
+
+  public void setMutagen(Mutagen mutagen) {
+    this.mutagen = mutagen;
+  }
+
   public int getDefaultBreedingRows() {
     return defaultBreedingRows;
   }

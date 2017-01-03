@@ -33,7 +33,8 @@ public interface MorphConfig {
 
 	String getToolTip();
 
-	
+	Mutagen getMutagen();
+	void setMutagen(Mutagen mutagen);
 
 	boolean[] getMut();
 	boolean isShowBoundingBoxes();

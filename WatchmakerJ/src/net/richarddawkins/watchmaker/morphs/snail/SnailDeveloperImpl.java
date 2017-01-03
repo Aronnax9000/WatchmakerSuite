@@ -64,7 +64,7 @@ public class SnailDeveloperImpl {
   }
   
   
-  Point develop(Graphics2D graphics, final SnailPerson theShell, final Point where, Rect box) {  
+  Point develop(Graphics2D graphics, final SnailGenome theShell, final Point where, Rect box) {  
     final Point centre = new Point();
     int offSet, height, width, 
       newheight, newwidth, newtop, newbottom, newleft, newright;
@@ -289,7 +289,7 @@ public class SnailDeveloperImpl {
       double theScale, 
       Point place, 
       int threshold, 
-      SnailPerson biomorph, 
+      SnailGenome biomorph, 
       int jLinIndex, 
       int jThreshold) {
     boolean doMirror, tooThin;
@@ -333,7 +333,7 @@ public class SnailDeveloperImpl {
     }    
   }
 
-  void changeTheBitMaps(SnailPerson biomorph) {
+  void changeTheBitMaps(SnailGenome biomorph) {
     
     ClassicImage strangePicture = ClassicImageLoader.getGeneratingCurve(biomorph.getGeneratingCurve());
     Rect rectOfInterest = new Rect();
@@ -361,7 +361,7 @@ public class SnailDeveloperImpl {
  * it was originally drawn. Now draw it at Place}
  * 
  */
-  private BufferedImage drawPic(Pic thisPic, Point place, SnailPerson biomorph) {
+  private BufferedImage drawPic(Pic thisPic, Point place, SnailGenome biomorph) {
     
     int width = 0; // FIXME
     int height = 0; // FIXME

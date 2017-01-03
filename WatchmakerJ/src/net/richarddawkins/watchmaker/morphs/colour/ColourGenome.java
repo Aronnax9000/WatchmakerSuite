@@ -70,14 +70,13 @@ public class ColourGenome extends BiomorphGenome {
   }
 
   ColourGenome(Morph morph) {
-    mutagen = new ColourMutagenImpl(this);
     this.morph = morph;
   }
 
   public Genome reproduce(Morph newMorph) {
     ColourGenome child = new ColourGenome(newMorph);
     copy(child);
-    child.getMutagen().mutate();
+    newMorph.getMorphConfig().getMutagen().mutate(child);
     return child;
   }
 

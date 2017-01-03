@@ -9,13 +9,12 @@ import net.richarddawkins.watchmaker.morphs.Morph;
 import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.SimpleGenome;
 
-public class SnailPersonImpl extends SimpleGenome implements SnailPerson, Cloneable {
+public class SnailGenome extends SimpleGenome implements Cloneable {
   public static boolean sideView = false;
 
   double wOpening;
 
-  public SnailPersonImpl(Morph morph) {
-    mutagen = new SnailMutagen(this);
+  public SnailGenome(Morph morph) {
     this.morph = morph;
   }
 
@@ -156,7 +155,7 @@ public class SnailPersonImpl extends SimpleGenome implements SnailPerson, Clonea
 
   @Override
   public Genome reproduce(Morph newMorph) {
-    SnailPersonImpl child = new SnailPersonImpl(newMorph);
+    SnailGenome child = new SnailGenome(newMorph);
     child.wOpening = this.wOpening;
     child.dDisplacement = this.dDisplacement;
     child.sShape = this.sShape;
@@ -167,7 +166,7 @@ public class SnailPersonImpl extends SimpleGenome implements SnailPerson, Clonea
     child.translationGradient = this.translationGradient;
     child.dGradient = this.dGradient;
     child.handedness = this.handedness;
-    child.getMutagen().mutate();
+    newMorph.getMorphConfig().getMutagen().mutate(child);
     return child;
 
   }
