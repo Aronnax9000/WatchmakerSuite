@@ -1,4 +1,6 @@
-package net.richarddawkins.watchmaker.morph.common;
+package net.richarddawkins.watchmaker.genome;
+
+import net.richarddawkins.watchmaker.morph.common.Morph;
 
 public interface Genome {
 	Morph getMorph();

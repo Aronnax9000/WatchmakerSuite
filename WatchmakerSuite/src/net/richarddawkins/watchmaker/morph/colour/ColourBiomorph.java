@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
@@ -33,6 +33,13 @@ import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
  */
 public class ColourBiomorph extends SimpleMorph  {
 	public static final int RAINBOW = 1 << 8;
+	protected ColourBiomorphConfig config;
+	@Override
+	public void setMorphConfig(MorphConfig config) {
+		this.config = (ColourBiomorphConfig) config;
+	}
+	@Override
+	public MorphConfig getMorphConfig() { return config; }
 	ColourGenome genome;
 	
 	public Genome getGenome() {

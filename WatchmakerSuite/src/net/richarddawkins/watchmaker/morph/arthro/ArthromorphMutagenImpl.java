@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.morph.arthro;
 
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 

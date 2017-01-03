@@ -1,14 +1,13 @@
 package net.richarddawkins.watchmaker.morph.arthro;
 
 import java.awt.Color;
-
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
@@ -106,19 +105,25 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	
 	Arthromorph() {	}
 	
-	ArthromorphConfig morphConfig;
+	public void setMorphConfig(MorphConfig config) {
+		this.config = (ArthromorphConfig) config;
+	}
+	
+	public MorphConfig getMorphConfig() { return config;}
+	
+	protected ArthromorphConfig config;
 
-	ArthromorphGenome genome;
+	protected ArthromorphGenome genome;
 	
 	public Arthromorph(MorphConfig config, int basicType) {
-		this.config = config;
+		this.config = (ArthromorphConfig) config;
 		ArthromorphGenome newGenome = new ArthromorphGenome(this);
 		this.genome = newGenome;
 		genome.setBasicType(basicType);
 	}
 
 	public Arthromorph(MorphConfig config) {
-		this.config = config;
+		this.config = (ArthromorphConfig) config;
 	}
 	
 	public void draw(Graphics2D g2, Dimension d, boolean midBox) {

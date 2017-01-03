@@ -11,6 +11,7 @@ import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.ClassicImageLoader;
 import net.richarddawkins.wm.MenuBuilder;
 import net.richarddawkins.wm.WatchmakerGUI;
+import net.richarddawkins.wm.morphs.Morph;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
 

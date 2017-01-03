@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
@@ -14,6 +14,15 @@ public class MonochromeMorph extends SimpleMorph {
 	
 	MonochromeGenome genome;
 	
+	protected MonochromeMorphConfig config;
+	@Override
+	public void setMorphConfig(MorphConfig config) {
+		this.config = (MonochromeMorphConfig) config;
+	}
+	@Override
+	public MorphConfig getMorphConfig() {
+		return config;
+	}
 	@Override
 	public MonochromeGenome getGenome() {
 		return genome;

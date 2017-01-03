@@ -1,13 +1,15 @@
 package net.richarddawkins.watchmaker.morph.mono;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.draw.LineTo;
 import net.richarddawkins.watchmaker.draw.MoveTo;
 import net.richarddawkins.watchmaker.draw.PenSize;
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
@@ -44,10 +46,66 @@ public class MonoPic extends SimplePic {
       picSize++;
     }
   }
+  void actualLine(Graphics2D g2, Lin line, Point place, PicStyleType picStyle,
+	      Compass orientation) {
+
+	    int y0;
+	    int y1;
+	    int x0;
+	    int x1;
+	    int vertOffset;
+	    int horizOffset;
+	    g2.setStroke(new BasicStroke(line.thickness));
+	    if (orientation == Compass.NorthSouth) {
+	      vertOffset = origin.v - place.v;
+	      horizOffset = origin.h - place.h;
+	      y0 = line.startPt.v - vertOffset;
+	      y1 = line.endPt.v - vertOffset;
+	      x0 = line.startPt.h - horizOffset;
+	      x1 = line.endPt.h - horizOffset;
+	    } else {
+	      vertOffset = origin.h - place.v;
+	      horizOffset = origin.v - place.h;
+	      y0 = line.startPt.h - vertOffset;
+	      y1 = line.endPt.h - vertOffset;
+	      x0 = line.startPt.v - horizOffset;
+	      x1 = line.endPt.v - horizOffset;
+	    }
+	    
+	    int mid2 = 2 * place.h;
+	    int belly2 = 2 * place.v;
+
+	    
+	    switch (picStyle) {
+	    case LF:
+	      g2.drawLine(x0, y0, x1, y1);
+	      break;
+	    case RF:
+	      g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
+	      break;
+	    case FF:
+	      g2.drawLine(x0, y0, x1, y1);
+	      g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
+	      break;
+	    case LUD:
+	      g2.drawLine(x0, y0, x1, y1);
+	      g2.drawLine(mid2 - x0, belly2 - y0, mid2 - x1, belly2 - y1);
+	      break;
+	    case RUD:
+	      g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
+	      g2.drawLine(x0, belly2 - y0, x1, belly2 - y1);
+	      break;
+	    case FUD:
+	      g2.drawLine(x0, y0, x1, y1);
+	      g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
+	      g2.drawLine(x0, belly2 - y0, x1, belly2 - y1);
+	      g2.drawLine(mid2 - x0, belly2 - y0, mid2 - x1, belly2 - y1);
+	      break;
+	    default:
+	    }
+	  }
 
 
-  int mid2;
-  int belly2;
 
   void generatePrimitivesActualLine(Vector<DrawingPrimitive> primitives, 
 		  Lin line, Point place, PicStyleType picStyle,
@@ -56,20 +114,28 @@ public class MonoPic extends SimplePic {
 	    int y1;
 	    int x0;
 	    int x1;
+	    int vertOffset;
+	    int horizOffset;
+	    int mid2 = 2 * place.h;
+	    int belly2 = 2 * place.v;
+
 	    primitives.add(new PenSize(line.thickness));
 	    if (orientation == Compass.NorthSouth) {
-	      y0 = line.startPt.v;
-	      y1 = line.endPt.v;
-	      x0 = line.startPt.h;
-	      x1 = line.endPt.h;
-	    } else {
-	      y0 = line.startPt.h;
-	      y1 = line.endPt.h;
-	      x0 = line.startPt.v;
-	      x1 = line.endPt.v;
-	    }
+	        vertOffset = origin.v - place.v;
+	        horizOffset = origin.h - place.h;
+	        y0 = line.startPt.v - vertOffset;
+	        y1 = line.endPt.v - vertOffset;
+	        x0 = line.startPt.h - horizOffset;
+	        x1 = line.endPt.h - horizOffset;
+	      } else {
+	        vertOffset = origin.h - place.v;
+	        horizOffset = origin.v - place.h;
+	        y0 = line.startPt.h - vertOffset;
+	        y1 = line.endPt.h - vertOffset;
+	        x0 = line.startPt.v - horizOffset;
+	        x1 = line.endPt.v - horizOffset;
+	      }
 	    switch (picStyle) {
-
 	    case LF:
 	    	primitives.add(new MoveTo(x0, y0));
 	    	primitives.add(new LineTo(x1, y1));
@@ -105,7 +171,7 @@ public class MonoPic extends SimplePic {
 	    	primitives.add(new LineTo(x1, belly2 - y1));
 	    	primitives.add(new MoveTo(mid2 - x0, belly2 - y0));
 	    	primitives.add(new LineTo(mid2 - x1, belly2 - y1));
-      break;
+	    	break;
 		case FSW: // Not in original Pascal source - ABC
 			break;
 		case LSW: // Not in original Pascal source - ABC
@@ -159,8 +225,6 @@ public class MonoPic extends SimplePic {
     }
     primitives.addElement(new PenSize(Globals.myPenSize));
     Point place = new Point(0,0);
-    mid2 = 2 * place.h;
-    belly2 = 2 * place.v;
     for (Lin line : lines) {
       generatePrimitivesActualLine(primitives, line, place, picStyle, Compass.NorthSouth);
       // sometimes rangecheck error

@@ -112,18 +112,4 @@ public abstract class SimpleMorph implements Morph {
     this.pic = pic;
   }
 
-
-
-  protected MorphConfig config;
-
-  @Override
-  public void setMorphConfig(MorphConfig config) {
-    this.config = config;
-  }
-
-  @Override
-  public MorphConfig getMorphConfig() {
-    return config;
-  }
-
 }

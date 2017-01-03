@@ -8,6 +8,7 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.gui.genebox.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
+import net.richarddawkins.wm.BreedingPanelOld;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
 	public static final int MutTypeNo = 9;
@@ -51,6 +52,13 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
 		this.geneBoxStrip = (MonochromeGeneBoxStrip)geneBoxStrip;
+	}
+
+
+	@Override
+	public BreedingPanelOld getBreedingPanel() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

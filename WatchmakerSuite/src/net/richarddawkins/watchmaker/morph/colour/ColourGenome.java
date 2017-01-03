@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morph.colour;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
 import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;

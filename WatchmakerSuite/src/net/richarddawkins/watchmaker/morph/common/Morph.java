@@ -4,11 +4,13 @@ import java.awt.Point;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 
 public interface Morph {
-    public Morph reproduce();
 	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre);
+
+	public Morph reproduce();
 	
 	public void setMorphConfig(MorphConfig config);
 	public MorphConfig getMorphConfig();
@@ -40,5 +42,5 @@ public interface Morph {
 	public void setPic(Pic pic);
 	public Pic getPic();
 	public Genome getGenome();
-	void setGenome(Genome genome);
+	public void setGenome(Genome genome);
 }

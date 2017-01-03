@@ -4,9 +4,9 @@ package net.richarddawkins.watchmaker.morph.mono.gui.genebox;
 
 import java.awt.GridBagConstraints;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
 import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.common.Genome;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeGenome;
 

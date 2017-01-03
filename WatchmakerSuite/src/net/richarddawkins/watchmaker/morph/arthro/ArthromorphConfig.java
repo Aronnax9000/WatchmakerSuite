@@ -5,11 +5,12 @@ import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
+import net.richarddawkins.wm.BreedingPanelOld;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 
-	
-	
+	@Override
+	public BreedingPanelOld getBreedingPanel() { return null; }
 	private ArthromorphMutagenImpl mutagen;
 	public Mutagen getMutagen() {return mutagen;}
 	

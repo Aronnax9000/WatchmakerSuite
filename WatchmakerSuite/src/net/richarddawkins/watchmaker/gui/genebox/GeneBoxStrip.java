@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.gui.genebox;
 
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 
 public abstract class GeneBoxStrip extends JPanel {

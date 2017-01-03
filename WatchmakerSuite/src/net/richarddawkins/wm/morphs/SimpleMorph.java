@@ -10,6 +10,7 @@ import java.awt.Rectangle;
 import javax.swing.JMenuBar;
 
 import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.morphs.Morph;
 
 public abstract class SimpleMorph implements Morph {
   Morph parent;

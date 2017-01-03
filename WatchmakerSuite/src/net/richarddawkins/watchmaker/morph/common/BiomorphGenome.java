@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morph.common;
 
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
 import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.SwellType;

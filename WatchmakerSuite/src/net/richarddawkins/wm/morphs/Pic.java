@@ -8,6 +8,7 @@ import java.util.Vector;
 import net.richarddawkins.wm.geom.Lin;
 import net.richarddawkins.wm.geom.Point;
 import net.richarddawkins.wm.geom.Rect;
+import net.richarddawkins.wm.morphs.Morph;
 /**
  * <h1>Pic</h1>
  * A Pic represents an ordered list of drawing primitives, generally lines (the class Lin)

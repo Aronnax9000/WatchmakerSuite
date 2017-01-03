@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morph.arthro;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.morph.common.Genome;
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
-import net.richarddawkins.watchmaker.morph.common.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
 public class ArthromorphGenome 

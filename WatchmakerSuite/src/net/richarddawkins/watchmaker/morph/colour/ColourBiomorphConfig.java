@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
+import net.richarddawkins.wm.BreedingPanelOld;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 
@@ -38,6 +39,12 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public BreedingPanelOld getBreedingPanel() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

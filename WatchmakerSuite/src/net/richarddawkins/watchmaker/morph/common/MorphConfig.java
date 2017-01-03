@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.wm.BreedingPanelOld;
 
 public interface MorphConfig {
 
@@ -65,4 +66,5 @@ public interface MorphConfig {
 	void setFrame(WatchmakerTabbedPane frame);
 
 	WatchmakerTabbedPane getFrame();
+	BreedingPanelOld getBreedingPanel();
 }
