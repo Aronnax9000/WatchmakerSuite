@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-import net.richarddawkins.wm.BreedingPanel;
+import net.richarddawkins.wm.BreedingPanelOld;
 
 public class ShowAsTextAction extends AbstractAction {
 
@@ -23,7 +23,7 @@ public class ShowAsTextAction extends AbstractAction {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    BreedingPanel panel = config.getBreedingPanel();
+    BreedingPanelOld panel = config.getBreedingPanel();
     Arthromorph morph = (Arthromorph) panel.getMorphPanels().elementAt(panel.getMidBox())
         .getMorph();
     ArthromorphGenome genome = (ArthromorphGenome) morph.getGenome();

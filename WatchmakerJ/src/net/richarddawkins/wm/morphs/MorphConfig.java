@@ -5,7 +5,7 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
 
-import net.richarddawkins.wm.BreedingPanel;
+import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.MenuBuilder;
 
 public interface MorphConfig {
@@ -40,7 +40,7 @@ public interface MorphConfig {
 	boolean[] getMut();
 	boolean isShowBoundingBoxes();
 	void setShowBoundingBoxes(boolean showBoundingBoxes);
-  BreedingPanel getBreedingPanel();
+  BreedingPanelOld getBreedingPanel();
 //  GeneBoxStrip getGeneBoxStrip();
 //  BreedingPanel getBreedingPanel();
   int getDefaultBreedingRows();

@@ -2,7 +2,7 @@ package net.richarddawkins.wm.morphs.biomorph;
 
 import net.richarddawkins.wm.morphs.SimpleMorphConfig;
 
-public abstract class BiomorphConfigImpl extends SimpleMorphConfig {
+public abstract class BiomorphConfig extends SimpleMorphConfig {
   protected boolean[] mut;
 
   public void setMut(int i, boolean newValue) {

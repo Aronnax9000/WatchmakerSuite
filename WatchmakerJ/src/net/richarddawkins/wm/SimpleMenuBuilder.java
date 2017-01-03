@@ -26,9 +26,9 @@ public abstract class SimpleMenuBuilder implements MenuBuilder {
         @Override
         public void actionPerformed(ActionEvent e) {
           config.setShowBoundingBoxes(viewBoundingBoxes.isSelected());
-          BreedingPanel breedingPanel = config.getBreedingPanel();
-          breedingPanel.repaint();
-          breedingPanel.revalidate();
+          BreedingPanelOld breedingPanelOld = config.getBreedingPanel();
+          breedingPanelOld.repaint();
+          breedingPanelOld.revalidate();
         }
       });
 

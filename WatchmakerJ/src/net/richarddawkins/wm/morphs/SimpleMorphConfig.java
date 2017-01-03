@@ -7,7 +7,7 @@ import java.beans.PropertyChangeSupport;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import net.richarddawkins.wm.BreedingPanel;
+import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.ClassicImageLoader;
 import net.richarddawkins.wm.MenuBuilder;
 import net.richarddawkins.wm.WatchmakerGUI;
@@ -16,13 +16,13 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
   protected Mutagen mutagen;
 
-  protected BreedingPanel breedingPanel;
+  protected BreedingPanelOld breedingPanelOld;
   
   @Override
-  public BreedingPanel getBreedingPanel() {
-    if (breedingPanel == null)
-      breedingPanel = new BreedingPanel(this);
-    return breedingPanel;
+  public BreedingPanelOld getBreedingPanel() {
+    if (breedingPanelOld == null)
+      breedingPanelOld = new BreedingPanelOld(this);
+    return breedingPanelOld;
   }
   
   public Mutagen getMutagen() {

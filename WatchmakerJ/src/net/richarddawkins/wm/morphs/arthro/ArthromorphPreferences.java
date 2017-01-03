@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.richarddawkins.wm.BreedingPanel;
+import net.richarddawkins.wm.BreedingPanelOld;
 
 public class ArthromorphPreferences extends JFrame {
 	/**
@@ -87,9 +87,9 @@ public class ArthromorphPreferences extends JFrame {
 			config.setWantColor(wantColor.isSelected());
 			config.setSideways(sideways.isSelected());
 			config.setCentring(centring.isSelected());
-			BreedingPanel breedingPanel = config.getBreedingPanel();
-			breedingPanel.setRows(Integer.parseInt(rows.getText()));
-			breedingPanel.setCols(Integer.parseInt(cols.getText()));
+			BreedingPanelOld breedingPanelOld = config.getBreedingPanel();
+			breedingPanelOld.setRows(Integer.parseInt(rows.getText()));
+			breedingPanelOld.setCols(Integer.parseInt(cols.getText()));
 			this.dispose();
 		}
 	}

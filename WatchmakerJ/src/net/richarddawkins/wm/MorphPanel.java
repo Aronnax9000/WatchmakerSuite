@@ -14,7 +14,7 @@ import net.richarddawkins.wm.morphs.Morph;
 
 public class MorphPanel extends JPanel {
 
-  protected BreedingPanel breedingPanel;
+  protected BreedingPanelOld breedingPanelOld;
   /**
    * 
    */
@@ -36,14 +36,14 @@ public class MorphPanel extends JPanel {
     this.morph = morph;
   }
 
-  public MorphPanel(BreedingPanel parent, boolean midBox) {
-    this.breedingPanel = parent;
+  public MorphPanel(BreedingPanelOld parent, boolean midBox) {
+    this.breedingPanelOld = parent;
     this.midBox = midBox;
     addMouseListener(new MouseListener() {
 
       @Override
       public void mouseClicked(MouseEvent arg0) {
-        breedingPanel.populate(getMorph());
+        breedingPanelOld.populate(getMorph());
       }
 
       @Override

@@ -2,9 +2,9 @@ package net.richarddawkins.wm.morphs.colour;
 
 import net.richarddawkins.wm.WatchmakerGUI;
 import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.biomorph.BiomorphConfigImpl;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphConfig;
 
-public class ColourBiomorphConfig extends BiomorphConfigImpl {
+public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public static final int MutTypeNo = 13;
 	

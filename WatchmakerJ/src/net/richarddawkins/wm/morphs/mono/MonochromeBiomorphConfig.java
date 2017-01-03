@@ -3,9 +3,9 @@ package net.richarddawkins.wm.morphs.mono;
 import net.richarddawkins.wm.MenuBuilder;
 import net.richarddawkins.wm.WatchmakerGUI;
 import net.richarddawkins.wm.morphs.Morph;
-import net.richarddawkins.wm.morphs.biomorph.BiomorphConfigImpl;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphConfig;
 
-public class MonochromeBiomorphConfig extends BiomorphConfigImpl {
+public class MonochromeBiomorphConfig extends BiomorphConfig {
 	public static final int MutTypeNo = 9;
 
 	

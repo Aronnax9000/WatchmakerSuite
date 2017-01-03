@@ -106,7 +106,7 @@ public class WatchmakerGUI extends JPanel {
     for (MorphType morphType : morphTypes) { // MorphType.values()
       MorphConfig config = MorphConfigFactory.getInstance(morphType).createConfig(this);
       config.setContainer(tabbedPane);
-      BreedingPanel panel = config.getBreedingPanel();
+      BreedingPanelOld panel = config.getBreedingPanel();
       tabbedPane.addTab(config.getName(), config.getIcon(), panel, config.getToolTip());
       configs.add(config);
     }

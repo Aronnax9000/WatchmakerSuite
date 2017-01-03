@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import net.richarddawkins.wm.morphs.Morph;
 import net.richarddawkins.wm.morphs.MorphConfig;
 
-public class BreedingPanel extends JPanel {
+public class BreedingPanelOld extends JPanel {
 
 	protected int rows = 0;
 	protected int cols = 0;
@@ -71,7 +71,7 @@ public class BreedingPanel extends JPanel {
 		revalidate();
 	}
 	
-    public BreedingPanel(MorphConfig config)
+    public BreedingPanelOld(MorphConfig config)
     {
     	super();
     	setRows(config.getDefaultBreedingRows());
