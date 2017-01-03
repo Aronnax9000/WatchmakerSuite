@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morph.mono;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
@@ -13,10 +14,11 @@ import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
+import net.richarddawkins.watchmaker.morph.util.ModeType;
 
 public class MonochromeGenome extends BiomorphGenome {
 
-  MonochromeGenome(Morph morph) {
+  public MonochromeGenome(Morph morph) {
     setMorph(morph);
     setGene9Max(11);
   }
@@ -140,7 +142,124 @@ public class MonochromeGenome extends BiomorphGenome {
 	  }
 
   
-  
+  /**
+   * <h2>Margins</h2 The original Pascal Develop procedure adjusts the margin in this order.
+   * <ul>
+   * <li>At the top of the Develop routine, where, if ZeroMargin is specified, the margin is
+   * initialized to an infinitesimal rectangle centered on the point where drawing is to take place;
+   * </li>
+   * <li>In the nested procedure Tree, where it is adjusted twice: one for the supplied starting
+   * point for a line segment, and once for the end point of the line segment.</li>
+   * <li>After the call to tree, the margin is checked to see if the centre drawing point is left of
+   * the center of the margin, or right of it. If it is to the left of centre, the right hand side
+   * of the margin is moved right so that the centre drawing point is at the centre of the margin.
+   * Otherwise, the left side of the margin is moved to the left so that it will be at the centre
+   * (this movement may be zero if it is already centered: the routine does not check to see if
+   * nothing needs to be done.)
+   * 
+   * </li>
+   * </ul>
+   * 
+   * Instead of DelayedDrawing, just pass in null if you don't want a call to Drawpic at the end.
+   */
+  public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+    Pic pic = morph.getPic();
+    int sizeWorry;
+    int[] dx = new int[8];
+    int[] dy = new int[8];
+    int[] running = new int[9];
+    Point oldHere;
+    Point centre;
+    int extraDistance;
+    int incDistance;
+    Point here = new Point(d.width / 2, d.height / 2);
+    
+    Globals.clipBoarding = false;
+    if (zeroMargin) {
+      pic.margin.left = here.h;
+      pic.margin.right = here.h;
+      pic.margin.top = here.v;
+      pic.margin.bottom = here.v;
+    }
+    centre = (Point) here.clone();
+    plugIn(gene, dx, dy);
+    pic.zeroPic(here);
+    if (segNoGene < 1)
+      segNoGene = 1;
+    if (dGene[9] == SwellType.Swell)
+      extraDistance = trickleGene;
+    else if (dGene[9] == SwellType.Shrink)
+      extraDistance = -trickleGene;
+    else
+      extraDistance = 0;
+
+    running = gene.clone();
+    incDistance = 0;
+    for (int seg = 0; seg < segNoGene; seg++) {
+      oddOne = seg % 2 == 1;
+      if (seg > 0) {
+        oldHere = (Point) here.clone();
+        here.v += (segDistGene + incDistance) / trickleGene;
+        incDistance += extraDistance;
+        int thick;
+        if (dGene[8] == SwellType.Shrink)
+          thick = gene[8];
+        else
+          thick = 1;
+        pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
+        for (int j = 0; j < 8; j++) {
+          if (dGene[j] == SwellType.Swell)
+            running[j] += trickleGene;
+          else if (dGene[j] == SwellType.Shrink)
+            running[j] -= trickleGene;
+        }
+        if (running[8] < 1)
+          running[8] = 1;
+        plugIn(running, dx, dy);
+      }
+      sizeWorry = segNoGene * (1 << gene[8]);
+      if (sizeWorry > Globals.worryMax)
+        gene[8]--;
+      if (gene[8] < 1)
+        gene[8] = 1;
+      tree(here.h, here.v, order, 2, dx, dy);
+    }
+    if (centre.h - pic.margin.left > pic.margin.right - centre.h)
+      pic.margin.right = centre.h + (centre.h - pic.margin.left);
+    else
+      pic.margin.left = centre.h - (pic.margin.right - centre.h);
+
+    int upExtent = centre.v - pic.margin.top; // can be zero if biomorph goes down
+    int downExtent = pic.margin.bottom - centre.v;
+    if (spokesGene == SpokesType.NSouth || spokesGene == SpokesType.Radial
+        || Globals.theMode == ModeType.Engineering) {
+      // Obscurely necessary to cope with erasing last Rect in Manipulation}
+      if (upExtent > downExtent)
+        pic.margin.bottom = centre.v + upExtent;
+      else
+        pic.margin.top = centre.v - downExtent;
+    }
+    if (spokesGene == SpokesType.Radial) {
+      int wid = pic.margin.right - pic.margin.left;
+      int ht = pic.margin.bottom - pic.margin.top;
+      if (wid > ht) {
+        pic.margin.top = centre.v - wid / 2 - 1;
+        pic.margin.bottom = centre.v + wid / 2 + 1;
+      } else {
+        pic.margin.left = centre.h - ht / 2 - 1;
+        pic.margin.right = centre.h + ht / 2 + 1;
+      }
+    }
+    pic.morph = this.morph;
+    if (g2 != null) {
+      pic.drawPic(g2, d, centre, morph);
+      g2.setColor(Color.RED);
+      Rectangle rectangle = pic.margin.toRectangle();
+      g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+    }
+
+  }
+
 
 
   public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
@@ -190,10 +309,6 @@ public class MonochromeGenome extends BiomorphGenome {
         -Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
   }
 
-@Override
-public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
-	// TODO Auto-generated method stub
-	
-}
+
 
 }

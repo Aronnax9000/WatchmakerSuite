@@ -47,6 +47,71 @@ public class MonoPic extends SimplePic {
       picSize++;
     }
   }
+  
+
+
+	  /**
+	   * Pic already contains its own origin, meaning the coordinates at which it was originally drawn.
+	   * Now draw it at Place
+	   */
+	  @Override
+	  public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {
+	    MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
+	    // int j;
+
+
+
+	    // To correct initialisation bug, due to call in DoUpdate
+	    PicStyleType picStyle = PicStyleType.FF;
+	    switch (genome.getCompletenessGene()) {
+	    case Single: {
+	      switch (genome.getSpokesGene()) {
+	      case NorthOnly:
+	        picStyle = PicStyleType.LF;
+	        break;
+	      case NSouth:
+	        picStyle = PicStyleType.LUD;
+	        break;
+	      case Radial:
+	        picStyle = PicStyleType.LUD;
+	        break;
+	      }
+	      break;
+	    }
+	    case Double:
+	      switch (genome.getSpokesGene()) {
+	      case NorthOnly: {
+	        picStyle = PicStyleType.FF;
+	        break;
+	      }
+	      case NSouth: {
+	        picStyle = PicStyleType.FUD;
+	        break;
+	      }
+	      case Radial: {
+	        picStyle = PicStyleType.FUD;
+	        break;
+	      }
+	      }
+	    }
+
+	    g2.setStroke(new BasicStroke(Globals.myPenSize));
+	    for (Lin line : lines) {
+	      actualLine(g2, line, place, picStyle, Compass.NorthSouth);
+	      // sometimes rangecheck error
+	      if (genome.getSpokesGene() == SpokesType.Radial) {
+	        if (genome.getCompletenessGene() == CompletenessType.Single) {
+	          actualLine(g2, line, place, PicStyleType.RUD, Compass.EastWest);
+	        } else {
+	          actualLine(g2, line, place, picStyle, Compass.EastWest);
+	        }
+	      }
+	    }
+	    g2.setStroke(new BasicStroke(1.0f));
+	    // PenSize(1, 1);
+	  }
+
+  
   void actualLine(Graphics2D g2, Lin line, Point place, PicStyleType picStyle,
 	      Compass orientation) {
 
@@ -240,11 +305,7 @@ public class MonoPic extends SimplePic {
     primitives.add(new PenSize(1.0f));
     // PenSize(1, 1);
   }
-@Override
-public void drawPic(Graphics2D g2, Dimension d, Point offCentre, Morph biomorphPerson) {
-	// TODO Auto-generated method stub
-	
-}
+
 
 
 }

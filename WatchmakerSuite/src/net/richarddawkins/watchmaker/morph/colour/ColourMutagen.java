@@ -4,13 +4,20 @@ import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.common.BiomorphMutagenImpl;
+import net.richarddawkins.watchmaker.morph.common.BiomorphMutagen;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
 import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 
-public class ColourMutagenImpl extends BiomorphMutagenImpl {
-  ColourBiomorphConfig config;
-  public ColourMutagenImpl(ColourBiomorphConfig config) {
+public class ColourMutagen extends BiomorphMutagen {
+  protected ColourBiomorphConfig config;
+  public void setMorphConfig(MorphConfig config) {
+	  this.config = (ColourBiomorphConfig) config;
+  }
+  public MorphConfig getMorphConfig() { return config; }
+  
+  
+  public ColourMutagen(ColourBiomorphConfig config) {
     this.config = (ColourBiomorphConfig) config;
   }
 

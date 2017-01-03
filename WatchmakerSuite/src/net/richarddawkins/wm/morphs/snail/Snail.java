@@ -7,7 +7,7 @@ import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.wm.morphs.SimpleMorph;
+import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 
 public class Snail extends SimpleMorph {
 
@@ -59,5 +59,6 @@ public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre
 	// TODO Auto-generated method stub
 	
 }
+
 
 }

@@ -13,7 +13,7 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 
-public abstract class SimpleMorph implements Morph {
+public abstract class SimpleMorphKillMe implements Morph {
   Morph parent;
   Morph firstBorn;
   Morph lastBorn;

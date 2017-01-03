@@ -8,7 +8,7 @@ import net.richarddawkins.watchmaker.morph.common.Mutagen;
 public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public static final int MutTypeNo = 13;
-	private ColourMutagenImpl mutagen;
+	private ColourMutagen mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
 	
 	public ColourBiomorphConfig() {
@@ -44,7 +44,7 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 	@Override
 	public void setMutagen(Mutagen mutagen) {
-		this.mutagen = (ColourMutagenImpl) mutagen;
+		this.mutagen = (ColourMutagen) mutagen;
 		
 	}
 

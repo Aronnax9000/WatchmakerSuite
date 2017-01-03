@@ -10,8 +10,8 @@ import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
-import net.richarddawkins.wm.morphs.SimpleMorph;
 
 /**
  * <h2>Original documentation from Arthromorphs/MyGlobals</h2>

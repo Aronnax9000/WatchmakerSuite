@@ -1,4 +1,4 @@
-package net.richarddawkins.wm.morphs.mono;
+package net.richarddawkins.watchmaker.morph.mono;
 
 
 import java.awt.Rectangle;
@@ -8,8 +8,8 @@ import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.wm.morphs.SimpleMorph;
 /**
  * MonochromeBiomorph is a subinterface of Morph which represents Monochrome Biomorphs.
  * <h2>Original source code from Monochrome Biomorphs/Biomorphs</h2>
@@ -55,7 +55,7 @@ import net.richarddawkins.wm.morphs.SimpleMorph;
 public class MonochromeBiomorph extends SimpleMorph {
 	
   protected MonochromeGenome genome;
-  protected MonochromeBiomorphConfig config;
+  protected MonochromeMorphConfig config;
   
 	MonochromeBiomorph() {
 		setGenome(new MonochromeGenome(this));
@@ -66,7 +66,7 @@ public class MonochromeBiomorph extends SimpleMorph {
 		setMorphConfig(config);
 	}
 
-	MonochromeBiomorph(MorphConfig config, int basicType) {
+	public MonochromeBiomorph(MorphConfig config, int basicType) {
 		this(config);
 		genome.setBasicType(basicType);
 	}
@@ -89,7 +89,7 @@ public class MonochromeBiomorph extends SimpleMorph {
 
   @Override
   public void setMorphConfig(MorphConfig config) {
-    this.config = (MonochromeBiomorphConfig) config;
+    this.config = (MonochromeMorphConfig) config;
     
   }
   @Override
@@ -105,10 +105,12 @@ public class MonochromeBiomorph extends SimpleMorph {
     this.genome = (MonochromeGenome) genome;
     
   }
-@Override
-public void generatePrimitives(Vector<DrawingPrimitive> primitives, java.awt.Point centre) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public void generatePrimitives(Vector<DrawingPrimitive> primitives, java.awt.Point centre) {
+		((MonochromeGenome) genome).generatePic();
+		pic.generatePrimitives(primitives, genome);
+		
+	}
+
 
 }

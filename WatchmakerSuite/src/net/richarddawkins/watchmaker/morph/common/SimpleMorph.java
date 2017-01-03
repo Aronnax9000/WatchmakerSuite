@@ -2,9 +2,15 @@ package net.richarddawkins.watchmaker.morph.common;
 
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+
 import javax.swing.JMenuBar;
 
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
+import net.richarddawkins.watchmaker.morph.common.geom.Point;
 
 public abstract class SimpleMorph implements Morph {
   Morph parent;
@@ -111,5 +117,34 @@ public abstract class SimpleMorph implements Morph {
   public void setPic(Pic pic) {
     this.pic = pic;
   }
-
+  public void delayvelop(Graphics2D g2, Dimension d, boolean midBox) {
+	    int margcentre, offset;
+	    Point offCentre = new Point();
+	    // Zeromargin := TRUE;
+	    Point p = new Point();
+	    p.h = d.width / 2;
+	    p.v = d.height / 2;
+	    
+	    getGenome().develop(null, d, true); // null equivalent to classic DelayedDrawing := TRUE;
+	    // DelayedDrawing := FALSE;
+	    margcentre = pic.margin.top + (pic.margin.bottom - pic.margin.top) / 2;
+	    offset = margcentre - p.v;
+	    pic.margin.top -= offset;
+	    pic.margin.bottom -= offset;
+	    offCentre.h = p.h;
+	    offCentre.v = p.v - offset;
+	    pic.drawPic(g2, d, offCentre, this);
+	    if(this.getMorphConfig().isShowBoundingBoxes()) {
+	      g2.setColor(Color.RED);
+	      Rectangle rectangle = pic.margin.toRectangle();
+	      g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+	    }
+	    }
+  @Override
+  public void draw(Graphics2D g2, Dimension d, boolean midBox) {
+    g2.setColor(Color.BLACK);
+//    g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
+//    g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
+    delayvelop(g2, d, midBox);
+  }
 }

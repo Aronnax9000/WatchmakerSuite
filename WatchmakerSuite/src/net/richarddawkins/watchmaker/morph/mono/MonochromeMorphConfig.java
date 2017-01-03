@@ -8,8 +8,23 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.gui.genebox.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
+	
+	public MonochromeMorphConfig(WatchmakerGUI watchmakerGUI) {
+		geneBoxCount = 16;
+	    gui = watchmakerGUI;
+		name = "Monochrome";
+		toolTip = "Blind Watchmaker (Monochrome)";
+		mut = new boolean[MutTypeNo];
+		setIconFromFilename("BWSpiderLogoMono_ICNO_23096_32x32");		
+		for(int i = 0; i < MutTypeNo; i++)
+			mut[i] = true;
+    setDefaultBreedingRows(3);
+    setDefaultBreedingCols(5);
+	}
+	
 	public static final int MutTypeNo = 9;
 	private MonochromeGeneBoxStrip geneBoxStrip;
 	

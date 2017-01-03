@@ -3,10 +3,11 @@ package net.richarddawkins.wm.morphs.colour;
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.common.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.wm.morphs.biomorph.BiomorphMutagen;
-import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
-import net.richarddawkins.wm.morphs.biomorph.SpokesType;
+import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
+import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 
 
 public class ColourMutagen extends BiomorphMutagen {
@@ -63,7 +64,7 @@ public class ColourMutagen extends BiomorphMutagen {
     if (mut[12]) {
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProbGene) {
-          target.addToGene(j, direction(target));
+          target.addToGene(j, direction((BiomorphGenome)target));
           success = true;
         }
       if (randInt(100) < mutProbGene) {
