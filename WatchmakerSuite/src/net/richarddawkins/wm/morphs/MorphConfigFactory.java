@@ -1,6 +1,7 @@
 package net.richarddawkins.wm.morphs;
 
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.MorphType;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMutagen;
