@@ -7,6 +7,7 @@ import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
+import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.WatchmakerGUI;
 import net.richarddawkins.wm.morphs.biomorph.BiomorphConfig;
 
@@ -76,4 +77,5 @@ public class MonochromeBiomorphConfig extends BiomorphConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

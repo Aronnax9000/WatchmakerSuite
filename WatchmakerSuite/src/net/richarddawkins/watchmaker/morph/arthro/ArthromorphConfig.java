@@ -10,8 +10,6 @@ import net.richarddawkins.wm.morphs.arthro.ArthromorphMutagen;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 
-	@Override
-	public BreedingPanelOld getBreedingPanel() { return null; }
 	private ArthromorphMutagen mutagen;
 	public Mutagen getMutagen() {return mutagen;}
 	

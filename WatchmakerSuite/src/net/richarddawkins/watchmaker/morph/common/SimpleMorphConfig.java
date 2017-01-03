@@ -14,10 +14,19 @@ import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
+import net.richarddawkins.wm.BreedingPanelOld;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-
+	  protected BreedingPanelOld breedingPanelOld;
+	  
+	  @Override
+	  public BreedingPanelOld getBreedingPanel() {
+	    if (breedingPanelOld == null)
+	      breedingPanelOld = new BreedingPanelOld(this);
+	    return breedingPanelOld;
+	  }
 	WatchmakerPanel watchmakerPanel;
 	
 	
@@ -183,7 +192,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
   }
 
   protected String toolTip;
-
+  protected WatchmakerGUI gui;
   /*
    * (non-Javadoc)
    * 

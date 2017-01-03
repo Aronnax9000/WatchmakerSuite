@@ -55,11 +55,6 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 
 
-	@Override
-	public BreedingPanelOld getBreedingPanel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	@Override

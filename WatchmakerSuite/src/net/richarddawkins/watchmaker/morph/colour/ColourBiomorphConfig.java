@@ -41,11 +41,7 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 		
 	}
 
-	@Override
-	public BreedingPanelOld getBreedingPanel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public void setMutagen(Mutagen mutagen) {
