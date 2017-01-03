@@ -1,4 +1,4 @@
-package net.richarddawkins.wm.morphs;
+package net.richarddawkins.watchmaker.deities;
 
 import net.richarddawkins.watchmaker.morph.common.Morph;
 

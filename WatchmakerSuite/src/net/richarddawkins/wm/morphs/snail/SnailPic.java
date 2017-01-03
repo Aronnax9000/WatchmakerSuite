@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.wm.morphs.SimplePic;
+import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
 
 public class SnailPic extends SimplePic {
 
