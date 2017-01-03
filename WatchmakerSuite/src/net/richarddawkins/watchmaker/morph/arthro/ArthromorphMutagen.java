@@ -6,12 +6,12 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 
-public class ArthromorphMutagenImpl implements Mutagen {
+public class ArthromorphMutagen implements Mutagen {
 
   private ArthromorphConfig config;
  
   
-  public ArthromorphMutagenImpl(MorphConfig config) {
+  public ArthromorphMutagen(MorphConfig config) {
     this.config = (ArthromorphConfig) config;
   }
 

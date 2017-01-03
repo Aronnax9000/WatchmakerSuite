@@ -5,7 +5,7 @@ import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
-import net.richarddawkins.wm.morphs.arthro.ArthromorphMutagen;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 
@@ -27,7 +27,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	protected Concentration focusOfAttention;
 	protected boolean heightMut;
 	protected boolean legsMut;
-	private ArthromorphMenuBuilder menuBuilder = new ArthromorphMenuBuilder(this);
+	protected ArthromorphMenuBuilder menuBuilder = new ArthromorphMenuBuilder(this);
 	protected Pressure mutationPressure;
 	protected boolean sectionClawsMut;
 	protected boolean sectionLegsMut;
@@ -40,6 +40,22 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	protected boolean wantColor = true;
 	protected boolean widthMut;
 
+
+	public ArthromorphConfig(WatchmakerGUI watchmakerGUI) {
+		gui = watchmakerGUI;
+
+		setIconFromFilename("Arthromorph_ALAN_00010_32x32");
+		name = "Arthromorphs";
+		toolTip = "Arthromorphs";
+		makeAllBodyMutations(true);
+		makeAllAtomMutations(true);
+		mutationPressure = Pressure.Zero;
+		focusOfAttention = Concentration.AnySegment;
+		setDefaultBreedingRows(3);
+		setDefaultBreedingCols(5);
+
+	}
+	
 	public ArthromorphConfig() {
 		mutagen = new ArthromorphMutagen(this);
 		setIconFromFilename("Arthromorph_ALAN_00010_32x32");

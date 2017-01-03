@@ -72,7 +72,7 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 	}
 	public JMenu buildHelpMenu() {
 		JMenu menu = new JMenu("Help");
-		menu.add(new AboutArthromorphsAction());
+		menu.add(new AboutArthromorphsAction(menu));
 		return menu;
 	}
 	@Override
