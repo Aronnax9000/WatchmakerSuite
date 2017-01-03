@@ -2,19 +2,19 @@ package net.richarddawkins.watchmaker.morphs.mono;
 
 import static net.richarddawkins.watchmaker.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.Person;
+import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphMutagenImpl;
 import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
 
 public class MonochromeMutagenImpl extends BiomorphMutagenImpl {
 
-  public MonochromeMutagenImpl(Person genome) {
+  public MonochromeMutagenImpl(Genome genome) {
     this.genome = genome;
   }
 
   public boolean mutate() {
-    MonochromePerson target = (MonochromePerson) genome;
+    MonochromeGenome target = (MonochromeGenome) genome;
     boolean success = false;
     boolean[] mut = target.getMorph().getMorphConfig().getMut();
     if (mut[6]) {

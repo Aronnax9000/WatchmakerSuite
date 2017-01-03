@@ -20,7 +20,6 @@ public class MonoPic extends SimplePic {
 
   Morph morph;
 
-  @Override
   public void picLine(int x, int y, int xnew, int ynew, int thick, Color color) {
     if (thick > 8) {
       thick = 8;
@@ -109,7 +108,7 @@ public class MonoPic extends SimplePic {
    */
   @Override
   public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {
-    MonochromePerson genome = (MonochromePerson) morph.getGenome();
+    MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
     // int j;
 
 

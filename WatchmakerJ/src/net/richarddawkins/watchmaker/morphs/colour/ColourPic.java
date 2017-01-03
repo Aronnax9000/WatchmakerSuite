@@ -41,7 +41,7 @@ public class ColourPic extends SimplePic {
 
   void limb(Graphics2D g2, int x0, int y0, int x1, int y1, ColourBiomorph morph) {
     Rectangle square = null;
-    ColourPerson genome = (ColourPerson) morph.getGenome();
+    ColourGenome genome = (ColourGenome) morph.getGenome();
     if (genome.getLimbShapeGene() == LimbType.Oval
         || genome.getLimbShapeGene() == LimbType.Rectangle)
       square = new Rectangle(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0),
@@ -153,7 +153,7 @@ public class ColourPic extends SimplePic {
 
   public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {
     
-    ColourPerson genome = (ColourPerson) morph.getGenome();
+    ColourGenome genome = (ColourGenome) morph.getGenome();
     g2.setColor(ColourPic.chooseColor((int) genome.getBackColorGene()));
     g2.fillRect(0, 0, d.width, d.height);
     PicStyleType picStyle;

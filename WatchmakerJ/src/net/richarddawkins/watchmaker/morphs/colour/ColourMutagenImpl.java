@@ -7,8 +7,8 @@ import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
 
 public class ColourMutagenImpl extends BiomorphMutagenImpl {
-  public ColourMutagenImpl(ColourPerson colourPerson) {
-    genome = colourPerson;
+  public ColourMutagenImpl(ColourGenome colourGenome) {
+    genome = colourGenome;
   }
 
   LimbType randLimbType() {
@@ -36,7 +36,7 @@ public class ColourMutagenImpl extends BiomorphMutagenImpl {
   }
 
   public boolean mutate() {
-    ColourPerson target = (ColourPerson) genome;
+    ColourGenome target = (ColourGenome) genome;
     boolean success = false;
     boolean[] mut = genome.getMorph().getMorphConfig().getMut();
     if (mut[6] && randInt(100) < target.getMutProbGene()) {

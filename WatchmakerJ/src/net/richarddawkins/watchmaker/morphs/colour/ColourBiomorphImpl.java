@@ -29,7 +29,7 @@ import net.richarddawkins.watchmaker.morphs.SimpleMorphImpl;
 public class ColourBiomorphImpl extends SimpleMorphImpl implements ColourBiomorph  {
 
 	ColourBiomorphImpl() {
-		setGenome(new ColourPersonImpl(this));
+		setGenome(new ColourGenome(this));
 		pic = new ColourPic();	
 	}
 	

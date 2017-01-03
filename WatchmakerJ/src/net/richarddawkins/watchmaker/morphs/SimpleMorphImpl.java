@@ -123,13 +123,13 @@ public abstract class SimpleMorphImpl implements Morph {
     this.pic = pic;
   }
 
-  protected Person genome;
+  protected Genome genome;
 
-  public Person getGenome() {
+  public Genome getGenome() {
     return genome;
   }
 
-  public void setGenome(Person genome) {
+  public void setGenome(Genome genome) {
     this.genome = genome;
   }
 

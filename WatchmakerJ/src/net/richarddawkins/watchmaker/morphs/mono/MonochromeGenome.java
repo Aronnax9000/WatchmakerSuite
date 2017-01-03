@@ -8,17 +8,17 @@ import java.awt.Rectangle;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Person;
+import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.Pic;
 import net.richarddawkins.watchmaker.morphs.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphPersonImpl;
+import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SwellType;
 
-public class MonochromePersonImpl extends BiomorphPersonImpl implements MonochromePerson {
+public class MonochromeGenome extends BiomorphGenome {
 
-  MonochromePersonImpl(Morph morph) {
+  MonochromeGenome(Morph morph) {
     setMorph(morph);
     setGene9Max(11);
     mutagen = new MonochromeMutagenImpl(this);
@@ -66,8 +66,8 @@ public class MonochromePersonImpl extends BiomorphPersonImpl implements Monochro
     }
   }
 
-  public Person reproduce(Morph newMorph) {
-    MonochromePersonImpl child = new MonochromePersonImpl(newMorph);
+  public Genome reproduce(Morph newMorph) {
+    MonochromeGenome child = new MonochromeGenome(newMorph);
     super.copy(child);
     child.getMutagen().mutate();
     return child;

@@ -36,5 +36,5 @@ public interface Morph {
 	public Morph reproduce();
 	public void setPic(Pic pic);
 	public Pic getPic();
-	public Person getGenome();
+	public Genome getGenome();
 }

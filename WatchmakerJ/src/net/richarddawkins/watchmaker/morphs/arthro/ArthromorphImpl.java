@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morphs.Morph;
 import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.Person;
+import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.SimpleMorphImpl;
 public class ArthromorphImpl extends SimpleMorphImpl implements Arthromorph, Cloneable {
 	
@@ -14,7 +14,7 @@ public class ArthromorphImpl extends SimpleMorphImpl implements Arthromorph, Clo
 	
 	public ArthromorphImpl(MorphConfig config, int basicType) {
 		this.config = config;
-		ArthromorphPerson newGenome = new ArthromorphPersonImpl(this);
+		ArthromorphGenome newGenome = new ArthromorphGenome(this);
 		this.genome = newGenome;
 		genome.setBasicType(basicType);
 	}
@@ -28,7 +28,7 @@ public class ArthromorphImpl extends SimpleMorphImpl implements Arthromorph, Clo
 //		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
 //		g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
 		try {
-			((ArthromorphPerson)genome).drawInBox(g2, d, midBox);
+			((ArthromorphGenome)genome).drawInBox(g2, d, midBox);
 		} catch (ArthromorphGradientExceeds1000Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class ArthromorphImpl extends SimpleMorphImpl implements Arthromorph, Clo
 	}
 	
 	@Override
-	public Person getGenome() {
+	public Genome getGenome() {
 		// TODO Auto-generated method stub
 		return null;
 	}

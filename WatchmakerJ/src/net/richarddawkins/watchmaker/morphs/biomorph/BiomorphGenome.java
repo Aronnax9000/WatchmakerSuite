@@ -1,11 +1,11 @@
 package net.richarddawkins.watchmaker.morphs.biomorph;
 
+import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Person;
-import net.richarddawkins.watchmaker.morphs.SimplePersonImpl;
+import net.richarddawkins.watchmaker.morphs.SimpleGenome;
 import net.richarddawkins.watchmaker.morphs.mono.Globals;
 
-public abstract class BiomorphPersonImpl extends SimplePersonImpl implements BiomorphPerson {
+public abstract class BiomorphGenome extends SimpleGenome {
 
   protected boolean oddOne;
   protected int order;
@@ -26,6 +26,9 @@ public abstract class BiomorphPersonImpl extends SimplePersonImpl implements Bio
     }
   }
 
+  abstract public void basicTree();
+  abstract public void chess();
+  abstract public void insect();
   public int[] getGene() {
     return gene;
   }
@@ -207,8 +210,8 @@ public abstract class BiomorphPersonImpl extends SimplePersonImpl implements Bio
   protected int mutSizeGene;
   protected int mutProbGene;
 
-  public void copy(Person person) {
-    BiomorphPerson child = (BiomorphPerson) person;
+  public void copy(Genome person) {
+    BiomorphGenome child = (BiomorphGenome) person;
     child.setGene(gene.clone());
     child.setdGene(dGene.clone());
     child.setSegNoGene(segNoGene);

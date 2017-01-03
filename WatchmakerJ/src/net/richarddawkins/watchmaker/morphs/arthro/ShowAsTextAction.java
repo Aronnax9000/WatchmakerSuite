@@ -26,7 +26,7 @@ public class ShowAsTextAction extends AbstractAction {
     BreedingPanel panel = config.getBreedingAndGeneBoxPanel().getBreedingPanel();
     Arthromorph morph = (Arthromorph) panel.getMorphPanels().elementAt(panel.getMidBox())
         .getMorph();
-    ArthromorphPerson genome = (ArthromorphPerson) morph.getGenome();
+    ArthromorphGenome genome = (ArthromorphGenome) morph.getGenome();
     AtomPrinter.printMiddle(genome.getAnimalTrunk());
   }
 

@@ -20,7 +20,7 @@ public abstract class BiomorphMutagenImpl extends SimpleMutagenImpl
 	 */
 	@Override
 	public int direction() {
-		int mutSizeGene = ((BiomorphPerson)genome).getMutSizeGene();
+		int mutSizeGene = ((BiomorphGenome)genome).getMutSizeGene();
 		if(randInt(2) == 2) {
 			return mutSizeGene;
 		} else {

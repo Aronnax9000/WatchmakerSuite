@@ -10,7 +10,7 @@ import net.richarddawkins.watchmaker.morphs.SimpleMorphImpl;
 public class MonochromeBiomorphImpl extends SimpleMorphImpl implements MonochromeBiomorph {
 	
 	MonochromeBiomorphImpl() {
-		setGenome(new MonochromePersonImpl(this));
+		setGenome(new MonochromeGenome(this));
 		pic = new MonoPic();
 	}
 	MonochromeBiomorphImpl(MorphConfig config) {

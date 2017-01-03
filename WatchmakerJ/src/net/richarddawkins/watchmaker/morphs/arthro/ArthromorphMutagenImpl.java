@@ -2,12 +2,12 @@ package net.richarddawkins.watchmaker.morphs.arthro;
 
 import static net.richarddawkins.watchmaker.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.Person;
+import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.SimpleMutagenImpl;
 
 public class ArthromorphMutagenImpl extends SimpleMutagenImpl {
 
-  public ArthromorphMutagenImpl(Person genome) {
+  public ArthromorphMutagenImpl(Genome genome) {
     this.genome = genome;
   }
 
@@ -99,7 +99,7 @@ public class ArthromorphMutagenImpl extends SimpleMutagenImpl {
   }
 
   public boolean mutate() {
-    ArthromorphPerson targetGenome = (ArthromorphPerson) genome;
+    ArthromorphGenome targetGenome = (ArthromorphGenome) genome;
     // size, pick, count, target, change, extraclaw, thisSegment, lastSegment, AtomNumber: integer;
     // this, targetAtom: Atom;
     // ok, mutOK, CouldBe: boolean;

@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morphs;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-public interface Person {
+public interface Genome {
 	Morph getMorph();
-	Person reproduce(Morph morph);
+	Genome reproduce(Morph morph);
 	/**
 	 * Attempt to mutate the genome represented by this Person.
 	 * 

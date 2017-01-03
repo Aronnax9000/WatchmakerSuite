@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.snail;
 
-import net.richarddawkins.watchmaker.morphs.Person;
+import net.richarddawkins.watchmaker.morphs.Genome;
 
-public interface SnailPerson extends Person {
+public interface SnailPerson extends Genome {
 	public double getwOpening();
 
 	public void setwOpening(double wOpening);

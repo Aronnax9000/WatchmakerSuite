@@ -6,18 +6,21 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.morphs.Genome;
 import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Person;
 import net.richarddawkins.watchmaker.morphs.Pic;
 import net.richarddawkins.watchmaker.morphs.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphPersonImpl;
+import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
 import net.richarddawkins.watchmaker.morphs.biomorph.SwellType;
 import net.richarddawkins.watchmaker.morphs.mono.Globals;
 import net.richarddawkins.watchmaker.morphs.mono.ModeType;
 
-public class ColourPersonImpl extends BiomorphPersonImpl implements ColourPerson {
+public class ColourGenome extends BiomorphGenome {
+  
+  public static final int RAINBOW = 256;
+  
   int[] colorGene = new int[8];
   long backColorGene;
   LimbType limbShapeGene;
@@ -66,21 +69,21 @@ public class ColourPersonImpl extends BiomorphPersonImpl implements ColourPerson
     this.thicknessGene = thicknessGene;
   }
 
-  ColourPersonImpl(Morph morph) {
+  ColourGenome(Morph morph) {
     mutagen = new ColourMutagenImpl(this);
     this.morph = morph;
   }
 
-  public Person reproduce(Morph newMorph) {
-    ColourPersonImpl child = new ColourPersonImpl(newMorph);
+  public Genome reproduce(Morph newMorph) {
+    ColourGenome child = new ColourGenome(newMorph);
     copy(child);
     child.getMutagen().mutate();
     return child;
   }
 
   @Override
-  public void copy(Person person) {
-    ColourPerson child = (ColourPerson) person;
+  public void copy(Genome person) {
+    ColourGenome child = (ColourGenome) person;
     super.copy(child);
     child.setColorGene(colorGene.clone());
     child.setBackColorGene(backColorGene);
@@ -92,7 +95,7 @@ public class ColourPersonImpl extends BiomorphPersonImpl implements ColourPerson
   }
 
   void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
-    Pic pic = morph.getPic();
+    ColourPic pic = (ColourPic) morph.getPic();
     int xnew;
     int ynew;
     if (dir < 0) {
@@ -338,7 +341,7 @@ public class ColourPersonImpl extends BiomorphPersonImpl implements ColourPerson
     thicknessGene = 1;
   }
 
-  @Override
+
   /**
    * Doesn't allow thicknessGene to fall below 1.
    */
@@ -350,7 +353,6 @@ public class ColourPersonImpl extends BiomorphPersonImpl implements ColourPerson
 
   }
 
-  @Override
   public void addToColorGene(int j, int summand) {
     colorGene[j] += summand;
     if (colorGene[j] > RAINBOW) {

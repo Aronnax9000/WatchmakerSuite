@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.morphs;
 
 public interface Mutagen {
 
-	void setPerson(Person genome);
+	void setPerson(Genome genome);
 
-	Person getGenome();
+	Genome getGenome();
 
 	boolean mutate();
 

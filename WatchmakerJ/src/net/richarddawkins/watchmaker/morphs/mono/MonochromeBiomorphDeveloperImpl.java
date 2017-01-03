@@ -18,7 +18,7 @@ public class MonochromeBiomorphDeveloperImpl {
   Point oldHere, centre;
   boolean oddOne;
   int extraDistance, incDistance;
-  MonochromePerson biomorph;
+  MonochromeGenome biomorph;
   
   //Globals
   static boolean clipBoarding;
@@ -100,9 +100,9 @@ public class MonochromeBiomorphDeveloperImpl {
   
   public MonochromeBiomorphDeveloperImpl() { }
 
-  void develop(MonochromePerson biomorph, Point here) {
+  void develop(MonochromeGenome biomorph, Point here) {
     
-    this.biomorph = (MonochromePerson) biomorph;
+    this.biomorph = (MonochromeGenome) biomorph;
     
     clipBoarding = false;
   
@@ -201,7 +201,7 @@ public class MonochromeBiomorphDeveloperImpl {
   }
 
 
-  private void drawPic(Pic myPic2, Point centre2, MonochromePerson biomorph2) {
+  private void drawPic(Pic myPic2, Point centre2, MonochromeGenome biomorph2) {
     // TODO Auto-generated method stub
     
   }

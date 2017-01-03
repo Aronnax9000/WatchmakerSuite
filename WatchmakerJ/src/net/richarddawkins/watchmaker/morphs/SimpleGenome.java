@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs;
 
-public abstract class SimplePersonImpl implements Person {
+public abstract class SimpleGenome implements Genome {
 
   protected Morph morph;
 

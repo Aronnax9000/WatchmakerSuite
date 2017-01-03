@@ -6,10 +6,10 @@ import java.awt.Graphics2D;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Person;
-import net.richarddawkins.watchmaker.morphs.SimplePersonImpl;
+import net.richarddawkins.watchmaker.morphs.Genome;
+import net.richarddawkins.watchmaker.morphs.SimpleGenome;
 
-public class SnailPersonImpl extends SimplePersonImpl implements SnailPerson, Cloneable {
+public class SnailPersonImpl extends SimpleGenome implements SnailPerson, Cloneable {
   public static boolean sideView = false;
 
   double wOpening;
@@ -155,7 +155,7 @@ public class SnailPersonImpl extends SimplePersonImpl implements SnailPerson, Cl
   }
 
   @Override
-  public Person reproduce(Morph newMorph) {
+  public Genome reproduce(Morph newMorph) {
     SnailPersonImpl child = new SnailPersonImpl(newMorph);
     child.wOpening = this.wOpening;
     child.dDisplacement = this.dDisplacement;

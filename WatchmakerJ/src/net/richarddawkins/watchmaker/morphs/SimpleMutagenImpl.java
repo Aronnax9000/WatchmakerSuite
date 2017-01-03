@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morphs;
 
 public abstract class SimpleMutagenImpl implements Mutagen {
-  protected Person genome;
+  protected Genome genome;
 
   /*
    * (non-Javadoc)
@@ -10,7 +10,7 @@ public abstract class SimpleMutagenImpl implements Mutagen {
    * morphs.Person)
    */
   @Override
-  public void setPerson(Person genome) {
+  public void setPerson(Genome genome) {
     this.genome = genome;
   }
 
@@ -20,7 +20,7 @@ public abstract class SimpleMutagenImpl implements Mutagen {
    * @see net.richarddawkins.watchmaker.morphs.impl.Mutagen#getGenome()
    */
   @Override
-  public Person getGenome() {
+  public Genome getGenome() {
     return genome;
   }
 }
