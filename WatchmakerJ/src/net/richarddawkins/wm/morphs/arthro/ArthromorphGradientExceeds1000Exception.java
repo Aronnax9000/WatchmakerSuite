@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 public class ArthromorphGradientExceeds1000Exception extends Exception {
   /**

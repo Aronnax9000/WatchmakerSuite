@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker;
+package net.richarddawkins.wm;
 
 public class Random {
 	public static final int randInt(int max) {

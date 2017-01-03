@@ -1,15 +1,16 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 import java.awt.Component;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
 
-import net.richarddawkins.watchmaker.BreedingAndGeneBoxPanel;
-import net.richarddawkins.watchmaker.MenuBuilder;
+import net.richarddawkins.wm.BreedingPanel;
+import net.richarddawkins.wm.MenuBuilder;
 
 public interface MorphConfig {
 
+  
   int getGeneBoxCount();
   
 	Component getContainer();
@@ -39,7 +40,7 @@ public interface MorphConfig {
 	boolean[] getMut();
 	boolean isShowBoundingBoxes();
 	void setShowBoundingBoxes(boolean showBoundingBoxes);
-  BreedingAndGeneBoxPanel getBreedingAndGeneBoxPanel();
+  BreedingPanel getBreedingPanel();
 //  GeneBoxStrip getGeneBoxStrip();
 //  BreedingPanel getBreedingPanel();
   int getDefaultBreedingRows();

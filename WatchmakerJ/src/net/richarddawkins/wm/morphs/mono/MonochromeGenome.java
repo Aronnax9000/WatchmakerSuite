@@ -1,20 +1,20 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.Pic;
-import net.richarddawkins.watchmaker.morphs.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphGenome;
-import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
-import net.richarddawkins.watchmaker.morphs.biomorph.SwellType;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.geom.Rect;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.Pic;
+import net.richarddawkins.wm.morphs.biomorph.Biomorph;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphGenome;
+import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
+import net.richarddawkins.wm.morphs.biomorph.SpokesType;
+import net.richarddawkins.wm.morphs.biomorph.SwellType;
 
 public class MonochromeGenome extends BiomorphGenome {
 

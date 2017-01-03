@@ -1,14 +1,14 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.Color;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.SimpleMorph;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.SimpleMorph;
 
 /**
  * <h2>Original documentation from Arthromorphs/MyGlobals</h2>
@@ -101,18 +101,39 @@ import net.richarddawkins.watchmaker.morphs.SimpleMorph;
  *
  */
 public class Arthromorph extends SimpleMorph implements Cloneable {
+  protected ArthromorphConfig config;
+
+  
+  protected ArthromorphGenome genome;
+  
+  public ArthromorphGenome getGenome() {
+    return genome;
+  }
+  @Override
+  public void setGenome(Genome genome) {
+    this.genome = (ArthromorphGenome) genome;
+  }
+
+  @Override
+  public void setMorphConfig(MorphConfig config) {
+    this.config = (ArthromorphConfig) config;
+  }
+
+  @Override
+  public MorphConfig getMorphConfig() {
+    return config;
+  }
 	
-	Arthromorph() {	}
 	
 	public Arthromorph(MorphConfig config, int basicType) {
-		this.config = config;
+		this.config = (ArthromorphConfig) config;
 		ArthromorphGenome newGenome = new ArthromorphGenome(this);
 		this.genome = newGenome;
 		genome.setBasicType(basicType);
 	}
 
 	public Arthromorph(MorphConfig config) {
-		this.config = config;
+		this.config = (ArthromorphConfig) config;
 	}
 	@Override
 	public void draw(Graphics2D g2, Dimension d, boolean midBox) {
@@ -140,12 +161,8 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 		child.setParent(this);
 		return child;
 	}
-	
-	@Override
-	public Genome getGenome() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
 	
 
 	

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 /**
  * <h1>net.richarddawkins.watchmaker.morphs.<strong>God</strong></h1>

@@ -1,14 +1,14 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
-import net.richarddawkins.watchmaker.WatchmakerGUI;
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphMutagen;
-import net.richarddawkins.watchmaker.morphs.colour.ColourBiomorphConfig;
-import net.richarddawkins.watchmaker.morphs.colour.ColourMutagen;
-import net.richarddawkins.watchmaker.morphs.mono.MonochromeBiomorphConfig;
-import net.richarddawkins.watchmaker.morphs.mono.MonochromeMutagen;
-import net.richarddawkins.watchmaker.morphs.snail.SnailConfig;
-import net.richarddawkins.watchmaker.morphs.snail.SnailMutagen;
+import net.richarddawkins.wm.WatchmakerGUI;
+import net.richarddawkins.wm.morphs.arthro.ArthromorphConfig;
+import net.richarddawkins.wm.morphs.arthro.ArthromorphMutagen;
+import net.richarddawkins.wm.morphs.colour.ColourBiomorphConfig;
+import net.richarddawkins.wm.morphs.colour.ColourMutagen;
+import net.richarddawkins.wm.morphs.mono.MonochromeBiomorphConfig;
+import net.richarddawkins.wm.morphs.mono.MonochromeMutagen;
+import net.richarddawkins.wm.morphs.snail.SnailConfig;
+import net.richarddawkins.wm.morphs.snail.SnailMutagen;
 
 public class MorphConfigFactory {
 	private MorphType morphType;

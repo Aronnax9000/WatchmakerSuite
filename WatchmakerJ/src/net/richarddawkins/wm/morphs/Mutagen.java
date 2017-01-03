@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 public interface Mutagen {
 

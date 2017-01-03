@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;

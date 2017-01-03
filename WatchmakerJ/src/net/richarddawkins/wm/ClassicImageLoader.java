@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker;
+package net.richarddawkins.wm;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.richarddawkins.watchmaker.BreedingPanel;
+import net.richarddawkins.wm.BreedingPanel;
 
 public class ArthromorphPreferences extends JFrame {
 	/**
@@ -39,8 +39,8 @@ public class ArthromorphPreferences extends JFrame {
 				wantColor.setSelected(config.isWantColor());
 				sideways.setSelected(config.isSideways());
 				centring.setSelected(config.isCentring());
-				rows.setText(new Integer(config.getBreedingAndGeneBoxPanel().getBreedingPanel().getRows()).toString());
-				cols.setText(new Integer(config.getBreedingAndGeneBoxPanel().getBreedingPanel().getCols()).toString());
+				rows.setText(new Integer(config.getBreedingPanel().getRows()).toString());
+				cols.setText(new Integer(config.getBreedingPanel().getCols()).toString());
 			}
 			});
 		JPanel panel = new JPanel(new GridBagLayout());
@@ -87,7 +87,7 @@ public class ArthromorphPreferences extends JFrame {
 			config.setWantColor(wantColor.isSelected());
 			config.setSideways(sideways.isSelected());
 			config.setCentring(centring.isSelected());
-			BreedingPanel breedingPanel = config.getBreedingAndGeneBoxPanel().getBreedingPanel();
+			BreedingPanel breedingPanel = config.getBreedingPanel();
 			breedingPanel.setRows(Integer.parseInt(rows.getText()));
 			breedingPanel.setCols(Integer.parseInt(cols.getText()));
 			this.dispose();

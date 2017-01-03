@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
 public class Globals {
 	

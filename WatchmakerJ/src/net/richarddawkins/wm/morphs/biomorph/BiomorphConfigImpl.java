@@ -1,6 +1,6 @@
-package net.richarddawkins.watchmaker.morphs.biomorph;
+package net.richarddawkins.wm.morphs.biomorph;
 
-import net.richarddawkins.watchmaker.morphs.SimpleMorphConfig;
+import net.richarddawkins.wm.morphs.SimpleMorphConfig;
 
 public abstract class BiomorphConfigImpl extends SimpleMorphConfig {
   protected boolean[] mut;

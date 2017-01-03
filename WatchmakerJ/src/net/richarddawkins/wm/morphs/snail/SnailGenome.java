@@ -1,13 +1,13 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.SimpleGenome;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.geom.Rect;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.SimpleGenome;
 
 public class SnailGenome extends SimpleGenome implements Cloneable {
   public static boolean sideView = false;

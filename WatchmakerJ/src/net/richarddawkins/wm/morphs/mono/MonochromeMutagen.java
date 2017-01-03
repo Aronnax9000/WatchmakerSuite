@@ -1,12 +1,12 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
-import static net.richarddawkins.watchmaker.Random.randInt;
+import static net.richarddawkins.wm.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphMutagen;
-import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphMutagen;
+import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
+import net.richarddawkins.wm.morphs.biomorph.SpokesType;
 
 public class MonochromeMutagen extends BiomorphMutagen {
 

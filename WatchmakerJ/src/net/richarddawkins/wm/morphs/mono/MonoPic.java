@@ -1,16 +1,16 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.geom.Lin;
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.SimplePic;
-import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
+import net.richarddawkins.wm.geom.Lin;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.SimplePic;
+import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
+import net.richarddawkins.wm.morphs.biomorph.SpokesType;
 
 public class MonoPic extends SimplePic {
 

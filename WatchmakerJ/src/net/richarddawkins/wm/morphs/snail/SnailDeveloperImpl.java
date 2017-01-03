@@ -1,17 +1,17 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import net.richarddawkins.watchmaker.ClassicImage;
-import net.richarddawkins.watchmaker.ClassicImageLoader;
-import net.richarddawkins.watchmaker.WatchmakerCursors;
-import net.richarddawkins.watchmaker.geom.Lin;
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.Pic;
-import net.richarddawkins.watchmaker.morphs.mono.ModeType;
+import net.richarddawkins.wm.ClassicImage;
+import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.wm.WatchmakerCursors;
+import net.richarddawkins.wm.geom.Lin;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.geom.Rect;
+import net.richarddawkins.wm.morphs.Pic;
+import net.richarddawkins.wm.morphs.mono.ModeType;
 
 public class SnailDeveloperImpl {
   public final Rect margin = new Rect();

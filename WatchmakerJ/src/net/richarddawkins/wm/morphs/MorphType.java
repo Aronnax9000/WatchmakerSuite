@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 public enum MorphType {
     MONOCHROME_BIOMORPH,

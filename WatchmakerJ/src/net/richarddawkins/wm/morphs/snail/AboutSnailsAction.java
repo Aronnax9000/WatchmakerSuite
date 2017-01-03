@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
 import java.awt.event.ActionEvent;
 
@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import net.richarddawkins.watchmaker.ClassicImageLoader;
-import net.richarddawkins.watchmaker.WatchmakerGUI;
+import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 public class AboutSnailsAction extends AbstractAction {
 

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker;
+package net.richarddawkins.wm;
 
 import java.awt.event.ActionEvent;
 
@@ -7,7 +7,7 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.MorphConfig;
 
 public abstract class SimpleMenuBuilder implements MenuBuilder {
   protected MorphConfig config;
@@ -26,7 +26,7 @@ public abstract class SimpleMenuBuilder implements MenuBuilder {
         @Override
         public void actionPerformed(ActionEvent e) {
           config.setShowBoundingBoxes(viewBoundingBoxes.isSelected());
-          BreedingPanel breedingPanel = config.getBreedingAndGeneBoxPanel().getBreedingPanel();
+          BreedingPanel breedingPanel = config.getBreedingPanel();
           breedingPanel.repaint();
           breedingPanel.revalidate();
         }

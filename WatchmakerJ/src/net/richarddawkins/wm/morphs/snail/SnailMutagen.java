@@ -1,10 +1,10 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
-import static net.richarddawkins.watchmaker.Random.randInt;
+import static net.richarddawkins.wm.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.Mutagen;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.Mutagen;
 
 public class SnailMutagen implements Mutagen {
   protected SnailConfig config;

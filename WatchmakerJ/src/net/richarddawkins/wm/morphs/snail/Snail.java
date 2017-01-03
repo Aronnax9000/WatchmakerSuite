@@ -1,10 +1,31 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.SimpleMorph;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.SimpleMorph;
 
 public class Snail extends SimpleMorph {
+
+  protected SnailGenome genome;
+  
+  protected SnailConfig config;
+  
+  @Override
+  public MorphConfig getMorphConfig() { return config; }
+  @Override
+  public void setMorphConfig(MorphConfig config) {
+    this.config = (SnailConfig) config;
+  }
+  @Override
+  public Genome getGenome() {
+    return genome;
+  }
+
+  @Override
+  public void setGenome(Genome genome) {
+    this.genome = (SnailGenome) genome;
+  }
 
   public Snail() {
     setGenome(new SnailGenome(this));
@@ -25,7 +46,7 @@ public class Snail extends SimpleMorph {
   @Override
   public Morph reproduce() {
     Snail child = new Snail(config);
-    child.genome = genome.reproduce(child);
+    child.genome = (SnailGenome) genome.reproduce(child);
     child.setParent(this);
     return child;
   }

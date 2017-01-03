@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 import java.awt.Component;
 import java.beans.PropertyChangeListener;
@@ -7,14 +7,23 @@ import java.beans.PropertyChangeSupport;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import net.richarddawkins.watchmaker.BreedingAndGeneBoxPanel;
-import net.richarddawkins.watchmaker.ClassicImageLoader;
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.WatchmakerGUI;
+import net.richarddawkins.wm.BreedingPanel;
+import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
 
   protected Mutagen mutagen;
+
+  protected BreedingPanel breedingPanel;
+  
+  @Override
+  public BreedingPanel getBreedingPanel() {
+    if (breedingPanel == null)
+      breedingPanel = new BreedingPanel(this);
+    return breedingPanel;
+  }
   
   public Mutagen getMutagen() {
     return mutagen;
@@ -51,14 +60,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
   public void setContainer(Component container) {
     this.container = container;
   }
-  protected BreedingAndGeneBoxPanel breedingAndGeneBoxPanel;
-  
-  @Override
-  public BreedingAndGeneBoxPanel getBreedingAndGeneBoxPanel() {
-    if (breedingAndGeneBoxPanel == null)
-      breedingAndGeneBoxPanel = new BreedingAndGeneBoxPanel(this);
-    return breedingAndGeneBoxPanel;
-  }
+
   protected int geneBoxCount = 0;
   public int getGeneBoxCount() {return geneBoxCount;}
   protected Icon icon;

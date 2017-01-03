@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -9,8 +9,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.SimpleMenuBuilder;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.SimpleMenuBuilder;
 /**
  * Application (About Blind Snailmaker)
  * File (Load to Album..., Load as Fossils..., Save Biomorph...,

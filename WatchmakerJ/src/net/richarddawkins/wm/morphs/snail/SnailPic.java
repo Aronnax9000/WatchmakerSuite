@@ -1,12 +1,12 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.SimplePic;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.SimplePic;
 
 public class SnailPic extends SimplePic {
 

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.biomorph;
+package net.richarddawkins.wm.morphs.biomorph;
 
 public enum SwellType {
 

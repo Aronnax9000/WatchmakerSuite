@@ -1,8 +1,8 @@
-package net.richarddawkins.watchmaker.morphs.biomorph;
+package net.richarddawkins.wm.morphs.biomorph;
 
-import static net.richarddawkins.watchmaker.Random.randInt;
+import static net.richarddawkins.wm.Random.randInt;
 
-import net.richarddawkins.watchmaker.morphs.Mutagen;
+import net.richarddawkins.wm.morphs.Mutagen;
 
 public abstract class BiomorphMutagen implements Mutagen 
 {

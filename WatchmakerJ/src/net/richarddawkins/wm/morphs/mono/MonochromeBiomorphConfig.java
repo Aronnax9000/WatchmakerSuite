@@ -1,20 +1,13 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
-import net.richarddawkins.watchmaker.BreedingAndGeneBoxPanel;
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.WatchmakerGUI;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphConfigImpl;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.WatchmakerGUI;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphConfigImpl;
 
 public class MonochromeBiomorphConfig extends BiomorphConfigImpl {
 	public static final int MutTypeNo = 9;
-	
-  @Override
-  public BreedingAndGeneBoxPanel getBreedingAndGeneBoxPanel() {
-    if (breedingAndGeneBoxPanel == null)
-      breedingAndGeneBoxPanel = new MonochromeBreedingAndGeneBoxPanel(this);
-    return breedingAndGeneBoxPanel;
-  }
+
 	
 	public MonochromeBiomorphConfig(WatchmakerGUI watchmakerGUI) {
 		geneBoxCount = 16;

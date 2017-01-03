@@ -1,9 +1,9 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.wm.morphs.snail;
 
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.WatchmakerGUI;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.SimpleMorphConfig;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.WatchmakerGUI;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.SimpleMorphConfig;
 
 public class SnailConfig  extends SimpleMorphConfig {
 

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -7,8 +7,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.SimpleMenuBuilder;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.SimpleMenuBuilder;
 /**
  * File (New | Open, Close, Save, Save As... | Quit)
  * Edit (Undo | Cut, Copy, Paste, Clear, Select All | Show Clipboard)

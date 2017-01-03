@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.geom;
+package net.richarddawkins.wm.geom;
 
 public class Point implements Cloneable {
 

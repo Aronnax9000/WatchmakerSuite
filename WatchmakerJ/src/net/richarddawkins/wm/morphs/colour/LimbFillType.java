@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.colour;
+package net.richarddawkins.wm.morphs.colour;
 
 public enum LimbFillType {
 	Open, Filled

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.event.ActionEvent;
 
@@ -6,8 +6,8 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import net.richarddawkins.watchmaker.ClassicImageLoader;
-import net.richarddawkins.watchmaker.WatchmakerGUI;
+import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 public class AboutArthromorphsAction extends AbstractAction {
 

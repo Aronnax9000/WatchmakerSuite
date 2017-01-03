@@ -1,6 +1,6 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
-import static net.richarddawkins.watchmaker.Random.randInt;
+import static net.richarddawkins.wm.Random.randInt;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,7 +9,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JMenuBar;
 
-import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.wm.geom.Point;
 
 public abstract class SimpleMorph implements Morph {
   Morph parent;
@@ -123,27 +123,8 @@ public abstract class SimpleMorph implements Morph {
     this.pic = pic;
   }
 
-  protected Genome genome;
 
-  public Genome getGenome() {
-    return genome;
-  }
 
-  public void setGenome(Genome genome) {
-    this.genome = genome;
-  }
-
-  protected MorphConfig config;
-
-  @Override
-  public void setMorphConfig(MorphConfig config) {
-    this.config = config;
-  }
-
-  @Override
-  public MorphConfig getMorphConfig() {
-    return config;
-  }
 
   public void delayvelop(Graphics2D g2, Dimension d, boolean midBox) {
     int margcentre, offset;
@@ -153,7 +134,7 @@ public abstract class SimpleMorph implements Morph {
     p.h = d.width / 2;
     p.v = d.height / 2;
     
-    genome.develop(null, d, true); // null equivalent to classic DelayedDrawing := TRUE;
+    getGenome().develop(null, d, true); // null equivalent to classic DelayedDrawing := TRUE;
     // DelayedDrawing := FALSE;
     margcentre = pic.margin.top + (pic.margin.bottom - pic.margin.top) / 2;
     offset = margcentre - p.v;
@@ -162,7 +143,7 @@ public abstract class SimpleMorph implements Morph {
     offCentre.h = p.h;
     offCentre.v = p.v - offset;
     pic.drawPic(g2, d, offCentre, this);
-    if(config.isShowBoundingBoxes()) {
+    if(this.getMorphConfig().isShowBoundingBoxes()) {
       g2.setColor(Color.RED);
       Rectangle rectangle = pic.margin.toRectangle();
       g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);

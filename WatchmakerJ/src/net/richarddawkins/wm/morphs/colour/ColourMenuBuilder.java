@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.colour;
+package net.richarddawkins.wm.morphs.colour;
 
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
@@ -11,9 +11,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.ClassicImageLoader;
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.SimpleMenuBuilder;
+import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.SimpleMenuBuilder;
 /**
  * Application (About Colour Watchmaker)
  * File (Timing, Quit)

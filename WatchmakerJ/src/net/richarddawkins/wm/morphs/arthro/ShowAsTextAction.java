@@ -1,11 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-import net.richarddawkins.watchmaker.BreedingPanel;
+import net.richarddawkins.wm.BreedingPanel;
 
 public class ShowAsTextAction extends AbstractAction {
 
@@ -23,7 +23,7 @@ public class ShowAsTextAction extends AbstractAction {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    BreedingPanel panel = config.getBreedingAndGeneBoxPanel().getBreedingPanel();
+    BreedingPanel panel = config.getBreedingPanel();
     Arthromorph morph = (Arthromorph) panel.getMorphPanels().elementAt(panel.getMidBox())
         .getMorph();
     ArthromorphGenome genome = (ArthromorphGenome) morph.getGenome();

@@ -1,12 +1,12 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.SimpleGenome;
+import net.richarddawkins.wm.geom.Rect;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.SimpleGenome;
 
 public class ArthromorphGenome 
 extends SimpleGenome  {

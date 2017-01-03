@@ -1,12 +1,13 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
 
 import java.awt.Rectangle;
 
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.SimpleMorph;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.SimpleMorph;
 /**
  * MonochromeBiomorph is a subinterface of Morph which represents Monochrome Biomorphs.
  * <h2>Original source code from Monochrome Biomorphs/Biomorphs</h2>
@@ -51,6 +52,9 @@ import net.richarddawkins.watchmaker.morphs.SimpleMorph;
  */
 public class MonochromeBiomorph extends SimpleMorph {
 	
+  protected MonochromeGenome genome;
+  protected MonochromeBiomorphConfig config;
+  
 	MonochromeBiomorph() {
 		setGenome(new MonochromeGenome(this));
 		pic = new MonoPic();
@@ -80,5 +84,24 @@ public class MonochromeBiomorph extends SimpleMorph {
 	Object snapHandle;
 	int snapBytes;
 	Rectangle snapBounds;
+
+  @Override
+  public void setMorphConfig(MorphConfig config) {
+    this.config = (MonochromeBiomorphConfig) config;
+    
+  }
+  @Override
+  public MorphConfig getMorphConfig() {
+    return config;
+  }
+  @Override
+  public Genome getGenome() {
+    return genome;
+  }
+  @Override
+  public void setGenome(Genome genome) {
+    this.genome = (MonochromeGenome) genome;
+    
+  }
 
 }

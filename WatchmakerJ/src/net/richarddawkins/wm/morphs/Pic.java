@@ -1,13 +1,13 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
-import net.richarddawkins.watchmaker.geom.Lin;
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.wm.geom.Lin;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.geom.Rect;
 /**
  * <h1>Pic</h1>
  * A Pic represents an ordered list of drawing primitives, generally lines (the class Lin)

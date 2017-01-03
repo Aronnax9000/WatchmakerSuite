@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker;
+package net.richarddawkins.wm;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morphs.Morph;
+import net.richarddawkins.wm.morphs.Morph;
 
 public class MorphPanel extends JPanel {
 

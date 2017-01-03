@@ -1,11 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
-import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.wm.geom.Rect;
 
 public class Atom implements Cloneable {
 

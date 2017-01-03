@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker;
+package net.richarddawkins.wm;
 
 import java.awt.Container;
 import java.awt.Font;
@@ -15,9 +15,9 @@ import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.MorphConfigFactory;
-import net.richarddawkins.watchmaker.morphs.MorphType;
+import net.richarddawkins.wm.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.MorphConfigFactory;
+import net.richarddawkins.wm.morphs.MorphType;
 
 /**
  * Main window of the Watchmaker Suite application.
@@ -106,7 +106,7 @@ public class WatchmakerGUI extends JPanel {
     for (MorphType morphType : morphTypes) { // MorphType.values()
       MorphConfig config = MorphConfigFactory.getInstance(morphType).createConfig(this);
       config.setContainer(tabbedPane);
-      BreedingAndGeneBoxPanel panel = config.getBreedingAndGeneBoxPanel();
+      BreedingPanel panel = config.getBreedingPanel();
       tabbedPane.addTab(config.getName(), config.getIcon(), panel, config.getToolTip());
       configs.add(config);
     }

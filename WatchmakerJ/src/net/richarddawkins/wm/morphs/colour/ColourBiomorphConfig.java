@@ -1,8 +1,8 @@
-package net.richarddawkins.watchmaker.morphs.colour;
+package net.richarddawkins.wm.morphs.colour;
 
-import net.richarddawkins.watchmaker.WatchmakerGUI;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphConfigImpl;
+import net.richarddawkins.wm.WatchmakerGUI;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphConfigImpl;
 
 public class ColourBiomorphConfig extends BiomorphConfigImpl {
 

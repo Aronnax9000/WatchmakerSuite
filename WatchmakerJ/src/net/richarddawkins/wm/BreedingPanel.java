@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker;
+package net.richarddawkins.wm;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -9,8 +9,8 @@ import java.util.Vector;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.MorphConfig;
 
 public class BreedingPanel extends JPanel {
 

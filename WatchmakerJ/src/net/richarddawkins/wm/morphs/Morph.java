@@ -1,10 +1,14 @@
-package net.richarddawkins.watchmaker.morphs;
+package net.richarddawkins.wm.morphs;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 public interface Morph {
-	public void setMorphConfig(MorphConfig config);
+  public void draw(Graphics2D g2, Dimension d, boolean midBox);
+  public void delayvelop(Graphics2D g2, Dimension d, boolean midBox);
+
+  
+  public void setMorphConfig(MorphConfig config);
 	public MorphConfig getMorphConfig();
 	public Morph getParent();
 
@@ -30,11 +34,9 @@ public interface Morph {
 
 	public void setNext(Morph next);
 
-	public void draw(Graphics2D g2, Dimension d, boolean midBox);
-
-	public void delayvelop(Graphics2D g2, Dimension d, boolean midBox);
 	public Morph reproduce();
 	public void setPic(Pic pic);
 	public Pic getPic();
-	public Genome getGenome();
+  public Genome getGenome();
+  public void setGenome(Genome genome);
 }

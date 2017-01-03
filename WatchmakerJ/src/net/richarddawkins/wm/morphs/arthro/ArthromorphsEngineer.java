@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro;
+package net.richarddawkins.wm.morphs.arthro;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,8 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import net.richarddawkins.watchmaker.ClassicImageLoader;
-import net.richarddawkins.watchmaker.Messages;
+import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.wm.Messages;
 
 public class ArthromorphsEngineer extends JFrame {
 

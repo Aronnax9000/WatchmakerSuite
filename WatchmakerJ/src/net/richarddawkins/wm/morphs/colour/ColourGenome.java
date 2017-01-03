@@ -1,21 +1,21 @@
-package net.richarddawkins.watchmaker.morphs.colour;
+package net.richarddawkins.wm.morphs.colour;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.Genome;
-import net.richarddawkins.watchmaker.morphs.Morph;
-import net.richarddawkins.watchmaker.morphs.Pic;
-import net.richarddawkins.watchmaker.morphs.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morphs.biomorph.BiomorphGenome;
-import net.richarddawkins.watchmaker.morphs.biomorph.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.biomorph.SpokesType;
-import net.richarddawkins.watchmaker.morphs.biomorph.SwellType;
-import net.richarddawkins.watchmaker.morphs.mono.Globals;
-import net.richarddawkins.watchmaker.morphs.mono.ModeType;
+import net.richarddawkins.wm.geom.Point;
+import net.richarddawkins.wm.morphs.Genome;
+import net.richarddawkins.wm.morphs.Morph;
+import net.richarddawkins.wm.morphs.Pic;
+import net.richarddawkins.wm.morphs.biomorph.Biomorph;
+import net.richarddawkins.wm.morphs.biomorph.BiomorphGenome;
+import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
+import net.richarddawkins.wm.morphs.biomorph.SpokesType;
+import net.richarddawkins.wm.morphs.biomorph.SwellType;
+import net.richarddawkins.wm.morphs.mono.Globals;
+import net.richarddawkins.wm.morphs.mono.ModeType;
 
 public class ColourGenome extends BiomorphGenome {
   

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.mono;
+package net.richarddawkins.wm.morphs.mono;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -9,9 +9,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.MenuBuilder;
-import net.richarddawkins.watchmaker.SimpleMenuBuilder;
-import net.richarddawkins.watchmaker.morphs.MorphConfig;
+import net.richarddawkins.wm.MenuBuilder;
+import net.richarddawkins.wm.SimpleMenuBuilder;
+import net.richarddawkins.wm.morphs.MorphConfig;
 /**
  * Application (About Blind Watchmaker)
  * File (Load to Album..., Load as Fossils..., Save Biomorph...,
