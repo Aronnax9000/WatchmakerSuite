@@ -12,6 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.morph.colour.AboutColourAction;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.wm.SimpleMenuBuilder;
 /**

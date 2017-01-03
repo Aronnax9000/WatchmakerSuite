@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.util.Vector;
 
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Biomorph;
 import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
@@ -18,11 +16,12 @@ import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
-import net.richarddawkins.wm.morphs.colour.ColourGenome;
 import net.richarddawkins.wm.morphs.colour.ColourPic;
 
-public class ColourGenomeKillMe extends BiomorphGenome  {
-	public static final int RAINBOW = 256;
+public class ColourGenome extends BiomorphGenome {
+  
+  public static final int RAINBOW = 256;
+  
   int[] colorGene = new int[8];
   long backColorGene;
   LimbType limbShapeGene;
@@ -71,12 +70,12 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
     this.thicknessGene = thicknessGene;
   }
 
-  ColourGenomeKillMe(Morph morph) {
+  public ColourGenome(Morph morph) {
     this.morph = morph;
   }
 
   public Genome reproduce(Morph newMorph) {
-	  ColourGenome child = new ColourGenome(newMorph);
+    ColourGenome child = new ColourGenome(newMorph);
     copy(child);
     newMorph.getMorphConfig().getMutagen().mutate(child);
     return child;
@@ -84,7 +83,7 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
 
   @Override
   public void copy(Genome person) {
-	  ColourGenome child = (ColourGenome) person;
+    ColourGenome child = (ColourGenome) person;
     super.copy(child);
     child.setColorGene(colorGene.clone());
     child.setBackColorGene(backColorGene);
@@ -96,7 +95,7 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
   }
 
   void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
-    Pic pic = morph.getPic();
+    ColourPic pic = (ColourPic) morph.getPic();
     int xnew;
     int ynew;
     if (dir < 0) {
@@ -132,96 +131,6 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
       }
     }
   }
-
-  public void generatePrimitives(Vector<DrawingPrimitive> primitives) {
-    Point here = new Point(0,0);
-    Pic pic = this.morph.getPic();
-    // int x;
-    // int y;
-    int upExtent;
-    int downExtent;
-    int wid;
-    int ht;
-    int[] dx = new int[8];
-    int[] dy = new int[8];
-    int[] running = new int[9];
-    Point oldHere;
-    Point centre;
-    // boolean oddOne;
-    int extraDistance;
-    int incDistance;
-    int dummyColour;
-    centre = (Point) here.clone();
-    plugIn(gene, dx, dy);
-    pic.zeroPic(here);
-    if (segNoGene < 1) {
-      segNoGene = 1;
-    }
-    if (dGene[9] == SwellType.Swell) {
-      extraDistance = trickleGene;
-    } else if (dGene[9] == SwellType.Shrink) {
-      extraDistance = -trickleGene;
-    } else {
-      extraDistance = 0;
-    }
-    running = gene.clone();
-    incDistance = 0;
-    for (int seg = 0; seg < segNoGene; seg++) {
-      oddOne = seg % 2 == 1;
-      if (seg > 0) {
-        oldHere = (Point) here.clone();
-        here.v += (segDistGene + incDistance) / trickleGene;
-        incDistance += extraDistance;
-        dummyColour = 100;
-        pic.picLine(oldHere.h, oldHere.v, here.h, here.v, 1, ColourPic.chooseColor(dummyColour));
-        for (int j = 0; j < 8; j++) {
-          if (dGene[j] == SwellType.Swell) {
-            running[j] += trickleGene;
-          }
-          if (dGene[j] == SwellType.Shrink) {
-            running[j] -= trickleGene;
-          }
-        }
-        if (running[8] < 1) {
-          running[8] = 1;
-        }
-        plugIn(running, dx, dy);
-      }
-      tree(here.h, here.v, order, 2, dx, dy);
-    }
-    if (centre.h - pic.margin.left > pic.margin.right - centre.h) {
-      pic.margin.right = centre.h + (centre.h - pic.margin.left);
-    } else {
-      pic.margin.left = centre.h - (pic.margin.right - centre.h);
-    }
-    upExtent = centre.v - pic.margin.top;
-    downExtent = pic.margin.bottom - centre.v;
-    if (spokesGene == SpokesType.NSouth || spokesGene == SpokesType.Radial
-        || Globals.theMode == ModeType.Engineering) {
-      // {Obscurely necessary to cope with erasing last rect in
-      // Manipulation}
-      if (upExtent > downExtent) {
-        pic.margin.bottom = centre.v + upExtent;
-      } else {
-        pic.margin.top = centre.v - downExtent;
-      }
-    }
-    if (spokesGene == SpokesType.Radial) {
-      wid = pic.margin.right - pic.margin.left;
-      ht = pic.margin.bottom - pic.margin.top;
-      if (wid > ht) {
-        pic.margin.top = centre.v - wid / 2 - 1;
-        pic.margin.bottom = centre.v + wid / 2 + 1;
-      } else {
-        pic.margin.left = centre.h - ht / 2 - 1;
-        pic.margin.right = centre.h + ht / 2 + 1;
-      }
-    }
-    pic.morph = this.morph;
-    pic.generatePrimitives(primitives, this);
-    
-  }
-  
 
   public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
     Point here = new Point(d.width / 2, d.height / 2);
@@ -325,8 +234,6 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
     }
   }
 
-
-
   public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
     for (int j = 0; j < 10; j++) {
       dGene[j] = SwellType.Same;
@@ -382,7 +289,7 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
   /*
    * (non-Javadoc)
    * 
-   * @see net.richarddawkins.watchmaker.watchmaker.morphs.colour.impl.ColourBiomorph#chess()
+   * @see net.richarddawkins.watchmaker.morphs.colour.impl.ColourBiomorph#chess()
    */
   @Override
   public void chess() {
@@ -401,7 +308,7 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
   /*
    * (non-Javadoc)
    * 
-   * @see net.richarddawkins.watchmaker.watchmaker.morphs.colour.impl.ColourBiomorph#insect()
+   * @see net.richarddawkins.watchmaker.morphs.colour.impl.ColourBiomorph#insect()
    */
   @Override
   public void insect() {
@@ -419,7 +326,7 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
   /*
    * (non-Javadoc)
    * 
-   * @see net.richarddawkins.watchmaker.watchmaker.morphs.colour.impl.ColourBiomorph#basicTree ()
+   * @see net.richarddawkins.watchmaker.morphs.colour.impl.ColourBiomorph#basicTree ()
    */
   @Override
   public void basicTree() {
@@ -446,7 +353,6 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
 
   }
 
-
   public void addToColorGene(int j, int summand) {
     colorGene[j] += summand;
     if (colorGene[j] > RAINBOW) {
@@ -456,7 +362,5 @@ public class ColourGenomeKillMe extends BiomorphGenome  {
       colorGene[j] = 0;
     }
   }
-
-
 
 }

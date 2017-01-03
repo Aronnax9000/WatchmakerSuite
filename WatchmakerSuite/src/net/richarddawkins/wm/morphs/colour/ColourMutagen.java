@@ -3,6 +3,7 @@ package net.richarddawkins.wm.morphs.colour;
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.colour.ColourGenome;
 import net.richarddawkins.watchmaker.morph.colour.LimbFillType;
 import net.richarddawkins.watchmaker.morph.colour.LimbType;
 import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
