@@ -6,7 +6,6 @@ import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
-import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.WatchmakerGUI;
 import net.richarddawkins.wm.morphs.biomorph.BiomorphConfig;
 

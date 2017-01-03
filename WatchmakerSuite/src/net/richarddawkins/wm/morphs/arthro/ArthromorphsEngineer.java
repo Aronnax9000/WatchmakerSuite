@@ -21,8 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import net.richarddawkins.wm.ClassicImageLoader;
-import net.richarddawkins.wm.Messages;
+import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
+import net.richarddawkins.watchmaker.resourceloader.Messages;
 
 public class ArthromorphsEngineer extends JFrame {
 

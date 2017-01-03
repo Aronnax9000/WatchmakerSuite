@@ -6,16 +6,16 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.common.Biomorph;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.wm.morphs.biomorph.Biomorph;
+import net.richarddawkins.watchmaker.morph.util.Globals;
+import net.richarddawkins.watchmaker.morph.util.ModeType;
 import net.richarddawkins.wm.morphs.biomorph.BiomorphGenome;
 import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
 import net.richarddawkins.wm.morphs.biomorph.SpokesType;
 import net.richarddawkins.wm.morphs.biomorph.SwellType;
-import net.richarddawkins.wm.morphs.mono.Globals;
-import net.richarddawkins.wm.morphs.mono.ModeType;
 
 public class ColourGenome extends BiomorphGenome {
   

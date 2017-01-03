@@ -6,7 +6,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.wm.WatchmakerGUI;
 
 public class AboutMonochromeAction extends AbstractAction {

@@ -3,7 +3,7 @@ package net.richarddawkins.wm.morphs.biomorph;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
-import net.richarddawkins.wm.morphs.mono.Globals;
+import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public abstract class BiomorphGenome extends SimpleGenome {
 

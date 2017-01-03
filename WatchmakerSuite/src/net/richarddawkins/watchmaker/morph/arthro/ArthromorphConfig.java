@@ -5,7 +5,6 @@ import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
-import net.richarddawkins.wm.BreedingPanelOld;
 import net.richarddawkins.wm.morphs.arthro.ArthromorphMutagen;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {

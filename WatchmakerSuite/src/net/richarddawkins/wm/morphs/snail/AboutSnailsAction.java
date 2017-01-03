@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import net.richarddawkins.wm.ClassicImageLoader;
+import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.wm.WatchmakerGUI;
 
 public class AboutSnailsAction extends AbstractAction {

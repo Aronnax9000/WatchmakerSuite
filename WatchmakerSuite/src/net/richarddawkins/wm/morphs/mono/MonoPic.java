@@ -11,6 +11,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.wm.morphs.SimplePic;
 import net.richarddawkins.wm.morphs.biomorph.CompletenessType;
 import net.richarddawkins.wm.morphs.biomorph.SpokesType;

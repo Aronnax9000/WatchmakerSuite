@@ -4,7 +4,6 @@ import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
-import net.richarddawkins.wm.BreedingPanelOld;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 

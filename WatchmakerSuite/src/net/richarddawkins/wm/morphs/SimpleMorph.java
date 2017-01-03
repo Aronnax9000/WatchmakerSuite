@@ -1,6 +1,6 @@
 package net.richarddawkins.wm.morphs;
 
-import static net.richarddawkins.wm.Random.randInt;
+import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import java.awt.Color;
 import java.awt.Dimension;

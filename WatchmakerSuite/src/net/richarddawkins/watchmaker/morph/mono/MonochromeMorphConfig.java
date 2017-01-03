@@ -8,7 +8,6 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.gui.genebox.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
-import net.richarddawkins.wm.BreedingPanelOld;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
 	public static final int MutTypeNo = 9;
