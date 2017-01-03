@@ -1,7 +1,5 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
-import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Vector;
 
@@ -36,13 +34,15 @@ import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
 public class ColourBiomorph extends SimpleMorph  {
 	public static final int RAINBOW = 1 << 8;
 	protected ColourBiomorphConfig config;
+	protected ColourGenome genome;
+
 	@Override
 	public void setMorphConfig(MorphConfig config) {
 		this.config = (ColourBiomorphConfig) config;
 	}
+	
 	@Override
 	public MorphConfig getMorphConfig() { return config; }
-	ColourGenome genome;
 	
 	public Genome getGenome() {
 		return genome;
@@ -88,11 +88,7 @@ public class ColourBiomorph extends SimpleMorph  {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void draw(Graphics2D g2, Dimension size, boolean midBox) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 
 	

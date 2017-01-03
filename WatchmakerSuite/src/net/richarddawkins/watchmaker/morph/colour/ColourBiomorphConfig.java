@@ -38,10 +38,10 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 	@Override
 	public Morph createMorph(int type) {
-		if(gui == null)
+//		if(gui == null)
 			return (Morph) new ColourBiomorph(this, type);
-		else
-			return (Morph) new net.richarddawkins.wm.morphs.colour.ColourBiomorph(this, type);
+//		else
+//			return (Morph) new net.richarddawkins.watchmaker.morph.colour.ColourBiomorphOld(this, type);
 	}
 
 	@Override
