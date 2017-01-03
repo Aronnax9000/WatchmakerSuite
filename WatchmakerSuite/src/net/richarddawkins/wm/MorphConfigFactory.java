@@ -1,5 +1,7 @@
 package net.richarddawkins.wm;
 
+import net.richarddawkins.watchmaker.morph.colour.ColourBiomorphConfig;
+import net.richarddawkins.watchmaker.morph.colour.ColourMutagen;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.common.MorphType;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
@@ -7,8 +9,6 @@ import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMutagen;
 import net.richarddawkins.wm.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.wm.morphs.arthro.ArthromorphMutagen;
-import net.richarddawkins.wm.morphs.colour.ColourBiomorphConfig;
-import net.richarddawkins.wm.morphs.colour.ColourMutagen;
 import net.richarddawkins.wm.morphs.snail.SnailConfig;
 import net.richarddawkins.wm.morphs.snail.SnailMutagen;
 
@@ -31,7 +31,7 @@ public class MorphConfigFactory {
 			break;
 		case COLOUR_BIOMORPH:
 			config = new ColourBiomorphConfig(watchmakerGUI);
-			config.setMutagen((Mutagen)new ColourMutagen(config));
+			config.setMutagen((Mutagen)new ColourMutagen((ColourBiomorphConfig)config));
 			break;
 		case SNAIL:
 			config = new SnailConfig(watchmakerGUI);

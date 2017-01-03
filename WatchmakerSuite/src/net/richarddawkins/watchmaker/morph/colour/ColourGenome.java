@@ -16,7 +16,6 @@ import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
-import net.richarddawkins.wm.morphs.colour.ColourPic;
 
 public class ColourGenome extends BiomorphGenome {
   

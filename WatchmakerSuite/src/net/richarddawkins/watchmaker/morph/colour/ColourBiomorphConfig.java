@@ -4,13 +4,26 @@ import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
+import net.richarddawkins.wm.WatchmakerGUI;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public static final int MutTypeNo = 13;
 	private ColourMutagen mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
-	
+	public ColourBiomorphConfig(WatchmakerGUI watchmakerGUI) {
+		menuBuilder = new ColourMenuBuilder(this);
+		gui = watchmakerGUI;
+		name = "Colour";
+		toolTip = "Blind Watchmaker (Colour)";
+		setIconFromFilename("BWSpiderLogoPurple_icl8_23096_32x32");
+		mut = new boolean[MutTypeNo];
+		for(int i = 0; i < MutTypeNo; i++)
+			mut[i] = true;
+	    setDefaultBreedingRows(3);
+	    setDefaultBreedingCols(3);
+	}
+
 	public ColourBiomorphConfig() {
 		menuBuilder = new ColourMenuBuilder(this);
 		name = "Colour";
@@ -25,7 +38,10 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 	@Override
 	public Morph createMorph(int type) {
-		return (Morph) new ColourBiomorph(this, type);
+		if(gui == null)
+			return (Morph) new ColourBiomorph(this, type);
+		else
+			return (Morph) new net.richarddawkins.wm.morphs.colour.ColourBiomorph(this, type);
 	}
 
 	@Override
