@@ -1,7 +1,9 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
@@ -16,6 +18,7 @@ import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
+import net.richarddawkins.wm.morphs.colour.ColourPic;
 
 public class ColourGenome extends BiomorphGenome  {
 	public static final int RAINBOW = 256;
@@ -217,6 +220,111 @@ public class ColourGenome extends BiomorphGenome  {
     pic.generatePrimitives(primitives, this);
     
   }
+  
+
+  public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+    Point here = new Point(d.width / 2, d.height / 2);
+
+    Pic pic = this.morph.getPic();
+    // int x;
+    // int y;
+    int upExtent;
+    int downExtent;
+    int wid;
+    int ht;
+    int[] dx = new int[8];
+    int[] dy = new int[8];
+    int[] running = new int[9];
+    Point oldHere;
+    Point centre;
+    // boolean oddOne;
+    int extraDistance;
+    int incDistance;
+    int dummyColour;
+    if (zeroMargin) {
+      pic.margin.left = here.h;
+      pic.margin.right = here.h;
+      pic.margin.top = here.v;
+      pic.margin.bottom = here.v;
+    }
+    centre = (Point) here.clone();
+    plugIn(gene, dx, dy);
+    pic.zeroPic(here);
+    if (segNoGene < 1) {
+      segNoGene = 1;
+    }
+    if (dGene[9] == SwellType.Swell) {
+      extraDistance = trickleGene;
+    } else if (dGene[9] == SwellType.Shrink) {
+      extraDistance = -trickleGene;
+    } else {
+      extraDistance = 0;
+    }
+    running = gene.clone();
+    incDistance = 0;
+    for (int seg = 0; seg < segNoGene; seg++) {
+      oddOne = seg % 2 == 1;
+      if (seg > 0) {
+        oldHere = (Point) here.clone();
+        here.v += (segDistGene + incDistance) / trickleGene;
+        incDistance += extraDistance;
+        dummyColour = 100;
+        pic.picLine(oldHere.h, oldHere.v, here.h, here.v, 1, ColourPic.chooseColor(dummyColour));
+        for (int j = 0; j < 8; j++) {
+          if (dGene[j] == SwellType.Swell) {
+            running[j] += trickleGene;
+          }
+          if (dGene[j] == SwellType.Shrink) {
+            running[j] -= trickleGene;
+          }
+        }
+        if (running[8] < 1) {
+          running[8] = 1;
+        }
+        plugIn(running, dx, dy);
+      }
+      tree(here.h, here.v, order, 2, dx, dy);
+    }
+    if (centre.h - pic.margin.left > pic.margin.right - centre.h) {
+      pic.margin.right = centre.h + (centre.h - pic.margin.left);
+    } else {
+      pic.margin.left = centre.h - (pic.margin.right - centre.h);
+    }
+    upExtent = centre.v - pic.margin.top;
+    downExtent = pic.margin.bottom - centre.v;
+    if (spokesGene == SpokesType.NSouth || spokesGene == SpokesType.Radial
+        || Globals.theMode == ModeType.Engineering) {
+      // {Obscurely necessary to cope with erasing last rect in
+      // Manipulation}
+      if (upExtent > downExtent) {
+        pic.margin.bottom = centre.v + upExtent;
+      } else {
+        pic.margin.top = centre.v - downExtent;
+      }
+    }
+    if (spokesGene == SpokesType.Radial) {
+      wid = pic.margin.right - pic.margin.left;
+      ht = pic.margin.bottom - pic.margin.top;
+      if (wid > ht) {
+        pic.margin.top = centre.v - wid / 2 - 1;
+        pic.margin.bottom = centre.v + wid / 2 + 1;
+      } else {
+        pic.margin.left = centre.h - ht / 2 - 1;
+        pic.margin.right = centre.h + ht / 2 + 1;
+      }
+    }
+    pic.morph = this.morph;
+    if (g2 != null) {
+      pic.drawPic(g2, d, centre, morph);
+      if(morph.getMorphConfig().isShowBoundingBoxes()) {
+        g2.setColor(Color.RED);
+        Rectangle rectangle = pic.margin.toRectangle();
+        g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+      }
+    }
+  }
+
+
 
   public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
     for (int j = 0; j < 10; j++) {
@@ -347,12 +455,6 @@ public class ColourGenome extends BiomorphGenome  {
       colorGene[j] = 0;
     }
   }
-
-@Override
-public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
-	// TODO Auto-generated method stub
-	
-}
 
 
 

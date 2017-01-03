@@ -75,7 +75,7 @@ public class ColourPic extends SimplePic {
    * @param colorIndex
    * @return
    */
-  static Color chooseColor(int colorIndex) {
+  public static Color chooseColor(int colorIndex) {
     return rgbColorPalette[colorIndex];
   }
 
