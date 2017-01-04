@@ -9,28 +9,11 @@ import java.awt.Rectangle;
 import java.awt.Stroke;
 import java.util.Vector;
 
-import net.richarddawkins.watchmaker.morph.common.Morph;
-
 public class Boxes  {
 
 	protected int cols;
 	protected int rows;
-	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
-	
-	public Morph getMorph(int boxNo) {
-		for(BoxedMorph boxedMorph: boxedMorphs) 
-			if(boxedMorph.boxNo == boxNo)
-				return boxedMorph.morph;
-		return null;
-	}
-	
-	public Vector<BoxedMorph> getBoxedMorphs() {
-		return boxedMorphs;
-	}
 
-	public void setBoxedMorphs(Vector<BoxedMorph> boxedMorphs) {
-		this.boxedMorphs = boxedMorphs;
-	}
 
 	public Boxes(int cols, int rows) {
 		this.cols = cols;
@@ -65,6 +48,18 @@ public class Boxes  {
 				boxes.add(new Rectangle(x, y, boxwidth, boxheight));
 			}
 		return boxes;
+	}
+
+	public Point getMidPoint(Dimension dimension, int boxNo) {
+		int col = boxNo % rows;
+		int row = boxNo / cols;
+		int boxwidth = dimension.width / cols;
+		int boxheight = dimension.height / rows;
+		int halfboxwidth = boxwidth / 2;
+		int halfboxheight = boxheight / 2;
+		return new Point(boxwidth * col + halfboxwidth,
+				boxheight * row + halfboxheight);
+		
 	}
 	
 	public Vector<Point> getMidPoints(Dimension dimension) {

@@ -10,6 +10,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 
 public interface Morph {
+	
 	public void setMorphConfig(MorphConfig config);
 	public MorphConfig getMorphConfig();
 
