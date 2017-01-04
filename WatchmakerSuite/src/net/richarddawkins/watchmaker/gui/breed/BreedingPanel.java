@@ -58,13 +58,9 @@ public class BreedingPanel extends JPanel implements ActionListener {
         GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
         geneBoxStrip.setGenome(parent.getGenome());
         
-        Vector<Point> midPoints = boxesDrawer.getMidPoints(getSize());
-        
-        for(BoxedMorph boxedMorph: boxesDrawer.getBoxedMorphs()) {
-        	thingsToDraw.add(new MorphDrawer(
-        			boxedMorph.getMorph(), 
-        			midPoints.elementAt(boxedMorph.getBoxNo())));
-        }
+        special = cols * rows / 2;
+        phase = Phase.mouse_clicked;
+
     }
 
 	boolean showBoxes = true;
@@ -106,8 +102,8 @@ public class BreedingPanel extends JPanel implements ActionListener {
             geneBoxStrip.setGenome(boxesDrawer.getMorph(cols * rows / 2).getGenome());
             break;
         case mouse_clicked:
-        	momma = (MorphDrawer) thingsToDraw.elementAt(special);
         	Point midPoint = mids.elementAt(special);
+        	momma = new MorphDrawer(boxesDrawer.getMorph(special), midPoint);
         	momma.setPosition(midPoint);
         	momma.setDestination(mids.elementAt(cols * rows / 2));
         	momma.setProgress(0.0d);

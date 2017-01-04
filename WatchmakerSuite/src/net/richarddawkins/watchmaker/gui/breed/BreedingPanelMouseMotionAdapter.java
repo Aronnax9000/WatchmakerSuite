@@ -29,10 +29,12 @@ public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 			int boxNo = panel.boxesDrawer.getBoxNoContainingPoint(myPt, panel.getSize());
 			  if(boxNo != -1) {
 				  Morph morph = panel.boxesDrawer.getMorph(boxNo);
-				  GeneBoxStrip geneBoxStrip = (GeneBoxStrip)panel.
-						  getWatchmakerPanel().getPageStartPanel();
-						  
-				  geneBoxStrip.setGenome(morph.getGenome());
+				  if(morph != null) {
+					  GeneBoxStrip geneBoxStrip = (GeneBoxStrip)panel.
+							  getWatchmakerPanel().getPageStartPanel();
+							  
+					  geneBoxStrip.setGenome(morph.getGenome());
+				  }
 			  }
 			  break;
 	    default:
