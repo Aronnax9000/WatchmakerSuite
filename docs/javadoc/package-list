@@ -1,9 +1,12 @@
+net.richarddawkins.watchmaker.deities
 net.richarddawkins.watchmaker.draw
 net.richarddawkins.watchmaker.drawer
+net.richarddawkins.watchmaker.genome
 net.richarddawkins.watchmaker.gui
 net.richarddawkins.watchmaker.gui.breed
 net.richarddawkins.watchmaker.gui.genebox
 net.richarddawkins.watchmaker.gui.menu
+net.richarddawkins.watchmaker.gui.old
 net.richarddawkins.watchmaker.morph.arthro
 net.richarddawkins.watchmaker.morph.colour
 net.richarddawkins.watchmaker.morph.common
@@ -14,4 +17,5 @@ net.richarddawkins.watchmaker.morph.mono.gui.genebox
 net.richarddawkins.watchmaker.morph.mono.gui.menu
 net.richarddawkins.watchmaker.morph.simple
 net.richarddawkins.watchmaker.morph.util
+net.richarddawkins.watchmaker.morphs.snail
 net.richarddawkins.watchmaker.resourceloader
