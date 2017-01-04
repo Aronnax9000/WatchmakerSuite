@@ -16,11 +16,6 @@ import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class GeneBox extends JPanel {
- 
-
-
-  
-
   /**
    * 
    */

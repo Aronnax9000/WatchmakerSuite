@@ -11,13 +11,11 @@ import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeGenome;
 
 public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip  {
-  
-  
   /**
    * 
    */
   private static final long serialVersionUID = 1L;
-  private MonochromeGenome genome;
+  protected MonochromeGenome genome;
 
   private void updateGeneBox(int geneBoxIndex) {
 	  GeneBox geneBox = (GeneBox) this.getComponent(geneBoxIndex);

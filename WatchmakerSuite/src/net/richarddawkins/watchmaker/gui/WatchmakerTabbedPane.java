@@ -16,9 +16,7 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 	
 	
 	protected JMenuBar jMenuBar;
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -9105080336982806166L;
 
 	public WatchmakerTabbedPane(JMenuBar jMenuBar) {
@@ -29,9 +27,9 @@ public class WatchmakerTabbedPane extends JTabbedPane {
     		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType, null); 
 	    	if(factory != null) {
 	    		try {
-		 	    	MorphConfig config = factory.createConfig();
-		 	    	config.setFrame(this);
-		 	    	addMorphConfig(config);
+			 	    	MorphConfig config = factory.createConfig();
+			 	    	config.setFrame(this);
+			 	    	addMorphConfig(config);
 	    		}
 	    		catch(MorphTypeNotSupportedException e) {
 	    			// Just go on to the next MorphType
@@ -51,10 +49,8 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		configs.add(config);
 		addTab(config.getName(), 
 				config.getIcon(), 
-				new WatchmakerPanel(
-						config.getGeneBoxStrip(), 
-						config.getCentrePanel()), 
-						config.getToolTip());
+				config.getWatchmakerPanel(),
+				config.getToolTip());
 		setSelectedIndex(this.getTabCount() - 1);
 	}
 	

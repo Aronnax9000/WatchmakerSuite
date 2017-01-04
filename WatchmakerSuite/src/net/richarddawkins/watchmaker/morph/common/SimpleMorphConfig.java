@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.common;
 
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -11,7 +10,6 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.old.BreedingPanelOld;
 import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
@@ -27,7 +25,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return breedingPanelOld;
 	}
 
-	WatchmakerPanel watchmakerPanel;
+	protected WatchmakerPanel watchmakerPanel;
 
 	public WatchmakerPanel getWatchmakerPanel() {
 		return watchmakerPanel;
@@ -35,25 +33,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
 	public void setWatchmakerPanel(WatchmakerPanel watchmakerPanel) {
 		this.watchmakerPanel = watchmakerPanel;
-	}
-
-	protected GeneBoxStrip geneBoxStrip;
-	protected JPanel centrePanel;
-
-	public GeneBoxStrip getGeneBoxStrip() {
-		return geneBoxStrip;
-	}
-
-	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
-		this.geneBoxStrip = geneBoxStrip;
-	}
-
-	public void setCentrePanel(JPanel panel) {
-		this.centrePanel = panel;
-	}
-
-	public JPanel getCentrePanel() {
-		return centrePanel;
 	}
 
 	protected void setIconFromFilename(String filename) {
@@ -230,11 +209,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		this.showBoundingBoxes = showBoundingBoxes;
 	}
 
-	public JPanel getBreedingAndGeneBoxPanel() {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
-		panel.add(this.getGeneBoxStrip(), BorderLayout.BEFORE_FIRST_LINE);
-		return panel;
-	}
+
 
 }

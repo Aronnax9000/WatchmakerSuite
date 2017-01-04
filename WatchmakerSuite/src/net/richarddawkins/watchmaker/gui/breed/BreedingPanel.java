@@ -15,22 +15,18 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 import net.richarddawkins.watchmaker.drawer.Boxes;
 import net.richarddawkins.watchmaker.drawer.GraphicsDrawer;
 import net.richarddawkins.watchmaker.drawer.MorphDrawer;
+import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
+import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.Morph;
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 
 public class BreedingPanel extends JPanel implements ActionListener {
 	
-	protected MorphConfig morphConfig;
+	protected WatchmakerPanel watchmakerPanel;
 	protected MouseAdapter mouseAdapter;
-	public MorphConfig getMorphConfig() {
-		return morphConfig;
-	}
-	public void setMorphConfig(MorphConfig morphConfig) {
-		this.morphConfig = morphConfig;
-	}
 	private int cols = 5;	
 	private int rows = 3;
 	/**
@@ -46,37 +42,29 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	
 	public void add(GraphicsDrawer gd) { thingsToDraw.add(gd); }
 	public void remove(GraphicsDrawer gd) { thingsToDraw.remove(gd); }
-    protected Vector<Morph> morphs = new Vector<Morph>();
-	
     
     
-	public Vector<Morph> getMorphs() {
-		return morphs;
-	}
-	public void setMorphs(Vector<Morph> morphs) {
-		this.morphs = morphs;
-	}
-	public BreedingPanel(MorphConfig morphConfig) {
-		this.morphConfig = morphConfig;
+    
+	public BreedingPanel(WatchmakerPanel watchmakerPanel) {
+		this.watchmakerPanel = watchmakerPanel;
 		boxesDrawer = new Boxes(cols,rows);
 		mouseAdapter = new BreedingPanelMouseAdapter(this);
 		this.addMouseMotionListener(new BreedingPanelMouseMotionAdapter(this));
 		this.addMouseListener(mouseAdapter);
 		setPreferredSize(new Dimension(640,480));
         setBorder(BorderFactory.createLineBorder(Color.black));
-        Morph parent = morphConfig.createMorph(1);
-        int  midBox = cols * rows / 2;
-        for(int i = 0; i < cols * rows; i++) {
-        	if(i == midBox)
-        		morphs.add(parent);
-        	else
-        		morphs.add(parent.reproduce());
-        }
+        Morph parent = watchmakerPanel.getMorphConfig().createMorph(1);
+        boxesDrawer.getBoxedMorphs().add(new BoxedMorph(parent, cols * rows / 2));
+        GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
+        geneBoxStrip.setGenome(parent.getGenome());
         
-        Iterator<Point> midPoints = boxesDrawer.getMidPoints(getSize()).iterator();
-        for(Morph m1: morphs) {
-        	thingsToDraw.add(new MorphDrawer(m1, midPoints.next()));
-        }        
+        Vector<Point> midPoints = boxesDrawer.getMidPoints(getSize());
+        
+        for(BoxedMorph boxedMorph: boxesDrawer.getBoxedMorphs()) {
+        	thingsToDraw.add(new MorphDrawer(
+        			boxedMorph.getMorph(), 
+        			midPoints.elementAt(boxedMorph.getBoxNo())));
+        }
     }
 
 	boolean showBoxes = true;
@@ -114,8 +102,8 @@ public class BreedingPanel extends JPanel implements ActionListener {
             for(GraphicsDrawer gd: thingsToDraw) {
             	gd.setPosition(midPoints.next());
             }
-            morphConfig.getGeneBoxStrip()
-            .setGenome(((MorphDrawer)thingsToDraw.elementAt(cols * rows / 2)).getMorph().getGenome());
+            GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
+            geneBoxStrip.setGenome(boxesDrawer.getMorph(cols * rows / 2).getGenome());
             break;
         case mouse_clicked:
         	momma = (MorphDrawer) thingsToDraw.elementAt(special);
@@ -163,7 +151,9 @@ public class BreedingPanel extends JPanel implements ActionListener {
         		break;
         	}
         	    
-            newestOffspring = new MorphDrawer(momma.getMorph().reproduce(), 
+           	Morph babyMorph = momma.getMorph().reproduce();
+           	boxesDrawer.getBoxedMorphs().add(new BoxedMorph(babyMorph, vacantBoxNumber));
+            newestOffspring = new MorphDrawer(babyMorph, 
             		mids.elementAt(rows * cols / 2));
             newestOffspring.setPosition(momma.getPosition());
             newestOffspring.setDestination(mids.elementAt(vacantBoxNumber));
@@ -181,6 +171,12 @@ public class BreedingPanel extends JPanel implements ActionListener {
 		
 	}
 
+	public WatchmakerPanel getWatchmakerPanel() {
+		return watchmakerPanel;
+	}
+	public void setWatchmakerPanel(WatchmakerPanel watchmakerPanel) {
+		this.watchmakerPanel = watchmakerPanel;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.repaint();

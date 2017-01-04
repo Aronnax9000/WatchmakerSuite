@@ -4,10 +4,9 @@ import java.awt.Component;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
-import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.old.BreedingPanelOld;
 
@@ -15,13 +14,8 @@ public interface MorphConfig {
 
 	int getGeneBoxCount();
 
-	GeneBoxStrip getGeneBoxStrip();
-
-	void setGeneBoxStrip(GeneBoxStrip geneBoxStrip);
-
-	void setCentrePanel(JPanel panel);
-
-	JPanel getCentrePanel();
+	WatchmakerPanel getWatchmakerPanel();
+	void setWatchmakerPanel(WatchmakerPanel panel);
 
 	Component getContainer();
 

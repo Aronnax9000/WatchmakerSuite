@@ -28,8 +28,10 @@ public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 		case breed_complete:
 			int boxNo = panel.boxesDrawer.getBoxNoContainingPoint(myPt, panel.getSize());
 			  if(boxNo != -1) {
-				  Morph morph = panel.getMorphs().elementAt(boxNo);
-				  GeneBoxStrip geneBoxStrip = panel.getMorphConfig().getGeneBoxStrip();
+				  Morph morph = panel.boxesDrawer.getMorph(boxNo);
+				  GeneBoxStrip geneBoxStrip = (GeneBoxStrip)panel.
+						  getWatchmakerPanel().getPageStartPanel();
+						  
 				  geneBoxStrip.setGenome(morph.getGenome());
 			  }
 			  break;

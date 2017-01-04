@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
@@ -41,13 +40,6 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 			return (Morph) new ColourBiomorph(this, type);
 	}
 
-	public GeneBoxStrip getGeneBoxStrip() {
-		return geneBoxStrip;
-	}
-
-	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
-		this.geneBoxStrip = (ColourGeneBoxStrip)geneBoxStrip;
-	}
 	
 
 	@Override

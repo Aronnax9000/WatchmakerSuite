@@ -9,11 +9,29 @@ import java.awt.Rectangle;
 import java.awt.Stroke;
 import java.util.Vector;
 
+import net.richarddawkins.watchmaker.morph.common.Morph;
+
 public class Boxes  {
 
-	private int cols;
-	private int rows;
+	protected int cols;
+	protected int rows;
+	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
+	public Morph getMorph(int boxNo) {
+		for(BoxedMorph boxedMorph: boxedMorphs) 
+			if(boxedMorph.boxNo == boxNo)
+				return boxedMorph.morph;
+		return null;
+	}
+	
+	public Vector<BoxedMorph> getBoxedMorphs() {
+		return boxedMorphs;
+	}
+
+	public void setBoxedMorphs(Vector<BoxedMorph> boxedMorphs) {
+		this.boxedMorphs = boxedMorphs;
+	}
+
 	public Boxes(int cols, int rows) {
 		this.cols = cols;
 		this.rows = rows;
