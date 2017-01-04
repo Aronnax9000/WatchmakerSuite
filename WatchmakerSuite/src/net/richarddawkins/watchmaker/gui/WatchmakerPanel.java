@@ -36,9 +36,10 @@ public class WatchmakerPanel extends JPanel {
 	}
 
 	public void setCentrePanel(JPanel centrePanel) {
-		if(this.centrePanel != null)
+		if(this.centrePanel != null) {
 			this.remove(this.centrePanel);
-		this.centrePanel = centrePanel;
-		this.add(this.centrePanel, BorderLayout.CENTER);
+			this.centrePanel = centrePanel;
+			this.add(this.centrePanel, BorderLayout.CENTER);
+		}
 	}
 }

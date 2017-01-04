@@ -11,12 +11,10 @@ import javax.swing.SwingUtilities;
 public class ActionQuit extends AbstractAction {
 	  private Component component;
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public ActionQuit(Component component)
- {
+   {
 		
 		super("Quit");
 		this.component = component;

@@ -118,7 +118,7 @@ public class ClassicImageLoader {
   // SnailOutline128ConeWhelkARGB_PICT_00128_113x171
   static {
     for (String imageName : imageNames) {
-      System.out.println("Attempting to load image " + imageName);
+//      System.out.println("Attempting to load image " + imageName);
       try {
         ClassicImage classicImage = new ClassicImage(
             ImageIO.read(ClassicImageLoader.class

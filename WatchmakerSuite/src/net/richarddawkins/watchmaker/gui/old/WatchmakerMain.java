@@ -20,7 +20,6 @@ public class WatchmakerMain {
         try {
           frame.getContentPane().add(new WatchmakerGUI(menuBar));
         } catch (Exception e) {
-          // TODO Auto-generated catch block
           e.printStackTrace();
         }
         frame.setJMenuBar(menuBar);

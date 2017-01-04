@@ -25,14 +25,13 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		super();
 		this.jMenuBar = jMenuBar;	
     	for (MorphType morphType : MorphType.values()) {
-    		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType); 
+    		System.out.println("Creating WatchmakerTabbedPane for " + morphType.toString());
+    		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType, null); 
 	    	if(factory != null) {
 	    		try {
-	    			for(int i = 0; i < 2; i++) {
-			 	    	MorphConfig config = factory.createConfig();
-			 	    	config.setFrame(this);
-					    addMorphConfig(config);
-	    			}
+		 	    	MorphConfig config = factory.createConfig();
+		 	    	config.setFrame(this);
+		 	    	addMorphConfig(config);
 	    		}
 	    		catch(MorphTypeNotSupportedException e) {
 	    			// Just go on to the next MorphType
@@ -48,6 +47,7 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 	protected Vector<MorphConfig> configs = new Vector<MorphConfig>();
 
 	public void addMorphConfig(MorphConfig config) {
+		System.out.println("addMorphConfig " + config.getName());
 		configs.add(config);
 		addTab(config.getName(), 
 				config.getIcon(), 
@@ -61,7 +61,6 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 	public void changeToTab(int selectedIndex) {
 	      MorphConfig config = configs.get(selectedIndex);
 	      config.getMenuBuilder().buildMenu(jMenuBar);
-		
 	}
 	
     class TabChangeListener implements ChangeListener {

@@ -111,7 +111,7 @@ public class MorphDrawer implements GraphicsDrawer {
 	}
 
 	public Point getPosition() {
-		// TODO Auto-generated method stub
+		
 		return origin;
 	}
 

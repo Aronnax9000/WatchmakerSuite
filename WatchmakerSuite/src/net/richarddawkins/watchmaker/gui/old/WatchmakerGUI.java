@@ -16,7 +16,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.common.MorphConfigFactory;
 import net.richarddawkins.watchmaker.morph.common.MorphType;
+import net.richarddawkins.watchmaker.morph.common.MorphTypeNotSupportedException;
 
 /**
  * Main window of the Watchmaker Suite application.
@@ -48,10 +50,10 @@ public class WatchmakerGUI extends JPanel {
       ge.registerFont(font);
 
     } catch (FontFormatException e) {
-      // TODO Auto-generated catch block
+      
       e.printStackTrace();
     } catch (IOException e) {
-    // TODO Auto-generated catch block
+    
     e.printStackTrace();
   }
     setUIFont(new javax.swing.plaf.FontUIResource(new Font("ChicagoFLF", Font.PLAIN, 12)));
@@ -92,6 +94,8 @@ public class WatchmakerGUI extends JPanel {
     public void stateChanged(ChangeEvent e) {
       MorphConfig config = configs.get(tabbedPane.getSelectedIndex());
       config.getMenuBuilder().buildMenu(menuBar);
+      menuBar.repaint();
+      
     }
   }
 
@@ -103,16 +107,21 @@ public class WatchmakerGUI extends JPanel {
     MorphType[] morphTypes = new MorphType[] { MorphType.MONOCHROME_BIOMORPH , 
       MorphType.COLOUR_BIOMORPH, MorphType.ARTHROMORPH };
     for (MorphType morphType : morphTypes) { // MorphType.values()
-      MorphConfig config = MorphConfigFactory.getInstance(morphType).createConfig(this);
-      config.setContainer(tabbedPane);
-      BreedingPanelOld panel = config.getBreedingPanel();
-      tabbedPane.addTab(config.getName(), config.getIcon(), panel, config.getToolTip());
-      configs.add(config);
+      MorphConfig config;
+		try {
+			config = MorphConfigFactory.getInstance(morphType, this).createConfig();
+		    config.setContainer(tabbedPane);
+		    BreedingPanelOld panel = config.getBreedingPanel();
+		    tabbedPane.addTab(config.getName(), config.getIcon(), panel, config.getToolTip());
+		    configs.add(config);
+		} catch (MorphTypeNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
     }
     tabbedPane.addChangeListener(new TabChangeListener());
     tabbedPane.setSelectedIndex(0);
-
-   
+    configs.get(0).getMenuBuilder().buildMenu(menuBar);
   }
 
 }

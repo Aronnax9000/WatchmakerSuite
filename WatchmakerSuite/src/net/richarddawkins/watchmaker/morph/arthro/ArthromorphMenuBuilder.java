@@ -33,6 +33,8 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 		menuBar.add(buildOperationMenu());
 		menuBar.add(buildViewMenu());
 		menuBar.add(buildHelpMenu());
+		menuBar.repaint();
+
 	}
 
 	public JMenu buildFileMenu() {

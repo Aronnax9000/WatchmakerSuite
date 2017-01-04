@@ -9,16 +9,11 @@ public class WatchmakerFrame extends JFrame {
     
 	public static void newInstance() {
     	WatchmakerFrame frame = new WatchmakerFrame();
-
-    	
         //Display the window.
         frame.pack();
         frame.setVisible(true);
-
 	}
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1800967943270519085L;
 	WatchmakerTabbedPane morphTypePane;
 	public WatchmakerFrame() {
@@ -28,9 +23,6 @@ public class WatchmakerFrame extends JFrame {
 		getContentPane().setLayout(new BorderLayout());
 		morphTypePane = new WatchmakerTabbedPane(this.getJMenuBar());
 		getContentPane().add(morphTypePane);
-
-
-		
-  }
+    }
       
 }

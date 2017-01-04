@@ -69,6 +69,8 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		menuBar.add(buildMutationsMenu());
 		menuBar.add(buildPedigreeMenu());
 		menuBar.add(buildHelpMenu());
+		menuBar.repaint();
+
 	}
 	/**
 	 *  Help (Help with current operation , Miscellaneous Help)

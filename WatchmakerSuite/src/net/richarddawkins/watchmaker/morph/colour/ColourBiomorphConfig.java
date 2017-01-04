@@ -32,8 +32,8 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 		mut = new boolean[MutTypeNo];
 		for(int i = 0; i < MutTypeNo; i++)
 			mut[i] = true;
-    setDefaultBreedingRows(3);
-    setDefaultBreedingCols(3);
+	    setDefaultBreedingRows(3);
+	    setDefaultBreedingCols(3);
 	}
 
 	@Override
@@ -41,19 +41,14 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 			return (Morph) new ColourBiomorph(this, type);
 	}
 
-	@Override
 	public GeneBoxStrip getGeneBoxStrip() {
-		// TODO Auto-generated method stub
-		return null;
+		return geneBoxStrip;
 	}
 
-	@Override
 	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
-		// TODO Auto-generated method stub
-		
+		this.geneBoxStrip = (ColourGeneBoxStrip)geneBoxStrip;
 	}
-
-
+	
 
 	@Override
 	public void setMutagen(Mutagen mutagen) {

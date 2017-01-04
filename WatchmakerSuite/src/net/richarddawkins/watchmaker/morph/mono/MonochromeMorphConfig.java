@@ -27,9 +27,9 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 	
 	public static final int MutTypeNo = 9;
-	private MonochromeGeneBoxStrip geneBoxStrip;
+	protected MonochromeGeneBoxStrip geneBoxStrip;
 	
-	private MonochromeMutagen mutagen;
+	protected MonochromeMutagen mutagen;
 	public Mutagen getMutagen() { return mutagen; }
 	
 	

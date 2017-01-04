@@ -163,7 +163,7 @@ protected GradientPanel gradientPanel;
     this.addMouseMotionListener(new MouseMotionListener() {
       @Override
       public void mouseDragged(MouseEvent e) {
-        // TODO Auto-generated method stub
+        
         
       }
       @Override
