@@ -19,6 +19,7 @@ import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 import net.richarddawkins.watchmaker.drawer.Boxes;
 import net.richarddawkins.watchmaker.drawer.GraphicsDrawer;
 import net.richarddawkins.watchmaker.drawer.MorphDrawer;
+import net.richarddawkins.watchmaker.drawer.MorphDrawerOld;
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.Morph;
@@ -82,11 +83,10 @@ public class BreedingPanel extends JPanel implements ActionListener {
         if(showBoxes) 
         	boxesDrawer.draw((Graphics2D)g, getSize());
         for(GraphicsDrawer gd: thingsToDraw) {
+        	gd.setSize(boxesDrawer.getBoxSize(getSize()));
         	gd.draw((Graphics2D) g);
         }
-        
-        // Draw Text
-        //g.drawString("This is my custom Panel!",10,20);
+
     }
 	private void updateModel() {
         Vector<Point> mids = boxesDrawer.getMidPoints(getSize());
@@ -103,10 +103,11 @@ public class BreedingPanel extends JPanel implements ActionListener {
             break;
         case mouse_clicked:
         	Point midPoint = mids.elementAt(special);
-        	momma = new MorphDrawer(boxesDrawer.getMorph(special), midPoint);
+        	momma = new MorphDrawerOld(boxesDrawer.getMorph(special), midPoint);
         	momma.setPosition(midPoint);
         	momma.setDestination(mids.elementAt(cols * rows / 2));
         	momma.setProgress(0.0d);
+        	momma.setScaleWithProgress(false);
         	thingsToDraw.removeAllElements();
         	thingsToDraw.add(momma);
         	showBoxes = false;
@@ -137,6 +138,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
         		if(newestOffspring.getProgress() == 1.0d) {
         			newestOffspring.setPosition(newestOffspring.getDestination());
         			newestOffspring.setProgress(0.0d);
+        			newestOffspring.setDestination(null);
         			newestOffspring = null;
         		}
         		break;
@@ -149,11 +151,12 @@ public class BreedingPanel extends JPanel implements ActionListener {
         	    
            	Morph babyMorph = momma.getMorph().reproduce();
            	boxesDrawer.getBoxedMorphs().add(new BoxedMorph(babyMorph, vacantBoxNumber));
-            newestOffspring = new MorphDrawer(babyMorph, 
+            newestOffspring = new MorphDrawerOld(babyMorph, 
             		mids.elementAt(rows * cols / 2));
             newestOffspring.setPosition(momma.getPosition());
             newestOffspring.setDestination(mids.elementAt(vacantBoxNumber));
             newestOffspring.setProgress(0.0d);
+            newestOffspring.setScaleWithProgress(true);
             thingsToDraw.add(vacantBoxNumber, newestOffspring);
     		
         	vacantBoxNumber++;

@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.drawer;
 
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -12,10 +13,24 @@ import net.richarddawkins.watchmaker.morph.common.Morph;
 
 public class MorphDrawer implements GraphicsDrawer {
 
-	private Point origin;
-	private Point destination;
-	private double progress = 0.0d;
-	private Morph morph;
+	protected Dimension size;
+	public void setSize(Dimension size) {
+		this.size = size;
+	}
+	protected Point origin;
+	protected Point destination;
+	protected double progress = 0.0d;
+	protected Morph morph;
+
+	protected boolean scaleWithProgress;
+	
+	public boolean isScaleWithProgress() {
+		return scaleWithProgress;
+	}
+
+	public void setScaleWithProgress(boolean scaleWithProgress) {
+		this.scaleWithProgress = scaleWithProgress;
+	}
 
 	public Morph getMorph() {
 		return morph;
@@ -60,8 +75,18 @@ public class MorphDrawer implements GraphicsDrawer {
 	
 	@Override
 	public void draw(Graphics2D g) {
-		QuickDrawState qds = new QuickDrawState();
+		AffineTransform saveTransform = g.getTransform();
+		AffineTransform originTransform = 
+				AffineTransform.getTranslateInstance(origin.x, origin.y);
+		g.transform(originTransform);
+		drawChildren(g);
+		g.setTransform(saveTransform);
+	}
+	
+	
+	public void drawChildren(Graphics2D g) {
 		Rectangle bounds = null;
+		QuickDrawState qds = new QuickDrawState();
 		for(DrawingPrimitive primitive: primitives)
 		{
 			Rectangle boundingRect = primitive.getBounds(qds);
@@ -73,33 +98,39 @@ public class MorphDrawer implements GraphicsDrawer {
 		}
 		int horzAxis = bounds.x + bounds.width / 2;
 		int vertAxis = bounds.y + bounds.height / 2;
-		Point offset = new Point(origin.x - horzAxis , origin.y - vertAxis);
 		
-		int animationX = 0;
-		int animationY = 0;
-		
-		if(destination != null) {
-			animationX = (int) ((double)(destination.x - origin.x) * progress);
-			animationY = (int) ((double)(destination.y - origin.y) * progress);
-		}
-		
-		
-		AffineTransform saveTransform = g.getTransform();
-		AffineTransform translationTransform = 
-				AffineTransform.getTranslateInstance(offset.x + animationX, offset.y + animationY);
-		
-		
-		
-		g.transform(translationTransform);
+		AffineTransform offsetTransform = 
+				AffineTransform.getTranslateInstance(- horzAxis , - vertAxis);
+		g.transform(offsetTransform);
+
+		animate(g);
+
 		qds = new QuickDrawState();
-		
 		for(DrawingPrimitive primitive: primitives)
 		{
 			primitive.execute(g, qds);
 		}
-		g.setTransform(saveTransform);
 	}
 
+	public void animate(Graphics2D g) {
+		int animationX = 0;
+		int animationY = 0;
+		double scale = 1;
+		if(destination != null) {
+			animationX = (int) ((double)(destination.x - origin.x) * progress);
+			animationY = (int) ((double)(destination.y - origin.y) * progress);
+			scale = progress;
+			AffineTransform animationTransform = 
+					AffineTransform.getTranslateInstance(animationX, animationY);
+			g.transform(animationTransform);
+			if(scaleWithProgress) {
+				AffineTransform scaleTransform = AffineTransform.getScaleInstance(scale, scale);
+				g.transform(scaleTransform);
+			}		
+		}
+
+	}
+	
 	public void nudge() {
 		if(Math.abs(1.0d - progress) < 0.1d) {
 			

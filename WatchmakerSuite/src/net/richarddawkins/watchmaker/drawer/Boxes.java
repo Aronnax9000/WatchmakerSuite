@@ -48,6 +48,10 @@ public class Boxes  {
 		return -1;
 	}
 	
+	public Dimension getBoxSize(Dimension dimension) {
+		return new Dimension(dimension.width / cols, dimension.height / rows);
+	}
+	
 	public Vector<Rectangle> getBoxes(Dimension dimension)
 	{
 		Vector<Rectangle> boxes = new Vector<Rectangle>();
