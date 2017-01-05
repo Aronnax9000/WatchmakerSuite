@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.common;
 
-import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphMutagen;
 import net.richarddawkins.watchmaker.morph.colour.ColourBiomorphConfig;
@@ -16,29 +15,27 @@ public class MorphConfigFactory {
 	protected MorphConfigFactory(MorphType morphType) {
 		this.morphType = morphType;
 	}
-	protected WatchmakerGUI watchmakerGUI;
-	public static MorphConfigFactory getInstance(MorphType morphType, WatchmakerGUI watchmakerGUI) {
+	public static MorphConfigFactory getInstance(MorphType morphType) {
 		MorphConfigFactory factory = new MorphConfigFactory(morphType);
-		factory.watchmakerGUI = watchmakerGUI;
 		return factory;
 	}
 	public MorphConfig createConfig() throws MorphTypeNotSupportedException {
 		MorphConfig config;
 		switch(morphType) {
 		case MONOCHROME_BIOMORPH:
-		  config = new MonochromeMorphConfig(watchmakerGUI);
+		  config = new MonochromeMorphConfig();
 		  config.setMutagen((Mutagen)new MonochromeMutagen(config));
 			break;
 		case COLOUR_BIOMORPH:
-			config = new ColourBiomorphConfig(watchmakerGUI);
+			config = new ColourBiomorphConfig();
 			config.setMutagen((Mutagen)new ColourMutagen((ColourBiomorphConfig)config));
 			break;
 		case SNAIL:
-			config = new SnailConfig(watchmakerGUI);
+			config = new SnailConfig();
 			config.setMutagen((Mutagen)new SnailMutagen((SnailConfig)config));
 			break;
 		case ARTHROMORPH: 
-			config = new ArthromorphConfig(watchmakerGUI);
+			config = new ArthromorphConfig();
 			config.setMutagen((Mutagen)new ArthromorphMutagen(config));
 			break;
 		default:

@@ -2,12 +2,17 @@ package net.richarddawkins.watchmaker.morph.arthro;
 
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
+
+	@Override
+	public GeneBoxStrip newGeneBoxStrip() {
+		
+		return new ArthromorphGeneBoxStrip(this);
+	}
 
 	protected ArthromorphMenuBuilder menuBuilder = new ArthromorphMenuBuilder(this);
 	
@@ -42,10 +47,6 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	protected boolean widthMut;
 
 
-	public ArthromorphConfig(WatchmakerGUI watchmakerGUI) {
-		this();
-		gui = watchmakerGUI;
-	}
 	
 	public ArthromorphConfig() {
 		setIconFromFilename("Arthromorph_ALAN_00010_32x32");
@@ -388,17 +389,6 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 		}
 	}
 
-	
-	public GeneBoxStrip getGeneBoxStrip() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void setMutagen(Mutagen mutagen) {

@@ -49,7 +49,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	public void add(GraphicsDrawer gd) { thingsToDraw.add(gd); }
 	public void remove(GraphicsDrawer gd) { thingsToDraw.remove(gd); }
     
-	protected void seed() {
+	public void seed() {
         Morph parent = watchmakerPanel.getMorphConfig().createMorph(1);
         BoxedMorph boxedMorph = new BoxedMorph(parent, cols * rows / 2); 
         boxedMorphVector.add(boxedMorph);
@@ -58,7 +58,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
         
         special = cols * rows / 2;
         phase = Phase.mouse_clicked;
-		
+
 	}
 	protected GraphicsDrawer gd = new MorphDrawerOld();
 //	protected GraphicsDrawer gd = new MorphDrawer();
@@ -71,7 +71,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
 		this.addMouseListener(mouseAdapter);
 		setPreferredSize(new Dimension(640,480));
         setBorder(BorderFactory.createLineBorder(Color.black));
-        seed();
+        
     }
 
 	boolean showBoxes = true;
@@ -192,6 +192,5 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.repaint();
-		
 	}
 }

@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 
-public class WatchmakerPanel extends JPanel {
+public class WatchmakerPanel extends MorphView {
 	/**
 	 * 
 	 */

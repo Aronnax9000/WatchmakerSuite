@@ -1,10 +1,7 @@
 package net.richarddawkins.watchmaker.morph.mono;
 
-import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
-import net.richarddawkins.watchmaker.gui.breed.BreedingPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
@@ -13,10 +10,7 @@ import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
 
-	public MonochromeMorphConfig(WatchmakerGUI watchmakerGUI) {
-		this();
-		gui = watchmakerGUI;
-	}
+
 
 	public static final int MutTypeNo = 9;
 
@@ -33,6 +27,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 		geneBoxCount = 16;
 		name = "Monochrome";
 		toolTip = "Blind Watchmaker (Monochrome)";
+		
 		mut = new boolean[MutTypeNo];
 		for (int i = 0; i < MutTypeNo; i++)
 			mut[i] = true;
@@ -41,12 +36,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 		setDefaultBreedingCols(5);
 		menuBuilder = new MonochromeMenuBuilder(this);
 		mutagen = new MonochromeMutagen(this);
-		GeneBoxStrip geneBoxStrip = new MonochromeGeneBoxStrip(this);
 		
-		watchmakerPanel = new WatchmakerPanel(this);
-		watchmakerPanel.setPageStartPanel(geneBoxStrip);
-		BreedingPanel breedingPanel = new BreedingPanel(watchmakerPanel);
-		watchmakerPanel.setCentrePanel(breedingPanel);
 	}
 
 	@Override
@@ -65,5 +55,9 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 		this.mutagen = (MonochromeMutagen) mutagen;
 
 	}
+	
+	@Override
+	public GeneBoxStrip newGeneBoxStrip() { return new MonochromeGeneBoxStrip(this);}
+
 
 }

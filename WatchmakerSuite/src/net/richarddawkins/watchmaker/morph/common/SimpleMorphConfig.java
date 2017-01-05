@@ -8,32 +8,14 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
+import net.richarddawkins.watchmaker.gui.BreedingWatchmakerPanel;
+import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
+import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.gui.old.BreedingPanelOld;
-import net.richarddawkins.watchmaker.gui.old.WatchmakerGUI;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-	protected BreedingPanelOld breedingPanelOld;
-
-	@Override
-	public BreedingPanelOld getBreedingPanel() {
-		if (breedingPanelOld == null)
-			breedingPanelOld = new BreedingPanelOld(this);
-		return breedingPanelOld;
-	}
-
-	protected WatchmakerPanel watchmakerPanel;
-
-	public WatchmakerPanel getWatchmakerPanel() {
-		return watchmakerPanel;
-	}
-
-	public void setWatchmakerPanel(WatchmakerPanel watchmakerPanel) {
-		this.watchmakerPanel = watchmakerPanel;
-	}
 
 	protected void setIconFromFilename(String filename) {
 		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
@@ -186,7 +168,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 	protected String toolTip;
-	protected WatchmakerGUI gui;
 
 	/*
 	 * (non-Javadoc)
@@ -209,6 +190,21 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		this.showBoundingBoxes = showBoundingBoxes;
 	}
 
-
+	protected MorphViewsTabbedPane morphViewsTabbedPane;
+	public MorphViewsTabbedPane getMorphViewsTabbedPane() {
+		return morphViewsTabbedPane;
+	}
+	public MorphViewsTabbedPane newMorphViewsTabbedPane() {
+		return new MorphViewsTabbedPane(this);
+	}
+	public void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane) {
+		this.morphViewsTabbedPane = morphViewsTabbedPane;
+	}
+	@Override
+    public void addDefaultMorphView(MorphViewsTabbedPane morphViews) {
+	    morphViews.addMorphView(new BreedingWatchmakerPanel(this));
+	}
+	@Override
+	public GeneBoxStrip newGeneBoxStrip() { return null;}
 
 }
