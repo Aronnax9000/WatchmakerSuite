@@ -180,8 +180,7 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		menu.add(new JMenuItem("Save Fossils..."));
 		menu.add(new JMenuItem("Save Album..."));
 		menu.add(new JMenuItem("Close Album"));
-		addFileQuitAction(menu);
-
+		
 		return menu;
 	}
 	

@@ -69,7 +69,6 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 		menu.add(new JMenuItem("Save Fossils..."));
 		menu.add(new JMenuItem("Save Album..."));
 		menu.add(new JMenuItem("Close Album"));
-		addFileQuitAction(menu);
 
 		return menu;
 	}

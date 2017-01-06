@@ -46,7 +46,7 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 		menu.add(new JMenuItem("Close"));
 		menu.add(new JMenuItem("Save"));
 		menu.add(new JMenuItem("Save As..."));
-		addFileQuitAction(menu);
+		
 		return menu;
 	}
 	public JMenu buildEditMenu() {

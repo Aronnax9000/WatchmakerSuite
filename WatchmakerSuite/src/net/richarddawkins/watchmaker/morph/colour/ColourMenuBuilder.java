@@ -47,7 +47,6 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 	private JMenu buildFileMenu() {
 		JMenu menu = new JMenu("File");
 		menu.add(new JMenuItem("Timing"));
-		addFileQuitAction(menu);
 		return menu;
 	}
 

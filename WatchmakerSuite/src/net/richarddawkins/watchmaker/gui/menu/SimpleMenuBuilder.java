@@ -26,6 +26,7 @@ public abstract class SimpleMenuBuilder implements MenuBuilder {
 		{
 			watchMakerMenu.add(new NewMorphTypeAction(morphType, this.getMorphConfig().getFrame()));
 		}
+		addFileQuitAction(watchMakerMenu);
 		return watchMakerMenu;
 	}
   

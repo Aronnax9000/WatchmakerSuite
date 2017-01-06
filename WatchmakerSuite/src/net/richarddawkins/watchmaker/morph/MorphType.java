@@ -6,8 +6,8 @@ import javax.swing.ImageIcon;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public enum MorphType {
-    MONOCHROME_BIOMORPH ("Monochrome Biomorphs", "BWSpiderLogoMono_ICNO_23096_32x32", "Blind Watchmaker (Monochrome)"),
-    COLOUR_BIOMORPH ("Colour Biomorphs", "BWSpiderLogoPurple_icl8_23096_32x32", "Blind Watchmaker (Colour)"),
+    MONOCHROME_BIOMORPH ("Monochrome", "BWSpiderLogoMono_ICNO_23096_32x32", "Blind Watchmaker (Monochrome)"),
+    COLOUR_BIOMORPH ("Colour", "BWSpiderLogoPurple_icl8_23096_32x32", "Blind Watchmaker (Colour)"),
     SNAIL ("Snails", "SnailLogoBlackBackground_icl4_17669_32x32", "Blind Snailmaker"),
     ARTHROMORPH ("Arthromorphs", "Arthromorph_ALAN_00010_32x32", "Arthromorphs");
 	private final String name;
