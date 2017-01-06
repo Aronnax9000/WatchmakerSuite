@@ -1,6 +1,6 @@
-package net.richarddawkins.watchmaker.gui;
+package net.richarddawkins.watchmaker.gui.breed;
 
-import net.richarddawkins.watchmaker.gui.breed.BreedingPanel;
+import net.richarddawkins.watchmaker.gui.GeneBoxyWatchmakerPanel;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 

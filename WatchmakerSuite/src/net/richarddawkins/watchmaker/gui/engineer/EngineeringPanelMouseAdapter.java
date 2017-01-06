@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph;
+package net.richarddawkins.watchmaker.gui.engineer;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

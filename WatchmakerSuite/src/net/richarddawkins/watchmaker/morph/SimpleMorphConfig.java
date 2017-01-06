@@ -8,10 +8,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.gui.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.MorphView;
 import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
+import net.richarddawkins.watchmaker.gui.breed.BreedingWatchmakerPanel;
+import net.richarddawkins.watchmaker.gui.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;

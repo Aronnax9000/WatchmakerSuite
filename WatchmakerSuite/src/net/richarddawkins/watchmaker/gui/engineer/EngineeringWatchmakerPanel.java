@@ -1,6 +1,8 @@
-package net.richarddawkins.watchmaker.morph;
+package net.richarddawkins.watchmaker.gui.engineer;
 
 import net.richarddawkins.watchmaker.gui.GeneBoxyWatchmakerPanel;
+import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public class EngineeringWatchmakerPanel extends GeneBoxyWatchmakerPanel {
 	
