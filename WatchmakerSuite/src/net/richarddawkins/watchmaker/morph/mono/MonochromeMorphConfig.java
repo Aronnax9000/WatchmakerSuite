@@ -12,8 +12,6 @@ import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeMenuBuilder;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
 
-
-
 	public static final int MutTypeNo = 9;
 
 
