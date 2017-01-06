@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.watchmaker.morph.snail;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;

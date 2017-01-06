@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.mono.gui.menu;
+package net.richarddawkins.watchmaker.morph.mono.gui;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -14,7 +14,6 @@ import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
-import net.richarddawkins.watchmaker.morph.mono.gui.AboutMonochromeAction;
 /**
  * Application (About Blind Watchmaker)
  * File (Load to Album..., Load as Fossils..., Save Biomorph...,

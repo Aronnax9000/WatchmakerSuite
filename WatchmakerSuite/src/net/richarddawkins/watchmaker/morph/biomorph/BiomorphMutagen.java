@@ -1,8 +1,9 @@
-package net.richarddawkins.watchmaker.morph;
+package net.richarddawkins.watchmaker.morph.biomorph;
 
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
-import net.richarddawkins.watchmaker.morph.mono.SwellType;
+import net.richarddawkins.watchmaker.morph.Mutagen;
+import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 
 
 public abstract class BiomorphMutagen 

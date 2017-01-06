@@ -5,9 +5,9 @@ import net.richarddawkins.watchmaker.morph.arthro.ArthromorphMutagen;
 import net.richarddawkins.watchmaker.morph.colour.ColourBiomorphConfig;
 import net.richarddawkins.watchmaker.morph.colour.ColourMutagen;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
-import net.richarddawkins.watchmaker.morph.mono.MonochromeMutagen;
-import net.richarddawkins.watchmaker.morphs.snail.SnailConfig;
-import net.richarddawkins.watchmaker.morphs.snail.SnailMutagen;
+import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeMutagen;
+import net.richarddawkins.watchmaker.morph.snail.SnailConfig;
+import net.richarddawkins.watchmaker.morph.snail.SnailMutagen;
 
 public class MorphConfigFactory {
 	private MorphType morphType;

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.mono.gui.genebox;
+package net.richarddawkins.watchmaker.morph.mono.gui;
 
 
 
@@ -8,7 +8,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
 import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.mono.MonochromeGenome;
+import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
 
 public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip  {
   /**

@@ -1,10 +1,10 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
+import net.richarddawkins.watchmaker.morph.biomorph.BiomorphConfig;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 

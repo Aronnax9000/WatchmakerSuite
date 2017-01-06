@@ -1,4 +1,7 @@
-package net.richarddawkins.watchmaker.morph;
+package net.richarddawkins.watchmaker.morph.biomorph;
+
+import net.richarddawkins.watchmaker.morph.MorphType;
+import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 
 public abstract class BiomorphConfig extends SimpleMorphConfig {
 	

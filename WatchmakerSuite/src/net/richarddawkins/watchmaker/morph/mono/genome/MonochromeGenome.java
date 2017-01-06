@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.mono;
+package net.richarddawkins.watchmaker.morph.mono.genome;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -6,11 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.Biomorph;
-import net.richarddawkins.watchmaker.morph.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
+import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
+import net.richarddawkins.watchmaker.morph.biomorph.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;

@@ -1,10 +1,10 @@
-package net.richarddawkins.watchmaker.morph;
+package net.richarddawkins.watchmaker.morph.biomorph;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.SwellType;
+import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 public abstract class BiomorphGenome extends SimpleGenome {
 

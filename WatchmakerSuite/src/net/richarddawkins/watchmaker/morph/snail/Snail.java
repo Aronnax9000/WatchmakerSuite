@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.snail;
+package net.richarddawkins.watchmaker.morph.snail;
 
 import java.awt.Point;
 import java.util.Vector;

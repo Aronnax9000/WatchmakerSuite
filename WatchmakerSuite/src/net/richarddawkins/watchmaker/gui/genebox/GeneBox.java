@@ -9,9 +9,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.SwellType;
+import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 

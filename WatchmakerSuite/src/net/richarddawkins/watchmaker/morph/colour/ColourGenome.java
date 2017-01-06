@@ -6,14 +6,14 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.Biomorph;
-import net.richarddawkins.watchmaker.morph.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
+import net.richarddawkins.watchmaker.morph.biomorph.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.SwellType;
+import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 

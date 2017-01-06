@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.mono;
+package net.richarddawkins.watchmaker.morph.mono.geom;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -15,6 +15,9 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
+import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public class MonoPic extends SimplePic {

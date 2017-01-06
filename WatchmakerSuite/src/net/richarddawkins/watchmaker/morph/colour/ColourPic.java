@@ -13,8 +13,8 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
-import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.SpokesType;
+import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
 
 public class ColourPic extends SimplePic {
   public ColourPic() {
