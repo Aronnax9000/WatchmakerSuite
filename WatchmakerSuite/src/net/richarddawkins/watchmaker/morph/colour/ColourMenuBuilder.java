@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 /**
@@ -24,12 +25,17 @@ import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
  */
 public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
 
+	protected ColourBiomorphConfig config;
+	
+	
 	public ColourMenuBuilder(ColourBiomorphConfig config) {
+		this.config = config;
 		config.addPropertyChangeListener(this);
 	}
 
 	public void buildMenu(JMenuBar menuBar) {
-		menuBar.removeAll();
+		super.buildMenu(menuBar);
+		
 		menuBar.add(buildFileMenu());
 		menuBar.add(buildEditMenu());
 		menuBar.add(buildOperationMenu());
@@ -62,23 +68,10 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 
 	private JMenu buildOperationMenu() {
 		JMenu menu = new JMenu("Operation");
-		Icon breedIcon = new ImageIcon(
-				ClassicImageLoader.getPicture("IconFlipBirdToBreedingGrid_ICON_00261_32x32").getImage());
 		Icon newRandomStartIcon = new ImageIcon(
 				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
-		menu.add(new JMenuItem(new AbstractAction("Breed", breedIcon) {
+		menu.add(new JMenuItem(new ColourActionBreed(config)));
 
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-		}));
 		menu.add(new JMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
 
 			/**
@@ -106,4 +99,15 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void setMorphConfig(MorphConfig config) {
+		this.config = (ColourBiomorphConfig) config;
+		
+	}
+
+	@Override
+	public MorphConfig getMorphConfig() {
+		return config;
+	}	
 }

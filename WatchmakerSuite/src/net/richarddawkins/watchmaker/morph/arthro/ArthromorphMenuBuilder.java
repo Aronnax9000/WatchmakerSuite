@@ -7,8 +7,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import net.richarddawkins.watchmaker.gui.ActionBreed;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.morph.common.MorphConfig;
 /**
  * File (New | Open, Close, Save, Save As... | Quit)
  * Edit (Undo | Cut, Copy, Paste, Clear, Select All | Show Clipboard)
@@ -27,7 +29,7 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 	}
 	
 	public void buildMenu(JMenuBar menuBar) {
-		menuBar.removeAll();
+		super.buildMenu(menuBar);
 		menuBar.add(buildFileMenu());
 		menuBar.add(buildEditMenu());
 		menuBar.add(buildOperationMenu());
@@ -61,7 +63,7 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 	}
 	public JMenu buildOperationMenu() {
 		JMenu menu = new JMenu("Operation");
-		menu.add(new JMenuItem("Breed"));
+		menu.add(new JMenuItem(new ActionBreed(config)));
 		menu.add(new JMenuItem(new ShowAsTextAction(config)));
 		menu.add(new JMenuItem(new EngineerAction(config)));
 		return menu;
@@ -81,5 +83,16 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 	public void propertyChange(PropertyChangeEvent evt) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setMorphConfig(MorphConfig config) {
+		this.config = (ArthromorphConfig) config;
+		
+	}
+
+	@Override
+	public MorphConfig getMorphConfig() {
+		return config;
 	}	
 }

@@ -9,9 +9,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import net.richarddawkins.watchmaker.gui.ActionBreed;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.gui.AboutMonochromeAction;
 /**
  * Application (About Blind Watchmaker)
@@ -36,6 +38,7 @@ import net.richarddawkins.watchmaker.morph.mono.gui.AboutMonochromeAction;
  */
 public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
   
+	protected MonochromeMorphConfig config;
 
 	JCheckBoxMenuItem segmentation = new JCheckBoxMenuItem("Segmentation");
 	JCheckBoxMenuItem gradient = new JCheckBoxMenuItem("Gradient");
@@ -51,7 +54,7 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 	JCheckBoxMenuItem recordingFossils = new JCheckBoxMenuItem("Recording Fossils");
 	JCheckBoxMenuItem driftSweep = new JCheckBoxMenuItem("Drift Sweep");
 
-	public MonochromeMenuBuilder(MorphConfig config) {
+	public MonochromeMenuBuilder(MonochromeMorphConfig config) {
 		ButtonGroup group = new ButtonGroup();
 		group.add(noMirrors);
 		group.add(singleMirror);
@@ -61,7 +64,7 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 	}
 	
   public void buildMenu(JMenuBar menuBar) {
-    menuBar.removeAll();
+    super.buildMenu(menuBar);
 		menuBar.add(buildFileMenu());
 		menuBar.add(buildEditMenu());
 		menuBar.add(buildOperationMenu());
@@ -135,7 +138,7 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 	 */
 	private JMenu buildOperationMenu() {
 		JMenu menu = new JMenu("Operation");
-		menu.add(new JMenuItem("Breed"));
+		menu.add(new ActionBreed(config));
 		menu.add(new JMenuItem("Drift"));
 		menu.add(new JMenuItem("Engineering"));
 		menu.add(new JMenuItem("Hopeful Monster"));
@@ -201,5 +204,16 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void setMorphConfig(MorphConfig config) {
+		this.config = (MonochromeMorphConfig) config;
+		
+	}
+
+	@Override
+	public MorphConfig getMorphConfig() {
+		return config;
+	}	
 	
 }

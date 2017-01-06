@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphType;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.gui.genebox.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
@@ -23,10 +24,8 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 
 	public MonochromeMorphConfig() {
-		setIconFromFilename("BWSpiderLogoMono_ICNO_23096_32x32");
+		super(MorphType.MONOCHROME_BIOMORPH);
 		geneBoxCount = 16;
-		name = "Monochrome";
-		toolTip = "Blind Watchmaker (Monochrome)";
 		
 		mut = new boolean[MutTypeNo];
 		for (int i = 0; i < MutTypeNo; i++)

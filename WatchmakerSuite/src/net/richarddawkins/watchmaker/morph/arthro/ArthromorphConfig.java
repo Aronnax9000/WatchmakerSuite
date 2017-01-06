@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morph.arthro;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphType;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 import net.richarddawkins.watchmaker.morph.common.SimpleMorphConfig;
 
@@ -49,9 +50,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 
 	
 	public ArthromorphConfig() {
-		setIconFromFilename("Arthromorph_ALAN_00010_32x32");
-		name = "Arthromorphs";
-		toolTip = "Arthromorphs";
+		super(MorphType.ARTHROMORPH);
 		makeAllBodyMutations(true);
 		makeAllAtomMutations(true);
 		mutationPressure = Pressure.Zero;

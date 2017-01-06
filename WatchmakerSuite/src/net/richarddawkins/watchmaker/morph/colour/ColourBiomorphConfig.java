@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morph.colour;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.common.MorphType;
 import net.richarddawkins.watchmaker.morph.common.Mutagen;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
@@ -12,12 +13,11 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
 	public GeneBoxStrip newGeneBoxStrip() { return new ColourGeneBoxStrip(this); }
 
+	
 
 	public ColourBiomorphConfig() {
+		super(MorphType.COLOUR_BIOMORPH);
 		menuBuilder = new ColourMenuBuilder(this);
-		name = "Colour";
-		toolTip = "Blind Watchmaker (Colour)";
-		setIconFromFilename("BWSpiderLogoPurple_icl8_23096_32x32");
 		mut = new boolean[MutTypeNo];
 		for(int i = 0; i < MutTypeNo; i++)
 			mut[i] = true;

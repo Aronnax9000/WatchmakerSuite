@@ -39,21 +39,43 @@ public class WatchmakerTabbedPane extends JTabbedPane {
     	if(this.getTabCount() != 0)
     		changeToTab(0);
 		addChangeListener(new TabChangeListener());
-	    
+	    setSelectedIndex(0);
 	}
 	
 	protected Vector<MorphConfig> configs = new Vector<MorphConfig>();
+	public String uniquify(String name) {
+		String newName = name;
+		boolean unique = false;
+		int counter = 0;
+		while(! unique) {
+			boolean found = false;
+			for(MorphConfig config: configs) {
+				if(newName.equals(config.getName())) {
+					found = true;
+					break;
+				}
+			}
+			if(found) 
+				newName = name + " " + ++counter;
+			else
+				unique = true;
+		}
+		return newName;
+	}
 
 	public void addMorphConfig(MorphConfig config) {
 		System.out.println("addMorphConfig " + config.getName());
+		config.setName(uniquify(config.getName()));
 		configs.add(config);
-		MorphViewsTabbedPane morphViews = new MorphViewsTabbedPane(config);
-		config.addDefaultMorphView(morphViews);
+		config.addDefaultMorphView();
 		addTab(config.getName(), 
 				config.getIcon(), 
-				morphViews,
+				config.getMorphViewsTabbedPane(),
 				config.getToolTip());
-//		setSelectedIndex(this.getTabCount() - 1);
+		setTabComponentAt(this.getTabCount() - 1, 
+				new WatchmakerTabComponent(this, config.getIcon(), config.getName()));
+		
+		setSelectedIndex(this.getTabCount() - 1);
 	}
 	
 	public void changeToTab(int selectedIndex) {

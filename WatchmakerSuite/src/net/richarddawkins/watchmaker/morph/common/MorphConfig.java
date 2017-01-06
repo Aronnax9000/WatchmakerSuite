@@ -14,13 +14,12 @@ public interface MorphConfig {
 
 	int getGeneBoxCount();
 
-
-
 	Component getContainer();
 
 	void setContainer(Component container);
 
 	Icon getIcon();
+	void setIcon(Icon icon);
 
 	MenuBuilder getMenuBuilder();
 
@@ -37,6 +36,7 @@ public interface MorphConfig {
 	String getName();
 
 	String getToolTip();
+	void setToolTip(String toolTip);
     void setMutagen(Mutagen mutagen);
 	Mutagen getMutagen();
 
@@ -62,7 +62,14 @@ public interface MorphConfig {
 
 	GeneBoxStrip newGeneBoxStrip();
 
-	MorphViewsTabbedPane newMorphViewsTabbedPane();
+	void addDefaultMorphView();
+	void addBreedingMorphView();
 
-	void addDefaultMorphView(MorphViewsTabbedPane morphViews);
+	void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane);
+
+	MorphViewsTabbedPane getMorphViewsTabbedPane();
+
+	void setName(String uniquify);
+
+	void setIconFromFilename(String filename);
 }

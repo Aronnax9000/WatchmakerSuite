@@ -16,57 +16,91 @@ import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-
-	protected void setIconFromFilename(String filename) {
-		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
-	}
-
-	public int getDefaultBreedingRows() {
-		return defaultBreedingRows;
-	}
-
-	public void setDefaultBreedingRows(int defaultBreedingRows) {
-		this.defaultBreedingRows = defaultBreedingRows;
-	}
-
-	public int getDefaultBreedingCols() {
-		return defaultBreedingCols;
-	}
-
-	public void setDefaultBreedingCols(int defaultBreedingCols) {
-		this.defaultBreedingCols = defaultBreedingCols;
-	}
-
-	protected int defaultBreedingRows;
-	protected int defaultBreedingCols;
 	protected Component container;
+	protected int defaultBreedingCols;
+	protected int defaultBreedingRows;
 	private WatchmakerTabbedPane frame;
-
-	public WatchmakerTabbedPane getFrame() {
-		return frame;
+	protected int geneBoxCount = 0;
+	protected Icon icon;
+	public void setIcon(Icon icon) {
+		this.icon = icon;
 	}
 
-	public void setFrame(WatchmakerTabbedPane frame) {
-		this.frame = frame;
-	}
-
+	protected MenuBuilder menuBuilder;
+	protected MorphViewsTabbedPane morphViewsTabbedPane = new MorphViewsTabbedPane(this);
+	protected String name;
 	protected JPanel pageStartPanel;
+	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	protected boolean recordingFossils;
+	protected boolean showBoundingBoxes;
+	protected String toolTip;
+
+	public void setToolTip(String toolTip) {
+		this.toolTip = toolTip;
+	}
+
+	public SimpleMorphConfig(MorphType morphType) {
+		setIcon(morphType.getIcon());
+		setName(morphType.getName());
+		setToolTip(morphType.getToolTip());
+		
+	}
+
+	@Override
+	public void addBreedingMorphView() {
+	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this));
+	}
+
+
+	@Override
+    public void addDefaultMorphView() {
+		addBreedingMorphView();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
+	 * addPropertyChangeListener(java.beans. PropertyChangeListener)
+	 */
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		this.pcs.addPropertyChangeListener(listener);
+	}
+
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
+	 * createMorph(int)
+	 */
+	@Override
+	public abstract Morph createMorph(int type);
 
 	public Component getContainer() {
 		return container;
 	}
 
-	public void setContainer(Component container) {
-		this.container = container;
+
+	public int getDefaultBreedingCols() {
+		return defaultBreedingCols;
 	}
 
-	protected int geneBoxCount = 0;
+
+	public int getDefaultBreedingRows() {
+		return defaultBreedingRows;
+	}
+
+
+	public WatchmakerTabbedPane getFrame() {
+		return frame;
+	}
 
 	public int getGeneBoxCount() {
 		return geneBoxCount;
 	}
 
-	protected Icon icon;
 
 	/*
 	 * (non-Javadoc)
@@ -80,80 +114,15 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return icon;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * getMenuBuilder()
-	 */
-	protected MenuBuilder menuBuilder;
-
 	@Override
 	public MenuBuilder getMenuBuilder() {
 		return menuBuilder;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * createMorph(int)
-	 */
 	@Override
-	public abstract Morph createMorph(int type);
-
-	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * addPropertyChangeListener(java.beans. PropertyChangeListener)
-	 */
-	@Override
-	public void addPropertyChangeListener(PropertyChangeListener listener) {
-		this.pcs.addPropertyChangeListener(listener);
+	public MorphViewsTabbedPane getMorphViewsTabbedPane() {
+		return morphViewsTabbedPane;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * removePropertyChangeListener(java.beans. PropertyChangeListener)
-	 */
-	@Override
-	public void removePropertyChangeListener(PropertyChangeListener listener) {
-		this.pcs.removePropertyChangeListener(listener);
-	}
-
-	protected boolean recordingFossils;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * isRecordingFossils()
-	 */
-	@Override
-	public boolean isRecordingFossils() {
-		return recordingFossils;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * setRecordingFossils(boolean)
-	 */
-	@Override
-	public void setRecordingFossils(boolean newValue) {
-		boolean oldValue = recordingFossils;
-		recordingFossils = newValue;
-		if (newValue != oldValue)
-			pcs.firePropertyChange("recordingFossils", oldValue, newValue);
-	}
-
-	protected String name;
 
 	/*
 	 * (non-Javadoc)
@@ -167,8 +136,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return name;
 	}
 
-	protected String toolTip;
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -180,31 +147,78 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return toolTip;
 	}
 
-	protected boolean showBoundingBoxes;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
+	 * isRecordingFossils()
+	 */
+	@Override
+	public boolean isRecordingFossils() {
+		return recordingFossils;
+	}
 
 	public boolean isShowBoundingBoxes() {
 		return showBoundingBoxes;
 	}
 
-	public void setShowBoundingBoxes(boolean showBoundingBoxes) {
-		this.showBoundingBoxes = showBoundingBoxes;
+	@Override
+	public GeneBoxStrip newGeneBoxStrip() { return null;}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
+	 * removePropertyChangeListener(java.beans. PropertyChangeListener)
+	 */
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		this.pcs.removePropertyChangeListener(listener);
 	}
 
-	protected MorphViewsTabbedPane morphViewsTabbedPane;
-	public MorphViewsTabbedPane getMorphViewsTabbedPane() {
-		return morphViewsTabbedPane;
+	public void setContainer(Component container) {
+		this.container = container;
 	}
-	public MorphViewsTabbedPane newMorphViewsTabbedPane() {
-		return new MorphViewsTabbedPane(this);
+
+	public void setDefaultBreedingCols(int defaultBreedingCols) {
+		this.defaultBreedingCols = defaultBreedingCols;
 	}
+
+	public void setDefaultBreedingRows(int defaultBreedingRows) {
+		this.defaultBreedingRows = defaultBreedingRows;
+	}
+
+	public void setFrame(WatchmakerTabbedPane frame) {
+		this.frame = frame;
+	}
+
+	@Override
+	public void setIconFromFilename(String filename) {
+		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
+	}
+	@Override
 	public void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane) {
 		this.morphViewsTabbedPane = morphViewsTabbedPane;
 	}
-	@Override
-    public void addDefaultMorphView(MorphViewsTabbedPane morphViews) {
-	    morphViews.addMorphView(new BreedingWatchmakerPanel(this));
+	public void setName(String name) {
+		this.name = name;
 	}
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
+	 * setRecordingFossils(boolean)
+	 */
 	@Override
-	public GeneBoxStrip newGeneBoxStrip() { return null;}
+	public void setRecordingFossils(boolean newValue) {
+		boolean oldValue = recordingFossils;
+		recordingFossils = newValue;
+		if (newValue != oldValue)
+			pcs.firePropertyChange("recordingFossils", oldValue, newValue);
+	}
+	
+	public void setShowBoundingBoxes(boolean showBoundingBoxes) {
+		this.showBoundingBoxes = showBoundingBoxes;
+	}
 
 }

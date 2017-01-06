@@ -20,7 +20,7 @@ public class MorphConfigFactory {
 		return factory;
 	}
 	public MorphConfig createConfig() throws MorphTypeNotSupportedException {
-		MorphConfig config;
+		MorphConfig config = null;
 		switch(morphType) {
 		case MONOCHROME_BIOMORPH:
 		  config = new MonochromeMorphConfig();
@@ -42,6 +42,7 @@ public class MorphConfigFactory {
 			throw new MorphTypeNotSupportedException();
 			
 		}			
+			
 		return config;
 	}
 }
