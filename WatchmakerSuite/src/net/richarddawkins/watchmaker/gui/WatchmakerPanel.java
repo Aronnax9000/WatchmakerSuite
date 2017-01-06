@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public class WatchmakerPanel extends MorphView {
 	/**

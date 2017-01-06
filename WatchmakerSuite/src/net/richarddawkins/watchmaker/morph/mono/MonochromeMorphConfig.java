@@ -2,10 +2,10 @@ package net.richarddawkins.watchmaker.morph.mono;
 
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.morph.common.BiomorphConfig;
-import net.richarddawkins.watchmaker.morph.common.Morph;
-import net.richarddawkins.watchmaker.morph.common.MorphType;
-import net.richarddawkins.watchmaker.morph.common.Mutagen;
+import net.richarddawkins.watchmaker.morph.BiomorphConfig;
+import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphType;
+import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.mono.gui.genebox.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.menu.MonochromeMenuBuilder;
 

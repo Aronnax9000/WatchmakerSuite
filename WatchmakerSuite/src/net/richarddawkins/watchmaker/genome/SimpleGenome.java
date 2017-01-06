@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.genome;
 
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 
 public abstract class SimpleGenome implements Genome {
 

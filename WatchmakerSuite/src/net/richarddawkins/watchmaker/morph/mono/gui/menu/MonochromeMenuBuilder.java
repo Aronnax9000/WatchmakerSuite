@@ -12,7 +12,7 @@ import javax.swing.JMenuItem;
 import net.richarddawkins.watchmaker.gui.ActionBreed;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.gui.AboutMonochromeAction;
 /**

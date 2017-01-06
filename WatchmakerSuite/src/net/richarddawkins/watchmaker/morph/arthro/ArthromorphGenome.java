@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
 public class ArthromorphGenome 

@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.genome;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 
 public interface Genome {
 	Morph getMorph();

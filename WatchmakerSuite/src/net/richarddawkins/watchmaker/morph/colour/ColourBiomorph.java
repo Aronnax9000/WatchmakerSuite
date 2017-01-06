@@ -5,9 +5,9 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.common.Morph;
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.watchmaker.morph.common.SimpleMorph;
+import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.SimpleMorph;
 /**
  * <h2>Original sources</h2>
  * <pre>

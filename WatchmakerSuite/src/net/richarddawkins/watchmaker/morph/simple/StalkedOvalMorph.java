@@ -6,7 +6,7 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.draw.LineTo;
 import net.richarddawkins.watchmaker.draw.MoveTo;
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 
 public class StalkedOvalMorph extends OvalMorph {
 	@Override

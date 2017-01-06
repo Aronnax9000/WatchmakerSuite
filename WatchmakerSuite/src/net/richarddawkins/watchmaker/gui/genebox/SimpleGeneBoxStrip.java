@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.gui.genebox;
 
 import java.awt.GridLayout;
 
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 
 

@@ -20,7 +20,7 @@ import net.richarddawkins.watchmaker.drawer.GraphicsDrawer;
 import net.richarddawkins.watchmaker.drawer.MorphDrawerOld;
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 
 public class BreedingPanel extends JPanel implements ActionListener {
 	

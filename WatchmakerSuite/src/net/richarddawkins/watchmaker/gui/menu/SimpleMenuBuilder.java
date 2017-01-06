@@ -8,7 +8,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.morph.common.MorphType;
+import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.util.ActionQuit;
 
 public abstract class SimpleMenuBuilder implements MenuBuilder {

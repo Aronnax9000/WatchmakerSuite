@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.deities;
 
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 
 /**
  * <h1>net.richarddawkins.watchmaker.morphs.<strong>God</strong></h1>

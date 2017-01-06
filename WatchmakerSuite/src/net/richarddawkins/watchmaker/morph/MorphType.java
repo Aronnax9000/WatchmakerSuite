@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.common;
+package net.richarddawkins.watchmaker.morph;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;

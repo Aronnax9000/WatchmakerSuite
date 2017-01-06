@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 
 public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 

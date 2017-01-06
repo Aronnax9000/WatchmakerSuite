@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morph.colour;
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.common.BiomorphMutagen;
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
+import net.richarddawkins.watchmaker.morph.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.BiomorphMutagen;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.CompletenessType;
 import net.richarddawkins.watchmaker.morph.mono.SpokesType;
 

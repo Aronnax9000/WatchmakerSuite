@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morph.common.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.BiomorphGenome;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 /**

@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.common.Morph;
+import net.richarddawkins.watchmaker.morph.Morph;
 /**
  * <h1>Pic</h1>
  * A Pic represents an ordered list of drawing primitives, generally lines (the class Lin)

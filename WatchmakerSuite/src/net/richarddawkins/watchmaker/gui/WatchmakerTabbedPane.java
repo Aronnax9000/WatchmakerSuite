@@ -7,10 +7,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.richarddawkins.watchmaker.morph.common.MorphConfig;
-import net.richarddawkins.watchmaker.morph.common.MorphConfigFactory;
-import net.richarddawkins.watchmaker.morph.common.MorphType;
-import net.richarddawkins.watchmaker.morph.common.MorphTypeNotSupportedException;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.MorphConfigFactory;
+import net.richarddawkins.watchmaker.morph.MorphType;
+import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
 
 public class WatchmakerTabbedPane extends JTabbedPane {
 	
