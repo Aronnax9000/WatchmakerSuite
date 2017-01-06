@@ -147,15 +147,16 @@ public class GeneBox extends JPanel {
 		this.add(valuePanel, BorderLayout.CENTER);
 		valuePanel.add(valueLabel);
 		if (this.getGeneBoxStrip().engineeringMode) {
-			this.addMouseMotionListener(new GeneBoxMouseMotionListener(this));
+			this.addMouseMotionListener(new GeneBoxMouseMotionAdapter(this));
+			this.addMouseListener(new GeneBoxMouseAdapter(this));
 		}
 	}
 
 }
 
-class GeneBoxMouseListener extends MouseAdapter {
+class GeneBoxMouseAdapter extends MouseAdapter {
 	protected GeneBox geneBox;	
-	public GeneBoxMouseListener(GeneBox geneBox) {
+	public GeneBoxMouseAdapter(GeneBox geneBox) {
 		this.geneBox = geneBox;
 	}
 
@@ -166,7 +167,7 @@ class GeneBoxMouseListener extends MouseAdapter {
 	}
 }
 
-class GeneBoxMouseMotionListener extends MouseMotionAdapter {
+class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 	enum HorizPos {
 		LeftThird, MidThird, RightThird
 	}
@@ -177,7 +178,7 @@ class GeneBoxMouseMotionListener extends MouseMotionAdapter {
 
 	protected GeneBox geneBox;
 
-	public GeneBoxMouseMotionListener(GeneBox geneBox) {
+	public GeneBoxMouseMotionAdapter(GeneBox geneBox) {
 		this.geneBox = geneBox;
 	}
 

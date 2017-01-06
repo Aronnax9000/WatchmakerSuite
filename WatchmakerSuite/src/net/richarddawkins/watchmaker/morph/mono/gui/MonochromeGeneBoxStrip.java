@@ -200,6 +200,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		}
 		if(genome.getGene(8) < 1) genome.setGene(8, 1);
 		if(genome.getSegNoGene() < 1) genome.setSegNoGene(1);
+		this.updateGeneBox(geneBoxNo);
 		this.repaint();
 		MorphView selectedMorphView = (MorphView) config.getMorphViewsTabbedPane().getSelectedComponent();
 		selectedMorphView.repaint();
