@@ -8,7 +8,11 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Stroke;
 import java.util.Vector;
-
+/**
+ * 
+ * @author Alan
+ *
+ */
 public class Boxes  {
 
 	protected int cols;
