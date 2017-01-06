@@ -6,10 +6,9 @@ net.richarddawkins.watchmaker.gui
 net.richarddawkins.watchmaker.gui.breed
 net.richarddawkins.watchmaker.gui.genebox
 net.richarddawkins.watchmaker.gui.menu
-net.richarddawkins.watchmaker.gui.old
+net.richarddawkins.watchmaker.morph
 net.richarddawkins.watchmaker.morph.arthro
 net.richarddawkins.watchmaker.morph.colour
-net.richarddawkins.watchmaker.morph.common
 net.richarddawkins.watchmaker.morph.common.geom
 net.richarddawkins.watchmaker.morph.mono
 net.richarddawkins.watchmaker.morph.mono.gui
