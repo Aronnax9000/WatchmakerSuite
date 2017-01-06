@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
@@ -36,5 +37,10 @@ public abstract class MorphView extends JPanel {
 	}
 	protected void setIconFromFilename(String filename) {
 		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
+	}
+	
+	public Morph getMorphOfTheHour() {
+		
+		return null;
 	}
 }

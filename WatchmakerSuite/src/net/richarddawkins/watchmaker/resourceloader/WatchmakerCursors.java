@@ -24,6 +24,10 @@ public class WatchmakerCursors {
       ClassicImageLoader.getPicture("CursorUpperEquals_CURS_00139_48x16").getImage().getSubimage(0, 0, 16, 16), 
       hotspot, "Equals");
   public static final Cursor watchCursor = toolkit.createCustomCursor(
-      ClassicImageLoader.getPicture("CursorWatch_CURS_-15776_48x16").getImage().getSubimage(0, 0, 16, 16), 
-      hotspot, "Watch");
+	      ClassicImageLoader.getPicture("CursorWatch_CURS_-15776_48x16").getImage().getSubimage(0, 0, 16, 16), 
+	      hotspot, "Watch");
+  public static final Cursor hypodermic = toolkit.createCustomCursor(
+	      ClassicImageLoader.getPicture("CursorHypodermic_CURS_00140_48x16").getImage().getSubimage(0, 0, 16, 16), 
+	      hotspot, "Watch");
+  
 }

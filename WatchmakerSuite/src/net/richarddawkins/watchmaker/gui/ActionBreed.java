@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public class ActionBreed extends AbstractAction {
@@ -25,7 +26,8 @@ public class ActionBreed extends AbstractAction {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		config.addBreedingMorphView();
+		Morph morph = config.getMorphOfTheHour();
+		config.addBreedingMorphView(morph);
 	}
 
 }

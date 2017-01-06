@@ -309,6 +309,20 @@ public class MonochromeGenome extends BiomorphGenome {
         -Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
   }
 
+public void decrementMutProbGene() {
+	mutProbGene--;
+	
+}
+
+public void incrementMutProbGene() {
+	mutProbGene++;
+	
+}
+
+
+
+
+
 
 
 }

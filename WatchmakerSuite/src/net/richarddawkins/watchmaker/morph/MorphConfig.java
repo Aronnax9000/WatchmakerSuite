@@ -63,7 +63,7 @@ public interface MorphConfig {
 	GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
 
 	void addDefaultMorphView();
-	void addBreedingMorphView();
+	void addBreedingMorphView(Morph morph);
 
 	void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane);
 
@@ -73,5 +73,9 @@ public interface MorphConfig {
 
 	void setIconFromFilename(String filename);
 
-	void addEngineeringMorphView();
+
+
+	void addEngineeringMorphView(Morph morph);
+
+	Morph getMorphOfTheHour();
 }

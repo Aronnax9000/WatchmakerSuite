@@ -2,8 +2,6 @@ package net.richarddawkins.watchmaker.gui.breed;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,25 +9,22 @@ import java.awt.event.MouseAdapter;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
-import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 import net.richarddawkins.watchmaker.drawer.Boxes;
-import net.richarddawkins.watchmaker.drawer.GraphicsDrawer;
-import net.richarddawkins.watchmaker.drawer.MorphDrawerOld;
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 
-public class BreedingPanel extends JPanel implements ActionListener {
+public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener {
 	
 	private static final long serialVersionUID = 8668997028542499649L;
 	protected WatchmakerPanel watchmakerPanel;
 	protected MouseAdapter mouseAdapter;
 
-	boolean showBoxes = true;
+
 	
 	enum Phase { breed_complete, mouse_clicked, animate_mother, reactivate_grid, draw_out_offspring };
 
@@ -41,24 +36,16 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	private int vacantBoxNumber = -1;
 
 	private BoxedMorph newestOffspring = null;
-	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();
+ 
 	
-	public BoxedMorphVector getBoxedMorphVector() {
-		return boxedMorphVector;
-	}
-	public void setBoxedMorphVector(BoxedMorphVector boxedMorphVector) {
-		this.boxedMorphVector = boxedMorphVector;
-	}
 
-	private Vector<GraphicsDrawer> thingsToDraw = new Vector<GraphicsDrawer>();	
-
-    public Boxes boxesDrawer;
-	
-	public void add(GraphicsDrawer gd) { thingsToDraw.add(gd); }
-	public void remove(GraphicsDrawer gd) { thingsToDraw.remove(gd); }
-    
-	public void seed() {
-        Morph parent = watchmakerPanel.getMorphConfig().createMorph(1);
+	public void seed(Morph morph) {
+		
+        Morph parent;
+        if(morph == null) 
+        	parent = watchmakerPanel.getMorphConfig().createMorph(1);
+        else
+        	parent = morph;
         BoxedMorph boxedMorph = new BoxedMorph(parent, boxesDrawer.midBox); 
         boxedMorphVector.add(boxedMorph);
         GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
@@ -68,13 +55,13 @@ public class BreedingPanel extends JPanel implements ActionListener {
         phase = Phase.mouse_clicked;
 
 	}
-	protected GraphicsDrawer gd = new MorphDrawerOld();
-//	protected GraphicsDrawer gd = new MorphDrawer();
+
 
 	public BreedingPanel(WatchmakerPanel watchmakerPanel) {
 		this.watchmakerPanel = watchmakerPanel;
 		MorphConfig config = watchmakerPanel.getMorphConfig();
-		boxesDrawer = new Boxes(config.getDefaultBreedingCols(),config.getDefaultBreedingRows());
+		boxesDrawer = new Boxes(config.getDefaultBreedingCols(),
+				config.getDefaultBreedingRows());
 		mouseAdapter = new BreedingPanelMouseAdapter(this);
 		this.addMouseMotionListener(new BreedingPanelMouseMotionAdapter(this));
 		this.addMouseListener(mouseAdapter);
@@ -84,19 +71,8 @@ public class BreedingPanel extends JPanel implements ActionListener {
     }
 
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Dimension size = getSize();
-        updateModel(size);
-        if(showBoxes) 
-        	boxesDrawer.draw((Graphics2D)g, size);
-        for(BoxedMorph boxedMorph: boxedMorphVector.boxedMorphs) {
-        	gd.setSize(boxesDrawer.getBoxSize(size));
-        	gd.draw(boxedMorph, (Graphics2D) g);
-        }
 
-    }
-	private void updateModel(Dimension size) {
+	protected void updateModel(Dimension size) {
         Vector<Point> mids = boxesDrawer.getMidPoints(size);
     	
         switch(phase) {
@@ -191,4 +167,5 @@ public class BreedingPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		this.repaint();
 	}
+
 }

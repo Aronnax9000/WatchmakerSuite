@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.gui.BreedingWatchmakerPanel;
+import net.richarddawkins.watchmaker.gui.MorphView;
 import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
@@ -47,18 +48,18 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 	@Override
-	public void addBreedingMorphView() {
-	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this));
+	public void addBreedingMorphView(Morph morph) {
+	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));
 	}
 
 	@Override
-	public void addEngineeringMorphView() {
-	    morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this));
+	public void addEngineeringMorphView(Morph morph) {
+	    morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this, morph));
 	}
 
 	@Override
     public void addDefaultMorphView() {
-		addBreedingMorphView();
+		addBreedingMorphView(null);
 	}
 
 	/*
@@ -226,5 +227,12 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	public void setShowBoundingBoxes(boolean showBoundingBoxes) {
 		this.showBoundingBoxes = showBoundingBoxes;
 	}
-
+	@Override
+	public Morph getMorphOfTheHour() {
+		
+		MorphViewsTabbedPane pane = this.getMorphViewsTabbedPane();
+		MorphView morphView = (MorphView) pane.getSelectedComponent();
+		
+		return morphView.getMorphOfTheHour();
+	}
 }

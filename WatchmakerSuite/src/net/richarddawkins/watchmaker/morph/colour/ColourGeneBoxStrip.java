@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
+import java.awt.Cursor;
 import java.awt.GridBagConstraints;
 
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -44,6 +45,12 @@ public class ColourGeneBoxStrip extends SimpleGeneBoxStrip {
 		@Override
 		public Genome getGenome() {
 			return genome;
+		}
+
+		@Override
+		public void goose(int geneBoxNo, Cursor cursor) {
+			// TODO Auto-generated method stub
+			
 		}
 
 }

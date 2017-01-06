@@ -25,7 +25,7 @@ public class ActionEngineering extends AbstractAction {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		config.addEngineeringMorphView();
+		config.addEngineeringMorphView(config.getMorphOfTheHour());
 	}
 
 }

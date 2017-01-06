@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.gui.genebox;
 
+import java.awt.Cursor;
+
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -15,4 +17,5 @@ public abstract class GeneBoxStrip extends JPanel {
   public abstract Genome getGenome();
   public abstract void setMorphConfig(MorphConfig morphConfig);
   protected boolean engineeringMode;
+public abstract void goose(int geneBoxNo, Cursor cursor);
 }
