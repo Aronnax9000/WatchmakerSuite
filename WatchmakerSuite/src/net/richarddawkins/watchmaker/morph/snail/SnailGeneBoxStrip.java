@@ -25,8 +25,8 @@ public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
 		  updateGeneBox(j);
 	  }
 	  
-	  public SnailGeneBoxStrip(MorphConfig config) {
-	    super(config);
+	  public SnailGeneBoxStrip(MorphConfig config, boolean engineeringMode) {
+	    super(config, engineeringMode);
 	    int numberOfGeneBoxes = config.getGeneBoxCount();
 	    GridBagConstraints constraints = new GridBagConstraints();
 	    constraints.fill = GridBagConstraints.HORIZONTAL;

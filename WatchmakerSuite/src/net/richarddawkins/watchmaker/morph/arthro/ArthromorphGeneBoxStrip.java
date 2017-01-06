@@ -13,8 +13,8 @@ public class ArthromorphGeneBoxStrip extends GeneBoxStrip {
 	protected ArthromorphConfig config;
 	protected ArthromorphGenome genome;
 	
-	public ArthromorphGeneBoxStrip(ArthromorphConfig config) {
-		this.config = config;
+	public ArthromorphGeneBoxStrip(ArthromorphConfig arthromorphConfig, boolean engineeringMode) {
+		this.engineeringMode = engineeringMode;
 	}
 	
 	@Override

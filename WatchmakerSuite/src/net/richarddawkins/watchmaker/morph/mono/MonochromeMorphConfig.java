@@ -55,7 +55,10 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 	
 	@Override
-	public GeneBoxStrip newGeneBoxStrip() { return new MonochromeGeneBoxStrip(this);}
+	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
+
+		return new MonochromeGeneBoxStrip(this, engineeringMode);
+	}
 
 
 }

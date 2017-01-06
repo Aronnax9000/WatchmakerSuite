@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import net.richarddawkins.watchmaker.gui.ActionBreed;
+import net.richarddawkins.watchmaker.gui.ActionEngineering;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -139,7 +140,9 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		JMenu menu = new JMenu("Operation");
 		menu.add(new ActionBreed(config));
 		menu.add(new JMenuItem("Drift"));
-		menu.add(new JMenuItem("Engineering"));
+		menu.add(new ActionEngineering(config));
+
+//		menu.add(new JMenuItem("Engineering"));
 		menu.add(new JMenuItem("Hopeful Monster"));
 		menu.add(new JMenuItem("Initialize Fossil Record"));
 		menu.add(new JMenuItem("Play Back Fossils"));

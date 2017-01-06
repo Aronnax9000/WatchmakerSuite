@@ -11,7 +11,8 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	public static final int MutTypeNo = 13;
 	private ColourMutagen mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
-	public GeneBoxStrip newGeneBoxStrip() { return new ColourGeneBoxStrip(this); }
+	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 
+		return new ColourGeneBoxStrip(this, engineeringMode); }
 
 	
 

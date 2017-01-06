@@ -68,8 +68,8 @@ public class SnailConfig extends SimpleMorphConfig {
 	}
 
 	@Override
-	public GeneBoxStrip newGeneBoxStrip() {
-		return new SnailGeneBoxStrip(this);
+	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
+		return new SnailGeneBoxStrip(this, engineeringMode);
 	}
 
 

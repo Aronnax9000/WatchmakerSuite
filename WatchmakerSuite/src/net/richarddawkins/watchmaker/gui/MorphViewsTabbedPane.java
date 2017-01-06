@@ -57,9 +57,14 @@ public class MorphViewsTabbedPane extends JTabbedPane {
 	
     class TabChangeListener implements ChangeListener {
 	    public void stateChanged(ChangeEvent e) {
-	    	@SuppressWarnings("unused")
-			MorphView morphView = morphViews.get(getSelectedIndex());
-	    	// Do nothing (here's where the morphView could have a crack at changing the menu bar)
+	    	// If the morphView needs to do anything in response
+	    	// to being made the current morphView, put it here, e. g.:
+//	    	@SuppressWarnings("unused")
+//	    	int selectedIndex = getSelectedIndex();
+//	    	if(selectedIndex != -1) {
+//	    		MorphView morphView = morphViews.get(getSelectedIndex());
+//	    		// Do nothing (here's where the morphView could have a crack at changing the menu bar)
+//	    	}
 	    }
    }
 

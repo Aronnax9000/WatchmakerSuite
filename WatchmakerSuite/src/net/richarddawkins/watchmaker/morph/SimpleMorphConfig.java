@@ -51,6 +51,10 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this));
 	}
 
+	@Override
+	public void addEngineeringMorphView() {
+	    morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this));
+	}
 
 	@Override
     public void addDefaultMorphView() {
@@ -163,7 +167,9 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 	@Override
-	public GeneBoxStrip newGeneBoxStrip() { return null;}
+	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
+		return null;
+	}
 
 	/*
 	 * (non-Javadoc)

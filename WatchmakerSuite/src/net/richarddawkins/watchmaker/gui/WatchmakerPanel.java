@@ -28,6 +28,12 @@ public class WatchmakerPanel extends MorphView {
 		this.setLayout(new BorderLayout());
 	}
 
+	public WatchmakerPanel(MorphConfig config, String icon, String name) {
+       	this(config);
+       	this.setIconFromFilename(icon);
+       	this.setName(name);
+	}
+	
 	public JPanel getPageStartPanel() {
 		return pageStartPanel;
 	}

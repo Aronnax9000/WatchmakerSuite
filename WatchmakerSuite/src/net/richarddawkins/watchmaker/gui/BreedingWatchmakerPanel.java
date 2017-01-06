@@ -9,10 +9,8 @@ public class BreedingWatchmakerPanel extends WatchmakerPanel {
 	 */
 	private static final long serialVersionUID = -5445629768562940527L;
     public BreedingWatchmakerPanel(MorphConfig config) {
-       	super(config);
-       	this.setIconFromFilename("IconFlipBirdToBreedingGrid_ICON_00261_32x32");
-       	this.setName("Breeding");
-    	setPageStartPanel(config.newGeneBoxStrip());
+       	super(config, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding");
+    	setPageStartPanel(config.newGeneBoxStrip(false));
 		BreedingPanel breedingPanel = new BreedingPanel(this);
 		setCentrePanel(breedingPanel);
 		breedingPanel.seed();

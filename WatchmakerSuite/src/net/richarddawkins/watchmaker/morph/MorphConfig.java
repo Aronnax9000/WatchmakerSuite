@@ -60,7 +60,7 @@ public interface MorphConfig {
 
 	WatchmakerTabbedPane getFrame();
 
-	GeneBoxStrip newGeneBoxStrip();
+	GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
 
 	void addDefaultMorphView();
 	void addBreedingMorphView();
@@ -72,4 +72,6 @@ public interface MorphConfig {
 	void setName(String uniquify);
 
 	void setIconFromFilename(String filename);
+
+	void addEngineeringMorphView();
 }

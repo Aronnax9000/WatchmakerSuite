@@ -14,4 +14,5 @@ public abstract class GeneBoxStrip extends JPanel {
   public abstract void setGenome(Genome genome);
   public abstract Genome getGenome();
   public abstract void setMorphConfig(MorphConfig morphConfig);
+  protected boolean engineeringMode;
 }

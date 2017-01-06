@@ -63,8 +63,8 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip  {
 	  updateGeneBox(j);
   }
   
-  public MonochromeGeneBoxStrip(MorphConfig config) {
-    super(config);
+  public MonochromeGeneBoxStrip(MorphConfig config, boolean engineeringMode) {
+    super(config, engineeringMode);
     int numberOfGeneBoxes = config.getGeneBoxCount();
     GridBagConstraints constraints = new GridBagConstraints();
     constraints.fill = GridBagConstraints.HORIZONTAL;

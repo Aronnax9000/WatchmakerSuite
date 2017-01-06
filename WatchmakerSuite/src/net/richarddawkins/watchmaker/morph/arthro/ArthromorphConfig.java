@@ -8,11 +8,11 @@ import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
-
+	
 	@Override
-	public GeneBoxStrip newGeneBoxStrip() {
+	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
 		
-		return new ArthromorphGeneBoxStrip(this);
+		return new ArthromorphGeneBoxStrip(this, engineeringMode);
 	}
 
 	protected ArthromorphMenuBuilder menuBuilder = new ArthromorphMenuBuilder(this);

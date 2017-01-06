@@ -25,8 +25,8 @@ public class ColourGeneBoxStrip extends SimpleGeneBoxStrip {
 		  updateGeneBox(j);
 	  }
 	  
-	  public ColourGeneBoxStrip(MorphConfig config) {
-	    super(config);
+	  public ColourGeneBoxStrip(MorphConfig config, boolean engineeringMode) {
+	    super(config, engineeringMode);
 	    int numberOfGeneBoxes = config.getGeneBoxCount();
 	    GridBagConstraints constraints = new GridBagConstraints();
 	    constraints.fill = GridBagConstraints.HORIZONTAL;
