@@ -15,13 +15,16 @@ import java.util.Vector;
  */
 public class Boxes  {
 
-	protected int cols;
-	protected int rows;
-
+	public final int cols;
+	public final int rows;
+	public final int boxCount;
+	public final int midBox;
 
 	public Boxes(int cols, int rows) {
 		this.cols = cols;
 		this.rows = rows;
+		this.boxCount = cols * rows;
+		this.midBox = boxCount / 2;	
 	}
 	
 	public int getBoxNoContainingPoint(Point p, Dimension d) {
@@ -34,11 +37,25 @@ public class Boxes  {
 		}
 		return -1;
 	}
-	
+	/**
+	 * For the supplied dimension of the entire array of boxes,
+	 * return the size of one (any) box. The returned box width is the dimension
+	 * width divided by the number of columns, and the height is the dimension height
+	 * divided by the number of rows.
+	 * @param dimension
+	 * @return
+	 */
 	public Dimension getBoxSize(Dimension dimension) {
 		return new Dimension(dimension.width / cols, dimension.height / rows);
 	}
 	
+	/**
+	 * For the given dimension of the entire array of boxes,
+	 * return a vector of Rectangles describing the corners of
+	 * each box, in row-major order.
+	 * @param dimension
+	 * @return
+	 */
 	public Vector<Rectangle> getBoxes(Dimension dimension)
 	{
 		Vector<Rectangle> boxes = new Vector<Rectangle>();
@@ -54,8 +71,15 @@ public class Boxes  {
 		return boxes;
 	}
 
+	/**
+	 * Given supplied dimension of the entire array of boxes,
+	 * return the midpoint of the nth box (starting with n = 0).
+	 * @param dimension
+	 * @param boxNo
+	 * @return
+	 */
 	public Point getMidPoint(Dimension dimension, int boxNo) {
-		int col = boxNo % rows;
+		int col = boxNo % cols;
 		int row = boxNo / cols;
 		int boxwidth = dimension.width / cols;
 		int boxheight = dimension.height / rows;
@@ -65,7 +89,13 @@ public class Boxes  {
 				boxheight * row + halfboxheight);
 		
 	}
-	
+	/**
+	 * For the given dimension of the entire array of boxes,
+	 * return a vector of Points describing the midpoints of
+	 * each box, in row-major order.
+	 * @param dimension
+	 * @return
+	 */
 	public Vector<Point> getMidPoints(Dimension dimension) {
 		
 		int boxwidth = dimension.width / cols;
@@ -77,29 +107,28 @@ public class Boxes  {
 		for(int j = 0; j < rows; j++)
 			for(int i = 0; i < cols; i++)
 			{
-				int x = i * boxwidth;
-				int y = j * boxheight;
-				midPoints.add(new Point(x + halfboxwidth, y + halfboxheight));
+				int x = i * boxwidth + halfboxwidth;
+				int y = j * boxheight + halfboxheight;
+				midPoints.add(new Point(x, y));
 			}
 		return midPoints;
 	}
 	
 
 	public void draw(Graphics2D g, Dimension dimension) {
-		
 		g.setColor(Color.BLACK);
 		int boxIndex = 0;
 		Stroke saveStroke = g.getStroke();
-		for(Rectangle r: getBoxes(dimension.getSize())) {
-			if(boxIndex == rows * cols / 2) {
+		for(Rectangle r: getBoxes(dimension)) {
+			
+			// Middle box has a thicker line
+			if(boxIndex == midBox) {
 				g.setStroke(new BasicStroke(2.0f));
 			}
+			
 			g.drawRect(r.x, r.y, r.width, r.height);
 			g.setStroke(saveStroke);
 			boxIndex++;
 		}
-		
-				
 	}
-
 }

@@ -21,18 +21,26 @@ import net.richarddawkins.watchmaker.drawer.MorphDrawerOld;
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public class BreedingPanel extends JPanel implements ActionListener {
 	
+	private static final long serialVersionUID = 8668997028542499649L;
 	protected WatchmakerPanel watchmakerPanel;
 	protected MouseAdapter mouseAdapter;
-	private int cols = 5;	
-	private int rows = 3;
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8668997028542499649L;
 
+	boolean showBoxes = true;
+	
+	enum Phase { breed_complete, mouse_clicked, animate_mother, reactivate_grid, draw_out_offspring };
+
+	public Phase phase = Phase.breed_complete;
+	public int special = -1;
+	protected BoxedMorph boxedMorphSpecial;
+	Timer timer = new Timer(1000/60, this);
+	
+	private int vacantBoxNumber = -1;
+
+	private BoxedMorph newestOffspring = null;
 	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();
 	
 	public BoxedMorphVector getBoxedMorphVector() {
@@ -51,12 +59,12 @@ public class BreedingPanel extends JPanel implements ActionListener {
     
 	public void seed() {
         Morph parent = watchmakerPanel.getMorphConfig().createMorph(1);
-        BoxedMorph boxedMorph = new BoxedMorph(parent, cols * rows / 2); 
+        BoxedMorph boxedMorph = new BoxedMorph(parent, boxesDrawer.midBox); 
         boxedMorphVector.add(boxedMorph);
         GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
         geneBoxStrip.setGenome(parent.getGenome());
-        
-        special = cols * rows / 2;
+        // Trigger first breeding
+        special = boxesDrawer.midBox;
         phase = Phase.mouse_clicked;
 
 	}
@@ -65,7 +73,8 @@ public class BreedingPanel extends JPanel implements ActionListener {
 
 	public BreedingPanel(WatchmakerPanel watchmakerPanel) {
 		this.watchmakerPanel = watchmakerPanel;
-		boxesDrawer = new Boxes(cols,rows);
+		MorphConfig config = watchmakerPanel.getMorphConfig();
+		boxesDrawer = new Boxes(config.getDefaultBreedingCols(),config.getDefaultBreedingRows());
 		mouseAdapter = new BreedingPanelMouseAdapter(this);
 		this.addMouseMotionListener(new BreedingPanelMouseMotionAdapter(this));
 		this.addMouseListener(mouseAdapter);
@@ -74,18 +83,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
         
     }
 
-	boolean showBoxes = true;
-	
-	enum Phase { breed_complete, mouse_clicked, animate_mother, reactivate_grid, draw_out_offspring };
 
-	public Phase phase = Phase.breed_complete;
-	public int special = -1;
-	protected BoxedMorph boxedMorphSpecial;
-	Timer timer = new Timer(1000/60, this);
-	
-	private int vacantBoxNumber = -1;
-
-	private BoxedMorph newestOffspring = null;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Dimension size = getSize();
@@ -106,13 +104,13 @@ public class BreedingPanel extends JPanel implements ActionListener {
         	special = -1;
         	boxedMorphSpecial = null;
         	timer.stop();
-//        	
-//            for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
-//            	boxedMorph.setPosition(boxesDrawer.getMidPoint(size, boxedMorph.boxNo));
-//            }
+        	
+            for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
+            	boxedMorph.setPosition(boxesDrawer.getMidPoint(size, boxedMorph.boxNo));
+            }
 
             GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
-            geneBoxStrip.setGenome(boxedMorphVector.getBoxedMorph(cols * rows / 2).getMorph().getGenome());
+            geneBoxStrip.setGenome(boxedMorphVector.getBoxedMorph(boxesDrawer.midBox).getMorph().getGenome());
             break;
         case mouse_clicked:
         	boxedMorphSpecial = boxedMorphVector.getBoxedMorph(special);
@@ -120,7 +118,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
         	boxedMorphVector.add(boxedMorphSpecial);
         	Point midPoint = boxesDrawer.getMidPoint(size, special);
         	boxedMorphSpecial.setPosition(midPoint);
-        	boxedMorphSpecial.setDestination(mids.elementAt(cols * rows / 2));
+        	boxedMorphSpecial.setDestination(mids.elementAt(boxesDrawer.midBox));
         	boxedMorphSpecial.setProgress(0.0d);
         	boxedMorphSpecial.setScaleWithProgress(false);
         	showBoxes = false;
@@ -129,17 +127,17 @@ public class BreedingPanel extends JPanel implements ActionListener {
         	break;
         case animate_mother:
         	boxedMorphSpecial.setPosition(mids.elementAt(special));
-        	boxedMorphSpecial.setDestination(mids.elementAt(cols * rows / 2));
+        	boxedMorphSpecial.setDestination(mids.elementAt(boxesDrawer.midBox));
         	boxedMorphSpecial.nudge();
         	if(boxedMorphSpecial.getProgress() == 1.0d)
         		phase = Phase.reactivate_grid;
         	break;
         case reactivate_grid:
         	timer.stop();
-        	boxedMorphSpecial.setPosition(mids.elementAt(rows * cols / 2));
         	boxedMorphSpecial.setDestination(null);
         	boxedMorphSpecial.setProgress(0.0d);
-        	boxedMorphSpecial.setBoxNo(rows * cols / 2);
+        	boxedMorphSpecial.setBoxNo(boxesDrawer.midBox);
+        	boxedMorphSpecial.setPosition(boxesDrawer.getMidPoint(size, boxesDrawer.midBox));
         	showBoxes = true;
         	vacantBoxNumber = 0;
         	phase = Phase.draw_out_offspring;
@@ -150,13 +148,13 @@ public class BreedingPanel extends JPanel implements ActionListener {
         		newestOffspring.nudge();
         		if(newestOffspring.getProgress() == 1.0d) {
         			newestOffspring.setPosition(newestOffspring.getDestination());
-        			newestOffspring.setProgress(0.0d);
         			newestOffspring.setDestination(null);
+        			newestOffspring.setProgress(0.0d);
         			newestOffspring = null;
         		}
         		break;
         	}
-           	if(vacantBoxNumber == rows * cols) {
+           	if(vacantBoxNumber == boxesDrawer.boxCount) {
         		phase = Phase.breed_complete;
         		timer.restart();
         		break;
@@ -172,7 +170,7 @@ public class BreedingPanel extends JPanel implements ActionListener {
 
            	vacantBoxNumber++;
         	// Skip center box number (already occupied by mother)
-           	if(vacantBoxNumber == rows * cols / 2)
+           	if(vacantBoxNumber == boxesDrawer.midBox)
         		  vacantBoxNumber++;
         	 
         	timer.restart();
