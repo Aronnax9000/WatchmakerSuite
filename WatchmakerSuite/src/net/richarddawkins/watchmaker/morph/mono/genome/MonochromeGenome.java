@@ -13,6 +13,7 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.IntegerGradientGene;
@@ -86,16 +87,17 @@ public class MonochromeGenome extends BiomorphGenome {
       dir += 8;
     if (dir >= 8)
       dir -= 8;
-    if (trickleGene < 1)
-      trickleGene = 1;
-    xnew = x + lgth * dx[dir] / trickleGene;
-    ynew = y + lgth * dy[dir] / trickleGene;
+    if (getTrickleGene() < 1)
+      setTrickleGene(1);
+    xnew = x + lgth * dx[dir] / getTrickleGene();
+    ynew = y + lgth * dy[dir] / getTrickleGene();
 
-
-    if (dGene[8] == SwellType.Shrink)
+    SwellType dGene8 = getDGene(8);
+    
+    if (dGene8 == SwellType.Shrink)
       thick = lgth;
-    else if (dGene[8] == SwellType.Swell)
-      thick = 1 + gene[8] - lgth;
+    else if (dGene8 == SwellType.Swell)
+      thick = 1 + getGene(8) - lgth;
     else
       thick = 1;
     pic.picLine(x, y, xnew, ynew, thick * Globals.myPenSize, Color.BLACK);
@@ -153,44 +155,45 @@ public class MonochromeGenome extends BiomorphGenome {
 	    Point here = new Point(0,0);
 	    plugIn(gene, dx, dy);
 	    pic.zeroPic(here);
-	    if (segNoGene < 1)
-	      segNoGene = 1;
-	    if (dGene[9] == SwellType.Swell)
+	    if (getSegNoGene() < 1)
+	      setSegNoGene(1);
+	    if (getDGene(9) == SwellType.Swell)
 	      extraDistance = trickleGene;
-	    else if (dGene[9] == SwellType.Shrink)
+	    else if (getDGene(9) == SwellType.Shrink)
 	      extraDistance = -trickleGene;
 	    else
 	      extraDistance = 0;
 
 	    running = gene.clone();
 	    incDistance = 0;
-	    for (int seg = 0; seg < segNoGene; seg++) {
+	    for (int seg = 0; seg < getSegNoGene(); seg++) {
 	      oddOne = seg % 2 == 1;
 	      if (seg > 0) {
 	        oldHere = (Point) here.clone();
-	        here.v += (segDistGene + incDistance) / trickleGene;
+	        here.v += (getSegDistGene() + incDistance) / getTrickleGene();
 	        incDistance += extraDistance;
 	        int thick;
-	        if (dGene[8] == SwellType.Shrink)
-	          thick = gene[8];
+	        if (getDGene(8) == SwellType.Shrink)
+	          thick = getGene(8);
 	        else
 	          thick = 1;
 	        pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
 	        for (int j = 0; j < 8; j++) {
-	          if (dGene[j] == SwellType.Swell)
-	            running[j] += trickleGene;
-	          else if (dGene[j] == SwellType.Shrink)
-	            running[j] -= trickleGene;
+	          if (getDGene(j) == SwellType.Swell)
+	            running[j] += getTrickleGene();
+	          else if (getDGene(j) == SwellType.Shrink)
+	            running[j] -= getTrickleGene();
 	        }
 	        if (running[8] < 1)
 	          running[8] = 1;
 	        plugIn(running, dx, dy);
 	      }
-	      sizeWorry = segNoGene * (1 << gene[8]);
+	      sizeWorry = getSegNoGene() * (1 << getGene(8));
 	      if (sizeWorry > Globals.worryMax)
-	        gene[8]--;
-	      if (gene[8] < 1)
-	        gene[8] = 1;
+	    	  BiomorphMutagen.decrementGene(this, 8);
+	        
+	      if (getGene(8) < 1)
+	        setGene(8, 1);
 	      tree(here.h, here.v, order, 2, dx, dy);
 	    }
 
@@ -241,34 +244,34 @@ public class MonochromeGenome extends BiomorphGenome {
     centre = (Point) here.clone();
     plugIn(gene, dx, dy);
     pic.zeroPic(here);
-    if (segNoGene < 1)
-      segNoGene = 1;
-    if (dGene[9] == SwellType.Swell)
-      extraDistance = trickleGene;
-    else if (dGene[9] == SwellType.Shrink)
-      extraDistance = -trickleGene;
+    if (getSegNoGene() < 1)
+      setSegNoGene(1);
+    if (getDGene(9) == SwellType.Swell)
+      extraDistance = getTrickleGene();
+    else if (getDGene(9) == SwellType.Shrink)
+      extraDistance = -getTrickleGene();
     else
       extraDistance = 0;
 
     running = gene.clone();
     incDistance = 0;
-    for (int seg = 0; seg < segNoGene; seg++) {
+    for (int seg = 0; seg < getSegNoGene(); seg++) {
       oddOne = seg % 2 == 1;
       if (seg > 0) {
         oldHere = (Point) here.clone();
-        here.v += (segDistGene + incDistance) / trickleGene;
+        here.v += (getSegDistGene() + incDistance) / getTrickleGene();
         incDistance += extraDistance;
         int thick;
-        if (dGene[8] == SwellType.Shrink)
-          thick = gene[8];
+        if (getDGene(8) == SwellType.Shrink)
+          thick = getGene(8);
         else
           thick = 1;
         pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
         for (int j = 0; j < 8; j++) {
-          if (dGene[j] == SwellType.Swell)
-            running[j] += trickleGene;
-          else if (dGene[j] == SwellType.Shrink)
-            running[j] -= trickleGene;
+          if (getDGene(j) == SwellType.Swell)
+            running[j] += getTrickleGene();
+          else if (getDGene(j) == SwellType.Shrink)
+            running[j] -= getTrickleGene();
         }
         if (running[8] < 1)
           running[8] = 1;
@@ -365,16 +368,6 @@ public class MonochromeGenome extends BiomorphGenome {
     makeGenes(Biomorph.TRICKLE, Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, Biomorph.TRICKLE,
         -Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
   }
-
-public void decrementMutProbGene() {
-	mutProbGene--;
-	
-}
-
-public void incrementMutProbGene() {
-	mutProbGene++;
-	
-}
 
 
 

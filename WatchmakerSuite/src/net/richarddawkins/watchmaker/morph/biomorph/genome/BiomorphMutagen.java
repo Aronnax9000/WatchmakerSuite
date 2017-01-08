@@ -151,6 +151,14 @@ public abstract class BiomorphMutagen
 		genome.setMutSizeGene(genome.getMutSizeGene() - 1);
 	}
 
+	static public void decrementMutProbGene(BiomorphGenome genome) {
+		genome.setMutProbGene(genome.getMutProbGene() - 1);
+	}
+
+	static public void incrementMutProbGene(BiomorphGenome genome) {
+		genome.setMutProbGene(genome.getMutProbGene() + 1);
+	}
+
 
 
 }

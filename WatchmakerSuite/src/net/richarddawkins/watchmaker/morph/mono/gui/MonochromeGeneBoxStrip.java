@@ -192,11 +192,11 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 15: // 16 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 				if (genome.getMutProbGene() > 1)
-					genome.decrementMutProbGene();
+					BiomorphMutagen.decrementMutProbGene(genome);
 
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
 				if (genome.getMutProbGene() < 100)
-					genome.incrementMutProbGene();
+					BiomorphMutagen.incrementMutProbGene(genome);
 			}
 			break;
 		default:
