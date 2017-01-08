@@ -2,9 +2,13 @@ package net.richarddawkins.watchmaker.resourceloader;
 
 import java.awt.image.BufferedImage;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClassicImage {
- private BufferedImage image;
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.resourceloader.ClassicImage");
+	
+	private BufferedImage image;
  String imageName;
  String description;
  String resourceType;
@@ -25,7 +29,7 @@ public class ClassicImage {
   	 advertisedWidth = Integer.parseInt(st.nextToken());
   	 advertisedHeight = Integer.parseInt(st.nextToken());
    } catch (Exception e) {
-     System.out.println("Error while loading image " + imageName);
+	   logger.log(Level.INFO, "Error while loading image " + imageName);
    }
 			 
  }

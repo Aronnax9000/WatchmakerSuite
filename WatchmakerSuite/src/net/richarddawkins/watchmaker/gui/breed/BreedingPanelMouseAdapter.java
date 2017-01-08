@@ -3,11 +3,16 @@ package net.richarddawkins.watchmaker.gui.breed;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.gui.breed.BreedingPanel.Phase;
 
 public class BreedingPanelMouseAdapter extends MouseAdapter {
 
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.breed.BreedingPanelMouseAdapter");
+	
+	
 	private BreedingPanel panel;
 	public BreedingPanelMouseAdapter(BreedingPanel panel) {
 		this.panel = panel;
@@ -22,7 +27,7 @@ public class BreedingPanelMouseAdapter extends MouseAdapter {
 		switch(panel.phase) {
 		case breed_complete:
 			  panel.special = panel.boxesDrawer.getBoxNoContainingPoint(myPt, panel.getSize());
-			  System.out.println("Mouse pressed in box " + panel.special);
+			  logger.log(Level.INFO, "Mouse pressed in box " + panel.special);
 			  panel.phase = Phase.mouse_clicked;
 			  panel.repaint();
 			  break;

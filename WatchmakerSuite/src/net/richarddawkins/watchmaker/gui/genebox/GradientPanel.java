@@ -52,15 +52,12 @@ public class GradientPanel extends JPanel {
 			
 			switch(genome.getDGene(dGeneIndex)) {
 			case Swell: 
-				System.out.println("Swell ");
 				g2.drawImage(BULLET, 0, (getSize().height - BULLET.getHeight())/2, null);
 				break;
 			case Shrink:
-				System.out.println("Shrink");
 				g2.drawImage(BULLET, 0, getSize().height - BULLET.getHeight(), null);
 				break;
 			default:
-				System.out.println("Same");
 			}
 		}
 			

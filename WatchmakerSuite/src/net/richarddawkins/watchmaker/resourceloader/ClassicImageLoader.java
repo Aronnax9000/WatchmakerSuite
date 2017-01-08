@@ -3,11 +3,14 @@ package net.richarddawkins.watchmaker.resourceloader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 
 public class ClassicImageLoader {
-
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader");
+	
   public static String[] imageNames = { 
       "BulletChar165_ALAN_0015_5x5",
       "AboutArthromorphs_PICT_00001_282x107",
@@ -118,7 +121,7 @@ public class ClassicImageLoader {
   // SnailOutline128ConeWhelkARGB_PICT_00128_113x171
   static {
     for (String imageName : imageNames) {
-//      System.out.println("Attempting to load image " + imageName);
+//      logger.log(Level.INFO, "Attempting to load image " + imageName);
       try {
         ClassicImage classicImage = new ClassicImage(
             ImageIO.read(ClassicImageLoader.class
@@ -135,11 +138,11 @@ public class ClassicImageLoader {
   public static void main(String[] args) {
     for (ClassicImage image : classicImages) {
       String res = image.getImage().getWidth() + "x" + image.getImage().getHeight();
-      System.out.println(image.description + " " + image.resolution + " " + res + " "
+      logger.log(Level.INFO, image.description + " " + image.resolution + " " + res + " "
           + res.equals(image.resolution));
       if (!res.equals(image.resolution))
-        System.out.println("************************ERROR!!!!");
+    	  logger.log(Level.WARNING, "Resolution doesn't match file name.");
     }
-    System.out.println("Vector size " + classicImages.size());
+    logger.log(Level.INFO, "Vector size " + classicImages.size());
   }
 }

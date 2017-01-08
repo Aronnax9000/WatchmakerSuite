@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JMenuBar;
 
@@ -13,7 +15,10 @@ import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 
 public abstract class SimpleMorph implements Morph {
-  Morph parent;
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
+
+	
+	Morph parent;
   Morph firstBorn;
   Morph lastBorn;
   Morph elderSib;
@@ -99,7 +104,7 @@ public abstract class SimpleMorph implements Morph {
 
 
   static void populateMenuBar(JMenuBar menuBar) {
-    System.out.println("Morph populateMenuBar");
+	  logger.log(Level.INFO, "Morph populateMenuBar");
   }
 
   public int mutSizeGene;

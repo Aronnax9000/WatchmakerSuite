@@ -1,6 +1,8 @@
 package net.richarddawkins.watchmaker.gui;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JMenuBar;
 import javax.swing.JTabbedPane;
@@ -14,6 +16,7 @@ import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
 
 public class WatchmakerTabbedPane extends JTabbedPane {
 	
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane");
 	
 	protected JMenuBar jMenuBar;
 
@@ -23,7 +26,7 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		super();
 		this.jMenuBar = jMenuBar;	
     	for (MorphType morphType : MorphType.values()) {
-    		System.out.println("Creating WatchmakerTabbedPane for " + morphType.toString());
+    		logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
     		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType); 
 	    	if(factory != null) {
 	    		try {
@@ -64,7 +67,7 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 	}
 
 	public void addMorphConfig(MorphConfig config) {
-		System.out.println("addMorphConfig " + config.getName());
+		logger.log(Level.INFO, "addMorphConfig " + config.getName());
 		config.setName(uniquify(config.getName()));
 		configs.add(config);
 		config.addDefaultMorphView();

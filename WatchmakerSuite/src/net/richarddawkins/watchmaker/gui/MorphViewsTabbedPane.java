@@ -1,6 +1,8 @@
 package net.richarddawkins.watchmaker.gui;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
@@ -9,6 +11,7 @@ import javax.swing.event.ChangeListener;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public class MorphViewsTabbedPane extends JTabbedPane {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane");
 
 	protected MorphConfig config;
 
@@ -42,7 +45,7 @@ public class MorphViewsTabbedPane extends JTabbedPane {
 	}
 	
 	public void addMorphView(MorphView view) {
-		System.out.println("addMorphView " + view.getName());
+		logger.log(Level.INFO, "addMorphView " + view.getName());
 		view.setName(uniquify(view.getName()));
 		morphViews.add(view);
 
