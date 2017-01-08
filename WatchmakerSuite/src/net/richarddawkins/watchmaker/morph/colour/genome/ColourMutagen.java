@@ -51,18 +51,18 @@ public class ColourMutagen extends BiomorphMutagen {
     boolean success = false;
     boolean[] mut = config.getMut();
     if (mut[6] && randInt(100) < target.getMutProbGene()) {
-      target.addToMutProbGene(direction9());
+      addToMutProbGene(target, direction9());
       success = true;
     }
     int mutProbGene = target.getMutProbGene();
     if (mut[12]) {
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProbGene) {
-          target.addToGene(j, direction((BiomorphGenome)genome));
+          addToGene(target, j, direction((BiomorphGenome)genome));
           success = true;
         }
       if (randInt(100) < mutProbGene) {
-        target.addToGene(8, direction9());
+    	addToGene(target, 8, direction9());
         success = true;
       }
 
@@ -93,7 +93,7 @@ public class ColourMutagen extends BiomorphMutagen {
       success = true;
     }
     if (mut[0] && randInt(100) < mutProbGene) {
-      target.addToSegNoGene(direction9());
+      addToSegNoGene(target, direction9());
       success = true;
     }
     if (mut[1] && target.getSegNoGene() > 1) {
@@ -105,7 +105,7 @@ public class ColourMutagen extends BiomorphMutagen {
       success = true;
     }
     if (mut[0] && target.getSegNoGene() > 1 && randInt(100) < mutProbGene) {
-      target.addToSegDistGene(direction9());
+      addToSegDistGene(target, direction9());
       success = true;
     }
     if (mut[2] && randInt(100) < mutProbGene / 2) {
@@ -128,11 +128,11 @@ public class ColourMutagen extends BiomorphMutagen {
       success = true;
     }
     if (mut[4] && randInt(100) < mutProbGene) {
-      target.addToTrickleGene(direction9());
+      addToTrickleGene(target, direction9());
       success = true;
     }
     if (mut[5] && randInt(100) < mutProbGene) {
-      target.addToMutSizeGene(direction9());
+      addToMutSizeGene(target, direction9());
       success = true;
     }
     return success;

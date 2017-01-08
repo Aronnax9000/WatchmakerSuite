@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public abstract class BiomorphGenome extends SimpleGenome {
 
@@ -54,7 +53,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	}
 
 	public void setDGene(SwellType[] dGene) {
-		
 		this.dGene = dGene;
 	}
 
@@ -114,19 +112,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.mutProbGene = mutProbGene;
 	}
 
-	/**
-	 * Add a quantity to the mutProbGene. If the the result is less than one, it
-	 * is set to one. If the result is greater than 100, it is set to 100.
-	 * @param summand the quantity to add to the MutProbGene.
-	 */
-	public void addToMutProbGene(int summand) {
-		int newValue = getMutProbGene() + summand;
-		if (newValue < 1)
-			newValue = 1;
-		if (newValue > 100)
-			newValue = 100;
-		setMutProbGene(newValue);
-	}
 
 	public int getGene9Max() {
 		return gene9Max;
@@ -134,23 +119,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 
 	public void setGene9Max(int max) {
 		gene9Max = max;
-	}
-
-	/**
-	 * Gene9 is not permitted to fall below 1, or rise above 8 (the default, for
-	 * Colour.) Monochrome sets 11 as the limit in its constructor.
-	 * @param index the index of the gene to be modified
-	 * @param summand the quantity to add to the gene.
-	 */
-	public void addToGene(int index, int summand) {
-		int newValue = getGene(index) + summand;
-		gene[index] += summand;
-		if (index == 8) {
-			if (gene[8] < 1)
-				gene[8] = 1;
-			else if (gene[8] > gene9Max)
-				gene[8] = gene9Max;
-		}
 	}
 
 	public void setGene(int index, int value) {
@@ -161,23 +129,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		return gene[index];
 	}
 
-	public void decrementSegNoGene() {
-		segNoGene--;
-	}
-
-	public void incrementSegNoGene() {
-		segNoGene++;
-
-	}
-
-	public void decrementGene(int i) {
-		gene[i]--;
-	}
-
-	public void incrementGene(int i) {
-		gene[i]++;
-	}
-
 	public SwellType getDGene(int i) {
 		return dGene[i];
 	}
@@ -185,74 +136,19 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	public void setDGene(int i, SwellType swellType) {
 		dGene[i] = swellType;
 	}
-
-	/** mutSizeGene is not allowed to fall below 1. 
-	 * @param summand the quantity to add to the MutSizeGene 
-	 */
-	public void addToMutSizeGene(int summand) {
-		mutSizeGene += summand;
-		if (mutSizeGene < 1)
-			mutSizeGene = 1;
-	}
-
-	/**
-	 * trickleGene is not allowed to fall below 1.
-	 * @param summand the quantity to add to the TrickleGene.
-	 */
-	public void addToTrickleGene(int summand) {
-		trickleGene += summand;
-		if (trickleGene < 1)
-			trickleGene = 1;
-
-	}
-
-	/**
-	 * Add to segNoGene provided that the product segNoGene * gene[Gene9]^2 &lt;
-	 * Globals.worryMax
-	 * @param summand the amount to add to the SegNoGene.
-	 */
-	public void addToSegNoGene(int summand) {
-		segNoGene += summand;
-		if (summand > 0) {
-			int sizeWorry = segNoGene * 1 << gene[8];
-			if (sizeWorry > Globals.worryMax)
-				segNoGene--;
-			if (segNoGene < 1)
-				segNoGene = 1;
-
-		}
-
-	}
-
-	public void addToSegDistGene(int summand) {
-		segDistGene += summand;
-	}
-
-	public void decrementTrickleGene() {
-		trickleGene--;
-	}
-
-	public void incrementTrickleGene() {
-		trickleGene++;
-	}
-
-	public void incrementMutSizeGene() {
-		mutSizeGene++;
-	}
-	public void decrementMutSizeGene() {
-		mutSizeGene--;
-	}
+	
 	public void copy(Genome person) {
 		BiomorphGenome child = (BiomorphGenome) person;
 		child.setGene(gene.clone());
 		child.setDGene(dGene.clone());
-		child.setSegNoGene(segNoGene);
-		child.setSegDistGene(segDistGene);
-		child.setCompletenessGene(completenessGene);
-		child.setSpokesGene(spokesGene);
-		child.setTrickleGene(trickleGene);
-		child.setMutSizeGene(mutSizeGene);
-		child.setMutProbGene(mutProbGene);
+		child.setSegNoGene(getSegNoGene());
+		child.setSegDistGene(getSegDistGene());
+		child.setCompletenessGene(getCompletenessGene());
+		child.setSpokesGene(getSpokesGene());
+		child.setTrickleGene(getTrickleGene());
+		child.setMutSizeGene(getMutSizeGene());
+		child.setMutProbGene(getMutProbGene());
 	}
+
 
 }

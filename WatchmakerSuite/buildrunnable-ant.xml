@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project WatchmakerSuite">
+<project default="all" name="Create Runnable Jar for Project WatchmakerSuite">
+	<target name="all">
+		<antcall target="create_run_jar"/>
+		<antcall target="javadoc"/>
+	</target>
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="/home/alan/workspace2"/>
+    <property name="dir.workspace" value=".."/>
     <property name="dir.jarfile" value="../docs/jars"/>
     <target name="create_run_jar">
         <jar destfile="${dir.jarfile}/WatchmakerSuite.jar" filesetmanifest="mergewithoutmain">
@@ -15,4 +19,11 @@
             <fileset dir="${dir.buildfile}/bin"/>
         </jar>
     </target>
+	<target name="javadoc">
+	        <javadoc access="protected" author="true" classpath="." 
+	        	destdir="../docs/javadoc" doctitle="Richard Dawkins' Watchmaker Suite Offical Java Port"
+	        	nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" 
+	        	packagenames="net.richarddawkins.watchmaker.morph.arthro,net.richarddawkins.watchmaker.morph.snail,net.richarddawkins.watchmaker.draw,net.richarddawkins.watchmaker.resourceloader,net.richarddawkins.watchmaker.morph.biomorph,net.richarddawkins.watchmaker.gui,net.richarddawkins.watchmaker.morph,net.richarddawkins.watchmaker.morph.util,net.richarddawkins.watchmaker.deities,net.richarddawkins.watchmaker.gui.engineer,net.richarddawkins.watchmaker.morph.simple,net.richarddawkins.watchmaker.gui.genebox,net.richarddawkins.watchmaker.morph.common.geom,net.richarddawkins.watchmaker.genome,net.richarddawkins.watchmaker.morph.mono,net.richarddawkins.watchmaker.morph.mono.genome,net.richarddawkins.watchmaker.gui.menu,net.richarddawkins.watchmaker.gui.breed,net.richarddawkins.watchmaker.morph.mono.gui,net.richarddawkins.watchmaker.morph.colour,net.richarddawkins.watchmaker.drawer,net.richarddawkins.watchmaker.morph.mono.geom" 
+	        	source="1.6" sourcepath="src:resources" splitindex="true" use="true" version="true"/>
+	</target>
 </project>

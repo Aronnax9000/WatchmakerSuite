@@ -23,24 +23,24 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
     boolean[] mut = target.getMorph().getMorphConfig().getMut();
     if (mut[6]) {
       if (randInt(100) < target.getMutProbGene()) {
-        target.addToMutProbGene(direction9());
+        BiomorphMutagen.addToMutProbGene(target, direction9());
         success = true;
       }
     }
     for (int j = 0; j < 8; j++) {
       if (randInt(100) < target.getMutProbGene()) {
-        target.addToGene(j, direction((BiomorphGenome) genome));
+        addToGene(target, j, direction((BiomorphGenome) genome));
         success = true;
       }
     }
     if (randInt(100) < target.getMutProbGene()) {
-      target.addToGene(8, direction9());
+      addToGene(target, 8, direction9());
       success = true;
     }
 
     if (mut[0] && randInt(100) < target.getMutProbGene()) {
       int j = direction9();
-      target.addToSegNoGene(j);
+      addToSegNoGene(target, j);
       success = true;
     }
     if (mut[1] && target.getSegNoGene() > 1) {
@@ -81,11 +81,11 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
       success = true;
     }
     if (mut[4] && randInt(100) < Math.abs(target.getMutProbGene())) {
-      target.addToTrickleGene(direction9());
+      addToTrickleGene(target, direction9());
       success = true;
     }
     if (mut[5] && randInt(100) < Math.abs(target.getMutProbGene())) {
-      target.addToMutSizeGene(direction9());
+      addToMutSizeGene(target, direction9());
       success = true;
     }
     return success;

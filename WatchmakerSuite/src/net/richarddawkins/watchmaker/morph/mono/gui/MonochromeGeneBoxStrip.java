@@ -8,6 +8,8 @@ import net.richarddawkins.watchmaker.gui.MorphView;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
 import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
@@ -102,9 +104,9 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 6: // 7 in Pascal
 		case 7: // 8 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				genome.addToGene(geneBoxNo, -genome.getMutSizeGene());
+				BiomorphMutagen.addToGene(genome, geneBoxNo, -genome.getMutSizeGene());
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				genome.addToGene(geneBoxNo, genome.getMutSizeGene());
+				BiomorphMutagen.addToGene(genome, geneBoxNo, genome.getMutSizeGene());
 			} else if (cursor.equals(WatchmakerCursors.upArrow)) {
 				genome.setDGene(geneBoxNo, SwellType.Swell);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
@@ -115,11 +117,11 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			break;
 		case 8: // 9 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				genome.decrementGene(geneBoxNo);
+				BiomorphMutagen.decrementGene(genome, geneBoxNo);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
 				long sizeWorry = (long) ((genome.getSegNoGene() + 1) * Math.pow(2, genome.getGene(8)));
 				if (sizeWorry <= Globals.worryMax)
-					genome.incrementGene(geneBoxNo);
+					BiomorphMutagen.incrementGene(genome, geneBoxNo);
 			} else if (cursor.equals(WatchmakerCursors.upArrow)) {
 				genome.setDGene(geneBoxNo, SwellType.Swell);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
@@ -130,11 +132,11 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			break;
 		case 9: // 10 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				genome.decrementSegNoGene();
+				BiomorphMutagen.decrementSegNoGene(genome);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
 				long sizeWorry = (long) ((genome.getSegNoGene() + 1) * Math.pow(2, genome.getGene(8)));
 				if (sizeWorry <= Globals.worryMax) {
-					genome.incrementSegNoGene();
+					BiomorphMutagen.incrementSegNoGene(genome);
 				}
 			}
 			break;
@@ -170,20 +172,20 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 13: // 14 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 				if (genome.getTrickleGene() > 0)
-					genome.decrementTrickleGene();
+					BiomorphMutagen.decrementTrickleGene((BiomorphGenome) genome);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
 				genome.setSpokesGene(SpokesType.NSouth);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				genome.incrementTrickleGene();
+				BiomorphMutagen.incrementTrickleGene(genome);
 			}
 			break;
 		case 14: // 15 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 
 				if (genome.getMutSizeGene() > 1)
-					genome.decrementMutSizeGene();
+					BiomorphMutagen.decrementMutSizeGene(genome);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				genome.incrementMutSizeGene();
+				BiomorphMutagen.incrementMutSizeGene(genome);
 
 			}
 			break;
