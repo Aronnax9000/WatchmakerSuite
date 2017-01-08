@@ -24,7 +24,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  * <pre>
  * GodPtr = ^God;
  * GodHandle = ^GodPtr;
- * <a target="fpdoc_window" href="../../../../../fpdocs/Monochrome/unit_globals/god.html">God</a> = RECORD
+ * God = RECORD
  *     Adam: FullHandle;
  *     PreviousGod, NextGod: GodHandle;
  * END; 
@@ -34,7 +34,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  * <p>It is safe to ignore the "Crashes compiler" based on
  * Richard Dawkins email of Mon, Jan 5, 2015 at 5:54 AM:</p>
  * <blockquote>
- *  I don’t know why I wrote those notes about “crashes compiler”. They all 
+ *  I don't know why I wrote those notes about "crashes compiler". They all 
  *  compiled well on System 9. I can only think that I must have made an attempt at 
  *  resuscitating them after a delay, perhaps on that intermediate category of Macs that 
  *  could run both System 10 and a version of System 9.
