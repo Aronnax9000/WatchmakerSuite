@@ -149,9 +149,9 @@ public class ColourPic extends SimplePic {
   /**
    * Pic already contains its own origin, meaning the coordinates at which it was originally drawn.
    * Now draw it at Place
-   * 
-   * @param place
-   * @param biomorph
+   * @param g2 the Graphics2D context to draw on.
+   * @param place Where to place the biomorph.
+   * @param morph the biomorph to be drawn.
    */
 
   public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {

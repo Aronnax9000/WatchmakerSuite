@@ -59,7 +59,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * File (Load to Album..., Load as Fossils..., Save Biomorph..., Save
 	 * Fossils..., Save Album..., Close Album, Quit)
 	 * 
-	 * @return
+	 * @return the new File menu.
 	 */
 	public JMenu buildFileMenu() {
 		JMenu menu = new JMenu("File");
@@ -77,7 +77,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * * Edit (Undo | Cut, Copy, Paste, Clear | Highlight Biomorph, Add Biomorph
 	 * to Album, Show Album)
 	 * 
-	 * @return
+	 * @return the new Edit menu
 	 */
 	public JMenu buildEditMenu() {
 		JMenu menu = new JMenu("Edit");
@@ -99,7 +99,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * Fossil Record, Play Back Fossils, Recording Fossils, Triangle, Array)
 	 * (Note: Array is not in Mono)
 	 * 
-	 * @return
+	 * @return the new Operation menu
 	 */
 	public JMenu buildOperationMenu() {
 		JMenu menu = new JMenu("Operation");
@@ -119,6 +119,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * View (More Rows, Fewer Rows, More Columns, Fewer Columns, Change View,
 	 * Drift Sweep, Make top of triangle) Make left of triangle, Make right of
 	 * triangle, View Pedigree)
+	 * @return the new View menu
 	 */
 	public JMenu buildViewMenu() {
 		JMenu menu = new JMenu("Edit");
@@ -140,7 +141,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * Brachiopod, Cone, Whelk, Scallop, Eloise, Gallagher's, Rapa, Lightning,
 	 * Sundial, Fig, Tun, Razor Shell, Japanese Wonder)
 	 * 
-	 * @return
+	 * @return the new Animal menu
 	 */
 	public JMenu buildAnimalMenu() {
 		JMenu menu = new JMenu("Animal");
@@ -170,7 +171,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * Pedigree (Start Pedigree | Draw Out Offspring , No Mirrors, Single Mirror
 	 * , Double Mirrors | Move, Detach, Kill)
 	 * 
-	 * @return
+	 * @return the new Pedigree menu
 	 */
 	public JMenu buildPedigreeMenu() {
 		JMenu menu = new JMenu("Pedigree");
@@ -191,7 +192,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	/**
 	 * Help (Help with current operation , Miscellaneous Help)
 	 * 
-	 * @return
+	 * @return the new Help menu.
 	 */
 	public JMenu buildHelpMenu() {
 		JMenu menu = new JMenu("Help");

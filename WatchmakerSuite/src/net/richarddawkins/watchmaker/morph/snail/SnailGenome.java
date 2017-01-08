@@ -108,6 +108,7 @@ public class SnailGenome extends SimpleGenome implements Cloneable {
 
   /**
    * DDisplacement is not allowed to be less than zero or greater than 1.
+   * @param summand the quantity to add to DDisplacement.
    */
   public void addToDDisplacement(double summand) {
     dDisplacement += summand;

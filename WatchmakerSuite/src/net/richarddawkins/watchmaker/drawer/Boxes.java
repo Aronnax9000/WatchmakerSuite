@@ -20,6 +20,11 @@ public class Boxes  {
 	public final int boxCount;
 	public final int midBox;
 
+	/**
+	 * Construct a cols * rows array of boxes.
+	 * @param cols the number of columns in the box array.
+	 * @param rows the number of rows in the box array.
+	 */
 	public Boxes(int cols, int rows) {
 		this.cols = cols;
 		this.rows = rows;
@@ -27,6 +32,12 @@ public class Boxes  {
 		this.midBox = boxCount / 2;	
 	}
 	
+	/**
+	 * Find the box within the array containing a particular point.
+	 * @param p the point to locate within one of the particular boxes
+	 * @param d the size of the overall array of boxes, in pixels.
+	 * @return the box number containing the given point.
+	 */
 	public int getBoxNoContainingPoint(Point p, Dimension d) {
 		int boxIndex = 0;
 		for(Rectangle box: getBoxes(d)) {
@@ -42,8 +53,8 @@ public class Boxes  {
 	 * return the size of one (any) box. The returned box width is the dimension
 	 * width divided by the number of columns, and the height is the dimension height
 	 * divided by the number of rows.
-	 * @param dimension
-	 * @return
+	 * @param dimension the size of the overall array of boxes, in pixels
+	 * @return the size of an individual box within the array.
 	 */
 	public Dimension getBoxSize(Dimension dimension) {
 		return new Dimension(dimension.width / cols, dimension.height / rows);
@@ -53,8 +64,8 @@ public class Boxes  {
 	 * For the given dimension of the entire array of boxes,
 	 * return a vector of Rectangles describing the corners of
 	 * each box, in row-major order.
-	 * @param dimension
-	 * @return
+	 * @param dimension the size of the overall array of boxes, in pixels.
+	 * @return a Vector of Rectangles representing individual boxes, in row-major order.
 	 */
 	public Vector<Rectangle> getBoxes(Dimension dimension)
 	{
@@ -74,9 +85,9 @@ public class Boxes  {
 	/**
 	 * Given supplied dimension of the entire array of boxes,
 	 * return the midpoint of the nth box (starting with n = 0).
-	 * @param dimension
-	 * @param boxNo
-	 * @return
+	 * @param dimension the dimensions of the overall array of boxes.
+	 * @param boxNo the number of the box to retrieve (row major order)
+	 * @return the midpoint of the nth Box.
 	 */
 	public Point getMidPoint(Dimension dimension, int boxNo) {
 		int col = boxNo % cols;
@@ -93,8 +104,8 @@ public class Boxes  {
 	 * For the given dimension of the entire array of boxes,
 	 * return a vector of Points describing the midpoints of
 	 * each box, in row-major order.
-	 * @param dimension
-	 * @return
+	 * @param dimension the dimension of the entire array of boxes, in pixels
+	 * @return a Vector of box midpoints, in row-major order.
 	 */
 	public Vector<Point> getMidPoints(Dimension dimension) {
 		
@@ -114,7 +125,11 @@ public class Boxes  {
 		return midPoints;
 	}
 	
-
+	/**
+	 * Draw boxes on a Graphics2D context.
+	 * @param g the Graphics2D on which drawing is to take place.
+	 * @param dimension the size of the overall grid of boxes.
+	 */
 	public void draw(Graphics2D g, Dimension dimension) {
 		g.setColor(Color.BLACK);
 		int boxIndex = 0;

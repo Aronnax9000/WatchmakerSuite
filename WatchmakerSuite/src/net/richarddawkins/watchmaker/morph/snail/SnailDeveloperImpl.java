@@ -290,7 +290,18 @@ public class SnailDeveloperImpl {
     lin.endPt.h = thisPic.origin.h + (int) Math.round(theScale * (lin.endPt.h - thisPic.origin.h));
   }
 
-  /** Originally (in Pascal) a nested procedure within drawPic. */
+  /**
+   * Originally (in Pascal) a nested procedure within drawPic.
+   * @param g2 graphics context to draw on
+   * @param thisPic the pic to draw
+   * @param lin 
+   * @param theScale
+   * @param place
+   * @param threshold
+   * @param biomorph
+   * @param jLinIndex
+   * @param jThreshold
+   */
   public void actualLine(Graphics2D g2, Pic thisPic, Lin lin, 
       double theScale, 
       Point place, 

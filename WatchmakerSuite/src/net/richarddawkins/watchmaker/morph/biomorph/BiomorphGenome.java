@@ -119,6 +119,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	/**
 	 * Add a quantity to the mutProbGene. If the the result is less than one, it
 	 * is set to one. If the result is greater than 100, it is set to 100.
+	 * @param summand the quantity to add to the MutProbGene.
 	 */
 	public void addToMutProbGene(int summand) {
 		mutProbGene += summand;
@@ -139,6 +140,8 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	/**
 	 * Gene9 is not permitted to fall below 1, or rise above 8 (the default, for
 	 * Colour.) Monochrome sets 11 as the limit in its constructor.
+	 * @param index the index of the gene to be modified
+	 * @param summand the quantity to add to the gene.
 	 */
 	public void addToGene(int index, int summand) {
 		gene[index] += summand;
@@ -183,7 +186,9 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		dGene[i] = swellType;
 	}
 
-	/** mutSizeGene is not allowed to fall below 1. */
+	/** mutSizeGene is not allowed to fall below 1. 
+	 * @param summand the quantity to add to the MutSizeGene 
+	 */
 	public void addToMutSizeGene(int summand) {
 		mutSizeGene += summand;
 		if (mutSizeGene < 1)
@@ -192,6 +197,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 
 	/**
 	 * trickleGene is not allowed to fall below 1.
+	 * @param summand the quantity to add to the TrickleGene.
 	 */
 	public void addToTrickleGene(int summand) {
 		trickleGene += summand;
@@ -201,8 +207,9 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	}
 
 	/**
-	 * Add to segNoGene provided that the product segNoGene * gene[Gene9]^2 <
+	 * Add to segNoGene provided that the product segNoGene * gene[Gene9]^2 &lt;
 	 * Globals.worryMax
+	 * @param summand the amount to add to the SegNoGene.
 	 */
 	public void addToSegNoGene(int summand) {
 		segNoGene += summand;

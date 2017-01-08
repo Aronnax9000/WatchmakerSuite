@@ -10,7 +10,9 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 /**
  * <h1>Pic</h1>
+ * <p>
  * A Pic represents an ordered list of drawing primitives, generally lines (the class Lin)
+ * </p>
  * <h2>Original sources</h2>
  * <h3>Monochrome WatchMaker/Globals (253:259)</h3>
  * <pre>
@@ -22,7 +24,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  *   PicPerson: person
  *   END;
  * </pre>
- * <h3>Colour Watchmaker/Common_Exhibition.p (280:286)</h2>
+ * <h3>Colour Watchmaker/Common_Exhibition.p (280:286)</h3>
  * <pre>
  * 	Pic = record
  * 	 BasePtr: Ptr;
@@ -32,7 +34,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  * 	 PicPerson: person
  * 	end;
  * </pre>
- * <h3>Snails/Globals (280:286)</h2>
+ * <h3>Snails/Globals (280:286)</h3>
  * <pre>
  * 	Pic = RECORD
  *   BasePtr: Ptr;

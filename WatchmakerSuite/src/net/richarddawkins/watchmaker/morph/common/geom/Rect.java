@@ -33,10 +33,10 @@ public class Rect {
    * Construct a new Rect with specified left, top, right, and bottom. This is the same order of
    * parameters with which Quickdraw Rects are initialized using SetRect.
    * 
-   * @param left
-   * @param top
-   * @param right
-   * @param bottom
+   * @param left left edge of the rectangle.
+   * @param top top edge of the rectangle.
+   * @param right right edge of the rectangle.
+   * @param bottom bottom edge of the rectangle.
    */
   public Rect(int left, int top, int right, int bottom) {
     this.left = left;
@@ -48,7 +48,7 @@ public class Rect {
   /**
    * Create a Rect object with the same origin and dimensions as a Java Rectangle.
    * 
-   * @param rectangle
+   * @param rectangle a Java Rectangle to be duplicated as a Rect.
    */
   public Rect(Rectangle rectangle) {
     this.left = rectangle.x;
@@ -61,7 +61,8 @@ public class Rect {
   /**
    * Expand this rectangle where necessary so that it encompasses the given rectangle.
    * 
-   * @param r
+   * @param r the rectangle to be union'ed with this one.
+   * @return the union'ed rectangle
    */
   public Rect unionRect(Rect r) {
     this.left = Math.min(left, r.left);
@@ -82,7 +83,7 @@ public class Rect {
   /**
    * Create a Java Rectangle with the equivalent origin and dimensions of this Rect.
    * 
-   * @return
+   * @return a Java Rectangle with the equivalent origin and dimensions of this Rect.
    */
   public Rectangle toRectangle() {
     return new Rectangle(left, top, right - left, bottom - top);

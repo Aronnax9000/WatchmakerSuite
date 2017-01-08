@@ -39,11 +39,6 @@ import net.richarddawkins.watchmaker.morph.Morph;
  *  resuscitating them after a delay, perhaps on that intermediate category of Macs that 
  *  could run both System 10 and a version of System 9.
  * </blockquote>
- * Source directory: <a href="../../../../../Dawkins/Monochrome WatchMaker/">/Source codes ƒ/Monochrome Watchnaker (Crashes compiler)</a>: July 26, 1990 to April 10, 1996
- * <pre>
- * Size    Modification Time   Name      Notes
- * 9763    Oct 13 10:15 Globals <a target="source_window" href="../../../../../Dawkins/Monochrome WatchMaker/Globals">Globals</a>
- * </pre>
  * 
  * @author alan
  *

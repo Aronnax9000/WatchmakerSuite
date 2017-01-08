@@ -129,13 +129,12 @@ public class Atom implements Cloneable {
 
   /**
    * Recursively traverse tree of atoms to calculate the total number of atoms in the tree.
-   * <h2>Original Pascal Source
-   * <h2>
+   * <h2>Original Pascal Source</h2>
    * <p>
    * In Classic Arthromorphs, the NextLikeMe field for AnimalTrunk was used to store the gradient
    * gene. In the Java version, gradient is separately tracked in the Arthromorph class. For this
-   * reason, the "kind <> AnimalTrunk" check is not needed.
-   * 
+   * reason, the "kind != AnimalTrunk" check is not needed.
+   * </p>
    * <pre>
    * 	function CountAtoms (which: integer): integer;
    * 	{travel over the Animal, counting Atoms}
@@ -145,17 +144,16 @@ public class Atom implements Cloneable {
    * 		count := 1;	{count me}
    * 		with BoneYard[which]^^ do
    * 			begin
-   * 				if FirstBelowMe <> 0 then
+   * 				if FirstBelowMe &lt;&gt; 0 then
    * 					count := count + CountAtoms(FirstBelowMe);
-   * 				if (NextLikeMe <> 0) and (kind <> AnimalTrunk) then
+   * 				if (NextLikeMe &lt;&gt; 0) and (kind &lt;&gt; AnimalTrunk) then
    * 					count := count + CountAtoms(NextLikeMe);
    * 			end;
    * 		CountAtoms := count;	{Me and all below me}
    * 	end;
    * </pre>
    * 
-   * @param aa
-   * @return
+   * @return the number of atoms in the tree.
    */
   public int countAtoms() {
     return this.toVector().size();
@@ -257,6 +255,7 @@ public class Atom implements Cloneable {
    * </pre>
    * <p>
    * Also fail if trying to delete last example of a Kind
+   * @return whether the delete succeeded.
    * </p>
    */
   public boolean doDelete() {
@@ -295,21 +294,21 @@ public class Atom implements Cloneable {
   /**
    * The original implmentation could change the value of the variable parameter called ySeg. This
    * implementation can't do that, so it returns the new value of ySeg.
-   * <h2>Original documentation</h2> Starting at the atom 'which', multiply its numbers into the
-   * array of params. <br />
-   * At the bottom, draw the part starting at x,y <br />
-   * params accumulates the final Joint width, Claw angle, etc. <br />
+   * <h2>Original documentation</h2> 
+   * <p>Starting at the atom 'which', multiply its numbers into the
+   * array of params.<br>
+   * At the bottom, draw the part starting at x,y<br>
+   * params accumulates the final Joint width, Claw angle, etc.<br>
    * params: 1 Seg height, 2 Seg width, 3 (not used), 4 Joint thickness, 5 Joint length, 6 Joint
-   * angle, 7 Claw thickness, 8 Claw length, 9 Claw angle between pincers <br />
+   * angle, 7 Claw thickness, 8 Claw length, 9 Claw angle between pincers<br>
    * x,y are current local point, xCenter is the centerline of the animal (left and right Joints
-   * need this) <br />
+   * need this)</p>
    * 
    * @param params
    * @param x
    * @param y
    * @param xCenter
-   * @return
-   * @throws ArthromorphGradientExceeds1000Exception
+   * @throws ArthromorphGradientExceeds1000Exception if the cumulative gradient exceeds 1000.
    */
   public void draw(Graphics2D g2, double[] params, int x, int y, int xCenter, int ySeg)
       throws ArthromorphGradientExceeds1000Exception {

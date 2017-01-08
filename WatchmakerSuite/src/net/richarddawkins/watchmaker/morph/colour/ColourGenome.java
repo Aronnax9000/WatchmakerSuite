@@ -343,6 +343,7 @@ public class ColourGenome extends BiomorphGenome {
 
   /**
    * Doesn't allow thicknessGene to fall below 1.
+   * @param summand the quantity to add to the ThicknessGene
    */
   public void addToThicknessGene(int summand) {
     thicknessGene += summand;

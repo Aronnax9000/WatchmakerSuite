@@ -89,7 +89,8 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 	}
 	/**
      * Pedigree (Display pedigree | Draw Out Offspring , No mirrors, 
-     *   Single Mirror , Double Mirrors | Move, Detach, Kill)	 * @return
+     *   Single Mirror , Double Mirrors | Move, Detach, Kill)	 
+     * @return the Pedigree menu
 	 */
 	public JMenu buildPedigreeMenu() {
 		JMenu menu = new JMenu("Pedigree");
@@ -173,7 +174,7 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 	/**
      * File (Load to Album..., Load as Fossils..., Save Biomorph...,
      *   Save Fossils..., Save Album..., Close Album, Quit)
-	 * 
+	 * @return the new File Menu
 	 */
 	public JMenu buildFileMenu() {
 		JMenu menu = new JMenu("File");
@@ -186,7 +187,11 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		
 		return menu;
 	}
-	
+
+	/**
+	 * Build mutations menu
+	 * @return the new Mutations menu
+	 */
 	public JMenu buildMutationsMenu() {
 		JMenu menu = new JMenu("Mutations");
 		menu.add(segmentation);
@@ -200,6 +205,7 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		return menu;
 		
 	}
+	
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		// TODO Auto-generated method stub

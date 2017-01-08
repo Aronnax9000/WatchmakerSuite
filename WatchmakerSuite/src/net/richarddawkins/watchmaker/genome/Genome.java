@@ -13,8 +13,9 @@ public interface Genome {
 	
 	/**
 	 * Attempt to mutate the genome represented by this Person.
-	 * 
-	 * @return true if the mutation was successful.
+	 * @param g2 the Graphics2D context upon which drawing is to take place
+	 * @param d the dimension of the box within which drawing is to take place
+	 * @param zeroMargin whether to zero the margins of the bounding box.
 	 */
 
 	void develop(Graphics2D g2, Dimension d, boolean zeroMargin);

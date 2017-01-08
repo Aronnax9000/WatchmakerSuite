@@ -188,7 +188,9 @@ extends SimpleGenome {
 	/**
 	 * An example of how to call Draw for an animal
 	 * @param g2 a Graphics2D drawing context. May be null (for dry runs, calculating poles)
-	 * @throws ArthromorphGradientExceeds1000Exception 
+	 * @param x the x coordinate where the animal is to be drawn.
+	 * @param y the y coordinate where the animal is to be drawn.
+	 * @throws ArthromorphGradientExceeds1000Exception if the gradient exceeds 1000.
 	 */
 	public void drawAnimal(Graphics2D g2, int x, int y) throws ArthromorphGradientExceeds1000Exception { // procedure DrawAnimal (BoxNo, x, y: integer);
 		double[] params = new double[9];

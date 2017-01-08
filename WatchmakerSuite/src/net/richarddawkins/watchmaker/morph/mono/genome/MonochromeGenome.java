@@ -143,7 +143,8 @@ public class MonochromeGenome extends BiomorphGenome {
 
   
   /**
-   * <h2>Margins</h2 The original Pascal Develop procedure adjusts the margin in this order.
+   * <h2>Margins</h2>
+   * <p>The original Pascal Develop procedure adjusts the margin in this order.</p>
    * <ul>
    * <li>At the top of the Develop routine, where, if ZeroMargin is specified, the margin is
    * initialized to an infinitesimal rectangle centered on the point where drawing is to take place;
@@ -159,8 +160,9 @@ public class MonochromeGenome extends BiomorphGenome {
    * 
    * </li>
    * </ul>
-   * 
+   * <p>
    * Instead of DelayedDrawing, just pass in null if you don't want a call to Drawpic at the end.
+   * </p>
    */
   public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
     Pic pic = morph.getPic();
