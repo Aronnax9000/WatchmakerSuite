@@ -10,7 +10,9 @@ net.richarddawkins.watchmaker.gui.menu
 net.richarddawkins.watchmaker.morph
 net.richarddawkins.watchmaker.morph.arthro
 net.richarddawkins.watchmaker.morph.biomorph
+net.richarddawkins.watchmaker.morph.biomorph.genome
 net.richarddawkins.watchmaker.morph.colour
+net.richarddawkins.watchmaker.morph.colour.genome
 net.richarddawkins.watchmaker.morph.common.geom
 net.richarddawkins.watchmaker.morph.mono
 net.richarddawkins.watchmaker.morph.mono.genome
