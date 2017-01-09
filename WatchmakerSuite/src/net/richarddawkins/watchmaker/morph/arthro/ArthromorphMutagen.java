@@ -132,7 +132,7 @@ public class ArthromorphMutagen implements Mutagen {
         // TODO Auto-generated catch block
         e.printStackTrace();
       } // Aren't pick atoms in this Animal
-
+    
     // Decide what to do
     int change = randInt(7); // seven basic operations
     // 1 twiddle Height, 2 twiddle Width, 3 twiddle Angle, 4 Duplicate entire subtree, 5 Delete
@@ -319,7 +319,7 @@ public class ArthromorphMutagen implements Mutagen {
   }
 
 @Override
-public void setMorphConfig(MorphConfig morphConfig) {
+public void setMorphConfig(MorphConfig config) {
 	this.config = (ArthromorphConfig) config;
 	
 }

@@ -15,26 +15,37 @@ public class AtomPrinter {
     switch (atom.kind) {
     case AnimalTrunk:
       kind = "AnimalTrunk";
+      break;
     case AnimalJoint:
       kind = "    AnimalJoint";
+      break;
     case AnimalClaw:
       kind = "    AnimalClaw";
+      break;
     case SectionTrunk:
       kind = "        SectionTrunk";
+      break;
     case SectionJoint:
       kind = "            SectionJoint";
+      break;
     case SectionClaw:
       kind = "            SectionClaw";
+      break;
     case SegmentTrunk:
       kind = "                SegmentTrunk " + ++segmentCounter;
+      break;
     case SegmentJoint:
       kind = "                    SegmentJoint";
+      break;
     case SegmentClaw:
       kind = "                    SegmentClaw";
+      break;
     case Joint:
       kind = "                        Joint";
+      break;
     case Claw:
       kind = "                        Claw";
+      break;
     default:
       break;
     }

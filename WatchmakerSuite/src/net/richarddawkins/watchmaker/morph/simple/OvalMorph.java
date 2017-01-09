@@ -3,8 +3,6 @@ package net.richarddawkins.watchmaker.morph.simple;
 import static net.richarddawkins.watchmaker.morph.util.Random.nextBoolean;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Random;
 import java.util.Vector;
@@ -16,7 +14,6 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
-import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 public class OvalMorph extends SimpleMorph implements Morph {
     public void setGenome(Genome genome) {
 		this.genome = (OvalMorphGenome) genome;
@@ -63,131 +60,24 @@ public class OvalMorph extends SimpleMorph implements Morph {
 		}
 		return this;
 	}
-
+	protected OvalMorphConfig config;
 	@Override
 	public void setMorphConfig(MorphConfig config) {
-		// TODO Auto-generated method stub
+		this.config = (OvalMorphConfig) config;
 		
 	}
 
 	@Override
 	public MorphConfig getMorphConfig() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Morph getParent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getOffspringCount(boolean deep) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setParent(Morph parent) {
-		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public Morph getFirstBorn() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setFirstBorn(Morph firstBorn) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Morph getLastBorn() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setLastBorn(Morph lastBorn) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Morph getElderSib() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setElderSib(Morph elderSib) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Morph getYoungerSib() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setYoungerSib(Morph youngerSib) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Morph getPrec() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setPrec(Morph prec) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Morph getNext() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setNext(Morph next) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setPic(Pic pic) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Pic getPic() {
-		// TODO Auto-generated method stub
-		return null;
+		return config;
 	}
 
 	@Override
 	public Genome getGenome() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return genome;
 	}
 
-	@Override
-	public void draw(Graphics2D g2, Dimension size, boolean midBox) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

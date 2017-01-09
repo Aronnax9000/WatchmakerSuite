@@ -173,7 +173,7 @@ public class ColourGenome extends BiomorphGenome {
     running = gene.clone();
     incDistance = 0;
     for (int seg = 0; seg < segNoGene; seg++) {
-      oddOne = seg % 2 == 1;
+      oddOne = (seg & 1) == 1;
       if (seg > 0) {
         oldHere = (Point) here.clone();
         here.v += (segDistGene + incDistance) / trickleGene;

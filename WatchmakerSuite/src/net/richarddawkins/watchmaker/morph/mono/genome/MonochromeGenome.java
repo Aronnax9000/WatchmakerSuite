@@ -167,7 +167,7 @@ public class MonochromeGenome extends BiomorphGenome {
 	    running = gene.clone();
 	    incDistance = 0;
 	    for (int seg = 0; seg < getSegNoGene(); seg++) {
-	      oddOne = seg % 2 == 1;
+	      oddOne = (seg & 1) == 1;
 	      if (seg > 0) {
 	        oldHere = (Point) here.clone();
 	        here.v += (getSegDistGene() + incDistance) / getTrickleGene();
@@ -234,7 +234,7 @@ public class MonochromeGenome extends BiomorphGenome {
     int incDistance;
     Point here = new Point(d.width / 2, d.height / 2);
     
-    Globals.clipBoarding = false;
+    Globals.setClipBoarding(false);
     if (zeroMargin) {
       pic.margin.left = here.h;
       pic.margin.right = here.h;
@@ -256,7 +256,7 @@ public class MonochromeGenome extends BiomorphGenome {
     running = gene.clone();
     incDistance = 0;
     for (int seg = 0; seg < getSegNoGene(); seg++) {
-      oddOne = seg % 2 == 1;
+      oddOne = (seg & 1) == 1;
       if (seg > 0) {
         oldHere = (Point) here.clone();
         here.v += (getSegDistGene() + incDistance) / getTrickleGene();

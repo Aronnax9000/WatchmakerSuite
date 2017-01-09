@@ -97,7 +97,7 @@ public class Atom implements Cloneable {
     this.firstBelowMe = firstBelowMe;
   }
 
-  AtomKind kind;
+  AtomKind kind = AtomKind.Free;
   /**
    * Original documentation: Also used for Thickness of a Joint
    */

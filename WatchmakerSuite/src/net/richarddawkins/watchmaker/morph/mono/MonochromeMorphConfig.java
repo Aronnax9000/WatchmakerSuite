@@ -16,7 +16,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 
 	protected MonochromeMutagen mutagen;
-	protected MenuBuilder menuBuilder;
+
 
 	public Mutagen getMutagen() {
 		return mutagen;

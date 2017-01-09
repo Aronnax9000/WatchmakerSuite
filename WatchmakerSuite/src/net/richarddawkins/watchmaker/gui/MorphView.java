@@ -15,6 +15,9 @@ public abstract class MorphView extends JPanel {
 	MorphConfig config;
 	
     public MorphConfig getMorphConfig() { return config; }
+	public void setMorphConfig(MorphConfig config) { 
+		this.config = config; 
+	}
 	
 	private static final long serialVersionUID = 5555392236002752598L;
 	protected Icon icon;

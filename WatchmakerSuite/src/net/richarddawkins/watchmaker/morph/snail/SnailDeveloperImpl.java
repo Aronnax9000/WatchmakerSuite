@@ -175,7 +175,7 @@ public class SnailDeveloperImpl {
       s = theShell.getsShape();
       t = theShell.gettTranslation();
       rad = 100;
-      twoPi = 2 * 3.14159;
+      twoPi = 2 * Math.PI;
       mny = Math.round(-(100 / denom) * where.v * 1.088);
       mnx = Math.round(-(100 / denom) * where.h * 1.088);
       rad1 = 1.088 * (rad + rad * d) / 2;
@@ -356,7 +356,7 @@ public class SnailDeveloperImpl {
     Rect rectOfInterest = new Rect();
     BufferedImage strangePictureImage = strangePicture.getImage();
     rectOfInterest.setRect(0, 0, strangePictureImage.getWidth(), strangePictureImage.getHeight());
-    if(rectOfInterest.getWidth() % 2 == 1) // odd width 
+    if((rectOfInterest.getWidth() & 1) == 1) // odd width 
       rectOfInterest.right++;
 //  ClipRect(rectOfInterest);
 //  SetPortBits(MugShot);
