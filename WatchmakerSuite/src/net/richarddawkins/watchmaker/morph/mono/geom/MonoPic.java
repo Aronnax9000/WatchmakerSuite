@@ -12,12 +12,12 @@ import net.richarddawkins.watchmaker.draw.MoveTo;
 import net.richarddawkins.watchmaker.draw.PenSize;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
-import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
-import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public class MonoPic extends SimplePic {

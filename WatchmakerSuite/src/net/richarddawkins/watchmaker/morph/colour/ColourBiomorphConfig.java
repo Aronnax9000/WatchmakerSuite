@@ -5,6 +5,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.BiomorphConfig;
+import net.richarddawkins.watchmaker.morph.colour.genome.ColourMutagen;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 

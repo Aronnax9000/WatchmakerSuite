@@ -7,6 +7,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
 import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
 
 public class ColourGeneBoxStrip extends SimpleGeneBoxStrip {
 	  
@@ -34,7 +35,7 @@ public class ColourGeneBoxStrip extends SimpleGeneBoxStrip {
 	    constraints.weightx = 1;
 	    constraints.gridy = 0;
 	    for(int i = 0; i < numberOfGeneBoxes; i++) {
-	      GeneBox geneBox = new GeneBox(this, i, i < 9);
+	      GeneBox geneBox = new GeneBox(this, i, i < 9, false);
 	      constraints.gridx = i;
 	      this.add(geneBox, constraints);
 	    }

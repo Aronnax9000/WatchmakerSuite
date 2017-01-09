@@ -8,10 +8,10 @@ import net.richarddawkins.watchmaker.gui.MorphView;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
 import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
-import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
@@ -35,14 +35,12 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 7: // 8 in Pascal - ABC
 		case 8: // 9 in Pascal - ABC
 			geneBox.setValueLabelValue(genome.getGene(geneBoxIndex));
-
 			break;
 		case 9: // 10 in Pascal - ABC
 			geneBox.setValueLabelValue(genome.getSegNoGene());
 			break;
 		case 10: // 11 in Pascal - ABC
 			geneBox.setValueLabelValue(genome.getSegDistGene());
-
 			break;
 		case 11: // 12 in Pascal - ABC
 			geneBox.setCompleteness(genome.getCompletenessGene());
@@ -77,7 +75,10 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		constraints.weightx = 1;
 		constraints.gridy = 0;
 		for (int i = 0; i < numberOfGeneBoxes; i++) {
-			GeneBox geneBox = new GeneBox(this, i, i < 9);
+			boolean showPositive = false;
+			if(i == 9 || i == 10 || i == 13 || i == 14 || i == 15)
+				showPositive = true;
+			GeneBox geneBox = new GeneBox(this, i, i < 9, showPositive);
 			constraints.gridx = i;
 			this.add(geneBox, constraints);
 		}

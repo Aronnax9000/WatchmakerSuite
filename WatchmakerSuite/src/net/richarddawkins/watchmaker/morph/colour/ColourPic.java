@@ -10,11 +10,14 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
+import net.richarddawkins.watchmaker.morph.colour.genome.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.genome.LimbType;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
-import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
 
 public class ColourPic extends SimplePic {
   public ColourPic() {
@@ -75,7 +78,7 @@ public class ColourPic extends SimplePic {
    * @param colorIndex
    * @return
    */
-  static Color chooseColor(int colorIndex) {
+  public static Color chooseColor(int colorIndex) {
     return rgbColorPalette[colorIndex];
   }
 

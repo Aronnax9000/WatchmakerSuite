@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.colour;
+package net.richarddawkins.watchmaker.morph.colour.genome;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,12 +8,13 @@ import java.awt.Rectangle;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morph.biomorph.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
+import net.richarddawkins.watchmaker.morph.colour.ColourPic;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 

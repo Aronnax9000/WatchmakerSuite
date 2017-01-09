@@ -11,14 +11,15 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class GeneBox extends JPanel {
 	private static final long serialVersionUID = 1L;
+
 
 	protected boolean hasCompleteness = false;
 	protected boolean hasSpokes = false;
@@ -38,7 +39,14 @@ public class GeneBox extends JPanel {
 
 	public static int GenesHeight = 20;
 
+	protected boolean showPositiveSign = false;
+	public boolean isShowPositiveSign() {
+		return showPositiveSign;
+	}
 
+	public void setShowPositiveSign(boolean showPositiveSign) {
+		this.showPositiveSign = showPositiveSign;
+	}
 	
 	/**
 	 * 
@@ -131,13 +139,14 @@ public class GeneBox extends JPanel {
 	}
 
 	public void setValueLabelValue(int value) {
-		valueLabel.setText(new Integer(value).toString());
+		valueLabel.setText((value > 0 && showPositiveSign ? "+" : "") + new Integer(value).toString());
 	}
 
-	public GeneBox(GeneBoxStrip geneBoxStrip, int dGeneIndex, boolean hasSwell) {
+	public GeneBox(GeneBoxStrip geneBoxStrip, int dGeneIndex, boolean hasSwell, boolean showPositive) {
 		this.geneBoxStrip = geneBoxStrip;
 		this.hasSwell = hasSwell;
 		this.geneBoxNo = dGeneIndex;
+		this.showPositiveSign = showPositive;
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		this.setLayout(new BorderLayout());
 		if (hasSwell) {

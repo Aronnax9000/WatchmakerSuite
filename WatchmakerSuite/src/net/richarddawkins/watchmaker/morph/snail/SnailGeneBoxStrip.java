@@ -34,7 +34,7 @@ public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
 	    constraints.weightx = 1;
 	    constraints.gridy = 0;
 	    for(int i = 0; i < numberOfGeneBoxes; i++) {
-	      GeneBox geneBox = new GeneBox(this, i, i < 9);
+	      GeneBox geneBox = new GeneBox(this, i, i < 9, false);
 	      constraints.gridx = i;
 	      this.add(geneBox, constraints);
 	    }

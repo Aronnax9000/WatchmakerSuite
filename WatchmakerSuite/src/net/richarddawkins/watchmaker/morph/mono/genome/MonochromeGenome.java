@@ -5,18 +5,73 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morph.biomorph.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessGene;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.IntegerGradientGene;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesGene;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 
 public class MonochromeGenome extends BiomorphGenome {
+	
+  protected Gene[] theGenes = new Gene[16];
+  
+  protected Gene gene1 = new IntegerGradientGene();
+  protected Gene gene2 = new IntegerGradientGene();
+  protected Gene gene3 = new IntegerGradientGene();
+  protected Gene gene4 = new IntegerGradientGene();
+  protected Gene gene5 = new IntegerGradientGene();
+  protected Gene gene6 = new IntegerGradientGene();
+  protected Gene gene7 = new IntegerGradientGene();
+  protected Gene gene8 = new IntegerGradientGene();
+  protected Gene gene9 = new IntegerGradientGene();
+  protected Gene newSegNoGene = new IntegerGene();
+  protected Gene newSegDistGene = new IntegerGradientGene();
+  protected Gene newCompletenessGene = new CompletenessGene();
+  protected Gene newSpokesGene = new SpokesGene();
+  protected Gene newTrickleGene = new IntegerGene();
+  protected Gene newMutSizeGene = new IntegerGene();
+  protected Gene newMutProbGene = new IntegerGene();
+
+  
+  
+  {
+	  theGenes[0] = gene1;
+	  theGenes[1] = gene2;
+	  theGenes[2] = gene3;
+	  theGenes[3] = gene4;
+	  theGenes[4] = gene5;
+	  theGenes[5] = gene6;
+	  theGenes[6] = gene7;
+	  theGenes[7] = gene8;
+	  theGenes[8] = gene9;
+	  theGenes[9] = newSegNoGene;
+	  theGenes[10] = newSegDistGene;
+	  theGenes[11] = newCompletenessGene;
+	  theGenes[12] = newSpokesGene;
+	  theGenes[13] = newTrickleGene;
+	  theGenes[14] = newMutSizeGene;
+	  theGenes[15] = newMutProbGene;
+	  
+	  for(int i = 0; i < theGenes.length; i++)
+		  	theGenes[i].setGenome(this);
+  }
+  
+  public MonochromeGenome() {
+	  
+  }
 
   public MonochromeGenome(Morph morph) {
     setMorph(morph);

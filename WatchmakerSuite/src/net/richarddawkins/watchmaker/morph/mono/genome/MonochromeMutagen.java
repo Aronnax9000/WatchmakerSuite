@@ -5,8 +5,10 @@ import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
-import net.richarddawkins.watchmaker.morph.biomorph.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.biomorph.BiomorphMutagen;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 
 public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {

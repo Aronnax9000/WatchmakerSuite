@@ -1,10 +1,7 @@
-package net.richarddawkins.watchmaker.morph.biomorph;
+package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.morph.mono.genome.CompletenessType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SpokesType;
-import net.richarddawkins.watchmaker.morph.mono.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public abstract class BiomorphGenome extends SimpleGenome {
@@ -52,11 +49,12 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.gene = gene;
 	}
 
-	public SwellType[] getdGene() {
+	public SwellType[] getDGene() {
 		return dGene;
 	}
 
-	public void setdGene(SwellType[] dGene) {
+	public void setDGene(SwellType[] dGene) {
+		
 		this.dGene = dGene;
 	}
 
@@ -122,11 +120,12 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	 * @param summand the quantity to add to the MutProbGene.
 	 */
 	public void addToMutProbGene(int summand) {
-		mutProbGene += summand;
-		if (mutProbGene < 1)
-			mutProbGene = 1;
-		if (mutProbGene > 100)
-			mutProbGene = 100;
+		int newValue = getMutProbGene() + summand;
+		if (newValue < 1)
+			newValue = 1;
+		if (newValue > 100)
+			newValue = 100;
+		setMutProbGene(newValue);
 	}
 
 	public int getGene9Max() {
@@ -144,6 +143,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	 * @param summand the quantity to add to the gene.
 	 */
 	public void addToGene(int index, int summand) {
+		int newValue = getGene(index) + summand;
 		gene[index] += summand;
 		if (index == 8) {
 			if (gene[8] < 1)
@@ -245,7 +245,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	public void copy(Genome person) {
 		BiomorphGenome child = (BiomorphGenome) person;
 		child.setGene(gene.clone());
-		child.setdGene(dGene.clone());
+		child.setDGene(dGene.clone());
 		child.setSegNoGene(segNoGene);
 		child.setSegDistGene(segDistGene);
 		child.setCompletenessGene(completenessGene);
