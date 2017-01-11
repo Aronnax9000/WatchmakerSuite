@@ -247,6 +247,7 @@ public class ColourGenome extends BiomorphGenome {
     trickleGene = Biomorph.TRICKLE;
     mutSizeGene.setValue(Biomorph.TRICKLE / 2);
     mutProbGene.setValue(10);
+    // Foo
     gene[0] = a;
     gene[1] = b;
     gene[2] = c;
