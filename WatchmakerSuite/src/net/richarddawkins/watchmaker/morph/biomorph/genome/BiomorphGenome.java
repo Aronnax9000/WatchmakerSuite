@@ -15,6 +15,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	protected int segDistGene;
 	protected CompletenessGene completenessGene = new CompletenessGene();
 	protected SpokesGene spokesGene = new SpokesGene();
+	// You're next, trickleGene!
 	protected int trickleGene;
 	protected IntegerGene mutSizeGene = new IntegerGene();
 	protected IntegerGene mutProbGene = new IntegerGene();
