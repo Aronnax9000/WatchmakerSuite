@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
@@ -24,7 +25,7 @@ public abstract class BiomorphMutagen
 
 
 	static public int direction(BiomorphGenome genome) {
-		int mutSizeGene = genome.getMutSizeGene();
+		int mutSizeGene = genome.getMutSizeGene().getValue();
 		if(randInt(2) == 2) {
 			return mutSizeGene;
 		} else {
@@ -43,12 +44,13 @@ public abstract class BiomorphMutagen
 	 * @param summand the quantity to add to the MutProbGene.
 	 */
 	static public void addToMutProbGene(BiomorphGenome genome, int summand) {
-		int newValue = genome.getMutProbGene() + summand;
+		IntegerGene mutProbGene = genome.getMutProbGene();
+		int newValue = mutProbGene.getValue() + summand;
 		if (newValue < 1)
 			newValue = 1;
 		if (newValue > 100)
 			newValue = 100;
-		genome.setMutProbGene(newValue);
+		mutProbGene.setValue(newValue);
 	}
 
 	/**
@@ -91,11 +93,12 @@ public abstract class BiomorphMutagen
 	 * @param summand the quantity to add to the MutSizeGene 
 	 */
 	static public void addToMutSizeGene(BiomorphGenome genome, int summand) {
-		int newValue = genome.getMutSizeGene() + summand;
+		IntegerGene mutSizeGene = genome.getMutSizeGene();
+		int newValue = mutSizeGene.getValue() + summand;
 		
 		if (newValue < 1)
 			newValue = 1;
-		genome.setMutSizeGene(newValue);
+		mutSizeGene.setValue(newValue);
 	}
 
 	/**
@@ -145,18 +148,18 @@ public abstract class BiomorphMutagen
 	}
 
 	static public void incrementMutSizeGene(BiomorphGenome genome) {
-		genome.setMutSizeGene(genome.getMutSizeGene() + 1);
+		genome.getMutSizeGene().setValue(genome.getMutSizeGene().getValue() + 1);
 	}
 	static public void decrementMutSizeGene(BiomorphGenome genome) {
-		genome.setMutSizeGene(genome.getMutSizeGene() - 1);
+		genome.getMutSizeGene().setValue(genome.getMutSizeGene().getValue() - 1);
 	}
 
 	static public void decrementMutProbGene(BiomorphGenome genome) {
-		genome.setMutProbGene(genome.getMutProbGene() - 1);
+		genome.getMutSizeGene().setValue(genome.getMutProbGene().getValue() - 1);
 	}
 
 	static public void incrementMutProbGene(BiomorphGenome genome) {
-		genome.setMutProbGene(genome.getMutProbGene() + 1);
+		genome.getMutSizeGene().setValue(genome.getMutProbGene().getValue() + 1);
 	}
 
 

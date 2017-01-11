@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 
 public abstract class BiomorphGenome extends SimpleGenome {
@@ -15,8 +16,8 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	protected CompletenessGene completenessGene = new CompletenessGene();
 	protected SpokesGene spokesGene = new SpokesGene();
 	protected int trickleGene;
-	protected int mutSizeGene;
-	protected int mutProbGene;
+	protected IntegerGene mutSizeGene = new IntegerGene();
+	protected IntegerGene mutProbGene = new IntegerGene();
 
 	abstract public void basicTree();
 
@@ -96,19 +97,19 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.trickleGene = trickleGene;
 	}
 
-	public int getMutSizeGene() {
+	public IntegerGene getMutSizeGene() {
 		return mutSizeGene;
 	}
 
-	public void setMutSizeGene(int mutSizeGene) {
+	public void setMutSizeGene(IntegerGene mutSizeGene) {
 		this.mutSizeGene = mutSizeGene;
 	}
 
-	public int getMutProbGene() {
+	public IntegerGene getMutProbGene() {
 		return mutProbGene;
 	}
 
-	public void setMutProbGene(int mutProbGene) {
+	public void setMutProbGene(IntegerGene mutProbGene) {
 		this.mutProbGene = mutProbGene;
 	}
 
@@ -147,7 +148,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		child.getSpokesGene().setValue(getSpokesGene().getValue());
 		child.setTrickleGene(getTrickleGene());
 		child.setMutSizeGene(getMutSizeGene());
-		child.setMutProbGene(getMutProbGene());
+		child.getMutProbGene().setValue(getMutProbGene().getValue());
 	}
 
 

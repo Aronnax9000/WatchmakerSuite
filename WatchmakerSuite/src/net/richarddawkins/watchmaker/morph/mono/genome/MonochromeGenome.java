@@ -331,8 +331,8 @@ public class MonochromeGenome extends BiomorphGenome {
     completenessGene.setValue(CompletenessType.Double);
     spokesGene.setValue(SpokesType.NorthOnly);
     trickleGene = Biomorph.TRICKLE;
-    mutSizeGene = Biomorph.TRICKLE / 2;
-    mutProbGene = 10;
+    mutSizeGene.setValue(Biomorph.TRICKLE / 2);
+    mutProbGene.setValue(10);
     gene[0] = a;
     gene[1] = b;
     gene[2] = c;

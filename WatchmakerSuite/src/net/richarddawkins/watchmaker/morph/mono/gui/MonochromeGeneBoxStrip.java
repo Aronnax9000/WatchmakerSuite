@@ -54,10 +54,10 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			geneBox.setValueLabelValue(genome.getTrickleGene());
 			break;
 		case 14: // 15 in Pascal - ABC
-			geneBox.setValueLabelValue(genome.getMutSizeGene());
+			geneBox.setValueLabelValue(genome.getMutSizeGene().getValue());
 			break;
 		case 15: // 16 in Pascal - ABC
-			geneBox.setValueLabelValue(genome.getMutProbGene());
+			geneBox.setValueLabelValue(genome.getMutProbGene().getValue());
 			break;
 		}
 		this.repaint();
@@ -104,9 +104,9 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 6: // 7 in Pascal
 		case 7: // 8 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				BiomorphMutagen.addToGene(genome, geneBoxNo, -genome.getMutSizeGene());
+				BiomorphMutagen.addToGene(genome, geneBoxNo, -genome.getMutSizeGene().getValue());
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				BiomorphMutagen.addToGene(genome, geneBoxNo, genome.getMutSizeGene());
+				BiomorphMutagen.addToGene(genome, geneBoxNo, genome.getMutSizeGene().getValue());
 			} else if (cursor.equals(WatchmakerCursors.upArrow)) {
 				genome.setDGene(geneBoxNo, SwellType.Swell);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
@@ -182,7 +182,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 14: // 15 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 
-				if (genome.getMutSizeGene() > 1)
+				if (genome.getMutSizeGene().getValue() > 1)
 					BiomorphMutagen.decrementMutSizeGene(genome);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
 				BiomorphMutagen.incrementMutSizeGene(genome);
@@ -191,11 +191,11 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			break;
 		case 15: // 16 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				if (genome.getMutProbGene() > 1)
+				if (genome.getMutProbGene().getValue() > 1)
 					BiomorphMutagen.decrementMutProbGene(genome);
 
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				if (genome.getMutProbGene() < 100)
+				if (genome.getMutProbGene().getValue() < 100)
 					BiomorphMutagen.incrementMutProbGene(genome);
 			}
 			break;
