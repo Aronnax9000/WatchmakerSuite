@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.deities;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 /**
- * <h1>net.richarddawkins.watchmaker.morphs.<strong>God</strong></h1>
  * <p>
  * Gods can be arranged as nodes in a double linked list, that is to say,
  * they can hold references to an ordered pair of other Gods, called
