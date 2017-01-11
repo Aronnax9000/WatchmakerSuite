@@ -202,7 +202,9 @@ public class ColourGenome extends BiomorphGenome {
     }
     upExtent = centre.v - pic.margin.top;
     downExtent = pic.margin.bottom - centre.v;
-    if (spokesGene == SpokesType.NSouth || spokesGene == SpokesType.Radial
+    
+    if (spokesGene.getValue() == SpokesType.NSouth 
+    		|| spokesGene.getValue() == SpokesType.Radial
         || Globals.theMode == ModeType.Engineering) {
       // {Obscurely necessary to cope with erasing last rect in
       // Manipulation}
@@ -212,7 +214,7 @@ public class ColourGenome extends BiomorphGenome {
         pic.margin.top = centre.v - downExtent;
       }
     }
-    if (spokesGene == SpokesType.Radial) {
+    if (spokesGene.getValue() == SpokesType.Radial) {
       wid = pic.margin.right - pic.margin.left;
       ht = pic.margin.bottom - pic.margin.top;
       if (wid > ht) {
@@ -240,8 +242,8 @@ public class ColourGenome extends BiomorphGenome {
     }
     segNoGene = 1;
     segDistGene = 1;
-    completenessGene = CompletenessType.Double;
-    spokesGene = SpokesType.NorthOnly;
+    completenessGene.setValue(CompletenessType.Double);
+    spokesGene.setValue(SpokesType.NorthOnly);
     trickleGene = Biomorph.TRICKLE;
     mutSizeGene = Biomorph.TRICKLE / 2;
     mutProbGene = 10;

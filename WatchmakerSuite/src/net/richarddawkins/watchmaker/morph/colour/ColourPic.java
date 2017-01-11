@@ -164,9 +164,9 @@ public class ColourPic extends SimplePic {
     g2.fillRect(0, 0, d.width, d.height);
     PicStyleType picStyle;
     picStyle = PicStyleType.FF; // To correct initialisation bug, due to call in Update
-    switch (genome.getCompletenessGene()) {
+    switch (genome.getCompletenessGene().getValue()) {
     case Single:
-      switch (genome.getSpokesGene()) {
+      switch (genome.getSpokesGene().getValue()) {
       case NorthOnly:
         picStyle = PicStyleType.LF;
         break;
@@ -179,7 +179,7 @@ public class ColourPic extends SimplePic {
       }
       break;
     case Double:
-      switch (genome.getSpokesGene()) {
+      switch (genome.getSpokesGene().getValue()) {
       case NorthOnly:
         picStyle = PicStyleType.FF;
         break;
@@ -201,8 +201,8 @@ public class ColourPic extends SimplePic {
       // sometimes rangecheck error
       actualLine(g2, picStyle, Compass.NorthSouth, line, place, (ColourBiomorph) morph, mid2,
           belly2);
-      if (genome.getSpokesGene() == SpokesType.Radial) {
-        if (genome.getCompletenessGene() == CompletenessType.Single)
+      if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
+        if (genome.getCompletenessGene().getValue() == CompletenessType.Single)
           actualLine(g2, PicStyleType.RUD, Compass.EastWest, (Lin) line, place,
               (ColourBiomorph) morph, mid2, belly2);
         else

@@ -66,9 +66,9 @@ public class MonoPic extends SimplePic {
 
 	    // To correct initialisation bug, due to call in DoUpdate
 	    PicStyleType picStyle = PicStyleType.FF;
-	    switch (genome.getCompletenessGene()) {
+	    switch (genome.getCompletenessGene().getValue()) {
 	    case Single: {
-	      switch (genome.getSpokesGene()) {
+	      switch (genome.getSpokesGene().getValue()) {
 	      case NorthOnly:
 	        picStyle = PicStyleType.LF;
 	        break;
@@ -82,7 +82,7 @@ public class MonoPic extends SimplePic {
 	      break;
 	    }
 	    case Double:
-	      switch (genome.getSpokesGene()) {
+	      switch (genome.getSpokesGene().getValue()) {
 	      case NorthOnly: {
 	        picStyle = PicStyleType.FF;
 	        break;
@@ -102,8 +102,9 @@ public class MonoPic extends SimplePic {
 	    for (Lin line : lines) {
 	      actualLine(g2, line, place, picStyle, Compass.NorthSouth);
 	      // sometimes rangecheck error
-	      if (genome.getSpokesGene() == SpokesType.Radial) {
-	        if (genome.getCompletenessGene() == CompletenessType.Single) {
+	      
+	      if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
+	        if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
 	          actualLine(g2, line, place, PicStyleType.RUD, Compass.EastWest);
 	        } else {
 	          actualLine(g2, line, place, picStyle, Compass.EastWest);
@@ -261,9 +262,9 @@ public class MonoPic extends SimplePic {
 	MonochromeGenome genome = (MonochromeGenome) theGenome;
     // To correct initialisation bug, due to call in DoUpdate
     PicStyleType picStyle = PicStyleType.FF;
-    switch (genome.getCompletenessGene()) {
+    switch (genome.getCompletenessGene().getValue()) {
     case Single: {
-      switch (genome.getSpokesGene()) {
+      switch (genome.getSpokesGene().getValue()) {
       case NorthOnly:
         picStyle = PicStyleType.LF;
         break;
@@ -277,7 +278,7 @@ public class MonoPic extends SimplePic {
       break;
     }
     case Double:
-      switch (genome.getSpokesGene()) {
+      switch (genome.getSpokesGene().getValue()) {
       case NorthOnly: {
         picStyle = PicStyleType.FF;
         break;
@@ -297,8 +298,8 @@ public class MonoPic extends SimplePic {
     for (Lin line : lines) {
       generatePrimitivesActualLine(primitives, line, place, picStyle, Compass.NorthSouth);
       // sometimes rangecheck error
-      if (genome.getSpokesGene() == SpokesType.Radial) {
-        if (genome.getCompletenessGene() == CompletenessType.Single) {
+      if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
+        if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
         	generatePrimitivesActualLine(primitives, line, place, PicStyleType.RUD, Compass.EastWest);
         } else {
         	generatePrimitivesActualLine(primitives, line, place, picStyle, Compass.EastWest);

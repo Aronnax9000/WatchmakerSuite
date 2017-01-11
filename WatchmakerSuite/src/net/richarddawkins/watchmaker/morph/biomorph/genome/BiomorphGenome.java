@@ -12,8 +12,8 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	protected SwellType[] dGene = new SwellType[10];
 	protected int segNoGene;
 	protected int segDistGene;
-	protected CompletenessType completenessGene;
-	protected SpokesType spokesGene;
+	protected CompletenessGene completenessGene = new CompletenessGene();
+	protected SpokesGene spokesGene = new SpokesGene();
 	protected int trickleGene;
 	protected int mutSizeGene;
 	protected int mutProbGene;
@@ -72,19 +72,19 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.segDistGene = segDistGene;
 	}
 
-	public CompletenessType getCompletenessGene() {
+	public CompletenessGene getCompletenessGene() {
 		return completenessGene;
 	}
 
-	public void setCompletenessGene(CompletenessType completenessGene) {
+	public void setCompletenessGene(CompletenessGene completenessGene) {
 		this.completenessGene = completenessGene;
 	}
 
-	public SpokesType getSpokesGene() {
+	public SpokesGene getSpokesGene() {
 		return spokesGene;
 	}
 
-	public void setSpokesGene(SpokesType spokesGene) {
+	public void setSpokesGene(SpokesGene spokesGene) {
 		this.spokesGene = spokesGene;
 	}
 
@@ -143,8 +143,8 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		child.setDGene(dGene.clone());
 		child.setSegNoGene(getSegNoGene());
 		child.setSegDistGene(getSegDistGene());
-		child.setCompletenessGene(getCompletenessGene());
-		child.setSpokesGene(getSpokesGene());
+		child.getCompletenessGene().setValue(getCompletenessGene().getValue());
+		child.getSpokesGene().setValue(getSpokesGene().getValue());
 		child.setTrickleGene(getTrickleGene());
 		child.setMutSizeGene(getMutSizeGene());
 		child.setMutProbGene(getMutProbGene());

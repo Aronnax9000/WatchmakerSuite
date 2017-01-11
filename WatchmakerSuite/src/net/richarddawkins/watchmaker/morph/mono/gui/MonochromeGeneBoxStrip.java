@@ -45,10 +45,10 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			geneBox.setValueLabelValue(genome.getSegDistGene());
 			break;
 		case 11: // 12 in Pascal - ABC
-			geneBox.setCompleteness(genome.getCompletenessGene());
+			geneBox.setCompleteness(genome.getCompletenessGene().getValue());
 			break;
 		case 12: // 13 in Pascal - ABC
-			geneBox.setSpokes(genome.getSpokesGene());
+			geneBox.setSpokes(genome.getSpokesGene().getValue());
 			break;
 		case 13: // 14 in Pascal - ABC
 			geneBox.setValueLabelValue(genome.getTrickleGene());
@@ -155,18 +155,18 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			break;
 		case 11: // 12 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				genome.setCompletenessGene(CompletenessType.Single);
+				genome.getCompletenessGene().setValue(CompletenessType.Single);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				genome.setCompletenessGene(CompletenessType.Double);
+				genome.getCompletenessGene().setValue(CompletenessType.Double);
 			}
 			break;
 		case 12: // 13 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				genome.setSpokesGene(SpokesType.NorthOnly);
+				genome.getSpokesGene().setValue(SpokesType.NorthOnly);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
-				genome.setSpokesGene(SpokesType.NSouth);
+				genome.getSpokesGene().setValue(SpokesType.NSouth);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				genome.setSpokesGene(SpokesType.Radial);
+				genome.getSpokesGene().setValue(SpokesType.Radial);
 			}
 			break;
 		case 13: // 14 in Pascal
@@ -174,7 +174,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 				if (genome.getTrickleGene() > 0)
 					BiomorphMutagen.decrementTrickleGene((BiomorphGenome) genome);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
-				genome.setSpokesGene(SpokesType.NSouth);
+				genome.getSpokesGene().setValue(SpokesType.NSouth);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
 				BiomorphMutagen.incrementTrickleGene(genome);
 			}

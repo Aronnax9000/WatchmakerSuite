@@ -7,7 +7,9 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 
@@ -63,20 +65,22 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
       success = true;
     }
     if (mut[2] && randInt(100) < target.getMutProbGene() / 2) {
-      target.setCompletenessGene(target.getCompletenessGene() == CompletenessType.Single
+    	CompletenessGene completenessGene = target.getCompletenessGene();
+      completenessGene.setValue(completenessGene.getValue() == CompletenessType.Single
           ? CompletenessType.Double : CompletenessType.Single);
       success = true;
     }
     if (mut[3] && randInt(100) < target.getMutProbGene() / 2) {
-      switch (target.getSpokesGene()) {
+    	SpokesGene spokesGene = target.getSpokesGene();
+      switch (spokesGene.getValue()) {
       case NorthOnly:
-        target.setSpokesGene(SpokesType.NSouth);
+    	  spokesGene.setValue(SpokesType.NSouth);
         break;
       case NSouth:
-        target.setSpokesGene(direction9() == 1 ? SpokesType.Radial : SpokesType.NorthOnly);
+    	  spokesGene.setValue(direction9() == 1 ? SpokesType.Radial : SpokesType.NorthOnly);
         break;
       case Radial:
-        target.setSpokesGene(SpokesType.NSouth);
+    	  spokesGene.setValue(SpokesType.NSouth);
       }
       success = true;
     }

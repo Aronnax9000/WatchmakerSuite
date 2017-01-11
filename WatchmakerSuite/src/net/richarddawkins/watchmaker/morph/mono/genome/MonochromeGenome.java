@@ -291,7 +291,7 @@ public class MonochromeGenome extends BiomorphGenome {
 
     int upExtent = centre.v - pic.margin.top; // can be zero if biomorph goes down
     int downExtent = pic.margin.bottom - centre.v;
-    if (spokesGene == SpokesType.NSouth || spokesGene == SpokesType.Radial
+    if (spokesGene.getValue() == SpokesType.NSouth || spokesGene.getValue() == SpokesType.Radial
         || Globals.theMode == ModeType.Engineering) {
       // Obscurely necessary to cope with erasing last Rect in Manipulation}
       if (upExtent > downExtent)
@@ -299,7 +299,7 @@ public class MonochromeGenome extends BiomorphGenome {
       else
         pic.margin.top = centre.v - downExtent;
     }
-    if (spokesGene == SpokesType.Radial) {
+    if (spokesGene.getValue() == SpokesType.Radial) {
       int wid = pic.margin.right - pic.margin.left;
       int ht = pic.margin.bottom - pic.margin.top;
       if (wid > ht) {
@@ -328,8 +328,8 @@ public class MonochromeGenome extends BiomorphGenome {
     }
     segNoGene = 1;
     segDistGene = 150;
-    completenessGene = CompletenessType.Double;
-    spokesGene = SpokesType.NorthOnly;
+    completenessGene.setValue(CompletenessType.Double);
+    spokesGene.setValue(SpokesType.NorthOnly);
     trickleGene = Biomorph.TRICKLE;
     mutSizeGene = Biomorph.TRICKLE / 2;
     mutProbGene = 10;
@@ -356,7 +356,7 @@ public class MonochromeGenome extends BiomorphGenome {
     makeGenes(-10, -20, -20, -15, -15, 0, 15, 15, 7);
     segNoGene = 2;
     segDistGene = 150;
-    completenessGene = CompletenessType.Single;
+    completenessGene.setValue(CompletenessType.Single);
     dGene[3] = SwellType.Shrink;
     dGene[4] = SwellType.Shrink;
     dGene[5] = SwellType.Shrink;
