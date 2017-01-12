@@ -14,11 +14,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  * His definition, in Pascal, is this (GodPtr and GodHandle,
  * which are "pointer types", necessary in Pascal to handle
  * varying numbers of objects at runtime, a number unknown
- * until the program actually runs.
- * </p>
- * <p>
- * Links are to the generated documentation for the Pascal 2nd Edition
- * of Watchmaker.
+ * until the program actually runs.)
  * </p>
  * <pre>
  * GodPtr = ^God;
