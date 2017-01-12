@@ -4,6 +4,7 @@ import java.awt.Cursor;
 import java.awt.GridBagConstraints;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.gui.MorphView;
 import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
 import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
@@ -39,10 +40,10 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			geneBox.setValueLabelValue(genome.getGene(geneBoxIndex));
 			break;
 		case 9: // 10 in Pascal - ABC
-			geneBox.setValueLabelValue(genome.getSegNoGene());
+			geneBox.setValueLabelValue(genome.getSegNoGene().getValue());
 			break;
 		case 10: // 11 in Pascal - ABC
-			geneBox.setValueLabelValue(genome.getSegDistGene());
+			geneBox.setValueLabelValue(genome.getSegDistGene().getValue());
 			break;
 		case 11: // 12 in Pascal - ABC
 			geneBox.setCompleteness(genome.getCompletenessGene().getValue());
@@ -51,7 +52,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			geneBox.setSpokes(genome.getSpokesGene().getValue());
 			break;
 		case 13: // 14 in Pascal - ABC
-			geneBox.setValueLabelValue(genome.getTrickleGene());
+			geneBox.setValueLabelValue(genome.getTrickleGene().getValue());
 			break;
 		case 14: // 15 in Pascal - ABC
 			geneBox.setValueLabelValue(genome.getMutSizeGene().getValue());
@@ -119,7 +120,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 				BiomorphMutagen.decrementGene(genome, geneBoxNo);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				long sizeWorry = (long) ((genome.getSegNoGene() + 1) * Math.pow(2, genome.getGene(8)));
+				long sizeWorry = (long) ((genome.getSegNoGene().getValue() + 1) * Math.pow(2, genome.getGene(8)));
 				if (sizeWorry <= Globals.worryMax)
 					BiomorphMutagen.incrementGene(genome, geneBoxNo);
 			} else if (cursor.equals(WatchmakerCursors.upArrow)) {
@@ -134,17 +135,19 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 				BiomorphMutagen.decrementSegNoGene(genome);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				long sizeWorry = (long) ((genome.getSegNoGene() + 1) * Math.pow(2, genome.getGene(8)));
+				long sizeWorry = (long) ((genome.getSegNoGene().getValue() + 1) * Math.pow(2, genome.getGene(8)));
 				if (sizeWorry <= Globals.worryMax) {
 					BiomorphMutagen.incrementSegNoGene(genome);
 				}
 			}
 			break;
 		case 10: // 11 in Pascal
+			IntegerGene segDistGene = genome.getSegDistGene();
+			IntegerGene triickleGene = genome.getTrickleGene();
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				genome.setSegDistGene(genome.getSegDistGene() - genome.getTrickleGene());
+				segDistGene.setValue(segDistGene.getValue() - triickleGene.getValue());
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				genome.setSegDistGene(genome.getSegDistGene() + genome.getTrickleGene());
+				segDistGene.setValue(segDistGene.getValue() + triickleGene.getValue());
 			} else if (cursor.equals(WatchmakerCursors.upArrow)) {
 				genome.setDGene(9, SwellType.Swell);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
@@ -171,7 +174,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			break;
 		case 13: // 14 in Pascal
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
-				if (genome.getTrickleGene() > 0)
+				if (genome.getTrickleGene().getValue() > 0)
 					BiomorphMutagen.decrementTrickleGene((BiomorphGenome) genome);
 			} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
 				genome.getSpokesGene().setValue(SpokesType.NSouth);
@@ -202,7 +205,8 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		default:
 		}
 		if(genome.getGene(8) < 1) genome.setGene(8, 1);
-		if(genome.getSegNoGene() < 1) genome.setSegNoGene(1);
+		IntegerGene segNoGene = genome.getSegNoGene();
+		if(segNoGene.getValue() < 1) segNoGene.setValue(1);
 		this.updateGeneBox(geneBoxNo);
 		this.repaint();
 		MorphView selectedMorphView = (MorphView) config.getMorphViewsTabbedPane().getSelectedComponent();

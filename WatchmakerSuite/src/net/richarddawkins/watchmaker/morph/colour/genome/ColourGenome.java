@@ -87,7 +87,6 @@ public class ColourGenome extends BiomorphGenome {
     super.copy(child);
     child.setColorGene(colorGene.clone());
     child.setBackColorGene(backColorGene);
-    ;
     child.setMutSizeGene(mutSizeGene);
     child.setLimbShapeGene(limbShapeGene);
     child.setLimbFillGene(limbFillGene);
@@ -104,8 +103,8 @@ public class ColourGenome extends BiomorphGenome {
     if (dir >= 8) {
       dir -= 8;
     }
-    xnew = x + lgth * dx[dir] / trickleGene;
-    ynew = y + lgth * dy[dir] / trickleGene;
+    xnew = x + lgth * dx[dir] / trickleGene.getValue();
+    ynew = y + lgth * dy[dir] / trickleGene.getValue();
     pic.margin.left = Math.min(pic.margin.left, x);
     pic.margin.right = Math.max(pic.margin.right, x + thicknessGene);
     pic.margin.bottom = Math.max(pic.margin.bottom, y + thicknessGene);
@@ -160,32 +159,32 @@ public class ColourGenome extends BiomorphGenome {
     centre = (Point) here.clone();
     plugIn(gene, dx, dy);
     pic.zeroPic(here);
-    if (segNoGene < 1) {
-      segNoGene = 1;
+    if (segNoGene.getValue() < 1) {
+      segNoGene.setValue(1);
     }
     if (dGene[9] == SwellType.Swell) {
-      extraDistance = trickleGene;
+      extraDistance = trickleGene.getValue();
     } else if (dGene[9] == SwellType.Shrink) {
-      extraDistance = -trickleGene;
+      extraDistance = -trickleGene.getValue();
     } else {
       extraDistance = 0;
     }
     running = gene.clone();
     incDistance = 0;
-    for (int seg = 0; seg < segNoGene; seg++) {
+    for (int seg = 0; seg < segNoGene.getValue(); seg++) {
       oddOne = (seg & 1) == 1;
       if (seg > 0) {
         oldHere = (Point) here.clone();
-        here.v += (segDistGene + incDistance) / trickleGene;
+        here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
         incDistance += extraDistance;
         dummyColour = 100;
         pic.picLine(oldHere.h, oldHere.v, here.h, here.v, 1, ColourPic.chooseColor(dummyColour));
         for (int j = 0; j < 8; j++) {
           if (dGene[j] == SwellType.Swell) {
-            running[j] += trickleGene;
+            running[j] += trickleGene.getValue();
           }
           if (dGene[j] == SwellType.Shrink) {
-            running[j] -= trickleGene;
+            running[j] -= trickleGene.getValue();
           }
         }
         if (running[8] < 1) {
@@ -240,11 +239,11 @@ public class ColourGenome extends BiomorphGenome {
     for (int j = 0; j < 10; j++) {
       dGene[j] = SwellType.Same;
     }
-    segNoGene = 1;
-    segDistGene = 1;
+    segNoGene.setValue(1);
+    segDistGene.setValue(1);
     completenessGene.setValue(CompletenessType.Double);
     spokesGene.setValue(SpokesType.NorthOnly);
-    trickleGene = Biomorph.TRICKLE;
+    trickleGene.setValue(Biomorph.TRICKLE);
     mutSizeGene.setValue(Biomorph.TRICKLE / 2);
     mutProbGene.setValue(10);
     

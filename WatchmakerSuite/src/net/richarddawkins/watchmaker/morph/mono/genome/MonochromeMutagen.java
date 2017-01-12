@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morph.mono.genome;
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
@@ -21,6 +22,8 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
 
   public boolean mutate(Genome genome) {
     MonochromeGenome target = (MonochromeGenome) genome;
+    IntegerGene segNoGene = target.getSegNoGene();
+    IntegerGene segDistGene = target.getSegDistGene();
     boolean success = false;
     boolean[] mut = target.getMorph().getMorphConfig().getMut();
     int mutProb = target.getMutProbGene().getValue();
@@ -46,7 +49,7 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
       addToSegNoGene(target, j);
       success = true;
     }
-    if (mut[1] && target.getSegNoGene() > 1) {
+    if (mut[1] && segNoGene.getValue() > 1) {
       for (int j = 0; j < 7; j++)
         if (randInt(100) < mutProb / 2) {
           target.setDGene(j, randSwell(target.getDGene(j)));
@@ -61,8 +64,8 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
       target.setDGene(8, randSwell(target.getDGene(8)));
       success = true;
     }
-    if (mut[0] && target.getSegNoGene() > 1 && randInt(100) < mutProb) {
-      target.setSegDistGene(direction9());
+    if (mut[0] && segNoGene.getValue() > 1 && randInt(100) < mutProb) {
+      segDistGene.setValue(direction9());
       success = true;
     }
     if (mut[2] && randInt(100) < mutProb / 2) {

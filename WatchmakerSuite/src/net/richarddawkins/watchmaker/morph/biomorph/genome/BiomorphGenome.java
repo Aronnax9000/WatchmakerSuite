@@ -11,12 +11,11 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	protected int order;
 	protected int[] gene = new int[9];
 	protected SwellType[] dGene = new SwellType[10];
-	protected int segNoGene;
-	protected int segDistGene;
+	protected IntegerGene segNoGene = new IntegerGene();
+	protected IntegerGene segDistGene = new IntegerGene();
 	protected CompletenessGene completenessGene = new CompletenessGene();
 	protected SpokesGene spokesGene = new SpokesGene();
-	// You're next, trickleGene!
-	protected int trickleGene;
+	protected IntegerGene trickleGene = new IntegerGene();
 	protected IntegerGene mutSizeGene = new IntegerGene();
 	protected IntegerGene mutProbGene = new IntegerGene();
 
@@ -58,19 +57,19 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.dGene = dGene;
 	}
 
-	public int getSegNoGene() {
+	public IntegerGene getSegNoGene() {
 		return segNoGene;
 	}
 
-	public void setSegNoGene(int segNoGene) {
+	public void setSegNoGene(IntegerGene segNoGene) {
 		this.segNoGene = segNoGene;
 	}
 
-	public int getSegDistGene() {
+	public IntegerGene getSegDistGene() {
 		return segDistGene;
 	}
 
-	public void setSegDistGene(int segDistGene) {
+	public void setSegDistGene(IntegerGene segDistGene) {
 		this.segDistGene = segDistGene;
 	}
 
@@ -90,11 +89,11 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.spokesGene = spokesGene;
 	}
 
-	public int getTrickleGene() {
+	public IntegerGene getTrickleGene() {
 		return trickleGene;
 	}
 
-	public void setTrickleGene(int trickleGene) {
+	public void setTrickleGene(IntegerGene trickleGene) {
 		this.trickleGene = trickleGene;
 	}
 
@@ -143,12 +142,12 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		BiomorphGenome child = (BiomorphGenome) person;
 		child.setGene(gene.clone());
 		child.setDGene(dGene.clone());
-		child.setSegNoGene(getSegNoGene());
-		child.setSegDistGene(getSegDistGene());
+		child.getSegNoGene().setValue(getSegNoGene().getValue());
+		child.getSegDistGene().setValue(getSegDistGene().getValue());
 		child.getCompletenessGene().setValue(getCompletenessGene().getValue());
 		child.getSpokesGene().setValue(getSpokesGene().getValue());
-		child.setTrickleGene(getTrickleGene());
-		child.setMutSizeGene(getMutSizeGene());
+		child.getTrickleGene().setValue(getTrickleGene().getValue());
+		child.getMutSizeGene().setValue(getMutSizeGene().getValue());
 		child.getMutProbGene().setValue(getMutProbGene().getValue());
 	}
 

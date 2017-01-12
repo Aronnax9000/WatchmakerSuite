@@ -73,11 +73,13 @@ public abstract class BiomorphMutagen
 	}
 	
 	static public void decrementSegNoGene(BiomorphGenome genome) {
-		genome.setSegNoGene(genome.getSegNoGene() - 1);
+		IntegerGene segNoGene = genome.getSegNoGene();
+		segNoGene.setValue(segNoGene.getValue() - 1);
 	}
 
 	static public void incrementSegNoGene(BiomorphGenome genome) {
-		genome.setSegNoGene(genome.getSegNoGene() + 1);
+		IntegerGene segNoGene = genome.getSegNoGene();
+		segNoGene.setValue(segNoGene.getValue() + 1);
 
 	}
 	
@@ -106,11 +108,12 @@ public abstract class BiomorphMutagen
 	 * @param summand the quantity to add to the TrickleGene.
 	 */
 	static public void addToTrickleGene(BiomorphGenome genome, int summand) {
-		int newValue = genome.getTrickleGene() + summand;
+		IntegerGene trickleGene = genome.getTrickleGene();
+		int newValue = trickleGene.getValue() + summand;
 		newValue += summand;
 		if (newValue < 1)
 			newValue = 1;
-		genome.setTrickleGene(newValue);
+		trickleGene.setValue(newValue);
 
 	}
 
@@ -120,8 +123,8 @@ public abstract class BiomorphMutagen
 	 * @param summand the amount to add to the SegNoGene.
 	 */
 	static public void addToSegNoGene(BiomorphGenome genome, int summand) {
-		
-		int newValue = genome.getSegNoGene() + summand;
+		IntegerGene segNoGene = genome.getSegNoGene();
+		int newValue = segNoGene.getValue() + summand;
 		if (summand > 0) {
 			int sizeWorry = newValue * 1 << genome.getGene(8);
 			if (sizeWorry > Globals.worryMax)
@@ -130,21 +133,24 @@ public abstract class BiomorphMutagen
 				newValue = 1;
 
 		}
-		genome.setSegNoGene(newValue);
+		segNoGene.setValue(newValue);
 
 	}
 
 	static public void addToSegDistGene(BiomorphGenome genome, int summand) {
-		int newValue = genome.getSegDistGene() + summand;
-		genome.setSegDistGene(newValue);
+		IntegerGene segDistGene = genome.getSegDistGene();
+		int newValue = segDistGene.getValue() + summand;
+		segDistGene.setValue(newValue);
 	}
 
 	static public void decrementTrickleGene(BiomorphGenome genome) {
-		genome.setTrickleGene(genome.getTrickleGene() - 1);
+		IntegerGene trickleGene = genome.getTrickleGene();
+		trickleGene.setValue(trickleGene.getValue() - 1);
 	}
 
 	static public void incrementTrickleGene(BiomorphGenome genome) {
-		genome.setTrickleGene(genome.getTrickleGene() + 1);
+		IntegerGene trickleGene = genome.getTrickleGene();
+		trickleGene.setValue(trickleGene.getValue() + 1);
 	}
 
 	static public void incrementMutSizeGene(BiomorphGenome genome) {

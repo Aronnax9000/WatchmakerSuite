@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morph.colour.genome;
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
@@ -100,7 +101,8 @@ public class ColourMutagen extends BiomorphMutagen {
       addToSegNoGene(target, direction9());
       success = true;
     }
-    if (mut[1] && target.getSegNoGene() > 1) {
+    IntegerGene segNoGene = target.getSegNoGene();
+    if (mut[1] && segNoGene.getValue() > 1) {
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProb / 2)
           target.setDGene(j, randSwell(target.getDGene(j)));
@@ -108,7 +110,7 @@ public class ColourMutagen extends BiomorphMutagen {
         target.setDGene(9, randSwell(target.getDGene(9)));
       success = true;
     }
-    if (mut[0] && target.getSegNoGene() > 1 && randInt(100) < mutProb) {
+    if (mut[0] && segNoGene.getValue() > 1 && randInt(100) < mutProb) {
       addToSegDistGene(target, direction9());
       success = true;
     }
