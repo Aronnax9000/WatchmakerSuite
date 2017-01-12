@@ -60,7 +60,8 @@ public abstract class BiomorphMutagen
 	 * @param summand the quantity to add to the gene.
 	 */
 	static public void addToGene(BiomorphGenome genome, int index, int summand) {
-		int newValue = genome.getGene(index) + summand;
+		IntegerGene gene = (IntegerGene) genome.toGeneArray()[index]; 
+		int newValue = gene.getValue() + summand;
 		
 		if (index == 8) {
 			if (newValue < 1)
@@ -69,7 +70,7 @@ public abstract class BiomorphMutagen
 				newValue = genome.getGene9Max();
 		}
 		
-		genome.setGene(index, newValue);
+		gene.setValue(newValue);
 	}
 	
 	static public void decrementSegNoGene(BiomorphGenome genome) {
@@ -83,14 +84,15 @@ public abstract class BiomorphMutagen
 
 	}
 	
-	static public void decrementGene(BiomorphGenome genome, int i) {
-		genome.setGene(i, genome.getGene(i) - 1);
+	static public void decrementGene(BiomorphGenome genome, int index) {
+		IntegerGene gene = (IntegerGene) genome.toGeneArray()[index]; 
+		gene.setValue(gene.getValue() - 1);
 	}
 
-	static public void incrementGene(BiomorphGenome genome, int i) {
-		genome.setGene(i, genome.getGene(i) + 1);
+	static public void incrementGene(BiomorphGenome genome, int index) {
+		IntegerGene gene = (IntegerGene) genome.toGeneArray()[index]; 
+		gene.setValue(gene.getValue() + 1);
 	}
-	
 	/** mutSizeGene is not allowed to fall below 1. 
 	 * @param summand the quantity to add to the MutSizeGene 
 	 */
@@ -126,7 +128,7 @@ public abstract class BiomorphMutagen
 		IntegerGene segNoGene = genome.getSegNoGene();
 		int newValue = segNoGene.getValue() + summand;
 		if (summand > 0) {
-			int sizeWorry = newValue * 1 << genome.getGene(8);
+			int sizeWorry = newValue * 1 << ((IntegerGene) genome.getGene(8)).getValue();
 			if (sizeWorry > Globals.worryMax)
 				newValue--;
 			if (newValue < 1)

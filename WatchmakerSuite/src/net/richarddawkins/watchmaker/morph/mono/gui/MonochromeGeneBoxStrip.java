@@ -37,7 +37,7 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 		case 6: // 7 in Pascal - ABC
 		case 7: // 8 in Pascal - ABC
 		case 8: // 9 in Pascal - ABC
-			geneBox.setValueLabelValue(genome.getGene(geneBoxIndex));
+			geneBox.setValueLabelValue(((IntegerGene)genome.getGene(geneBoxIndex)).getValue());
 			break;
 		case 9: // 10 in Pascal - ABC
 			geneBox.setValueLabelValue(genome.getSegNoGene().getValue());
@@ -120,7 +120,8 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 				BiomorphMutagen.decrementGene(genome, geneBoxNo);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				long sizeWorry = (long) ((genome.getSegNoGene().getValue() + 1) * Math.pow(2, genome.getGene(8)));
+				long sizeWorry = (long) ((genome.getSegNoGene().getValue() + 1) * Math.pow(2, 
+						((IntegerGene)genome.getGene(8)).getValue()));
 				if (sizeWorry <= Globals.worryMax)
 					BiomorphMutagen.incrementGene(genome, geneBoxNo);
 			} else if (cursor.equals(WatchmakerCursors.upArrow)) {
@@ -135,7 +136,8 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			if (cursor.equals(WatchmakerCursors.leftArrow)) {
 				BiomorphMutagen.decrementSegNoGene(genome);
 			} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-				long sizeWorry = (long) ((genome.getSegNoGene().getValue() + 1) * Math.pow(2, genome.getGene(8)));
+				long sizeWorry = (long) ((genome.getSegNoGene().getValue() + 1) * Math.pow(2, 
+						((IntegerGene)genome.getGene(8)).getValue()));
 				if (sizeWorry <= Globals.worryMax) {
 					BiomorphMutagen.incrementSegNoGene(genome);
 				}
@@ -204,7 +206,8 @@ public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 			break;
 		default:
 		}
-		if(genome.getGene(8) < 1) genome.setGene(8, 1);
+		IntegerGene gene9 = (IntegerGene) genome.getGene(8);
+		if(gene9.getValue() < 1) gene9.setValue(1);
 		IntegerGene segNoGene = genome.getSegNoGene();
 		if(segNoGene.getValue() < 1) segNoGene.setValue(1);
 		this.updateGeneBox(geneBoxNo);

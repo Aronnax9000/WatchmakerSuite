@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 
@@ -44,5 +45,8 @@ public void setMorph(Morph simpleMorphImpl) {
 public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
 	// TODO Auto-generated method stub
 	
+}
+public Gene[] toGeneArray() {
+	return null;
 }
 }

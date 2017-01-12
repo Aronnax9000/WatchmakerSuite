@@ -3,21 +3,31 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
+import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
 
 public abstract class BiomorphGenome extends SimpleGenome {
 
 	protected int gene9Max = 8;
 	protected boolean oddOne;
 	protected int order;
-	protected int[] gene = new int[9];
+	protected IntegerGradientGene gene1 = new IntegerGradientGene("Gene 1");
+	protected IntegerGradientGene gene2 = new IntegerGradientGene("Gene 2");
+	protected IntegerGradientGene gene3 = new IntegerGradientGene("Gene 3");
+	protected IntegerGradientGene gene4 = new IntegerGradientGene("Gene 4");
+	protected IntegerGradientGene gene5 = new IntegerGradientGene("Gene 5");
+	protected IntegerGradientGene gene6 = new IntegerGradientGene("Gene 6");
+	protected IntegerGradientGene gene7 = new IntegerGradientGene("Gene 7");
+	protected IntegerGradientGene gene8 = new IntegerGradientGene("Gene 8");
+	protected IntegerGradientGene gene9 = new IntegerGradientGene("Gene 9");
+
 	protected SwellType[] dGene = new SwellType[10];
-	protected IntegerGene segNoGene = new IntegerGene();
-	protected IntegerGene segDistGene = new IntegerGene();
-	protected CompletenessGene completenessGene = new CompletenessGene();
-	protected SpokesGene spokesGene = new SpokesGene();
-	protected IntegerGene trickleGene = new IntegerGene();
-	protected IntegerGene mutSizeGene = new IntegerGene();
-	protected IntegerGene mutProbGene = new IntegerGene();
+	protected IntegerGene segNoGene = new IntegerGene("Segment Number");
+	protected IntegerGene segDistGene = new IntegerGene("Segment Distance");
+	protected CompletenessGene completenessGene = new CompletenessGene("Completeness");
+	protected SpokesGene spokesGene = new SpokesGene("Spokes");
+	protected IntegerGene trickleGene = new IntegerGene("Trickle");
+	protected IntegerGene mutSizeGene = new IntegerGene("Mutation Size");
+	protected IntegerGene mutProbGene = new IntegerGene("Mutation Probability");
 
 	abstract public void basicTree();
 
@@ -41,13 +51,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		}
 	}
 
-	public int[] getGene() {
-		return gene;
-	}
 
-	public void setGene(int[] gene) {
-		this.gene = gene;
-	}
 
 	public SwellType[] getDGene() {
 		return dGene;
@@ -113,7 +117,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		this.mutProbGene = mutProbGene;
 	}
 
-
 	public int getGene9Max() {
 		return gene9Max;
 	}
@@ -122,13 +125,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		gene9Max = max;
 	}
 
-	public void setGene(int index, int value) {
-		gene[index] = value;
-	}
 
-	public int getGene(int index) {
-		return gene[index];
-	}
 
 	public SwellType getDGene(int i) {
 		return dGene[i];
@@ -137,10 +134,18 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	public void setDGene(int i, SwellType swellType) {
 		dGene[i] = swellType;
 	}
-	
-	public void copy(Genome person) {
-		BiomorphGenome child = (BiomorphGenome) person;
-		child.setGene(gene.clone());
+
+	public void copy(Genome destinationGenome) {
+		BiomorphGenome child = (BiomorphGenome) destinationGenome;
+		gene1.copy(child.gene1);
+		gene2.copy(child.gene2);
+		gene3.copy(child.gene3);
+		gene4.copy(child.gene4);
+		gene5.copy(child.gene5);
+		gene6.copy(child.gene6);
+		gene7.copy(child.gene7);
+		gene8.copy(child.gene8);
+		gene9.copy(child.gene9);
 		child.setDGene(dGene.clone());
 		child.getSegNoGene().setValue(getSegNoGene().getValue());
 		child.getSegDistGene().setValue(getSegDistGene().getValue());
@@ -150,6 +155,30 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		child.getMutSizeGene().setValue(getMutSizeGene().getValue());
 		child.getMutProbGene().setValue(getMutProbGene().getValue());
 	}
+
+	public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
+		for (int j = 0; j < 10; j++) {
+		      dGene[j] = SwellType.Same;
+		    }
+		    segNoGene.setValue(1);
+		    completenessGene.setValue(CompletenessType.Double);
+		    spokesGene.setValue(SpokesType.NorthOnly);
+		    trickleGene.setValue(Biomorph.TRICKLE);
+		    mutSizeGene.setValue(Biomorph.TRICKLE / 2);
+		    mutProbGene.setValue(10);
+ 
+		gene1.setValue(a);
+		    gene2.setValue(b);
+		    gene3.setValue(c);
+		    gene4.setValue(d);
+		    gene5.setValue(e);
+		    gene6.setValue(f);
+		    gene7.setValue(g);
+		    gene8.setValue(h);
+		    gene9.setValue(i);
+		
+	}
+
 
 
 }

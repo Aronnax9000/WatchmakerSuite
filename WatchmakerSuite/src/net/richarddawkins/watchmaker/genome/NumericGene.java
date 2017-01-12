@@ -1,6 +1,10 @@
 package net.richarddawkins.watchmaker.genome;
 
-public class NumericGene extends SimpleGene {
+abstract public class NumericGene extends SimpleGene {
+
+	public NumericGene(String name) {
+		super(name);
+	}
 	
 
 	protected boolean showPositiveSign = false;
@@ -10,5 +14,10 @@ public class NumericGene extends SimpleGene {
 
 	public void setShowPositiveSign(boolean showPositiveSign) {
 		this.showPositiveSign = showPositiveSign;
+	}
+
+	public void copy(NumericGene destinationGene) {
+		destinationGene.setShowPositiveSign(showPositiveSign);
+		
 	}
 }

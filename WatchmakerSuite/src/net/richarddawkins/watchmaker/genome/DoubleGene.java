@@ -1,7 +1,12 @@
 package net.richarddawkins.watchmaker.genome;
 
 public class DoubleGene extends NumericGene {
-    double value;
+
+	public DoubleGene(String name) {
+		super(name);
+	}
+
+	double value;
 
 	public double getValue() {
 		return value;

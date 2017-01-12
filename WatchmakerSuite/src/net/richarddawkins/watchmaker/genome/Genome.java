@@ -19,5 +19,6 @@ public interface Genome {
 	 */
 
 	void develop(Graphics2D g2, Dimension d, boolean zeroMargin);
+	Gene[] toGeneArray();
 	
 }

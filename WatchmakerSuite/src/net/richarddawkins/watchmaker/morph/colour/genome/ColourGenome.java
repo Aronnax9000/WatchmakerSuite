@@ -9,7 +9,6 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
 import net.richarddawkins.watchmaker.morph.colour.ColourPic;
@@ -113,7 +112,7 @@ public class ColourGenome extends BiomorphGenome {
     pic.margin.right = Math.max(pic.margin.right, xnew);
     pic.margin.bottom = Math.max(pic.margin.bottom, ynew);
     pic.margin.top = Math.min(pic.margin.top, ynew);
-    int subscript = (gene[8] - lgth) % 8; // + 1; Trimmed off + 1 to make it
+    int subscript = (gene9.getValue() - lgth) % 8; // + 1; Trimmed off + 1 to make it
     // zero based.
     pic.picLine(x, y, xnew, ynew, 1, ColourPic.chooseColor(colorGene[subscript]));
     if (lgth > 1) {
@@ -157,7 +156,17 @@ public class ColourGenome extends BiomorphGenome {
       pic.margin.bottom = here.v;
     }
     centre = (Point) here.clone();
-    plugIn(gene, dx, dy);
+    plugIn(new int[] {
+    		gene1.getValue(),
+    		gene2.getValue(),
+    		gene3.getValue(),
+    		gene4.getValue(),
+    		gene5.getValue(),
+    		gene6.getValue(),
+    		gene7.getValue(),
+    		gene8.getValue(),
+    		gene9.getValue()
+    }, dx, dy);
     pic.zeroPic(here);
     if (segNoGene.getValue() < 1) {
       segNoGene.setValue(1);
@@ -169,7 +178,17 @@ public class ColourGenome extends BiomorphGenome {
     } else {
       extraDistance = 0;
     }
-    running = gene.clone();
+    running = new int[] {
+    		gene1.getValue(),
+    		gene2.getValue(),
+    		gene3.getValue(),
+    		gene4.getValue(),
+    		gene5.getValue(),
+    		gene6.getValue(),
+    		gene7.getValue(),
+    		gene8.getValue(),
+    		gene9.getValue()
+    };
     incDistance = 0;
     for (int seg = 0; seg < segNoGene.getValue(); seg++) {
       oddOne = (seg & 1) == 1;
@@ -236,26 +255,8 @@ public class ColourGenome extends BiomorphGenome {
   }
 
   public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
-    for (int j = 0; j < 10; j++) {
-      dGene[j] = SwellType.Same;
-    }
-    segNoGene.setValue(1);
+	super.makeGenes(a, b, c, d, e, f, g, h, i);
     segDistGene.setValue(1);
-    completenessGene.setValue(CompletenessType.Double);
-    spokesGene.setValue(SpokesType.NorthOnly);
-    trickleGene.setValue(Biomorph.TRICKLE);
-    mutSizeGene.setValue(Biomorph.TRICKLE / 2);
-    mutProbGene.setValue(10);
-    
-    gene[0] = a;
-    gene[1] = b;
-    gene[2] = c;
-    gene[3] = d;
-    gene[4] = e;
-    gene[5] = f;
-    gene[6] = g;
-    gene[7] = h;
-    gene[8] = i;
   }
 
   public void addToBackColorGene(int summand) {

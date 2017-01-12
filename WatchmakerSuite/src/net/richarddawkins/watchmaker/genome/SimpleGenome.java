@@ -16,4 +16,11 @@ public abstract class SimpleGenome implements Genome {
     this.morph = morph;
   }
 
+public Gene[] toGeneArray() {
+	return null;
+}
+public Gene getGene(int i) {
+	return toGeneArray()[i];
+}
+
 }
