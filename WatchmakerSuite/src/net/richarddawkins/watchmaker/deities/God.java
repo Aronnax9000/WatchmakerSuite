@@ -24,17 +24,6 @@ import net.richarddawkins.watchmaker.morph.Morph;
  *     PreviousGod, NextGod: GodHandle;
  * END; 
  * </pre>
- * 
- * <h2>Original Source File Metadata</h2>
- * <p>It is safe to ignore the "Crashes compiler" based on
- * Richard Dawkins email of Mon, Jan 5, 2015 at 5:54 AM:</p>
- * <blockquote>
- *  I don't know why I wrote those notes about "crashes compiler". They all 
- *  compiled well on System 9. I can only think that I must have made an attempt at 
- *  resuscitating them after a delay, perhaps on that intermediate category of Macs that 
- *  could run both System 10 and a version of System 9.
- * </blockquote>
- * 
  * @author alan
  *
  */
