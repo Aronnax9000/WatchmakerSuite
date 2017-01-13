@@ -11,12 +11,19 @@ import java.util.logging.Logger;
 
 import javax.swing.JMenuBar;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 
 public abstract class SimpleMorph implements Morph {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
 
+	protected Genome genome;
+	
+	@Override
+	public Genome getGenome() { return genome; }
+	@Override
+	public void setGenome(Genome genome) { this.genome = genome; }
 	
 	Morph parent;
   Morph firstBorn;

@@ -25,4 +25,6 @@ public interface Genome extends PropertyChangeListener {
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	void removePropertyChangeListener(PropertyChangeListener listener);
 	
+	void copy(Genome genome);
+	
 }

@@ -4,12 +4,17 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 
 public abstract class BiomorphGenome extends SimpleGenome {
+	
+	public BiomorphGenome(Morph morph) {
+		super(morph);
+	}
 
 	protected int gene9Max = 8;
 	protected boolean oddOne;

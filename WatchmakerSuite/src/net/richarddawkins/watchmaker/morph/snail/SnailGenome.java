@@ -12,98 +12,30 @@ import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 public class SnailGenome extends SimpleGenome implements Cloneable {
   public static boolean sideView = false;
 
+  int coarsegraininess;
+
+  double dDisplacement;
+
+  double dGradient;
+
+  int generatingCurve;
+
+  int handedness;
+
+  int mutProb;
+
+  int reach;
+
+  double sShape;
+
+  double translationGradient;
+
+  double tTranslation;
+
   double wOpening;
 
   public SnailGenome(Morph morph) {
-    this.morph = morph;
-  }
-
-  public double getwOpening() {
-    return wOpening;
-  }
-
-  public void setwOpening(double wOpening) {
-    this.wOpening = wOpening;
-  }
-
-  public double getdDisplacement() {
-    return dDisplacement;
-  }
-
-  public void setdDisplacement(double dDisplacement) {
-    this.dDisplacement = dDisplacement;
-  }
-
-  public double getsShape() {
-    return sShape;
-  }
-
-  public void setsShape(double sShape) {
-    this.sShape = sShape;
-  }
-
-  public double gettTranslation() {
-    return tTranslation;
-  }
-
-  public void settTranslation(double tTranslation) {
-    this.tTranslation = tTranslation;
-  }
-
-  public double getTranslationGradient() {
-    return translationGradient;
-  }
-
-  public void setTranslationGradient(double translationGradient) {
-    this.translationGradient = translationGradient;
-  }
-
-  public double getdGradient() {
-    return dGradient;
-  }
-
-  public void setdGradient(double dGradient) {
-    this.dGradient = dGradient;
-  }
-
-  public int getCoarsegraininess() {
-    return coarsegraininess;
-  }
-
-  public void setCoarsegraininess(int coarsegraininess) {
-    this.coarsegraininess = coarsegraininess;
-  }
-
-  public int getReach() {
-    return reach;
-  }
-
-  public void setReach(int reach) {
-    this.reach = reach;
-  }
-
-  public int getGeneratingCurve() {
-    return generatingCurve;
-  }
-
-  public void setGeneratingCurve(int generatingCurve) {
-    this.generatingCurve = generatingCurve;
-  }
-
-  public int getHandedness() {
-    return handedness;
-  }
-
-  public void setHandedness(int handedness) {
-    this.handedness = handedness;
-  }
-
-  public int getMutProb() {
-    return mutProb;
-  }
-
-  public void setMutProb(int mutProb) {
-    this.mutProb = mutProb;
+    super(morph);
   }
 
   /**
@@ -122,27 +54,6 @@ public class SnailGenome extends SimpleGenome implements Cloneable {
     tTranslation += summand;
   }
 
-  public void flipHandedness() {
-    handedness = -handedness;
-  }
-
-  double dDisplacement;
-  double sShape;
-  double tTranslation;
-  double translationGradient;
-  double dGradient;
-  int coarsegraininess;
-  int reach;
-  int generatingCurve;
-  int handedness;
-  int mutProb;
-
-  @Override
-  public void setBasicType(int i) {
-    // TODO Auto-generated method stub
-
-  }
-
   @Override
   public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
     SnailDeveloperImpl developer = new SnailDeveloperImpl();
@@ -154,6 +65,56 @@ public class SnailGenome extends SimpleGenome implements Cloneable {
 
   }
 
+  void develop(Point where) {
+  }
+
+  public void flipHandedness() {
+    handedness = -handedness;
+  }
+
+  public int getCoarsegraininess() {
+    return coarsegraininess;
+  }
+
+  public double getdDisplacement() {
+    return dDisplacement;
+  }
+
+  public double getdGradient() {
+    return dGradient;
+  }
+
+  public int getGeneratingCurve() {
+    return generatingCurve;
+  }
+
+  public int getHandedness() {
+    return handedness;
+  }
+
+  public int getMutProb() {
+    return mutProb;
+  }
+
+  public int getReach() {
+    return reach;
+  }
+
+  public double getsShape() {
+    return sShape;
+  }
+
+  public double getTranslationGradient() {
+    return translationGradient;
+  }
+
+  public double gettTranslation() {
+    return tTranslation;
+  }
+
+  public double getwOpening() {
+    return wOpening;
+  }
   @Override
   public Genome reproduce(Morph newMorph) {
     SnailGenome child = new SnailGenome(newMorph);
@@ -171,9 +132,48 @@ public class SnailGenome extends SimpleGenome implements Cloneable {
     return child;
 
   }
+  @Override
+  public void setBasicType(int i) {
+    // TODO Auto-generated method stub
+
+  }
+  public void setCoarsegraininess(int coarsegraininess) {
+    this.coarsegraininess = coarsegraininess;
+  }
+  public void setdDisplacement(double dDisplacement) {
+    this.dDisplacement = dDisplacement;
+  }
+  public void setdGradient(double dGradient) {
+    this.dGradient = dGradient;
+  }
+  public void setGeneratingCurve(int generatingCurve) {
+    this.generatingCurve = generatingCurve;
+  }
+  public void setHandedness(int handedness) {
+    this.handedness = handedness;
+  }
+  public void setMutProb(int mutProb) {
+    this.mutProb = mutProb;
+  }
+  public void setReach(int reach) {
+    this.reach = reach;
+  }
+
+  public void setsShape(double sShape) {
+    this.sShape = sShape;
+  }
+
+  public void setTranslationGradient(double translationGradient) {
+    this.translationGradient = translationGradient;
+  }
+
+  public void settTranslation(double tTranslation) {
+    this.tTranslation = tTranslation;
+  }
 
 
-  void develop(Point where) {
+  public void setwOpening(double wOpening) {
+    this.wOpening = wOpening;
   }
 
 }
