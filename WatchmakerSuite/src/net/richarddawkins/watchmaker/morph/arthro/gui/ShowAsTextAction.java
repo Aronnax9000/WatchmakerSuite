@@ -1,9 +1,11 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.gui;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
+
+import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 
 public class ShowAsTextAction extends AbstractAction {
 

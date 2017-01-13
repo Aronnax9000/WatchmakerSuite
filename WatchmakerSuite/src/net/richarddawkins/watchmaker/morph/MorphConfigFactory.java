@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morph;
 
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
-import net.richarddawkins.watchmaker.morph.arthro.ArthromorphMutagen;
+import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphMutagen;
 import net.richarddawkins.watchmaker.morph.colour.ColourBiomorphConfig;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourMutagen;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;

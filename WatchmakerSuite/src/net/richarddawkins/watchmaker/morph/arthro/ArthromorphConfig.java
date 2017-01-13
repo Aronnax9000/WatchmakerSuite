@@ -6,6 +6,11 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphMutagen;
+import net.richarddawkins.watchmaker.morph.arthro.genome.gui.ArthromorphGeneBoxStrip;
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.Concentration;
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.Pressure;
+import net.richarddawkins.watchmaker.morph.arthro.gui.ArthromorphMenuBuilder;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 	

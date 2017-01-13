@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 
 public class ArthromorphPreferences extends JFrame {
 	/**

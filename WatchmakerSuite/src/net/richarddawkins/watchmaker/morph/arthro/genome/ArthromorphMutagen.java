@@ -1,10 +1,12 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.genome;
 
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
+import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.AtomKind;
 
 public class ArthromorphMutagen implements Mutagen {
 

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.gui;
 
 import java.awt.Component;
 import java.awt.Window;

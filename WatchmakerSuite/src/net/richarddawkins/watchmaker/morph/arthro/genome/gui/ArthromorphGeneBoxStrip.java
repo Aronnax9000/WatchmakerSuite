@@ -1,8 +1,10 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.genome.gui;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
+import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphGenome;
 
 public class ArthromorphGeneBoxStrip extends GeneBoxStrip {
 

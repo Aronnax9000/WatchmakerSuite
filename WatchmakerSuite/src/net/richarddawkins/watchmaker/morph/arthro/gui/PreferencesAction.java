@@ -1,11 +1,13 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.gui;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-public class EngineerAction extends AbstractAction {
+import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
+
+public class PreferencesAction extends AbstractAction {
 
 	protected ArthromorphConfig config;
 	/**
@@ -13,14 +15,14 @@ public class EngineerAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
-	public EngineerAction(ArthromorphConfig config) {
-		super("Engineer");
+	public PreferencesAction(ArthromorphConfig config) {
+		super("Preferences");
 		this.config = config;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(frame == null) {
-			frame = new ArthromorphsEngineer(config);
+			frame = new ArthromorphPreferences(config);
 	
 			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	

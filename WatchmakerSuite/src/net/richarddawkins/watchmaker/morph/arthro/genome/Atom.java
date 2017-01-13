@@ -1,10 +1,12 @@
-package net.richarddawkins.watchmaker.morph.arthro;
+package net.richarddawkins.watchmaker.morph.arthro.genome;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
+import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.AtomKind;
 import net.richarddawkins.watchmaker.morph.common.geom.Rect;
 
 public class Atom implements Cloneable {
@@ -97,15 +99,15 @@ public class Atom implements Cloneable {
     this.firstBelowMe = firstBelowMe;
   }
 
-  AtomKind kind = AtomKind.Free;
+  public AtomKind kind = AtomKind.Free;
   /**
    * Original documentation: Also used for Thickness of a Joint
    */
-  protected double height;
+  public double height;
   /**
    * Original documentation: Also used for Length of a Joint
    */
-  protected double width;
+  public double width;
   /**
    * Original documentation:
    * <ul>
@@ -114,18 +116,18 @@ public class Atom implements Cloneable {
    * <li>also used in SegmentTrunk to store the rank number of the segment</li>
    * </ul>
    */
-  protected double angle;
+  public double angle;
 
   /**
    * Original documentation: Where to look in the BoneYard for the next atom. 0 means end of chain.
    * Also used in AnimalTrunk to store Gradient gene, slightly more or less than 100. Treat as
    * Percentage
    */
-  protected Atom nextLikeMe;
+  public Atom nextLikeMe;
   /**
    * Original documentation: where to look in the BoneYard for the next atom. 0 means end of chain
    */
-  protected Atom firstBelowMe;
+  public Atom firstBelowMe;
 
   /**
    * Recursively traverse tree of atoms to calculate the total number of atoms in the tree.

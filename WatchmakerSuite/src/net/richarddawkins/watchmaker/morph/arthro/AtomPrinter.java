@@ -1,5 +1,8 @@
 package net.richarddawkins.watchmaker.morph.arthro;
 
+import net.richarddawkins.watchmaker.morph.arthro.genome.Atom;
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.AtomKind;
+
 /**
  * Warning: this class is not threadsafe.
  * 

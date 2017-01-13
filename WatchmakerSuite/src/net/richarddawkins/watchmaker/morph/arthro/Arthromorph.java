@@ -11,6 +11,8 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
+import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphGenome;
+import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphGradientExceeds1000Exception;
 /**
  * <h2>Original documentation from Arthromorphs/MyGlobals</h2>
  * <p>Arthromorphs   by Richard Dawkins and Ted Kaehler</p>

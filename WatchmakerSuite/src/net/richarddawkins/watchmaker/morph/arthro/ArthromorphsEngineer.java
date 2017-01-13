@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.Concentration;
+import net.richarddawkins.watchmaker.morph.arthro.genome.type.Pressure;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 
@@ -72,7 +74,7 @@ public class ArthromorphsEngineer extends JFrame {
     group.add(mutPressureMinus);
   }
 
-  protected ArthromorphsEngineer(ArthromorphConfig newConfig) {
+  public ArthromorphsEngineer(ArthromorphConfig newConfig) {
     super("Allowed Mutations");
     this.config = newConfig;
     this.addComponentListener(new ComponentAdapter() {
