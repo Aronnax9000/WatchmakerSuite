@@ -26,18 +26,18 @@ public class ColourGenome extends MonochromeGenome {
 
 	public static final int RAINBOW = 256;
 
-	protected final ColorGene backColorGene = new ColorGene("Background Color", RAINBOW / 3);
-	protected final ColorGene colorGene1 = new ColorGene("Color Gene 1");
-	protected final ColorGene colorGene2 = new ColorGene("Color Gene 2");
-	protected final ColorGene colorGene3 = new ColorGene("Color Gene 3");
-	protected final ColorGene colorGene4 = new ColorGene("Color Gene 4");
-	protected final ColorGene colorGene5 = new ColorGene("Color Gene 5");
-	protected final ColorGene colorGene6 = new ColorGene("Color Gene 6");
-	protected final ColorGene colorGene7 = new ColorGene("Color Gene 7");
-	protected final ColorGene colorGene8 = new ColorGene("Color Gene 8");
-	protected final LimbFillGene limbFillGene = new LimbFillGene("Limb Fill", LimbFillType.Filled);
-	protected final LimbShapeGene limbShapeGene = new LimbShapeGene("Limb Shape", LimbShapeType.Stick);
-	protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater("Thickness", 1);
+	protected final ColorGene backColorGene = new ColorGene(this, "Background Color", RAINBOW / 3);
+	protected final ColorGene colorGene1 = new ColorGene(this, "Color Gene 1");
+	protected final ColorGene colorGene2 = new ColorGene(this, "Color Gene 2");
+	protected final ColorGene colorGene3 = new ColorGene(this, "Color Gene 3");
+	protected final ColorGene colorGene4 = new ColorGene(this, "Color Gene 4");
+	protected final ColorGene colorGene5 = new ColorGene(this, "Color Gene 5");
+	protected final ColorGene colorGene6 = new ColorGene(this, "Color Gene 6");
+	protected final ColorGene colorGene7 = new ColorGene(this, "Color Gene 7");
+	protected final ColorGene colorGene8 = new ColorGene(this, "Color Gene 8");
+	protected final LimbFillGene limbFillGene = new LimbFillGene(this, "Limb Fill", LimbFillType.Filled);
+	protected final LimbShapeGene limbShapeGene = new LimbShapeGene(this, "Limb Shape", LimbShapeType.Stick);
+	protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater(this, "Thickness", 1);
 
 	int thick;
 

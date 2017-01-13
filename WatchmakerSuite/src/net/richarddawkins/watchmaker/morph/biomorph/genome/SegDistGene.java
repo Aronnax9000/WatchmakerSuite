@@ -1,10 +1,11 @@
 package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
+import net.richarddawkins.watchmaker.genome.Genome;
+
 public class SegDistGene extends Gene12345678 {
 
-	public SegDistGene(String name) {
-		super(name);
-		// TODO Auto-generated constructor stub
+	public SegDistGene(Genome genome, String name) {
+		super(genome, name);
 	}
 
 	@Override

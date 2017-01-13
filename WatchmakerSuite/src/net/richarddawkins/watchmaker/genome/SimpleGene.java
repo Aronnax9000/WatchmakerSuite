@@ -5,8 +5,10 @@ import java.beans.PropertyChangeSupport;
 import java.beans.VetoableChangeSupport;
 
 public abstract class SimpleGene implements Gene {
-	public SimpleGene(String name) {
+	public SimpleGene(Genome genome, String name) {
+		this.genome = genome;
 		this.name = name;
+		
 	}
 	
 	protected Genome genome;

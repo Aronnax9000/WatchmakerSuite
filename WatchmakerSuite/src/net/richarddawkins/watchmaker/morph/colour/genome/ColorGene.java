@@ -1,18 +1,19 @@
 package net.richarddawkins.watchmaker.morph.colour.genome;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 
 public class ColorGene extends IntegerGene {
 
 
-	public ColorGene(String name) {
-		super(name);
+	public ColorGene(Genome genome, String name) {
+		super(genome, name);
 		this.value = ColourGenome.RAINBOW / 2;
 		
 	}
 
-	public ColorGene(String name, int i) {
-		this(name);
+	public ColorGene(Genome genome, String name, int i) {
+		this(genome, name);
 		this.value = i;
 	}
 

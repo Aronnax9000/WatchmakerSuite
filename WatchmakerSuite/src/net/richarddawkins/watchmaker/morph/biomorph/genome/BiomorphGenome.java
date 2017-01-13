@@ -19,22 +19,22 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	protected int gene9Max = 8;
 	protected boolean oddOne;
 	protected int order;
-	protected final Gene12345678 gene1 = new Gene12345678("Gene 1");
-	protected final Gene12345678 gene2 = new Gene12345678("Gene 2");
-	protected final Gene12345678 gene3 = new Gene12345678("Gene 3");
-	protected final Gene12345678 gene4 = new Gene12345678("Gene 4");
-	protected final Gene12345678 gene5 = new Gene12345678("Gene 5");
-	protected final Gene12345678 gene6 = new Gene12345678("Gene 6");
-	protected final Gene12345678 gene7 = new Gene12345678("Gene 7");
-	protected final Gene12345678 gene8 = new Gene12345678("Gene 8");
-	protected final Gene9 gene9 = new Gene9("Gene 9");
-	protected final SegNoGene segNoGene = new SegNoGene("Segment Number");
-	protected final IntegerGradientGene segDistGene = new IntegerGradientGene("Segment Distance");
-	protected final CompletenessGene completenessGene = new CompletenessGene("Completeness");
-	protected final SpokesGene spokesGene = new SpokesGene("Spokes");
-	protected final IntegerGeneZeroOrGreater trickleGene = new IntegerGeneZeroOrGreater("Trickle");
-	protected final IntegerGeneOneOrGreater mutSizeGene = new IntegerGeneOneOrGreater("Mutation Size");
-	protected final IntegerGene1To100 mutProbGene = new IntegerGene1To100("Mutation Probability");
+	protected final Gene12345678 gene1 = new Gene12345678(this, "Gene 1");
+	protected final Gene12345678 gene2 = new Gene12345678(this, "Gene 2");
+	protected final Gene12345678 gene3 = new Gene12345678(this, "Gene 3");
+	protected final Gene12345678 gene4 = new Gene12345678(this, "Gene 4");
+	protected final Gene12345678 gene5 = new Gene12345678(this, "Gene 5");
+	protected final Gene12345678 gene6 = new Gene12345678(this, "Gene 6");
+	protected final Gene12345678 gene7 = new Gene12345678(this, "Gene 7");
+	protected final Gene12345678 gene8 = new Gene12345678(this, "Gene 8");
+	protected final Gene9 gene9 = new Gene9(this, "Gene 9");
+	protected final SegNoGene segNoGene = new SegNoGene(this, "Segment Number");
+	protected final IntegerGradientGene segDistGene = new IntegerGradientGene(this, "Segment Distance");
+	protected final CompletenessGene completenessGene = new CompletenessGene(this, "Completeness");
+	protected final SpokesGene spokesGene = new SpokesGene(this, "Spokes");
+	protected final IntegerGeneZeroOrGreater trickleGene = new IntegerGeneZeroOrGreater(this, "Trickle");
+	protected final IntegerGeneOneOrGreater mutSizeGene = new IntegerGeneOneOrGreater(this, "Mutation Size");
+	protected final IntegerGene1To100 mutProbGene = new IntegerGene1To100(this, "Mutation Probability");
 
 	abstract public void basicTree();
 

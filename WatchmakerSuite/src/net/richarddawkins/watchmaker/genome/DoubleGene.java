@@ -4,8 +4,8 @@ import java.awt.Cursor;
 
 public class DoubleGene extends NumericGene {
 
-	public DoubleGene(String name) {
-		super(name);
+	public DoubleGene(Genome genome, String name) {
+		super(genome, name);
 	}
 
 	double value;

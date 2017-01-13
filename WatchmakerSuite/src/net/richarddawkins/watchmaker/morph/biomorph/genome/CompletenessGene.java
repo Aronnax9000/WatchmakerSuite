@@ -2,13 +2,14 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import java.awt.Cursor;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class CompletenessGene extends SimpleGene {
-	public CompletenessGene(String name) {
-		super(name);
+	public CompletenessGene(Genome genome, String name) {
+		super(genome, name);
 	}
 	
     protected CompletenessType value;

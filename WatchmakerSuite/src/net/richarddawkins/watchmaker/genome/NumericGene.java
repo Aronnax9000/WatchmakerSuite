@@ -2,8 +2,8 @@ package net.richarddawkins.watchmaker.genome;
 
 abstract public class NumericGene extends SimpleGene {
 
-	public NumericGene(String name) {
-		super(name);
+	public NumericGene(Genome genome, String name) {
+		super(genome, name);
 	}
 	
 

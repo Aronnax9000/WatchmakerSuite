@@ -1,11 +1,12 @@
 package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 
 public class IntegerGradientGene extends IntegerGene implements GradientGene {
-	public IntegerGradientGene(String name) {
-		super(name);
+	public IntegerGradientGene(Genome genome, String name) {
+		super(genome, name);
 	}
 	
 	protected SwellType gradient;

@@ -9,8 +9,8 @@ public class IntegerGene extends NumericGene {
 	
 	protected int value;
 
-	public IntegerGene(String name) {
-		super(name);
+	public IntegerGene(Genome genome, String name) {
+		super(genome, name);
 	}
 	
 	public int getValue() {

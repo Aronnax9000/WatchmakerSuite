@@ -2,13 +2,14 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import java.awt.Cursor;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class Gene9 extends IntegerGradientGene {
-	public Gene9(String name) {
-		super(name);
+	public Gene9(Genome genome, String name) {
+		super(genome, name);
 	}
 
 	public void goose(Cursor cursor) {

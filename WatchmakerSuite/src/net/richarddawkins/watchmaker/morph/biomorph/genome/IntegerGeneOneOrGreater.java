@@ -1,15 +1,16 @@
 package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 
 public class IntegerGeneOneOrGreater extends IntegerGene {
 
-	public IntegerGeneOneOrGreater(String name) {
-		super(name);
+	public IntegerGeneOneOrGreater(Genome genome, String name) {
+		super(genome, name);
 	}
 
-	public IntegerGeneOneOrGreater(String name, int value) {
-		super(name);
+	public IntegerGeneOneOrGreater(Genome genome, String name, int value) {
+		super(genome, name);
 		this.value = value;
 	}
 
