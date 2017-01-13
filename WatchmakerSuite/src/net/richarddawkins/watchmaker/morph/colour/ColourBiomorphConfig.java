@@ -10,12 +10,12 @@ import net.richarddawkins.watchmaker.morph.colour.genome.ColourMutagen;
 public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public static final int MutTypeNo = 13;
+	
+	protected int geneBoxCount = 28;
 	private ColourMutagen mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 
 		return new ColourGeneBoxStrip(this, engineeringMode); }
-
-	
 
 	public ColourBiomorphConfig() {
 		super(MorphType.COLOUR_BIOMORPH);
