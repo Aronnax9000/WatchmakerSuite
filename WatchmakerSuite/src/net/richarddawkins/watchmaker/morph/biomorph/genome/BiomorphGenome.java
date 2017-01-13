@@ -109,6 +109,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 			GradientGene myGene = (GradientGene) myGenes[j];
 			myGene.setGradient(SwellType.Same);
 		}
+		segDistGene.setGradient(SwellType.Same);
 		segNoGene.setValue(1);
 		completenessGene.setValue(CompletenessType.Double);
 		spokesGene.setValue(SpokesType.NorthOnly);
