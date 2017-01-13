@@ -30,10 +30,10 @@ abstract public class SimpleGeneBox extends JPanel implements PropertyChangeList
 	protected JLabel valueLabel = new JLabel("X");
 	
 	public SimpleGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
-		setEngineeringMode(engineeringMode);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		this.setLayout(new BorderLayout());
 		this.geneBoxStrip = geneBoxStrip;
+		setEngineeringMode(engineeringMode);
 		
 		// I actually think the extra valuePanel isn't needed:
 		// The valueLabel could probably be added directly to the present panel. - ABC
