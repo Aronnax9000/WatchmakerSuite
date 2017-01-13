@@ -8,7 +8,7 @@ import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.AtomKind;
-import net.richarddawkins.watchmaker.morph.common.geom.Rect;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
 
 public class ArthromorphGenome extends SimpleGenome {
 	Atom animalTrunk;

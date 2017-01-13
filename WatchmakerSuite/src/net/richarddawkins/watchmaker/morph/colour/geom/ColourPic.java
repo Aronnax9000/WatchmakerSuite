@@ -12,13 +12,13 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.SimplePic;
 import net.richarddawkins.watchmaker.morph.colour.ColourBiomorph;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
-import net.richarddawkins.watchmaker.morph.common.geom.Lin;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
 
 public class ColourPic extends SimplePic {
   public ColourPic() {

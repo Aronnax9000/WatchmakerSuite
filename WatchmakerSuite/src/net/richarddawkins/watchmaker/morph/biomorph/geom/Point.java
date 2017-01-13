@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.common.geom;
+package net.richarddawkins.watchmaker.morph.biomorph.geom;
 
 public class Point implements Cloneable {
 

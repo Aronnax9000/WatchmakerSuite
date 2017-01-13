@@ -7,10 +7,10 @@ import java.awt.image.BufferedImage;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.common.geom.Lin;
-import net.richarddawkins.watchmaker.morph.common.geom.Pic;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.watchmaker.morph.common.geom.Rect;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImage;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;

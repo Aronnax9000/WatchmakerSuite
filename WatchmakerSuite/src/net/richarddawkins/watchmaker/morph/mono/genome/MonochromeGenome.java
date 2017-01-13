@@ -15,8 +15,8 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
-import net.richarddawkins.watchmaker.morph.common.geom.Pic;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 

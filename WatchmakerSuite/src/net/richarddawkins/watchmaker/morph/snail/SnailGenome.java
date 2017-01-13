@@ -6,8 +6,8 @@ import java.awt.Graphics2D;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.watchmaker.morph.common.geom.Rect;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
 
 public class SnailGenome extends SimpleGenome implements Cloneable {
   public static boolean sideView = false;

@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.AtomKind;
-import net.richarddawkins.watchmaker.morph.common.geom.Rect;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
 
 public class Atom implements Cloneable {
 

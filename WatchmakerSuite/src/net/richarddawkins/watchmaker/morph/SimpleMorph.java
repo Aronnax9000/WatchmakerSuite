@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.JMenuBar;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.common.geom.Pic;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 
 public abstract class SimpleMorph implements Morph {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");

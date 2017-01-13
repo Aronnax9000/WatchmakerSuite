@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morph.mono.geom.MonoPic;
 /**

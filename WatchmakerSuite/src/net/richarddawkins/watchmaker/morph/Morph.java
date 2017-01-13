@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.common.geom.Pic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 
 public interface Morph {
 	

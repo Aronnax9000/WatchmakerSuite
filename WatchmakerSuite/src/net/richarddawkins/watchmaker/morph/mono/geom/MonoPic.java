@@ -14,9 +14,9 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morph.common.geom.Lin;
-import net.richarddawkins.watchmaker.morph.common.geom.Point;
-import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.SimplePic;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
