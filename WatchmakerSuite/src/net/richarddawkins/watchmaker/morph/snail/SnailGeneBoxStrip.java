@@ -1,11 +1,10 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
-import java.awt.Cursor;
 import java.awt.GridBagConstraints;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
-import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
+import net.richarddawkins.watchmaker.genome.gui.DoubleGeneBox;
+import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
@@ -34,7 +33,7 @@ public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
 	    constraints.weightx = 1;
 	    constraints.gridy = 0;
 	    for(int i = 0; i < numberOfGeneBoxes; i++) {
-	      GeneBox geneBox = new GeneBox(this, i, i < 9, false);
+	      DoubleGeneBox geneBox = new DoubleGeneBox(this, engineeringMode);
 	      constraints.gridx = i;
 	      this.add(geneBox, constraints);
 	    }
@@ -45,12 +44,6 @@ public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
 		@Override
 		public Genome getGenome() {
 			return genome;
-		}
-
-		@Override
-		public void goose(int geneBoxNo, Cursor cursor) {
-			// TODO Auto-generated method stub
-			
 		}
 
 }

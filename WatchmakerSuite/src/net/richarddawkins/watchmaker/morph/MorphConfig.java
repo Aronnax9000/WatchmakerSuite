@@ -5,9 +5,9 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
 
+import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 
 public interface MorphConfig {

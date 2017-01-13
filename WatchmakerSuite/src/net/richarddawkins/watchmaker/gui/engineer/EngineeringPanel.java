@@ -4,8 +4,8 @@ import java.awt.Dimension;
 
 import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 import net.richarddawkins.watchmaker.drawer.Boxes;
+import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.breed.BoxyMorphViewPanel;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 

@@ -8,10 +8,14 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessGene;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.GradientGene;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesGene;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.colour.ColourBiomorphConfig;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 
 public class ColourMutagen extends BiomorphMutagen {
   protected ColourBiomorphConfig config;
@@ -25,14 +29,14 @@ public class ColourMutagen extends BiomorphMutagen {
     this.config = (ColourBiomorphConfig) config;
   }
 
-  LimbType randLimbType() {
+  LimbShapeType randLimbType() {
     switch (randInt(3)) {
     case 1:
-      return LimbType.Stick;
+      return LimbShapeType.Stick;
     case 2:
-      return LimbType.Oval;
+      return LimbShapeType.Oval;
     case 3:
-      return LimbType.Rectangle;
+      return LimbShapeType.Rectangle;
     default:
       return null;
     }
@@ -55,7 +59,7 @@ public class ColourMutagen extends BiomorphMutagen {
     boolean[] mut = config.getMut();
     int mutProb = target.getMutProbGene().getValue();
     if (mut[6] && randInt(100) < mutProb) {
-      addToMutProbGene(target, direction9());
+      target.getMutProbGene().addToGene(direction9());
       // Update local copy of MutProbGene
       mutProb = target.getMutProbGene().getValue();
       success = true;
@@ -63,27 +67,28 @@ public class ColourMutagen extends BiomorphMutagen {
     if (mut[12]) {
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProb) {
-          addToGene(target, j, direction((BiomorphGenome)genome));
+        	((IntegerGene)target.getGene(j)).addToGene(direction((BiomorphGenome)genome));
           success = true;
         }
       if (randInt(100) < mutProb) {
-    	addToGene(target, 8, direction9());
+    	  ((IntegerGene)target.getGene(8)).addToGene(direction9());
         success = true;
       }
 
     }
+    ColorGene[] colorGenes = target.getColorGenes();
     if (mut[9])
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProb) {
-          target.addToColorGene(j, direction9());
+          colorGenes[j].addToGene(direction9());
           success = true;
         }
     if (mut[7] && randInt(100) < mutProb) {
-      target.setLimbShapeGene(randLimbType());
+      target.getLimbShapeGene().setValue(randLimbType());
       success = true;
     }
     if (mut[8] && randInt(100) < mutProb) {
-      target.setLimbFillGene(randLimbFill());
+      target.getLimbFillGene().setValue(randLimbFill());
       success = true;
     }
 
@@ -94,24 +99,30 @@ public class ColourMutagen extends BiomorphMutagen {
     }
 
     if (mut[11] && randInt(100) < mutProb) {
-      target.addToThicknessGene(direction9());
+      target.getThicknessGene().addToGene(direction9());
       success = true;
     }
     if (mut[0] && randInt(100) < mutProb) {
-      addToSegNoGene(target, direction9());
+      target.getSegNoGene().addToGene(direction9());
       success = true;
     }
     IntegerGene segNoGene = target.getSegNoGene();
     if (mut[1] && segNoGene.getValue() > 1) {
       for (int j = 0; j < 8; j++)
-        if (randInt(100) < mutProb / 2)
-          target.setDGene(j, randSwell(target.getDGene(j)));
-      if (randInt(100) < mutProb / 2)
-        target.setDGene(9, randSwell(target.getDGene(9)));
+        if (randInt(100) < mutProb / 2) {
+        	GradientGene gradGene = (GradientGene)target.getGene(j);
+        	gradGene.setGradient(randSwell(gradGene.getGradient()));
+        }
+      if (randInt(100) < mutProb / 2) {
+    	  IntegerGradientGene gradGene = target.getSegDistGene(); 
+      	gradGene.setGradient(randSwell(gradGene.getGradient()));
+    	  
+      }
+        
       success = true;
     }
     if (mut[0] && segNoGene.getValue() > 1 && randInt(100) < mutProb) {
-      addToSegDistGene(target, direction9());
+      target.getSegDistGene().addToGene(direction9());
       success = true;
     }
     if (mut[2] && randInt(100) < mutProb / 2) {
@@ -136,11 +147,11 @@ public class ColourMutagen extends BiomorphMutagen {
       success = true;
     }
     if (mut[4] && randInt(100) < mutProb) {
-      addToTrickleGene(target, direction9());
+      target.getTrickleGene().addToGene(direction9());
       success = true;
     }
     if (mut[5] && randInt(100) < mutProb) {
-      addToMutSizeGene(target, direction9());
+      target.getMutSizeGene().addToGene(direction9());
       success = true;
     }
     return success;

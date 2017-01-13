@@ -12,10 +12,9 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphMutagen;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
@@ -54,8 +53,9 @@ public Gene[] toGeneArray()
   
   public MonochromeGenome() {
 	  Gene[] theGenes = this.toGeneArray();
-	  for(int i = 0; i < theGenes.length; i++)
+	  for(int i = 0; i < theGenes.length; i++) {
 		  	theGenes[i].setGenome(this);
+	  }
 	  segNoGene.setShowPositiveSign(true);
 	  segDistGene.setShowPositiveSign(true);
 	  trickleGene.setShowPositiveSign(true);
@@ -69,7 +69,7 @@ public Gene[] toGeneArray()
     setGene9Max(11);
   }
 
-  void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
+  protected void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
     int thick;
     Pic pic = morph.getPic();
     int xnew, ynew;
@@ -82,11 +82,10 @@ public Gene[] toGeneArray()
     xnew = x + lgth * dx[dir] / trickleGene.getValue();
     ynew = y + lgth * dy[dir] / trickleGene.getValue();
 
-    SwellType dGene8 = getDGene(8);
     
-    if (dGene8 == SwellType.Shrink)
+    if (gene9.getGradient() == SwellType.Shrink)
       thick = lgth;
-    else if (dGene8 == SwellType.Swell)
+    else if (gene9.getGradient() == SwellType.Swell)
       thick = 1 + gene9.getValue() - lgth;
     else
       thick = 1;
@@ -113,7 +112,7 @@ public Gene[] toGeneArray()
     return childGenome;
   }
 
-  void plugIn(int[] gene, int[] dx, int[] dy) {
+  protected void plugIn(int[] gene, int[] dx, int[] dy) {
     order = gene[8];
     dx[3] = gene[0];
     dx[4] = gene[1];
@@ -158,13 +157,17 @@ public Gene[] toGeneArray()
 	    pic.zeroPic(here);
 	    if (segNoGene.getValue() < 1)
 	      segNoGene.setValue(1);
-	    if (getDGene(9) == SwellType.Swell)
+	    switch(segDistGene.getGradient()) {
+	    case Swell:
 	      extraDistance = trickleGene.getValue();
-	    else if (getDGene(9) == SwellType.Shrink)
+	      break;
+	    case Shrink:
 	      extraDistance = -trickleGene.getValue();
-	    else
+	      break;
+	    case Same:
+	    default:
 	      extraDistance = 0;
-	    
+	    }
 	    running = new int[] {
 	    		gene1.getValue(),
 	    		gene2.getValue(),
@@ -184,16 +187,26 @@ public Gene[] toGeneArray()
 	        here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
 	        incDistance += extraDistance;
 	        int thick;
-	        if (getDGene(8) == SwellType.Shrink)
+	        if (gene9.getGradient() == SwellType.Shrink)
 	          thick = gene9.getValue();
 	        else
 	          thick = 1;
 	        pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
+	        SwellType[] dGene = new SwellType[] {
+	        		
+	        };
 	        for (int j = 0; j < 8; j++) {
-	          if (getDGene(j) == SwellType.Swell)
-	            running[j] += trickleGene.getValue();
-	          else if (getDGene(j) == SwellType.Shrink)
-	            running[j] -= trickleGene.getValue();
+	        	switch(dGene[j]) {
+	        	case Swell:
+	        		running[j] += trickleGene.getValue();
+	        		break;
+	        	case Shrink:
+	        		running[j] -= trickleGene.getValue();
+	        		break;
+	        	case Same:
+	        		break;
+	        		default:
+	        	}
 	        }
 	        if (running[8] < 1)
 	          running[8] = 1;
@@ -201,7 +214,7 @@ public Gene[] toGeneArray()
 	      }
 	      sizeWorry = segNoGene.getValue() * (1 << gene9.getValue());
 	      if (sizeWorry > Globals.worryMax)
-	    	  BiomorphMutagen.decrementGene(this, 8);
+	    	  gene9.decrementGene();;
 	        
 	      if (gene9.getValue() < 1)
 	        gene9.setValue(8);
@@ -264,15 +277,24 @@ public Gene[] toGeneArray()
     		gene8.getValue(),
     		gene9.getValue()
     }, dx, dy);
+    
     pic.zeroPic(here);
+    
     if (segNoGene.getValue() < 1)
     	segNoGene.setValue(1);
-    if (getDGene(9) == SwellType.Swell)
-      extraDistance = trickleGene.getValue();
-    else if (getDGene(9) == SwellType.Shrink)
-      extraDistance = -trickleGene.getValue();
-    else
-      extraDistance = 0;
+    
+    switch(segDistGene.getGradient()) {
+    case Swell:
+    	extraDistance = trickleGene.getValue();
+    	break;
+    case Shrink:
+    	extraDistance = -trickleGene.getValue();
+    	break;
+    case Same:
+	default:
+    	extraDistance = 0;
+    }
+      
 
     running = new int[] {
     		gene1.getValue(),
@@ -286,6 +308,18 @@ public Gene[] toGeneArray()
     		gene9.getValue()
     };
     incDistance = 0;
+    SwellType[] dGene = new SwellType[] {
+    		gene1.getGradient(),
+    		gene2.getGradient(),
+    		gene3.getGradient(),
+    		gene4.getGradient(),
+    		gene5.getGradient(),
+    		gene6.getGradient(),
+    		gene7.getGradient(),
+    		gene8.getGradient(),
+    		gene9.getGradient()
+    		
+    };
     for (int seg = 0; seg < segNoGene.getValue(); seg++) {
       oddOne = (seg & 1) == 1;
       if (seg > 0) {
@@ -293,15 +327,15 @@ public Gene[] toGeneArray()
         here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
         incDistance += extraDistance;
         int thick;
-        if (getDGene(8) == SwellType.Shrink)
+        if (gene9.getGradient() == SwellType.Shrink)
           thick = gene9.getValue();
         else
           thick = 1;
         pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
         for (int j = 0; j < 8; j++) {
-          if (getDGene(j) == SwellType.Swell)
+          if (dGene[j] == SwellType.Swell)
             running[j] += trickleGene.getValue();
-          else if (getDGene(j) == SwellType.Shrink)
+          else if (dGene[j] == SwellType.Shrink)
             running[j] -= trickleGene.getValue();
         }
         if (running[8] < 1)
@@ -371,10 +405,10 @@ public Gene[] toGeneArray()
     segNoGene.setValue(2);
     segDistGene.setValue(150);
     completenessGene.setValue(CompletenessType.Single);
-    dGene[3] = SwellType.Shrink;
-    dGene[4] = SwellType.Shrink;
-    dGene[5] = SwellType.Shrink;
-    dGene[8] = SwellType.Shrink;
+    gene4.setGradient(SwellType.Shrink);
+    gene5.setGradient(SwellType.Shrink);
+    gene6.setGradient(SwellType.Shrink);
+    gene9.setGradient(SwellType.Shrink);
     trickleGene.setValue(9);
   }
 

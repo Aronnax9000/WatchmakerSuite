@@ -2,25 +2,30 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
 
-import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.Mutagen;
-import net.richarddawkins.watchmaker.morph.util.Globals;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 
-
-public abstract class BiomorphMutagen 
-	implements Mutagen {
+public abstract class BiomorphMutagen implements Mutagen {
+	
 	static protected SwellType randSwell(SwellType indGene) {
+		SwellType swellType;
 		switch(indGene) {
-		case Shrink: return SwellType.Same;
-		
+		case Shrink: 
+				swellType = SwellType.Same;
+				break;
 		case Same: 
 			if(randInt(2) == 1)
-				return SwellType.Shrink; 
+				swellType = SwellType.Shrink; 
 			else 
-				return SwellType.Swell;
-		case Swell: return SwellType.Same;
-		default: return indGene; // Can't happen
+				swellType = SwellType.Swell;
+			break;
+		case Swell: 
+			swellType = SwellType.Same;
+			break;
+		default: 
+			swellType = indGene; // Can't happen
 		}
+		return swellType;
 	}
 
 
@@ -37,139 +42,4 @@ public abstract class BiomorphMutagen
 	static public int direction9() {
 		return randInt(2) == 2 ? 1 : -1;
 	}
-	
-	/**
-	 * Add a quantity to the mutProbGene. If the the result is less than one, it
-	 * is set to one. If the result is greater than 100, it is set to 100.
-	 * @param summand the quantity to add to the MutProbGene.
-	 */
-	static public void addToMutProbGene(BiomorphGenome genome, int summand) {
-		IntegerGene mutProbGene = genome.getMutProbGene();
-		int newValue = mutProbGene.getValue() + summand;
-		if (newValue < 1)
-			newValue = 1;
-		if (newValue > 100)
-			newValue = 100;
-		mutProbGene.setValue(newValue);
-	}
-
-	/**
-	 * Gene9 is not permitted to fall below 1, or rise above 8 (the default, for
-	 * Colour.) Monochrome sets 11 as the limit in its constructor.
-	 * @param index the index of the gene to be modified
-	 * @param summand the quantity to add to the gene.
-	 */
-	static public void addToGene(BiomorphGenome genome, int index, int summand) {
-		IntegerGene gene = (IntegerGene) genome.toGeneArray()[index]; 
-		int newValue = gene.getValue() + summand;
-		
-		if (index == 8) {
-			if (newValue < 1)
-				newValue = 1;
-			else if (newValue > genome.getGene9Max())
-				newValue = genome.getGene9Max();
-		}
-		
-		gene.setValue(newValue);
-	}
-	
-	static public void decrementSegNoGene(BiomorphGenome genome) {
-		IntegerGene segNoGene = genome.getSegNoGene();
-		segNoGene.setValue(segNoGene.getValue() - 1);
-	}
-
-	static public void incrementSegNoGene(BiomorphGenome genome) {
-		IntegerGene segNoGene = genome.getSegNoGene();
-		segNoGene.setValue(segNoGene.getValue() + 1);
-
-	}
-	
-	static public void decrementGene(BiomorphGenome genome, int index) {
-		IntegerGene gene = (IntegerGene) genome.toGeneArray()[index]; 
-		gene.setValue(gene.getValue() - 1);
-	}
-
-	static public void incrementGene(BiomorphGenome genome, int index) {
-		IntegerGene gene = (IntegerGene) genome.toGeneArray()[index]; 
-		gene.setValue(gene.getValue() + 1);
-	}
-	/** mutSizeGene is not allowed to fall below 1. 
-	 * @param summand the quantity to add to the MutSizeGene 
-	 */
-	static public void addToMutSizeGene(BiomorphGenome genome, int summand) {
-		IntegerGene mutSizeGene = genome.getMutSizeGene();
-		int newValue = mutSizeGene.getValue() + summand;
-		
-		if (newValue < 1)
-			newValue = 1;
-		mutSizeGene.setValue(newValue);
-	}
-
-	/**
-	 * trickleGene is not allowed to fall below 1.
-	 * @param summand the quantity to add to the TrickleGene.
-	 */
-	static public void addToTrickleGene(BiomorphGenome genome, int summand) {
-		IntegerGene trickleGene = genome.getTrickleGene();
-		int newValue = trickleGene.getValue() + summand;
-		newValue += summand;
-		if (newValue < 1)
-			newValue = 1;
-		trickleGene.setValue(newValue);
-
-	}
-
-	/**
-	 * Add to segNoGene provided that the product segNoGene * gene[Gene9]^2 &lt;
-	 * Globals.worryMax
-	 * @param summand the amount to add to the SegNoGene.
-	 */
-	static public void addToSegNoGene(BiomorphGenome genome, int summand) {
-		IntegerGene segNoGene = genome.getSegNoGene();
-		int newValue = segNoGene.getValue() + summand;
-		if (summand > 0) {
-			int sizeWorry = newValue * 1 << ((IntegerGene) genome.getGene(8)).getValue();
-			if (sizeWorry > Globals.worryMax)
-				newValue--;
-			if (newValue < 1)
-				newValue = 1;
-
-		}
-		segNoGene.setValue(newValue);
-
-	}
-
-	static public void addToSegDistGene(BiomorphGenome genome, int summand) {
-		IntegerGene segDistGene = genome.getSegDistGene();
-		int newValue = segDistGene.getValue() + summand;
-		segDistGene.setValue(newValue);
-	}
-
-	static public void decrementTrickleGene(BiomorphGenome genome) {
-		IntegerGene trickleGene = genome.getTrickleGene();
-		trickleGene.setValue(trickleGene.getValue() - 1);
-	}
-
-	static public void incrementTrickleGene(BiomorphGenome genome) {
-		IntegerGene trickleGene = genome.getTrickleGene();
-		trickleGene.setValue(trickleGene.getValue() + 1);
-	}
-
-	static public void incrementMutSizeGene(BiomorphGenome genome) {
-		genome.getMutSizeGene().setValue(genome.getMutSizeGene().getValue() + 1);
-	}
-	static public void decrementMutSizeGene(BiomorphGenome genome) {
-		genome.getMutSizeGene().setValue(genome.getMutSizeGene().getValue() - 1);
-	}
-
-	static public void decrementMutProbGene(BiomorphGenome genome) {
-		genome.getMutSizeGene().setValue(genome.getMutProbGene().getValue() - 1);
-	}
-
-	static public void incrementMutProbGene(BiomorphGenome genome) {
-		genome.getMutSizeGene().setValue(genome.getMutProbGene().getValue() + 1);
-	}
-
-
-
 }

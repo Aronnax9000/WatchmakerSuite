@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;

@@ -20,4 +20,8 @@ abstract public class NumericGene extends SimpleGene {
 		destinationGene.setShowPositiveSign(showPositiveSign);
 		
 	}
+
+	abstract public void setValue(int value);
+
+	abstract void setValue(double value);
 }

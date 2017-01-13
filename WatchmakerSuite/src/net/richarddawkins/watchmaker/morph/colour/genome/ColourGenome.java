@@ -5,68 +5,117 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.SwellType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.IntegerGeneOneOrGreater;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morph.colour.ColourPic;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morph.common.geom.Pic;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
+import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 
-public class ColourGenome extends BiomorphGenome {
+public class ColourGenome extends MonochromeGenome {
   
   public static final int RAINBOW = 256;
   
-  int[] colorGene = new int[8];
-  long backColorGene;
-  LimbType limbShapeGene;
-  LimbFillType limbFillGene;
-  int thicknessGene;
+  protected final ColorGene colorGene1 = new ColorGene("Color Gene 1");
+  protected final ColorGene colorGene2 = new ColorGene("Color Gene 2");
+  protected final ColorGene colorGene3 = new ColorGene("Color Gene 3");
+  protected final ColorGene colorGene4 = new ColorGene("Color Gene 4");
+  protected final ColorGene colorGene5 = new ColorGene("Color Gene 5");
+  protected final ColorGene colorGene6 = new ColorGene("Color Gene 6");
+  protected final ColorGene colorGene7 = new ColorGene("Color Gene 7");
+  protected final ColorGene colorGene8 = new ColorGene("Color Gene 8");
+  protected final ColorGene backColorGene = new ColorGene("Background Color", RAINBOW / 3);
+  protected final LimbShapeGene limbShapeGene = new LimbShapeGene("Limb Shape", LimbShapeType.Stick);
+  protected final LimbFillGene limbFillGene = new LimbFillGene("Limb Fill", LimbFillType.Filled);
+  protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater("Thickness", 1);
 
   int thick;
+  
+  @Override
+public Gene[] toGeneArray()  
+  {
+	  Gene[] theGenes = new Gene[28];
 
-  public int[] getColorGene() {
-    return colorGene;
+	  Gene[] theMonochromeGenes = super.toGeneArray();
+	  for(int i = 0; i < 16; i++) {
+		  theGenes[i] = theMonochromeGenes[i];
+	  }
+	  theGenes[16] = colorGene1; 
+	  theGenes[17] = colorGene2; 
+	  theGenes[18] = colorGene3; 
+	  theGenes[19] = colorGene4; 
+	  theGenes[20] = colorGene5; 
+	  theGenes[21] = colorGene6; 
+	  theGenes[22] = colorGene7; 
+	  theGenes[23] = colorGene8; 
+	  theGenes[24] = backColorGene;
+	  theGenes[25] = limbShapeGene;
+	  theGenes[26] = limbFillGene;
+	  theGenes[27] = thicknessGene;
+	  return theGenes;
   }
 
-  public void setColorGene(int[] colorGene) {
-    this.colorGene = colorGene;
+  public ColourGenome() {
+	  super();
+		colorGene1.setGenome(this);  
+		colorGene2.setGenome(this);  
+		colorGene3.setGenome(this);  
+		colorGene4.setGenome(this);  
+		colorGene5.setGenome(this);  
+		colorGene6.setGenome(this);  
+		colorGene7.setGenome(this);  
+		colorGene8.setGenome(this);  
+		backColorGene.setGenome(this);
+		limbShapeGene.setGenome(this);
+		limbFillGene.setGenome(this);
+		thicknessGene.setGenome(this);
+    for (IntegerGene colorGene: getColorGenes()) {
+        colorGene.setValue(RAINBOW / 2);
+      }
+    backColorGene.setValue(RAINBOW / 3);
+    limbShapeGene.setValue(LimbShapeType.Stick);
+    limbFillGene.setValue(LimbFillType.Filled);
+    thicknessGene.setValue(1);
+  }
+  
+  public ColorGene[] getColorGenes() {
+	  return new ColorGene[] {
+			  colorGene1,
+			  colorGene2,
+			  colorGene3,
+			  colorGene4,
+			  colorGene5,
+			  colorGene6,
+			  colorGene7,
+			  colorGene8
+	  };
   }
 
-  public long getBackColorGene() {
+
+  public IntegerGene getBackColorGene() {
     return backColorGene;
   }
 
-  public void setBackColorGene(long backColorGene) {
-    this.backColorGene = backColorGene;
-  }
-
-  public LimbType getLimbShapeGene() {
+  public LimbShapeGene getLimbShapeGene() {
     return limbShapeGene;
   }
 
-  public void setLimbShapeGene(LimbType limbShapeGene) {
-    this.limbShapeGene = limbShapeGene;
-  }
-
-  public LimbFillType getLimbFillGene() {
+  public LimbFillGene getLimbFillGene() {
     return limbFillGene;
   }
 
-  public void setLimbFillGene(LimbFillType limbFillGene) {
-    this.limbFillGene = limbFillGene;
-  }
-
-  public int getThicknessGene() {
+  public IntegerGene getThicknessGene() {
     return thicknessGene;
-  }
-
-  public void setThicknessGene(int thicknessGene) {
-    this.thicknessGene = thicknessGene;
   }
 
   public ColourGenome(Morph morph) {
@@ -84,15 +133,21 @@ public class ColourGenome extends BiomorphGenome {
   public void copy(Genome person) {
     ColourGenome child = (ColourGenome) person;
     super.copy(child);
-    child.setColorGene(colorGene.clone());
-    child.setBackColorGene(backColorGene);
-    child.setMutSizeGene(mutSizeGene);
-    child.setLimbShapeGene(limbShapeGene);
-    child.setLimbFillGene(limbFillGene);
-    child.setThicknessGene(thicknessGene);
+    child.colorGene1.setValue(colorGene1.getValue());
+    child.colorGene2.setValue(colorGene2.getValue());
+    child.colorGene3.setValue(colorGene3.getValue());
+    child.colorGene4.setValue(colorGene4.getValue());
+    child.colorGene5.setValue(colorGene5.getValue());
+    child.colorGene6.setValue(colorGene6.getValue());
+    child.colorGene7.setValue(colorGene7.getValue());
+    child.colorGene8.setValue(colorGene8.getValue());
+    child.backColorGene.setValue(backColorGene.getValue());
+    child.limbShapeGene.setValue(limbShapeGene.getValue());
+    child.limbFillGene.setValue(limbFillGene.getValue());
+    child.thicknessGene.setValue(thicknessGene.getValue());
   }
 
-  void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
+  protected void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
     ColourPic pic = (ColourPic) morph.getPic();
     int xnew;
     int ynew;
@@ -105,8 +160,8 @@ public class ColourGenome extends BiomorphGenome {
     xnew = x + lgth * dx[dir] / trickleGene.getValue();
     ynew = y + lgth * dy[dir] / trickleGene.getValue();
     pic.margin.left = Math.min(pic.margin.left, x);
-    pic.margin.right = Math.max(pic.margin.right, x + thicknessGene);
-    pic.margin.bottom = Math.max(pic.margin.bottom, y + thicknessGene);
+    pic.margin.right = Math.max(pic.margin.right, x + thicknessGene.getValue());
+    pic.margin.bottom = Math.max(pic.margin.bottom, y + thicknessGene.getValue());
     pic.margin.top = Math.min(pic.margin.top, y);
     pic.margin.left = Math.min(pic.margin.left, xnew);
     pic.margin.right = Math.max(pic.margin.right, xnew);
@@ -114,7 +169,8 @@ public class ColourGenome extends BiomorphGenome {
     pic.margin.top = Math.min(pic.margin.top, ynew);
     int subscript = (gene9.getValue() - lgth) % 8; // + 1; Trimmed off + 1 to make it
     // zero based.
-    pic.picLine(x, y, xnew, ynew, 1, ColourPic.chooseColor(colorGene[subscript]));
+    pic.picLine(x, y, xnew, ynew, 1, ColourPic.chooseColor(
+    		this.getColorGenes()[subscript].getValue()));
     if (lgth > 1) {
       if (oddOne) {
         tree(xnew, ynew, lgth - 1, dir + 1, dx, dy);
@@ -171,11 +227,15 @@ public class ColourGenome extends BiomorphGenome {
     if (segNoGene.getValue() < 1) {
       segNoGene.setValue(1);
     }
-    if (dGene[9] == SwellType.Swell) {
+    switch(segDistGene.getGradient()) { 
+    case Swell:
       extraDistance = trickleGene.getValue();
-    } else if (dGene[9] == SwellType.Shrink) {
+      break;
+    case Shrink:
       extraDistance = -trickleGene.getValue();
-    } else {
+      break;
+    case Same:
+    default:
       extraDistance = 0;
     }
     running = new int[] {
@@ -190,6 +250,17 @@ public class ColourGenome extends BiomorphGenome {
     		gene9.getValue()
     };
     incDistance = 0;
+    SwellType[] dGene = new SwellType[] {
+		gene1.getGradient(),
+		gene2.getGradient(),
+		gene3.getGradient(),
+		gene4.getGradient(),
+		gene5.getGradient(),
+		gene6.getGradient(),
+		gene7.getGradient(),
+		gene8.getGradient(),
+		gene9.getGradient()    	
+    };
     for (int seg = 0; seg < segNoGene.getValue(); seg++) {
       oddOne = (seg & 1) == 1;
       if (seg > 0) {
@@ -260,16 +331,18 @@ public class ColourGenome extends BiomorphGenome {
   }
 
   public void addToBackColorGene(int summand) {
-    backColorGene += summand;
-    if (backColorGene > RAINBOW - 1) {
-      backColorGene = RAINBOW - 1;
+	  
+	 int newValue = backColorGene.getValue() + summand;
+    if (newValue > RAINBOW - 1) {
+    	newValue = RAINBOW - 1;
     }
-    if (backColorGene < 0) {
-      backColorGene = 0;
+    if (newValue < 0) {
+    	newValue = 0;
     }
+    backColorGene.setValue(newValue);
   }
 
-  void plugIn(int[] gene, int[] dx, int[] dy) {
+  protected void plugIn(int[] gene, int[] dx, int[] dy) {
     order = gene[8];
     dx[3] = gene[0];
     dx[4] = gene[1];
@@ -299,13 +372,6 @@ public class ColourGenome extends BiomorphGenome {
 
     makeGenes(-Biomorph.TRICKLE, 3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE,
         Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 6 * Biomorph.TRICKLE, -5 * Biomorph.TRICKLE, 7);
-    for (int j = 0; j < 8; j++) {
-      colorGene[j] = RAINBOW / 2;
-    }
-    backColorGene = RAINBOW / 3;
-    limbShapeGene = LimbType.Stick;
-    limbFillGene = LimbFillType.Filled;
-    thicknessGene = 1;
   }
 
   /*
@@ -317,13 +383,7 @@ public class ColourGenome extends BiomorphGenome {
   public void insect() {
     makeGenes(Biomorph.TRICKLE, Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, Biomorph.TRICKLE,
         -Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
-    for (int j = 0; j < 8; j++) {
-      colorGene[j] = RAINBOW / 2;
-    }
-    backColorGene = RAINBOW / 3;
-    limbShapeGene = LimbType.Stick;
-    limbFillGene = LimbFillType.Filled;
-    thicknessGene = 1;
+
   }
 
   /*
@@ -335,36 +395,8 @@ public class ColourGenome extends BiomorphGenome {
   public void basicTree() {
     makeGenes(-Biomorph.TRICKLE, -Biomorph.TRICKLE, -Biomorph.TRICKLE, -Biomorph.TRICKLE,
         -Biomorph.TRICKLE, 0, Biomorph.TRICKLE, Biomorph.TRICKLE, 6);
-    for (int j = 0; j < 8; j++) {
-      colorGene[j] = RAINBOW / 2;
-    }
-    backColorGene = RAINBOW / 3;
-    limbShapeGene = LimbType.Stick;
-    limbFillGene = LimbFillType.Filled;
-    thicknessGene = 1;
   }
 
 
-  /**
-   * Doesn't allow thicknessGene to fall below 1.
-   * @param summand the quantity to add to the ThicknessGene
-   */
-  public void addToThicknessGene(int summand) {
-    thicknessGene += summand;
-    if (thicknessGene < 1) {
-      thicknessGene = 1;
-    }
-
-  }
-
-  public void addToColorGene(int j, int summand) {
-    colorGene[j] += summand;
-    if (colorGene[j] > RAINBOW) {
-      colorGene[j] = RAINBOW;
-    }
-    if (colorGene[j] < 0) {
-      colorGene[j] = 0;
-    }
-  }
 
 }

@@ -1,57 +1,49 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
-import java.awt.Cursor;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
-import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBox;
-import net.richarddawkins.watchmaker.gui.genebox.SimpleGeneBoxStrip;
+import net.richarddawkins.watchmaker.genome.gui.IntegerGeneBox;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
+import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeGeneBoxStrip;
 
-public class ColourGeneBoxStrip extends SimpleGeneBoxStrip {
-	  
-	  
-	  /**
-	   * 
-	   */
-	  private static final long serialVersionUID = 1L;
-	  private ColourGenome genome;
+public class ColourGeneBoxStrip extends MonochromeGeneBoxStrip {
 
-	  private void updateGeneBox(int geneBoxIndex) {
-	  }
+	private static final long serialVersionUID = 1L;
 
-	  public void setGenome(Genome genome) {
-		  this.genome = (ColourGenome) genome;
-		  for(int j = 0; j < this.getComponentCount(); j++)
-		  updateGeneBox(j);
-	  }
-	  
-	  public ColourGeneBoxStrip(MorphConfig config, boolean engineeringMode) {
+	public ColourGeneBoxStrip(MorphConfig config, boolean engineeringMode) {
 	    super(config, engineeringMode);
-	    int numberOfGeneBoxes = config.getGeneBoxCount();
-	    GridBagConstraints constraints = new GridBagConstraints();
-	    constraints.fill = GridBagConstraints.HORIZONTAL;
-	    constraints.weightx = 1;
-	    constraints.gridy = 0;
-	    for(int i = 0; i < numberOfGeneBoxes; i++) {
-	      GeneBox geneBox = new GeneBox(this, i, i < 9, false);
-	      constraints.gridx = i;
-	      this.add(geneBox, constraints);
-	    }
+	    GridBagConstraints constraints = ((GridBagLayout)this.getLayout())
+	    	.getConstraints(this.getComponent(this.getComponentCount() - 1));
+	    
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new ColorGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new LimbShapeGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new LimbFillGeneBox(this, engineeringMode), constraints);
+	    constraints.gridx++;
+		this.add(new IntegerGeneBox(this, engineeringMode), constraints);
+
+	    
 
 	  }
-
 		
-		@Override
-		public Genome getGenome() {
-			return genome;
-		}
-
-		@Override
-		public void goose(int geneBoxNo, Cursor cursor) {
-			// TODO Auto-generated method stub
-			
-		}
 
 }

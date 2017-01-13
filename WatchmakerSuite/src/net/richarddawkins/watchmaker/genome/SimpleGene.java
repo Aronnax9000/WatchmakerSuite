@@ -1,6 +1,10 @@
 package net.richarddawkins.watchmaker.genome;
 
-public class SimpleGene implements Gene {
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.beans.VetoableChangeSupport;
+
+public abstract class SimpleGene implements Gene {
 	public SimpleGene(String name) {
 		this.name = name;
 	}
@@ -13,7 +17,10 @@ public class SimpleGene implements Gene {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		String old = this.name;
+//        this.vcs.fireVetoableChange( "name", old, name );
+        this.name = name;
+        this.pcs.firePropertyChange( "name", old, name );
 	}
 
 	@Override
@@ -26,4 +33,30 @@ public class SimpleGene implements Gene {
 		this.genome = genome;
 	}
 
+	protected PropertyChangeSupport pcs  = new PropertyChangeSupport(this);
+	protected VetoableChangeSupport vcs  = new VetoableChangeSupport(this);
+	@Override
+	public void copy(Gene gene) {
+		((SimpleGene) gene).name = name;
+		
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		pcs.removePropertyChangeListener(listener);
+		
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		pcs.addPropertyChangeListener(listener);
+		
+	}
+	@Override
+	public int getGooseSize() {
+		
+		return 1;
+	}
+
+	
 }

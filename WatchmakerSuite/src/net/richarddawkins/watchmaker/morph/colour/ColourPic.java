@@ -10,11 +10,11 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.CompletenessType;
-import net.richarddawkins.watchmaker.morph.biomorph.genome.SpokesType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
-import net.richarddawkins.watchmaker.morph.colour.genome.LimbFillType;
-import net.richarddawkins.watchmaker.morph.colour.genome.LimbType;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morph.common.geom.Lin;
 import net.richarddawkins.watchmaker.morph.common.geom.Point;
 import net.richarddawkins.watchmaker.morph.common.geom.SimplePic;
@@ -25,7 +25,7 @@ public class ColourPic extends SimplePic {
 
   int[] colorVals = { 0, 51, 102, 153, 204, 255 };
   int[] backColorVals = { 255, 204, 153, 102, 51, 0 };
-  static Color[] rgbColorPalette = new Color[256];
+  public static Color[] rgbColorPalette = new Color[256];
 
   static {
     // First 216 colors
@@ -48,21 +48,21 @@ public class ColourPic extends SimplePic {
   void limb(Graphics2D g2, int x0, int y0, int x1, int y1, ColourBiomorph morph) {
     Rectangle square = null;
     ColourGenome genome = (ColourGenome) morph.getGenome();
-    if (genome.getLimbShapeGene() == LimbType.Oval
-        || genome.getLimbShapeGene() == LimbType.Rectangle)
+    if (genome.getLimbShapeGene().getValue() == LimbShapeType.Oval
+        || genome.getLimbShapeGene().getValue() == LimbShapeType.Rectangle)
       square = new Rectangle(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0),
           Math.abs(y1 - y0));
 
-    g2.setStroke(new BasicStroke(genome.getThicknessGene()));
-    switch (genome.getLimbShapeGene()) {
+    g2.setStroke(new BasicStroke(genome.getThicknessGene().getValue()));
+    switch (genome.getLimbShapeGene().getValue()) {
     case Oval:
       g2.drawOval(square.x, square.y, square.width, square.height);
-      if (genome.getLimbFillGene() == LimbFillType.Filled)
+      if (genome.getLimbFillGene().getValue() == LimbFillType.Filled)
         g2.fillOval(square.x, square.y, square.width, square.height);
       break;
     case Rectangle:
       g2.drawRect(square.x, square.y, square.width, square.height);
-      if (genome.getLimbFillGene() == LimbFillType.Filled)
+      if (genome.getLimbFillGene().getValue() == LimbFillType.Filled)
         g2.fillRect(square.x, square.y, square.width, square.height);
       break;
     default:
@@ -160,7 +160,7 @@ public class ColourPic extends SimplePic {
   public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {
     
 	  ColourGenome genome = (ColourGenome) morph.getGenome();
-    g2.setColor(ColourPic.chooseColor((int) genome.getBackColorGene()));
+    g2.setColor(ColourPic.chooseColor(genome.getBackColorGene().getValue()));
     g2.fillRect(0, 0, d.width, d.height);
     PicStyleType picStyle;
     picStyle = PicStyleType.FF; // To correct initialisation bug, due to call in Update

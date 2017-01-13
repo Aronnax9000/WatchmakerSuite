@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.gui.genebox;
+package net.richarddawkins.watchmaker.morph.biomorph.genome.gui;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -6,7 +6,8 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
+import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBox;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.GradientGene;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 /**
@@ -22,15 +23,12 @@ import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
  */
 
 public class GradientPanel extends JPanel {
-	protected int dGeneIndex;
-	protected GeneBox geneBox;
-	public GradientPanel(GeneBox geneBox, int dGeneIndex) {
+	
+	protected SimpleGeneBox geneBox;
+	public GradientPanel(SimpleGeneBox geneBox) {
 		this.geneBox = geneBox;
-		this.dGeneIndex = dGeneIndex;
 	}
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 273011307434890144L;
 
 	static BufferedImage BULLET;
@@ -38,21 +36,14 @@ public class GradientPanel extends JPanel {
 		 BULLET = ClassicImageLoader
 				.getPicture("BulletChar165_ALAN_0015_5x5")
 				.getImage();
-
 	}
-	
-
 	
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;
-		if(geneBox.hasSwell) {
-			BiomorphGenome genome 
-			  = (BiomorphGenome)
-			  geneBox.getGeneBoxStrip().getGenome();
-			
-			switch(genome.getDGene(dGeneIndex)) {
+		GradientGene gradientGene = (GradientGene)geneBox.getGene();
+		if(gradientGene != null) {
+			switch(gradientGene.getGradient()) {
 			case Swell: 
-//				g2.drawImage(BULLET, 0, (getSize().height - BULLET.getHeight())/2, null);
 				g2.drawImage(BULLET, 0, 0, null);
 				break;
 			case Shrink:
@@ -61,15 +52,9 @@ public class GradientPanel extends JPanel {
 			default:
 			}
 		}
-			
-		
-	}
-	
-	public int getDGeneIndex() {
-		return dGeneIndex;
 	}
 
-	public GeneBox getGeneBox() {
+	public SimpleGeneBox getGeneBox() {
 		return geneBox;
 	}
 

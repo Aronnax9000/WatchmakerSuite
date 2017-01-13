@@ -13,8 +13,8 @@ import javax.swing.Timer;
 
 import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 import net.richarddawkins.watchmaker.drawer.Boxes;
+import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.WatchmakerPanel;
-import net.richarddawkins.watchmaker.gui.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 
