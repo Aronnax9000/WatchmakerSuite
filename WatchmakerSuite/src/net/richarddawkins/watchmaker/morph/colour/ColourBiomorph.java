@@ -9,6 +9,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
+import net.richarddawkins.watchmaker.morph.colour.geom.ColourPic;
 /**
  * <h2>Original sources</h2>
  * <pre>

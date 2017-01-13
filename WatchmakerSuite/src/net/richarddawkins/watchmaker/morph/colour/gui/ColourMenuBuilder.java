@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.colour;
+package net.richarddawkins.watchmaker.morph.colour.gui;
 
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
@@ -14,6 +14,7 @@ import javax.swing.JMenuItem;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.colour.ColourBiomorphConfig;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 /**

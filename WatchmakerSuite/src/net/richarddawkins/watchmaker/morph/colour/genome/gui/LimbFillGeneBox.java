@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.colour;
+package net.richarddawkins.watchmaker.morph.colour.genome.gui;
 
 import java.beans.PropertyChangeEvent;
 

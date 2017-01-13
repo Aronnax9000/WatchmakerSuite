@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.colour;
+package net.richarddawkins.watchmaker.morph.colour.genome.gui;
 
 import net.richarddawkins.watchmaker.genome.gui.IntegerGeneBox;
 import net.richarddawkins.watchmaker.morph.MorphConfig;

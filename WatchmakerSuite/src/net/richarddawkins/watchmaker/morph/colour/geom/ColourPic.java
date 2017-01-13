@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morph.colour;
+package net.richarddawkins.watchmaker.morph.colour.geom;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -12,6 +12,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morph.colour.ColourBiomorph;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
