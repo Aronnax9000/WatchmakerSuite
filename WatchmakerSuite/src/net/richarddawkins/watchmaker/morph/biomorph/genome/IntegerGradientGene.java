@@ -10,7 +10,7 @@ public class IntegerGradientGene extends IntegerGene implements GradientGene {
 		super(genome, name);
 	}
 	
-	protected SwellType gradient;
+	protected SwellType gradient = SwellType.Same;
 
 	public SwellType getGradient() {
 		return gradient;

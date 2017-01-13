@@ -8,7 +8,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.MorphView;
 import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
@@ -168,10 +167,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return showBoundingBoxes;
 	}
 
-	@Override
-	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		return null;
-	}
 
 	/*
 	 * (non-Javadoc)

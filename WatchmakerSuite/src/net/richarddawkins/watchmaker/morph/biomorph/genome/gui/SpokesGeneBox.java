@@ -23,14 +23,11 @@ public class SpokesGeneBox extends SimpleGeneBox {
 		case NorthOnly:
 			labelString = Messages.getMessages().getString("STRO_12947,2");
 			break;
-		// DrawString(SingleString);
 		case NSouth:
 			labelString = Messages.getMessages().getString("STRO_12947,3");
-			// DrawString(UpDnString);
 			break;
 		case Radial:
 			labelString = Messages.getMessages().getString("STRO_12947,4");
-			// DrawString(RadialString);
 			break;
 		default:
 			labelString = ""; // Shouldn't happen.
@@ -47,5 +44,6 @@ public class SpokesGeneBox extends SimpleGeneBox {
 	public void setGene(Gene gene) {
 		setSpokes(((SpokesGene) gene).getValue());
 	}
+
 
 }

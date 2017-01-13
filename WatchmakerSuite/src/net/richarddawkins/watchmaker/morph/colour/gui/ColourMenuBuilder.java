@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import net.richarddawkins.watchmaker.gui.ActionEngineering;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -68,10 +69,13 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 
 	private JMenu buildOperationMenu() {
 		JMenu menu = new JMenu("Operation");
+
+		menu.add(new JMenuItem(new ColourActionBreed(config)));
+		menu.add(new ActionEngineering(config));
+
+		
 		Icon newRandomStartIcon = new ImageIcon(
 				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
-		menu.add(new JMenuItem(new ColourActionBreed(config)));
-
 		menu.add(new JMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
 
 			/**

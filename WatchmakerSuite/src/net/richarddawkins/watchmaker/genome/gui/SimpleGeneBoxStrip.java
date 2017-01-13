@@ -31,7 +31,7 @@ public abstract class SimpleGeneBoxStrip extends GeneBoxStrip implements Propert
 	private void setEngineeringMode(boolean engineeringMode) {
 		Component[] components = this.getComponents();
 		for (Component component: components) {
-			SimpleGeneBox geneBox = (SimpleGeneBox) component;
+			GeneBox geneBox = (GeneBox) component;
 			geneBox.setEngineeringMode(engineeringMode);
 		}
 		repaint();
@@ -46,7 +46,7 @@ public abstract class SimpleGeneBoxStrip extends GeneBoxStrip implements Propert
 		Component[] components = this.getComponents();
 		Gene[] genes = genome.toGeneArray();
 		for (int i = 0; i < components.length; i++) {
-			SimpleGeneBox geneBox = (SimpleGeneBox) components[i];
+			GeneBox geneBox = (GeneBox) components[i];
 			geneBox.setGene(genes[i]);
 		}
 		genome.addPropertyChangeListener(this);

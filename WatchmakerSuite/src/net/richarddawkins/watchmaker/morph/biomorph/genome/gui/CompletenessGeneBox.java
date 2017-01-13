@@ -43,4 +43,8 @@ public class CompletenessGeneBox extends SimpleGeneBox implements PropertyChange
 		setCompleteness((CompletenessType) evt.getNewValue());
 	}
 
+
+	
+	
+
 }

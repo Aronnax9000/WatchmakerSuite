@@ -8,7 +8,7 @@ public abstract class SimpleGene implements Gene {
 	public SimpleGene(Genome genome, String name) {
 		this.genome = genome;
 		this.name = name;
-		
+		addPropertyChangeListener(genome);
 	}
 	
 	protected Genome genome;

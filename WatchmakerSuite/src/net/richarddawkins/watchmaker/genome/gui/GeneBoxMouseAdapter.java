@@ -11,6 +11,6 @@ public class GeneBoxMouseAdapter extends MouseAdapter {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		geneBox.goose(geneBox.getCursor());
+		geneBox.getGene().goose(geneBox.getCursor());
 	}
 }

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBox;
+import net.richarddawkins.watchmaker.genome.gui.GeneBox;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.GradientGene;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
@@ -24,8 +24,8 @@ import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public class GradientPanel extends JPanel {
 	
-	protected SimpleGeneBox geneBox;
-	public GradientPanel(SimpleGeneBox geneBox) {
+	protected GeneBox geneBox;
+	public GradientPanel(GeneBox geneBox) {
 		this.geneBox = geneBox;
 	}
 
@@ -54,7 +54,7 @@ public class GradientPanel extends JPanel {
 		}
 	}
 
-	public SimpleGeneBox getGeneBox() {
+	public GeneBox getGeneBox() {
 		return geneBox;
 	}
 

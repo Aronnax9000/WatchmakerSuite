@@ -35,8 +35,8 @@ public class ColourGenome extends MonochromeGenome {
 	protected final ColorGene colorGene6 = new ColorGene(this, "Color Gene 6");
 	protected final ColorGene colorGene7 = new ColorGene(this, "Color Gene 7");
 	protected final ColorGene colorGene8 = new ColorGene(this, "Color Gene 8");
-	protected final LimbFillGene limbFillGene = new LimbFillGene(this, "Limb Fill", LimbFillType.Filled);
 	protected final LimbShapeGene limbShapeGene = new LimbShapeGene(this, "Limb Shape", LimbShapeType.Stick);
+	protected final LimbFillGene limbFillGene = new LimbFillGene(this, "Limb Fill", LimbFillType.Filled);
 	protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater(this, "Thickness", 1);
 
 	int thick;

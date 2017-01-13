@@ -4,8 +4,9 @@ import java.awt.Cursor;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.genome.SimpleGene;
+import net.richarddawkins.watchmaker.genome.SimpleGene;		
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
+import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class LimbFillGene extends SimpleGene {
 	
@@ -30,8 +31,11 @@ public class LimbFillGene extends SimpleGene {
 
 	@Override
 	public void goose(Cursor cursor) {
-		// TODO Auto-generated method stub
-		
+		if (cursor.equals(WatchmakerCursors.leftArrow)) {
+			setValue(LimbFillType.Open);
+		} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
+			setValue(LimbFillType.Filled);
+		}
 	}
 	
 	@Override

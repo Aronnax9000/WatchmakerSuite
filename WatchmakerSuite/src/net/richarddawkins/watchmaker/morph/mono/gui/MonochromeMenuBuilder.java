@@ -143,7 +143,6 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		menu.add(new JMenuItem("Drift"));
 		menu.add(new ActionEngineering(config));
 
-//		menu.add(new JMenuItem("Engineering"));
 		menu.add(new JMenuItem("Hopeful Monster"));
 		menu.add(new JMenuItem("Initialize Fossil Record"));
 		menu.add(new JMenuItem("Play Back Fossils"));

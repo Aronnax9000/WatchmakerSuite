@@ -8,6 +8,10 @@ import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 public class BoxedMorphVector {
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
+	public boolean isEmpty() {
+		return boxedMorphs.isEmpty();
+	}
+	
 	public void add(BoxedMorph boxedMorph) {
 		boxedMorphs.add(boxedMorph);
 	}

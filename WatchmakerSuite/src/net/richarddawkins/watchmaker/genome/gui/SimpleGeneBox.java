@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.genome.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.BorderFactory;
@@ -11,7 +10,7 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 
-abstract public class SimpleGeneBox extends JPanel implements PropertyChangeListener {
+abstract public class SimpleGeneBox extends JPanel implements PropertyChangeListener, GeneBox {
 	private static final long serialVersionUID = -8872868382687102082L;
 
 	public static int GenesHeight = 20;
@@ -34,32 +33,38 @@ abstract public class SimpleGeneBox extends JPanel implements PropertyChangeList
 		this.setLayout(new BorderLayout());
 		this.geneBoxStrip = geneBoxStrip;
 		setEngineeringMode(engineeringMode);
-		
-		// I actually think the extra valuePanel isn't needed:
-		// The valueLabel could probably be added directly to the present panel. - ABC
-		JPanel valuePanel = new JPanel();
-		this.add(valuePanel, BorderLayout.CENTER);
-		valuePanel.add(valueLabel);
-
+		add(valueLabel, BorderLayout.CENTER);
 	}
 	
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.genome.gui.GeneBox#getGene()
+	 */
+	@Override
 	public Gene getGene() {
 		return gene;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.genome.gui.GeneBox#getGeneBoxStrip()
+	 */
+	@Override
 	public GeneBoxStrip getGeneBoxStrip() {
 		return geneBoxStrip;
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.genome.gui.GeneBox#setEngineeringMode(boolean)
+	 */
+	@Override
 	public void setEngineeringMode(boolean engineeringMode) {
 		if(! this.engineeringMode && engineeringMode) {
-			if (this.getGeneBoxStrip().engineeringMode) {
-				this.addMouseMotionListener(new GeneBoxMouseMotionAdapter(this));
-				this.addMouseListener(new GeneBoxMouseAdapter(this));
-			}
+			// Turn on engineering mode.
+			this.addMouseMotionListener(new GeneBoxMouseMotionAdapter(this));
+			this.addMouseListener(new GeneBoxMouseAdapter(this));
 		} else if(this.engineeringMode && ! engineeringMode) {
+			// Turn off engineering mode.
 			this.removeMouseListener(this.getMouseListeners()[0]);
 			this.removeMouseMotionListener(this.getMouseMotionListeners()[0]);
 		}
@@ -68,6 +73,10 @@ abstract public class SimpleGeneBox extends JPanel implements PropertyChangeList
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.genome.gui.GeneBox#setGene(net.richarddawkins.watchmaker.genome.Gene)
+	 */
+	@Override
 	public void setGene(Gene gene) {
 		if(this.gene != null) {
 			this.gene.removePropertyChangeListener(this);
@@ -77,14 +86,15 @@ abstract public class SimpleGeneBox extends JPanel implements PropertyChangeList
 			gene.addPropertyChangeListener(this);
 	}
 
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.genome.gui.GeneBox#setGeneBoxStrip(net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip)
+	 */
+	@Override
 	public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
 		this.geneBoxStrip = geneBoxStrip;
 	}
 
-	public void goose(Cursor cursor) {
-		
-		
-	}
+
 
 
 }

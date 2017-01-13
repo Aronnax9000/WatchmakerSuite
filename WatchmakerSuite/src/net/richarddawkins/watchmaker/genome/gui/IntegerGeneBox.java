@@ -31,7 +31,8 @@ public class IntegerGeneBox extends NumericGeneBox {
 		{
 			setValue((Integer) evt.getNewValue());
 		}
-		
 	}
+	
+
 
 }
