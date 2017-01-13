@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -94,14 +93,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		gene9Max = max;
 	}
 
-	public void copy(Genome destinationGenome) {
-		Gene[] myGenes = toGeneArray();
-		Gene[] childGenes = destinationGenome.toGeneArray();
-		for (int i = 0; i < myGenes.length; i++) {
-			myGenes[i].copy(childGenes[i]);
-		}
-
-	}
 
 	public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
 		Gene[] myGenes = toGeneArray();
