@@ -13,7 +13,6 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public static final int MutTypeNo = 13;
 	
-	protected int geneBoxCount = 28;
 	private ColourMutagen mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 
@@ -21,6 +20,7 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public ColourBiomorphConfig() {
 		super(MorphType.COLOUR_BIOMORPH);
+		geneBoxCount = 28;
 		menuBuilder = new ColourMenuBuilder(this);
 		mut = new boolean[MutTypeNo];
 		for(int i = 0; i < MutTypeNo; i++)

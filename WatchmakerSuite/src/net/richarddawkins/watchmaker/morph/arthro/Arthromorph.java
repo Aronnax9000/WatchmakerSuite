@@ -113,8 +113,6 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	public MorphConfig getMorphConfig() { return config;}
 	
 	protected ArthromorphConfig config;
-
-	protected ArthromorphGenome genome;
 	
 	public Arthromorph(MorphConfig config, int basicType) {
 		this.config = (ArthromorphConfig) config;

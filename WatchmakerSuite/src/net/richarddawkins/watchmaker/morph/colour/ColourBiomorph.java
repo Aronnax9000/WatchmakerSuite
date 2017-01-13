@@ -36,7 +36,6 @@ import net.richarddawkins.watchmaker.morph.colour.geom.ColourPic;
 public class ColourBiomorph extends SimpleMorph  {
 	public static final int RAINBOW = 1 << 8;
 	protected ColourBiomorphConfig config;
-	protected ColourGenome genome;
 
 	@Override
 	public void setMorphConfig(MorphConfig config) {

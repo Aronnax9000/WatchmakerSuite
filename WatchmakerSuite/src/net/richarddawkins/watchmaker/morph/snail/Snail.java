@@ -11,8 +11,6 @@ import net.richarddawkins.watchmaker.morph.SimpleMorph;
 
 public class Snail extends SimpleMorph {
 
-  protected SnailGenome genome;
-  
   protected SnailConfig config;
   
   @Override

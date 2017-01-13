@@ -14,7 +14,7 @@ public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
 	   * 
 	   */
 	  private static final long serialVersionUID = 1L;
-	  protected SnailGenome genome;
+
 
 	  private void updateGeneBox(int geneBoxIndex) {
 	  }

@@ -56,8 +56,6 @@ import net.richarddawkins.watchmaker.morph.mono.geom.MonoPic;
  */
 public class MonochromeMorph extends SimpleMorph {
 	
-	protected Genome genome;
-	
 	protected MonochromeMorphConfig config;
 	@Override
 	public void setMorphConfig(MorphConfig config) {
