@@ -14,7 +14,8 @@ public class IntegerGeneBox extends NumericGeneBox {
 	public IntegerGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
 	  super(geneBoxStrip, engineeringMode);
 	}
-	public void setValue(Integer value){
+	
+	public void setValue(int value){
 		valueLabel.setText((value > 0 && ((IntegerGene)gene).isShowPositiveSign() ? "+" : "") + new Integer(value).toString());
 		repaint();
 	}

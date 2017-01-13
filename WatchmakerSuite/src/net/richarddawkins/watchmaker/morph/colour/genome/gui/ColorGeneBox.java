@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph.colour.genome.gui;
 
 import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.genome.gui.IntegerGeneBox;
+import net.richarddawkins.watchmaker.morph.colour.geom.ColourPic;
 
 public class ColorGeneBox extends IntegerGeneBox {
 
@@ -10,6 +11,13 @@ public class ColorGeneBox extends IntegerGeneBox {
 
 	public ColorGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
 		super(geneBoxStrip, engineeringMode);
+	}
+	
+	@Override
+	public void setValue(int value) {
+		this.setBackground(ColourPic.rgbColorPalette[value]);
+		this.valueLabel.setBackground(ColourPic.rgbColorPalette[value]);
+		super.setValue(value);
 	}
 
 }

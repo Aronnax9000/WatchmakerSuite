@@ -1,7 +1,10 @@
 package net.richarddawkins.watchmaker.genome.gui;
 
+import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import net.richarddawkins.watchmaker.genome.Gene;
 
 public class GeneBoxMouseAdapter extends MouseAdapter {
 	protected SimpleGeneBox geneBox;	
@@ -11,6 +14,8 @@ public class GeneBoxMouseAdapter extends MouseAdapter {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		geneBox.getGene().goose(geneBox.getCursor());
+		Gene gene = geneBox.getGene();
+		Cursor cursor = geneBox.getCursor();
+		gene.goose(cursor);
 	}
 }

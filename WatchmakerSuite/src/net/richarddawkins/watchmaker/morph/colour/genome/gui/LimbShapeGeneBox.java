@@ -40,6 +40,7 @@ public class LimbShapeGeneBox extends SimpleGeneBox {
 	
 	@Override
 	public void setGene(Gene gene) {
+		super.setGene(gene);
 		setLimbShapeType(((LimbShapeGene) gene).getValue());
 	}
 	

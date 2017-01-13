@@ -41,6 +41,7 @@ public class LimbFillGeneBox extends SimpleGeneBox {
 	
 	@Override
 	public void setGene(Gene gene) {
+		super.setGene(gene);
 		setLimbFillType(((LimbFillGene) gene).getValue());
 	}
 	

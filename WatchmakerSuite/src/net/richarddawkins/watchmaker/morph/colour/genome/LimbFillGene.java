@@ -25,8 +25,10 @@ public class LimbFillGene extends SimpleGene {
 		return value;
 	}
 
-	public void setValue(LimbFillType value) {
-		this.value = value;
+	public void setValue(LimbFillType newValue) {
+		LimbFillType oldValue = this.value;
+		this.value = newValue;
+		pcs.firePropertyChange("value", oldValue, newValue);
 	}
 
 	@Override

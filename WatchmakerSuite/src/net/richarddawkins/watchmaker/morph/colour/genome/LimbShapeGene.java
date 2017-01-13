@@ -21,9 +21,12 @@ public class LimbShapeGene extends SimpleGene {
 		return value;
 	}
 
-	public void setValue(LimbShapeType value) {
-		this.value = value;
+	public void setValue(LimbShapeType newValue) {
+		LimbShapeType oldValue = this.value;
+		this.value = newValue;
+		pcs.firePropertyChange("value", oldValue, newValue);
 	}
+
 	@Override
 	public void goose(Cursor cursor) {
 		if (cursor.equals(WatchmakerCursors.leftArrow)) {
