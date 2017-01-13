@@ -49,8 +49,15 @@ public class MonochromeGenome extends BiomorphGenome {
 	 * 
 	 */
 	public void chess() {
-		makeGenes(-Biomorph.TRICKLE, 3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE,
-				Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 6 * Biomorph.TRICKLE, -5 * Biomorph.TRICKLE, 7);
+		makeGenes(-Biomorph.TRICKLE, 
+				3 * Biomorph.TRICKLE, 
+				-3 * Biomorph.TRICKLE, 
+				-3 * Biomorph.TRICKLE,
+				Biomorph.TRICKLE, 
+				-2 * Biomorph.TRICKLE, 
+				6 * Biomorph.TRICKLE, 
+				-5 * Biomorph.TRICKLE, 
+				7);
 	}
 
 	/**

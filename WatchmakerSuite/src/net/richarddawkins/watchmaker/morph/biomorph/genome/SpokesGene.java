@@ -24,6 +24,7 @@ public class SpokesGene extends SimpleGene {
 	}
 	@Override
 	public void copy(Gene gene) {
+		super.copy(gene);
 		((SpokesGene)gene).value = this.value;
 	}
 	

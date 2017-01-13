@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
 import java.awt.Cursor;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
@@ -29,6 +30,11 @@ public class CompletenessGene extends SimpleGene {
 
 	public void setValue(CompletenessType value) {
 		this.value = value;
+	}
+	@Override
+	public void copy(Gene gene) {
+		super.copy(gene);
+		((CompletenessGene)gene).setValue(value);
 	}
 
 }

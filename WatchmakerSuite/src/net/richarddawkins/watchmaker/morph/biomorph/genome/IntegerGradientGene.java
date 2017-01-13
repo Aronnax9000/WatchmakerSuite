@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morph.biomorph.genome;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
@@ -20,9 +21,9 @@ public class IntegerGradientGene extends IntegerGene implements GradientGene {
 		this.gradient = gradient;
 		pcs.firePropertyChange("gradient", old, value);
 	}
-
-	public void copy(IntegerGradientGene destinationGene) {
+	@Override
+	public void copy(Gene destinationGene) {
 		super.copy((IntegerGene) destinationGene);
-		destinationGene.setGradient(gradient);
+		((GradientGene)destinationGene).setGradient(gradient);
 	} 
 }

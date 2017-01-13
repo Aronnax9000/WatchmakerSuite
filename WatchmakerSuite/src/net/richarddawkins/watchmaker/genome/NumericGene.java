@@ -16,8 +16,9 @@ abstract public class NumericGene extends SimpleGene {
 		this.showPositiveSign = showPositiveSign;
 	}
 
-	public void copy(NumericGene destinationGene) {
-		destinationGene.setShowPositiveSign(showPositiveSign);
+	public void copy(Gene destinationGene) {
+		super.copy(destinationGene);
+		((NumericGene)destinationGene).setShowPositiveSign(showPositiveSign);
 		
 	}
 
