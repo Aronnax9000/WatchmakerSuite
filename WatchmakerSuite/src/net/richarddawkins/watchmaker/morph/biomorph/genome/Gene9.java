@@ -35,7 +35,6 @@ public class Gene9 extends IntegerGradientGene {
 	/**
 	 * Gene9 is not permitted to fall below 1, or rise above 8 (the default, for
 	 * Colour.) Monochrome sets 11 as the limit in its constructor.
-	 * @param index the index of the gene to be modified
 	 * @param summand the quantity to add to the gene.
 	 */
 	public void addToGene(int summand) {
