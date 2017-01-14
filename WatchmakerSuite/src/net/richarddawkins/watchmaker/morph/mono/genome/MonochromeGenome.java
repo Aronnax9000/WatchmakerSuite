@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.TriangleAble;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
@@ -20,7 +21,7 @@ import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 
-public class MonochromeGenome extends BiomorphGenome {
+public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 
 	public MonochromeGenome(Morph morph) {
 		super(morph);
@@ -371,5 +372,119 @@ public class MonochromeGenome extends BiomorphGenome {
 			}
 		}
 	}
-
+/**
+ * <h2>Original Pascal Source Code</h2>
+ * <p>This function is a nested function within procedure Concoct.
+ * 
+ * <pre>
+ *	function Force3 (r: real): Integer;
+ *		var
+ *			i: Integer;
+ *	begin
+ *		i := round(r);
+ *		if i > 2 then
+ *			i := 2;
+ *		if i < 0 then
+ *			i := 0;
+ *		Force3 := i
+ *	end; {Force3}
+ *</pre> 
+ * @param r a floating point number
+ * @return 0 if the rounded number is 0 or less, 1 if the rounded number is 1 or greater, and less
+ * than 2, 2 otherwise.
+ */
+	protected int force3(float r) {
+		int i = Math.round(r);
+		if(i > 2) {
+			i = 2;
+		} else if (i < 0) {
+			i = 0;
+		}
+		return i;
+	}
+/**
+ * <h2>Original Pascal Source Code</h2>
+ * <p>This function is a nested function within procedure Concoct.
+ * <pre>
+ * 	function Force2 (r: real): Integer;
+ *		var
+ *			i: Integer;
+ *	begin
+ *		i := round(r);
+ *		if i &gt;> 1 then
+ *			i := 1;
+ *		if i &lt; 0 then
+ *			i := 0;
+ *		Force2 := i
+ *	end; {Force2}
+ *</pre>
+ * @param r a floating point number
+ * @return 0 if the rounded number is 0 or less, 1 if the rounded number is 1 or greater, and less
+ * than 2, 2 otherwise.
+ */
+	protected int force2(float r) {
+		int i = Math.round(r);
+		if(i > 1) {
+			i = 1;
+		} else if (i < 0) {
+			i = 0;
+		}
+		return i;
+	}
+/**
+ * <pre>
+ *
+ *	procedure Concoct (r1, r2, r3: real; a, b, c: person; var new: person);
+ *	var
+ *		j, weight: Integer;
+ *begin
+ *	with new do
+ *		begin
+ *			SegNoGene := round(r1 * a.SegNoGene + r2 * b.SegNoGene + r3 * c.SegNoGene);
+ *			if SegNoGene &lt; 1 then
+ *				SegNoGene := 1;
+ *			SegDistGene := round(r1 * a.SegDistGene + r2 * b.SegDistGene + r3 * c.SegDistGene);
+ *			CompletenessGene := CompletenessType(Force2(r1 * Integer(a.CompletenessGene) + r2 * Integer(b.CompletenessGene) + r3 * Integer(c.CompletenessGene)));
+ *			SpokesGene := SpokesType(Force3(r1 * Integer(a.SpokesGene) + r2 * Integer(b.SpokesGene) + r3 * Integer(c.SpokesGene)));
+ *			for j := 1 to 9 do
+ *				gene[j] := round(r1 * a.gene[j] + r2 * b.gene[j] + r3 * c.gene[j]);
+ *			SizeWorry := SegNoGene * TwoToThe(gene[9]);
+ *			if SizeWorry > WorryMax then
+ *				Gene[9] := Gene[9] - 1;
+ *			if gene[9] &lt; 1 then
+ *				gene[9] := 1;
+ *			tricklegene := round(r1 * a.tricklegene + r2 * b.tricklegene + r3 * c.tricklegene);
+ *			MutSizeGene := round(r1 * a.MutSizeGene + r2 * b.MutSizeGene + r3 * c.MutSizeGene);
+ *			MutProbGene := round(r1 * a.MutProbGene + r2 * b.MutProbGene + r3 * c.MutProbGene);
+ *			if mutprobgene &lt; 1 then
+ *				mutprobgene := 1;
+ *			if mutprobgene &gt;> 100 then
+ *				mutprobgene := 100;
+ *			for j := 1 to 10 do
+ *				dgene[j] := swelltype(Force3(r1 * Integer(a.dgene[j]) + r2 * Integer(b.dgene[j]) + r3 * Integer(c.dgene[j])));
+ *		end
+ *end; {concoct}  
+ *</pre> 	
+ */
+	protected void concoct(float r1, float r2, float r3, 
+			MonochromeGenome a, MonochromeGenome b, MonochromeGenome c) {
+		int j;
+		int weight;
+		
+		int segNoGeneValue = Math.round(r1 * a.segNoGene.getValue()
+				+ r2 * b.segNoGene.getValue()
+				+ r3 * c.segNoGene.getValue());
+		if(segNoGeneValue < 1)
+			segNoGeneValue = 1;
+		
+		this.segNoGene.setValue(segNoGeneValue);
+		
+		int segDistGeneValue = Math.round(r1 * a.segDistGene.getValue()
+				+ r2 * b.segDistGene.getValue()
+				+ r3 * c.segDistGene.getValue());
+		
+		segDistGene.setValue(segDistGeneValue);
+		
+		int completenessType = CompletenessType.Double.ordinal();
+	}
 }

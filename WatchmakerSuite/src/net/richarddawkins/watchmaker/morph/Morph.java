@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 import java.util.Vector;
 
@@ -10,6 +11,8 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 
 public interface Morph {
+	
+	public Image getImage();
 	
 	public void setMorphConfig(MorphConfig config);
 	public MorphConfig getMorphConfig();
