@@ -26,18 +26,20 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		super();
 		this.jMenuBar = jMenuBar;	
     	for (MorphType morphType : MorphType.values()) {
-    		logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
-    		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType); 
-	    	if(factory != null) {
-	    		try {
-			 	    	MorphConfig config = factory.createConfig();
-			 	    	config.setFrame(this);
-			 	    	addMorphConfig(config);
-	    		}
-	    		catch(MorphTypeNotSupportedException e) {
-	    			// Just go on to the next MorphType
-	    		}
-		    }	   
+    	    if(morphType != MorphType.SNAIL) {
+        		logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
+        		MorphConfigFactory factory = MorphConfigFactory.getInstance(morphType); 
+    	    	if(factory != null) {
+    	    		try {
+    			 	    	MorphConfig config = factory.createConfig();
+    			 	    	config.setFrame(this);
+    			 	    	addMorphConfig(config);
+    	    		}
+    	    		catch(MorphTypeNotSupportedException e) {
+    	    			// Just go on to the next MorphType
+    	    		}
+    		    }
+    	    }
     	}
     	if(this.getTabCount() != 0)
     		changeToTab(0);

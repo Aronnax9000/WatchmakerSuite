@@ -1,9 +1,5 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
-import java.awt.Point;
-import java.util.Vector;
-
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -55,7 +51,7 @@ public class ColourBiomorph extends SimpleMorph  {
 
 	ColourBiomorph() {
 		setGenome(new ColourGenome(this));
-		pic = new ColourPic();	
+		pic = new ColourPic(this);	
 	}
 	
 	public ColourBiomorph(MorphConfig config) {
@@ -67,9 +63,7 @@ public class ColourBiomorph extends SimpleMorph  {
 		this(config);
 		genome.setBasicType(basicType);
 	}
-	/* (non-Javadoc)
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.colour.impl.ColourBiomorph#reproduce()
-	 */
+
 	@Override
 	public Morph reproduce() {
 		ColourBiomorph child = new ColourBiomorph(config);
@@ -77,20 +71,4 @@ public class ColourBiomorph extends SimpleMorph  {
 		child.getPedigree().parent= this;
 		return child;
 	}
-
-	
-	public Morph mutate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	
 }

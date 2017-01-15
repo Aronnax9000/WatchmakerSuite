@@ -13,8 +13,8 @@ import net.richarddawkins.watchmaker.morph.biomorph.Biomorph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morph.colour.geom.ColourPic;
@@ -104,7 +104,7 @@ public class ColourGenome extends MonochromeGenome {
 	public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
 		Point here = new Point(d.width / 2, d.height / 2);
 
-		Pic pic = this.morph.getPic();
+		SimpleSwingPic pic = (SimpleSwingPic) this.morph.getPic();
 		// int x;
 		// int y;
 		int upExtent;
@@ -202,7 +202,6 @@ public class ColourGenome extends MonochromeGenome {
 				pic.margin.right = centre.h + ht / 2 + 1;
 			}
 		}
-		pic.morph = this.morph;
 		if (g2 != null) {
 			pic.drawPic(g2, d, centre, morph);
 			if (morph.getMorphConfig().isShowBoundingBoxes()) {

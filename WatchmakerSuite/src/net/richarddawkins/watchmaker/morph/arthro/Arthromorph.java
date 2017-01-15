@@ -3,10 +3,7 @@ package net.richarddawkins.watchmaker.morph.arthro;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.Point;
-import java.util.Vector;
 
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -159,12 +156,6 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	public Morph mutate() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 

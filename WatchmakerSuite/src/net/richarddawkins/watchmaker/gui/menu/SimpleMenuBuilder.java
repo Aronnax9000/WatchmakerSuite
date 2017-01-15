@@ -9,6 +9,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.util.ActionQuit;
@@ -33,14 +34,19 @@ public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeLi
     }
 
     protected void addColourTestAction(JMenu menu) {
-        menu.add(new JMenuItem(new ColourTestAction(this.getMorphConfig().getFrame())));
+        WatchmakerTabbedPane frame = config.getFrame();
+        menu.add(new JMenuItem(new ColourTestAction(frame)));
 
     }
 
     protected JMenu buildWatchmakerMenu() {
         JMenu watchMakerMenu = new JMenu("Watchmaker");
         for (MorphType morphType : MorphType.values()) {
-            watchMakerMenu.add(new NewMorphTypeAction(morphType, this.getMorphConfig().getFrame()));
+            WatchmakerTabbedPane frame = config.getFrame();
+            NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(morphType, frame);
+            if(morphType == MorphType.SNAIL) 
+                morphTypeAction.setEnabled(false);
+            watchMakerMenu.add(morphTypeAction);
         }
         addColourTestAction(watchMakerMenu);
         addFileQuitAction(watchMakerMenu);

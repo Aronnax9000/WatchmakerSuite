@@ -1,12 +1,8 @@
 package net.richarddawkins.watchmaker.morph.biomorph.geom;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.util.Vector;
 
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 /**
@@ -76,10 +72,6 @@ public abstract class Pic {
     public Pic() {
         super();
     }
-
-    abstract public void drawPic(Graphics2D g2, Dimension d, Point offCentre, Morph biomorphPerson);
-
-    abstract public void generatePrimitives(Vector<DrawingPrimitive> primitives, Genome genome);
 
     abstract public void picLine(int xx1, int yy1, int xx2, int yy2);
 

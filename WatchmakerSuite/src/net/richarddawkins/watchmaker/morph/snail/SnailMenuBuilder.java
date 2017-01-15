@@ -36,8 +36,8 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 
 	private JCheckBoxMenuItem recordingFossils = new JCheckBoxMenuItem("Recording Fossils");
 
-	protected SnailConfig config;
-	public SnailMenuBuilder(SnailConfig config) {
+
+	public SnailMenuBuilder(MorphConfig config) {
 		super(config);
 	}
 

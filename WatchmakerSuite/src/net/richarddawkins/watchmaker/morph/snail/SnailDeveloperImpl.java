@@ -18,7 +18,7 @@ import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class SnailDeveloperImpl {
   public final Rect margin = new Rect();
-  public Pic myPic = new SnailPic();
+//  public Pic myPic = new SnailPic(this);
   public static int inc;
   public static boolean clipBoarding;
   public static boolean dontDraw;
@@ -104,7 +104,7 @@ public class SnailDeveloperImpl {
           if(yy2 > margin.bottom)
             margin.bottom = yy2;
 
-          myPic.picLine(xx1, yy1, xx2, yy2);
+//          myPic.picLine(xx1, yy1, xx2, yy2);
           
         }
       };
@@ -231,7 +231,7 @@ public class SnailDeveloperImpl {
           
        // DontDraw is set by Pedigree so only Margin is measured, no drawing
           if(! dontDraw)
-              picLine(myPic, theRect.left, theRect.top, theRect.right, theRect.bottom);
+//              picLine(myPic, theRect.left, theRect.top, theRect.right, theRect.bottom);
         m -= inc;
       } while(m < 0);
     }
@@ -241,7 +241,7 @@ public class SnailDeveloperImpl {
   Component theContainer = theConfig.getMorphViewsTabbedPane().getSelectedComponent();
   theContainer.setCursor(WatchmakerCursors.leftArrow);
 
-    myPic.zeroPic(where);
+//    myPic.zeroPic(where);
     if(zeroMargin) {
       margin.left = where.h;
       margin.right = where.h;
@@ -274,8 +274,8 @@ public class SnailDeveloperImpl {
     margin.right = margin.right - offSet;
     offCentre.h = where.h - offSet;
     if(! delayedDrawing) {
-      BufferedImage snapshot = drawPic(myPic, offCentre, theShell);
-      graphics.drawImage(snapshot, null, 0, 0);
+//      BufferedImage snapshot = drawPic(myPic, offCentre, theShell);
+//      graphics.drawImage(snapshot, null, 0, 0);
     }
     return offCentre;
   }

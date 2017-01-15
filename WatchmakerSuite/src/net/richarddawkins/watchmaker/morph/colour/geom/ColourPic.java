@@ -5,26 +5,27 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.util.Vector;
 
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.SimplePic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 import net.richarddawkins.watchmaker.morph.colour.ColourBiomorph;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 
-public class ColourPic extends SimplePic {
-  public ColourPic() {
-  }
+public class ColourPic extends SimpleSwingPic {
 
-  int[] colorVals = { 0, 51, 102, 153, 204, 255 };
+
+  public ColourPic(Morph morph) {
+        super(morph);
+        // TODO Auto-generated constructor stub
+    }
+
+int[] colorVals = { 0, 51, 102, 153, 204, 255 };
   int[] backColorVals = { 255, 204, 153, 102, 51, 0 };
   public static Color[] rgbColorPalette = new Color[256];
 
@@ -215,10 +216,4 @@ public class ColourPic extends SimplePic {
     g2.setStroke(new BasicStroke(1.0f));
     g2.setColor(Color.BLACK);
   }
-
-@Override
-public void generatePrimitives(Vector<DrawingPrimitive> primitives, Genome genome) {
-	// TODO Auto-generated method stub
-	
-}
 }

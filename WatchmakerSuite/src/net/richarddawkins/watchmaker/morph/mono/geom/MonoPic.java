@@ -16,17 +16,20 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.SimplePic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
-public class MonoPic extends SimplePic {
+public class MonoPic extends SimpleSwingPic {
 
-  public MonoPic() {
 
-  }
 
-  Morph morph;
+  public MonoPic(Morph morph) {
+        super(morph);
+        
+    }
+
+
 
   @Override
   public void picLine(int x, int y, int xnew, int ynew, int thick, Color color) {

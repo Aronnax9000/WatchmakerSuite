@@ -11,6 +11,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 
 public abstract class SimpleMorph implements Morph {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
@@ -22,8 +23,8 @@ public abstract class SimpleMorph implements Morph {
 
     protected Genome genome;
 	protected Image image;
-    protected Pic pic;
-    protected Pic myPic;
+    protected SimpleSwingPic pic;
+    protected SimpleSwingPic myPic;
 
     protected Rect pRect;
     
@@ -139,7 +140,7 @@ public abstract class SimpleMorph implements Morph {
 	}
 
 	public void setPic(Pic pic) {
-		this.pic = pic;
+		this.pic = (SimpleSwingPic)pic;
 	}
 
 }

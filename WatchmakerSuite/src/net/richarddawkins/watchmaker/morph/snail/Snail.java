@@ -1,9 +1,5 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
-import java.awt.Point;
-import java.util.Vector;
-
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -31,7 +27,7 @@ public class Snail extends SimpleMorph {
 
   public Snail() {
     setGenome(new SnailGenome(this));
-    pic = new SnailPic();
+    pic = new SnailPic(this);
 
   }
 
@@ -52,11 +48,7 @@ public class Snail extends SimpleMorph {
     child.getPedigree().parent = this;
     return child;
   }
-@Override
-public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre) {
-	// TODO Auto-generated method stub
-	
-}
+
 
 
 }

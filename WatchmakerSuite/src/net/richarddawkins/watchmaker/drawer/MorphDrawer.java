@@ -3,14 +3,12 @@ package net.richarddawkins.watchmaker.drawer;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.draw.QuickDrawState;
 
-public class MorphDrawer implements GraphicsDrawer {
+public abstract class MorphDrawer implements GraphicsDrawer {
 
 	protected Dimension size;
 	public void setSize(Dimension size) {
@@ -36,35 +34,8 @@ public class MorphDrawer implements GraphicsDrawer {
 	}
 	
 	
-	public void drawChildren(LocatedMorph locatedMorph, Graphics2D g) {
-		locatedMorph.morph.generatePrimitives(primitives, new Point(0,0));
-		Rectangle bounds = null;
-		QuickDrawState qds = new QuickDrawState();
-		for(DrawingPrimitive primitive: primitives)
-		{
-			Rectangle boundingRect = primitive.getBounds(qds);
-			if(boundingRect != null) 
-				if(bounds != null)
-					bounds = bounds.union(boundingRect);
-				else 
-					bounds = boundingRect;
-		}
-		int horzAxis = bounds.x + bounds.width / 2;
-		int vertAxis = bounds.y + bounds.height / 2;
-		
-		AffineTransform offsetTransform = 
-				AffineTransform.getTranslateInstance(- horzAxis , - vertAxis);
-		g.transform(offsetTransform);
-
-		animate(locatedMorph, g);
-
-		qds = new QuickDrawState();
-		for(DrawingPrimitive primitive: primitives)
-		{
-			primitive.execute(g, qds);
-		}
-	}
-
+	abstract public void drawChildren(LocatedMorph locatedMorph, Graphics2D g);
+	
 	public void animate(LocatedMorph locatedMorph, Graphics2D g) {
 		int animationX = 0;
 		int animationY = 0;

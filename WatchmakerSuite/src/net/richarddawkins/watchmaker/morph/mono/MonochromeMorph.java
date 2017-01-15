@@ -2,9 +2,7 @@ package net.richarddawkins.watchmaker.morph.mono;
 
 
 import java.awt.Rectangle;
-import java.util.Vector;
 
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -75,7 +73,7 @@ public class MonochromeMorph extends SimpleMorph {
 	}
 	MonochromeMorph() {
 		setGenome(new MonochromeGenome(this));
-		pic = new MonoPic();
+		pic = new MonoPic(this);
 	}
 	MonochromeMorph(MorphConfig config) {
 		this();
@@ -103,12 +101,6 @@ public class MonochromeMorph extends SimpleMorph {
 	protected int snapBytes;
 	protected Rectangle snapBounds;
 
-	@Override
-	public void generatePrimitives(Vector<DrawingPrimitive> primitives, java.awt.Point centre) {
-		((MonochromeGenome) genome).generatePic();
-		pic.generatePrimitives(primitives, genome);
-		
-	}
 
 
 }

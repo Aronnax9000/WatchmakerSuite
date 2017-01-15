@@ -20,6 +20,7 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 
@@ -191,7 +192,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
      * end; {develop}   
      */
     public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
-        Pic pic = morph.getPic();
+        SimpleSwingPic pic = (SimpleSwingPic) morph.getPic();
         int sizeWorry;
         int[] dx = new int[8];
         int[] dy = new int[8];
@@ -296,7 +297,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
                 pic.margin.right = centre.h + ht / 2 + 1;
             }
         }
-        pic.morph = this.morph;
+
         if (g2 != null) {
             pic.drawPic(g2, d, centre, morph);
             g2.setColor(Color.RED);

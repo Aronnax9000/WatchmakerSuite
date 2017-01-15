@@ -22,9 +22,8 @@ import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
  */
 public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
 	
-	protected ArthromorphConfig config;
 	
-	public ArthromorphMenuBuilder(ArthromorphConfig config) {
+	public ArthromorphMenuBuilder(MorphConfig config) {
 		super(config);
 		
 	}
@@ -65,13 +64,13 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 	public JMenu buildOperationMenu() {
 		JMenu menu = new JMenu("Operation");
 		menu.add(new JMenuItem(new ActionBreed(config)));
-		menu.add(new JMenuItem(new ShowAsTextAction(config)));
-		menu.add(new JMenuItem(new EngineerAction(config)));
+		menu.add(new JMenuItem(new ShowAsTextAction((ArthromorphConfig)config)));
+		menu.add(new JMenuItem(new EngineerAction((ArthromorphConfig)config)));
 		return menu;
 	}
 	public JMenu buildViewMenu() {
 		JMenu menu = new JMenu("View");
-		menu.add(new JMenuItem(new PreferencesAction(config)));
+		menu.add(new JMenuItem(new PreferencesAction((ArthromorphConfig)config)));
 
 		return menu;
 	}
