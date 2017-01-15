@@ -11,9 +11,15 @@ import java.awt.Rectangle;
  * 
  * The bounding box calculations in Classic Watchmaker use a Pascal Rect record, which is defined by
  * left, top, right, and bottom coordinates. This is at variance with the Java way of doing things,
- * where Rectangles are defined by their upper left corner (x,y) and (width,height.) This class
+ * where Rectangles are defined by their upper left corner (x,y) and (width,height). This class
  * bridges the two.
  * 
+ * The fields (left, right, top, bottom) are Integers, and start as nulls. This is useful
+ * for margin calculations.
+ * 
+ * 
+ * This implementation of Rect also includes convenience methods for determining the midpoint
+ * of the Rect, and for expanding the boundaries of the rectangle in response to supplied values.
  * 
  * 
  * @author alan
@@ -21,14 +27,66 @@ import java.awt.Rectangle;
  */
 public class Rect {
 
-  public int left = 0;
-  public int right = 0;
-  public int top = 0;
-  public int bottom = 0;
+  public Integer left = null;
+  public Integer right = null;
+  public Integer top = null;
+  public Integer bottom = null;
 
-  public Rect() {
+ 
+  /**
+   *  Push the Rect's left boundary leftward if necessary. 
+   * If the left value was null, set it to the new left value. 
+   * @param left the potential new lefthand boundary
+   */
+  public void expandLeft(int left) {
+      if(this.left == null || left < this.left)
+          this.left = left;
   }
-
+ 
+  /**
+   *  Push the Rect's righthand boundary rightward if necessary. 
+   * If the righthand value was null, set it to the new righthand value. 
+   * @param right the potential new righthand boundary
+   */
+  public void expandRight(int right) {
+      if(this.right == null || right > this.right)
+          this.right = right;
+  }
+  
+  /** 
+   * Push the Rect's top boundary upward if necessary. 
+   * If the top value was null, set it to the new top value. 
+   * @param top the potential new top boundary
+   */
+  public void expandTop(int top) {
+      if(this.top == null || top < this.top)
+          this.top = top;
+  }
+  
+  /** 
+   * Push the Rect's bottom boundary downward if necessary. 
+   * If the bottom value was null, set it to the new top value. 
+   * @param bottom the potential new bottom boundary
+   */
+  public void expandBottom(int bottom) {
+      if(this.bottom == null || bottom > this.bottom)
+          this.bottom = bottom;
+  }
+  
+  public void expandPoint(Point point) {
+      expandLeft(point.h);
+      expandRight(point.h);
+      expandTop(point.v);
+      expandBottom(point.v);
+  }
+  
+  public Point getMidPoint() {
+      return new Point(left + (right - left) / 2, top + (bottom - top) / 2);
+  }
+  
+  public Rect() {}
+  
+  
   /**
    * Construct a new Rect with specified left, top, right, and bottom. This is the same order of
    * parameters with which Quickdraw Rects are initialized using SetRect.
@@ -86,7 +144,7 @@ public class Rect {
    * @return a Java Rectangle with the equivalent origin and dimensions of this Rect.
    */
   public Rectangle toRectangle() {
-    return new Rectangle(left, top, right - left, bottom - top);
+    return new Rectangle(left, top, getWidth(), getHeight());
   }
 
   public void setRect(int newleft, int newtop, int newright, int newbottom) {
@@ -94,6 +152,12 @@ public class Rect {
     top = newtop;
     right = newright;
     bottom = newbottom;
-    
+  }
+  
+  public void zeroRect() {
+      left = null;
+      right = null;
+      top = null;
+      bottom = null;
   }
 }

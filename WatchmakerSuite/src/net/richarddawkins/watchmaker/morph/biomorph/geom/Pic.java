@@ -85,7 +85,6 @@ public abstract class Pic {
         picSize = 0;
         origin = here;
         lines.clear();
-
     }
 
 }
