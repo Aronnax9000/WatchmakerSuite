@@ -80,6 +80,13 @@ public class Rect {
       expandBottom(point.v);
   }
   
+  public void expandPoint(Point point, int thick) {
+      expandLeft(point.h - thick / 2);
+      expandRight(point.h + thick / 2);
+      expandTop(point.v - thick / 2);
+      expandBottom(point.v + thick / 2);
+  }
+  
   public Point getMidPoint() {
       return new Point(left + (right - left) / 2, top + (bottom - top) / 2);
   }

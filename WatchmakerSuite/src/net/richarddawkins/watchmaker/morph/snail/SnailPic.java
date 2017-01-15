@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -16,7 +15,7 @@ public class SnailPic extends SimpleSwingPic {
     }
 
     @Override
-    public void drawPic(Graphics2D g2, Dimension d, Point offCentre, Morph biomorphPerson) {
+    public void drawPic(Graphics2D g2, Point where, Point offCentre, Morph biomorphPerson) {
         // TODO Auto-generated method stub
         
     }

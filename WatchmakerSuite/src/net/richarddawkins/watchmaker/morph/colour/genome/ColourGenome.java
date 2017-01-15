@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph.colour.genome;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -101,9 +100,8 @@ public class ColourGenome extends MonochromeGenome {
 		child.thicknessGene.setValue(thicknessGene.getValue());
 	}
 
-	public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
-		Point here = new Point(d.width / 2, d.height / 2);
-
+	public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
+		
 		SimpleSwingPic pic = (SimpleSwingPic) this.morph.getPic();
 		// int x;
 		// int y;
@@ -203,7 +201,7 @@ public class ColourGenome extends MonochromeGenome {
 			}
 		}
 		if (g2 != null) {
-			pic.drawPic(g2, d, centre, morph);
+			pic.drawPic(g2, here, centre, morph);
 			if (morph.getMorphConfig().isShowBoundingBoxes()) {
 				g2.setColor(Color.RED);
 				Rectangle rectangle = pic.margin.toRectangle();

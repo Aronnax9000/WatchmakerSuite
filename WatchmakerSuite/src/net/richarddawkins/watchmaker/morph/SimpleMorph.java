@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -86,15 +85,12 @@ public abstract class SimpleMorph implements Morph {
     }
 
 
-    public void delayvelop(Graphics2D g2, Dimension d, boolean midBox) {
+    public void delayvelop(Graphics2D g2, Point p, boolean midBox) {
 		int margcentre, offset;
 		Point offCentre = new Point();
 		// Zeromargin := TRUE;
-		Point p = new Point();
-		p.h = d.width / 2;
-		p.v = d.height / 2;
 
-		getGenome().develop(null, d, true); // null equivalent to classic
+		getGenome().develop(null, p, true); // null equivalent to classic
 											// DelayedDrawing := TRUE;
 		// DelayedDrawing := FALSE;
 		margcentre = pic.margin.top + (pic.margin.bottom - pic.margin.top) / 2;
@@ -103,7 +99,7 @@ public abstract class SimpleMorph implements Morph {
 		pic.margin.bottom -= offset;
 		offCentre.h = p.h;
 		offCentre.v = p.v - offset;
-		pic.drawPic(g2, d, offCentre, this);
+		pic.drawPic(g2, p, offCentre, this);
 		if (this.getMorphConfig().isShowBoundingBoxes()) {
 			g2.setColor(Color.RED);
 			Rectangle rectangle = pic.margin.toRectangle();
@@ -112,9 +108,9 @@ public abstract class SimpleMorph implements Morph {
 	}
 
 	@Override
-	public void draw(Graphics2D g2, Dimension d, boolean midBox) {
+	public void draw(Graphics2D g2, Point p, boolean midBox) {
 		g2.setColor(Color.BLACK);
-		delayvelop(g2, d, midBox);
+		delayvelop(g2, p, midBox);
 	}
 
 	@Override

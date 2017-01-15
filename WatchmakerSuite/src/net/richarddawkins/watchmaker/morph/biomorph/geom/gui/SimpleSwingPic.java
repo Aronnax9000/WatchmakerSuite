@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.biomorph.geom.gui;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -13,6 +12,6 @@ public abstract class SimpleSwingPic extends SimplePic {
         
     }
 
-    abstract public void drawPic(Graphics2D g2, Dimension d, Point offCentre, Morph biomorphPerson);
+    abstract public void drawPic(Graphics2D g2, Point here, Point offCentre, Morph biomorphPerson);
 
 }

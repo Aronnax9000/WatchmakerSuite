@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph.mono.genome;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -192,7 +191,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
      * end; {develop}   
      */
     @Override
-    public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+    public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
         SimpleSwingPic pic = (SimpleSwingPic) morph.getPic();
         int sizeWorry;
         int[] dx = new int[8];
@@ -202,15 +201,11 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         Point centre;
         int extraDistance;
         int incDistance;
-        Point here = new Point(d.width / 2, d.height / 2);
 
         Globals.setClipBoarding(false);
         
         if (zeroMargin) {
-            pic.margin.left = here.h;
-            pic.margin.right = here.h;
-            pic.margin.top = here.v;
-            pic.margin.bottom = here.v;
+            pic.margin.zeroRect();
         }
         centre = (Point) here.clone();
         plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
@@ -300,7 +295,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         }
 
         if (g2 != null) {
-            pic.drawPic(g2, d, centre, morph);
+            pic.drawPic(g2, here, centre, morph);
             g2.setColor(Color.RED);
             Rectangle rectangle = pic.margin.toRectangle();
             g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);

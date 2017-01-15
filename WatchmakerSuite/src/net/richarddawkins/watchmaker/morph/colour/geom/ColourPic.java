@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.morph.colour.geom;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -159,11 +158,11 @@ int[] colorVals = { 0, 51, 102, 153, 204, 255 };
    * @param morph the biomorph to be drawn.
    */
 
-  public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {
+  public void drawPic(Graphics2D g2, Point here, Point place, Morph morph) {
     
 	  ColourGenome genome = (ColourGenome) morph.getGenome();
     g2.setColor(ColourPic.chooseColor(genome.getBackColorGene().getValue()));
-    g2.fillRect(0, 0, d.width, d.height);
+    g2.fillRect(0, 0, margin.getWidth(), margin.getHeight());
     PicStyleType picStyle;
     picStyle = PicStyleType.FF; // To correct initialisation bug, due to call in Update
     switch (genome.getCompletenessGene().getValue()) {

@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -55,12 +54,9 @@ public class SnailGenome extends SimpleGenome implements Cloneable {
   }
 
   @Override
-  public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+  public void develop(Graphics2D g2, Point where, boolean zeroMargin) {
     SnailDeveloperImpl developer = new SnailDeveloperImpl();
-    Rect box = new Rect(0,0, d.width, d.height);
-    Point where = new Point();
-    where.h = d.width / 2;
-    where.v = d.height / 2;
+    Rect box = new Rect(0,0, 0, 0);
     developer.develop(g2, this, where, box);
 
   }

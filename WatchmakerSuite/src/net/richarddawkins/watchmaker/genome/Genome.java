@@ -1,10 +1,10 @@
 package net.richarddawkins.watchmaker.genome;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 
 public interface Genome extends PropertyChangeListener {
 	Morph getMorph();
@@ -19,7 +19,7 @@ public interface Genome extends PropertyChangeListener {
 	 * @param zeroMargin whether to zero the margins of the bounding box.
 	 */
 
-	void develop(Graphics2D g2, Dimension d, boolean zeroMargin);
+	void develop(Graphics2D g2, Point p, boolean zeroMargin);
 	Gene[] toGeneArray();
 	Gene getGene(int geneBoxIndex);
 	void addPropertyChangeListener(PropertyChangeListener listener);

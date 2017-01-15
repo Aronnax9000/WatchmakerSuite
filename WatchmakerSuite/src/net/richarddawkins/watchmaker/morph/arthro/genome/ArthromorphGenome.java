@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.arthro.genome;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -8,7 +7,7 @@ import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.AtomKind;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 
 public class ArthromorphGenome extends SimpleGenome {
 	Atom animalTrunk;
@@ -35,7 +34,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		((ArthromorphGenome) person).setAnimalTrunk(animalTrunk.copy());
 	}
 
-	public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
+	public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
 		// TODO Auto-generated method stub
 
 	}
@@ -67,27 +66,20 @@ public class ArthromorphGenome extends SimpleGenome {
 		animalTrunk.draw(g2, params, x, y, x, ySeg);
 	}
 
-	public void drawInBox(Graphics2D g2, Dimension panelSize, boolean midBox)
+	public void drawInBox(Graphics2D g2, Point where, boolean midBox)
 			throws ArthromorphGradientExceeds1000Exception { // procedure
 																// DrawInBox
 																// (BoxNo:
 																// integer);
-		Rect where = new Rect();
-		where.left = 0;
-		where.top = 0;
-		where.right = panelSize.width;
-		where.bottom = panelSize.height;
 		int centre;
 		int start;
-		int boxwidth = panelSize.width;
-		int boxheight = panelSize.height;
 		ArthromorphConfig config = (ArthromorphConfig) morph.getMorphConfig();
 		int midriff;
 		int verticalOffset = 0;
 		if (config.isSideways()) {
-			centre = where.top + boxheight / 2;
-			start = where.left + boxwidth / 2;
-			westPole = panelSize.width;
+			centre = where.v;
+			start = where.h;
+            westPole = 0;
 			eastPole = 0;
 			if (config.isCentring() || midBox) {
 				// Original implementation bracketed this call with hidePen /
@@ -100,9 +92,9 @@ public class ArthromorphGenome extends SimpleGenome {
 				verticalOffset = start - midriff;
 			}
 		} else {
-			start = where.top + boxheight / 2;
-			centre = where.left + boxwidth / 2;
-			northPole = panelSize.height;
+			start = where.v;
+			centre = where.h;
+			northPole = 0;
 			southPole = 0;
 			if (config.isCentring() || midBox) {
 				// Preliminary dummy draw to measure North & South extent of

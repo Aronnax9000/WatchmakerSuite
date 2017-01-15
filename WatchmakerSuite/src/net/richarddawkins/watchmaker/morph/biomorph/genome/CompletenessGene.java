@@ -15,12 +15,12 @@ public class CompletenessGene extends SimpleGene {
 	
     protected CompletenessType value;
 
+    @Override
     public void goose(Cursor cursor) {
-    	BiomorphGenome biomorphGenome = (BiomorphGenome) genome;
-		if (cursor.equals(WatchmakerCursors.leftArrow)) {
-			biomorphGenome.getCompletenessGene().setValue(CompletenessType.Single);
+    	if (cursor.equals(WatchmakerCursors.leftArrow)) {
+			setValue(CompletenessType.Single);
 		} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
-			biomorphGenome.getCompletenessGene().setValue(CompletenessType.Double);
+			setValue(CompletenessType.Double);
 		}
     }
     
@@ -28,8 +28,11 @@ public class CompletenessGene extends SimpleGene {
 		return value;
 	}
 
-	public void setValue(CompletenessType value) {
-		this.value = value;
+	public void setValue(CompletenessType newValue) {
+		CompletenessType oldValue = value;
+	    this.value = newValue;
+	    pcs.firePropertyChange("value", oldValue, newValue);
+		
 	}
 	@Override
 	public void copy(Gene gene) {

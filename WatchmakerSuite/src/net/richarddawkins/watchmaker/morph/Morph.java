@@ -1,11 +1,11 @@
 package net.richarddawkins.watchmaker.morph;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 
 public interface Morph {
 	
@@ -22,7 +22,7 @@ public interface Morph {
 
 	public Morph reproduce();
 	
-	public void draw(Graphics2D g2, Dimension size, boolean midBox);
+	public void draw(Graphics2D g2, Point point, boolean midBox);
 
 
     public MorphPedigree getPedigree();

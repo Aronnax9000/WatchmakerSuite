@@ -42,6 +42,7 @@ public class SpokesGeneBox extends SimpleGeneBox {
 	}
 	@Override
 	public void setGene(Gene gene) {
+	    super.setGene(gene);
 		setSpokes(((SpokesGene) gene).getValue());
 	}
 

@@ -35,6 +35,7 @@ public class CompletenessGeneBox extends SimpleGeneBox implements PropertyChange
 
 	@Override 
 	public void setGene(Gene gene) {
+        super.setGene(gene);
 		setCompleteness(((CompletenessGene) gene).getValue());
 	}
 	

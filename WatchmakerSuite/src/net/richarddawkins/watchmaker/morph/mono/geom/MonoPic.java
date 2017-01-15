@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.morph.mono.geom;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
@@ -21,14 +20,9 @@ import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public class MonoPic extends SimpleSwingPic {
-
-
-
   public MonoPic(Morph morph) {
         super(morph);
-        
     }
-
 
 
   @Override
@@ -51,6 +45,8 @@ public class MonoPic extends SimpleSwingPic {
       movePtr.thickness = thick;
       lines.add(movePtr);
       picSize++;
+      margin.expandPoint(new Point(x,y), thick);
+      margin.expandPoint(new Point(xnew,ynew), thick);
     }
   }
   
@@ -61,7 +57,7 @@ public class MonoPic extends SimpleSwingPic {
 	   * Now draw it at Place
 	   */
 	  @Override
-	  public void drawPic(Graphics2D g2, Dimension d, Point place, Morph morph) {
+	  public void drawPic(Graphics2D g2, Point d, Point place, Morph morph) {
 	    MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
 	    // int j;
 
