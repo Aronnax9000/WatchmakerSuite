@@ -265,35 +265,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
                 gene9.setValue(1);
             tree(here.h, here.v, order, 2, dx, dy);
         }
-        if (centre.h - pic.margin.left > pic.margin.right - centre.h)
-            pic.margin.right = centre.h + (centre.h - pic.margin.left);
-        else
-            pic.margin.left = centre.h - (pic.margin.right - centre.h);
-
-        int upExtent = centre.v - pic.margin.top; // can be zero if biomorph
-        // goes down
-        int downExtent = pic.margin.bottom - centre.v;
-        if (spokesGene.getValue() == SpokesType.NSouth || spokesGene.getValue() == SpokesType.Radial
-                || Globals.theMode == ModeType.Engineering) {
-            // Obscurely necessary to cope with erasing last Rect in
-            // Manipulation}
-            if (upExtent > downExtent)
-                pic.margin.bottom = centre.v + upExtent;
-            else
-                pic.margin.top = centre.v - downExtent;
-        }
-        if (spokesGene.getValue() == SpokesType.Radial) {
-            int wid = pic.margin.right - pic.margin.left;
-            int ht = pic.margin.bottom - pic.margin.top;
-            if (wid > ht) {
-                pic.margin.top = centre.v - wid / 2 - 1;
-                pic.margin.bottom = centre.v + wid / 2 + 1;
-            } else {
-                pic.margin.left = centre.h - ht / 2 - 1;
-                pic.margin.right = centre.h + ht / 2 + 1;
-            }
-        }
-
         if (g2 != null) {
             pic.drawPic(g2, here, centre, morph);
             g2.setColor(Color.RED);
