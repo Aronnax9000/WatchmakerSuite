@@ -3,13 +3,7 @@ package net.richarddawkins.watchmaker.morph.mono.geom;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.util.Vector;
 
-import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
-import net.richarddawkins.watchmaker.draw.LineTo;
-import net.richarddawkins.watchmaker.draw.MoveTo;
-import net.richarddawkins.watchmaker.draw.PenSize;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
@@ -47,6 +41,15 @@ public class MonoPic extends SimpleSwingPic {
       picSize++;
       margin.expandPoint(new Point(x,y), thick);
       margin.expandPoint(new Point(xnew,ynew), thick);
+      MonochromeGenome monoGenome = (MonochromeGenome) morph.getGenome(); 
+      CompletenessType completenessType = monoGenome.getCompletenessGene().getValue();
+      SpokesType spokesType = monoGenome.getSpokesGene().getValue();
+      if(completenessType == CompletenessType.Double || spokesType == SpokesType.Radial) {
+          margin.expandPoint(new Point(-x, y), thick);
+      }
+      if(spokesType == SpokesType.NSouth || spokesType == SpokesType.Radial) {
+          margin.expandVertical(-y, thick);
+      }
     }
   }
   
@@ -173,142 +176,5 @@ public class MonoPic extends SimpleSwingPic {
 	    default:
 	    }
 	  }
-
-
-
-  void generatePrimitivesActualLine(Vector<DrawingPrimitive> primitives, 
-		  Lin line, Point place, PicStyleType picStyle,
-	      Compass orientation) {
-	    int y0;
-	    int y1;
-	    int x0;
-	    int x1;
-	    int vertOffset;
-	    int horizOffset;
-	    int mid2 = 2 * place.h;
-	    int belly2 = 2 * place.v;
-
-	    primitives.add(new PenSize(line.thickness));
-	    if (orientation == Compass.NorthSouth) {
-	        vertOffset = origin.v - place.v;
-	        horizOffset = origin.h - place.h;
-	        y0 = line.startPt.v - vertOffset;
-	        y1 = line.endPt.v - vertOffset;
-	        x0 = line.startPt.h - horizOffset;
-	        x1 = line.endPt.h - horizOffset;
-	      } else {
-	        vertOffset = origin.h - place.v;
-	        horizOffset = origin.v - place.h;
-	        y0 = line.startPt.h - vertOffset;
-	        y1 = line.endPt.h - vertOffset;
-	        x0 = line.startPt.v - horizOffset;
-	        x1 = line.endPt.v - horizOffset;
-	      }
-	    switch (picStyle) {
-	    case LF:
-	    	primitives.add(new MoveTo(x0, y0));
-	    	primitives.add(new LineTo(x1, y1));
-		    break;
-	  	case RF:
-	  		primitives.add(new MoveTo(mid2 - x0, y0));
-	  		primitives.add(new LineTo(mid2 - x1, y1));
-		    break;
-	    case FF:
-	    	primitives.add(new MoveTo(x0, y0));
-	    	primitives.add(new LineTo(x1, y1));
-	    	primitives.add(new MoveTo(mid2 - x0, y0));
-	    	primitives.add(new LineTo(mid2 - x1, y1));
-	        break;
-	    case LUD:
-	    	primitives.add(new MoveTo(x0, y0));
-	    	primitives.add(new LineTo(x1, y1));
-	    	primitives.add(new MoveTo(mid2 - x0, belly2 - y0));
-	    	primitives.add(new LineTo(mid2 - x1, belly2 - y1));
-	        break;
-	    case RUD:
-	    	primitives.add(new MoveTo(mid2 - x0, y0));
-	    	primitives.add(new LineTo(mid2 - x1, y1));
-	    	primitives.add(new MoveTo(x0, belly2 - y0));
-	    	primitives.add(new LineTo(x1, belly2 - y1));
-	        break;
-	    case FUD:
-	    	primitives.add(new MoveTo(x0, y0));
-	    	primitives.add(new LineTo(x1, y1));
-	    	primitives.add(new MoveTo(mid2 - x0, y0));
-	    	primitives.add(new LineTo(mid2 - x1, y1));
-	    	primitives.add(new MoveTo(x0, belly2 - y0));
-	    	primitives.add(new LineTo(x1, belly2 - y1));
-	    	primitives.add(new MoveTo(mid2 - x0, belly2 - y0));
-	    	primitives.add(new LineTo(mid2 - x1, belly2 - y1));
-	    	break;
-		case FSW: // Not in original Pascal source - ABC
-			break;
-		case LSW: // Not in original Pascal source - ABC
-			break;
-		case RSW: // Not in original Pascal source - ABC
-			break;
-		default:
-			break;
-	    } 
-  }
-
-  /**
-   * Pic already contains its own origin, meaning the coordinates at which it was originally drawn.
-   * Now draw it at Place
-   */
-  
-  public void generatePrimitives(Vector<DrawingPrimitive> primitives, Genome theGenome) {
-	MonochromeGenome genome = (MonochromeGenome) theGenome;
-    // To correct initialisation bug, due to call in DoUpdate
-    PicStyleType picStyle = PicStyleType.FF;
-    switch (genome.getCompletenessGene().getValue()) {
-    case Single: {
-      switch (genome.getSpokesGene().getValue()) {
-      case NorthOnly:
-        picStyle = PicStyleType.LF;
-        break;
-      case NSouth:
-        picStyle = PicStyleType.LUD;
-        break;
-      case Radial:
-        picStyle = PicStyleType.LUD;
-        break;
-      }
-      break;
-    }
-    case Double:
-      switch (genome.getSpokesGene().getValue()) {
-      case NorthOnly: {
-        picStyle = PicStyleType.FF;
-        break;
-      }
-      case NSouth: {
-        picStyle = PicStyleType.FUD;
-        break;
-      }
-      case Radial: {
-        picStyle = PicStyleType.FUD;
-        break;
-      }
-      }
-    }
-    primitives.addElement(new PenSize(Globals.myPenSize));
-    Point place = new Point(0,0);
-    for (Lin line : lines) {
-      generatePrimitivesActualLine(primitives, line, place, picStyle, Compass.NorthSouth);
-      // sometimes rangecheck error
-      if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
-        if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
-        	generatePrimitivesActualLine(primitives, line, place, PicStyleType.RUD, Compass.EastWest);
-        } else {
-        	generatePrimitivesActualLine(primitives, line, place, picStyle, Compass.EastWest);
-        }
-      }
-    }
-    primitives.add(new PenSize(1.0f));
-    // PenSize(1, 1);
-  }
-
-
 
 }

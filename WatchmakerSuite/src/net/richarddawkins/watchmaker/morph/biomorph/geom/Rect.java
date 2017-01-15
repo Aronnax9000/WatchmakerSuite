@@ -38,9 +38,10 @@ public class Rect {
    * If the left value was null, set it to the new left value. 
    * @param left the potential new lefthand boundary
    */
-  public void expandLeft(int left) {
-      if(this.left == null || left < this.left)
-          this.left = left;
+  public void expandLeft(int left, int thick) {
+      int extent = left - thick / 2;
+      if(this.left == null || extent < this.left)
+          this.left = extent;
   }
  
   /**
@@ -48,9 +49,10 @@ public class Rect {
    * If the righthand value was null, set it to the new righthand value. 
    * @param right the potential new righthand boundary
    */
-  public void expandRight(int right) {
-      if(this.right == null || right > this.right)
-          this.right = right;
+  public void expandRight(int right, int thick) {
+      int extent = right + thick / 2;
+      if(this.right == null || extent > this.right)
+          this.right = extent;
   }
   
   /** 
@@ -58,9 +60,10 @@ public class Rect {
    * If the top value was null, set it to the new top value. 
    * @param top the potential new top boundary
    */
-  public void expandTop(int top) {
-      if(this.top == null || top < this.top)
-          this.top = top;
+  public void expandTop(int top, int thick) {
+      int extent = top - thick / 2;
+      if(this.top == null || extent < this.top)
+          this.top = extent;
   }
   
   /** 
@@ -68,24 +71,29 @@ public class Rect {
    * If the bottom value was null, set it to the new top value. 
    * @param bottom the potential new bottom boundary
    */
-  public void expandBottom(int bottom) {
-      if(this.bottom == null || bottom > this.bottom)
-          this.bottom = bottom;
-  }
-  
-  public void expandPoint(Point point) {
-      expandLeft(point.h);
-      expandRight(point.h);
-      expandTop(point.v);
-      expandBottom(point.v);
+  public void expandBottom(int bottom, int thick) {
+      int extent = bottom + thick / 2;
+      if(this.bottom == null || extent > this.bottom)
+          this.bottom = extent;
   }
   
   public void expandPoint(Point point, int thick) {
-      expandLeft(point.h - thick / 2);
-      expandRight(point.h + thick / 2);
-      expandTop(point.v - thick / 2);
-      expandBottom(point.v + thick / 2);
+      expandLeft(point.h, thick);
+      expandRight(point.h, thick);
+      expandTop(point.v, thick);
+      expandBottom(point.v, thick);
   }
+  
+  public void expandHorizontal(int h, int thick) {
+      expandLeft(h, thick);
+      expandRight(h, thick);
+  }
+   
+  public void expandVertical(int v, int thick) {
+      expandTop(v, thick);
+      expandBottom(v, thick);
+  }
+  
   
   public Point getMidPoint() {
       return new Point(left + (right - left) / 2, top + (bottom - top) / 2);
