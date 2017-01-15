@@ -49,7 +49,7 @@ public class Snail extends SimpleMorph {
   public Morph reproduce() {
     Snail child = new Snail(config);
     child.genome = (SnailGenome) genome.reproduce(child);
-    child.setParent(this);
+    child.getPedigree().parent = this;
     return child;
   }
 @Override

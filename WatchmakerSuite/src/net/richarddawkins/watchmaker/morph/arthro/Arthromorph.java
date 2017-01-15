@@ -143,7 +143,7 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	public Morph reproduce() {
 		Arthromorph child = new Arthromorph(config);
 		child.setGenome(genome.reproduce(child));
-		child.setParent(this);
+		child.getPedigree().parent = this;
 		return child;
 	}
 	

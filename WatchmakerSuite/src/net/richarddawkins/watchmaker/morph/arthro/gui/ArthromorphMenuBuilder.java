@@ -25,8 +25,8 @@ public class ArthromorphMenuBuilder extends SimpleMenuBuilder implements MenuBui
 	protected ArthromorphConfig config;
 	
 	public ArthromorphMenuBuilder(ArthromorphConfig config) {
-		this.config = config;
-		config.addPropertyChangeListener(this);
+		super(config);
+		
 	}
 	
 	public void buildMenu(JMenuBar menuBar) {

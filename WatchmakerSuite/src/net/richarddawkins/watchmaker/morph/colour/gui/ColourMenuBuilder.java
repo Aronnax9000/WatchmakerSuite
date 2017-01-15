@@ -31,8 +31,7 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 	
 	
 	public ColourMenuBuilder(ColourBiomorphConfig config) {
-		this.config = config;
-		config.addPropertyChangeListener(this);
+	    super(config);
 	}
 
 	public void buildMenu(JMenuBar menuBar) {

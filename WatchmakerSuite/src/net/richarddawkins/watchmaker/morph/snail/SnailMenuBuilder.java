@@ -38,8 +38,7 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 
 	protected SnailConfig config;
 	public SnailMenuBuilder(SnailConfig config) {
-		this.config = config;
-		config.addPropertyChangeListener(this);
+		super(config);
 	}
 
 	public void buildMenu(JMenuBar menuBar) {

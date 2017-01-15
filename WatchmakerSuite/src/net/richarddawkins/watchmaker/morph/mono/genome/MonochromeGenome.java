@@ -82,6 +82,113 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
      * Instead of DelayedDrawing, just pass in null if you don't want a call to
      * Drawpic at the end.
      * </p>
+     * <pre>
+     * procedure Develop(var biomorph: person; Here: point; ZeroMargin: boolean);
+     * var
+     *   DeltaRecord: DeltaArray;
+     *   DeltaRecordPtr: DeltaArrayPtr;
+     *   j, seg, Upextent, Downextent, wid, ht, SizeWorry, thick: integer;
+     * 
+     *   Running: chromosome;
+     *   OldHere, Centre: Point;
+     *   ExtraDistance, IncDistance: integer;
+     * 
+     * begin {develop}
+     *   ClipBoarding := False;
+     * 
+     *   if zeromargin then
+     *     with margin do
+     *     begin
+     *       left := Here.h;
+     *       right := Here.h;
+     *       top := Here.v;
+     *       bottom := Here.v;
+     *     end;
+     *   Centre := Here;
+     *   DeltaRecordPtr := @DeltaRecord;
+     *   PlugIn(Biomorph.gene, DeltaRecordPtr);
+     *   ZeroPic(MyPic, Here);
+     *   with biomorph do
+     *     with DeltaRecord do
+     *     begin
+     *       if SegNoGene &lt; 1 then
+     *         SegNoGene := 1;
+     *       if dGene[10] = Swell then
+     *         Extradistance := Tricklegene
+     *       else if dGene[10] = Shrink then
+     *         Extradistance := -Tricklegene
+     *       else
+     *         ExtraDistance := 0;
+     *       Running := gene;
+     *       IncDistance := 0;
+     *       for seg := 1 to SegNoGene do
+     *       begin
+     *         OddOne := odd(seg);
+     *         if seg &gt; 1 then
+     *         begin
+     *           OldHere := Here;
+     *           Here.v := Here.v + (SegDistGene + IncDistance) div Tricklegene;
+     *           IncDistance := IncDistance + ExtraDistance;
+     *           if biomorph.dGene[9] = shrink then
+     *             thick := biomorph.Gene[9]
+     *           else
+     *             thick := 1;
+     *           PicLine(MyPic, OldHere.h, Oldhere.v, Here.h, Here.v, thick);
+     *           for j := 1 to 8 do
+     *           begin
+     *             if dGene[j] = Swell then
+     *               Running[j] := Running[j] + Tricklegene;
+     *             if dGene[j] = Shrink then
+     *               Running[j] := Running[j] - Tricklegene;
+     *           end;
+     *           if Running[9] &lt; 1 then
+     *             Running[9] := 1;
+     *           PlugIn(Running, DeltaRecordPtr);
+     *         end;
+     *         SizeWorry := biomorph.SegNoGene * TwoToThe(biomorph.gene[9]);
+     *         if SizeWorry &gt; WorryMax then
+     *           biomorph.Gene[9] := biomorph.Gene[9] - 1;
+     *         if biomorph.gene[9] &lt; 1 then
+     *           biomorph.gene[9] := 1;
+     *         tree(biomorph, DeltaRecordPtr, Here.h, Here.v, order, 2);
+     *       end;
+     *     end;
+     *   with biomorph do
+     *     with margin do
+     *     begin
+     *       if Centre.h - left &gt; right - Centre.h then
+     *         right := Centre.h + (Centre.h - left)
+     *       else
+     *         left := Centre.h - (right - Centre.h);
+     *       Upextent := Centre.v - top; {can be zero if biomorph goes down}
+     *       Downextent := bottom - Centre.v;
+     *       if ((SpokesGene = NSouth) or (SpokesGene = Radial)) or (TheMode = Engineering) then
+     *         {Obscurely necessary to cope with erasing last Rect in Manipulation}
+     *       begin
+     *         if UpExtent &gt; DownExtent then
+     *           bottom := Centre.v + UpExtent
+     *         else
+     *           top := Centre.v - DownExtent;
+     *       end;
+     *       if SpokesGene = Radial then
+     *       begin
+     *         wid := right - left;
+     *         ht := bottom - top;
+     *         if wid &gt; ht then
+     *         begin
+     *           top := centre.v - wid div 2 - 1;
+     *           bottom := centre.v + wid div 2 + 1;
+     *         end
+     *         else
+     *         begin
+     *           left := centre.h - ht div 2 - 1;
+     *           right := centre.h + ht div 2 + 1;
+     *         end;
+     *       end;
+     *     end;
+     *   MyPic.PicPerson := biomorph;
+     * 
+     * end; {develop}   
      */
     public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
         Pic pic = morph.getPic();
@@ -96,6 +203,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         Point here = new Point(d.width / 2, d.height / 2);
 
         Globals.setClipBoarding(false);
+        
         if (zeroMargin) {
             pic.margin.left = here.h;
             pic.margin.right = here.h;

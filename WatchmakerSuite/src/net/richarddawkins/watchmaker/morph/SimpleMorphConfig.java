@@ -33,7 +33,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	protected JPanel pageStartPanel;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected boolean recordingFossils;
-	protected boolean showBoundingBoxes;
+	protected boolean showBoundingBoxes = true;
 	protected String toolTip;
 
 	public void setToolTip(String toolTip) {
@@ -220,8 +220,12 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 			pcs.firePropertyChange("recordingFossils", oldValue, newValue);
 	}
 	
-	public void setShowBoundingBoxes(boolean showBoundingBoxes) {
-		this.showBoundingBoxes = showBoundingBoxes;
+	public void setShowBoundingBoxes(boolean newValue) {
+		boolean oldValue = this.showBoundingBoxes;
+	    this.showBoundingBoxes = newValue;
+	    
+	    pcs.firePropertyChange("showBoundingBoxes", oldValue, newValue);
+		morphViewsTabbedPane.getSelectedComponent().repaint();
 	}
 	@Override
 	public Morph getMorphOfTheHour() {

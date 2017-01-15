@@ -20,9 +20,6 @@ public interface Morph {
 	public void setGenome(Genome genome);
 	public Genome getGenome();
 
-	public Morph getPrec();
-	public void setPrec(Morph prec);
-
 	public void setPic(Pic pic);
 	public Pic getPic();
 
@@ -32,24 +29,6 @@ public interface Morph {
 
 	public void generatePrimitives(Vector<DrawingPrimitive> primitives, Point centre);
 
-	public int getOffspringCount(boolean deep);
-
-	public Morph getNext();
-	public void setNext(Morph next);
-	
-	public Morph getParent();
-	public void setParent(Morph parent);
-	
-	public Morph getFirstBorn();
-	public void setFirstBorn(Morph firstBorn);
-
-	public Morph getLastBorn();
-	public void setLastBorn(Morph lastBorn);
-
-	public Morph getElderSib();
-	public void setElderSib(Morph elderSib);
-
-	public Morph getYoungerSib();
-	public void setYoungerSib(Morph youngerSib);
+    public MorphPedigree getPedigree();
 
 }

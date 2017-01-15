@@ -74,7 +74,7 @@ public class ColourBiomorph extends SimpleMorph  {
 	public Morph reproduce() {
 		ColourBiomorph child = new ColourBiomorph(config);
 		child.setGenome(genome.reproduce(child));
-		child.setParent(this);
+		child.getPedigree().parent= this;
 		return child;
 	}
 

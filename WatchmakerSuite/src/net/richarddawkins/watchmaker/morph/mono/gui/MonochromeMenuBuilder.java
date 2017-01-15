@@ -13,7 +13,6 @@ import net.richarddawkins.watchmaker.gui.ActionBreed;
 import net.richarddawkins.watchmaker.gui.ActionEngineering;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
 /**
  * Application (About Blind Watchmaker)
@@ -38,7 +37,7 @@ import net.richarddawkins.watchmaker.morph.mono.MonochromeMorphConfig;
  */
 public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
   
-	protected MonochromeMorphConfig config;
+	
 
 	JCheckBoxMenuItem segmentation = new JCheckBoxMenuItem("Segmentation");
 	JCheckBoxMenuItem gradient = new JCheckBoxMenuItem("Gradient");
@@ -55,12 +54,12 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 	JCheckBoxMenuItem driftSweep = new JCheckBoxMenuItem("Drift Sweep");
 
 	public MonochromeMenuBuilder(MonochromeMorphConfig config) {
-		ButtonGroup group = new ButtonGroup();
+		super(config);
+	    ButtonGroup group = new ButtonGroup();
 		group.add(noMirrors);
 		group.add(singleMirror);
 		group.add(doubleMirrors);
 		config.addPropertyChangeListener(this);
-		this.config = config;
 	}
 	
   public void buildMenu(JMenuBar menuBar) {
@@ -211,15 +210,5 @@ public class MonochromeMenuBuilder extends SimpleMenuBuilder implements MenuBuil
 		
 	}
 
-	@Override
-	public void setMorphConfig(MorphConfig config) {
-		this.config = (MonochromeMorphConfig) config;
-		
-	}
-
-	@Override
-	public MorphConfig getMorphConfig() {
-		return config;
-	}	
 	
 }
