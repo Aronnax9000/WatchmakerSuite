@@ -21,7 +21,6 @@ import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 import net.richarddawkins.watchmaker.morph.util.Globals;
-import net.richarddawkins.watchmaker.morph.util.ModeType;
 
 public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 
@@ -270,80 +269,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
             g2.setColor(Color.RED);
             Rectangle rectangle = pic.margin.toRectangle();
             g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        }
-
-    }
-
-    public void generatePic() {
-        Pic pic = morph.getPic();
-        int sizeWorry;
-        int[] dx = new int[8];
-        int[] dy = new int[8];
-        int[] running = new int[9];
-        Point oldHere;
-        int extraDistance;
-        int incDistance;
-        Point here = new Point(0, 0);
-        int gene[] = new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(),
-                gene5.getValue(), gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() };
-        plugIn(gene, dx, dy);
-        pic.zeroPic(here);
-        if (segNoGene.getValue() < 1)
-            segNoGene.setValue(1);
-        switch (segDistGene.getGradient()) {
-        case Swell:
-            extraDistance = trickleGene.getValue();
-            break;
-        case Shrink:
-            extraDistance = -trickleGene.getValue();
-            break;
-        case Same:
-        default:
-            extraDistance = 0;
-        }
-        running = new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
-                gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() };
-        incDistance = 0;
-        for (int seg = 0; seg < segNoGene.getValue(); seg++) {
-            oddOne = (seg & 1) == 1;
-            if (seg > 0) {
-                oldHere = (Point) here.clone();
-                here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
-                incDistance += extraDistance;
-                int thick;
-                if (gene9.getGradient() == SwellType.Shrink)
-                    thick = gene9.getValue();
-                else
-                    thick = 1;
-                pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
-                SwellType[] dGene = new SwellType[] {
-
-                };
-                for (int j = 0; j < 8; j++) {
-                    switch (dGene[j]) {
-                    case Swell:
-                        running[j] += trickleGene.getValue();
-                        break;
-                    case Shrink:
-                        running[j] -= trickleGene.getValue();
-                        break;
-                    case Same:
-                        break;
-                    default:
-                    }
-                }
-                if (running[8] < 1)
-                    running[8] = 1;
-                plugIn(running, dx, dy);
-            }
-            sizeWorry = segNoGene.getValue() * (1 << gene9.getValue());
-            if (sizeWorry > Globals.worryMax)
-                gene9.decrementGene();
-            ;
-
-            if (gene9.getValue() < 1)
-                gene9.setValue(8);
-            tree(here.h, here.v, order, 2, dx, dy);
         }
 
     }
