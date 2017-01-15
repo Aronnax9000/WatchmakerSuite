@@ -191,6 +191,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
      * 
      * end; {develop}   
      */
+    @Override
     public void develop(Graphics2D g2, Dimension d, boolean zeroMargin) {
         SimpleSwingPic pic = (SimpleSwingPic) morph.getPic();
         int sizeWorry;
