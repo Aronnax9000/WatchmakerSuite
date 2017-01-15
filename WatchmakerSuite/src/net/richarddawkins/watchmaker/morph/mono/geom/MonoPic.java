@@ -45,10 +45,12 @@ public class MonoPic extends SimpleSwingPic {
       CompletenessType completenessType = monoGenome.getCompletenessGene().getValue();
       SpokesType spokesType = monoGenome.getSpokesGene().getValue();
       if(completenessType == CompletenessType.Double || spokesType == SpokesType.Radial) {
-          margin.expandPoint(new Point(-x, y), thick);
+          margin.expandHorizontal(-x, thick);
+          margin.expandHorizontal(-xnew, thick);
       }
       if(spokesType == SpokesType.NSouth || spokesType == SpokesType.Radial) {
           margin.expandVertical(-y, thick);
+          margin.expandVertical(-ynew, thick);
       }
     }
   }
