@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
@@ -29,98 +30,47 @@ public class MonoPic extends SimpleSwingPic {
             // ', StopError);
             // ExitToShell
         } else {
-            addPicLine(x, y, xnew, ynew, thick, color);
+            addPicLines(x, y, xnew, ynew, thick, color);
         }
     }
 
 
-    public void addPicLine(int x, int y, int xnew, int ynew, int thick, Color color) {
-        
-        
-        lines.add(new Lin(new Point(x,y), new Point(xnew,ynew), thick, color));
-        
-        doExpansion(x, y, xnew, ynew, thick);
-    }
-    
-    public void doExpansion(int x, int y, int xnew, int ynew, int thick) {
-        MonochromeGenome monoGenome = (MonochromeGenome) morph.getGenome();
-        CompletenessType completenessType = monoGenome.getCompletenessGene().getValue();
-        SpokesType spokesType = monoGenome.getSpokesGene().getValue();
+    public void addPicLines(int x, int y, int xnew, int ynew, int thick, Color color) {
+        BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
+        addActualPicLine(x, y, xnew, ynew, thick, color, picStyle, Compass.NorthSouth);
+        // sometimes rangecheck error
 
-        margin.expandPoint(new Point(x, y), thick);
-        margin.expandPoint(new Point(xnew, ynew), thick);
-
-        if (completenessType == CompletenessType.Double || spokesType == SpokesType.NSouth
-                || spokesType == SpokesType.Radial) {
-            margin.expandHorizontal(-x, thick);
-            margin.expandHorizontal(-xnew, thick);
-        }
-
-        switch (spokesType) {
-        case NorthOnly:
-            break;
-        case Radial:
-            margin.expandHorizontal(-y, thick);
-            margin.expandHorizontal(-ynew, thick);
-            margin.expandVertical(-x, thick);
-            margin.expandVertical(-xnew, thick);
-        case NSouth:
-            margin.expandVertical(-y, thick);
-            margin.expandVertical(-ynew, thick);
-            break;
-        default:
-
-        }
-    }
-
-    /**
-     * Pic already contains its own origin, meaning the coordinates at which it
-     * was originally drawn. Now draw it at Place
-     */
-    @Override
-    public void drawPic(Graphics2D g2, Point d, Point place) {
-        MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
-
-
-        g2.setStroke(new BasicStroke(Globals.myPenSize));
-        for (Lin line : lines) {
-            actualLine(g2, line, place, picStyle, Compass.NorthSouth);
-            // sometimes rangecheck error
-
-            if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
-                if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
-                    actualLine(g2, line, place, PicStyleType.RUD, Compass.EastWest);
-                } else {
-                    actualLine(g2, line, place, picStyle, Compass.EastWest);
-                }
+        if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
+            if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
+                addActualPicLine(x, y, xnew, ynew, thick, color, PicStyleType.RUD, Compass.EastWest);
+            } else {
+                addActualPicLine(x, y, xnew, ynew, thick, color, picStyle, Compass.EastWest);
             }
         }
-        g2.setStroke(new BasicStroke(1.0f));
-        // PenSize(1, 1);
+
     }
-
-    void actualLine(Graphics2D g2, Lin line, Point place, PicStyleType picStyle, Compass orientation) {
-
+    
+    private void addActualPicLine(int x, int y, int xnew, int ynew, int thick, Color color, PicStyleType picStyle,
+            Compass orientation) {
         int y0;
         int y1;
         int x0;
         int x1;
-
-        g2.setStroke(new BasicStroke(line.thickness));
+        Point place = new Point(0,0);
         if (orientation == Compass.NorthSouth) {
             int horizOffset = origin.h - place.h;
             int vertOffset = origin.v - place.v;
-            x0 = line.startPt.h - horizOffset;
-            y0 = line.startPt.v - vertOffset;
-            x1 = line.endPt.h - horizOffset;
-            y1 = line.endPt.v - vertOffset;
+            x0 = x - horizOffset;
+            y0 = y - vertOffset;
+            x1 = xnew - horizOffset;
+            y1 = ynew - vertOffset;
         } else {
             int horizOffset = origin.v - place.h;
             int vertOffset = origin.h - place.v;
-            x0 = line.startPt.v - horizOffset;
-            y0 = line.startPt.h - vertOffset;
-            x1 = line.endPt.v - horizOffset;
-            y1 = line.endPt.h - vertOffset;
+            x0 = y - horizOffset;
+            y0 = x - vertOffset;
+            x1 = ynew - horizOffset;
+            y1 = xnew - vertOffset;
         }
 
         int mid2 = 2 * place.h;
@@ -128,32 +78,55 @@ public class MonoPic extends SimpleSwingPic {
 
         switch (picStyle) {
         case LF:
-            g2.drawLine(x0, y0, x1, y1);
+            addSinglePicLine(new Point(x0, y0), new Point(x1, y1), thick, color);
             break;
         case RF:
-            g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
+            addSinglePicLine(new Point(mid2 - x0, y0), new Point(mid2 - x1, y1), thick, color);
             break;
         case FF:
-            g2.drawLine(x0, y0, x1, y1);
-            g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
+            addSinglePicLine(new Point(x0, y0), new Point(x1, y1), thick, color);
+            addSinglePicLine(new Point(mid2 - x0, y0), new Point(mid2 - x1, y1), thick, color);
             break;
         case LUD:
-            g2.drawLine(x0, y0, x1, y1);
-            g2.drawLine(mid2 - x0, belly2 - y0, mid2 - x1, belly2 - y1);
+            addSinglePicLine(new Point(x0, y0), new Point(x1, y1), thick, color);
+            addSinglePicLine(new Point(mid2 - x0, belly2 - y0), new Point(mid2 - x1, belly2 - y1), thick, color);
             break;
         case RUD:
-            g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
-            g2.drawLine(x0, belly2 - y0, x1, belly2 - y1);
+            addSinglePicLine(new Point(mid2 - x0, y0), new Point(mid2 - x1, y1), thick, color);
+            addSinglePicLine(new Point(x0, belly2 - y0), new Point(x1, belly2 - y1), thick, color);
             break;
         case FUD:
-            g2.drawLine(x0, y0, x1, y1);
-            g2.drawLine(mid2 - x0, y0, mid2 - x1, y1);
-            g2.drawLine(x0, belly2 - y0, x1, belly2 - y1);
-            g2.drawLine(mid2 - x0, belly2 - y0, mid2 - x1, belly2 - y1);
+            addSinglePicLine(new Point(x0, y0), new Point(x1, y1), thick, color);
+            addSinglePicLine(new Point(mid2 - x0, y0), new Point(mid2 - x1, y1), thick, color);
+            addSinglePicLine(new Point(x0, belly2 - y0), new Point(x1, belly2 - y1), thick, color);
+            addSinglePicLine(new Point(mid2 - x0, belly2 - y0), new Point(mid2 - x1, belly2 - y1), thick, color);
             break;
         default:
         }
+
+        
     }
+
+    private void addSinglePicLine(Point startPt, Point endPt, int thick, Color color) {
+        lines.add(new Lin(startPt, endPt, thick, color));
+        margin.expandPoint(startPt, thick);
+        margin.expandPoint(endPt, thick);
+    }
+    /**
+     * Pic already contains its own origin, meaning the coordinates at which it
+     * was originally drawn. Now draw it at Place
+     */
+    @Override
+    public void drawPic(Graphics2D g2, Point d, Point place) {
+        for (Lin line : lines) {
+            g2.setStroke(new BasicStroke(line.thickness));
+            g2.setColor(line.color);
+            g2.drawLine(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);
+
+        }
+
+    }
+
 
     
     
