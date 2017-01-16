@@ -38,7 +38,7 @@ public class MonoPic extends SimpleSwingPic {
     public void addPicLines(int x, int y, int xnew, int ynew, int thick, Color color) {
         BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
         addActualPicLine(x, y, xnew, ynew, thick, color, picStyle, Compass.NorthSouth);
-        // sometimes rangecheck error
+        
 
         if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
             if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
@@ -57,19 +57,15 @@ public class MonoPic extends SimpleSwingPic {
         int x0;
         int x1;
         if (orientation == Compass.NorthSouth) {
-            int horizOffset = origin.h;
-            int vertOffset = origin.v;
-            x0 = x - horizOffset;
-            y0 = y - vertOffset;
-            x1 = xnew - horizOffset;
-            y1 = ynew - vertOffset;
+            x0 = x;
+            y0 = y;
+            x1 = xnew;
+            y1 = ynew;
         } else {
-            int horizOffset = origin.v;
-            int vertOffset = origin.h;
-            x0 = y - horizOffset;
-            y0 = x - vertOffset;
-            x1 = ynew - horizOffset;
-            y1 = xnew - vertOffset;
+            x0 = y;
+            y0 = x;
+            x1 = ynew;
+            y1 = xnew;
         }
 
         switch (picStyle) {

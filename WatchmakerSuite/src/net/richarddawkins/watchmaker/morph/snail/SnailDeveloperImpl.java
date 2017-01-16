@@ -284,10 +284,10 @@ public class SnailDeveloperImpl {
 
   /** Originally (in Pascal) a nested procedure within drawPic. */
   public void quarantine(Pic thisPic, Lin lin, double theScale) {
-    lin.startPt.v = thisPic.origin.v + (int) Math.round(theScale * (lin.startPt.v - thisPic.origin.v));
-    lin.endPt.v = thisPic.origin.v + (int) Math.round(theScale * (lin.endPt.v - thisPic.origin.v));
-    lin.startPt.h = thisPic.origin.h + (int) Math.round(theScale * (lin.startPt.h - thisPic.origin.h));
-    lin.endPt.h = thisPic.origin.h + (int) Math.round(theScale * (lin.endPt.h - thisPic.origin.h));
+    lin.startPt.v = (int) Math.round(theScale * (lin.startPt.v));
+    lin.endPt.v = (int) Math.round(theScale * (lin.endPt.v));
+    lin.startPt.h = (int) Math.round(theScale * (lin.startPt.h));
+    lin.endPt.h = (int) Math.round(theScale * (lin.endPt.h));
   }
 
   /**
@@ -311,8 +311,8 @@ public class SnailDeveloperImpl {
       int jThreshold) {
     boolean doMirror, tooThin;
     quarantine(thisPic, lin, theScale);
-    int vertOffset = (int) Math.round(theScale * (thisPic.origin.v - place.v));
-    int horizOffset = (int) Math.round(theScale * (thisPic.origin.h - place.h));
+    int vertOffset = (int) Math.round(theScale * ( - place.v));
+    int horizOffset = (int) Math.round(theScale * ( - place.h));
     int y0 = lin.startPt.v - vertOffset;
     int y1 = lin.endPt.v - vertOffset;
     int x0 = lin.startPt.h - horizOffset;

@@ -87,15 +87,15 @@ public class ColourPic extends SimpleSwingPic {
         int x0, x1, y0, y1;
 
         if (orientation == Compass.NorthSouth) {
-            vertOffset = origin.v;
-            horizOffset = origin.h;
+            vertOffset = 0;
+            horizOffset = 0;
             y0 = line.startPt.v - vertOffset;
             y1 = line.endPt.v - vertOffset;
             x0 = line.startPt.h - horizOffset;
             x1 = line.endPt.h - horizOffset;
         } else {
-            vertOffset = origin.h;
-            horizOffset = origin.v;
+            vertOffset = 0;
+            horizOffset = 0;
             y0 = line.startPt.h - vertOffset;
             y1 = line.endPt.h - vertOffset;
             x0 = line.startPt.v - horizOffset;

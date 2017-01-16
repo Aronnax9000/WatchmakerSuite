@@ -71,7 +71,6 @@ public abstract class Pic {
     public Rect margin = new Rect();
 
     public Morph morph;
-    public Point origin;
 
     public Pic() {
         super();
@@ -86,7 +85,7 @@ public abstract class Pic {
     abstract public void picLine(int x, int y, int xnew, int ynew, int thickness, Color color);
 
     public void zeroPic(Point here) {
-        origin = here;
+
         lines.clear();
     }
 
