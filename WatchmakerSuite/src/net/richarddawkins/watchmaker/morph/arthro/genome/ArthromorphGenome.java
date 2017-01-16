@@ -66,12 +66,13 @@ public class ArthromorphGenome extends SimpleGenome {
 		animalTrunk.draw(g2, params, x, y, x, ySeg);
 	}
 
-	public void drawInBox(Graphics2D g2, Point where)
+	public void drawInBox(Graphics2D g2)
 			throws ArthromorphGradientExceeds1000Exception { // procedure
 																// DrawInBox
 																// (BoxNo:
 																// integer);
-		int centre;
+		Point where = new Point(0,0);
+	    int centre;
 		int start;
 		ArthromorphConfig config = (ArthromorphConfig) morph.getMorphConfig();
 		int midriff;

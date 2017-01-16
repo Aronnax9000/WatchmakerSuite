@@ -5,7 +5,6 @@ import java.awt.Image;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 
 public interface Morph {
 	
@@ -22,7 +21,7 @@ public interface Morph {
 
 	public Morph reproduce();
 	
-	public void draw(Graphics2D g2, Point point);
+	public void draw(Graphics2D g2);
 
 
     public MorphPedigree getPedigree();

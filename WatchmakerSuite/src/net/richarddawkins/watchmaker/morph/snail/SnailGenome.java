@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import net.richarddawkins.watchmaker.genome.Genome;

@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph.mono.genome;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;

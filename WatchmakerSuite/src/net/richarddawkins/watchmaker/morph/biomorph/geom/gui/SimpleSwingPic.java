@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.morph.biomorph.geom.gui;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.SimplePic;
 
 public abstract class SimpleSwingPic extends SimplePic {

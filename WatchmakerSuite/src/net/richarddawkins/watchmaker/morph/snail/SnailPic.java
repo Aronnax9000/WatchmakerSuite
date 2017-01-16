@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 
 public class SnailPic extends SimpleSwingPic {
@@ -25,9 +24,4 @@ public class SnailPic extends SimpleSwingPic {
         // TODO Auto-generated method stub
         
     }
-
-
-	
-
-
 }

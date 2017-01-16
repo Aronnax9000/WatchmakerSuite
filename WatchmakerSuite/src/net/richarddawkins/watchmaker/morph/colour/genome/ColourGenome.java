@@ -1,9 +1,5 @@
 package net.richarddawkins.watchmaker.morph.colour.genome;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -13,7 +9,6 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.IntegerGeneOneOrGreat
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morph.colour.geom.ColourPic;

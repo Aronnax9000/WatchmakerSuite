@@ -3,12 +3,10 @@ package net.richarddawkins.watchmaker.morph;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 
@@ -36,7 +34,7 @@ public abstract class SimpleMorph implements Morph {
     }
 
 	@Override
-	public void draw(Graphics2D g2, Point p) {
+	public void draw(Graphics2D g2) {
 		g2.setColor(Color.BLACK);
 		pic.drawPic(g2);
 	}

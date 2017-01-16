@@ -146,11 +146,11 @@ public class Rect {
   }
 
   public int getWidth() {
-    return right - left;
+    return Math.abs(right - left);
   }
 
   public int getHeight() {
-    return bottom - top;
+    return Math.abs(bottom - top);
   }
 
   /**

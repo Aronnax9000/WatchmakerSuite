@@ -9,7 +9,6 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphGenome;
 import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphGradientExceeds1000Exception;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 /**
  * <h2>Original documentation from Arthromorphs/MyGlobals</h2>
  * <p>Arthromorphs   by Richard Dawkins and Ted Kaehler</p>
@@ -123,12 +122,12 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	}
 	
 	@Override
-	public void draw(Graphics2D g2, Point p) {
+	public void draw(Graphics2D g2) {
 		g2.setColor(Color.BLACK);
 //		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
 //		g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
 		try {
-			((ArthromorphGenome)genome).drawInBox(g2, p);
+			((ArthromorphGenome)genome).drawInBox(g2);
 		} catch (ArthromorphGradientExceeds1000Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
