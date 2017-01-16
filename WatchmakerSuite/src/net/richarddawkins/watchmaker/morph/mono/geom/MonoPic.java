@@ -17,8 +17,8 @@ public class MonoPic extends SimpleSwingPic {
     public MonoPic(Morph morph) {
         super(morph);
     }
-
-    public void picLine(int x, int y, int xnew, int ynew, int thick, Color color, PicStyleType picStyle) {
+    @Override
+    public void picLine(int x, int y, int xnew, int ynew, int thick, Color color) {
         if (thick > 8) {
             thick = 8;
         }
@@ -29,12 +29,12 @@ public class MonoPic extends SimpleSwingPic {
             // ', StopError);
             // ExitToShell
         } else {
-            picLine(x, y, xnew, ynew, thick, color);
+            addPicLine(x, y, xnew, ynew, thick, color);
         }
     }
 
-    @Override
-    public void picLine(int x, int y, int xnew, int ynew, int thick, Color color) {
+
+    public void addPicLine(int x, int y, int xnew, int ynew, int thick, Color color) {
         
         
         lines.add(new Lin(new Point(x,y), new Point(xnew,ynew), thick, color));
