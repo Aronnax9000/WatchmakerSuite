@@ -265,7 +265,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
             tree(here.h, here.v, order, 2, dx, dy);
         }
         if (g2 != null) {
-            pic.drawPic(g2, here, centre, morph);
+            pic.drawPic(g2, here, centre, morph, pic.getPicStyleType());
             g2.setColor(Color.RED);
             Rectangle rectangle = pic.margin.toRectangle();
             g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);

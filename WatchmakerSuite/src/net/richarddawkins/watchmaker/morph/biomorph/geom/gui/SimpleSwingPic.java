@@ -9,9 +9,8 @@ import net.richarddawkins.watchmaker.morph.biomorph.geom.SimplePic;
 public abstract class SimpleSwingPic extends SimplePic {
     public SimpleSwingPic(Morph morph) {
         super(morph);
-        
     }
 
-    abstract public void drawPic(Graphics2D g2, Point here, Point offCentre, Morph biomorphPerson);
+    abstract public void drawPic(Graphics2D g2, Point here, Point offCentre, Morph biomorphPerson, PicStyleType picStyle);
 
 }

@@ -201,7 +201,7 @@ public class ColourGenome extends MonochromeGenome {
 			}
 		}
 		if (g2 != null) {
-			pic.drawPic(g2, here, centre, morph);
+			pic.drawPic(g2, here, centre, morph, pic.getPicStyleType());
 			if (morph.getMorphConfig().isShowBoundingBoxes()) {
 				g2.setColor(Color.RED);
 				Rectangle rectangle = pic.margin.toRectangle();

@@ -158,41 +158,11 @@ int[] colorVals = { 0, 51, 102, 153, 204, 255 };
    * @param morph the biomorph to be drawn.
    */
 
-  public void drawPic(Graphics2D g2, Point here, Point place, Morph morph) {
+  public void drawPic(Graphics2D g2, Point here, Point place, Morph morph, PicStyleType picStyle) {
     
 	  ColourGenome genome = (ColourGenome) morph.getGenome();
     g2.setColor(ColourPic.chooseColor(genome.getBackColorGene().getValue()));
     g2.fillRect(0, 0, margin.getWidth(), margin.getHeight());
-    PicStyleType picStyle;
-    picStyle = PicStyleType.FF; // To correct initialisation bug, due to call in Update
-    switch (genome.getCompletenessGene().getValue()) {
-    case Single:
-      switch (genome.getSpokesGene().getValue()) {
-      case NorthOnly:
-        picStyle = PicStyleType.LF;
-        break;
-      case NSouth:
-        picStyle = PicStyleType.LUD;
-        break;
-      case Radial:
-        picStyle = PicStyleType.LUD;
-        break;
-      }
-      break;
-    case Double:
-      switch (genome.getSpokesGene().getValue()) {
-      case NorthOnly:
-        picStyle = PicStyleType.FF;
-        break;
-      case NSouth:
-        picStyle = PicStyleType.FUD;
-        break;
-      case Radial:
-        picStyle = PicStyleType.FUD;
-        break;
-      }
-      break;
-    }
     // PenSize(MyPenSize, MyPenSize);
     g2.setStroke(new BasicStroke(1.0f));
     int mid2 = 2 * place.h;
