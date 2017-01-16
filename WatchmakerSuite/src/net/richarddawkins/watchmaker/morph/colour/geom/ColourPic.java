@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import com.sun.istack.internal.logging.Logger;
+
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
@@ -79,23 +81,23 @@ public class ColourPic extends SimpleSwingPic {
         return rgbColorPalette[colorIndex];
     }
 
-    void actualLine(Graphics2D g2, PicStyleType picStyle, Compass orientation, Lin line, Point place,
-            ColourBiomorph morph, int mid2, int belly2) {
+    void actualLine(Graphics2D g2, PicStyleType picStyle, Compass orientation, Lin line,
+            ColourBiomorph morph) {
         // int linColor;
         int vertOffset;
         int horizOffset;
         int x0, x1, y0, y1;
 
         if (orientation == Compass.NorthSouth) {
-            vertOffset = origin.v - place.v;
-            horizOffset = origin.h - place.h;
+            vertOffset = origin.v;
+            horizOffset = origin.h;
             y0 = line.startPt.v - vertOffset;
             y1 = line.endPt.v - vertOffset;
             x0 = line.startPt.h - horizOffset;
             x1 = line.endPt.h - horizOffset;
         } else {
-            vertOffset = origin.h - place.v;
-            horizOffset = origin.v - place.h;
+            vertOffset = origin.h;
+            horizOffset = origin.v;
             y0 = line.startPt.h - vertOffset;
             y1 = line.endPt.h - vertOffset;
             x0 = line.startPt.v - horizOffset;
@@ -106,21 +108,21 @@ public class ColourPic extends SimpleSwingPic {
         case LF:
             limb(g2, x0, y0, x1, y1, morph);
         case RF:
-            limb(g2, mid2 - x0, y0, mid2 - x1, y1, morph);
+            limb(g2, - x0, y0, - x1, y1, morph);
         case FF:
             limb(g2, x0, y0, x1, y1, morph);
-            limb(g2, mid2 - x0, y0, mid2 - x1, y1, morph);
+            limb(g2, - x0, y0, - x1, y1, morph);
         case LUD:
             limb(g2, x0, y0, x1, y1, morph);
-            limb(g2, mid2 - x0, belly2 - y0, mid2 - x1, belly2 - y1, morph);
+            limb(g2, - x0,  - y0,  - x1,  - y1, morph);
         case RUD:
-            limb(g2, mid2 - x0, y0, mid2 - x1, y1, morph);
-            limb(g2, x0, belly2 - y0, x1, belly2 - y1, morph);
+            limb(g2, - x0, y0,  - x1, y1, morph);
+            limb(g2, x0, - y0, x1,  - y1, morph);
         case FUD:
             limb(g2, x0, y0, x1, y1, morph);
-            limb(g2, mid2 - x0, y0, mid2 - x1, y1, morph);
-            limb(g2, x0, belly2 - y0, x1, belly2 - y1, morph);
-            limb(g2, mid2 - x0, belly2 - y0, mid2 - x1, belly2 - y1, morph);
+            limb(g2,  - x0, y0,  - x1, y1, morph);
+            limb(g2, x0,  - y0, x1,  - y1, morph);
+            limb(g2,  - x0,  - y0,  - x1,  - y1, morph);
         default:
             break;
         }
@@ -129,6 +131,7 @@ public class ColourPic extends SimpleSwingPic {
     public void picLine(int x, int y, int xnew, int ynew, int thickness, Color color) {
 
         if (lines.size() >= PICSIZEMAX) {
+            
             // {Message(GetString(TooLargeString));}
             // {used the help dialog! v1.1 changed to alert}
             // DisplayError(-147, 'Biomorph too large, or other problem', '
@@ -157,25 +160,22 @@ public class ColourPic extends SimpleSwingPic {
      *            the biomorph to be drawn.
      */
 
-    public void drawPic(Graphics2D g2, Point here, Point place) {
+    public void drawPic(Graphics2D g2) {
 
         ColourGenome genome = (ColourGenome) morph.getGenome();
         g2.setColor(ColourPic.chooseColor(genome.getBackColorGene().getValue()));
         g2.fillRect(0, 0, margin.getWidth(), margin.getHeight());
         // PenSize(MyPenSize, MyPenSize);
         g2.setStroke(new BasicStroke(1.0f));
-        int mid2 = 2 * place.h;
-        int belly2 = 2 * place.v;
         for (Lin line : lines) {
 
             // sometimes rangecheck error
-            actualLine(g2, picStyle, Compass.NorthSouth, line, place, (ColourBiomorph) morph, mid2, belly2);
+            actualLine(g2, picStyle, Compass.NorthSouth, line, (ColourBiomorph) morph);
             if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
                 if (genome.getCompletenessGene().getValue() == CompletenessType.Single)
-                    actualLine(g2, PicStyleType.RUD, Compass.EastWest, (Lin) line, place, (ColourBiomorph) morph, mid2,
-                            belly2);
+                    actualLine(g2, PicStyleType.RUD, Compass.EastWest, (Lin) line, (ColourBiomorph) morph);
                 else
-                    actualLine(g2, picStyle, Compass.EastWest, (Lin) line, place, (ColourBiomorph) morph, mid2, belly2);
+                    actualLine(g2, picStyle, Compass.EastWest, (Lin) line, (ColourBiomorph) morph);
             }
         }
 

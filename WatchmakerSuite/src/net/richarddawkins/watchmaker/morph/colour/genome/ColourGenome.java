@@ -100,9 +100,9 @@ public class ColourGenome extends MonochromeGenome {
 		child.thicknessGene.setValue(thicknessGene.getValue());
 	}
 
-	public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
-		
-		SimpleSwingPic pic = new ColourPic(morph);
+	public void develop() {
+		Point here = new Point(0,0);
+	    ColourPic pic = new ColourPic(morph);
 		morph.setPic(pic);
 		// int x;
 		// int y;
@@ -119,12 +119,7 @@ public class ColourGenome extends MonochromeGenome {
 		int extraDistance;
 		int incDistance;
 		int dummyColour;
-		if (zeroMargin) {
-			pic.margin.left = here.h;
-			pic.margin.right = here.h;
-			pic.margin.top = here.v;
-			pic.margin.bottom = here.v;
-		}
+		pic.margin.zeroRect();
 		centre = (Point) here.clone();
 		plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
 				gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
@@ -201,14 +196,7 @@ public class ColourGenome extends MonochromeGenome {
 				pic.margin.right = centre.h + ht / 2 + 1;
 			}
 		}
-		if (g2 != null) {
-			pic.drawPic(g2, here, centre);
-			if (morph.getMorphConfig().isShowBoundingBoxes()) {
-				g2.setColor(Color.RED);
-				Rectangle rectangle = pic.margin.toRectangle();
-				g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-			}
-		}
+
 	}
 
 	public IntegerGene getBackColorGene() {

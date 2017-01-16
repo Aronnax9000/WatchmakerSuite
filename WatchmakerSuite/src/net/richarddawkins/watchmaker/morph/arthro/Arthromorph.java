@@ -123,12 +123,12 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	}
 	
 	@Override
-	public void draw(Graphics2D g2, Point p, boolean midBox) {
+	public void draw(Graphics2D g2, Point p) {
 		g2.setColor(Color.BLACK);
 //		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
 //		g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
 		try {
-			((ArthromorphGenome)genome).drawInBox(g2, p, midBox);
+			((ArthromorphGenome)genome).drawInBox(g2, p);
 		} catch (ArthromorphGradientExceeds1000Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

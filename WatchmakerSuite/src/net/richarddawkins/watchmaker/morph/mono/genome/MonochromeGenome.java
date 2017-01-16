@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.morph.mono.genome;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -45,6 +44,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         gene6.setGradient(SwellType.Shrink);
         gene9.setGradient(SwellType.Shrink);
         trickleGene.setValue(9);
+        
     }
 
     /**
@@ -191,7 +191,8 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
      * </pre>
      */
     @Override
-    public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
+    public void develop() {
+        Point here = new Point(0,0);
         MonoPic pic = new MonoPic(morph);
         morph.setPic(pic);
         int sizeWorry;
@@ -199,20 +200,17 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         int[] dy = new int[8];
         int[] running = new int[9];
         Point oldHere;
-        Point centre;
         int extraDistance;
         int incDistance;
 
         Globals.setClipBoarding(false);
         
-        if (zeroMargin) {
-            pic.margin.zeroRect();
-        }
-        centre = (Point) here.clone();
+
+        pic.zeroPic(here);
+        pic.margin.zeroRect();
         plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
                 gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
 
-        pic.zeroPic(here);
 
         if (segNoGene.getValue() < 1)
             segNoGene.setValue(1);
@@ -266,12 +264,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
                 gene9.setValue(1);
             tree(here.h, here.v, order, 2, dx, dy);
         }
-        if (g2 != null) {
-            pic.drawPic(g2, here, centre);
-            g2.setColor(Color.RED);
-            Rectangle rectangle = pic.margin.toRectangle();
-            g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        }
 
     }
 
@@ -311,6 +303,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         MorphConfig config = newMorph.getMorphConfig();
         Mutagen mutagen = config.getMutagen();
         mutagen.mutate(childGenome);
+        
         return childGenome;
     }
 

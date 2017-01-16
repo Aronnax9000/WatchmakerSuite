@@ -35,83 +35,10 @@ public abstract class SimpleMorph implements Morph {
         this.pRect = pRect;
     }
 
-    public void develop(Point here, boolean zeroMargin) {
-        if(zeroMargin) {
-            pic.margin.left = here.h;
-            pic.margin.right = here.h;
-            pic.margin.top = here.v;
-            pic.margin.bottom = here.v;
-        }
-        Point centre = new Point(here.h, here.v);
-    }
-    
-    private void drawPic(Pic myPic2, Point offCentre, Genome genome2) {
-        
-        
-    }
-    
-    /**
-     * <pre>
-     * procedure Delayvelop(var Biomorph: Person; Here: Point);
-     * var
-     *   margcentre, offset: integer;
-     *   OffCentre: Point;
-     * begin
-     *   develop(Biomorph, Here, true);
-     *   with margin do
-     *     margcentre := top + (bottom - top) div 2;
-     *   offset := margcentre - Here.v;
-     *   with Margin do
-     *   begin
-     *     Top := Top - Offset;
-     *     Bottom := Bottom - Offset;
-     *   end;
-     *   with OffCentre do
-     *   begin
-     *     h := Here.h;
-     *     v := Here.v - offset;
-     *   end;
-     *   DrawPic(MyPic, offcentre, Biomorph);
-     * end; {Delayvelop}
-     * </pre>      
-     */
-    public void delayvelop(Point here) {
-        develop(here, true);
-        int margCentre = pic.margin.top + (pic.margin.bottom - pic.margin.top) / 2;
-        int offset = margCentre - here.v;
-        pic.margin.top = pic.margin.top - offset;
-        pic.margin.bottom = pic.margin.bottom - offset;
-        Point offCentre = new Point(here.h, here.v - offset);
-        drawPic(myPic, offCentre, genome);
-    }
-
-
-    public void delayvelop(Graphics2D g2, Point p, boolean midBox) {
-		int margcentre, offset;
-		Point offCentre = new Point();
-		// Zeromargin := TRUE;
-
-		getGenome().develop(null, p, true); // null equivalent to classic
-											// DelayedDrawing := TRUE;
-		// DelayedDrawing := FALSE;
-		margcentre = pic.margin.top + (pic.margin.bottom - pic.margin.top) / 2;
-		offset = margcentre - p.v;
-		pic.margin.top -= offset;
-		pic.margin.bottom -= offset;
-		offCentre.h = p.h;
-		offCentre.v = p.v - offset;
-		pic.drawPic(g2, p, offCentre);
-		if (this.getMorphConfig().isShowBoundingBoxes()) {
-			g2.setColor(Color.RED);
-			Rectangle rectangle = pic.margin.toRectangle();
-			g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-		}
-	}
-
 	@Override
-	public void draw(Graphics2D g2, Point p, boolean midBox) {
+	public void draw(Graphics2D g2, Point p) {
 		g2.setColor(Color.BLACK);
-		delayvelop(g2, p, midBox);
+		pic.drawPic(g2);
 	}
 
 	@Override

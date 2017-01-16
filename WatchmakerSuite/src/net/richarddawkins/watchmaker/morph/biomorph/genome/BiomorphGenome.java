@@ -55,6 +55,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		default:
 			break;
 		}
+		develop();
 	}
 
 	public SegNoGene getSegNoGene() {

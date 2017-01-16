@@ -17,5 +17,6 @@ public class GeneBoxMouseAdapter extends MouseAdapter {
 		Gene gene = geneBox.getGene();
 		Cursor cursor = geneBox.getCursor();
 		gene.goose(cursor);
+		gene.getGenome().develop();
 	}
 }

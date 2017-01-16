@@ -34,7 +34,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		((ArthromorphGenome) person).setAnimalTrunk(animalTrunk.copy());
 	}
 
-	public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
+	public void develop() {
 		// TODO Auto-generated method stub
 
 	}
@@ -66,7 +66,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		animalTrunk.draw(g2, params, x, y, x, ySeg);
 	}
 
-	public void drawInBox(Graphics2D g2, Point where, boolean midBox)
+	public void drawInBox(Graphics2D g2, Point where)
 			throws ArthromorphGradientExceeds1000Exception { // procedure
 																// DrawInBox
 																// (BoxNo:
@@ -81,7 +81,7 @@ public class ArthromorphGenome extends SimpleGenome {
 			start = where.h;
             westPole = 0;
 			eastPole = 0;
-			if (config.isCentring() || midBox) {
+			if (config.isCentring()) {
 				// Original implementation bracketed this call with hidePen /
 				// showPen. This
 				// implementation simply calls drawAnimal with a null graphics
@@ -96,7 +96,7 @@ public class ArthromorphGenome extends SimpleGenome {
 			centre = where.h;
 			northPole = 0;
 			southPole = 0;
-			if (config.isCentring() || midBox) {
+			if (config.isCentring()) {
 				// Preliminary dummy draw to measure North & South extent of
 				// animal
 				drawAnimal(null, centre, start); // return with NorthPole and

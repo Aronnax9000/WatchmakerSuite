@@ -15,7 +15,7 @@ public class SnailPic extends SimpleSwingPic {
     }
 
     @Override
-    public void drawPic(Graphics2D g2, Point where, Point offCentre) {
+    public void drawPic(Graphics2D g2) {
         // TODO Auto-generated method stub
         
     }

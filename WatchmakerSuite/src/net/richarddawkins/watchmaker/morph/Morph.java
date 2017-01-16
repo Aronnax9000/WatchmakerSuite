@@ -22,7 +22,7 @@ public interface Morph {
 
 	public Morph reproduce();
 	
-	public void draw(Graphics2D g2, Point point, boolean midBox);
+	public void draw(Graphics2D g2, Point point);
 
 
     public MorphPedigree getPedigree();

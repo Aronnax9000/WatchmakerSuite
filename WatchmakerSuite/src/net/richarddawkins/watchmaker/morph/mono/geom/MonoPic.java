@@ -3,6 +3,8 @@ package net.richarddawkins.watchmaker.morph.mono.geom;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
@@ -11,8 +13,6 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
-import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
-import net.richarddawkins.watchmaker.morph.util.Globals;
 
 public class MonoPic extends SimpleSwingPic {
     public MonoPic(Morph morph) {
@@ -117,17 +117,16 @@ public class MonoPic extends SimpleSwingPic {
      * was originally drawn. Now draw it at Place
      */
     @Override
-    public void drawPic(Graphics2D g2, Point d, Point place) {
+    public void drawPic(Graphics2D g2) {
         for (Lin line : lines) {
             g2.setStroke(new BasicStroke(line.thickness));
             g2.setColor(line.color);
             g2.drawLine(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);
-
         }
-
+        if (morph.getMorphConfig().isShowBoundingBoxes()) {
+            g2.setColor(Color.BLUE);
+            Rectangle rectangle = margin.toRectangle();
+            g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        }
     }
-
-
-    
-    
 }

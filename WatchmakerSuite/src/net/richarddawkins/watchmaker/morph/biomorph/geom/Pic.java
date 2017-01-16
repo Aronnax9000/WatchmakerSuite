@@ -60,7 +60,12 @@ public abstract class Pic {
         FF, FSW, FUD, LF, LSW, LUD, RF, RSW, RUD
     }
 
-    public final static int PICSIZEMAX = 4095;
+    /**
+     * PICSIZEMAX is 4 * 4095, which is 4 times the original (Pascal) value, since the
+     * current implementation stores each component of a symmetry separately, instead
+     * of calculating them as they're drawn.
+     */
+    public final static int PICSIZEMAX = 4* 4095;
 
     public Vector<Lin> lines = new Vector<Lin>();
     public Rect margin = new Rect();

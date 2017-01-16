@@ -85,8 +85,11 @@ public class MonochromeMorph extends SimpleMorph {
 
 	public Morph reproduce() {
 		MonochromeMorph child = new MonochromeMorph(config);
-		child.setGenome((Genome) genome.reproduce((Morph) child));
+		Genome childGenome = genome.reproduce((Morph) child);
+        child.setGenome(childGenome);
+        childGenome.develop();
 		child.getPedigree().parent = this;
+		
 		return child;
 	}
 	

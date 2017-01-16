@@ -27,10 +27,10 @@ import java.awt.Rectangle;
  */
 public class Rect {
 
-  public Integer left = null;
-  public Integer right = null;
-  public Integer top = null;
-  public Integer bottom = null;
+  public Integer left = 0;
+  public Integer right = 0;
+  public Integer top = 0;
+  public Integer bottom = 0;
 
  
   /**
@@ -170,9 +170,9 @@ public class Rect {
   }
   
   public void zeroRect() {
-      left = null;
-      right = null;
-      top = null;
-      bottom = null;
+      left = 0;
+      right = 0;
+      top = 0;
+      bottom = 0;
   }
 }
