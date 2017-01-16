@@ -9,7 +9,6 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
-import net.richarddawkins.watchmaker.morph.mono.geom.MonoPic;
 /**
  * MonochromeBiomorph is a subinterface of Morph which represents Monochrome Biomorphs.
  * <h2>Original source code from Monochrome Biomorphs/Biomorphs</h2>
@@ -73,7 +72,6 @@ public class MonochromeMorph extends SimpleMorph {
 	}
 	MonochromeMorph() {
 		setGenome(new MonochromeGenome(this));
-		pic = new MonoPic(this);
 	}
 	MonochromeMorph(MorphConfig config) {
 		this();

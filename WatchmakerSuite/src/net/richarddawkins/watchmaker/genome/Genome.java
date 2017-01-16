@@ -15,7 +15,7 @@ public interface Genome extends PropertyChangeListener {
 	/**
 	 * Attempt to mutate the genome represented by this Person.
 	 * @param g2 the Graphics2D context upon which drawing is to take place
-	 * @param d the dimension of the box within which drawing is to take place
+	 * @param p the point where drawing is to take place
 	 * @param zeroMargin whether to zero the margins of the bounding box.
 	 */
 

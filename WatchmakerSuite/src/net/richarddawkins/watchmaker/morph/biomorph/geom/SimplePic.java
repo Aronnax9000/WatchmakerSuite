@@ -7,13 +7,13 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.BiomorphGenome;
 
 public abstract class SimplePic extends Pic {
     
-    protected final Morph morph;
     
     public SimplePic(Morph morph) {
         this.morph = morph;
+        calculatePicStyleType();
     }
     
-    
+    protected PicStyleType picStyle;
 
     public final void picLine(int xx1, int yy1, int xx2, int yy2) {
         picLine(xx1, yy1, xx2, yy2, 1, Color.BLACK);
@@ -27,9 +27,9 @@ public abstract class SimplePic extends Pic {
         picLine(xx1, yy1, xx2, yy2, 1, color);
     }
     
-    public PicStyleType getPicStyleType() {
+    public void calculatePicStyleType() {
         BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
-        PicStyleType picStyle = PicStyleType.FF;
+        picStyle = PicStyleType.FF;
         switch (genome.getCompletenessGene().getValue()) {
         case Single: {
             switch (genome.getSpokesGene().getValue()) {
@@ -61,7 +61,6 @@ public abstract class SimplePic extends Pic {
             }
             }
         }
-        return picStyle;
     }
 
 }

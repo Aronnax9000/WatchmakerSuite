@@ -72,7 +72,8 @@ public abstract class SimpleMorph implements Morph {
      *     v := Here.v - offset;
      *   end;
      *   DrawPic(MyPic, offcentre, Biomorph);
-     * end; {Delayvelop}      
+     * end; {Delayvelop}
+     * </pre>      
      */
     public void delayvelop(Point here) {
         develop(here, true);
@@ -99,7 +100,7 @@ public abstract class SimpleMorph implements Morph {
 		pic.margin.bottom -= offset;
 		offCentre.h = p.h;
 		offCentre.v = p.v - offset;
-		pic.drawPic(g2, p, offCentre, this, pic.getPicStyleType());
+		pic.drawPic(g2, p, offCentre);
 		if (this.getMorphConfig().isShowBoundingBoxes()) {
 			g2.setColor(Color.RED);
 			Rectangle rectangle = pic.margin.toRectangle();

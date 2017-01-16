@@ -22,7 +22,7 @@ public class MonoPic extends SimpleSwingPic {
         if (thick > 8) {
             thick = 8;
         }
-        if (picSize >= PICSIZEMAX) {
+        if (lines.size() >= PICSIZEMAX) {
             // {Message(GetString(TooLargeString));}
             // {used the help dialog! v1.1 changed to alert}
             // DisplayError(-147, 'Biomorph too large, or other problem', '
@@ -35,15 +35,10 @@ public class MonoPic extends SimpleSwingPic {
 
     @Override
     public void picLine(int x, int y, int xnew, int ynew, int thick, Color color) {
-
-        Lin movePtr = new Lin();
-        movePtr.startPt.h = x;
-        movePtr.startPt.v = y;
-        movePtr.endPt.h = xnew;
-        movePtr.endPt.v = ynew;
-        movePtr.thickness = thick;
-        lines.add(movePtr);
-        picSize++;
+        
+        
+        lines.add(new Lin(new Point(x,y), new Point(xnew,ynew), thick, color));
+        
         doExpansion(x, y, xnew, ynew, thick);
     }
     
@@ -83,7 +78,7 @@ public class MonoPic extends SimpleSwingPic {
      * was originally drawn. Now draw it at Place
      */
     @Override
-    public void drawPic(Graphics2D g2, Point d, Point place, Morph morph, PicStyleType picStyle) {
+    public void drawPic(Graphics2D g2, Point d, Point place) {
         MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
 
 

@@ -102,7 +102,8 @@ public class ColourGenome extends MonochromeGenome {
 
 	public void develop(Graphics2D g2, Point here, boolean zeroMargin) {
 		
-		SimpleSwingPic pic = (SimpleSwingPic) this.morph.getPic();
+		SimpleSwingPic pic = new ColourPic(morph);
+		morph.setPic(pic);
 		// int x;
 		// int y;
 		int upExtent;
@@ -201,7 +202,7 @@ public class ColourGenome extends MonochromeGenome {
 			}
 		}
 		if (g2 != null) {
-			pic.drawPic(g2, here, centre, morph, pic.getPicStyleType());
+			pic.drawPic(g2, here, centre);
 			if (morph.getMorphConfig().isShowBoundingBoxes()) {
 				g2.setColor(Color.RED);
 				Rectangle rectangle = pic.margin.toRectangle();

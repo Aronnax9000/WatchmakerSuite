@@ -67,7 +67,6 @@ public abstract class Pic {
 
     public Morph morph;
     public Point origin;
-    protected int picSize;
 
     public Pic() {
         super();
@@ -82,7 +81,6 @@ public abstract class Pic {
     abstract public void picLine(int x, int y, int xnew, int ynew, int thickness, Color color);
 
     public void zeroPic(Point here) {
-        picSize = 0;
         origin = here;
         lines.clear();
     }
