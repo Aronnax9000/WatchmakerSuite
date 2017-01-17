@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morph.mono.geom.MonoPic;
 
 public class ColourPic extends MonoPic {
@@ -52,7 +53,17 @@ public class ColourPic extends MonoPic {
         }
     }
 
-    
+    protected void limbRect(Graphics2D g2, ColourLin line, Rectangle square) {
+        g2.drawRect(square.x, square.y, square.width, square.height);
+        if (line.limbFill == LimbFillType.Filled)
+            g2.fillRect(square.x, square.y, square.width, square.height);
+    }
+
+    protected void limbOval(Graphics2D g2, ColourLin line, Rectangle square) {
+        g2.drawOval(square.x, square.y, square.width, square.height);
+        if (line.limbFill == LimbFillType.Filled)
+            g2.fillOval(square.x, square.y, square.width, square.height);
+    }
     @Override
     protected void limb(Graphics2D g2, Lin line) {
 

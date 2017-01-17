@@ -112,17 +112,21 @@ public class MonoPic extends SimpleSwingPic {
         
     }
 
-    public BufferedImage toImage() {
-        BufferedImage image = new BufferedImage(margin.getWidth(), margin.getHeight(), 
-                BufferedImage.TYPE_BYTE_INDEXED);
-        Graphics2D g2 = image.createGraphics();
-        Point midPoint = margin.getMidPoint();
-        g2.translate(margin.left, margin.bottom);
-        for (Lin line : lines) {
 
+    protected void limb(Graphics2D g2, Lin line) {            
+        g2.drawLine(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);
+    }
+
+
+
+    @Override
+    public void drawPic(Graphics2D g2) {
+        AffineTransform saveTransform = g2.getTransform();
+        Point midPoint = margin.getMidPoint();
+
+        g2.translate(-midPoint.h, -midPoint.v);
+        for (Lin line : lines) {
             g2.setStroke(new BasicStroke(line.thickness));
-            
-                
             limb(g2, line);
         }
         if (morph.getMorphConfig().isShowBoundingBoxes()) {
@@ -131,35 +135,6 @@ public class MonoPic extends SimpleSwingPic {
             Rectangle rectangle = margin.toRectangle();
             g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         }
-
-        return image;
-    }
-
-    protected void limb(Graphics2D g2, Lin line) {            
-        
-    }
-
-    protected void limbRect(Graphics2D g2, ColourLin line, Rectangle square) {
-        g2.drawRect(square.x, square.y, square.width, square.height);
-        if (line.limbFill == LimbFillType.Filled)
-            g2.fillRect(square.x, square.y, square.width, square.height);
-    }
-
-    protected void limbOval(Graphics2D g2, ColourLin line, Rectangle square) {
-        g2.drawOval(square.x, square.y, square.width, square.height);
-        if (line.limbFill == LimbFillType.Filled)
-            g2.fillOval(square.x, square.y, square.width, square.height);
-    }
-
-    /**
-     * Pic already contains its own origin, meaning the coordinates at which it
-     * was originally drawn. Now draw it at Place
-     */
-    @Override
-    public void drawPic(Graphics2D g2) {
-        AffineTransform saveTransform = g2.getTransform();
-        Point midPoint = margin.getMidPoint();
-        g2.drawImage(toImage(), -margin.getWidth() / 2, -margin.getHeight() / 2, null);
         g2.setTransform(saveTransform);
     }
 }
