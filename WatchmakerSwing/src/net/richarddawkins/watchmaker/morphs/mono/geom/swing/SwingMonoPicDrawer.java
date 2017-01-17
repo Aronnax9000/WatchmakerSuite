@@ -4,8 +4,8 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Lin;
+import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.QuickDrawColor;
 import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;

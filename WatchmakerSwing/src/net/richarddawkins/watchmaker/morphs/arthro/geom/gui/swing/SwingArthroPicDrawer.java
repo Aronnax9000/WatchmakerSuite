@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing;
 
 import java.awt.Graphics2D;
 
+import net.richarddawkins.watchmaker.geom.Lin;
+import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.ArthroLin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
 public class SwingArthroPicDrawer extends SwingPicDrawer {
@@ -15,4 +15,6 @@ public class SwingArthroPicDrawer extends SwingPicDrawer {
         ArthroLin arthroLin = (ArthroLin) line;
         // To do.
     }
+
+
 }

@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morph;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Pic;
 
 public interface Morph {
 	

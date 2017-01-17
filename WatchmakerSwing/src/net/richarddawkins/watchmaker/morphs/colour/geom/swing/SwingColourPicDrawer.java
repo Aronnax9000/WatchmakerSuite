@@ -5,8 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Lin;
+import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;

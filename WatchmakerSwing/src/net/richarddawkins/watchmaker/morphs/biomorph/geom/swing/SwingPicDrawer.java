@@ -6,9 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Point;
+import net.richarddawkins.watchmaker.geom.Lin;
+import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Point;
+
+
 
 public abstract class SwingPicDrawer {
 

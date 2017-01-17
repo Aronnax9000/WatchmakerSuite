@@ -1,9 +1,9 @@
 package net.richarddawkins.watchmaker.gui;
 
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.MorphConfigFactory;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
+import net.richarddawkins.watchmaker.morphs.MorphConfigFactory;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing.SwingArthroPicDrawer;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
