@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.biomorph.geom.swing;
+package net.richarddawkins.watchmaker.geom.swing;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

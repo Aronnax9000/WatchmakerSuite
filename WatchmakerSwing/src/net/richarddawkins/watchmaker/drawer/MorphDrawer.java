@@ -6,7 +6,7 @@ import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
-import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
+import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 
 public abstract class MorphDrawer implements GraphicsDrawer {
 

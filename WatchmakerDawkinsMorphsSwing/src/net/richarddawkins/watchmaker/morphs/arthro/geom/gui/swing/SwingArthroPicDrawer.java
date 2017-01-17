@@ -4,8 +4,8 @@ import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.ArthroLin;
-import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
 public class SwingArthroPicDrawer extends SwingPicDrawer {
 

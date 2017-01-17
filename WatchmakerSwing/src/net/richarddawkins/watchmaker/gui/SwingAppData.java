@@ -3,10 +3,10 @@ package net.richarddawkins.watchmaker.gui;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
+import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
 public interface SwingAppData {
 	void addBreedingMorphView(Morph morph);

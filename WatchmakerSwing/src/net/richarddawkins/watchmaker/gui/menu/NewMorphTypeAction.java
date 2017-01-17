@@ -6,6 +6,7 @@ import javax.swing.AbstractAction;
 
 import net.richarddawkins.watchmaker.gui.SwingAppData;
 import net.richarddawkins.watchmaker.gui.SwingAppDataFactory;
+import net.richarddawkins.watchmaker.gui.SwingAppDataFactoryService;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.morph.MorphType;
 
@@ -25,8 +26,10 @@ public class NewMorphTypeAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		SwingAppDataFactory factory = 
+		SwingAppDataFactoryService.getInstance().getFactory("Dawkins' Morphs");
 		
-		SwingAppDataFactory factory = SwingAppDataFactory.newInstance(morphType);
+		factory.setMorphType(morphType);
 		SwingAppData newSwingAppData = factory.newSwingAppData();
 		
 		pane.addSwingAppData(newSwingAppData);

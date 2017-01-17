@@ -23,10 +23,14 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 	public WatchmakerTabbedPane(JMenuBar jMenuBar) {
 		super();
 		this.jMenuBar = jMenuBar;
+		SwingAppDataFactoryService service = SwingAppDataFactoryService.getInstance();
+		SwingAppDataFactory factory = service.getFactory("Dawkins' Morphs");
 		for (MorphType morphType : MorphType.values()) {
 			if (morphType != MorphType.SNAIL) {
 				logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
-				SwingAppDataFactory factory = new SwingAppDataFactory(morphType);
+				
+						
+				factory.setMorphType(morphType);
 				
 				SwingAppData swingAppData = factory.newSwingAppData();
 				swingAppData.setFrame(this);

@@ -3,16 +3,14 @@ package net.richarddawkins.watchmaker.gui;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
+import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.gui.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.ArthromorphGeneBoxStrip;
-import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
-public class SimpleSwingAppData implements SwingAppData {
+abstract public class SimpleSwingAppData implements SwingAppData {
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected MorphConfig config;
 	protected WatchmakerTabbedPane frame;
@@ -23,10 +21,6 @@ public class SimpleSwingAppData implements SwingAppData {
 	protected boolean showBoundingBoxes = true;
 	protected SwingPicDrawer swingPicDrawer;
 
-	@Override
-	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		return new ArthromorphGeneBoxStrip(this, engineeringMode);
-	}
 	
 	@Override
 	public void addBreedingMorphView(Morph morph) {
