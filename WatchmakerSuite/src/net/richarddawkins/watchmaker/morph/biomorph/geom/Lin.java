@@ -1,10 +1,5 @@
 package net.richarddawkins.watchmaker.morph.biomorph.geom;
 
-import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
-import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
-import net.richarddawkins.watchmaker.morph.colour.geom.ColourLin;
-
-
 /**
  * Represents a drawing primitive used to draw a biomorph, capable of 
  * rendering any of the classic version biomorphs.
@@ -31,12 +26,10 @@ import net.richarddawkins.watchmaker.morph.colour.geom.ColourLin;
 public class Lin implements Cloneable {
 	public Point startPt;
 	public Point endPt;
-	public Integer thickness = 1; // 1..8
 	
-	public Lin(Point startPt, Point endPt, int thickness) {
+	public Lin(Point startPt, Point endPt) {
 	    this.startPt = startPt;
 	    this.endPt = endPt;
-	    this.thickness = thickness;
 	}
 	
     @Override
@@ -45,7 +38,6 @@ public class Lin implements Cloneable {
             Lin clone = (Lin) super.clone();
             clone.startPt = startPt;
             clone.endPt = endPt;
-            clone.thickness = thickness;
           return clone;
         } catch (CloneNotSupportedException e) {
           throw new RuntimeException("this could never happen", e);
@@ -53,9 +45,8 @@ public class Lin implements Cloneable {
       }
 
     public void expandMargin(Rect margin) {
-        margin.expandPoint(startPt, thickness);
-        margin.expandPoint(endPt, thickness);
-        
+        margin.expandPoint(startPt, 0);
+        margin.expandPoint(endPt, 0);
     }
 	
 }

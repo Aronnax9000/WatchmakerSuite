@@ -53,15 +53,7 @@ import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeGenome;
  */
 public class MonochromeMorph extends SimpleMorph {
 	
-	protected MonochromeMorphConfig config;
-	@Override
-	public void setMorphConfig(MorphConfig config) {
-		this.config = (MonochromeMorphConfig) config;
-	}
-	@Override
-	public MorphConfig getMorphConfig() {
-		return config;
-	}
+
 	@Override
 	public Genome getGenome() {
 		return genome;
@@ -70,12 +62,9 @@ public class MonochromeMorph extends SimpleMorph {
 	public void setGenome(Genome genome) {
 		this.genome = (Genome) genome;
 	}
-	MonochromeMorph() {
-		setGenome(new MonochromeGenome(this));
-	}
 	MonochromeMorph(MorphConfig config) {
-		this();
-		setMorphConfig(config);
+		super(config);
+        setGenome(new MonochromeGenome(this));
 	}
 
 	MonochromeMorph(MorphConfig config, int basicType) {

@@ -10,6 +10,7 @@ import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphMutagen;
 import net.richarddawkins.watchmaker.morph.arthro.genome.gui.ArthromorphGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.Concentration;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.Pressure;
+import net.richarddawkins.watchmaker.morph.arthro.geom.gui.SwingArthroPicDrawer;
 import net.richarddawkins.watchmaker.morph.arthro.gui.ArthromorphMenuBuilder;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
@@ -56,6 +57,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	
 	public ArthromorphConfig() {
 		super(MorphType.ARTHROMORPH);
+		swingPicDrawer = new SwingArthroPicDrawer();
 		makeAllBodyMutations(true);
 		makeAllAtomMutations(true);
 		mutationPressure = Pressure.Zero;

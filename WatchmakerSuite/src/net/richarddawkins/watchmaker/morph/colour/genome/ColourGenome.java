@@ -97,8 +97,13 @@ public class ColourGenome extends MonochromeGenome {
 
 	public void develop() {
 		Point here = new Point(0,0);
-	    ColourPic pic = new ColourPic(morph);
-		morph.setPic(pic);
+	    ColourPic pic = (ColourPic)morph.getPic();
+	    pic.setLimbShape(this.getLimbShapeGene().getValue());
+	    pic.setLimbFill(this.getLimbFillGene().getValue());
+	    pic.setThickness(this.getThicknessGene().getValue());
+	    pic.setBackgroundColor(this.getBackColorGene().getValue());
+	    
+	    pic.zeroPic();
 		// int x;
 		// int y;
 		int upExtent;
@@ -118,7 +123,7 @@ public class ColourGenome extends MonochromeGenome {
 		centre = (Point) here.clone();
 		plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
 				gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
-		pic.zeroPic(here);
+		pic.zeroPic();
 		if (segNoGene.getValue() < 1) {
 			segNoGene.setValue(1);
 		}

@@ -1,18 +1,53 @@
 package net.richarddawkins.watchmaker.morph.colour.geom;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
-import net.richarddawkins.watchmaker.morph.mono.geom.MonoPic;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
 
-public class ColourPic extends MonoPic {
+public class ColourPic extends Pic {
 
-    protected int backGroundColor;
+    protected int backgroundColor;
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    protected int thickness;
+    protected LimbFillType limbFill;
+    protected LimbShapeType limbShape;
+    
+
+    public int getThickness() {
+        return thickness;
+    }
+
+    public void setThickness(int thickness) {
+        this.thickness = thickness;
+    }
+
+    public LimbFillType getLimbFill() {
+        return limbFill;
+    }
+
+    public void setLimbFill(LimbFillType limbFill) {
+        this.limbFill = limbFill;
+    }
+
+    public LimbShapeType getLimbShape() {
+        return limbShape;
+    }
+
+    public void setLimbShape(LimbShapeType limbShape) {
+        this.limbShape = limbShape;
+    }
 
     public ColourPic(Morph morph) {
         super(morph);
@@ -48,37 +83,9 @@ public class ColourPic extends MonoPic {
             // ', StopError);
             // ExitToShell
         } else {
-            Lin movePtr = new ColourLin(new Point(x, y), new Point(xnew, ynew), thickness, color);
+            Lin movePtr = new ColourLin(new Point(x, y), new Point(xnew, ynew), color);
             addLin(movePtr);
         }
     }
 
-    protected void limbRect(Graphics2D g2, ColourLin line, Rectangle square) {
-        g2.drawRect(square.x, square.y, square.width, square.height);
-        if (line.limbFill == LimbFillType.Filled)
-            g2.fillRect(square.x, square.y, square.width, square.height);
-    }
-
-    protected void limbOval(Graphics2D g2, ColourLin line, Rectangle square) {
-        g2.drawOval(square.x, square.y, square.width, square.height);
-        if (line.limbFill == LimbFillType.Filled)
-            g2.fillOval(square.x, square.y, square.width, square.height);
-    }
-    @Override
-    protected void limb(Graphics2D g2, Lin line) {
-
-        ColourLin colourLin = (ColourLin) line;
-        g2.setColor(new Color(colourLin.color));
-        Rectangle square = new Rectangle(Math.min(line.startPt.h, line.endPt.h), Math.min(line.startPt.v, line.endPt.v),
-                Math.abs(line.endPt.h - line.startPt.h), Math.abs(line.endPt.v - line.startPt.v));
-
-        switch (colourLin.limbShape) {
-        case Oval:
-            limbOval(g2, colourLin, square);
-        case Rectangle:
-            limbRect(g2, colourLin, square);
-        default:
-        }
-        g2.drawLine(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);
-    }
 }

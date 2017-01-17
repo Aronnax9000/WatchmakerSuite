@@ -202,7 +202,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         Globals.setClipBoarding(false);
         
 
-        pic.zeroPic(here);
+        pic.zeroPic();
         pic.margin.zeroRect();
         plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
                 gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);

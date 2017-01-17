@@ -7,14 +7,20 @@ import java.awt.geom.AffineTransform;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.draw.DrawingPrimitive;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
 
 public abstract class MorphDrawer implements GraphicsDrawer {
 
+    public MorphDrawer(SwingPicDrawer swingPicDrawer) {
+        this.swingPicDrawer = swingPicDrawer;
+    }
+    
 	protected Dimension size;
 	public void setSize(Dimension size) {
 		this.size = size;
 	}
 
+	protected SwingPicDrawer swingPicDrawer;
 
 	
 	

@@ -14,6 +14,7 @@ import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
 import net.richarddawkins.watchmaker.gui.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
@@ -26,7 +27,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	public void setIcon(Icon icon) {
 		this.icon = icon;
 	}
-
+	protected SwingPicDrawer swingPicDrawer;
 	protected MenuBuilder menuBuilder;
 	protected MorphViewsTabbedPane morphViewsTabbedPane = new MorphViewsTabbedPane(this);
 	protected String name;
@@ -46,7 +47,10 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		setToolTip(morphType.getToolTip());
 		
 	}
-
+    @Override
+    public SwingPicDrawer getSwingPicDrawer() {
+        return swingPicDrawer;
+    }
 	@Override
 	public void addBreedingMorphView(Morph morph) {
 	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));

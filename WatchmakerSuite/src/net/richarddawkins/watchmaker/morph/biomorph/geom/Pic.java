@@ -51,6 +51,11 @@ import net.richarddawkins.watchmaker.morph.Morph;
  *
  */
 public abstract class Pic {
+    
+    public Pic(Morph morph) {
+        this.morph = morph;
+    }
+    
     public enum Compass {
         EastWest, NorthSouth
     }
@@ -81,7 +86,7 @@ public abstract class Pic {
         lines.add(lin);
     }
 
-    public void zeroPic(Point here) {
+    public void zeroPic() {
 
         lines.clear();
     }

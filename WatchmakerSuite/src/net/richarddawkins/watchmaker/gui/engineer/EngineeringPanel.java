@@ -15,6 +15,7 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 	EngineeringWatchmakerPanel engineeringWatchmakerPanel;
 	EngineeringPanelMouseAdapter mouseAdapter;
 	public EngineeringPanel(EngineeringWatchmakerPanel engineeringWatchmakerPanel) {
+	    super(engineeringWatchmakerPanel.getMorphConfig());
 		setCursor(WatchmakerCursors.hypodermic);
 		this.engineeringWatchmakerPanel = engineeringWatchmakerPanel;
 		boxesDrawer = new Boxes(1,1);

@@ -7,6 +7,7 @@ import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeMutagen;
+import net.richarddawkins.watchmaker.morph.mono.geom.gui.SwingMonoPicDrawer;
 import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeMenuBuilder;
 
@@ -17,6 +18,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 	protected MonochromeMutagen mutagen;
 
+	
 
 	public Mutagen getMutagen() {
 		return mutagen;
@@ -34,6 +36,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 		setDefaultBreedingCols(5);
 		menuBuilder = new MonochromeMenuBuilder(this);
 		mutagen = new MonochromeMutagen(this);
+		swingPicDrawer = new SwingMonoPicDrawer();
 		
 	}
 
@@ -59,6 +62,10 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 		return new MonochromeGeneBoxStrip(this, engineeringMode);
 	}
+
+	
+	
+
 
 
 }

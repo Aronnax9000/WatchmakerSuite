@@ -3,16 +3,16 @@ package net.richarddawkins.watchmaker.gui.breed;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.LayoutManager;
 
 import net.richarddawkins.watchmaker.drawer.BoxedMorph;
 import net.richarddawkins.watchmaker.drawer.Boxes;
 import net.richarddawkins.watchmaker.drawer.GraphicsDrawer;
 import net.richarddawkins.watchmaker.drawer.MorphDrawerOld;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 
 public abstract class BoxyMorphViewPanel extends MorphViewPanel {
 	protected boolean showBoxes = true;
-	protected GraphicsDrawer gd = new MorphDrawerOld();
+	protected GraphicsDrawer gd;
 //	protected GraphicsDrawer gd = new MorphDrawer();
 	
 	private static final long serialVersionUID = -224189863008500654L;
@@ -28,21 +28,13 @@ public abstract class BoxyMorphViewPanel extends MorphViewPanel {
 		this.boxedMorphVector = boxedMorphVector;
 	}
 
-	public BoxyMorphViewPanel() {
-		super();
+	public BoxyMorphViewPanel(MorphConfig config) {
+		super(config);
+		gd = new MorphDrawerOld(config.getSwingPicDrawer());
 	}
 
-	public BoxyMorphViewPanel(LayoutManager layout) {
-		super(layout);
-	}
 
-	public BoxyMorphViewPanel(boolean isDoubleBuffered) {
-		super(isDoubleBuffered);
-	}
 
-	public BoxyMorphViewPanel(LayoutManager layout, boolean isDoubleBuffered) {
-		super(layout, isDoubleBuffered);
-	}
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Dimension size = getSize();

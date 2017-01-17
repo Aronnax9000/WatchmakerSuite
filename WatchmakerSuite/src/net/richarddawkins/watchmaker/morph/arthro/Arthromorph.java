@@ -100,25 +100,18 @@ import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphGradientExce
  */
 public class Arthromorph extends SimpleMorph implements Cloneable {
 	
-	Arthromorph() {	}
 	
-	public void setMorphConfig(MorphConfig config) {
-		this.config = (ArthromorphConfig) config;
-	}
-	
-	public MorphConfig getMorphConfig() { return config;}
-	
-	protected ArthromorphConfig config;
 	
 	public Arthromorph(MorphConfig config, int basicType) {
-		this.config = (ArthromorphConfig) config;
+	    super(config);
+	    this.pic = new ArthromorphPic(this);
 		ArthromorphGenome newGenome = new ArthromorphGenome(this);
 		this.genome = newGenome;
 		genome.setBasicType(basicType);
 	}
 
 	public Arthromorph(MorphConfig config) {
-		this.config = (ArthromorphConfig) config;
+	    super(config);
 	}
 	
 	@Override

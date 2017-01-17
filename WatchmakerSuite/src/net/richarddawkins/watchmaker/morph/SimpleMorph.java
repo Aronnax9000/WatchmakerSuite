@@ -8,9 +8,23 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SimpleSwingPic;
 
 public abstract class SimpleMorph implements Morph {
+    
+    protected MorphConfig config;
+    
+    public MorphConfig getMorphConfig() {
+        return config;
+    }
+
+    public void setMorphConfig(MorphConfig config) {
+        this.config = config;
+    }
+
+    public SimpleMorph(MorphConfig config) {
+        this.config = config;
+    }
+    
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
 
 	protected final MorphPedigree pedigree = new MorphPedigree(this);
@@ -20,8 +34,8 @@ public abstract class SimpleMorph implements Morph {
 
     protected Genome genome;
 	protected Image image;
-    protected SimpleSwingPic pic;
-    protected SimpleSwingPic myPic;
+    protected Pic pic;
+    protected Pic myPic;
 
     protected Rect pRect;
     
@@ -36,7 +50,7 @@ public abstract class SimpleMorph implements Morph {
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.BLACK);
-		pic.drawPic(g2);
+		getMorphConfig().getSwingPicDrawer().drawPic(g2, pic);
 	}
 
 	@Override
@@ -62,7 +76,7 @@ public abstract class SimpleMorph implements Morph {
 	}
 
 	public void setPic(Pic pic) {
-		this.pic = (SimpleSwingPic)pic;
+		this.pic = pic;
 	}
 
 }

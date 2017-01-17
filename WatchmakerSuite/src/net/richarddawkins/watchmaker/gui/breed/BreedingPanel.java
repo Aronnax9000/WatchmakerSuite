@@ -39,6 +39,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
     protected WatchmakerPanel watchmakerPanel;
 
     public BreedingPanel(WatchmakerPanel watchmakerPanel) {
+        super(watchmakerPanel.getMorphConfig());
         this.watchmakerPanel = watchmakerPanel;
         MorphConfig config = watchmakerPanel.getMorphConfig();
         boxesDrawer = new Boxes(config.getDefaultBreedingCols(), config.getDefaultBreedingRows());
