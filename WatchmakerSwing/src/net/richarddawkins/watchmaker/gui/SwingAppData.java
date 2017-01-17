@@ -6,7 +6,7 @@ import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
+import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
 public interface SwingAppData {
 	void addBreedingMorphView(Morph morph);

@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.drawer;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
+import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
 public class MorphDrawerOld extends MorphDrawer {
 

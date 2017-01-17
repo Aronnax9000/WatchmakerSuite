@@ -9,8 +9,8 @@ import net.richarddawkins.watchmaker.gui.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.arthro.genome.gui.ArthromorphGeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.ArthromorphGeneBoxStrip;
+import net.richarddawkins.watchmaker.morphs.biomorph.geom.swing.SwingPicDrawer;
 
 public class SimpleSwingAppData implements SwingAppData {
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);

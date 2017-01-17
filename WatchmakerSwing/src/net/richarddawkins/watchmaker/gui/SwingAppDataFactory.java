@@ -4,16 +4,16 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.MorphConfigFactory;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
-import net.richarddawkins.watchmaker.morph.arthro.geom.gui.SwingArthroPicDrawer;
-import net.richarddawkins.watchmaker.morph.arthro.gui.ArthromorphMenuBuilder;
-import net.richarddawkins.watchmaker.morph.arthro.gui.ArthromorphSwingAppData;
-import net.richarddawkins.watchmaker.morph.colour.geom.gui.SwingColourPicDrawer;
-import net.richarddawkins.watchmaker.morph.colour.gui.ColourMenuBuilder;
-import net.richarddawkins.watchmaker.morph.mono.geom.gui.SwingMonoPicDrawer;
-import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeMenuBuilder;
-import net.richarddawkins.watchmaker.morph.snail.gui.SnailMenuBuilder;
-import net.richarddawkins.watchmaker.morph.snail.gui.SnailSwingAppData;
-import net.richarddawkins.watchmaker.morph.snail.gui.SwingSnailPicDrawer;
+import net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing.SwingArthroPicDrawer;
+import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphMenuBuilder;
+import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
+import net.richarddawkins.watchmaker.morphs.colour.geom.swing.SwingColourPicDrawer;
+import net.richarddawkins.watchmaker.morphs.colour.swing.ColourMenuBuilder;
+import net.richarddawkins.watchmaker.morphs.concho.swing.SnailMenuBuilder;
+import net.richarddawkins.watchmaker.morphs.concho.swing.SnailSwingAppData;
+import net.richarddawkins.watchmaker.morphs.concho.swing.SwingSnailPicDrawer;
+import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
+import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeMenuBuilder;
 
 public class SwingAppDataFactory {
 

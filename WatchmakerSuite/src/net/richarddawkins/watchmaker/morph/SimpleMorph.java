@@ -4,8 +4,8 @@ import java.awt.Image;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Rect;
 
 public abstract class SimpleMorph implements Morph {
 
