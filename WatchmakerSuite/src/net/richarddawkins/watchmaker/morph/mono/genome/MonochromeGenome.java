@@ -1,7 +1,5 @@
 package net.richarddawkins.watchmaker.morph.mono.genome;
 
-import java.awt.Color;
-
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -15,7 +13,6 @@ import net.richarddawkins.watchmaker.morph.biomorph.genome.GradientGene;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morph.biomorph.genome.type.SwellType;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.Pic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.morph.util.Globals;
@@ -245,7 +242,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
                     thick = gene9.getValue();
                 else
                     thick = 1;
-                pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick, Color.BLACK);
+                pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick);
                 for (int j = 0; j < 8; j++) {
                     if (dGene[j] == SwellType.Swell)
                         running[j] += trickleGene.getValue();
@@ -332,7 +329,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 
     protected void tree(int x, int y, int lgth, int dir, int[] dx, int[] dy) {
         int thick;
-        Pic pic = morph.getPic();
+        MonoPic pic = (MonoPic )morph.getPic();
         int xnew, ynew;
         if (dir < 0)
             dir += 8;
@@ -349,7 +346,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
             thick = 1 + gene9.getValue() - lgth;
         else
             thick = 1;
-        pic.picLine(x, y, xnew, ynew, thick * Globals.myPenSize, Color.BLACK);
+        pic.picLine(x, y, xnew, ynew, thick * Globals.myPenSize);
         if (lgth > 1) {
             if (oddOne) {
                 tree(xnew, ynew, lgth - 1, dir + 1, dx, dy);

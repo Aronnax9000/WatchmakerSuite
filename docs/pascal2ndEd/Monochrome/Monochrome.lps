@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="program_blind_watchmaker.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="program_blind_watchmaker"/>
         <TopLine Value="135"/>
         <CursorPos X="36" Y="176"/>
         <UsageCount Value="69"/>
@@ -16,7 +15,6 @@
       <Unit1>
         <Filename Value="unit_user_interface.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_user_interface"/>
         <EditorIndex Value="5"/>
         <TopLine Value="517"/>
         <CursorPos X="41" Y="521"/>
@@ -34,7 +32,6 @@
       <Unit3>
         <Filename Value="unit_engineering.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_engineering"/>
         <EditorIndex Value="1"/>
         <TopLine Value="36"/>
         <CursorPos X="5" Y="51"/>
@@ -44,7 +41,6 @@
       <Unit4>
         <Filename Value="unit_pedigree.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_pedigree"/>
         <EditorIndex Value="2"/>
         <TopLine Value="872"/>
         <CursorPos X="5" Y="893"/>
@@ -54,7 +50,6 @@
       <Unit5>
         <Filename Value="unit_triangle.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_triangle"/>
         <EditorIndex Value="4"/>
         <TopLine Value="314"/>
         <CursorPos X="5" Y="349"/>
@@ -64,7 +59,6 @@
       <Unit6>
         <Filename Value="unit_initialize.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_initialize"/>
         <EditorIndex Value="3"/>
         <TopLine Value="449"/>
         <CursorPos X="5" Y="484"/>
@@ -82,21 +76,19 @@
       <Unit8>
         <Filename Value="unit_biomorphs.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_biomorphs"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="741"/>
-        <CursorPos X="61" Y="773"/>
+        <TopLine Value="448"/>
+        <CursorPos X="22" Y="462"/>
         <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="unit_globals.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_globals"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="304"/>
-        <CursorPos X="17" Y="342"/>
+        <TopLine Value="230"/>
+        <CursorPos X="9" Y="252"/>
         <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit9>
@@ -111,7 +103,6 @@
       <Unit11>
         <Filename Value="unit_album.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_album"/>
         <EditorIndex Value="8"/>
         <TopLine Value="163"/>
         <CursorPos X="5" Y="183"/>
@@ -355,124 +346,124 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="unit_triangle.pas"/>
-        <Caret Line="352" Column="23" TopLine="317"/>
+        <Filename Value="unit_biomorphs.pas"/>
+        <Caret Line="821" Column="25" TopLine="776"/>
       </Position1>
       <Position2>
-        <Filename Value="unit_triangle.pas"/>
-        <Caret Line="106" Column="3" TopLine="85"/>
+        <Filename Value="unit_album.pas"/>
+        <Caret Line="188" Column="32" TopLine="167"/>
       </Position2>
       <Position3>
         <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="821" Column="25" TopLine="776"/>
+        <Caret Line="721" Column="16" TopLine="707"/>
       </Position3>
       <Position4>
-        <Filename Value="unit_album.pas"/>
-        <Caret Line="188" Column="32" TopLine="167"/>
+        <Filename Value="unit_biomorphs.pas"/>
+        <Caret Line="707" Column="52" TopLine="699"/>
       </Position4>
       <Position5>
         <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="721" Column="16" TopLine="707"/>
+        <Caret Line="15" Column="53"/>
       </Position5>
       <Position6>
-        <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="707" Column="52" TopLine="699"/>
-      </Position6>
-      <Position7>
-        <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="15" Column="53"/>
-      </Position7>
-      <Position8>
         <Filename Value="unit_engineering.pas"/>
         <Caret Line="52" Column="3" TopLine="30"/>
-      </Position8>
-      <Position9>
+      </Position6>
+      <Position7>
         <Filename Value="unit_engineering.pas"/>
         <Caret Line="51" TopLine="48"/>
-      </Position9>
-      <Position10>
+      </Position7>
+      <Position8>
         <Filename Value="unit_triangle.pas"/>
         <Caret Line="351" Column="3" TopLine="317"/>
-      </Position10>
-      <Position11>
+      </Position8>
+      <Position9>
         <Filename Value="unit_triangle.pas"/>
         <Caret Line="106" TopLine="85"/>
-      </Position11>
-      <Position12>
+      </Position9>
+      <Position10>
         <Filename Value="unit_album.pas"/>
         <Caret Line="195" Column="69" TopLine="153"/>
-      </Position12>
-      <Position13>
+      </Position10>
+      <Position11>
         <Filename Value="unit_album.pas"/>
         <Caret Line="102" Column="5" TopLine="82"/>
-      </Position13>
-      <Position14>
+      </Position11>
+      <Position12>
         <Filename Value="unit_pedigree.pas"/>
         <Caret Line="893" Column="3" TopLine="874"/>
-      </Position14>
-      <Position15>
+      </Position12>
+      <Position13>
         <Filename Value="program_blind_watchmaker.pas"/>
         <Caret Line="156" Column="7" TopLine="137"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit_biomorphs.pas"/>
+        <Caret Line="806" Column="68" TopLine="712"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="658" Column="22" TopLine="635"/>
       </Position15>
       <Position16>
         <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="806" Column="68" TopLine="712"/>
+        <Caret Line="1122" Column="3" TopLine="1100"/>
       </Position16>
       <Position17>
         <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="658" Column="22" TopLine="635"/>
+        <Caret Line="521" Column="6" TopLine="500"/>
       </Position17>
       <Position18>
         <Filename Value="unit_biomorphs.pas"/>
         <Caret Line="1122" Column="3" TopLine="1100"/>
       </Position18>
       <Position19>
-        <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="521" Column="6" TopLine="500"/>
-      </Position19>
-      <Position20>
-        <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="1122" Column="3" TopLine="1100"/>
-      </Position20>
-      <Position21>
         <Filename Value="unit_biomorphs.pas"/>
         <Caret Line="1104" Column="25" TopLine="1100"/>
-      </Position21>
-      <Position22>
+      </Position19>
+      <Position20>
         <Filename Value="unit_initialize.pas"/>
         <Caret Line="437" Column="32" TopLine="419"/>
+      </Position20>
+      <Position21>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="519" Column="30" TopLine="500"/>
+      </Position21>
+      <Position22>
+        <Filename Value="unit_user_interface.pas"/>
+        <Caret Line="217" Column="30" TopLine="204"/>
       </Position22>
       <Position23>
         <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="519" Column="30" TopLine="500"/>
+        <Caret Line="307" Column="35" TopLine="291"/>
       </Position23>
       <Position24>
         <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="217" Column="30" TopLine="204"/>
+        <Caret Line="372" Column="29" TopLine="355"/>
       </Position24>
       <Position25>
-        <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="307" Column="35" TopLine="291"/>
+        <Filename Value="unit_biomorphs.pas"/>
+        <Caret Line="718" Column="3" TopLine="697"/>
       </Position25>
       <Position26>
         <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="372" Column="29" TopLine="355"/>
+        <Caret Line="462" Column="34" TopLine="444"/>
       </Position26>
       <Position27>
         <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="718" Column="3" TopLine="697"/>
+        <Caret Line="680" Column="73" TopLine="675"/>
       </Position27>
       <Position28>
-        <Filename Value="unit_user_interface.pas"/>
-        <Caret Line="462" Column="34" TopLine="444"/>
+        <Filename Value="unit_biomorphs.pas"/>
+        <Caret Line="34" Column="20" TopLine="13"/>
       </Position28>
       <Position29>
         <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="680" Column="73" TopLine="675"/>
+        <Caret Line="558" Column="20" TopLine="528"/>
       </Position29>
       <Position30>
         <Filename Value="unit_biomorphs.pas"/>
-        <Caret Line="34" Column="20" TopLine="13"/>
+        <Caret Line="462" Column="22" TopLine="448"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

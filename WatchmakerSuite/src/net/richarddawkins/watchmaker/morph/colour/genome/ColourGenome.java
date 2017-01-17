@@ -146,7 +146,7 @@ public class ColourGenome extends MonochromeGenome {
 				here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
 				incDistance += extraDistance;
 				dummyColour = 100;
-				pic.picLine(oldHere.h, oldHere.v, here.h, here.v, 1, ColourPic.chooseColor(dummyColour));
+				pic.picLine(oldHere.h, oldHere.v, here.h, here.v, 1, dummyColour);
 				for (int j = 0; j < 8; j++) {
 					if (dGene[j] == SwellType.Swell) {
 						running[j] += trickleGene.getValue();
@@ -306,7 +306,7 @@ public class ColourGenome extends MonochromeGenome {
 		int subscript = (gene9.getValue() - lgth) % 8; // + 1; Trimmed off + 1
 														// to make it
 		// zero based.
-		pic.picLine(x, y, xnew, ynew, 1, ColourPic.chooseColor(this.getColorGenes()[subscript].getValue()));
+		pic.picLine(x, y, xnew, ynew, 1, this.getColorGenes()[subscript].getValue());
 		if (lgth > 1) {
 			if (oddOne) {
 				tree(xnew, ynew, lgth - 1, dir + 1, dx, dy);

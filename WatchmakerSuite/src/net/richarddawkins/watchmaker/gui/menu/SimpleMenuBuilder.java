@@ -35,7 +35,6 @@ public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeLi
 
     protected void addColourTestAction(JMenu menu) {
         WatchmakerTabbedPane frame = config.getFrame();
-        menu.add(new JMenuItem(new ColourTestAction(frame)));
 
     }
 

@@ -1,18 +1,61 @@
 package net.richarddawkins.watchmaker.morph.biomorph.geom;
 
-import java.awt.Color;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbFillType;
+import net.richarddawkins.watchmaker.morph.colour.genome.type.LimbShapeType;
+import net.richarddawkins.watchmaker.morph.colour.geom.ColourLin;
 
 
-public class Lin {
+/**
+ * Represents a drawing primitive used to draw a biomorph, capable of 
+ * rendering any of the classic version biomorphs.
+ * <h3>Monochrome</h3>
+ * Monochrome Biomorphs are drawn using the most basic shape, Stick.
+ * Thickness is variable on a per-Lin basis: each Lin in Monochrome has
+ * its own thickness, unlike Colour, where (in the original) every Lin is drawn with the
+ * "thickness gene" of the biomorph.
+ * <h3>Colour</h3>
+ * Colour Biomorphs adds two shape types, Oval and Rectangle, and
+ * has two shape fill modes, Open and Filled. A primary color is added.
+ * The same color is used for both shape outline tracing and fill. Thickness
+ * is also on a per-Lin basis, as in Monochrome above, even though in 
+ * classic Colour Biomorphs, all Lins are drawn with the value
+ * of the thickness gene.
+ * <h3>Snails</h3>
+ * <h3>Arthromorphs</h3>
+ * Arthromorphs adds the complexity of an alternate fill color to the
+ * outline color. If this property is null, drawing routines should
+ * default to the primary color of the Lin.
+ * @author sven
+ *
+ */
+public class Lin implements Cloneable {
 	public Point startPt;
 	public Point endPt;
-	public Color color = Color.BLACK;
-	public int thickness = 1; // 1..8
+	public Integer thickness = 1; // 1..8
 	
-	public Lin(Point startPt, Point endPt, int thickness, Color color) {
+	public Lin(Point startPt, Point endPt, int thickness) {
 	    this.startPt = startPt;
 	    this.endPt = endPt;
-	    this.color = color;
 	    this.thickness = thickness;
 	}
+	
+    @Override
+    public Lin clone() {
+        try {
+            Lin clone = (Lin) super.clone();
+            clone.startPt = startPt;
+            clone.endPt = endPt;
+            clone.thickness = thickness;
+          return clone;
+        } catch (CloneNotSupportedException e) {
+          throw new RuntimeException("this could never happen", e);
+        }
+      }
+
+    public void expandMargin(Rect margin) {
+        margin.expandPoint(startPt, thickness);
+        margin.expandPoint(endPt, thickness);
+        
+    }
+	
 }

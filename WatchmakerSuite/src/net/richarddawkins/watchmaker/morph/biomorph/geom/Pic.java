@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.biomorph.geom;
 
-import java.awt.Color;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -76,13 +75,11 @@ public abstract class Pic {
         super();
     }
 
-    abstract public void picLine(int xx1, int yy1, int xx2, int yy2);
 
-    abstract public void picLine(int xx1, int yy1, int xx2, int yy2, Color color);
-
-    abstract public void picLine(int xx1, int yy1, int xx2, int yy2, int thick);
-
-    abstract public void picLine(int x, int y, int xnew, int ynew, int thickness, Color color);
+    public int size() { return lines.size(); }
+    public void addLin(Lin lin) {
+        lines.add(lin);
+    }
 
     public void zeroPic(Point here) {
 
