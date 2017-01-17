@@ -1,27 +1,17 @@
 package net.richarddawkins.watchmaker.morph.arthro;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 import net.richarddawkins.watchmaker.morph.arthro.genome.ArthromorphMutagen;
-import net.richarddawkins.watchmaker.morph.arthro.genome.gui.ArthromorphGeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.Concentration;
 import net.richarddawkins.watchmaker.morph.arthro.genome.type.Pressure;
-import net.richarddawkins.watchmaker.morph.arthro.geom.gui.SwingArthroPicDrawer;
-import net.richarddawkins.watchmaker.morph.arthro.gui.ArthromorphMenuBuilder;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 	
-	@Override
-	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		
-		return new ArthromorphGeneBoxStrip(this, engineeringMode);
-	}
 
-	protected ArthromorphMenuBuilder menuBuilder = new ArthromorphMenuBuilder(this);
+
 	
 	protected ArthromorphMutagen mutagen = new ArthromorphMutagen(this);
 	public Mutagen getMutagen() {return mutagen;}
@@ -57,7 +47,6 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	
 	public ArthromorphConfig() {
 		super(MorphType.ARTHROMORPH);
-		swingPicDrawer = new SwingArthroPicDrawer();
 		makeAllBodyMutations(true);
 		makeAllAtomMutations(true);
 		mutationPressure = Pressure.Zero;
@@ -74,9 +63,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 		return focusOfAttention;
 	}
 
-	public MenuBuilder getMenuBuilder() {
-		return menuBuilder;
-	}
+
 
 	public boolean[] getMut() {
 		// TODO Auto-generated method stub

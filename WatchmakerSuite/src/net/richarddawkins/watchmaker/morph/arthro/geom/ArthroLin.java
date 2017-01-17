@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph.arthro.geom;
 
-import net.richarddawkins.watchmaker.morph.arthro.geom.gui.ArthroLimbType;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
 import net.richarddawkins.watchmaker.morph.colour.geom.ColourLin;
 

@@ -1,15 +1,10 @@
 package net.richarddawkins.watchmaker.morph.mono;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.mono.genome.MonochromeMutagen;
-import net.richarddawkins.watchmaker.morph.mono.geom.gui.SwingMonoPicDrawer;
-import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeGeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.mono.gui.MonochromeMenuBuilder;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
 
@@ -34,9 +29,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);
-		menuBuilder = new MonochromeMenuBuilder(this);
-		mutagen = new MonochromeMutagen(this);
-		swingPicDrawer = new SwingMonoPicDrawer();
+        mutagen = new MonochromeMutagen(this);
 		
 	}
 
@@ -47,21 +40,11 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 
 	@Override
-	public MenuBuilder getMenuBuilder() {
-		return menuBuilder;
-	}
-
-	@Override
 	public void setMutagen(Mutagen mutagen) {
 		this.mutagen = (MonochromeMutagen) mutagen;
 
 	}
 	
-	@Override
-	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-
-		return new MonochromeGeneBoxStrip(this, engineeringMode);
-	}
 
 	
 	

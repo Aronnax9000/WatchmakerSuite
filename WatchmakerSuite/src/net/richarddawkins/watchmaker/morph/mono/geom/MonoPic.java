@@ -4,7 +4,6 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.BiomorphPic;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Lin;
 import net.richarddawkins.watchmaker.morph.biomorph.geom.Point;
-import net.richarddawkins.watchmaker.morph.mono.geom.gui.MonoLin;
 
 public class MonoPic extends BiomorphPic {
     public MonoPic(Morph morph) {

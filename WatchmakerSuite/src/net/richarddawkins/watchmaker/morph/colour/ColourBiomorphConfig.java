@@ -1,14 +1,10 @@
 package net.richarddawkins.watchmaker.morph.colour;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.biomorph.BiomorphConfig;
 import net.richarddawkins.watchmaker.morph.colour.genome.ColourMutagen;
-import net.richarddawkins.watchmaker.morph.colour.genome.gui.ColourGeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.colour.geom.gui.SwingColourPicDrawer;
-import net.richarddawkins.watchmaker.morph.colour.gui.ColourMenuBuilder;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 
@@ -16,14 +12,11 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	
 	private ColourMutagen mutagen;
 	public Mutagen getMutagen() { return (Mutagen) mutagen; }
-	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 
-		return new ColourGeneBoxStrip(this, engineeringMode); }
+
 
 	public ColourBiomorphConfig() {
 		super(MorphType.COLOUR_BIOMORPH);
 		geneBoxCount = 28;
-		menuBuilder = new ColourMenuBuilder(this);
-		swingPicDrawer = new SwingColourPicDrawer();
 		mut = new boolean[MutTypeNo];
 		for(int i = 0; i < MutTypeNo; i++)
 			mut[i] = true;

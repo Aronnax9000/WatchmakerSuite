@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
 import java.awt.BasicStroke;
-import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -14,7 +13,6 @@ import net.richarddawkins.watchmaker.morph.biomorph.geom.Rect;
 import net.richarddawkins.watchmaker.morph.util.ModeType;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImage;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class SnailDeveloperImpl {
   public final Rect margin = new Rect();
@@ -238,8 +236,6 @@ public class SnailDeveloperImpl {
   };
   Morph theMorph = theShell.getMorph();
   MorphConfig theConfig = theMorph.getMorphConfig();
-  Component theContainer = theConfig.getMorphViewsTabbedPane().getSelectedComponent();
-  theContainer.setCursor(WatchmakerCursors.leftArrow);
 
 //    myPic.zeroPic(where);
     if(zeroMargin) {

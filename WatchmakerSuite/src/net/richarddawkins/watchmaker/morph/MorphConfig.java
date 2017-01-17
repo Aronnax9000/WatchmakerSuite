@@ -1,29 +1,21 @@
 package net.richarddawkins.watchmaker.morph;
 
-import java.awt.Component;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
-import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
-
 public interface MorphConfig {
-    SwingPicDrawer getSwingPicDrawer();
+    
 
 	int getGeneBoxCount();
-
-	Component getContainer();
-
-	void setContainer(Component container);
-
 	Icon getIcon();
 	void setIcon(Icon icon);
+	
+	Object getAppData();
+	void setAppData(Object object);
 
-	MenuBuilder getMenuBuilder();
+
+
 
 	Morph createMorph(int type);
 
@@ -44,12 +36,6 @@ public interface MorphConfig {
 
 	boolean[] getMut();
 
-	boolean isShowBoundingBoxes();
-
-	void setShowBoundingBoxes(boolean showBoundingBoxes);
-
-	// GeneBoxStrip getGeneBoxStrip();
-	// BreedingPanel getBreedingPanel();
 	int getDefaultBreedingRows();
 
 	int getDefaultBreedingCols();
@@ -58,26 +44,9 @@ public interface MorphConfig {
 
 	void setDefaultBreedingCols(int defaultBreedingCols);
 
-	void setFrame(WatchmakerTabbedPane frame);
-
-	WatchmakerTabbedPane getFrame();
-
-	GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
-
-	void addDefaultMorphView();
-	void addBreedingMorphView(Morph morph);
-
-	void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane);
-
-	MorphViewsTabbedPane getMorphViewsTabbedPane();
-
 	void setName(String uniquify);
 
 	void setIconFromFilename(String filename);
 
 
-
-	void addEngineeringMorphView(Morph morph);
-
-	Morph getMorphOfTheHour();
 }

@@ -114,7 +114,6 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	    super(config);
 	}
 	
-	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.BLACK);
 //		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);

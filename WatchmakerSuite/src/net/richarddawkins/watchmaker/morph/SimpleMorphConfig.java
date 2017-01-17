@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morph;
 
-import java.awt.Component;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -8,33 +7,30 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.gui.MorphView;
-import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
-import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.gui.breed.BreedingWatchmakerPanel;
-import net.richarddawkins.watchmaker.gui.engineer.EngineeringWatchmakerPanel;
-import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.morph.biomorph.geom.gui.SwingPicDrawer;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-	protected Component container;
-	protected int defaultBreedingCols;
+    
+
+    protected Object appData;
+	public Object getAppData() {
+        return appData;
+    }
+
+    public void setAppData(Object appData) {
+        this.appData = appData;
+    }
+    protected int defaultBreedingCols;
 	protected int defaultBreedingRows;
-	private WatchmakerTabbedPane frame;
 	protected int geneBoxCount = 0;
 	protected Icon icon;
 	public void setIcon(Icon icon) {
 		this.icon = icon;
 	}
-	protected SwingPicDrawer swingPicDrawer;
-	protected MenuBuilder menuBuilder;
-	protected MorphViewsTabbedPane morphViewsTabbedPane = new MorphViewsTabbedPane(this);
 	protected String name;
 	protected JPanel pageStartPanel;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected boolean recordingFossils;
-	protected boolean showBoundingBoxes = true;
 	protected String toolTip;
 
 	public void setToolTip(String toolTip) {
@@ -47,24 +43,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		setToolTip(morphType.getToolTip());
 		
 	}
-    @Override
-    public SwingPicDrawer getSwingPicDrawer() {
-        return swingPicDrawer;
-    }
-	@Override
-	public void addBreedingMorphView(Morph morph) {
-	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));
-	}
 
-	@Override
-	public void addEngineeringMorphView(Morph morph) {
-	    morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this, morph));
-	}
-
-	@Override
-    public void addDefaultMorphView() {
-		addBreedingMorphView(null);
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -87,9 +66,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	@Override
 	public abstract Morph createMorph(int type);
 
-	public Component getContainer() {
-		return container;
-	}
+
 
 
 	public int getDefaultBreedingCols() {
@@ -102,9 +79,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 
-	public WatchmakerTabbedPane getFrame() {
-		return frame;
-	}
 
 	public int getGeneBoxCount() {
 		return geneBoxCount;
@@ -121,16 +95,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	@Override
 	public Icon getIcon() {
 		return icon;
-	}
-
-	@Override
-	public MenuBuilder getMenuBuilder() {
-		return menuBuilder;
-	}
-
-	@Override
-	public MorphViewsTabbedPane getMorphViewsTabbedPane() {
-		return morphViewsTabbedPane;
 	}
 
 	/*
@@ -167,10 +131,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return recordingFossils;
 	}
 
-	public boolean isShowBoundingBoxes() {
-		return showBoundingBoxes;
-	}
-
 
 	/*
 	 * (non-Javadoc)
@@ -183,9 +143,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		this.pcs.removePropertyChangeListener(listener);
 	}
 
-	public void setContainer(Component container) {
-		this.container = container;
-	}
 
 	public void setDefaultBreedingCols(int defaultBreedingCols) {
 		this.defaultBreedingCols = defaultBreedingCols;
@@ -195,18 +152,12 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		this.defaultBreedingRows = defaultBreedingRows;
 	}
 
-	public void setFrame(WatchmakerTabbedPane frame) {
-		this.frame = frame;
-	}
 
 	@Override
 	public void setIconFromFilename(String filename) {
 		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
 	}
-	@Override
-	public void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane) {
-		this.morphViewsTabbedPane = morphViewsTabbedPane;
-	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -224,19 +175,5 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 			pcs.firePropertyChange("recordingFossils", oldValue, newValue);
 	}
 	
-	public void setShowBoundingBoxes(boolean newValue) {
-		boolean oldValue = this.showBoundingBoxes;
-	    this.showBoundingBoxes = newValue;
-	    
-	    pcs.firePropertyChange("showBoundingBoxes", oldValue, newValue);
-		morphViewsTabbedPane.getSelectedComponent().repaint();
-	}
-	@Override
-	public Morph getMorphOfTheHour() {
-		
-		MorphViewsTabbedPane pane = this.getMorphViewsTabbedPane();
-		MorphView morphView = (MorphView) pane.getSelectedComponent();
-		
-		return morphView.getMorphOfTheHour();
-	}
+
 }

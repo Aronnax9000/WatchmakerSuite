@@ -1,8 +1,6 @@
 package net.richarddawkins.watchmaker.morph.snail;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
+
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
@@ -34,11 +32,8 @@ public class SnailConfig extends SimpleMorphConfig {
 	public Morph createMorph(int type) {
 		return new Snail(this, type);
 	}
-	private SnailMenuBuilder menuBuilder = new SnailMenuBuilder(this);
-	@Override
-	public MenuBuilder getMenuBuilder() {
-		return menuBuilder;
-	}
+//	private SnailMenuBuilder menuBuilder = new SnailMenuBuilder(this);
+
 
 	public SnailConfig() {
 		super(MorphType.SNAIL);
@@ -55,22 +50,7 @@ public class SnailConfig extends SimpleMorphConfig {
 
 
 
-	@Override
-	public void setFrame(WatchmakerTabbedPane frame) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public WatchmakerTabbedPane getFrame() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		return new SnailGeneBoxStrip(this, engineeringMode);
-	}
 
 
 }
