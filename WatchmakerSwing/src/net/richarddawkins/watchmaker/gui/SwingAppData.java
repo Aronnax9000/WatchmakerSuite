@@ -2,6 +2,8 @@ package net.richarddawkins.watchmaker.gui;
 
 import java.beans.PropertyChangeListener;
 
+import javax.swing.Icon;
+
 import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
@@ -29,6 +31,10 @@ public interface SwingAppData {
 	void setName(String name);
 	void setShowBoundingBoxes(boolean newValue);
 	void setSwingPicDrawer(SwingPicDrawer swingPicDrawer);
-	
+
+
+	void setIconFromFilename(String filename);
+	Icon getIcon();
+	String getToolTip();
 	
 }

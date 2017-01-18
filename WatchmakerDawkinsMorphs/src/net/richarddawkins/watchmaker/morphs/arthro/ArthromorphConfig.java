@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphMutagen;
@@ -46,7 +45,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 
 	
 	public ArthromorphConfig() {
-		super(MorphType.ARTHROMORPH);
+		super();
 		makeAllBodyMutations(true);
 		makeAllAtomMutations(true);
 		mutationPressure = Pressure.Zero;

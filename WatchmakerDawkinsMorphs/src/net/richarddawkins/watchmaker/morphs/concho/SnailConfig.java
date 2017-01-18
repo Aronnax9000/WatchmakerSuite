@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.morphs.concho;
 
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 
@@ -36,7 +35,7 @@ public class SnailConfig extends SimpleMorphConfig {
 
 
 	public SnailConfig() {
-		super(MorphType.SNAIL);
+		super();
 
     setDefaultBreedingRows(3);
     setDefaultBreedingCols(5);

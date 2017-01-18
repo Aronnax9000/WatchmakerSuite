@@ -1,14 +1,18 @@
 package net.richarddawkins.watchmaker.gui;
 
-import net.richarddawkins.watchmaker.morph.MorphType;
+import java.util.Vector;
+
+import javax.swing.Icon;
 
 public interface SwingAppDataFactory {
 
-	MorphType getMorphType();
-
-	void setMorphType(MorphType morphType);
-
+	String getMorphType();
+	Icon getIcon();
 	SwingAppData newSwingAppData();
+
+	void setMorphType(String name);
+
+	Vector<String> getMorphTypes();
 
 	String getName();
 

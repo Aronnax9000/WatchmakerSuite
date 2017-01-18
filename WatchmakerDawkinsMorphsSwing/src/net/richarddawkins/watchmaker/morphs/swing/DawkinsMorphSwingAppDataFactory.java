@@ -1,13 +1,18 @@
 package net.richarddawkins.watchmaker.morphs.swing;
 
+import java.util.Vector;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.gui.SwingAppData;
 import net.richarddawkins.watchmaker.gui.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
 import net.richarddawkins.watchmaker.morphs.MorphConfigFactory;
+import net.richarddawkins.watchmaker.morphs.MorphType;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing.SwingArthroPicDrawer;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
@@ -20,30 +25,60 @@ import net.richarddawkins.watchmaker.morphs.concho.swing.SwingSnailPicDrawer;
 import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
 import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
+import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory {
 
-	protected String name;
-	public void setName(String name) {
-		this.name = name;
-	}
 
+	@Override
+	public Vector<String> getMorphTypes() {
+		Vector<String> vec = new Vector<String>();
+		for(MorphType morphType: MorphType.values())
+			vec.add(morphType.getName());
+		return vec;
+	}
+	
 	protected MorphType morphType;
 
 	/* (non-Javadoc)
 	 * @see net.richarddawkins.watchmaker.morphs.swing.SwingAppDataFactory#getMorphType()
 	 */
 	@Override
-	public MorphType getMorphType() {
-		return morphType;
+	public String getMorphType() {
+		return morphType.getName();
 	}
 
 	/* (non-Javadoc)
 	 * @see net.richarddawkins.watchmaker.morphs.swing.SwingAppDataFactory#setMorphType(net.richarddawkins.watchmaker.morph.MorphType)
 	 */
 	@Override
-	public void setMorphType(MorphType morphType) {
-		this.morphType = morphType;
+	public void setMorphType(String name) {
+		
+		for(MorphType morphType: MorphType.values())
+			if(name.equals(morphType.getName())) {
+				this.morphType = morphType;
+				this.icon = new ImageIcon(ClassicImageLoader.getPicture(name).getImage());
+				break;
+			}
+			
+	}
+
+	protected String name;
+	protected Icon icon;
+	public Icon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(Icon icon) {
+		this.icon = icon;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public DawkinsMorphSwingAppDataFactory() {
@@ -114,10 +149,6 @@ public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory {
 
 	}
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }

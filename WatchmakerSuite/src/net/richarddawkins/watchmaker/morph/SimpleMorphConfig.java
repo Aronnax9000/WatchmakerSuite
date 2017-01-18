@@ -3,11 +3,7 @@ package net.richarddawkins.watchmaker.morph;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
     
@@ -23,27 +19,10 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     protected int defaultBreedingCols;
 	protected int defaultBreedingRows;
 	protected int geneBoxCount = 0;
-	protected Icon icon;
-	public void setIcon(Icon icon) {
-		this.icon = icon;
-	}
-	protected String name;
 	protected JPanel pageStartPanel;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected boolean recordingFossils;
-	protected String toolTip;
-
-	public void setToolTip(String toolTip) {
-		this.toolTip = toolTip;
-	}
-
-	public SimpleMorphConfig(MorphType morphType) {
-		setIcon(morphType.getIcon());
-		setName(morphType.getName());
-		setToolTip(morphType.getToolTip());
-		
-	}
-
+	
 
 	/*
 	 * (non-Javadoc)
@@ -88,41 +67,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#getIcon(
-	 * )
-	 */
-	@Override
-	public Icon getIcon() {
-		return icon;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#getName(
-	 * )
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * getToolTip()
-	 */
-	@Override
-	public String getToolTip() {
-		return toolTip;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
 	 * isRecordingFossils()
 	 */
@@ -153,14 +97,9 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 
-	@Override
-	public void setIconFromFilename(String filename) {
-		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+
+
 	/*
 	 * (non-Javadoc)
 	 * 

@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourMutagen;
@@ -15,7 +14,7 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 
 	public ColourBiomorphConfig() {
-		super(MorphType.COLOUR_BIOMORPH);
+		super();
 		geneBoxCount = 28;
 		mut = new boolean[MutTypeNo];
 		for(int i = 0; i < MutTypeNo; i++)

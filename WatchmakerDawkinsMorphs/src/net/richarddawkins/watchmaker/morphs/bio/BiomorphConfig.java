@@ -1,13 +1,12 @@
 package net.richarddawkins.watchmaker.morphs.bio;
 
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 
 public abstract class BiomorphConfig extends SimpleMorphConfig {
 	
 
-  public BiomorphConfig(MorphType morphType) {
-		super(morphType);
+  public BiomorphConfig() {
+		super();
 	}
 
 protected boolean[] mut;

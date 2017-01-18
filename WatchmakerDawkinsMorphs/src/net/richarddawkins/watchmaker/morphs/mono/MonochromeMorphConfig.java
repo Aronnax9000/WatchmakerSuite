@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.mono;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeMutagen;
@@ -20,7 +19,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 
 	public MonochromeMorphConfig() {
-		super(MorphType.MONOCHROME_BIOMORPH);
+		super();
 		geneBoxCount = 16;
 		
 		mut = new boolean[MutTypeNo];

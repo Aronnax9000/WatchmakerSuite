@@ -3,12 +3,12 @@ package net.richarddawkins.watchmaker.gui.menu;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.Icon;
 
 import net.richarddawkins.watchmaker.gui.SwingAppData;
 import net.richarddawkins.watchmaker.gui.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.gui.SwingAppDataFactoryService;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.morph.MorphType;
 
 public class NewMorphTypeAction extends AbstractAction {
 
@@ -16,11 +16,10 @@ public class NewMorphTypeAction extends AbstractAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -4736552636289435148L;
-	protected MorphType morphType;
+	
 	protected WatchmakerTabbedPane pane;
-	public NewMorphTypeAction(MorphType morphType, WatchmakerTabbedPane pane) {
-		super(morphType.getName(), morphType.getIcon());
-		this.morphType = morphType;
+	public NewMorphTypeAction(String morphType, Icon icon, WatchmakerTabbedPane pane) {
+		super(morphType, icon);
 		this.pane = pane;
 	}
 
@@ -29,7 +28,7 @@ public class NewMorphTypeAction extends AbstractAction {
 		SwingAppDataFactory factory = 
 		SwingAppDataFactoryService.getInstance().getFactory("Dawkins' Morphs");
 		
-		factory.setMorphType(morphType);
+		factory.setMorphType((String)this.getValue(NAME));
 		SwingAppData newSwingAppData = factory.newSwingAppData();
 		
 		pane.addSwingAppData(newSwingAppData);

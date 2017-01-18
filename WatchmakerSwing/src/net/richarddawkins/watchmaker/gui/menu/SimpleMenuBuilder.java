@@ -11,8 +11,9 @@ import javax.swing.JMenuItem;
 
 import net.richarddawkins.watchmaker.gui.ActionQuit;
 import net.richarddawkins.watchmaker.gui.SwingAppData;
+import net.richarddawkins.watchmaker.gui.SwingAppDataFactory;
+import net.richarddawkins.watchmaker.gui.SwingAppDataFactoryService;
 import net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane;
-import net.richarddawkins.watchmaker.morph.MorphType;
 
 public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
 
@@ -46,10 +47,14 @@ public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeLi
 
     protected JMenu buildWatchmakerMenu() {
         JMenu watchMakerMenu = new JMenu("Watchmaker");
-        for (MorphType morphType : MorphType.values()) {
+        SwingAppDataFactory factory = 
+        		SwingAppDataFactoryService.getInstance().getFactory("Dawkins' Morphs");
+        for (String morphType : factory.getMorphTypes()) {
             WatchmakerTabbedPane frame = swingAppData.getFrame();
-            NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(morphType, frame);
-            if(morphType == MorphType.SNAIL) 
+            factory.setMorphType(morphType);
+            NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(morphType, 
+            		factory.getIcon(), frame);
+            if(morphType.equals("Snails"))
                 morphTypeAction.setEnabled(false);
             watchMakerMenu.add(morphTypeAction);
         }

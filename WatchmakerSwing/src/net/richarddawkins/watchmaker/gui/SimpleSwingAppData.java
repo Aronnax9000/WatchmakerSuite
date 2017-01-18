@@ -3,12 +3,16 @@ package net.richarddawkins.watchmaker.gui;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.gui.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 
 abstract public class SimpleSwingAppData implements SwingAppData {
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
@@ -16,11 +20,28 @@ abstract public class SimpleSwingAppData implements SwingAppData {
 	protected WatchmakerTabbedPane frame;
 	protected MenuBuilder menuBuilder;
 	protected MorphViewsTabbedPane morphViewsTabbedPane;
+	protected Icon icon;
+    public Icon getIcon() {
+		return icon;
+	}
+	public void setIcon(Icon icon) {
+		this.icon = icon;
+	}
+	public String getToolTip() {
+		return toolTip;
+	}
+	public void setToolTip(String toolTip) {
+		this.toolTip = toolTip;
+	}
 	protected String name;
+    protected String toolTip;
 
 	protected boolean showBoundingBoxes = true;
 	protected SwingPicDrawer swingPicDrawer;
-
+	@Override
+	public void setIconFromFilename(String filename) {
+		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
+	}
 	
 	@Override
 	public void addBreedingMorphView(Morph morph) {

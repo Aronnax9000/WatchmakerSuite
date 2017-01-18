@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs;
 
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.MorphType;
 import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
