@@ -19,7 +19,8 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 
 	public MonochromeMorphConfig() {
-		super();
+		mutagen = new MonochromeMutagen(this);
+
 		geneBoxCount = 16;
 		
 		mut = new boolean[MutTypeNo];

@@ -11,7 +11,7 @@ public class SwingAppDataFactoryService {
 
     private SwingAppDataFactoryService() {
     	
-        loader = ServiceLoader.load(SwingAppDataFactory.class, Thread.currentThread().getContextClassLoader());
+        loader = ServiceLoader.load(SwingAppDataFactory.class);
     }
 
     public static synchronized SwingAppDataFactoryService getInstance() {
@@ -25,6 +25,7 @@ public class SwingAppDataFactoryService {
     	SwingAppDataFactory factory = null;
 
         try {
+        	
             Iterator<SwingAppDataFactory> factories = loader.iterator();
             while (factory == null && factories.hasNext()) {
                 factory = factories.next();

@@ -15,6 +15,7 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 
 	public ColourBiomorphConfig() {
 		super();
+		setMutagen(new ColourMutagen(this));
 		geneBoxCount = 28;
 		mut = new boolean[MutTypeNo];
 		for(int i = 0; i < MutTypeNo; i++)

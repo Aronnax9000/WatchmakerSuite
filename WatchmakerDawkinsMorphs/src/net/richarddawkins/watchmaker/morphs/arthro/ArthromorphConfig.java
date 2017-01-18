@@ -46,6 +46,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	
 	public ArthromorphConfig() {
 		super();
+		mutagen = new ArthromorphMutagen(this);
 		makeAllBodyMutations(true);
 		makeAllAtomMutations(true);
 		mutationPressure = Pressure.Zero;
