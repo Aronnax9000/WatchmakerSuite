@@ -12,7 +12,7 @@ import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
-import net.richarddawkins.watchmaker.swing.appdata.morphview.MorphViewsTabbedPane;
+import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
 
 public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory {
 

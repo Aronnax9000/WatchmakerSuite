@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
-import net.richarddawkins.watchmaker.swing.appdata.morphview.MorphView;
+import net.richarddawkins.watchmaker.swing.morphview.MorphView;
 
 public class WatchmakerPanel extends MorphView {
 	/**

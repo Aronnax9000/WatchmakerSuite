@@ -9,12 +9,12 @@ import javax.swing.ImageIcon;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
-import net.richarddawkins.watchmaker.swing.appdata.morphview.MorphView;
-import net.richarddawkins.watchmaker.swing.appdata.morphview.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.swing.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
 import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
+import net.richarddawkins.watchmaker.swing.morphview.MorphView;
+import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
 
 abstract public class SimpleSwingAppData implements SwingAppData {

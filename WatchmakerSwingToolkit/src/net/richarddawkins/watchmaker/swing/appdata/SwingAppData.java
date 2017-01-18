@@ -6,10 +6,10 @@ import javax.swing.Icon;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.swing.appdata.morphview.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
 import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
+import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
 
 public interface SwingAppData {
