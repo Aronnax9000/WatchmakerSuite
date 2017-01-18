@@ -10,7 +10,8 @@ public class SwingAppDataFactoryService {
     private ServiceLoader<SwingAppDataFactory> loader;
 
     private SwingAppDataFactoryService() {
-        loader = ServiceLoader.load(SwingAppDataFactory.class);
+    	
+        loader = ServiceLoader.load(SwingAppDataFactory.class, Thread.currentThread().getContextClassLoader());
     }
 
     public static synchronized SwingAppDataFactoryService getInstance() {
