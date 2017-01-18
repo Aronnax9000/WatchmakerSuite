@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morphs.concho.swing;
 import java.awt.GridBagConstraints;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.genome.gui.DoubleGeneBox;
-import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.concho.SnailGenome;
+import net.richarddawkins.watchmaker.swing.genome.DoubleGeneBox;
+import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBoxStrip;
 
 public class SnailGeneBoxStrip extends SimpleGeneBoxStrip {
 	  

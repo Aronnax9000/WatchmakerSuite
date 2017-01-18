@@ -1,9 +1,9 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genome.swing;
 
-import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBoxStrip;
-import net.richarddawkins.watchmaker.gui.SwingAppData;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
+import net.richarddawkins.watchmaker.swing.SwingAppData;
+import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBoxStrip;
 
 public class ArthromorphGeneBoxStrip extends SimpleGeneBoxStrip {
 

@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morphs.bio.genome;
 import java.awt.Cursor;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public class Gene9 extends IntegerGradientGene {
 	public Gene9(Genome genome, String name) {

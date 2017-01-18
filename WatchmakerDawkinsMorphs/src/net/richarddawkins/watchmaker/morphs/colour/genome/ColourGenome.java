@@ -5,8 +5,6 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.util.Globals;
-import net.richarddawkins.watchmaker.morph.util.ModeType;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
@@ -15,6 +13,8 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.util.Globals;
+import net.richarddawkins.watchmaker.util.ModeType;
 
 public class ColourGenome extends MonochromeGenome {
 

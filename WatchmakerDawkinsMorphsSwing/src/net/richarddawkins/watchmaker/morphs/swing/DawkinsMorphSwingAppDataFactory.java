@@ -5,10 +5,6 @@ import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
-import net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane;
-import net.richarddawkins.watchmaker.gui.SwingAppData;
-import net.richarddawkins.watchmaker.gui.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.MorphTypeNotSupportedException;
 import net.richarddawkins.watchmaker.morphs.MorphConfigFactory;
@@ -26,6 +22,10 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
 import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
+import net.richarddawkins.watchmaker.swing.MorphViewsTabbedPane;
+import net.richarddawkins.watchmaker.swing.SwingAppData;
+import net.richarddawkins.watchmaker.swing.SwingAppDataFactory;
+import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
 
 public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory {
 

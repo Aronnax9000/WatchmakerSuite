@@ -6,9 +6,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBox;
 import net.richarddawkins.watchmaker.morphs.bio.genome.GradientGene;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
+import net.richarddawkins.watchmaker.swing.genome.GeneBox;
 
 /**
  * A GradientPanel displays gradient genes (Shrink/Swell/Same.)

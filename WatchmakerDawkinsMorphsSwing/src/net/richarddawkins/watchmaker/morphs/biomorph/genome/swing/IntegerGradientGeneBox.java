@@ -3,8 +3,8 @@ package net.richarddawkins.watchmaker.morphs.biomorph.genome.swing;
 import java.awt.BorderLayout;
 import java.beans.PropertyChangeEvent;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.genome.gui.IntegerGeneBox;
+import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.genome.IntegerGeneBox;
 
 public class IntegerGradientGeneBox extends IntegerGeneBox {
 	

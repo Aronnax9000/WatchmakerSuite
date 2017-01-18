@@ -9,7 +9,6 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
-import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.GradientGene;
@@ -17,6 +16,7 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 

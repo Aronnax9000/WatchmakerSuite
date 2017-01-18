@@ -4,11 +4,11 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBox;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
+import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBox;
 
 public class CompletenessGeneBox extends SimpleGeneBox implements PropertyChangeListener {
 

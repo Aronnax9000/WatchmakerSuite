@@ -9,11 +9,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.gui.ActionBreed;
-import net.richarddawkins.watchmaker.gui.ActionEngineering;
-import net.richarddawkins.watchmaker.gui.SwingAppData;
-import net.richarddawkins.watchmaker.gui.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.gui.menu.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.swing.ActionBreed;
+import net.richarddawkins.watchmaker.swing.ActionEngineering;
+import net.richarddawkins.watchmaker.swing.SwingAppData;
+import net.richarddawkins.watchmaker.swing.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.swing.menu.SimpleMenuBuilder;
 /**
  * Application (About Blind Watchmaker)
  * File (Load to Album..., Load as Fossils..., Save Biomorph...,

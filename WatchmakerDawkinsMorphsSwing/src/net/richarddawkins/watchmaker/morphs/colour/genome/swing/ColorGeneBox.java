@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.genome.gui.IntegerGeneBox;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
+import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.genome.IntegerGeneBox;
 
 public class ColorGeneBox extends IntegerGeneBox {
 

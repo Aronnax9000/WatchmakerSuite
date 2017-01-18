@@ -4,8 +4,8 @@ import java.awt.Cursor;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morph.util.Globals;
 import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public class SegNoGene extends IntegerGene {
 

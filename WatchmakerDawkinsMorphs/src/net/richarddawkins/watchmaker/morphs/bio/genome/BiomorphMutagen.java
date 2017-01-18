@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
-import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
+import static net.richarddawkins.watchmaker.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;

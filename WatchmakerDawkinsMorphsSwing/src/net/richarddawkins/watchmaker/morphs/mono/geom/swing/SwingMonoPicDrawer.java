@@ -6,9 +6,9 @@ import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Pic;
-import net.richarddawkins.watchmaker.geom.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.morphs.bio.geom.QuickDrawColor;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;
+import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
 
 public class SwingMonoPicDrawer extends SwingPicDrawer {
     public void limb(Graphics2D g2, Pic pic, Lin line) {   

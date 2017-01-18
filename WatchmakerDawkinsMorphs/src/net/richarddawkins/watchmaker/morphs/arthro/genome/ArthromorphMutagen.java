@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genome;
 
-import static net.richarddawkins.watchmaker.morph.util.Random.randInt;
+import static net.richarddawkins.watchmaker.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.MorphConfig;

@@ -3,10 +3,10 @@ package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 import java.beans.PropertyChangeEvent;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.genome.gui.GeneBoxStrip;
-import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBox;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
+import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBox;
 
 public class LimbFillGeneBox extends SimpleGeneBox {
 

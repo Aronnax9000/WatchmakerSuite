@@ -1,11 +1,11 @@
 package net.richarddawkins.watchmaker.morphs.mono.swing;
 
-import net.richarddawkins.watchmaker.genome.gui.IntegerGeneBox;
-import net.richarddawkins.watchmaker.genome.gui.SimpleGeneBoxStrip;
-import net.richarddawkins.watchmaker.gui.SwingAppData;
 import net.richarddawkins.watchmaker.morphs.biomorph.genome.swing.CompletenessGeneBox;
 import net.richarddawkins.watchmaker.morphs.biomorph.genome.swing.IntegerGradientGeneBox;
 import net.richarddawkins.watchmaker.morphs.biomorph.genome.swing.SpokesGeneBox;
+import net.richarddawkins.watchmaker.swing.SwingAppData;
+import net.richarddawkins.watchmaker.swing.genome.IntegerGeneBox;
+import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBoxStrip;
 
 public class MonochromeGeneBoxStrip extends SimpleGeneBoxStrip {
 
