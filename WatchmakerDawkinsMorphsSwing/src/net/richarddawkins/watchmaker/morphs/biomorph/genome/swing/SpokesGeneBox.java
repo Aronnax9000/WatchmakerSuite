@@ -6,15 +6,14 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
-import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
-import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SimpleGeneBox;
 
 public class SpokesGeneBox extends SimpleGeneBox {
 
 	private static final long serialVersionUID = -1299862384921350925L;
 
-	public SpokesGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
-		super(geneBoxStrip, engineeringMode);
+	public SpokesGeneBox(boolean engineeringMode) {
+		super(engineeringMode);
 	}
 	
 	private void setSpokes(SpokesType spokes) {

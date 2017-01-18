@@ -5,6 +5,8 @@ import javax.swing.JApplet;
 import javax.swing.JMenuBar;
 import javax.swing.SwingUtilities;
 
+import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
+
 public class WatchmakerApplet extends JApplet {
 	
 	/**

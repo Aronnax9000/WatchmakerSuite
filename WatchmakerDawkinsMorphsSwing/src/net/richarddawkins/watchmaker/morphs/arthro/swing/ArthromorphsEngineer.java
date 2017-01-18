@@ -26,7 +26,7 @@ import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Concentration;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Pressure;
 import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
-import net.richarddawkins.watchmaker.swing.SwingAppData;
+import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 
 public class ArthromorphsEngineer extends JFrame {
 

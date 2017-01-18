@@ -5,8 +5,7 @@ import java.beans.PropertyChangeEvent;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
-import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
-import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SimpleGeneBox;
 
 public class LimbFillGeneBox extends SimpleGeneBox {
 
@@ -15,8 +14,8 @@ public class LimbFillGeneBox extends SimpleGeneBox {
 	 */
 	private static final long serialVersionUID = -8437789443068797495L;
 
-	public LimbFillGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
-		super(geneBoxStrip, engineeringMode);
+	public LimbFillGeneBox(boolean engineeringMode) {
+		super(engineeringMode);
 	}
 
 	public void setLimbFillType(LimbFillType limbFillType) {

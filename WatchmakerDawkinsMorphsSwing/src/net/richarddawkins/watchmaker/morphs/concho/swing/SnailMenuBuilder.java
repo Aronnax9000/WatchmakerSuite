@@ -9,10 +9,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.swing.ActionBreed;
-import net.richarddawkins.watchmaker.swing.SwingAppData;
-import net.richarddawkins.watchmaker.swing.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.swing.menu.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.menubuilder.ActionBreed;
+import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
+import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;
 
 /**
  * Application (About Blind Snailmaker) File (Load to Album..., Load as

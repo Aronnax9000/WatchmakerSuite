@@ -7,18 +7,14 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
-import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
-import net.richarddawkins.watchmaker.swing.genome.SimpleGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SimpleGeneBox;
 
 public class CompletenessGeneBox extends SimpleGeneBox implements PropertyChangeListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6490585469193999941L;
 
-	public CompletenessGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
-		super(geneBoxStrip, engineeringMode);
+	public CompletenessGeneBox(boolean engineeringMode) {
+		super(engineeringMode);
 	}
 	
 	private void setCompleteness(CompletenessType completeness) {

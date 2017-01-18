@@ -7,10 +7,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.swing.ActionBreed;
-import net.richarddawkins.watchmaker.swing.SwingAppData;
-import net.richarddawkins.watchmaker.swing.menu.MenuBuilder;
-import net.richarddawkins.watchmaker.swing.menu.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.menubuilder.ActionBreed;
+import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
+import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;
 /**
  * File (New | Open, Close, Save, Save As... | Quit)
  * Edit (Undo | Cut, Copy, Paste, Clear, Select All | Show Clipboard)

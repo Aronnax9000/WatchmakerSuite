@@ -3,8 +3,8 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.ArthromorphGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing.SwingArthroPicDrawer;
-import net.richarddawkins.watchmaker.swing.SimpleSwingAppData;
-import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
+import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
 
 public class ArthromorphSwingAppData extends SimpleSwingAppData {

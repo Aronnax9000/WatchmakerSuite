@@ -1,16 +1,15 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
-import net.richarddawkins.watchmaker.swing.genome.GeneBoxStrip;
-import net.richarddawkins.watchmaker.swing.genome.IntegerGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.IntegerGeneBox;
 
 public class ColorGeneBox extends IntegerGeneBox {
 
 
 	private static final long serialVersionUID = -5076715671424518452L;
 
-	public ColorGeneBox(GeneBoxStrip geneBoxStrip, boolean engineeringMode) {
-		super(geneBoxStrip, engineeringMode);
+	public ColorGeneBox(boolean engineeringMode) {
+		super(engineeringMode);
 	}
 	
 	@Override

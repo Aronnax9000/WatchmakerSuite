@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
+import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
+
 public class WatchmakerFrame extends JFrame {
     
 	public static void newInstance() {
