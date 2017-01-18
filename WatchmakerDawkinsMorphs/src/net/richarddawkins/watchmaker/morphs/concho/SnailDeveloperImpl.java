@@ -26,7 +26,7 @@ public class SnailDeveloperImpl {
   public static ModeType theMode;
   
   public void picLine(Pic myPic2, int xx1, int yy1, int xx2, int yy2) {
-    // TODO Auto-generated method stub
+    
   }
   
   interface GoSub8000 {
