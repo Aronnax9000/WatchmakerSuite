@@ -25,9 +25,9 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		super();
 		this.jMenuBar = jMenuBar;
 		SwingAppDataFactoryService service = SwingAppDataFactoryService.getInstance();
-		SwingAppDataFactory factory = service.getFactory("Dawkins' Morphs");
+		SwingAppDataFactory factory = service.getFactory();
 		for (String morphType : factory.getMorphTypes()) {
-			if (! morphType.equals("Snails")) {
+			if (!morphType.equals("Snails")) {
 				logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
 				factory.setMorphType(morphType);
 				SwingAppData swingAppData = factory.newSwingAppData();
@@ -40,8 +40,6 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		addChangeListener(new TabChangeListener());
 		setSelectedIndex(0);
 	}
-
-
 
 	protected Vector<SwingAppData> swingAppData = new Vector<SwingAppData>();
 
@@ -70,9 +68,11 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		newSwingAppData.setName(uniquify(newSwingAppData.getName()));
 		swingAppData.add(newSwingAppData);
 		newSwingAppData.addDefaultMorphView();
-		
-		addTab(newSwingAppData.getName(), newSwingAppData.getIcon(), newSwingAppData.getMorphViewsTabbedPane(), newSwingAppData.getToolTip());
-		setTabComponentAt(this.getTabCount() - 1, new WatchmakerTabComponent(this, newSwingAppData.getIcon(), newSwingAppData.getName()));
+
+		addTab(newSwingAppData.getName(), newSwingAppData.getIcon(), newSwingAppData.getMorphViewsTabbedPane(),
+				newSwingAppData.getToolTip());
+		setTabComponentAt(this.getTabCount() - 1,
+				new WatchmakerTabComponent(this, newSwingAppData.getIcon(), newSwingAppData.getName()));
 
 		setSelectedIndex(this.getTabCount() - 1);
 	}
