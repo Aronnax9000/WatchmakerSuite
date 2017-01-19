@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.morphs.swing;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public enum MorphType {
     MONOCHROME_BIOMORPH ("Monochrome", "BWSpiderLogoMono_ICNO_23096_32x32", "Blind Watchmaker (Monochrome)"),

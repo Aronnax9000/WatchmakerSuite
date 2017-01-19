@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.resourceloader;
+package net.richarddawkins.watchmaker.swing.images;
 
 import java.awt.Cursor;
 import java.awt.Point;
@@ -20,7 +20,7 @@ public class WatchmakerCursors {
   public static final Cursor downArrow = toolkit.createCustomCursor(
       ClassicImageLoader.getPicture("CursorDownArrow_CURS_00138_48x16").getImage().getSubimage(0, 0, 16, 16), 
       hotspot, "Down arrow");
-  public static final Cursor equalsArrow = toolkit.createCustomCursor(
+  public static final Cursor equalsSign = toolkit.createCustomCursor(
       ClassicImageLoader.getPicture("CursorUpperEquals_CURS_00139_48x16").getImage().getSubimage(0, 0, 16, 16), 
       hotspot, "Equals");
   public static final Cursor watchCursor = toolkit.createCustomCursor(

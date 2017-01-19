@@ -5,8 +5,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public abstract class MorphView extends JPanel {
 	/**

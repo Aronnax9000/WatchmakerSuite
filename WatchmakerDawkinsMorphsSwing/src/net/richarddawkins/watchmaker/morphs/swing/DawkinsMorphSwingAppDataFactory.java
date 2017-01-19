@@ -10,9 +10,9 @@ import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData
 import net.richarddawkins.watchmaker.morphs.colour.swing.ColourSwingAppData;
 import net.richarddawkins.watchmaker.morphs.concho.swing.SnailSwingAppData;
 import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
 
 public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory , Dictionary {

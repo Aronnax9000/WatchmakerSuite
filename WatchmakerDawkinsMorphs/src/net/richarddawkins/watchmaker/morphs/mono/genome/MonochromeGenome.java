@@ -200,7 +200,7 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         int extraDistance;
         int incDistance;
 
-        Globals.setClipBoarding(false);
+        
         
 
         pic.zeroPic();

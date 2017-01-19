@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.concho;
+package net.richarddawkins.watchmaker.morphs.colour.swing;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
@@ -10,8 +10,9 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.resourceloader.ClassicImage;
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
+import net.richarddawkins.watchmaker.morphs.concho.SnailGenome;
+import net.richarddawkins.watchmaker.swing.images.ClassicImage;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.util.ModeType;
 
 public class SnailDeveloperImpl {

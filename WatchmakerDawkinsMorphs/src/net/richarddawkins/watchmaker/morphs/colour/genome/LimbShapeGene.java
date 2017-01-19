@@ -1,12 +1,10 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome;
 
-import java.awt.Cursor;
-
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class LimbShapeGene extends SimpleGene {
 	protected LimbShapeType value;
@@ -28,12 +26,12 @@ public class LimbShapeGene extends SimpleGene {
 	}
 
 	@Override
-	public void goose(Cursor cursor) {
-		if (cursor.equals(WatchmakerCursors.leftArrow)) {
+	public void goose(GooseDirection direction) {
+		if (direction.equals(GooseDirection.leftArrow)) {
 			setValue(LimbShapeType.Oval);
-		} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
+		} else if (direction.equals(GooseDirection.equalsSign)) {
 			setValue(LimbShapeType.Stick);
-		} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
+		} else if (direction.equals(GooseDirection.rightArrow)) {
 			setValue(LimbShapeType.Rectangle);
 		}
 		

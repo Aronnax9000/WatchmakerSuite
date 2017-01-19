@@ -1,13 +1,10 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
-import java.awt.Cursor;
-
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
-
 public class SpokesGene extends SimpleGene {
 	protected SpokesType value;
 	public SpokesGene(Genome genome, String name) {
@@ -29,12 +26,12 @@ public class SpokesGene extends SimpleGene {
 	}
 	
 	@Override
-	public void goose(Cursor cursor) {
-		if (cursor.equals(WatchmakerCursors.leftArrow)) {
+	public void goose(GooseDirection direction) {
+		if (direction.equals(GooseDirection.leftArrow)) {
 			setValue(SpokesType.NorthOnly);
-		} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
+		} else if (direction.equals(GooseDirection.equalsSign)) {
 			setValue(SpokesType.NSouth);
-		} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
+		} else if (direction.equals(GooseDirection.rightArrow)) {
 			setValue(SpokesType.Radial);
 		}
 	}

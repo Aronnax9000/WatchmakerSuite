@@ -2,8 +2,8 @@ package net.richarddawkins.watchmaker.morphs.colour.swing;
 
 import javax.swing.ImageIcon;
 
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menubuilder.ActionBreed;
 
 public class ColourActionBreed extends ActionBreed {

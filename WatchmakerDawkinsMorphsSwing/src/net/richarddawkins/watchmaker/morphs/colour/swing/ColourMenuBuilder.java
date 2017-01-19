@@ -11,8 +11,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menubuilder.ActionEngineering;
 import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
 import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;

@@ -7,9 +7,9 @@ import java.beans.PropertyChangeListener;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.breed.BoxyMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChangeListener {
 	EngineeringWatchmakerPanel engineeringWatchmakerPanel;

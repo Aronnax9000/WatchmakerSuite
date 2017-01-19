@@ -1,10 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
-import java.awt.Cursor;
-
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 
 public class Gene12345678 extends IntegerGradientGene {
 	public Gene12345678(Genome genome, String name) {
@@ -12,13 +10,13 @@ public class Gene12345678 extends IntegerGradientGene {
 		
 	}
 	@Override
-	public void goose(Cursor cursor) {
-		super.goose(cursor);
-		if (cursor.equals(WatchmakerCursors.upArrow)) {
+	public void goose(GooseDirection direction) {
+		super.goose(direction);
+		if (direction.equals(GooseDirection.upArrow)) {
 			setGradient(SwellType.Swell);
-		} else if (cursor.equals(WatchmakerCursors.equalsArrow)) {
+		} else if (direction.equals(GooseDirection.equalsSign)) {
 			setGradient(SwellType.Same);
-		} else if (cursor.equals(WatchmakerCursors.downArrow)) {
+		} else if (direction.equals(GooseDirection.downArrow)) {
 			setGradient(SwellType.Shrink);
 		}
 	}

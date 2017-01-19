@@ -1,10 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
-import java.awt.Cursor;
-
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SegNoGene extends IntegerGene {
@@ -13,11 +11,11 @@ public class SegNoGene extends IntegerGene {
 		super(genome, name);
 	}
 	@Override
-	public void goose(Cursor cursor) {
+	public void goose(GooseDirection direction) {
 		
-		if (cursor.equals(WatchmakerCursors.leftArrow)) {
+		if (direction.equals(GooseDirection.leftArrow)) {
 			decrementGene();
-		} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
+		} else if (direction.equals(GooseDirection.rightArrow)) {
 			BiomorphGenome biomorphGenome = (BiomorphGenome) genome;
 			
 			long sizeWorry = (long) ((this.value + 1) * Math.pow(2, 

@@ -1,9 +1,5 @@
 package net.richarddawkins.watchmaker.genome;
 
-import java.awt.Cursor;
-
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
-
 public class IntegerGene extends NumericGene {
 
 	
@@ -52,10 +48,10 @@ public class IntegerGene extends NumericGene {
 	}
 	
 	@Override
-	public void goose(Cursor cursor) {
-		if (cursor.equals(WatchmakerCursors.leftArrow)) {
+	public void goose(GooseDirection cursor) {
+		if (cursor.equals(GooseDirection.leftArrow)) {
 			addToGene(-getGooseSize());
-		} else if (cursor.equals(WatchmakerCursors.rightArrow)) {
+		} else if (cursor.equals(GooseDirection.rightArrow)) {
 			addToGene(getGooseSize());
 		} 
 	}

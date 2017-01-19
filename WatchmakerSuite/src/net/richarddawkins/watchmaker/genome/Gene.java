@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.genome;
 
-import java.awt.Cursor;
 import java.beans.PropertyChangeListener;
 
 public interface Gene {
@@ -11,6 +10,6 @@ public interface Gene {
 	void copy(Gene gene);
 	void removePropertyChangeListener(PropertyChangeListener listener);
 	void addPropertyChangeListener(PropertyChangeListener listener);
-	void goose(Cursor cursor);
+	void goose(GooseDirection direction);
 	int getGooseSize();
 }

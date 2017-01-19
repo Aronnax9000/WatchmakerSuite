@@ -1,7 +1,5 @@
 package net.richarddawkins.watchmaker.genome;
 
-import java.awt.Cursor;
-
 public class DoubleGene extends NumericGene {
 
 	public DoubleGene(Genome genome, String name) {
@@ -24,7 +22,7 @@ public class DoubleGene extends NumericGene {
 		
 	}
 	@Override
-	public void goose(Cursor cursor) {
+	public void goose(GooseDirection direction) {
 		// TODO Auto-generated method stub
 		
 	}

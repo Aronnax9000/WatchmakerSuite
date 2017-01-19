@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.swing.genebox;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-import net.richarddawkins.watchmaker.resourceloader.WatchmakerCursors;
+import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public 
 
@@ -66,14 +66,14 @@ class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 					geneBox.setCursor(WatchmakerCursors.upArrow);
 					break;
 				case MidRung:
-					geneBox.setCursor(WatchmakerCursors.equalsArrow);
+					geneBox.setCursor(WatchmakerCursors.equalsSign);
 					break;
 				case BottomRung:
 					geneBox.setCursor(WatchmakerCursors.downArrow);
 					break;
 				}
 			} else {
-				geneBox.setCursor(WatchmakerCursors.equalsArrow);
+				geneBox.setCursor(WatchmakerCursors.equalsSign);
 			}
 		}
 	}

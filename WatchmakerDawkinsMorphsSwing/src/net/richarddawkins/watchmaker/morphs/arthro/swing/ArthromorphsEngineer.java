@@ -24,9 +24,9 @@ import javax.swing.JRadioButton;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Concentration;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Pressure;
-import net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class ArthromorphsEngineer extends JFrame {
 
