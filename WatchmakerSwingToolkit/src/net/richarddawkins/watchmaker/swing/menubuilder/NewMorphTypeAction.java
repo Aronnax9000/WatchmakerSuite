@@ -26,7 +26,7 @@ public class NewMorphTypeAction extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		SwingAppDataFactory factory = 
-		SwingAppDataFactoryService.getInstance().getFactory("Dawkins' Morphs");
+		SwingAppDataFactoryService.getInstance().getFactory();
 		
 		factory.setMorphType((String)this.getValue(NAME));
 		SwingAppData newSwingAppData = factory.newSwingAppData();

@@ -13,32 +13,34 @@ import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
 import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
 
 public interface SwingAppData {
-	void addBreedingMorphView(Morph morph);
-	void addDefaultMorphView();
-	void addEngineeringMorphView(Morph morph);
-	void addPropertyChangeListener(PropertyChangeListener listener);
-    WatchmakerTabbedPane getFrame();
-	void setFrame(WatchmakerTabbedPane frame);
-    MenuBuilder getMenuBuilder();
-    MorphConfig getMorphConfig();
-	Morph getMorphOfTheHour();
-	MorphViewsTabbedPane getMorphViewsTabbedPane();
-	String getName();
+	public void addBreedingMorphView(Morph morph);
+	public void addDefaultMorphView();
+	public void addEngineeringMorphView(Morph morph);
+	public void addPropertyChangeListener(PropertyChangeListener listener);
+	public WatchmakerTabbedPane getFrame();
+	public void setFrame(WatchmakerTabbedPane frame);
+	public MenuBuilder getMenuBuilder();
+	public MorphConfig getMorphConfig();
+	public Morph getMorphOfTheHour();
+	public MorphViewsTabbedPane getMorphViewsTabbedPane();
+	public String getName();
 
-	SwingPicDrawer getSwingPicDrawer();
-	void setSwingPicDrawer(SwingPicDrawer swingPicDrawer);
+	public SwingPicDrawer getSwingPicDrawer();
+	public void setSwingPicDrawer(SwingPicDrawer swingPicDrawer);
 	
-	boolean isShowBoundingBoxes();
-	GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
-	void setMenuBuilder(MenuBuilder menuBuilder);
-	void setMorphConfig(MorphConfig config);
-	void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane);
-	void setName(String name);
-	void setShowBoundingBoxes(boolean newValue);
+	public boolean isShowBoundingBoxes();
+	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
+	public void setMenuBuilder(MenuBuilder menuBuilder);
+	public void setMorphConfig(MorphConfig config);
+	public void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane);
+	public void setName(String name);
+	public void setShowBoundingBoxes(boolean newValue);
 
 
-	void setIconFromFilename(String filename);
-	Icon getIcon();
-	String getToolTip();
+	public void setIconFromFilename(String filename);
+	public Icon getIcon();
+	public String getToolTip();
+	public void setIcon(Icon icon);
+	public void setToolTip(String toolTip);
 	
 }

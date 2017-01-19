@@ -46,7 +46,7 @@ public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeLi
     protected JMenu buildWatchmakerMenu() {
         JMenu watchMakerMenu = new JMenu("Watchmaker");
         SwingAppDataFactory factory = 
-        		SwingAppDataFactoryService.getInstance().getFactory("Dawkins' Morphs");
+        		SwingAppDataFactoryService.getInstance().getFactory();
         for (String morphType : factory.getMorphTypes()) {
             factory.setMorphType(morphType);
             NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(morphType, 

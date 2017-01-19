@@ -21,20 +21,14 @@ public class SwingAppDataFactoryService {
         return service;
     }
 
-    public SwingAppDataFactory getFactory(String name) {
+    public SwingAppDataFactory getFactory() {
     	SwingAppDataFactory factory = null;
 
         try {
         	
             Iterator<SwingAppDataFactory> factories = loader.iterator();
-            while (factory == null && factories.hasNext()) {
+            if (factories.hasNext()) {
                 factory = factories.next();
-                if(factory.getName().equals(name)) {
-                	break;
-                } else {
-                	factory = null;
-                }
-                
             }
         } catch (ServiceConfigurationError serviceError) {
         	factory = null;

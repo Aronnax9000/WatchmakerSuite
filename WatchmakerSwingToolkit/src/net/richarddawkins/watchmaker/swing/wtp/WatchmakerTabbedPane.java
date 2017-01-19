@@ -9,7 +9,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactoryService;
@@ -70,7 +69,6 @@ public class WatchmakerTabbedPane extends JTabbedPane {
 		logger.log(Level.INFO, "addSwingAppData " + newSwingAppData.getName());
 		newSwingAppData.setName(uniquify(newSwingAppData.getName()));
 		swingAppData.add(newSwingAppData);
-		MorphConfig config = newSwingAppData.getMorphConfig();
 		newSwingAppData.addDefaultMorphView();
 		
 		addTab(newSwingAppData.getName(), newSwingAppData.getIcon(), newSwingAppData.getMorphViewsTabbedPane(), newSwingAppData.getToolTip());

@@ -5,6 +5,7 @@ import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import dictionary.spi.Dictionary;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
 import net.richarddawkins.watchmaker.morphs.colour.swing.ColourSwingAppData;
 import net.richarddawkins.watchmaker.morphs.concho.swing.SnailSwingAppData;
@@ -14,8 +15,8 @@ import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
 
-public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory {
-
+public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory , Dictionary {
+   
 
 	@Override
 	public Vector<String> getMorphTypes() {
@@ -111,6 +112,13 @@ public class DawkinsMorphSwingAppDataFactory implements SwingAppDataFactory {
 		swingAppData.setMorphViewsTabbedPane(new MorphViewsTabbedPane(swingAppData));
 
 		return swingAppData;
+	}
+
+
+	@Override
+	public String getDefinition(String word) {
+		
+		return "Hi From Dawkins";
 	}
 
 
