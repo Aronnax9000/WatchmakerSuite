@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.genebox;
+package net.richarddawkins.watchmaker.app.genebox;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 
@@ -9,6 +9,4 @@ public interface GeneBox {
 	void setEngineeringMode(boolean engineeringMode);
 
 	void setGene(Gene gene);
-
-
 }

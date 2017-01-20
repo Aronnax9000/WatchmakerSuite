@@ -6,8 +6,8 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.genebox.GeneBox;
 import net.richarddawkins.watchmaker.morphs.bio.genome.GradientGene;
-import net.richarddawkins.watchmaker.swing.genebox.GeneBox;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 /**

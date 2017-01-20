@@ -8,6 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 
 abstract public class SimpleGeneBox extends JPanel implements PropertyChangeListener, GeneBox {

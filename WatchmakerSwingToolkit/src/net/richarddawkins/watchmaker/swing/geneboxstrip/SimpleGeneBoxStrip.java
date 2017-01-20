@@ -4,11 +4,11 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeSupport;
 
+import net.richarddawkins.watchmaker.app.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
-import net.richarddawkins.watchmaker.swing.genebox.GeneBox;
 
 public abstract class SimpleGeneBoxStrip extends GeneBoxStrip {
 
