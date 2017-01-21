@@ -1,10 +1,10 @@
 package net.richarddawkins.watchmaker.morphs.arthro.swing;
 
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
-import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.ArthromorphGeneBoxStrip;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingArthromorphGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing.SwingArthroPicDrawer;
 import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
-import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
 
 public class ArthromorphSwingAppData extends SimpleSwingAppData {
@@ -15,7 +15,8 @@ public class ArthromorphSwingAppData extends SimpleSwingAppData {
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		
-		return new ArthromorphGeneBoxStrip(this, engineeringMode);
+		GeneBoxStrip geneBoxStrip = new SwingArthromorphGeneBoxStrip();
+		geneBoxStrip.setEngineeringMode(engineeringMode); 
+		return geneBoxStrip;
 	}
 }

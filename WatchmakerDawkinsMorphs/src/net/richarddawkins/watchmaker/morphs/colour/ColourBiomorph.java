@@ -6,8 +6,10 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
+
 /**
  * <h2>Original sources</h2>
+ * 
  * <pre>
  * chromosome = array[1..9] of INTEGER;
  * person = record
@@ -26,28 +28,29 @@ import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
  *  pic: picHandle;
  * end;
  * </pre>
+ * 
  * @author alan
  *
  */
-public class ColourBiomorph extends SimpleMorph  {
+public class ColourBiomorph extends SimpleMorph {
 	public static final int RAINBOW = 1 << 8;
 
-	
 	public Genome getGenome() {
 		return genome;
 	}
 
 	public void setGenome(Genome genome) {
-		this.genome = (ColourGenome)genome;
+		this.genome = (ColourGenome) genome;
 	}
 
 	public ColourBiomorph(MorphConfig config) {
 		super(config);
-	     pic = new ColourPic(this);
-
-        setGenome(new ColourGenome(this));
+		pic = new ColourPic(this);
+		Genome genome = new ColourGenome();
+		genome.setMorph(this);
+		setGenome(genome);
 	}
-	
+
 	public ColourBiomorph(MorphConfig config, int basicType) {
 		this(config);
 		genome.setBasicType(basicType);
@@ -59,8 +62,8 @@ public class ColourBiomorph extends SimpleMorph  {
 		Genome childGenome = genome.reproduce(child);
 		child.setGenome(childGenome);
 		childGenome.develop();
-		child.getPedigree().parent= this;
-		
+		child.getPedigree().parent = this;
+
 		return child;
 	}
 }

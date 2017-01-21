@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
+import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -10,26 +11,28 @@ public class SegNoGene extends IntegerGene {
 	public SegNoGene(Genome genome, String name) {
 		super(genome, name);
 	}
+
 	@Override
-	public void goose(GooseDirection direction) {
-		
+	public void geneManipulated(GeneManipulationEvent gbme) {
+		GooseDirection direction = gbme.getGooseDirection();
 		if (direction.equals(GooseDirection.leftArrow)) {
 			decrementGene();
 		} else if (direction.equals(GooseDirection.rightArrow)) {
 			BiomorphGenome biomorphGenome = (BiomorphGenome) genome;
-			
-			long sizeWorry = (long) ((this.value + 1) * Math.pow(2, 
-				biomorphGenome.gene9.getValue()));
+
+			long sizeWorry = (long) ((this.value + 1) * Math.pow(2, biomorphGenome.gene9.getValue()));
 			if (sizeWorry <= Globals.worryMax) {
 				incrementGene();
 			}
 		}
 	}
-	
+
 	/**
 	 * Add to segNoGene provided that the product segNoGene * gene[Gene9]^2 &lt;
 	 * Globals.worryMax
-	 * @param summand the amount to add to the SegNoGene.
+	 * 
+	 * @param summand
+	 *            the amount to add to the SegNoGene.
 	 */
 	public void addToGene(int summand) {
 		int newValue = this.value + summand;

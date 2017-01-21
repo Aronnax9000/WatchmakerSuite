@@ -11,7 +11,7 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
-import net.richarddawkins.watchmaker.morphs.bio.genome.GradientGene;
+import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
@@ -58,7 +58,7 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
 		if (mut[1] && segNoGene.getValue() > 1) {
 			for (int j = 0; j < 7; j++)
 				if (randInt(100) < mutProb / 2) {
-					GradientGene gradGene = (GradientGene) target.getGene(j);
+					IntegerGradientGene gradGene = (IntegerGradientGene) target.getGene(j);
 					gradGene.setGradient(randSwell(gradGene.getGradient()));
 
 					success = true;

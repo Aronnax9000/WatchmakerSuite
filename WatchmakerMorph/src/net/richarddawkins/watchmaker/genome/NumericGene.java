@@ -22,7 +22,5 @@ abstract public class NumericGene extends SimpleGene {
 		
 	}
 
-	abstract public void setValue(int value);
 
-	abstract void setValue(double value);
 }

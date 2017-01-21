@@ -7,6 +7,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class AboutMonochromeAction extends AbstractAction {
@@ -17,9 +18,9 @@ public class AboutMonochromeAction extends AbstractAction {
   private static final long serialVersionUID = 1L;
 
   private Component component;
-  public AboutMonochromeAction(Component component) {
+  public AboutMonochromeAction(MultiMorphTypeTabbedPanel multiMorphTypeTabbedPanel) {
     super("About Monochrome Biomorphs");
-    this.component = component;
+    this.component = (Component) multiMorphTypeTabbedPanel;
   }
 
   @Override

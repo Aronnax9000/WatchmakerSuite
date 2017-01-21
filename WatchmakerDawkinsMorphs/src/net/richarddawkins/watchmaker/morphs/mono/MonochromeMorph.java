@@ -64,7 +64,9 @@ public class MonochromeMorph extends SimpleMorph {
 	}
 	MonochromeMorph(MorphConfig config) {
 		super(config);
-        setGenome(new MonochromeGenome(this));
+		Genome genome = new MonochromeGenome();
+		genome.setMorph(this);
+        setGenome(genome);
 	}
 
 	MonochromeMorph(MorphConfig config, int basicType) {

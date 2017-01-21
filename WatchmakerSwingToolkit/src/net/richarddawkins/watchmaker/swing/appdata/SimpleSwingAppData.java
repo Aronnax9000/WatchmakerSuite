@@ -3,30 +3,30 @@ package net.richarddawkins.watchmaker.swing.appdata;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
+import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.swing.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
 import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
-import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
-import net.richarddawkins.watchmaker.swing.morphview.MorphView;
-import net.richarddawkins.watchmaker.swing.morphview.MorphViewsTabbedPane;
-import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 abstract public class SimpleSwingAppData implements SwingAppData {
+
 	protected MorphConfig config;
-	protected WatchmakerTabbedPane frame;
-	protected Icon icon;
+	protected MultiMorphTypeTabbedPanel frame;
+	protected String icon;
 	protected MenuBuilder menuBuilder;
-	protected MorphViewsTabbedPane morphViewsTabbedPane;
+	protected SwingMorphViewsTabbedPanel morphViewsTabbedPane;
 	protected String name;
     protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected boolean showBoundingBoxes = true;
 	protected SwingPicDrawer swingPicDrawer;
 	protected String toolTip;
+
+	
+	
 	@Override
 	public void addBreedingMorphView(Morph morph) {
 	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));
@@ -46,12 +46,12 @@ abstract public class SimpleSwingAppData implements SwingAppData {
 		
 	}
 	@Override
-	public WatchmakerTabbedPane getFrame() {
+	public MultiMorphTypeTabbedPanel getFrame() {
 		return frame;
 	}
 	
 	@Override
-	public Icon getIcon() {
+	public String getIcon() {
 		return icon;
 	}
 	@Override
@@ -66,13 +66,13 @@ abstract public class SimpleSwingAppData implements SwingAppData {
 
 	@Override
 	public Morph getMorphOfTheHour() {
-        MorphViewsTabbedPane pane = this.getMorphViewsTabbedPane();
+        SwingMorphViewsTabbedPanel pane = this.getMorphViewsTabbedPane();
         MorphView morphView = (MorphView) pane.getSelectedComponent();
         return morphView.getMorphOfTheHour();
     }
 
 	@Override
-	public MorphViewsTabbedPane getMorphViewsTabbedPane() {
+	public SwingMorphViewsTabbedPanel getMorphViewsTabbedPane() {
 		return this.morphViewsTabbedPane;
 	}
 	
@@ -97,21 +97,17 @@ abstract public class SimpleSwingAppData implements SwingAppData {
 	}
 
 	@Override
-	public void setFrame(WatchmakerTabbedPane frame) {
+	public void setFrame(MultiMorphTypeTabbedPanel frame) {
 		this.frame = frame;
 
 	}
 
 	@Override
-	public void setIcon(Icon icon) {
+	public void setIcon(String icon) {
 		this.icon = icon;
 	}
 
 
-	@Override
-	public void setIconFromFilename(String filename) {
-		icon = new ImageIcon(ClassicImageLoader.getPicture(filename).getImage());
-	}
 
 	@Override
 	public void setMenuBuilder(MenuBuilder menuBuilder) {
@@ -124,7 +120,7 @@ abstract public class SimpleSwingAppData implements SwingAppData {
 		
 	}
 	@Override
-	public void setMorphViewsTabbedPane(MorphViewsTabbedPane morphViewsTabbedPane) {
+	public void setMorphViewsTabbedPane(SwingMorphViewsTabbedPanel morphViewsTabbedPane) {
 		this.morphViewsTabbedPane = morphViewsTabbedPane;
 
 	}

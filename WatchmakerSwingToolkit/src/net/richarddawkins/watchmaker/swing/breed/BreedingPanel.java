@@ -11,12 +11,12 @@ import java.util.Vector;
 import javax.swing.BorderFactory;
 import javax.swing.Timer;
 
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.swing.components.WatchmakerPanel;
-import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
+import net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView;
 
 public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener {
 
@@ -36,9 +36,9 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
 
     private int vacantBoxNumber = -1;
 
-    protected WatchmakerPanel watchmakerPanel;
+    protected SwingBorderLayoutMorphView watchmakerPanel;
 
-    public BreedingPanel(WatchmakerPanel watchmakerPanel) {
+    public BreedingPanel(SwingBorderLayoutMorphView watchmakerPanel) {
         super(watchmakerPanel.getSwingAppData());
         this.watchmakerPanel = watchmakerPanel;
         MorphConfig config = watchmakerPanel.getSwingAppData().getMorphConfig();
@@ -56,7 +56,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
         this.repaint();
     }
 
-    public WatchmakerPanel getWatchmakerPanel() {
+    public SwingBorderLayoutMorphView getWatchmakerPanel() {
         return watchmakerPanel;
     }
 
@@ -69,7 +69,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
             parent = morph;
         BoxedMorph boxedMorph = new BoxedMorph(parent, boxesDrawer.midBox);
         boxedMorphVector.add(boxedMorph);
-        GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
+        GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getUpperStrip();
         geneBoxStrip.setGenome(parent.getGenome());
         // Trigger first breeding
         special = boxesDrawer.midBox;
@@ -77,7 +77,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
 
     }
 
-    public void setWatchmakerPanel(WatchmakerPanel watchmakerPanel) {
+    public void setWatchmakerPanel(SwingBorderLayoutMorphView watchmakerPanel) {
         this.watchmakerPanel = watchmakerPanel;
     }
 
@@ -94,7 +94,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
                 boxedMorph.setPosition(boxesDrawer.getMidPoint(size, boxedMorph.boxNo));
             }
 
-            GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getPageStartPanel();
+            GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getUpperStrip();
             geneBoxStrip.setGenome(boxedMorphVector.getBoxedMorph(boxesDrawer.midBox).getMorph().getGenome());
             break;
         case mouse_clicked:

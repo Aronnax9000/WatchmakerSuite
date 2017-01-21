@@ -35,8 +35,8 @@ public class ColourGenome extends MonochromeGenome {
 
 	int thick;
 
-	public ColourGenome(Morph morph) {
-		super(morph);
+	public ColourGenome() {
+		
 	}
 
 	public void addToBackColorGene(int summand) {
@@ -259,7 +259,8 @@ public class ColourGenome extends MonochromeGenome {
 	}
 
 	public Genome reproduce(Morph newMorph) {
-		ColourGenome child = new ColourGenome(newMorph);
+		ColourGenome child = new ColourGenome();
+		child.setMorph(newMorph);
 		copy(child);
 		newMorph.getMorphConfig().getMutagen().mutate(child);
 		return child;

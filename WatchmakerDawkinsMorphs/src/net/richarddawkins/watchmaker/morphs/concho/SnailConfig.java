@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morphs.concho;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morphs.concho.genome.SnailMutagen;
 
 public class SnailConfig extends SimpleMorphConfig {
 

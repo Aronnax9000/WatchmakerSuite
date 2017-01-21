@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.genome;
 
 import java.beans.PropertyChangeListener;
 
-public interface Gene {
+public interface Gene extends GeneManipulationListener {
 	Genome getGenome();
 	void setGenome(Genome genome);
 	String getName();
@@ -10,6 +10,5 @@ public interface Gene {
 	void copy(Gene gene);
 	void removePropertyChangeListener(PropertyChangeListener listener);
 	void addPropertyChangeListener(PropertyChangeListener listener);
-	void goose(GooseDirection direction);
 	int getGooseSize();
 }

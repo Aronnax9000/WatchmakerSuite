@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.concho.swing;
 
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.concho.SnailConfig;
 import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
-import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 
 public class SnailSwingAppData extends SimpleSwingAppData {
 	
@@ -14,6 +14,8 @@ public class SnailSwingAppData extends SimpleSwingAppData {
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		return new SnailGeneBoxStrip(this, engineeringMode);
+		GeneBoxStrip geneBoxStrip = new SwingSnailGeneBoxStrip();
+		geneBoxStrip.setEngineeringMode(engineeringMode);
+		return geneBoxStrip;
 	}
 }

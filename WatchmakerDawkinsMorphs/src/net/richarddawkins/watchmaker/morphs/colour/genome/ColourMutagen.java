@@ -8,7 +8,6 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.GradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
@@ -110,7 +109,7 @@ public class ColourMutagen extends BiomorphMutagen {
     if (mut[1] && segNoGene.getValue() > 1) {
       for (int j = 0; j < 8; j++)
         if (randInt(100) < mutProb / 2) {
-        	GradientGene gradGene = (GradientGene)target.getGene(j);
+        	IntegerGradientGene gradGene = (IntegerGradientGene)target.getGene(j);
         	gradGene.setGradient(randSwell(gradGene.getGradient()));
         }
       if (randInt(100) < mutProb / 2) {

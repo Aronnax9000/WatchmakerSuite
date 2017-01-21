@@ -4,8 +4,8 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 
 public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 
@@ -31,7 +31,7 @@ public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 				  Morph morph = panel.getBoxedMorphVector().getBoxedMorph(boxNo).getMorph();
 				  if(morph != null) {
 					  GeneBoxStrip geneBoxStrip = (GeneBoxStrip)panel.
-							  getWatchmakerPanel().getPageStartPanel();
+							  getWatchmakerPanel().getUpperStrip();
 							  
 					  geneBoxStrip.setGenome(morph.getGenome());
 				  }

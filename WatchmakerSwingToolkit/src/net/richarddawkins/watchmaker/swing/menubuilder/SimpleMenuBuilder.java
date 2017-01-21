@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactoryService;
+import net.richarddawkins.watchmaker.swing.wtp.SwingMultiMorphTypeTabbedPanel;
 
 public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
 
@@ -50,7 +51,7 @@ public abstract class SimpleMenuBuilder implements MenuBuilder, PropertyChangeLi
         for (String morphType : factory.getMorphTypes()) {
             factory.setMorphType(morphType);
             NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(morphType, 
-            		factory.getIcon(), swingAppData.getFrame());
+            		factory.getIcon(), (SwingMultiMorphTypeTabbedPanel) swingAppData.getFrame());
             if(morphType.equals("Snails"))
                 morphTypeAction.setEnabled(false);
             watchMakerMenu.add(morphTypeAction);

@@ -4,11 +4,11 @@ import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.breed.BoxyMorphViewPanel;
-import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChangeListener {
@@ -33,7 +33,7 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 		}
 		morph.getGenome().addPropertyChangeListener(this);
 		boxedMorphVector.add(new BoxedMorph(morph, 0));
-		GeneBoxStrip geneBoxStrip = (GeneBoxStrip)this.engineeringWatchmakerPanel.getPageStartPanel();
+		GeneBoxStrip geneBoxStrip = (GeneBoxStrip)this.engineeringWatchmakerPanel.getUpperStrip();
 		geneBoxStrip.setGenome(morph.getGenome());
 	}
 

@@ -5,75 +5,78 @@ import java.awt.event.MouseMotionAdapter;
 
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
-public 
+public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 
-class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 	enum HorizPos {
-		LeftThird, MidThird, RightThird
+		LeftThird, MidThird, RightThird, LeftHalf, RightHalf
 	}
 
 	enum VertPos {
 		TopRung, MidRung, BottomRung
 	}
 
-	protected SimpleGeneBox geneBox;
-
-	public GeneBoxMouseMotionAdapter(SimpleGeneBox geneBox) {
-		this.geneBox = geneBox;
+	public GeneBoxMouseMotionAdapter(GeneBoxType geneBoxType) {
+		this.geneBoxType = geneBoxType;
 	}
 
+	protected GeneBoxType geneBoxType;
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 
-		HorizPos mouseHoriz;
-		VertPos mouseVert;
-		int thirdWidth = e.getComponent().getWidth() / 3;
-		int thirdHeight = e.getComponent().getHeight() / 3;
 		int x = e.getX();
 		int y = e.getY();
 
-		if (x < thirdWidth)
-			mouseHoriz = HorizPos.LeftThird;
-		else if (x < 2 * thirdWidth)
-			mouseHoriz = HorizPos.MidThird;
-		else
-			mouseHoriz = HorizPos.RightThird;
+		HorizPos mouseHoriz;
+		
+		VertPos mouseVert = null;
 
-		if (y < thirdHeight)
-			mouseVert = VertPos.TopRung;
-		else if (y < 2 * thirdHeight)
-			mouseVert = VertPos.MidRung;
-		else
-			mouseVert = VertPos.BottomRung;
+		if (geneBoxType == GeneBoxType.leftRightOnly) {
+			int halfWidth = e.getComponent().getWidth() / 2;
+			if (x < halfWidth)
+				mouseHoriz = HorizPos.LeftHalf;
+			else
+				mouseHoriz = HorizPos.RightHalf;
+		} else {
+			int thirdWidth = e.getComponent().getWidth() / 3;
+			if (x < thirdWidth)
+				mouseHoriz = HorizPos.LeftThird;
+			else if (x < 2 * thirdWidth)
+				mouseHoriz = HorizPos.MidThird;
+			else
+				mouseHoriz = HorizPos.RightThird;
+			
+			if(geneBoxType == GeneBoxType.leftRightUpDownEquals) {
+				int thirdHeight = e.getComponent().getHeight() / 3;
+				if (y < thirdHeight)
+					mouseVert = VertPos.TopRung;
+				else if (y < 2 * thirdHeight)
+					mouseVert = VertPos.MidRung;
+				else
+					mouseVert = VertPos.BottomRung;
+			}
+		}
 
 		switch (mouseHoriz) {
 		case LeftThird:
-			if(geneBox.canGooseLeftRight) {
-				geneBox.setCursor(WatchmakerCursors.leftArrow);
-			}
+		case LeftHalf:
+			e.getComponent().setCursor(WatchmakerCursors.leftArrow);
 			break;
 		case RightThird:
-			if(geneBox.canGooseLeftRight) {
-				geneBox.setCursor(WatchmakerCursors.rightArrow);
-			}
+		case RightHalf:
+			e.getComponent().setCursor(WatchmakerCursors.rightArrow);
 			break;
 		case MidThird:
-			if(geneBox.canGooseUpDn) {
-				switch (mouseVert) {
-				
-				case TopRung:
-					geneBox.setCursor(WatchmakerCursors.upArrow);
-					break;
-				case MidRung:
-					geneBox.setCursor(WatchmakerCursors.equalsSign);
-					break;
-				case BottomRung:
-					geneBox.setCursor(WatchmakerCursors.downArrow);
-					break;
-				}
-			} else {
-				geneBox.setCursor(WatchmakerCursors.equalsSign);
+			switch (mouseVert) {
+			case TopRung:
+				e.getComponent().setCursor(WatchmakerCursors.upArrow);
+				break;
+			case BottomRung:
+				e.getComponent().setCursor(WatchmakerCursors.downArrow);
+				break;
+			case MidRung:
+			default:
+				e.getComponent().setCursor(WatchmakerCursors.equalsSign);
 			}
 		}
 	}

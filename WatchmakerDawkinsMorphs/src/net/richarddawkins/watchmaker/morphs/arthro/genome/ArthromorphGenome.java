@@ -26,8 +26,8 @@ public class ArthromorphGenome extends SimpleGenome {
 
 	protected int westPole = 0;
 
-	public ArthromorphGenome(Morph morph) {
-		super(morph);
+	public ArthromorphGenome() {
+
 	}
 
 	public void copy(Genome person) {
@@ -209,7 +209,8 @@ public class ArthromorphGenome extends SimpleGenome {
 
 	@Override
 	public Genome reproduce(Morph newMorph) {
-		ArthromorphGenome child = new ArthromorphGenome(newMorph);
+		ArthromorphGenome child = new ArthromorphGenome();
+		child.setMorph(newMorph);
 		// A bit of a cheat, because reproduce needs access to the Config
 		// object.
 		copy(child);

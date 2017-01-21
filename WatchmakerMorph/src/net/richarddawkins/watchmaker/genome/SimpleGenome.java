@@ -14,9 +14,6 @@ public abstract class SimpleGenome implements Genome {
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected VetoableChangeSupport vcs = new VetoableChangeSupport(this);
 
-	public SimpleGenome(Morph morph) {
-		this.morph = morph;
-	}
 	@Override
 	public void copy(Genome childGenome) {
 		Gene[] myGenes = toGeneArray();

@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
+import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
@@ -26,7 +27,8 @@ public class SpokesGene extends SimpleGene {
 	}
 	
 	@Override
-	public void goose(GooseDirection direction) {
+	public void geneManipulated(GeneManipulationEvent gbme) {
+		GooseDirection direction = gbme.getGooseDirection();
 		if (direction.equals(GooseDirection.leftArrow)) {
 			setValue(SpokesType.NorthOnly);
 		} else if (direction.equals(GooseDirection.equalsSign)) {

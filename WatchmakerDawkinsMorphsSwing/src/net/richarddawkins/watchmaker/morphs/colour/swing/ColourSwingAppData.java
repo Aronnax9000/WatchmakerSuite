@@ -1,11 +1,11 @@
 package net.richarddawkins.watchmaker.morphs.colour.swing;
 
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.colour.ColourBiomorphConfig;
-import net.richarddawkins.watchmaker.morphs.colour.genome.swing.ColourGeneBoxStrip;
+import net.richarddawkins.watchmaker.morphs.colour.genome.swing.SwingColorGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.colour.geom.swing.SwingColourPicDrawer;
 import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
-import net.richarddawkins.watchmaker.swing.geneboxstrip.GeneBoxStrip;
 
 public class ColourSwingAppData extends SimpleSwingAppData implements SwingAppData {
 	
@@ -13,11 +13,12 @@ public class ColourSwingAppData extends SimpleSwingAppData implements SwingAppDa
 		setMenuBuilder(new ColourMenuBuilder(this));
 		setSwingPicDrawer(new SwingColourPicDrawer());
 		config = new ColourBiomorphConfig();
-		
-		
 	}
+	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 
-		return new ColourGeneBoxStrip(this, engineeringMode); 
+		GeneBoxStrip geneBoxStrip = new SwingColorGeneBoxStrip();
+		geneBoxStrip.setEngineeringMode(engineeringMode);
+		return geneBoxStrip;
 	}
 
 }

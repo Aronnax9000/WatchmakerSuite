@@ -1,11 +1,13 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
+import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 
-public class IntegerGradientGene extends IntegerGene implements GradientGene {
+public class IntegerGradientGene extends IntegerGene {
 	public IntegerGradientGene(Genome genome, String name) {
 		super(genome, name);
 	}
@@ -15,15 +17,32 @@ public class IntegerGradientGene extends IntegerGene implements GradientGene {
 	public SwellType getGradient() {
 		return gradient;
 	}
-
-	public void setGradient(SwellType gradient) {
-		SwellType old = this.gradient;
-		this.gradient = gradient;
-		pcs.firePropertyChange("gradient", old, value);
+	@Override
+	public void geneManipulated(GeneManipulationEvent gbme) {
+		super.geneManipulated(gbme);
+		GooseDirection direction = gbme.getGooseDirection();
+		switch(direction) {
+		case upArrow:
+			setGradient(SwellType.Swell);
+			break;
+		case equalsSign:
+			setGradient(SwellType.Same);
+			break;
+		case downArrow:
+			setGradient(SwellType.Shrink);
+			break;
+		default:
+			
+		}
+	}
+	public void setGradient(SwellType newValue) {
+		SwellType oldValue = this.gradient;
+		this.gradient = newValue;
+		pcs.firePropertyChange("gradient", oldValue, newValue);
 	}
 	@Override
 	public void copy(Gene destinationGene) {
 		super.copy((IntegerGene) destinationGene);
-		((GradientGene)destinationGene).setGradient(gradient);
+		((IntegerGradientGene)destinationGene).setGradient(gradient);
 	} 
 }

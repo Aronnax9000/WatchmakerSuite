@@ -11,7 +11,7 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
-import net.richarddawkins.watchmaker.morphs.bio.genome.GradientGene;
+import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
@@ -20,8 +20,8 @@ import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 
-    public MonochromeGenome(Morph morph) {
-        super(morph);
+    public MonochromeGenome() {
+        
         setGene9Max(11);
         segNoGene.setShowPositiveSign(true);
         segDistGene.setShowPositiveSign(true);
@@ -295,7 +295,8 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
     }
 
     public Genome reproduce(Morph newMorph) {
-        Genome childGenome = new MonochromeGenome(newMorph);
+        Genome childGenome = new MonochromeGenome();
+        childGenome.setMorph(newMorph);
         super.copy(childGenome);
         MorphConfig config = newMorph.getMorphConfig();
         Mutagen mutagen = config.getMutagen();
@@ -541,11 +542,11 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         if(mutProbGene.getValue() < 1) mutProbGene.setValue(1);
         else if(mutProbGene.getValue() > 100) mutProbGene.setValue(100);
         for(int j = 0; j < 9; j++) {
-            ((GradientGene) getGene(j)).setGradient(
+            ((IntegerGradientGene) getGene(j)).setGradient(
                     SwellType.values()[force3(
-                            r1 * ((GradientGene)a.getGene(j)).getGradient().ordinal()
-                            + r2 * ((GradientGene)b.getGene(j)).getGradient().ordinal() 
-                            + r3 * ((GradientGene)c.getGene(j)).getGradient().ordinal())]);
+                            r1 * ((IntegerGradientGene)a.getGene(j)).getGradient().ordinal()
+                            + r2 * ((IntegerGradientGene)b.getGene(j)).getGradient().ordinal() 
+                            + r3 * ((IntegerGradientGene)c.getGene(j)).getGradient().ordinal())]);
         }
         segDistGene.setGradient(SwellType.values()[force3(
                 r1 * a.segDistGene.getGradient().ordinal()

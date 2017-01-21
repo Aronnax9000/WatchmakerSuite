@@ -8,8 +8,7 @@ import javax.swing.Icon;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
 import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactoryService;
-import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
-
+import net.richarddawkins.watchmaker.swing.wtp.SwingMultiMorphTypeTabbedPanel;
 public class NewMorphTypeAction extends AbstractAction {
 
 	/**
@@ -17,10 +16,10 @@ public class NewMorphTypeAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = -4736552636289435148L;
 	
-	protected WatchmakerTabbedPane pane;
-	public NewMorphTypeAction(String morphType, Icon icon, WatchmakerTabbedPane pane) {
+	protected SwingMultiMorphTypeTabbedPanel pane;
+	public NewMorphTypeAction(String morphType, Icon icon, SwingMultiMorphTypeTabbedPanel SwingMultiMorphTypeTabbedPanel) {
 		super(morphType, icon);
-		this.pane = pane;
+		this.pane = SwingMultiMorphTypeTabbedPanel;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
+import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
@@ -29,18 +30,21 @@ public class LimbFillGene extends SimpleGene {
 		pcs.firePropertyChange("value", oldValue, newValue);
 	}
 
-	@Override
-	public void goose(GooseDirection direction) {
-		if (direction.equals(GooseDirection.leftArrow)) {
-			setValue(LimbFillType.Open);
-		} else if (direction.equals(GooseDirection.rightArrow)) {
-			setValue(LimbFillType.Filled);
-		}
-	}
 	
 	@Override
 	public void copy(Gene gene) {
 		super.copy(gene);
 		((LimbFillGene)gene).value = this.value;
+	}
+
+	@Override
+	public void geneManipulated(GeneManipulationEvent gbme) {
+		GooseDirection direction = gbme.getGooseDirection();
+		if (direction.equals(GooseDirection.leftArrow)) {
+			setValue(LimbFillType.Open);
+		} else if (direction.equals(GooseDirection.rightArrow)) {
+			setValue(LimbFillType.Filled);
+		}
+		
 	}
 }

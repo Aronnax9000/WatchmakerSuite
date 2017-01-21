@@ -10,7 +10,7 @@ import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.drawer.GraphicsDrawer;
 import net.richarddawkins.watchmaker.swing.drawer.MorphDrawerOld;
 
-public abstract class BoxyMorphViewPanel extends MorphViewPanel {
+public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 	protected boolean showBoxes = true;
 	protected GraphicsDrawer gd;
 //	protected GraphicsDrawer gd = new MorphDrawer();

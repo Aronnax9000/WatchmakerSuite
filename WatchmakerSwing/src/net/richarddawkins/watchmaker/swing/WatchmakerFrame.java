@@ -5,7 +5,9 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
-import net.richarddawkins.watchmaker.swing.wtp.WatchmakerTabbedPane;
+import net.richarddawkins.watchmaker.swing.wtp.SwingMultiMorphTypeTabbedPanel;
+import net.richarddawkins.watchmaker.swing.wtp.SwingWatchmakerMenuBar;
+import net.richarddawkins.watchmaker.swing.wtp.WatchmakerMenuBar;
 
 public class WatchmakerFrame extends JFrame {
     
@@ -17,13 +19,15 @@ public class WatchmakerFrame extends JFrame {
 	}
 
 	private static final long serialVersionUID = 1800967943270519085L;
-	WatchmakerTabbedPane morphTypePane;
+	SwingMultiMorphTypeTabbedPanel morphTypePane;
 	public WatchmakerFrame() {
 		super("Watchmaker Suite by Richard Dawkins");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setJMenuBar(new JMenuBar());
+		WatchmakerMenuBar menuBar = new SwingWatchmakerMenuBar();
+		setJMenuBar((JMenuBar)menuBar);
 		getContentPane().setLayout(new BorderLayout());
-		morphTypePane = new WatchmakerTabbedPane(this.getJMenuBar());
+		morphTypePane = new SwingMultiMorphTypeTabbedPanel();
+		morphTypePane.setMenuBar(menuBar);
 		getContentPane().add(morphTypePane);
     }
       

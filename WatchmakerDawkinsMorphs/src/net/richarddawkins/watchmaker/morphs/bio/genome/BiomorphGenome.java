@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.morphs.bio.genome;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
@@ -11,10 +10,6 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 
 public abstract class BiomorphGenome extends SimpleGenome {
 	
-	public BiomorphGenome(Morph morph) {
-		super(morph);
-	}
-
 	protected int gene9Max = 8;
 	protected boolean oddOne;
 	protected int order;
@@ -98,7 +93,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 	public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
 		Gene[] myGenes = toGeneArray();
 		for (int j = 0; j < 8; j++) {
-			GradientGene myGene = (GradientGene) myGenes[j];
+			IntegerGradientGene myGene = (IntegerGradientGene) myGenes[j];
 			myGene.setGradient(SwellType.Same);
 		}
 		segDistGene.setGradient(SwellType.Same);
