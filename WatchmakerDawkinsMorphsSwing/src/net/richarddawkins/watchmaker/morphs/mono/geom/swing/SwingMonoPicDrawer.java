@@ -18,4 +18,5 @@ public class SwingMonoPicDrawer extends SwingPicDrawer {
 
         g2.drawLine(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);
     }
+    
 }

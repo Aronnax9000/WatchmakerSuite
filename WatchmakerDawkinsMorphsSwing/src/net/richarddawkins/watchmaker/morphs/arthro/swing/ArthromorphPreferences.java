@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class ArthromorphPreferences extends JFrame {
 	/**

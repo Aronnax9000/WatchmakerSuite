@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.morphs.colour.swing;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
-public class AboutColourAction extends AbstractAction {
+public class AboutColourAction extends SwingWatchmakerAction {
 
   /**
    * 

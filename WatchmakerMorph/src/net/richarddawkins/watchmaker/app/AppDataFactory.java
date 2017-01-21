@@ -1,14 +1,14 @@
-package net.richarddawkins.watchmaker.swing.appdata;
+package net.richarddawkins.watchmaker.app;
 
 import java.util.Vector;
 
 import javax.swing.Icon;
 
-public interface SwingAppDataFactory {
+public interface AppDataFactory {
 
 	String getMorphType();
 	Icon getIcon();
-	SwingAppData newSwingAppData();
+	AppData newAppData();
 
 	void setMorphType(String name);
 

@@ -1,15 +1,15 @@
 package net.richarddawkins.watchmaker.morphs.mono.swing;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig;
 import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
-import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
-public class MonochromeSwingAppData extends SimpleSwingAppData implements SwingAppData {
+public class MonochromeSwingAppData extends SwingAppData implements AppData {
 	public MonochromeSwingAppData() {
-		setMenuBuilder(new MonochromeMenuBuilder(this));
-		setSwingPicDrawer(new SwingMonoPicDrawer());
+		setMenuBuilder(new SwingMonochromeMenuBuilder(this));
+		setPicDrawer(new SwingMonoPicDrawer());
 		config = new MonochromeMorphConfig();
 	}
 	@Override

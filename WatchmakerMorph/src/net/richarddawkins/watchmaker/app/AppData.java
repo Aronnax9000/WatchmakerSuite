@@ -1,43 +1,38 @@
-package net.richarddawkins.watchmaker.swing.appdata;
+package net.richarddawkins.watchmaker.app;
 
 import java.beans.PropertyChangeListener;
 
-import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.geom.PicDrawer;
+import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
-import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
-import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 
-public interface SwingAppData {
+public interface AppData {
 	public void addBreedingMorphView(Morph morph);
 	public void addDefaultMorphView();
 	public void addEngineeringMorphView(Morph morph);
 	public void addPropertyChangeListener(PropertyChangeListener listener);
 	public MultiMorphTypeTabbedPanel getFrame();
-	public void setFrame(MultiMorphTypeTabbedPanel frame);
+	public String getIcon();
 	public MenuBuilder getMenuBuilder();
 	public MorphConfig getMorphConfig();
 	public Morph getMorphOfTheHour();
 	public MorphViewsTabbedPanel getMorphViewsTabbedPane();
 	public String getName();
+	public PicDrawer getPicDrawer();
+	public String getToolTip();
+    public boolean isShowBoundingBoxes();
+    public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
 
-	public SwingPicDrawer getSwingPicDrawer();
-	public void setSwingPicDrawer(SwingPicDrawer swingPicDrawer);
-	
-	public boolean isShowBoundingBoxes();
+    public void setFrame(MultiMorphTypeTabbedPanel frame);
+	public void setIcon(String icon);
 	public void setMenuBuilder(MenuBuilder menuBuilder);
 	public void setMorphConfig(MorphConfig config);
-	public void setMorphViewsTabbedPane(SwingMorphViewsTabbedPanel morphViewsTabbedPane);
+	public void setMorphViewsTabbedPane(MorphViewsTabbedPanel morphViewsTabbedPane);
 	public void setName(String name);
+	public void setPicDrawer(PicDrawer newValue);
 	public void setShowBoundingBoxes(boolean newValue);
-
-
-	public String getIcon();
-	public String getToolTip();
-	public void setIcon(String icon);
 	public void setToolTip(String toolTip);
-	GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
 }

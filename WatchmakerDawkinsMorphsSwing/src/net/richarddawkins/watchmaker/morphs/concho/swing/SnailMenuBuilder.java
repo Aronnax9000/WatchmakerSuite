@@ -1,18 +1,18 @@
 package net.richarddawkins.watchmaker.morphs.concho.swing;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
+import java.awt.Component;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
-import net.richarddawkins.watchmaker.swing.menubuilder.ActionBreed;
-import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
-import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
+import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerCheckBoxMenuItem;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
 
 /**
  * Application (About Blind Snailmaker) File (Load to Album..., Load as
@@ -32,16 +32,21 @@ import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;
  * @author alan
  *
  */
-public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
+public class SnailMenuBuilder extends SwingMenuBuilder {
 
-	private JCheckBoxMenuItem recordingFossils = new JCheckBoxMenuItem("Recording Fossils");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private WatchmakerCheckBoxMenuItem recordingFossils 
+	= new SwingWatchmakerCheckBoxMenuItem("Recording Fossils");
 
 
 	public SnailMenuBuilder(SwingAppData swingAppData) {
 		super(swingAppData);
 	}
 
-	public void buildMenu(JMenuBar menuBar) {
+	public void buildMenu(WatchmakerMenuBar menuBar) {
 		super.buildMenu(menuBar);
 		menuBar.add(buildFileMenu());
 		menuBar.add(buildEditMenu());
@@ -60,14 +65,14 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * 
 	 * @return the new File menu.
 	 */
-	public JMenu buildFileMenu() {
-		JMenu menu = new JMenu("File");
-		menu.add(new JMenuItem("Load to Album..."));
-		menu.add(new JMenuItem("Load as Fossils"));
-		menu.add(new JMenuItem("Save Biomoprh..."));
-		menu.add(new JMenuItem("Save Fossils..."));
-		menu.add(new JMenuItem("Save Album..."));
-		menu.add(new JMenuItem("Close Album"));
+	public WatchmakerMenu buildFileMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("File");
+		menu.add(new SwingWatchmakerMenuItem("Load to Album..."));
+		menu.add(new SwingWatchmakerMenuItem("Load as Fossils"));
+		menu.add(new SwingWatchmakerMenuItem("Save Biomoprh..."));
+		menu.add(new SwingWatchmakerMenuItem("Save Fossils..."));
+		menu.add(new SwingWatchmakerMenuItem("Save Album..."));
+		menu.add(new SwingWatchmakerMenuItem("Close Album"));
 
 		return menu;
 	}
@@ -78,18 +83,18 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * 
 	 * @return the new Edit menu
 	 */
-	public JMenu buildEditMenu() {
-		JMenu menu = new JMenu("Edit");
-		menu.add(new JMenuItem("Undo"));
+	public WatchmakerMenu buildEditMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
+		menu.add(new SwingWatchmakerMenuItem("Undo"));
 		menu.addSeparator();
-		menu.add(new JMenuItem("Cut"));
-		menu.add(new JMenuItem("Copy"));
-		menu.add(new JMenuItem("Paste"));
-		menu.add(new JMenuItem("Clear"));
+		menu.add(new SwingWatchmakerMenuItem("Cut"));
+		menu.add(new SwingWatchmakerMenuItem("Copy"));
+		menu.add(new SwingWatchmakerMenuItem("Paste"));
+		menu.add(new SwingWatchmakerMenuItem("Clear"));
 		menu.addSeparator();
-		menu.add(new JMenuItem("Highlight Biomorph"));
-		menu.add(new JMenuItem("Add Biomorph to Album"));
-		menu.add(new JMenuItem("Show Album"));
+		menu.add(new SwingWatchmakerMenuItem("Highlight Biomorph"));
+		menu.add(new SwingWatchmakerMenuItem("Add Biomorph to Album"));
+		menu.add(new SwingWatchmakerMenuItem("Show Album"));
 		return menu;
 	}
 
@@ -100,17 +105,17 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * 
 	 * @return the new Operation menu
 	 */
-	public JMenu buildOperationMenu() {
-		JMenu menu = new JMenu("Operation");
-		menu.add(new JMenuItem(new ActionBreed(swingAppData)));
-		menu.add(new JMenuItem("Drift"));
-		menu.add(new JMenuItem("Engineering"));
-		menu.add(new JMenuItem("Hopeful Monster"));
-		menu.add(new JMenuItem("Initialize Fossil Record"));
-		menu.add(new JMenuItem("Play Back Fossils"));
+	public WatchmakerMenu buildOperationMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
+		menu.add(new SwingWatchmakerMenuItem(new SwingActionBreed(appData)));
+		menu.add(new SwingWatchmakerMenuItem("Drift"));
+		menu.add(new SwingWatchmakerMenuItem("Engineering"));
+		menu.add(new SwingWatchmakerMenuItem("Hopeful Monster"));
+		menu.add(new SwingWatchmakerMenuItem("Initialize Fossil Record"));
+		menu.add(new SwingWatchmakerMenuItem("Play Back Fossils"));
 		menu.add(recordingFossils);
-		menu.add(new JMenuItem("Triangle"));
-		menu.add(new JMenuItem("Array"));
+		menu.add(new SwingWatchmakerMenuItem("Triangle"));
+		menu.add(new SwingWatchmakerMenuItem("Array"));
 		return menu;
 	}
 
@@ -120,18 +125,18 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * triangle, View Pedigree)
 	 * @return the new View menu
 	 */
-	public JMenu buildViewMenu() {
-		JMenu menu = new JMenu("Edit");
-		menu.add(new JMenuItem("More Rows"));
-		menu.add(new JMenuItem("Fewer Rows"));
-		menu.add(new JMenuItem("More Columns"));
-		menu.add(new JMenuItem("Fewer Columns"));
-		menu.add(new JCheckBoxMenuItem("Change View"));
-		menu.add(new JCheckBoxMenuItem("Drift Sweep"));
-		menu.add(new JMenuItem("Make top of triangle"));
-		menu.add(new JMenuItem("Make left of triangle"));
-		menu.add(new JMenuItem("Make right of triangle"));
-		menu.add(new JMenuItem("View Pedigree"));
+	public WatchmakerMenu buildViewMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
+		menu.add(new SwingWatchmakerMenuItem("More Rows"));
+		menu.add(new SwingWatchmakerMenuItem("Fewer Rows"));
+		menu.add(new SwingWatchmakerMenuItem("More Columns"));
+		menu.add(new SwingWatchmakerMenuItem("Fewer Columns"));
+		menu.add(new SwingWatchmakerCheckBoxMenuItem("Change View"));
+		menu.add(new SwingWatchmakerCheckBoxMenuItem("Drift Sweep"));
+		menu.add(new SwingWatchmakerMenuItem("Make top of triangle"));
+		menu.add(new SwingWatchmakerMenuItem("Make left of triangle"));
+		menu.add(new SwingWatchmakerMenuItem("Make right of triangle"));
+		menu.add(new SwingWatchmakerMenuItem("View Pedigree"));
 		return menu;
 	}
 
@@ -142,27 +147,27 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * 
 	 * @return the new Animal menu
 	 */
-	public JMenu buildAnimalMenu() {
-		JMenu menu = new JMenu("Animal");
-		menu.add(new JMenuItem("Customise"));
-		menu.add(new JMenuItem("Snail"));
-		menu.add(new JMenuItem("Turritella"));
-		menu.add(new JMenuItem("Bivalve"));
-		menu.add(new JMenuItem("Ammonite"));
-		menu.add(new JMenuItem("Nautilus"));
-		menu.add(new JMenuItem("Brachiopod"));
-		menu.add(new JMenuItem("Cone"));
-		menu.add(new JMenuItem("Whelk"));
-		menu.add(new JMenuItem("Scallop"));
-		menu.add(new JMenuItem("Eloise"));
-		menu.add(new JMenuItem("Gallagher's"));
-		menu.add(new JMenuItem("Rapa"));
-		menu.add(new JMenuItem("Lightning"));
-		menu.add(new JMenuItem("Sundial"));
-		menu.add(new JMenuItem("Fig"));
-		menu.add(new JMenuItem("Tun"));
-		menu.add(new JMenuItem("Razor Shell"));
-		menu.add(new JMenuItem("Japanese Wonder"));
+	public WatchmakerMenu buildAnimalMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Animal");
+		menu.add(new SwingWatchmakerMenuItem("Customise"));
+		menu.add(new SwingWatchmakerMenuItem("Snail"));
+		menu.add(new SwingWatchmakerMenuItem("Turritella"));
+		menu.add(new SwingWatchmakerMenuItem("Bivalve"));
+		menu.add(new SwingWatchmakerMenuItem("Ammonite"));
+		menu.add(new SwingWatchmakerMenuItem("Nautilus"));
+		menu.add(new SwingWatchmakerMenuItem("Brachiopod"));
+		menu.add(new SwingWatchmakerMenuItem("Cone"));
+		menu.add(new SwingWatchmakerMenuItem("Whelk"));
+		menu.add(new SwingWatchmakerMenuItem("Scallop"));
+		menu.add(new SwingWatchmakerMenuItem("Eloise"));
+		menu.add(new SwingWatchmakerMenuItem("Gallagher's"));
+		menu.add(new SwingWatchmakerMenuItem("Rapa"));
+		menu.add(new SwingWatchmakerMenuItem("Lightning"));
+		menu.add(new SwingWatchmakerMenuItem("Sundial"));
+		menu.add(new SwingWatchmakerMenuItem("Fig"));
+		menu.add(new SwingWatchmakerMenuItem("Tun"));
+		menu.add(new SwingWatchmakerMenuItem("Razor Shell"));
+		menu.add(new SwingWatchmakerMenuItem("Japanese Wonder"));
 		return menu;
 	}
 
@@ -172,19 +177,27 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * 
 	 * @return the new Pedigree menu
 	 */
-	public JMenu buildPedigreeMenu() {
-		JMenu menu = new JMenu("Pedigree");
-		menu.add(new JMenuItem("Start Pedigree"));
+	public WatchmakerMenu buildPedigreeMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Pedigree");
+		menu.add(new SwingWatchmakerMenuItem("Start Pedigree"));
 		menu.addSeparator();
-		menu.add(new JMenuItem("Draw Out Offspring"));
+		menu.add(new SwingWatchmakerMenuItem("Draw Out Offspring"));
 		ButtonGroup group = new ButtonGroup();
-		group.add(menu.add(new JCheckBoxMenuItem("No Mirrors")));
-		group.add(menu.add(new JCheckBoxMenuItem("Single Mirror")));
-		group.add(menu.add(new JCheckBoxMenuItem("Double Mirrors")));
+		SwingWatchmakerCheckBoxMenuItem item;
+		item = new SwingWatchmakerCheckBoxMenuItem("No Mirrors");
+		menu.add(item);
+		group.add(item);
+		item = new SwingWatchmakerCheckBoxMenuItem("Single Mirror");
+		menu.add(item);
+		group.add(item);
+		item = new SwingWatchmakerCheckBoxMenuItem("Double Mirrors");
+		menu.add(item);
+		group.add(item);
+		
 		menu.addSeparator();
-		menu.add(new JMenuItem("Move"));
-		menu.add(new JMenuItem("Detach"));
-		menu.add(new JMenuItem("Kill"));
+		menu.add(new SwingWatchmakerMenuItem("Move"));
+		menu.add(new SwingWatchmakerMenuItem("Detach"));
+		menu.add(new SwingWatchmakerMenuItem("Kill"));
 		return menu;
 	}
 
@@ -193,20 +206,20 @@ public class SnailMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, 
 	 * 
 	 * @return the new Help menu.
 	 */
-	public JMenu buildHelpMenu() {
-		JMenu menu = new JMenu("Help");
-		menu.add(new JMenuItem("Help with current operation"));
-		menu.add(new JMenuItem("Miscellaneous Help"));
-		menu.add(new JMenuItem(new AboutSnailsAction(menu)));
+	public WatchmakerMenu buildHelpMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Help");
+		menu.add(new SwingWatchmakerMenuItem("Help with current operation"));
+		menu.add(new SwingWatchmakerMenuItem("Miscellaneous Help"));
+		menu.add(new SwingWatchmakerMenuItem(new AboutSnailsAction((Component)menu)));
 		return menu;
 	}
 
-	@Override
-	public void propertyChange(PropertyChangeEvent evt) {
-		if (evt.getPropertyName().equals("recordingFossils"))
-			recordingFossils.setSelected((Boolean) evt.getNewValue());
-
-	}
+//	@Override
+//	public void propertyChange(PropertyChangeEvent evt) {
+//		if (evt.getPropertyName().equals("recordingFossils"))
+//			recordingFossils.setSelected((Boolean) evt.getNewValue());
+//
+//	}
 
 	
 }

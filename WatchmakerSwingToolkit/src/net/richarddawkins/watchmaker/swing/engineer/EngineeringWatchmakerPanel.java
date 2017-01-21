@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.swing.engineer;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.components.GeneBoxyWatchmakerPanel;
 
 public class EngineeringWatchmakerPanel extends GeneBoxyWatchmakerPanel {

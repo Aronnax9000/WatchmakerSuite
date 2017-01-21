@@ -2,12 +2,13 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
-public class PreferencesAction extends AbstractAction {
+public class PreferencesAction extends SwingWatchmakerAction {
 
 	protected SwingAppData swingAppData;
 	/**
@@ -15,10 +16,14 @@ public class PreferencesAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
-	public PreferencesAction(SwingAppData swingAppData) {
+	public PreferencesAction() {
 		super("Preferences");
-		this.swingAppData = swingAppData;
 	}
+	public PreferencesAction(AppData appData) {
+		super("Preferences");
+		this.appData = appData;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(frame == null) {

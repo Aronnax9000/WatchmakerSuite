@@ -2,27 +2,24 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
-public class EngineerAction extends AbstractAction {
+public class EngineerAction extends SwingWatchmakerAction {
 
-	protected SwingAppData swingAppData;
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
-	public EngineerAction(SwingAppData swingAppData) {
+	public EngineerAction(AppData swingAppData) {
 		super("Engineer");
-		this.swingAppData = swingAppData;
+		this.appData = appData;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(frame == null) {
-			frame = new ArthromorphsEngineer(swingAppData);
+			frame = new ArthromorphsEngineer(appData);
 	
 			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	

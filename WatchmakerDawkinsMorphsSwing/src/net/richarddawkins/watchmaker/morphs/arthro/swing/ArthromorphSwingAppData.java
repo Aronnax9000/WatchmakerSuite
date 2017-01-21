@@ -4,13 +4,14 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingArthromorphGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing.SwingArthroPicDrawer;
-import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
-import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
-public class ArthromorphSwingAppData extends SimpleSwingAppData {
+public class ArthromorphSwingAppData extends SwingAppData {
 	public ArthromorphSwingAppData() {
-		setMenuBuilder(new ArthromorphMenuBuilder(this));
-		setSwingPicDrawer((SwingPicDrawer)new SwingArthroPicDrawer());
+		ArthromorphMenuBuilder menuBuilder = new ArthromorphMenuBuilder();
+		menuBuilder.setAppData(this);
+		setMenuBuilder(menuBuilder);
+		setPicDrawer(new SwingArthroPicDrawer());
 		config = new ArthromorphConfig();
 	}
 	@Override

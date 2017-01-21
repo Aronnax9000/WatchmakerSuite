@@ -4,36 +4,43 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import dictionary.DictionaryDemo;
+import dictionarya.DictionaryService;
+import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.app.AppDataFactory;
+import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactoryService;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 
 public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements MultiMorphTypeTabbedPanel {
 
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane");
 
-	protected JMenuBar jMenuBar;
+
 
 	private static final long serialVersionUID = -9105080336982806166L;
 
 	public SwingMultiMorphTypeTabbedPanel() {
-		
-		SwingAppDataFactoryService service = SwingAppDataFactoryService.getInstance();
-		SwingAppDataFactory factory = service.getFactory();
+		DictionaryService dictionary = DictionaryService.getInstance();
+		System.out.println(DictionaryDemo.lookup(dictionary, "book"));
+		System.out.println(DictionaryDemo.lookup(dictionary, "editor"));
+		System.out.println(DictionaryDemo.lookup(dictionary, "xml"));
+		System.out.println(DictionaryDemo.lookup(dictionary, "REST"));
+		System.out.println(DictionaryDemo.lookup(dictionary, "wugga"));
+		AppDataFactoryService service = AppDataFactoryService.getInstance();
+		AppDataFactory factory = service.getFactory();
 		for (String morphType : factory.getMorphTypes()) {
 			if (!morphType.equals("Snails")) {
 				logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
 				factory.setMorphType(morphType);
-				SwingAppData swingAppData = factory.newSwingAppData();
-				swingAppData.setFrame(this);
-				addSwingAppData(swingAppData);
+				AppData appData = factory.newAppData();
+				appData.setFrame(this);
+				addAppData(appData);
 			}
 		}
 		if (this.getTabCount() != 0)
@@ -42,7 +49,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		setSelectedIndex(0);
 	}
 
-	protected Vector<SwingAppData> swingAppData = new Vector<SwingAppData>();
+	protected Vector<AppData> appDatas = new Vector<AppData>();
 
 	protected WatchmakerMenuBar menuBar;
 
@@ -52,7 +59,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		int counter = 0;
 		while (!unique) {
 			boolean found = false;
-			for (SwingAppData appData : swingAppData) {
+			for (AppData appData : appDatas) {
 				if (newName.equals(appData.getName())) {
 					found = true;
 					break;
@@ -66,22 +73,22 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		return newName;
 	}
 
-	public void addSwingAppData(SwingAppData newSwingAppData) {
-		logger.log(Level.INFO, "addSwingAppData " + newSwingAppData.getName());
-		newSwingAppData.setName(uniquify(newSwingAppData.getName()));
-		swingAppData.add(newSwingAppData);
-		newSwingAppData.addDefaultMorphView();
+	public void addAppData(AppData newAppData) {
+		logger.log(Level.INFO, "addAppData " + newAppData.getName());
+		newAppData.setName(uniquify(newAppData.getName()));
+		appDatas.add(newAppData);
+		newAppData.addDefaultMorphView();
 
 
 		
 		SwingWatchmakerTabComponent tabComponent = new SwingWatchmakerTabComponent();
-		tabComponent.setName(newSwingAppData.getName());
-		tabComponent.setIconFromFilename(newSwingAppData.getIcon());
+		tabComponent.setName(newAppData.getName());
+		tabComponent.setIconFromFilename(newAppData.getIcon());
 		
-		addTab(newSwingAppData.getName(), 
+		addTab(newAppData.getName(), 
 				tabComponent.getIcon(), 
-				(JPanel) newSwingAppData.getMorphViewsTabbedPane(),
-				newSwingAppData.getToolTip());
+				(JPanel) newAppData.getMorphViewsTabbedPane(),
+				newAppData.getToolTip());
 		
 		
 		setTabComponentAt(this.getTabCount() - 1,
@@ -91,7 +98,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 	}
 
 	public void changeToTab(int selectedIndex) {
-		swingAppData.elementAt(selectedIndex).getMenuBuilder().buildMenu(jMenuBar);
+		appDatas.elementAt(selectedIndex).getMenuBuilder().buildMenu(menuBar);
 	}
 
 	class TabChangeListener implements ChangeListener {

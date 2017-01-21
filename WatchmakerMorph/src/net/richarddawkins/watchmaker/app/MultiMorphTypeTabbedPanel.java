@@ -6,4 +6,6 @@ public interface MultiMorphTypeTabbedPanel {
 
 	void removeTabAt(int index);
 
+	void addAppData(AppData appData);
+
 }

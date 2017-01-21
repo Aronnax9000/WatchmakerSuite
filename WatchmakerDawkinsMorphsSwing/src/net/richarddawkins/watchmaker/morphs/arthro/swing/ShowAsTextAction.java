@@ -2,12 +2,13 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
-public class ShowAsTextAction extends AbstractAction {
+public class ShowAsTextAction extends SwingWatchmakerAction {
 	protected SwingAppData swingAppData;
 	// protected ArthromorphConfig config;
 	/**
@@ -16,9 +17,9 @@ public class ShowAsTextAction extends AbstractAction {
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
 
-	public ShowAsTextAction(SwingAppData swingAppData) {
+	public ShowAsTextAction(AppData appData) {
 		super("Show as Text");
-		this.swingAppData = swingAppData;
+		this.appData = appData;
 	}
 
 	@Override

@@ -32,14 +32,14 @@
 package dictionary;
 
 import dictionarya.DictionaryService;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactory;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppDataFactoryService;
+import net.richarddawkins.watchmaker.app.AppDataFactory;
+import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 
 public class DictionaryDemo {
 
 	public static void main(String[] args) {
-		SwingAppDataFactoryService service = SwingAppDataFactoryService.getInstance();
-		SwingAppDataFactory factory = service.getFactory();
+		AppDataFactoryService service = AppDataFactoryService.getInstance();
+		AppDataFactory factory = service.getFactory();
 		DictionaryService dictionary = DictionaryService.getInstance();
 		System.out.println(DictionaryDemo.lookup(dictionary, "book"));
 		System.out.println(DictionaryDemo.lookup(dictionary, "editor"));

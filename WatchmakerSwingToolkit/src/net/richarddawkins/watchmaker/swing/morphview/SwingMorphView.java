@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class SwingMorphView extends JPanel implements MorphView {
 	private static final long serialVersionUID = 5555392236002752598L;

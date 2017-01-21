@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
+import java.awt.Component;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,8 +9,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphViewsTabbedPanel {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane");
@@ -31,7 +33,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		addChangeListener(new TabChangeListener());
 	}
 
-	protected Vector<SwingMorphView> morphViews = new Vector<SwingMorphView>();
+	protected Vector<MorphView> morphViews = new Vector<MorphView>();
 
 	public String uniquify(String name) {
 		String newName = name;
@@ -39,7 +41,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		int counter = 0;
 		while (!unique) {
 			boolean found = false;
-			for (SwingMorphView morphView : morphViews) {
+			for (MorphView morphView : morphViews) {
 				if (newName.equals(morphView.getName())) {
 					found = true;
 					break;
@@ -53,12 +55,12 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		return newName;
 	}
 
-	public void addMorphView(SwingMorphView view) {
+	public void addMorphView(MorphView view) {
 		logger.log(Level.INFO, "addMorphView " + view.getName());
 		view.setName(uniquify(view.getName()));
 		morphViews.add(view);
 
-		addTab(view.getName(), null, view, view.getToolTip());
+		addTab(view.getName(), null, (Component) view, view.getToolTip());
 
 		SwingMorphViewTabComponent tabComponent = new SwingMorphViewTabComponent();
 		tabComponent.setSwingMorphViewsTabbedPanel(this);

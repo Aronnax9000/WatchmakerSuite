@@ -7,15 +7,15 @@ import java.beans.PropertyChangeListener;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
-import net.richarddawkins.watchmaker.swing.menubuilder.ActionEngineering;
-import net.richarddawkins.watchmaker.swing.menubuilder.MenuBuilder;
-import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;
+import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
+import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
 
 /**
  * Application (About Colour Watchmaker) File (Timing, Quit) Edit ( | | Copy,
@@ -24,7 +24,7 @@ import net.richarddawkins.watchmaker.swing.menubuilder.SimpleMenuBuilder;
  * @author alan
  *
  */
-public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder, PropertyChangeListener {
+public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChangeListener {
 
 
 	
@@ -33,7 +33,7 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 	    super(swingAppData);
 	}
 
-	public void buildMenu(JMenuBar menuBar) {
+	public void buildMenu(WatchmakerMenuBar menuBar) {
 		super.buildMenu(menuBar);
 		
 		menuBar.add(buildFileMenu());
@@ -44,37 +44,37 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 		menuBar.repaint();
 	}
 
-	private JMenu buildFileMenu() {
-		JMenu menu = new JMenu("File");
-		menu.add(new JMenuItem("Timing"));
+	private WatchmakerMenu buildFileMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("File");
+		menu.add(new SwingWatchmakerMenuItem("Timing"));
 		return menu;
 	}
 
-	private JMenu buildViewMenu() {
-		JMenu menu = new JMenu("View");
+	private WatchmakerMenu buildViewMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("View");
 		menu.add(viewBoundingBoxes);
 		return menu;
 	}
 
-	private JMenu buildEditMenu() {
-		JMenu menu = new JMenu("Edit");
+	private WatchmakerMenu buildEditMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
 		menu.addSeparator();
 		menu.addSeparator();
-		menu.add(new JMenuItem("Copy"));
-		menu.add(new JMenuItem("Paste"));
+		menu.add(new SwingWatchmakerMenuItem("Copy"));
+		menu.add(new SwingWatchmakerMenuItem("Paste"));
 		return menu;
 	}
 
-	private JMenu buildOperationMenu() {
-		JMenu menu = new JMenu("Operation");
+	private WatchmakerMenu buildOperationMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
 
-		menu.add(new JMenuItem(new ColourActionBreed(swingAppData)));
-		menu.add(new ActionEngineering(swingAppData));
+		menu.add(new SwingWatchmakerMenuItem(new ColourActionBreed(appData)));
+		menu.add(new ActionEngineering(appData));
 
 		
 		Icon newRandomStartIcon = new ImageIcon(
 				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
-		menu.add(new JMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
+		menu.add(new SwingWatchmakerMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
 
 			/**
 			 * 
@@ -90,8 +90,8 @@ public class ColourMenuBuilder extends SimpleMenuBuilder implements MenuBuilder,
 		return menu;
 	}
 
-	private JMenu buildHelpMenu() {
-		JMenu menu = new JMenu("Help");
+	private WatchmakerMenu buildHelpMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Help");
 		menu.add(new AboutColourAction());
 		return menu;
 	}

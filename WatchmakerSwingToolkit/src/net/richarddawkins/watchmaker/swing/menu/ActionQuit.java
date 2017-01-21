@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.menubuilder;
+package net.richarddawkins.watchmaker.swing.menu;
 
 import java.awt.Component;
 import java.awt.Window;

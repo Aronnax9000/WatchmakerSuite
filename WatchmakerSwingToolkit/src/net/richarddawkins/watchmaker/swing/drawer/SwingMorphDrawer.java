@@ -6,12 +6,13 @@ import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
-import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
+import net.richarddawkins.watchmaker.geom.PicDrawer;
+import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
-public abstract class MorphDrawer implements GraphicsDrawer {
+public class SwingMorphDrawer implements MorphDrawer {
 
-    public MorphDrawer(SwingPicDrawer swingPicDrawer) {
-        this.swingPicDrawer = swingPicDrawer;
+    public SwingMorphDrawer(PicDrawer picDrawer) {
+        this.picDrawer = picDrawer;
     }
     
 	protected Dimension size;
@@ -19,12 +20,13 @@ public abstract class MorphDrawer implements GraphicsDrawer {
 		this.size = size;
 	}
 
-	protected SwingPicDrawer swingPicDrawer;
+	protected PicDrawer picDrawer;
 
 
 	
 	@Override
-	public void draw(LocatedMorph locatedMorph, Graphics2D g) {
+	public void draw(LocatedMorph locatedMorph, Object graphicsContext) {
+		Graphics2D g = (Graphics2D) graphicsContext;
 		Point position = locatedMorph.getPosition();
 		AffineTransform saveTransform = g.getTransform();
 		AffineTransform originTransform = 
@@ -33,10 +35,11 @@ public abstract class MorphDrawer implements GraphicsDrawer {
 		drawChildren(locatedMorph, g);
 		g.setTransform(saveTransform);
 	}
-	
-	
-	abstract public void drawChildren(LocatedMorph locatedMorph, Graphics2D g);
-	
+    
+	public void drawChildren(LocatedMorph locatedMorph, Graphics2D g2) {
+		animate(locatedMorph, g2);
+		picDrawer.drawPic(g2, locatedMorph.getMorph().getPic());
+	}
 	public void animate(LocatedMorph locatedMorph, Graphics2D g) {
 		int animationX = 0;
 		int animationY = 0;

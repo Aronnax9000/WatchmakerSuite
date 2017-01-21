@@ -4,12 +4,12 @@ import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphview.MorphViewComponent;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 
 public class SwingMorphViewPanelComponent extends JPanel implements MorphViewComponent{
 
-    protected SwingAppData swingAppData;
+    protected AppData appData;
 
 
     /**
@@ -17,17 +17,17 @@ public class SwingMorphViewPanelComponent extends JPanel implements MorphViewCom
 	 */
 	private static final long serialVersionUID = -6896360202157783971L;
 
-	public SwingMorphViewPanelComponent(SwingAppData swingAppData) {
+	public SwingMorphViewPanelComponent(AppData appData) {
 		super();
-		this.swingAppData = swingAppData;
+		this.appData = appData;
 	}
 
-	public SwingAppData getSwingAppData() {
-		return swingAppData;
+	public AppData getAppData() {
+		return appData;
 	}
 
-	public void setSwingAppData(SwingAppData swingAppData) {
-		this.swingAppData = swingAppData;
+	public void setAppData(AppData appData) {
+		this.appData = appData;
 	}
 
 	public SwingMorphViewPanelComponent(LayoutManager layout) {

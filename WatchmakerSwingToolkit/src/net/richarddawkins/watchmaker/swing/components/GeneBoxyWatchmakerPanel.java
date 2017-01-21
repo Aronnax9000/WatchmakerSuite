@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.swing.components;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class GeneBoxyWatchmakerPanel extends SwingBorderLayoutMorphView {
 

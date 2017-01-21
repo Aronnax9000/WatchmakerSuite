@@ -4,15 +4,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
-import net.richarddawkins.watchmaker.swing.drawer.GraphicsDrawer;
-import net.richarddawkins.watchmaker.swing.drawer.MorphDrawerOld;
+import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
+import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
 public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 	protected boolean showBoxes = true;
-	protected GraphicsDrawer gd;
+	protected MorphDrawer gd;
 //	protected GraphicsDrawer gd = new MorphDrawer();
 	
 	private static final long serialVersionUID = -224189863008500654L;
@@ -28,12 +28,10 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 		this.boxedMorphVector = boxedMorphVector;
 	}
 
-	public BoxyMorphViewPanel(SwingAppData swingAppData) {
-		super(swingAppData);
-		gd = new MorphDrawerOld(swingAppData.getSwingPicDrawer());
+	public BoxyMorphViewPanel(AppData appData) {
+		super(appData);
+		gd = new SwingMorphDrawer(appData.getPicDrawer());
 	}
-
-
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

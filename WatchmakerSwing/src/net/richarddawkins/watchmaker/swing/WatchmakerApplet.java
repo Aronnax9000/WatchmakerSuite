@@ -5,9 +5,9 @@ import javax.swing.JApplet;
 import javax.swing.JMenuBar;
 import javax.swing.SwingUtilities;
 
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuBar;
 import net.richarddawkins.watchmaker.swing.wtp.SwingMultiMorphTypeTabbedPanel;
-import net.richarddawkins.watchmaker.swing.wtp.SwingWatchmakerMenuBar;
-import net.richarddawkins.watchmaker.swing.wtp.WatchmakerMenuBar;
 
 public class WatchmakerApplet extends JApplet {
 	

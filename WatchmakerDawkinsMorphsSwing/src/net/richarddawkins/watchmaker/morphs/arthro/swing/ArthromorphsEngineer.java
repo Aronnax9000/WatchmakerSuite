@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Concentration;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Pressure;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class ArthromorphsEngineer extends JFrame {
@@ -34,7 +34,7 @@ public class ArthromorphsEngineer extends JFrame {
    * 
    */
   private static final long serialVersionUID = 1L;
-  protected SwingAppData swingAppData;
+  protected AppData appData;
   protected ArthromorphConfig config;
 
   JCheckBox animalTrunkMut = new JCheckBox("Animal Trunk");
@@ -76,10 +76,10 @@ public class ArthromorphsEngineer extends JFrame {
     group.add(mutPressureMinus);
   }
 
-  public ArthromorphsEngineer(SwingAppData swingAppData) {
+  public ArthromorphsEngineer(AppData appData) {
     super("Allowed Mutations");
-    this.swingAppData = swingAppData;
-    config = (ArthromorphConfig) swingAppData.getMorphConfig();
+    this.appData = appData;
+    config = (ArthromorphConfig) appData.getMorphConfig();
     this.addComponentListener(new ComponentAdapter() {
       public void componentShown(ComponentEvent e) {
         animalTrunkMut.setSelected(config.isAnimalTrunkMut());

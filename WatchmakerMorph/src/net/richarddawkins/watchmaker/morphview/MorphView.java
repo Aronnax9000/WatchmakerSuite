@@ -13,6 +13,8 @@ public interface MorphView {
 	void setToolTip(String toolTip);
 
 	Morph getMorphOfTheHour();
+	String getName();
+	void setName(String newName);
 
 
 }

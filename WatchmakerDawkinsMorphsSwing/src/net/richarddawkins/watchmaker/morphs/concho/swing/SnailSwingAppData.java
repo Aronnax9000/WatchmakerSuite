@@ -2,13 +2,13 @@ package net.richarddawkins.watchmaker.morphs.concho.swing;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.concho.SnailConfig;
-import net.richarddawkins.watchmaker.swing.appdata.SimpleSwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
-public class SnailSwingAppData extends SimpleSwingAppData {
+public class SnailSwingAppData extends SwingAppData {
 	
 	public SnailSwingAppData() {
 		setMenuBuilder(new SnailMenuBuilder(this));
-		setSwingPicDrawer(new SwingSnailPicDrawer());
+		setPicDrawer(new SwingSnailPicDrawer());
 		config = new SnailConfig();
 		
 	}

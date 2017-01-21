@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.morphview.MorphViewComponent;
-import net.richarddawkins.watchmaker.swing.appdata.SwingAppData;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingBorderLayoutMorphView extends SwingMorphView {

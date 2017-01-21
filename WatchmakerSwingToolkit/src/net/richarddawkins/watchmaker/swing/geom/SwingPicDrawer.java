@@ -8,11 +8,12 @@ import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.PicDrawer;
 import net.richarddawkins.watchmaker.geom.Point;
 
 
 
-public abstract class SwingPicDrawer {
+public abstract class SwingPicDrawer implements PicDrawer {
 
     protected boolean showBoundingBoxes = true;
     
@@ -22,7 +23,8 @@ public abstract class SwingPicDrawer {
         // Default no-op
     }
     
-    public void drawPic(Graphics2D g2, Pic pic) {
+    public void drawPic(Object graphicsContext, Pic pic) {
+    	Graphics2D g2 = (Graphics2D) graphicsContext;
         AffineTransform saveTransform = g2.getTransform();
         
         Point midPoint = pic.margin.getMidPoint();
