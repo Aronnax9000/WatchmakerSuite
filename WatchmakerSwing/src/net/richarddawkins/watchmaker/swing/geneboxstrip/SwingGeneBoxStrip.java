@@ -23,7 +23,9 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 	private static final long serialVersionUID = 1L;
 
 	
-	public SwingGeneBoxStrip() { }
+	public SwingGeneBoxStrip() { 
+		this.setLayout(new GridLayout(1,0));
+	}
 	@Override
 	public GeneBox getGeneBoxForGene(Gene gene) {
 		if(gene instanceof IntegerGene)
