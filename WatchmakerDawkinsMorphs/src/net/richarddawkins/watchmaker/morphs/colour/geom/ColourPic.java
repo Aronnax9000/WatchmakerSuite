@@ -5,7 +5,6 @@ import java.awt.Color;
 import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 
@@ -49,9 +48,7 @@ public class ColourPic extends Pic {
         this.limbShape = limbShape;
     }
 
-    public ColourPic(Morph morph) {
-        super(morph);
-    }
+
 
     int[] colorVals = { 0, 51, 102, 153, 204, 255 };
     int[] backColorVals = { 255, 204, 153, 102, 51, 0 };

@@ -8,7 +8,7 @@ import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
-import net.richarddawkins.watchmaker.geom.PicDrawer;
+import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -29,7 +29,7 @@ public abstract class SwingAppData implements AppData {
 	protected boolean showBoundingBoxes = true;
 	protected SwingPicDrawer swingPicDrawer;
 	protected String toolTip;
-	private PicDrawer picDrawer;
+	private PhenotypeDrawer picDrawer;
 
 	public SwingAppData() {}
 	
@@ -89,7 +89,7 @@ public abstract class SwingAppData implements AppData {
 	}
 	
 	@Override
-	public PicDrawer getPicDrawer() {
+	public PhenotypeDrawer getPicDrawer() {
 		return picDrawer;
 	}
 	
@@ -146,7 +146,7 @@ public abstract class SwingAppData implements AppData {
     }
 
 	@Override
-	public void setPicDrawer(PicDrawer newValue) {
+	public void setPicDrawer(PhenotypeDrawer newValue) {
 		this.picDrawer = newValue;
 	}
 	@Override

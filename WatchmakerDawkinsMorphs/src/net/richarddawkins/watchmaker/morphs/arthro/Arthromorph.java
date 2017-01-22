@@ -104,7 +104,7 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	
 	public Arthromorph(MorphConfig config, int basicType) {
 	    super(config);
-	    this.pic = new ArthromorphPic(this);
+	    this.pic = new ArthromorphPic();
 		ArthromorphGenome newGenome = new ArthromorphGenome();
 		newGenome.setMorph(this);
 		this.genome = newGenome;

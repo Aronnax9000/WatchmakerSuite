@@ -50,11 +50,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  * @author alan
  *
  */
-public abstract class Pic {
-    
-    public Pic(Morph morph) {
-        this.morph = morph;
-    }
+public abstract class Pic implements Phenotype {
 
     /**
      * PICSIZEMAX is 4 * 4095, which is 4 times the original (Pascal) value, since the
@@ -76,7 +72,7 @@ public abstract class Pic {
     public void addLin(Lin lin) {
         lines.add(lin);
     }
-
+    
     public void zeroPic() {
         lines.clear();
     }

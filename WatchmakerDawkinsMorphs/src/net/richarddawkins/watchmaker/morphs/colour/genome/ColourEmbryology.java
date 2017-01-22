@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.morphs.colour.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Phenotype;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
@@ -61,8 +61,8 @@ public class ColourEmbryology extends BiomorphEmbryology {
 	}
 
 	@Override
-	public void develop(Genome colourGenome, Pic colourPic) {
-		super.develop(colourGenome, colourPic);
+	public void develop(Genome colourGenome, Phenotype colourPic) {
+				super.develop(colourGenome, colourPic);
     	ColourGenome genome = (ColourGenome) colourGenome;
     	ColourPic pic = (ColourPic) colourPic;
 		Gene12345678 gene1 = genome.getGene1();

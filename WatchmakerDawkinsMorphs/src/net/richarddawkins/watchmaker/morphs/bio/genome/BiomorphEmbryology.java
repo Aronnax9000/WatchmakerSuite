@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.morphs.bio.genome;
 
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Phenotype;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic.PicStyleType;
 
@@ -31,7 +31,7 @@ public class BiomorphEmbryology implements Embryology {
 	
 
 	@Override
-	public void develop(Genome biomorphGenome, Pic biomorphPic) {
+	public void develop(Genome biomorphGenome, Phenotype biomorphPic) {
 	        BiomorphGenome genome = (BiomorphGenome) biomorphGenome;
 	        BiomorphPic pic = (BiomorphPic) biomorphPic;
 	        

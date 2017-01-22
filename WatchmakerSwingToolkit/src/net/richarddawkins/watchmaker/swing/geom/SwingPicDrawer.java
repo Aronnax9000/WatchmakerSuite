@@ -7,13 +7,14 @@ import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.geom.Lin;
+import net.richarddawkins.watchmaker.geom.Phenotype;
+import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.geom.Pic;
-import net.richarddawkins.watchmaker.geom.PicDrawer;
 import net.richarddawkins.watchmaker.geom.Point;
 
 
 
-public abstract class SwingPicDrawer implements PicDrawer {
+public abstract class SwingPicDrawer implements PhenotypeDrawer {
 
     protected boolean showBoundingBoxes = true;
     
@@ -22,11 +23,11 @@ public abstract class SwingPicDrawer implements PicDrawer {
     protected void picSpecifics(Graphics2D g2, Pic pic) {
         // Default no-op
     }
-    
-    public void drawPic(Object graphicsContext, Pic pic) {
+    @Override
+    public void drawPic(Object graphicsContext, Phenotype phenotype) {
     	Graphics2D g2 = (Graphics2D) graphicsContext;
         AffineTransform saveTransform = g2.getTransform();
-        
+        Pic pic = (Pic) phenotype;
         Point midPoint = pic.margin.getMidPoint();
 
         g2.translate(-midPoint.h, -midPoint.v);

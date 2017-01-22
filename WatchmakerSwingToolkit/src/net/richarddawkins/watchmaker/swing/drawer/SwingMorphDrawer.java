@@ -6,12 +6,12 @@ import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
-import net.richarddawkins.watchmaker.geom.PicDrawer;
+import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
 public class SwingMorphDrawer implements MorphDrawer {
 
-    public SwingMorphDrawer(PicDrawer picDrawer) {
+    public SwingMorphDrawer(PhenotypeDrawer picDrawer) {
         this.picDrawer = picDrawer;
     }
     
@@ -20,7 +20,7 @@ public class SwingMorphDrawer implements MorphDrawer {
 		this.size = size;
 	}
 
-	protected PicDrawer picDrawer;
+	protected PhenotypeDrawer picDrawer;
 
 
 	

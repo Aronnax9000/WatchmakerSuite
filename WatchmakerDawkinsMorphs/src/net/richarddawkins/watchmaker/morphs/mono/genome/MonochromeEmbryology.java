@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Phenotype;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
@@ -186,7 +186,7 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
      */
 	
 	@Override
-	public void develop(Genome monochromeGenome, Pic monoPic) {
+	public void develop(Genome monochromeGenome, Phenotype monoPic) {
 		super.develop(monochromeGenome, monoPic);
 		
 		MonochromeGenome genome = (MonochromeGenome) monochromeGenome;
