@@ -2,10 +2,10 @@ package net.richarddawkins.watchmaker.morphs.bio.embryo;
 
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.geom.Phenotype;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic.PicStyleType;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class BiomorphEmbryology implements Embryology {
 	

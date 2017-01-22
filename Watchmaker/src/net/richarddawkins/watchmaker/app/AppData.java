@@ -3,11 +3,11 @@ package net.richarddawkins.watchmaker.app;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 public interface AppData {
 	public void addBreedingMorphView(Morph morph);

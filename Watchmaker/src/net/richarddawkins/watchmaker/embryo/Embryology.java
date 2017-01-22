@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.embryo;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.geom.Phenotype;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public interface Embryology {
 	/**

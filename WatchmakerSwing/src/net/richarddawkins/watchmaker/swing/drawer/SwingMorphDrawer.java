@@ -6,8 +6,8 @@ import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
-import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 public class SwingMorphDrawer implements MorphDrawer {
 

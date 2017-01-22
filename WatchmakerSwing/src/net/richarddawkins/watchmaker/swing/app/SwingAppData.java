@@ -8,12 +8,12 @@ import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
-import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
 

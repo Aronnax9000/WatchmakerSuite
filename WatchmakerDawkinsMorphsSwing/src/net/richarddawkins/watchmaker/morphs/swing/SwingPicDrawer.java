@@ -6,11 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 
-import net.richarddawkins.watchmaker.geom.Phenotype;
-import net.richarddawkins.watchmaker.geom.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 
 

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.geom;
+package net.richarddawkins.watchmaker.phenotype;
 
 public interface Phenotype {
 	public void zero();
