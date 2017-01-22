@@ -1,12 +1,8 @@
 package net.richarddawkins.watchmaker.geom;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Stroke;
 import java.util.Vector;
 /**
  * 
@@ -125,25 +121,5 @@ public class Boxes  {
 		return midPoints;
 	}
 	
-	/**
-	 * Draw boxes on a Graphics2D context.
-	 * @param g the Graphics2D on which drawing is to take place.
-	 * @param dimension the size of the overall grid of boxes.
-	 */
-	public void draw(Graphics2D g, Dimension dimension) {
-		g.setColor(Color.BLACK);
-		int boxIndex = 0;
-		Stroke saveStroke = g.getStroke();
-		for(Rectangle r: getBoxes(dimension)) {
-			
-			// Middle box has a thicker line
-			if(boxIndex == midBox) {
-				g.setStroke(new BasicStroke(2.0f));
-			}
-			
-			g.drawRect(r.x, r.y, r.width, r.height);
-			g.setStroke(saveStroke);
-			boxIndex++;
-		}
-	}
+
 }

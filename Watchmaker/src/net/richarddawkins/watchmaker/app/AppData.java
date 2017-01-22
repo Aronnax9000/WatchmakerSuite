@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.app;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -35,4 +36,5 @@ public interface AppData {
 	public void setPicDrawer(PhenotypeDrawer newValue);
 	public void setShowBoundingBoxes(boolean newValue);
 	public void setToolTip(String toolTip);
+	public BoxesDrawer getBoxesDrawer();
 }

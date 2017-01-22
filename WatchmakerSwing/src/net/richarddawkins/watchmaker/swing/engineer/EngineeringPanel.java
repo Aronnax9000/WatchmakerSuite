@@ -18,7 +18,7 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 	    super(engineeringWatchmakerPanel.getSwingAppData());
 		setCursor(WatchmakerCursors.hypodermic);
 		this.engineeringWatchmakerPanel = engineeringWatchmakerPanel;
-		boxesDrawer = new Boxes(1,1);
+		boxes = new Boxes(1,1);
 		mouseAdapter = new EngineeringPanelMouseAdapter(this);
 	}
 
@@ -39,7 +39,7 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 
 	@Override
 	public void updateModel(Dimension size) {
-		this.getBoxedMorphVector().getBoxedMorph(0).setPosition(boxesDrawer.getMidPoint(size, 0));
+		this.getBoxedMorphVector().getBoxedMorph(0).setPosition(boxes.getMidPoint(size, 0));
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class BreedingPanelMouseAdapter extends MouseAdapter {
 		Point myPt = e.getPoint();
 		switch(panel.phase) {
 		case breed_complete:
-			  panel.special = panel.getBoxesDrawer().getBoxNoContainingPoint(myPt, panel.getSize());
+			  panel.special = panel.getBoxes().getBoxNoContainingPoint(myPt, panel.getSize());
 			  logger.log(Level.INFO, "Mouse pressed in box " + panel.special);
 			  panel.phase = Phase.mouse_clicked;
 			  panel.repaint();

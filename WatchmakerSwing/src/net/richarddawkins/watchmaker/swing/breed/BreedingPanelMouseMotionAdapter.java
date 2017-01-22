@@ -26,7 +26,7 @@ public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 		Point myPt = e.getPoint();
 		switch(panel.phase) {
 		case breed_complete:
-			int boxNo = panel.getBoxesDrawer().getBoxNoContainingPoint(myPt, panel.getSize());
+			int boxNo = panel.getBoxes().getBoxNoContainingPoint(myPt, panel.getSize());
 			  if(boxNo != -1) {
 				  Morph morph = panel.getBoxedMorphVector().getBoxedMorph(boxNo).getMorph();
 				  if(morph != null) {

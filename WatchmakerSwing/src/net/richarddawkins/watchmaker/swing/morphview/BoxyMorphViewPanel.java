@@ -18,9 +18,9 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 	
 	private static final long serialVersionUID = -224189863008500654L;
 	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();
-	protected Boxes boxesDrawer;
-	public Boxes getBoxesDrawer() {
-		return boxesDrawer;
+	protected Boxes boxes;
+	public Boxes getBoxes() {
+		return boxes;
 	}
 	public BoxedMorphVector getBoxedMorphVector() {
 		return boxedMorphVector;
@@ -39,9 +39,9 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
         Dimension size = getSize();
         updateModel(size);
         if(showBoxes) 
-        	boxesDrawer.draw((Graphics2D)g, size);
+        	appData.getBoxesDrawer().draw((Graphics2D)g, size, boxes);
         for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
-        	gd.setSize(boxesDrawer.getBoxSize(size));
+        	gd.setSize(boxes.getBoxSize(size));
         	gd.draw(boxedMorph, (Graphics2D) g);
         }
     }

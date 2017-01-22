@@ -8,6 +8,7 @@ import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
+import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -15,6 +16,7 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.breed.BreedingWatchmakerPanel;
+import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
 
 public abstract class SwingAppData implements AppData {
@@ -29,9 +31,18 @@ public abstract class SwingAppData implements AppData {
 	protected boolean showBoundingBoxes = true;
 	protected PhenotypeDrawer phenotypeDrawer;
 	protected String toolTip;
-	private PhenotypeDrawer picDrawer;
+	protected PhenotypeDrawer picDrawer;
+	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
+
+	@Override
+	public BoxesDrawer getBoxesDrawer() {
+		return boxesDrawer;
+	}
+
+
 
 	public SwingAppData() {}
+	
 	
 	
 	@Override

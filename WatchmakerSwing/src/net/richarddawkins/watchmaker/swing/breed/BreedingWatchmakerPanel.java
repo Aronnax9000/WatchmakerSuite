@@ -22,7 +22,7 @@ public class BreedingWatchmakerPanel extends GeneBoxyWatchmakerPanel {
     public Morph getMorphOfTheHour() {
     	BreedingPanel breedingPanel =  (BreedingPanel) centrePanel;
     	return breedingPanel.getBoxedMorphVector()
-    			.getBoxedMorph(breedingPanel.getBoxesDrawer().midBox)
+    			.getBoxedMorph(breedingPanel.getBoxes().midBox)
     			.getMorph();
     }
 }
