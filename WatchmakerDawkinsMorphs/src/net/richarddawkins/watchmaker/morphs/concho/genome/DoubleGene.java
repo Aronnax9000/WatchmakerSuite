@@ -10,6 +10,10 @@ public class DoubleGene extends NumericGene {
 	public DoubleGene(Genome genome, String name) {
 		super(genome, name);
 	}
+	
+	public void addToGene(double summand) {
+		setValue(this.value + summand);
+	}
 
 	double value;
 
@@ -17,8 +21,10 @@ public class DoubleGene extends NumericGene {
 		return value;
 	}
 
-	public void setValue(double value) {
-		this.value = value;
+	public void setValue(double newValue) {
+		double oldValue = this.value;
+		this.value = newValue;
+		pcs.firePropertyChange("value", oldValue, newValue);
 	}
 
 	@Override

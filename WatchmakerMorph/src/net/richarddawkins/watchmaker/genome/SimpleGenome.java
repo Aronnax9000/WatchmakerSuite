@@ -53,9 +53,6 @@ public abstract class SimpleGenome implements Genome {
 	public void setMorph(Morph morph) {
 		this.morph = morph;
 	}
-	@Override
-	public Gene[] toGeneArray() {
-		return null;
-	}
+
 
 }

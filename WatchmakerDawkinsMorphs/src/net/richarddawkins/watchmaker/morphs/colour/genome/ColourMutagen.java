@@ -4,31 +4,26 @@ import static net.richarddawkins.watchmaker.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
+import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.colour.ColourBiomorphConfig;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 
 public class ColourMutagen extends BiomorphMutagen {
-  protected ColourBiomorphConfig config;
-  public void setMorphConfig(MorphConfig config) {
-	  this.config = (ColourBiomorphConfig) config;
-  }
-  public MorphConfig getMorphConfig() { return config; }
-  
-  
-  public ColourMutagen(ColourBiomorphConfig config) {
-    this.config = (ColourBiomorphConfig) config;
-  }
 
-  LimbShapeType randLimbType() {
+
+  public ColourMutagen(AllowedMutations allowedMutations) {
+		super(allowedMutations);
+		
+	}
+
+LimbShapeType randLimbType() {
     switch (randInt(3)) {
     case 1:
       return LimbShapeType.Stick;
@@ -54,8 +49,9 @@ public class ColourMutagen extends BiomorphMutagen {
 
   public boolean mutate(Genome genome) {
     ColourGenome target = (ColourGenome) genome;
+    ColourAllowedMutations colourAllowedMutations = (ColourAllowedMutations) allowedMutations;
     boolean success = false;
-    boolean[] mut = config.getMut();
+    boolean[] mut = colourAllowedMutations.getMut();
     int mutProb = target.getMutProbGene().getValue();
     if (mut[6] && randInt(100) < mutProb) {
       target.getMutProbGene().addToGene(direction9());

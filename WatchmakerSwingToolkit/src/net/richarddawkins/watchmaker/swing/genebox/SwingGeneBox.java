@@ -63,16 +63,18 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 	@Override
 	public void setGene(Gene newValue) {
 		Gene oldValue = this.gene;
-		if(oldValue != null) {
-			oldValue.removePropertyChangeListener(this);
-			geneBoxMouseAdapter.removeGeneManipulationListener(oldValue);
-		}
 		gene = newValue;
-		if(gene != null) {
-			// Tell the Gene to update us if its value changes.
-			gene.addPropertyChangeListener(this);
-			// Tell the mouse adapter to inform the gene of manipulations.
-			geneBoxMouseAdapter.addGeneManipulationListener(gene);
+		if(geneBoxMouseAdapter != null) {
+			if(oldValue != null) {
+				oldValue.removePropertyChangeListener(this);
+				geneBoxMouseAdapter.removeGeneManipulationListener(oldValue);
+			}
+			if(gene != null) {
+				// Tell the Gene to update us if its value changes.
+				gene.addPropertyChangeListener(this);
+				// Tell the mouse adapter to inform the gene of manipulations.
+				geneBoxMouseAdapter.addGeneManipulationListener(gene);
+			}
 		}
 	}
 }

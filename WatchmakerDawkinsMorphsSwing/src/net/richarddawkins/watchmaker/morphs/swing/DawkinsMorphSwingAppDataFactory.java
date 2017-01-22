@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.morphs.swing;
 import java.util.Vector;
 
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 
 import dictionary.spi.Dictionary;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
@@ -12,7 +11,6 @@ import net.richarddawkins.watchmaker.morphs.colour.swing.ColourSwingAppData;
 import net.richarddawkins.watchmaker.morphs.concho.swing.SnailSwingAppData;
 import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 
 public class DawkinsMorphSwingAppDataFactory implements AppDataFactory, Dictionary {
@@ -59,7 +57,7 @@ public class DawkinsMorphSwingAppDataFactory implements AppDataFactory, Dictiona
 
 		for (MorphType morphEnum : MorphType.values())
 			if (name.equals(morphEnum.getName())) {
-				this.icon = new ImageIcon(ClassicImageLoader.getPicture(name).getImage());
+				this.icon = morphEnum.getIcon();
 				this.toolTip = morphEnum.getToolTip();
 				break;
 			}
@@ -116,7 +114,7 @@ public class DawkinsMorphSwingAppDataFactory implements AppDataFactory, Dictiona
 			swingAppData = null;
 
 		}
-
+		swingAppData.setName(morphType);
 		swingAppData.setMorphViewsTabbedPane(new SwingMorphViewsTabbedPanel(swingAppData));
 
 		return swingAppData;

@@ -13,12 +13,14 @@ public enum MorphType {
 	private final String name;
 	private final Icon icon;
 	private final String toolTip;
+	private final String iconFilename;
 	
 	MorphType(String name, String icon, String toolTip) {
 		this.name = name;
 		this.icon = new ImageIcon(
 				ClassicImageLoader.getPicture(icon).getImage());
 		this.toolTip = toolTip;
+		this.iconFilename = icon;
 	}
 	
 	public String getName() {
@@ -29,6 +31,10 @@ public enum MorphType {
 	}
 	public String getToolTip() {
 		return toolTip;
+	}
+
+	public String getIconFilename() {
+		return iconFilename;
 	}
     
 }

@@ -4,32 +4,32 @@ import static net.richarddawkins.watchmaker.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.Mutagen;
+import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
+import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig;
+import net.richarddawkins.watchmaker.morphs.mono.MonochromeAllowedMutations;
 
-public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
-	MonochromeMorphConfig config;
+public class MonochromeMutagen extends BiomorphMutagen  {
 
-	public MonochromeMutagen(MorphConfig config) {
-		this.config = (MonochromeMorphConfig) config;
+	public MonochromeMutagen(AllowedMutations allowedMutations) {
+		super(allowedMutations);
 	}
 
 	public boolean mutate(Genome genome) {
+		MonochromeAllowedMutations monochromeAllowedMutations 
+		= (MonochromeAllowedMutations) allowedMutations;
 		MonochromeGenome target = (MonochromeGenome) genome;
 		IntegerGene segNoGene = target.getSegNoGene();
 		IntegerGene segDistGene = target.getSegDistGene();
 		boolean success = false;
-		boolean[] mut = target.getMorph().getMorphConfig().getMut();
+		boolean[] mut = monochromeAllowedMutations.getMut();
 		int mutProb = target.getMutProbGene().getValue();
 		if (mut[6]) {
 			if (randInt(100) < mutProb) {
@@ -106,18 +106,6 @@ public class MonochromeMutagen extends BiomorphMutagen implements Mutagen {
 			success = true;
 		}
 		return success;
-	}
-
-	@Override
-	public void setMorphConfig(MorphConfig morphConfig) {
-		this.config = (MonochromeMorphConfig) morphConfig;
-
-	}
-
-	@Override
-	public MorphConfig getMorphConfig() {
-		return config;
-
 	}
 
 }

@@ -1,8 +1,9 @@
 package net.richarddawkins.watchmaker.morphs.concho;
 
+import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morphs.concho.genome.SnailAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailMutagen;
 
 public class SnailConfig extends SimpleMorphConfig {
@@ -36,16 +37,11 @@ public class SnailConfig extends SimpleMorphConfig {
 	// private SnailMenuBuilder menuBuilder = new SnailMenuBuilder(this);
 
 	public SnailConfig() {
-		mutagen = new SnailMutagen(this);
+		mutagen = new SnailMutagen(new SnailAllowedMutations());
 
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);
 	}
 
-	@Override
-	public boolean[] getMut() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

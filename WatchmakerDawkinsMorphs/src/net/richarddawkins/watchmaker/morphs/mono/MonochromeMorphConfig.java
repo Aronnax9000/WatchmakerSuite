@@ -1,36 +1,23 @@
 package net.richarddawkins.watchmaker.morphs.mono;
 
+import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeMutagen;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
 
-	public static final int MutTypeNo = 9;
-
-
 	protected MonochromeMutagen mutagen;
-
-	
 
 	public Mutagen getMutagen() {
 		return mutagen;
 	}
 
 	public MonochromeMorphConfig() {
-		mutagen = new MonochromeMutagen(this);
-
+		mutagen = new MonochromeMutagen(new MonochromeAllowedMutations());
 		geneBoxCount = 16;
-		
-		mut = new boolean[MutTypeNo];
-		for (int i = 0; i < MutTypeNo; i++)
-			mut[i] = true;
-
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);
-        mutagen = new MonochromeMutagen(this);
-		
 	}
 
 	@Override
@@ -44,11 +31,4 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 		this.mutagen = (MonochromeMutagen) mutagen;
 
 	}
-	
-
-	
-	
-
-
-
 }

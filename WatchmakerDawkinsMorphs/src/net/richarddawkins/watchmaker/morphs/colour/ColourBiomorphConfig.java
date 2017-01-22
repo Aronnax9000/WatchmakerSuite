@@ -1,25 +1,19 @@
 package net.richarddawkins.watchmaker.morphs.colour;
 
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.Mutagen;
 import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColourAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourMutagen;
 
 public class ColourBiomorphConfig extends BiomorphConfig {
 
-	public static final int MutTypeNo = 13;
 	
-	private ColourMutagen mutagen;
-	public Mutagen getMutagen() { return (Mutagen) mutagen; }
-
 
 	public ColourBiomorphConfig() {
 		super();
-		setMutagen(new ColourMutagen(this));
+		setMutagen(new ColourMutagen(new ColourAllowedMutations()));
 		geneBoxCount = 28;
-		mut = new boolean[MutTypeNo];
-		for(int i = 0; i < MutTypeNo; i++)
-			mut[i] = true;
+
 	    setDefaultBreedingRows(3);
 	    setDefaultBreedingCols(3);
 	}
@@ -29,9 +23,6 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 			return (Morph) new ColourBiomorph(this, type);
 	}
 
-	@Override
-	public void setMutagen(Mutagen mutagen) {
-		this.mutagen = (ColourMutagen) mutagen;
-	}
+
 
 }

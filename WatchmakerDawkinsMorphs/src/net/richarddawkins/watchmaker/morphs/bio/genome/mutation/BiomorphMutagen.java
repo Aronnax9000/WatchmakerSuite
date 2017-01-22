@@ -1,12 +1,19 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome;
+package net.richarddawkins.watchmaker.morphs.bio.genome.mutation;
 
 import static net.richarddawkins.watchmaker.util.Random.randInt;
 
-import net.richarddawkins.watchmaker.morph.Mutagen;
+import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
+import net.richarddawkins.watchmaker.genome.mutation.SimpleMutagen;
+import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 
-public abstract class BiomorphMutagen implements Mutagen {
+public abstract class BiomorphMutagen extends SimpleMutagen {
 	
+	public BiomorphMutagen(AllowedMutations allowedMutations) {
+		super(allowedMutations);
+	}
+
+
 	static protected SwellType randSwell(SwellType indGene) {
 		SwellType swellType;
 		switch(indGene) {

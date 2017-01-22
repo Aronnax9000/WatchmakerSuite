@@ -1,176 +1,81 @@
 package net.richarddawkins.watchmaker.morphs.concho.genome;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 
+/**
+ * person = record WOpening, DDisplacement, SShape, TTranslation: real;
+ * Coarsegraininess, Reach, GeneratingCurve: integer; TranslationGradient,
+ * DGradient: real; Handedness: -1..1; end;
+ * 
+ * @author sven
+ *
+ */
 public class SnailGenome extends SimpleGenome implements Cloneable {
-  public static boolean sideView = false;
+	public static boolean sideView = false;
 
-  int coarsegraininess;
+	public final IntegerGene coarsegraininess = new IntegerGene(this, "Coarsegraininess");
 
-  double dDisplacement;
+	public final DoubleGene displacement = new Double0To1Gene(this, "Displacement");
+	public final IntegerGene generatingCurve = new IntegerGene(this, "GeneratingCurve");
+	public final DoubleGene gradient = new DoubleGene(this, "Gradient");
+	public final HandednessGene handedness = new HandednessGene(this, "Handedness");
+	public final DoubleGene opening = new DoubleGene(this, "Opening");
+	public final IntegerGene reach = new IntegerGene(this, "Reach");
+	public final DoubleGene shape = new DoubleGene(this, "Shape");
+	public final DoubleGene translation = new DoubleGene(this, "Translation");
+	public final DoubleGene translationGradient = new DoubleGene(this, "TranslationGradient");
+	public SnailGenome() {
 
-  double dGradient;
+	}
 
-  int generatingCurve;
+	@Override
+	public void develop() {
+		// SnailDeveloperImpl developer = new SnailDeveloperImpl();
+		Rect box = new Rect(0, 0, 0, 0);
+		Point where = new Point(0, 0);
+		// BufferedImage bufferedImage = new
+		// BufferedImage(BufferedImage.TYPE_4BYTE_ABGR, 1,1);
+		// developer.develop(bufferedImage.createGraphics(), this, where, box);
 
-  int handedness;
+	}
 
-  int mutProb;
+	void develop(Point where) {
+	}
 
-  int reach;
+	@Override
+	public Genome reproduce(Morph newMorph) {
+		SnailGenome child = new SnailGenome();
+		child.setMorph(newMorph);
+		child.opening.setValue(opening.getValue());
+		child.displacement.setValue(displacement.getValue());
+		child.shape.setValue(shape.getValue());
+		child.translation.setValue(translation.getValue());
+		child.coarsegraininess.setValue(coarsegraininess.getValue());
+		child.reach.setValue(reach.getValue());
+		child.generatingCurve.setValue(generatingCurve.getValue());
+		child.translationGradient.setValue(translationGradient.getValue());
+		child.gradient.setValue(gradient.getValue());
+		child.handedness.setValue(handedness.getValue());
+		newMorph.getMorphConfig().getMutagen().mutate(child);
+		return child;
 
-  double sShape;
+	}
 
-  double translationGradient;
+	@Override
+	public void setBasicType(int i) {
+		// TODO Auto-generated method stub
 
-  double tTranslation;
+	}
 
-  double wOpening;
-
-  public SnailGenome() {
-    
-  }
-
-  /**
-   * DDisplacement is not allowed to be less than zero or greater than 1.
-   * @param summand the quantity to add to DDisplacement.
-   */
-  public void addToDDisplacement(double summand) {
-    dDisplacement += summand;
-    if (dDisplacement < 0)
-      dDisplacement = 0;
-    if (dDisplacement > 1)
-      dDisplacement = 1;
-  }
-
-  public void addToTTranslation(double summand) {
-    tTranslation += summand;
-  }
-
-  @Override
-  public void develop() {
-//    SnailDeveloperImpl developer = new SnailDeveloperImpl();
-    Rect box = new Rect(0,0, 0, 0);
-    Point where = new Point(0,0);
-//    BufferedImage bufferedImage = new BufferedImage(BufferedImage.TYPE_4BYTE_ABGR, 1,1);
-//    developer.develop(bufferedImage.createGraphics(), this, where, box);
-
-  }
-
-  void develop(Point where) {
-  }
-
-  public void flipHandedness() {
-    handedness = -handedness;
-  }
-
-  public int getCoarsegraininess() {
-    return coarsegraininess;
-  }
-
-  public double getdDisplacement() {
-    return dDisplacement;
-  }
-
-  public double getdGradient() {
-    return dGradient;
-  }
-
-  public int getGeneratingCurve() {
-    return generatingCurve;
-  }
-
-  public int getHandedness() {
-    return handedness;
-  }
-
-  public int getMutProb() {
-    return mutProb;
-  }
-
-  public int getReach() {
-    return reach;
-  }
-
-  public double getsShape() {
-    return sShape;
-  }
-
-  public double getTranslationGradient() {
-    return translationGradient;
-  }
-
-  public double gettTranslation() {
-    return tTranslation;
-  }
-
-  public double getwOpening() {
-    return wOpening;
-  }
-  @Override
-  public Genome reproduce(Morph newMorph) {
-    SnailGenome child = new SnailGenome();
-    child.setMorph(newMorph);
-    child.wOpening = this.wOpening;
-    child.dDisplacement = this.dDisplacement;
-    child.sShape = this.sShape;
-    child.tTranslation = this.tTranslation;
-    child.coarsegraininess = this.coarsegraininess;
-    child.reach = this.reach;
-    child.generatingCurve = this.generatingCurve;
-    child.translationGradient = this.translationGradient;
-    child.dGradient = this.dGradient;
-    child.handedness = this.handedness;
-    newMorph.getMorphConfig().getMutagen().mutate(child);
-    return child;
-
-  }
-  @Override
-  public void setBasicType(int i) {
-    // TODO Auto-generated method stub
-
-  }
-  public void setCoarsegraininess(int coarsegraininess) {
-    this.coarsegraininess = coarsegraininess;
-  }
-  public void setdDisplacement(double dDisplacement) {
-    this.dDisplacement = dDisplacement;
-  }
-  public void setdGradient(double dGradient) {
-    this.dGradient = dGradient;
-  }
-  public void setGeneratingCurve(int generatingCurve) {
-    this.generatingCurve = generatingCurve;
-  }
-  public void setHandedness(int handedness) {
-    this.handedness = handedness;
-  }
-  public void setMutProb(int mutProb) {
-    this.mutProb = mutProb;
-  }
-  public void setReach(int reach) {
-    this.reach = reach;
-  }
-
-  public void setsShape(double sShape) {
-    this.sShape = sShape;
-  }
-
-  public void setTranslationGradient(double translationGradient) {
-    this.translationGradient = translationGradient;
-  }
-
-  public void settTranslation(double tTranslation) {
-    this.tTranslation = tTranslation;
-  }
-
-
-  public void setwOpening(double wOpening) {
-    this.wOpening = wOpening;
-  }
+	public Gene[] toGeneArray() {
+		return new Gene[] { opening, displacement, shape, translation, coarsegraininess, reach, generatingCurve,
+				translationGradient, gradient, handedness };
+	}
 
 }

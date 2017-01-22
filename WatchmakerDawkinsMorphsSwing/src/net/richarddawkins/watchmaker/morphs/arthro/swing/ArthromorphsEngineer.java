@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.mutation.ArthromorphAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Concentration;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.Pressure;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
@@ -35,7 +35,6 @@ public class ArthromorphsEngineer extends JFrame {
    */
   private static final long serialVersionUID = 1L;
   protected AppData appData;
-  protected ArthromorphConfig config;
 
   JCheckBox animalTrunkMut = new JCheckBox("Animal Trunk");
   JCheckBox animalLegsMut = new JCheckBox("Animal Legs");
@@ -79,31 +78,31 @@ public class ArthromorphsEngineer extends JFrame {
   public ArthromorphsEngineer(AppData appData) {
     super("Allowed Mutations");
     this.appData = appData;
-    config = (ArthromorphConfig) appData.getMorphConfig();
+    ArthromorphAllowedMutations muts = (ArthromorphAllowedMutations) appData.getMorphConfig().getMutagen().getAllowedMutations();
     this.addComponentListener(new ComponentAdapter() {
       public void componentShown(ComponentEvent e) {
-        animalTrunkMut.setSelected(config.isAnimalTrunkMut());
-        animalLegsMut.setSelected(config.isAnimalLegsMut());
-        animalClawsMut.setSelected(config.isAnimalClawsMut());
-        sectionTrunkMut.setSelected(config.isSectionTrunkMut());
-        sectionLegsMut.setSelected(config.isSectionLegsMut());
-        sectionClawsMut.setSelected(config.isSectionClawsMut());
-        segmentTrunkMut.setSelected(config.isSegmentTrunkMut());
-        segmentLegsMut.setSelected(config.isSegmentLegsMut());
-        segmentClawsMut.setSelected(config.isSegmentClawsMut());
-        legsMut.setSelected(config.isLegsMut());
-        clawsMut.setSelected(config.isClawsMut());
-        focusFirst.setSelected(config.getFocusOfAttention() == Concentration.FirstSegmentOnly);
-        focusLast.setSelected(config.getFocusOfAttention() == Concentration.LastSegmentOnly);
-        focusNone.setSelected(config.getFocusOfAttention() == Concentration.AnySegment);
-        lengthMut.setSelected(config.isWidthMut());
-        heightMut.setSelected(config.isHeightMut());
-        angleMut.setSelected(config.isAngleMut());
-        duplicationMut.setSelected(config.isDuplicationMut());
-        deletionMut.setSelected(config.isDeletionMut());
-        mutPressurePlus.setSelected(config.getMutationPressure() == Pressure.Positive);
-        mutPressureZero.setSelected(config.getMutationPressure() == Pressure.Zero);
-        mutPressureMinus.setSelected(config.getMutationPressure() == Pressure.Negative);
+        animalTrunkMut.setSelected(muts.animalTrunkMut);
+        animalLegsMut.setSelected(muts.animalLegsMut);
+        animalClawsMut.setSelected(muts.animalClawsMut);
+        sectionTrunkMut.setSelected(muts.sectionTrunkMut);
+        sectionLegsMut.setSelected(muts.sectionLegsMut);
+        sectionClawsMut.setSelected(muts.sectionClawsMut);
+        segmentTrunkMut.setSelected(muts.segmentTrunkMut);
+        segmentLegsMut.setSelected(muts.segmentLegsMut);
+        segmentClawsMut.setSelected(muts.segmentClawsMut);
+        legsMut.setSelected(muts.legsMut);
+        clawsMut.setSelected(muts.clawsMut);
+        focusFirst.setSelected(muts.focusOfAttention == Concentration.FirstSegmentOnly);
+        focusLast.setSelected(muts.focusOfAttention == Concentration.LastSegmentOnly);
+        focusNone.setSelected(muts.focusOfAttention == Concentration.AnySegment);
+        lengthMut.setSelected(muts.widthMut);
+        heightMut.setSelected(muts.heightMut);
+        angleMut.setSelected(muts.angleMut);
+        duplicationMut.setSelected(muts.duplicationMut);
+        deletionMut.setSelected(muts.deletionMut);
+        mutPressurePlus.setSelected(muts.mutationPressure == Pressure.Positive);
+        mutPressureZero.setSelected(muts.mutationPressure == Pressure.Zero);
+        mutPressureMinus.setSelected(muts.mutationPressure == Pressure.Negative);
       }
     });
     JPanel panel = new JPanel(new GridBagLayout());
@@ -445,29 +444,31 @@ public class ArthromorphsEngineer extends JFrame {
     }
 
     if (agreeToExit) {
-      config.setAngleMut(angleMut.isSelected());
-      config.setAnimalClawsMut(animalClawsMut.isSelected());
-      config.setAnimalLegsMut(animalLegsMut.isSelected());
-      config.setAnimalTrunkMut(animalTrunkMut.isSelected());
-      config.setClawsMut(clawsMut.isSelected());
-      config.setDeletionMut(deletionMut.isSelected());
-      config.setDuplicationMut(duplicationMut.isSelected());
-      config.setFocusOfAttention(focusFirst.isSelected() ? Concentration.FirstSegmentOnly
+    	ArthromorphAllowedMutations muts = (ArthromorphAllowedMutations) appData.getMorphConfig().getMutagen().getAllowedMutations();
+        
+      muts.angleMut = angleMut.isSelected();
+      muts.animalClawsMut = animalClawsMut.isSelected();
+      muts.animalLegsMut = animalLegsMut.isSelected();
+      muts.animalTrunkMut = animalTrunkMut.isSelected();
+      muts.clawsMut = clawsMut.isSelected();
+      muts.deletionMut = deletionMut.isSelected();
+      muts.duplicationMut = duplicationMut.isSelected();
+      muts.focusOfAttention = focusFirst.isSelected() ? Concentration.FirstSegmentOnly
           : focusLast.isSelected() ? Concentration.LastSegmentOnly
-              : focusNone.isSelected() ? Concentration.AnySegment : null);
-      config.setHeightMut(heightMut.isSelected());
-      config.setLegsMut(legsMut.isSelected());
-      config.setMutationPressure(mutPressurePlus.isSelected() ? Pressure.Positive
+              : focusNone.isSelected() ? Concentration.AnySegment : null;
+      muts.heightMut = heightMut.isSelected();
+      muts.legsMut = legsMut.isSelected();
+      muts.mutationPressure = mutPressurePlus.isSelected() ? Pressure.Positive
           : mutPressureZero.isSelected() ? Pressure.Zero
-              : mutPressureMinus.isSelected() ? Pressure.Negative : null);
-      config.setSectionTrunkMut(sectionTrunkMut.isSelected());
-      config.setSectionLegsMut(sectionLegsMut.isSelected());
-      config.setSectionClawsMut(sectionClawsMut.isSelected());
-      config.setSegmentTrunkMut(segmentTrunkMut.isSelected());
-      config.setSegmentLegsMut(segmentLegsMut.isSelected());
-      config.setSegmentClawsMut(segmentClawsMut.isSelected());
-      config.setTrunkMut(animalTrunkMut.isSelected());
-      config.setWidthMut(lengthMut.isSelected());
+              : mutPressureMinus.isSelected() ? Pressure.Negative : null;
+      muts.sectionTrunkMut = sectionTrunkMut.isSelected();
+      muts.sectionLegsMut = sectionLegsMut.isSelected();
+      muts.sectionClawsMut = sectionClawsMut.isSelected();
+      muts.segmentTrunkMut = segmentTrunkMut.isSelected();
+      muts.segmentLegsMut = segmentLegsMut.isSelected();
+      muts.segmentClawsMut = segmentClawsMut.isSelected();
+      muts.trunkMut = animalTrunkMut.isSelected();
+      muts.widthMut = lengthMut.isSelected();
       this.dispose();
     }
   }

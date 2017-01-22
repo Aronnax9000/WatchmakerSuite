@@ -4,7 +4,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -16,6 +15,7 @@ import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 
 public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements MultiMorphTypeTabbedPanel {
 
@@ -39,6 +39,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 				logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
 				factory.setMorphType(morphType);
 				AppData appData = factory.newAppData();
+				
 				appData.setFrame(this);
 				addAppData(appData);
 			}
@@ -87,7 +88,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		
 		addTab(newAppData.getName(), 
 				tabComponent.getIcon(), 
-				(JPanel) newAppData.getMorphViewsTabbedPane(),
+				(SwingMorphViewsTabbedPanel) newAppData.getMorphViewsTabbedPane(),
 				newAppData.getToolTip());
 		
 		

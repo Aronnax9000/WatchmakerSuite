@@ -28,8 +28,9 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 	public GeneBox getGeneBoxForGene(Gene gene) {
 		if(gene instanceof IntegerGene)
 			return new SwingIntegerGeneBox();
-		else
+		else {
 			return null;
+		}
 	}
 	
 	public void setGeneBoxCount(int geneBoxCount) {
@@ -48,7 +49,7 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 
 	public void setGenome(Genome newGenome) {
 		if(genome == null) {
-			for(Gene gene: genome.toGeneArray()) {
+			for(Gene gene: newGenome.toGeneArray()) {
 					add((SwingGeneBox)getGeneBoxForGene(gene));
 			}
 		}

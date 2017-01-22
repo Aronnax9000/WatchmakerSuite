@@ -1,25 +1,27 @@
-package net.richarddawkins.watchmaker.morphs.arthro.genome;
+package net.richarddawkins.watchmaker.morphs.arthro.genome.mutation;
 
 import static net.richarddawkins.watchmaker.util.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.Mutagen;
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
+import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
+import net.richarddawkins.watchmaker.genome.mutation.SimpleMutagen;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.Atom;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
-public class ArthromorphMutagen implements Mutagen {
+public class ArthromorphMutagen extends SimpleMutagen  {
 
-  private ArthromorphConfig config;
- 
-  
-  public ArthromorphMutagen(MorphConfig config) {
-    this.config = (ArthromorphConfig) config;
-  }
 
-  protected double getFactor() {
+
+  public ArthromorphMutagen(AllowedMutations allowedMutations) {
+		super(allowedMutations);
+	}
+
+protected double getFactor() {
+	  ArthromorphAllowedMutations muts 
+	  = (ArthromorphAllowedMutations) allowedMutations;
     int choose = 0;
-    switch (config.getMutationPressure()) {
+    switch (muts.mutationPressure) {
     case Positive:
       choose = 2 + randInt(2);
       break;
@@ -158,56 +160,57 @@ public class ArthromorphMutagen implements Mutagen {
       // SectionTrunk .. where we want to be
     }
     boolean mutOK = false;
+    ArthromorphAllowedMutations muts = (ArthromorphAllowedMutations) allowedMutations;
     switch (target.kind) {
     case AnimalTrunk:
-      if (config.isAnimalTrunkMut())
+      if (muts.animalTrunkMut)
         mutOK = true;
       break;
     case AnimalJoint:
-      if (config.isAnimalLegsMut())
+      if (muts.animalLegsMut)
         mutOK = true;
       break;
     case AnimalClaw:
-      if (config.isAnimalClawsMut())
+      if (muts.animalClawsMut)
         mutOK = true;
       break;
     case SectionTrunk:
-      if (config.isSectionTrunkMut())
+      if (muts.sectionTrunkMut)
         mutOK = true;
       break;
     case SectionJoint:
-      if (config.isSectionLegsMut())
+      if (muts.sectionLegsMut)
         mutOK = true;
       break;
     case SectionClaw:
-      if (config.isSectionClawsMut())
+      if (muts.sectionClawsMut)
         mutOK = true;
       break;
     case SegmentTrunk:
-      if (config.isSegmentTrunkMut())
+      if (muts.segmentTrunkMut)
         mutOK = true;
       break;
     case SegmentJoint:
-      if (config.isSegmentLegsMut())
+      if (muts.segmentLegsMut)
         mutOK = true;
       break;
     case SegmentClaw:
-      if (config.isSegmentClawsMut())
+      if (muts.segmentClawsMut)
         mutOK = true;
       break;
     case Joint:
-      if (config.isLegsMut())
+      if (muts.legsMut)
         mutOK = true;
       break;
     case Claw:
-      if (config.isClawsMut())
+      if (muts.clawsMut)
         mutOK = true;
       break;
     default:
       mutOK = false;
     }
 
-    switch (config.getFocusOfAttention()) {
+    switch (muts.focusOfAttention) {
     case FirstSegmentOnly:
       if (secondSegmentAtomNo > -1) {
         if (findNthCount < secondSegmentAtomNo) {
@@ -242,7 +245,7 @@ public class ArthromorphMutagen implements Mutagen {
       }
       if (ok) {
         if (change == 4) {
-          if (config.isDuplicationMut()) {
+          if (muts.duplicationMut) {
             if (target.kind == AtomKind.AnimalTrunk)
               targetGenome.setGradient(targetGenome.getGradient() + 1); // Special case, means
                                                                         // GradientFactor
@@ -269,19 +272,19 @@ public class ArthromorphMutagen implements Mutagen {
           double factor = getFactor(); // See table above
           switch (change) {
           case 1:
-            if (config.isHeightMut())
+            if (muts.heightMut)
               target.height *= factor;
             else
               ok = false;
             break;
           case 2:
-            if (config.isWidthMut())
+            if (muts.widthMut)
               target.width *= factor;
             else
               ok = false;
             break;
           case 3:
-            if (config.isAngleMut()) {
+            if (muts.angleMut) {
               target.angle *= factor;
               if (target.kind == AtomKind.SectionTrunk) {
                 target.angle = Math.abs(target.angle); // forbid backward overlaps
@@ -294,7 +297,7 @@ public class ArthromorphMutagen implements Mutagen {
           }
         }
         if (change == 5) {
-          if (config.isDeletionMut()) {
+          if (muts.deletionMut) {
             if (target.kind == AtomKind.AnimalTrunk)
               targetGenome.setGradient(targetGenome.getGradient() - 1);
 
@@ -308,7 +311,7 @@ public class ArthromorphMutagen implements Mutagen {
           }
         }
         if (change == 6 && target.kind != AtomKind.SectionTrunk) {
-          if (config.isAngleMut())
+          if (muts.angleMut)
             target.angle *= -1.0; // reverse an angle
           else
             ok = false;
@@ -320,16 +323,5 @@ public class ArthromorphMutagen implements Mutagen {
     return ok && mutOK;
   }
 
-@Override
-public void setMorphConfig(MorphConfig config) {
-	this.config = (ArthromorphConfig) config;
-	
-}
-
-@Override
-public MorphConfig getMorphConfig() {
-	
-	return config;
-}
 
 }

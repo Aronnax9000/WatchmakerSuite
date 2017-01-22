@@ -1,7 +1,9 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genome;
 
 import java.awt.Graphics2D;
+import java.util.Vector;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.geom.Point;
@@ -278,5 +280,13 @@ public class ArthromorphGenome extends SimpleGenome {
 	public void setWestPole(int westPole) {
 		this.westPole = westPole;
 	}
+
+	@Override
+	public Gene[] toGeneArray() {
+		Vector<Atom> atoms = new Vector<Atom>();
+		animalTrunk.addChildrenToVectorDepthFirst(atoms);
+		return (Atom[]) atoms.toArray();
+	}
+
 
 }

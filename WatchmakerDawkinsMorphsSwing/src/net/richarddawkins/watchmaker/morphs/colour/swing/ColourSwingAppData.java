@@ -4,11 +4,14 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.colour.ColourBiomorphConfig;
 import net.richarddawkins.watchmaker.morphs.colour.genome.swing.SwingColorGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.colour.geom.swing.SwingColourPicDrawer;
+import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class ColourSwingAppData extends SwingAppData {
 	
 	public ColourSwingAppData() {
+		this.setIcon(MorphType.COLOUR_BIOMORPH.getIconFilename());
+		
 		setMenuBuilder(new ColourMenuBuilder(this));
 		setPicDrawer(new SwingColourPicDrawer());
 		config = new ColourBiomorphConfig();

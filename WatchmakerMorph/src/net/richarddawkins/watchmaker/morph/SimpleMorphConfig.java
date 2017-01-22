@@ -5,47 +5,44 @@ import java.beans.PropertyChangeSupport;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
+
 public abstract class SimpleMorphConfig implements MorphConfig {
     
 
     protected Object appData;
-	public Object getAppData() {
-        return appData;
-    }
+	protected int defaultBreedingCols;
+	protected Mutagen mutagen;
+    public Mutagen getMutagen() {
+		return mutagen;
+	}
 
-    public void setAppData(Object appData) {
-        this.appData = appData;
-    }
-    protected int defaultBreedingCols;
+	public void setMutagen(Mutagen mutagen) {
+		this.mutagen = mutagen;
+	}
+
+
+
+
+
 	protected int defaultBreedingRows;
-	protected int geneBoxCount = 0;
+    protected int geneBoxCount = 0;
 	protected JPanel pageStartPanel;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected boolean recordingFossils;
-	
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * addPropertyChangeListener(java.beans. PropertyChangeListener)
-	 */
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.addPropertyChangeListener(listener);
 	}
 
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * createMorph(int)
-	 */
 	@Override
 	public abstract Morph createMorph(int type);
+	
 
-
+	public Object getAppData() {
+        return appData;
+    }
 
 
 	public int getDefaultBreedingCols() {
@@ -53,10 +50,11 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 
+
+
 	public int getDefaultBreedingRows() {
 		return defaultBreedingRows;
 	}
-
 
 
 	public int getGeneBoxCount() {
@@ -64,28 +62,24 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * isRecordingFossils()
-	 */
+
+
 	@Override
 	public boolean isRecordingFossils() {
 		return recordingFossils;
 	}
 
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.watchmaker.morphs.impl.MorphConfig#
-	 * removePropertyChangeListener(java.beans. PropertyChangeListener)
-	 */
+
 	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.removePropertyChangeListener(listener);
 	}
+
+
+	public void setAppData(Object appData) {
+        this.appData = appData;
+    }
 
 
 	public void setDefaultBreedingCols(int defaultBreedingCols) {
