@@ -30,7 +30,7 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 
 	public BoxyMorphViewPanel(AppData appData) {
 		super(appData);
-		gd = new SwingMorphDrawer(appData.getPicDrawer());
+		gd = new SwingMorphDrawer(appData.getPhenotypeDrawer());
 	}
 
     public void paintComponent(Graphics g) {

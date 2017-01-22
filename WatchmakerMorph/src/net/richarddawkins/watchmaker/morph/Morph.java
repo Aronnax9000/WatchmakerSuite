@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morph;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Phenotype;
 
 public interface Morph {
 	
@@ -11,8 +11,8 @@ public interface Morph {
 	public void setGenome(Genome genome);
 	public Genome getGenome();
 
-	public void setPic(Pic pic);
-	public Pic getPic();
+	public void setPic(Phenotype pic);
+	public Phenotype getPic();
 
 	public Morph reproduce();
     public MorphPedigree getPedigree();

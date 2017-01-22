@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.mono.geom;
 
-import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 
 public class MonoPic extends BiomorphPic {
     public void picLine(int x, int y, int xnew, int ynew, int thick) {

@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.mono.geom;
 
-import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 
 public class MonoLin extends Lin implements Cloneable {
     public Integer thickness = 1; // 1..8

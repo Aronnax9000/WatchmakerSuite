@@ -16,7 +16,7 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.swing.breed.BreedingWatchmakerPanel;
 import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
-import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
+
 public abstract class SwingAppData implements AppData {
 
 	protected MorphConfig config;
@@ -27,7 +27,7 @@ public abstract class SwingAppData implements AppData {
 	protected String name;
     protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected boolean showBoundingBoxes = true;
-	protected SwingPicDrawer swingPicDrawer;
+	protected PhenotypeDrawer phenotypeDrawer;
 	protected String toolTip;
 	private PhenotypeDrawer picDrawer;
 
@@ -89,7 +89,7 @@ public abstract class SwingAppData implements AppData {
 	}
 	
 	@Override
-	public PhenotypeDrawer getPicDrawer() {
+	public PhenotypeDrawer getPhenotypeDrawer() {
 		return picDrawer;
 	}
 	
@@ -153,10 +153,4 @@ public abstract class SwingAppData implements AppData {
 	public void setToolTip(String toolTip) {
 		this.toolTip = toolTip;
 	}
-
-
-
-
-
-	
 }

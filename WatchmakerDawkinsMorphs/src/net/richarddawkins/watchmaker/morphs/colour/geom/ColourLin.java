@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.colour.geom;
 
-import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.bio.geom.QuickDrawColor;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;

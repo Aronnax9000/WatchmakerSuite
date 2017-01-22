@@ -4,10 +4,10 @@ import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import net.richarddawkins.watchmaker.geom.Lin;
-import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 import net.richarddawkins.watchmaker.swing.images.ClassicImage;

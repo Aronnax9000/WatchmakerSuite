@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.QuickDrawColor;
 
 public class ArthromorphPic extends Pic  {

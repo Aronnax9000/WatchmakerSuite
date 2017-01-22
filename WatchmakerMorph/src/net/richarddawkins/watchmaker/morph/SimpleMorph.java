@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.geom.Phenotype;
 import net.richarddawkins.watchmaker.geom.Rect;
 
 public abstract class SimpleMorph implements Morph {
@@ -17,11 +17,11 @@ public abstract class SimpleMorph implements Morph {
 
     protected Object image;
 
-    protected Pic myPic;
+    protected Phenotype myPic;
 
     protected final MorphPedigree pedigree = new MorphPedigree(this);
 
-    protected Pic pic;
+    protected Phenotype pic;
 
     protected Rect pRect;
 
@@ -45,7 +45,7 @@ public abstract class SimpleMorph implements Morph {
         return pedigree;
     }
 
-    public Pic getPic() {
+    public Phenotype getPic() {
         return pic;
     }
 
@@ -76,7 +76,7 @@ public abstract class SimpleMorph implements Morph {
         this.config = config;
     }
 
-    public void setPic(Pic pic) {
+    public void setPic(Phenotype pic) {
         this.pic = pic;
     }
 

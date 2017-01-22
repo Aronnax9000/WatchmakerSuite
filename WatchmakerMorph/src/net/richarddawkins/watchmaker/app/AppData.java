@@ -21,7 +21,7 @@ public interface AppData {
 	public Morph getMorphOfTheHour();
 	public MorphViewsTabbedPanel getMorphViewsTabbedPane();
 	public String getName();
-	public PhenotypeDrawer getPicDrawer();
+	public PhenotypeDrawer getPhenotypeDrawer();
 	public String getToolTip();
     public boolean isShowBoundingBoxes();
     public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);

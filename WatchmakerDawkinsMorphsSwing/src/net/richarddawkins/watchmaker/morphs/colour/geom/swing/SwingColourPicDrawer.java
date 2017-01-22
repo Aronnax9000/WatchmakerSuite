@@ -5,12 +5,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import net.richarddawkins.watchmaker.geom.Lin;
-import net.richarddawkins.watchmaker.geom.Pic;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
-import net.richarddawkins.watchmaker.swing.geom.SwingPicDrawer;
+import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
 
 public class SwingColourPicDrawer extends SwingPicDrawer {
 

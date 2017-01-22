@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.morphs.colour.geom;
 
 import java.awt.Color;
 
-import net.richarddawkins.watchmaker.geom.Lin;
-import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
+import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 

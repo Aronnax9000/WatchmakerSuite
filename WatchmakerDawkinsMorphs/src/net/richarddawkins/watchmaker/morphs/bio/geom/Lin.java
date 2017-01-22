@@ -1,4 +1,7 @@
-package net.richarddawkins.watchmaker.geom;
+package net.richarddawkins.watchmaker.morphs.bio.geom;
+
+import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 
 /**
  * Represents a drawing primitive used to draw a biomorph, capable of 

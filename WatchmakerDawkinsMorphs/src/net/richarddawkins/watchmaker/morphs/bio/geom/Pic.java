@@ -1,7 +1,9 @@
-package net.richarddawkins.watchmaker.geom;
+package net.richarddawkins.watchmaker.morphs.bio.geom;
 
 import java.util.Vector;
 
+import net.richarddawkins.watchmaker.geom.Phenotype;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 /**
