@@ -54,14 +54,7 @@ import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 public class MonochromeMorph extends SimpleMorph {
 	
 
-	@Override
-	public Genome getGenome() {
-		return genome;
-	}
-	@Override
-	public void setGenome(Genome genome) {
-		this.genome = (Genome) genome;
-	}
+
 	MonochromeMorph(MorphConfig config) {
 		super(config);
 		Genome genome = new MonochromeGenome();
@@ -78,7 +71,6 @@ public class MonochromeMorph extends SimpleMorph {
 		MonochromeMorph child = new MonochromeMorph(config);
 		Genome childGenome = genome.reproduce((Morph) child);
         child.setGenome(childGenome);
-        childGenome.develop();
 		child.getPedigree().parent = this;
 		
 		return child;

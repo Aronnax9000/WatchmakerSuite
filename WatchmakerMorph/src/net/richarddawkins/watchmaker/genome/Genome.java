@@ -14,7 +14,7 @@ public interface Genome extends PropertyChangeListener {
 	 * Attempt to mutate the genome represented by this Person.
 	 */
 
-	void develop();
+
 	Gene[] toGeneArray();
 	Gene getGene(int geneBoxIndex);
 	void addPropertyChangeListener(PropertyChangeListener listener);

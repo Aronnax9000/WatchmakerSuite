@@ -18,10 +18,8 @@ public abstract class BiomorphPic extends Pic {
 
 	public PicStyleType picStyle = PicStyleType.FF;
     
-    public void addPicLines(Lin lin) {
+    public void addPicLines(BiomorphGenome genome, Lin lin) {
         addActualPicLine(lin.clone(), picStyle, Compass.NorthSouth);
-
-        BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
         if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
             if (genome.getCompletenessGene().getValue() == CompletenessType.Single) {
                 addActualPicLine(lin.clone(), PicStyleType.RUD, Compass.EastWest);

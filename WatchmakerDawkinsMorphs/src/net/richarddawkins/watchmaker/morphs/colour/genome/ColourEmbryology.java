@@ -91,7 +91,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 	    pic.setThickness(thicknessGene.getValue());
 	    pic.setBackgroundColor(backColorGene.getValue());
 	    
-	    pic.zeroPic();
+	    pic.zero();
 		// int x;
 		// int y;
 		int upExtent;
@@ -111,7 +111,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		centre = (Point) here.clone();
 		int order = plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
 				gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
-		pic.zeroPic();
+		pic.zero();
 		if (segNoGene.getValue() < 1) {
 			segNoGene.setValue(1);
 		}

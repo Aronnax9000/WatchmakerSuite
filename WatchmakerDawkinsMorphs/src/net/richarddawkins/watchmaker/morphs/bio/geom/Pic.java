@@ -75,8 +75,9 @@ public abstract class Pic implements Phenotype {
         lines.add(lin);
     }
     
-    public void zeroPic() {
+    public void zero() {
         lines.clear();
+        margin.zero();
     }
 
 }

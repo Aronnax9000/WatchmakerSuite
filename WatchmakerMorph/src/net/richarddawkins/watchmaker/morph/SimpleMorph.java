@@ -62,6 +62,7 @@ public abstract class SimpleMorph implements Morph {
     @Override
     public void setGenome(Genome genome) {
         this.genome = genome;
+        config.getEmbryology().develop(genome, getPic());
     }
 
     public void setImage(Image image) {

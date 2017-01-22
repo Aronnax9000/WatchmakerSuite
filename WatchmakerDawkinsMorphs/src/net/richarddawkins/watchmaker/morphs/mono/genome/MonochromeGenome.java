@@ -13,7 +13,6 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
-import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
@@ -52,13 +51,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
     }
 
 
-    @Override
-    public void develop() {
-        MonoPic pic = new MonoPic();
-        morph.setPic(pic);
-        morph.getMorphConfig().getEmbryology().develop(this, pic);
-
-    }
 
     public void insect() {
         makeGenes(Biomorph.TRICKLE, Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, Biomorph.TRICKLE, -Biomorph.TRICKLE,

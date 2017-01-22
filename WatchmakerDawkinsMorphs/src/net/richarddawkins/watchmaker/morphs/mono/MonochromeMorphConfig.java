@@ -26,6 +26,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	@Override
 	public Morph createMorph(int type) {
 		return (Morph) new MonochromeMorph(this, type);
+		
 	}
 
 

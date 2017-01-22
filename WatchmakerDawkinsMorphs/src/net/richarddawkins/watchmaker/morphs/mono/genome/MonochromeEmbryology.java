@@ -35,7 +35,7 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
             thick = 1 + gene9.getValue() - lgth;
         else
             thick = 1;
-        pic.picLine(x, y, xnew, ynew, thick * Globals.myPenSize);
+        pic.picLine(genome, x, y, xnew, ynew, thick * Globals.myPenSize);
         if (lgth > 1) {
             if (oddOne) {
                 tree(genome, pic, xnew, ynew, lgth - 1, dir + 1, dx, dy, order, oddOne);
@@ -213,7 +213,7 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
     	IntegerGradientGene segDistGene = genome.getSegDistGene();
     	IntegerGene trickleGene = genome.getTrickleGene();
 
-        pic.zeroPic();
+        pic.zero();
         pic.margin.zeroRect();
         int order = plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
                 gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
@@ -253,7 +253,7 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
                     thick = gene9.getValue();
                 else
                     thick = 1;
-                pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick);
+                pic.picLine(genome, oldHere.h, oldHere.v, here.h, here.v, thick);
                 for (int j = 0; j < 8; j++) {
                     if (dGene[j] == SwellType.Swell)
                         running[j] += trickleGene.getValue();

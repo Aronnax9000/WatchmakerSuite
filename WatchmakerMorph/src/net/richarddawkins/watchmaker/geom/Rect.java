@@ -32,6 +32,12 @@ public class Rect {
   public Integer top = 0;
   public Integer bottom = 0;
 
+  public void zero() {
+	  left = 0;
+	  right = 0;
+	  top = 0;
+	  bottom = 0;
+  }
  
   /**
    *  Push the Rect's left boundary leftward if necessary. 
