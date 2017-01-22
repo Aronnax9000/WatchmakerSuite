@@ -25,7 +25,8 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 
 	private static final long serialVersionUID = -9105080336982806166L;
 
-	public SwingMultiMorphTypeTabbedPanel() {
+	public SwingMultiMorphTypeTabbedPanel(WatchmakerMenuBar menuBar) {
+		this.menuBar = menuBar;
 		DictionaryService dictionaryService = DictionaryService.getInstance();
 		System.out.println(DictionaryDemo.lookup(dictionaryService, "book"));
 		System.out.println(DictionaryDemo.lookup(dictionaryService, "editor"));

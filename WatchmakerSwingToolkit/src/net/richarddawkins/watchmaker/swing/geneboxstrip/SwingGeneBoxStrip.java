@@ -11,7 +11,7 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 
 public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
@@ -50,7 +50,7 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 	public void setGenome(Genome newGenome) {
 		if(genome == null) {
 			for(Gene gene: newGenome.toGeneArray()) {
-					add((SwingTextGeneBox)getGeneBoxForGene(gene));
+					add((SwingGeneBox)getGeneBoxForGene(gene));
 			}
 		}
 		this.genome = newGenome;

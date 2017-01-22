@@ -45,15 +45,15 @@ public class ColourBiomorph extends SimpleMorph {
 
 	public ColourBiomorph(MorphConfig config) {
 		super(config);
-		pic = new ColourPic();
-		Genome genome = new ColourGenome();
-		genome.setMorph(this);
-		setGenome(genome);
+		this.pic = new ColourPic();
 	}
 
 	public ColourBiomorph(MorphConfig config, int basicType) {
 		this(config);
+		Genome genome = new ColourGenome();
 		genome.setBasicType(basicType);
+		genome.setMorph(this);
+		setGenome(genome);
 	}
 
 	@Override

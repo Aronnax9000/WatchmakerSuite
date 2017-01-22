@@ -26,8 +26,7 @@ public class WatchmakerApplet extends JApplet {
                 	WatchmakerMenuBar menuBar = new SwingWatchmakerMenuBar();
                 	setJMenuBar((JMenuBar)menuBar);
             		getContentPane().setLayout(new BorderLayout());
-            		morphTypePane = new SwingMultiMorphTypeTabbedPanel();
-            		morphTypePane.setMenuBar(menuBar);
+            		morphTypePane = new SwingMultiMorphTypeTabbedPanel(menuBar);
             		getContentPane().add(morphTypePane);                }
             });
         } catch (Exception e) {
