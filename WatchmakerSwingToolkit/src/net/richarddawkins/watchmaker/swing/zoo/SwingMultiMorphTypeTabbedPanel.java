@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.wtp;
+package net.richarddawkins.watchmaker.swing.zoo;
 
 import java.util.Vector;
 import java.util.logging.Level;
@@ -83,7 +83,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 
 
 		
-		SwingWatchmakerTabComponent tabComponent = new SwingWatchmakerTabComponent();
+		SwingMultiMorphTypeTabComponent tabComponent = new SwingMultiMorphTypeTabComponent();
 		tabComponent.setName(newAppData.getName());
 		tabComponent.setIconFromFilename(newAppData.getIcon());
 		

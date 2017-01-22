@@ -8,8 +8,8 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.swing.breed.BoxyMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
+import net.richarddawkins.watchmaker.swing.morphview.BoxyMorphViewPanel;
 
 public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChangeListener {
 	EngineeringWatchmakerPanel engineeringWatchmakerPanel;

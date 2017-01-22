@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.breed;
+package net.richarddawkins.watchmaker.morph.draw;
 
 import java.util.Iterator;
 import java.util.Vector;

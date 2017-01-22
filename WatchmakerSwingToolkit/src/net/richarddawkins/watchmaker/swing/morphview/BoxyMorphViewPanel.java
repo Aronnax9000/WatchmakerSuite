@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.breed;
+package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
@@ -39,7 +40,7 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
         updateModel(size);
         if(showBoxes) 
         	boxesDrawer.draw((Graphics2D)g, size);
-        for(BoxedMorph boxedMorph: boxedMorphVector.boxedMorphs) {
+        for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
         	gd.setSize(boxesDrawer.getBoxSize(size));
         	gd.draw(boxedMorph, (Graphics2D) g);
         }

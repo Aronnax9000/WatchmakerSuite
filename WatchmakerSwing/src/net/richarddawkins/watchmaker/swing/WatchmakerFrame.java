@@ -7,7 +7,7 @@ import javax.swing.JMenuBar;
 
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuBar;
-import net.richarddawkins.watchmaker.swing.wtp.SwingMultiMorphTypeTabbedPanel;
+import net.richarddawkins.watchmaker.swing.zoo.SwingMultiMorphTypeTabbedPanel;
 
 public class WatchmakerFrame extends JFrame {
     

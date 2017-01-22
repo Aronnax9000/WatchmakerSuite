@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.breed;
+package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.LayoutManager;
 

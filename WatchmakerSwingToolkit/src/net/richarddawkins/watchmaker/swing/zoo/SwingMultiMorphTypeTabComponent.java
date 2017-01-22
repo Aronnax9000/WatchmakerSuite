@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.wtp;
+package net.richarddawkins.watchmaker.swing.zoo;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,7 +15,7 @@ import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.app.WatchmakerTabComponent;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
-public class SwingWatchmakerTabComponent extends JPanel implements WatchmakerTabComponent {
+public class SwingMultiMorphTypeTabComponent extends JPanel implements WatchmakerTabComponent {
 	/**
 	 * 
 	 */
@@ -41,7 +41,7 @@ public class SwingWatchmakerTabComponent extends JPanel implements WatchmakerTab
 	
 	JButton btnClose = null;
 	JLabel lblIcon = null;
-	public SwingWatchmakerTabComponent() {
+	public SwingMultiMorphTypeTabComponent() {
 		setLayout(new GridBagLayout());
 		setOpaque(false);
 		lblTitle = new JLabel();

@@ -17,6 +17,7 @@ import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.BoxyMorphViewPanel;
 
 public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener {
 
