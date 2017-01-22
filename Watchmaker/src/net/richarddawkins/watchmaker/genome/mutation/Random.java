@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.util;
+package net.richarddawkins.watchmaker.genome.mutation;
 
 public class Random {
 	public static final int randInt(int max) {

@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome.mutation;
 
-import static net.richarddawkins.watchmaker.util.Random.randInt;
+import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.SimpleMutagen;

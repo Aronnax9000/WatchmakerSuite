@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome;
 
-import static net.richarddawkins.watchmaker.util.Random.randInt;
+import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
