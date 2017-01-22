@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morphs.mono;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeEmbryology;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeMutagen;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
@@ -15,6 +16,8 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 	public MonochromeMorphConfig() {
 		mutagen = new MonochromeMutagen(new MonochromeAllowedMutations());
+		embryology = new MonochromeEmbryology();
+		
 		geneBoxCount = 16;
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);

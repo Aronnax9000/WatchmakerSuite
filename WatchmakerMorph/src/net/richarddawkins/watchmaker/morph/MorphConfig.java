@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
 
+import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 
 public interface MorphConfig {
@@ -34,6 +35,8 @@ public interface MorphConfig {
 	void setDefaultBreedingRows(int defaultBreedingRows);
 
 	void setDefaultBreedingCols(int defaultBreedingCols);
+
+	Embryology getEmbryology();
 
 
 }

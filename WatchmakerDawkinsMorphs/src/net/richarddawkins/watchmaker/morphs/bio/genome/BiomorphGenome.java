@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.bio.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
@@ -11,8 +10,44 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 public abstract class BiomorphGenome extends SimpleGenome {
 	
 	protected int gene9Max = 8;
-	protected boolean oddOne;
-	protected int order;
+
+	public Gene12345678 getGene1() {
+		return gene1;
+	}
+
+	public Gene12345678 getGene2() {
+		return gene2;
+	}
+
+	public Gene12345678 getGene3() {
+		return gene3;
+	}
+
+	public Gene12345678 getGene4() {
+		return gene4;
+	}
+
+	public Gene12345678 getGene5() {
+		return gene5;
+	}
+
+	public Gene12345678 getGene6() {
+		return gene6;
+	}
+
+	public Gene12345678 getGene7() {
+		return gene7;
+	}
+
+	public Gene12345678 getGene8() {
+		return gene8;
+	}
+
+	public Gene9 getGene9() {
+		return gene9;
+	}
+
+
 	protected final Gene12345678 gene1 = new Gene12345678(this, "Gene 1");
 	protected final Gene12345678 gene2 = new Gene12345678(this, "Gene 2");
 	protected final Gene12345678 gene3 = new Gene12345678(this, "Gene 3");
@@ -69,11 +104,11 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		return spokesGene;
 	}
 
-	public IntegerGene getTrickleGene() {
+	public IntegerGeneZeroOrGreater getTrickleGene() {
 		return trickleGene;
 	}
 
-	public IntegerGene getMutSizeGene() {
+	public IntegerGeneOneOrGreater getMutSizeGene() {
 		return mutSizeGene;
 	}
 

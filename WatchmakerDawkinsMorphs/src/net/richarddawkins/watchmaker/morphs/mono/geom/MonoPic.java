@@ -2,15 +2,9 @@ package net.richarddawkins.watchmaker.morphs.mono.geom;
 
 import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
 
 public class MonoPic extends BiomorphPic {
-    public MonoPic(Morph morph) {
-        super(morph);
-    }
-
-    
     public void picLine(int x, int y, int xnew, int ynew, int thick) {
         if (thick > 8) {
             thick = 8;
@@ -27,12 +21,4 @@ public class MonoPic extends BiomorphPic {
             addPicLines(lin);
         }
     }
-
-
-
-
-
-
-
-    
 }

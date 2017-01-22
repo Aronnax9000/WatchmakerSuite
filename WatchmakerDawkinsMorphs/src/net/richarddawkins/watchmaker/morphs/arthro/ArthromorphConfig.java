@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.arthro;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.mutation.ArthromorphAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.mutation.ArthromorphMutagen;
 
@@ -14,7 +15,7 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	public ArthromorphConfig() {
 		super();
 		mutagen = new ArthromorphMutagen(new ArthromorphAllowedMutations());
-		
+		embryology = new ArthromorphEmbryology();
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);
 	}

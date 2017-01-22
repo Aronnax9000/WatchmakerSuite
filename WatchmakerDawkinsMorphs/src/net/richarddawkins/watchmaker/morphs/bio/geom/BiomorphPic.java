@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.morphs.bio.geom;
 import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
@@ -11,48 +10,16 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 public abstract class BiomorphPic extends Pic {
     
     
-    public BiomorphPic(Morph morph) {
-        super(morph);
-        calculatePicStyleType();
+    public enum Compass {
+        EastWest, NorthSouth
     }
-    
-    protected PicStyleType picStyle;
-    
-    public void calculatePicStyleType() {
-        BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
-        picStyle = PicStyleType.FF;
-        switch (genome.getCompletenessGene().getValue()) {
-        case Single: {
-            switch (genome.getSpokesGene().getValue()) {
-            case NorthOnly:
-                picStyle = PicStyleType.LF;
-                break;
-            case NSouth:
-                picStyle = PicStyleType.LUD;
-                break;
-            case Radial:
-                picStyle = PicStyleType.LUD;
-                break;
-            }
-            break;
-        }
-        case Double:
-            switch (genome.getSpokesGene().getValue()) {
-            case NorthOnly: {
-                picStyle = PicStyleType.FF;
-                break;
-            }
-            case NSouth: {
-                picStyle = PicStyleType.FUD;
-                break;
-            }
-            case Radial: {
-                picStyle = PicStyleType.FUD;
-                break;
-            }
-            }
-        }
+
+    public enum PicStyleType {
+        FF, FSW, FUD, LF, LSW, LUD, RF, RSW, RUD
     }
+
+	public PicStyleType picStyle = PicStyleType.FF;
+    
     public void addPicLines(Lin lin) {
         addActualPicLine(lin.clone(), picStyle, Compass.NorthSouth);
 

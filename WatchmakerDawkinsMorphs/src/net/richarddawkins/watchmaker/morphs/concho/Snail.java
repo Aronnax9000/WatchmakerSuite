@@ -36,7 +36,7 @@ public class Snail extends SimpleMorph {
         Genome genome = new SnailGenome();
         genome.setMorph(this);
         setGenome(genome);
-        pic = new SnailPic(this);
+        pic = new SnailPic();
     }
 
     public Snail(MorphConfig config, int basicType) {

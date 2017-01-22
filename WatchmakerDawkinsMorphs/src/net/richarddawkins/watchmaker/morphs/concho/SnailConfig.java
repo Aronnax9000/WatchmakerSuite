@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailAllowedMutations;
+import net.richarddawkins.watchmaker.morphs.concho.genome.SnailEmbryology;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailMutagen;
 
 public class SnailConfig extends SimpleMorphConfig {
@@ -38,7 +39,8 @@ public class SnailConfig extends SimpleMorphConfig {
 
 	public SnailConfig() {
 		mutagen = new SnailMutagen(new SnailAllowedMutations());
-
+		embryology = new SnailEmbryology();
+		
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);
 	}

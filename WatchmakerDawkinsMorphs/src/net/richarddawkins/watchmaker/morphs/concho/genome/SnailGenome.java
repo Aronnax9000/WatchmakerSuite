@@ -5,7 +5,6 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 /**
@@ -37,9 +36,9 @@ public class SnailGenome extends SimpleGenome implements Cloneable {
 	@Override
 	public void develop() {
 		// SnailDeveloperImpl developer = new SnailDeveloperImpl();
-		Rect box = new Rect(0, 0, 0, 0);
-		Point where = new Point(0, 0);
-		// BufferedImage bufferedImage = new
+//		Rect box = new Rect(0, 0, 0, 0);
+//		Point where = new Point(0, 0);
+//		// BufferedImage bufferedImage = new
 		// BufferedImage(BufferedImage.TYPE_4BYTE_ABGR, 1,1);
 		// developer.develop(bufferedImage.createGraphics(), this, where, box);
 

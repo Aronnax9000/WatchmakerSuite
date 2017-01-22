@@ -8,8 +8,6 @@ import net.richarddawkins.watchmaker.geom.Lin;
 import net.richarddawkins.watchmaker.geom.Pic;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 import net.richarddawkins.watchmaker.swing.images.ClassicImage;
@@ -296,9 +294,7 @@ public class SnailDeveloperImpl {
 				} while (m >= 0);
 			}
 		};
-		Morph theMorph = theShell.getMorph();
-		MorphConfig theConfig = theMorph.getMorphConfig();
-
+		
 		// myPic.zeroPic(where);
 		if (zeroMargin) {
 			margin.left = where.h;

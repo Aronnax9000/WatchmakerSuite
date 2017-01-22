@@ -9,5 +9,5 @@ public interface Embryology {
 	 * @param genome
 	 * @param pic
 	 */
-	void develop(Genome genome, Pic pic);
+	public void develop(Genome genome, Pic pic);
 }

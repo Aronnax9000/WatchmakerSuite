@@ -5,12 +5,25 @@ import java.beans.PropertyChangeSupport;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
     
+	protected Embryology embryology;	
 
-    protected Object appData;
+    public Embryology getEmbryology() {
+		return embryology;
+	}
+	public void setEmbryology(Embryology embryology) {
+		this.embryology = embryology;
+	}
+
+
+
+
+
+	protected Object appData;
 	protected int defaultBreedingCols;
 	protected int defaultBreedingRows;
     protected int geneBoxCount = 0;

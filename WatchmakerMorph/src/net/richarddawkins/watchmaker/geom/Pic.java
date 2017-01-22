@@ -55,14 +55,6 @@ public abstract class Pic {
     public Pic(Morph morph) {
         this.morph = morph;
     }
-    
-    public enum Compass {
-        EastWest, NorthSouth
-    }
-
-    public enum PicStyleType {
-        FF, FSW, FUD, LF, LSW, LUD, RF, RSW, RUD
-    }
 
     /**
      * PICSIZEMAX is 4 * 4095, which is 4 times the original (Pascal) value, since the
@@ -75,7 +67,6 @@ public abstract class Pic {
     public Rect margin = new Rect();
 
     public Morph morph;
-
     public Pic() {
         super();
     }
@@ -87,7 +78,6 @@ public abstract class Pic {
     }
 
     public void zeroPic() {
-
         lines.clear();
     }
 
