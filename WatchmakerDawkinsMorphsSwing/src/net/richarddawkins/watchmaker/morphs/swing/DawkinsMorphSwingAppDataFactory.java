@@ -4,7 +4,6 @@ import java.util.Vector;
 
 import javax.swing.Icon;
 
-import dictionary.spi.Dictionary;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
 import net.richarddawkins.watchmaker.morphs.colour.swing.ColourSwingAppData;
@@ -13,7 +12,7 @@ import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 
-public class DawkinsMorphSwingAppDataFactory implements AppDataFactory, Dictionary {
+public class DawkinsMorphSwingAppDataFactory implements AppDataFactory {
 
 	@Override
 	public Vector<String> getMorphTypes() {
@@ -120,10 +119,5 @@ public class DawkinsMorphSwingAppDataFactory implements AppDataFactory, Dictiona
 		return swingAppData;
 	}
 
-	@Override
-	public String getDefinition(String word) {
-
-		return "Hi From Dawkins";
-	}
 
 }

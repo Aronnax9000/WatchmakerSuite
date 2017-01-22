@@ -8,8 +8,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import dictionary.DictionaryDemo;
-import dictionarya.DictionaryService;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
@@ -27,12 +25,6 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 
 	public SwingMultiMorphTypeTabbedPanel(WatchmakerMenuBar menuBar) {
 		this.menuBar = menuBar;
-		DictionaryService dictionaryService = DictionaryService.getInstance();
-		System.out.println(DictionaryDemo.lookup(dictionaryService, "book"));
-		System.out.println(DictionaryDemo.lookup(dictionaryService, "editor"));
-		System.out.println(DictionaryDemo.lookup(dictionaryService, "xml"));
-		System.out.println(DictionaryDemo.lookup(dictionaryService, "REST"));
-		System.out.println(DictionaryDemo.lookup(dictionaryService, "wugga"));
 		AppDataFactoryService service = AppDataFactoryService.getInstance();
 		AppDataFactory factory = service.getFactory();
 		for (String morphType : factory.getMorphTypes()) {
