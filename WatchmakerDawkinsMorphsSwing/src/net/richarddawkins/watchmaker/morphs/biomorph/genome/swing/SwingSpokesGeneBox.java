@@ -8,9 +8,9 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
-public class SwingSpokesGeneBox extends SwingGeneBox implements SpokesGeneBox {
+public class SwingSpokesGeneBox extends SwingTextGeneBox implements SpokesGeneBox {
 
 	private static final long serialVersionUID = -1299862384921350925L;
 

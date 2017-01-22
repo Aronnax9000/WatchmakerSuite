@@ -6,9 +6,9 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.concho.genebox.DoubleGeneBox;
 import net.richarddawkins.watchmaker.morphs.concho.genome.DoubleGene;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
-public class SwingDoubleGeneBox extends SwingGeneBox implements DoubleGeneBox {
+public class SwingDoubleGeneBox extends SwingTextGeneBox implements DoubleGeneBox {
 	/**
 	 * 
 	 */

@@ -12,11 +12,6 @@ import net.richarddawkins.watchmaker.genome.Gene;
 
 abstract public class SwingGeneBox extends JPanel implements GeneBox {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	protected JLabel valueLabel = new JLabel("X");
 	
 	public void setText(String newValue) {
@@ -24,41 +19,18 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 		repaint();
 	}
 	
-	/**
-	 * Creates a GeneBoxMouseMotionAdapter and adds it to the JPanel's mouse
-	 * motion listener collection. The GeneBoxMouseMotionAdapter changes
-	 * the cursor to the correct icon depending on the type of the gene box
-	 * and the position of the mouse. It emits no events of its own.
-	 * 
-	 * Creates a GeneBoxMouseAdapter and adds it to the JPanel's mouse listener
-	 * collection. The GeneBoxMouseAdapter emits GeneManipulationEvents to interested
-	 * parties in response to mouse click events. The gene is added to the
-	 * mouse adapter's GeneManipulationListener collection, so that GeneManipulation
-	 * Events will be routed to the interested gene.
-	 * @param gene
-	 * @param geneBoxType
-	 */
 	public SwingGeneBox() {
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		this.setLayout(new BorderLayout());
-		add(valueLabel, BorderLayout.CENTER);
 	}
 	
-	public void setEngineeringMode(GeneBoxType geneBoxType) {
-		GeneBoxMouseMotionAdapter mouseMotionAdapter = new GeneBoxMouseMotionAdapter(geneBoxType);
-		this.addMouseMotionListener(mouseMotionAdapter);
-		geneBoxMouseAdapter = new GeneBoxMouseAdapter();
-		this.addMouseListener(geneBoxMouseAdapter);
-	}
-
+	private static final long serialVersionUID = 1L;
 	protected Gene gene;
 	protected GeneBoxMouseAdapter geneBoxMouseAdapter = null; 
-
 	@Override
 	public Gene getGene() {
 		return gene;
 	}
-
 
 	@Override
 	public void setGene(Gene newValue) {
@@ -76,5 +48,12 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 				geneBoxMouseAdapter.addGeneManipulationListener(gene);
 			}
 		}
+	}
+	
+	public void setEngineeringMode(GeneBoxType geneBoxType) {
+		GeneBoxMouseMotionAdapter mouseMotionAdapter = new GeneBoxMouseMotionAdapter(geneBoxType);
+		this.addMouseMotionListener(mouseMotionAdapter);
+		geneBoxMouseAdapter = new GeneBoxMouseAdapter();
+		this.addMouseListener(geneBoxMouseAdapter);
 	}
 }

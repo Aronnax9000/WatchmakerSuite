@@ -6,9 +6,9 @@ import net.richarddawkins.watchmaker.morphs.bio.genebox.CompletenessGeneBox;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
-public class SwingCompletenessGeneBox extends SwingGeneBox implements CompletenessGeneBox {
+public class SwingCompletenessGeneBox extends SwingTextGeneBox implements CompletenessGeneBox {
 
 	/**
 	 * 

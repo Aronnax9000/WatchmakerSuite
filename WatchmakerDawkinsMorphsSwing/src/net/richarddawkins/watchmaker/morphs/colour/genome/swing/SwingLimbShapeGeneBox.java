@@ -6,9 +6,9 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
-public class SwingLimbShapeGeneBox extends SwingGeneBox {
+public class SwingLimbShapeGeneBox extends SwingTextGeneBox {
 
 	private static final long serialVersionUID = 7130996645391902520L;
 

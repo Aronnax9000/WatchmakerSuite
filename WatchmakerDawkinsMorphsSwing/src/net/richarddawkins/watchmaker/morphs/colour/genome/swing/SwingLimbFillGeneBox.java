@@ -6,9 +6,9 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
-public class SwingLimbFillGeneBox extends SwingGeneBox {
+public class SwingLimbFillGeneBox extends SwingTextGeneBox {
 
 	/**
 	 * 

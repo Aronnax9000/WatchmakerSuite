@@ -6,7 +6,7 @@ import net.richarddawkins.watchmaker.genebox.IntegerGeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 
-public class SwingIntegerGeneBox extends SwingGeneBox implements IntegerGeneBox {
+public class SwingIntegerGeneBox extends SwingTextGeneBox implements IntegerGeneBox {
 	/**
 	 * 
 	 */

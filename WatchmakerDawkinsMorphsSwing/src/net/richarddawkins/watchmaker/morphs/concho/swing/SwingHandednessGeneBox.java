@@ -4,9 +4,9 @@ import java.beans.PropertyChangeEvent;
 
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
+import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
-public class SwingHandednessGeneBox extends SwingGeneBox {
+public class SwingHandednessGeneBox extends SwingTextGeneBox {
 
 	/**
 	 * 

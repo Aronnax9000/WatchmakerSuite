@@ -285,7 +285,7 @@ public class ArthromorphGenome extends SimpleGenome {
 	public Gene[] toGeneArray() {
 		Vector<Atom> atoms = new Vector<Atom>();
 		animalTrunk.addChildrenToVectorDepthFirst(atoms);
-		return (Atom[]) atoms.toArray();
+		return atoms.toArray(new Gene[atoms.size()]);
 	}
 
 
