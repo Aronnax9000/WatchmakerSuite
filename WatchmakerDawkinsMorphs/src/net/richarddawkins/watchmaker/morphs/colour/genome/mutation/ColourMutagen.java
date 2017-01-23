@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.colour.genome;
+package net.richarddawkins.watchmaker.morphs.colour.genome.mutation;
 
 import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
@@ -12,6 +12,8 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 

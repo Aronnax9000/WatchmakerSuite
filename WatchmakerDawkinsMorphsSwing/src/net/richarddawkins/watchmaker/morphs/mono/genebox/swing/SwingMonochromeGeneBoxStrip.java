@@ -6,9 +6,9 @@ import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
-import net.richarddawkins.watchmaker.morphs.biomorph.genome.swing.SwingCompletenessGeneBox;
-import net.richarddawkins.watchmaker.morphs.biomorph.genome.swing.SwingIntegerGradientGeneBox;
-import net.richarddawkins.watchmaker.morphs.biomorph.genome.swing.SwingSpokesGeneBox;
+import net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing.SwingCompletenessGeneBox;
+import net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing.SwingIntegerGradientGeneBox;
+import net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing.SwingSpokesGeneBox;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 import net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip;
 

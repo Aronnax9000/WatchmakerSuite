@@ -29,8 +29,8 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         AffineTransform saveTransform = g2.getTransform();
         Pic pic = (Pic) phenotype;
         Point midPoint = pic.margin.getMidPoint();
-
         g2.translate(-midPoint.h, -midPoint.v);
+
         for (Lin line : pic.lines) {
             limb(g2, pic, line);
         }

@@ -28,7 +28,7 @@ public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 		int y = e.getY();
 
 		HorizPos mouseHoriz;
-		
+
 		VertPos mouseVert = null;
 
 		if (geneBoxType == GeneBoxType.leftRightOnly) {
@@ -45,8 +45,8 @@ public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 				mouseHoriz = HorizPos.MidThird;
 			else
 				mouseHoriz = HorizPos.RightThird;
-			
-			if(geneBoxType == GeneBoxType.leftRightUpDownEquals) {
+
+			if (geneBoxType == GeneBoxType.leftRightUpDownEquals) {
 				int thirdHeight = e.getComponent().getHeight() / 3;
 				if (y < thirdHeight)
 					mouseVert = VertPos.TopRung;
@@ -67,15 +67,19 @@ public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 			e.getComponent().setCursor(WatchmakerCursors.rightArrow);
 			break;
 		case MidThird:
-			switch (mouseVert) {
-			case TopRung:
-				e.getComponent().setCursor(WatchmakerCursors.upArrow);
-				break;
-			case BottomRung:
-				e.getComponent().setCursor(WatchmakerCursors.downArrow);
-				break;
-			case MidRung:
-			default:
+			if (mouseVert != null) {
+				switch (mouseVert) {
+				case TopRung:
+					e.getComponent().setCursor(WatchmakerCursors.upArrow);
+					break;
+				case BottomRung:
+					e.getComponent().setCursor(WatchmakerCursors.downArrow);
+					break;
+				case MidRung:
+				default:
+					e.getComponent().setCursor(WatchmakerCursors.equalsSign);
+				}
+			} else {
 				e.getComponent().setCursor(WatchmakerCursors.equalsSign);
 			}
 		}

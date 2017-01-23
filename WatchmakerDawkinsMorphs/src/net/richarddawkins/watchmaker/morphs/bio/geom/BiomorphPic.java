@@ -7,7 +7,8 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 
 public abstract class BiomorphPic extends Pic {
     
-    
+    public int getBackgroundColor() { return -1; }
+	
     public enum Compass {
         EastWest, NorthSouth
     }

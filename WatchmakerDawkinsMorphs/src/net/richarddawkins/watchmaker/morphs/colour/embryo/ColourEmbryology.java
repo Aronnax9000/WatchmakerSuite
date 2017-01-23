@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.colour.genome;
+package net.richarddawkins.watchmaker.morphs.colour.embryo;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -12,6 +12,10 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.SegNoGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
+import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
+import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.util.Globals;
@@ -155,6 +159,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 			}
 			tree(genome, pic, here.h, here.v, order, 2, dx, dy, order, oddOne);
 		}
+		/*
 		if (centre.h - pic.margin.left > pic.margin.right - centre.h) {
 			pic.margin.right = centre.h + (centre.h - pic.margin.left);
 		} else {
@@ -184,7 +189,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 				pic.margin.right = centre.h + ht / 2 + 1;
 			}
 		}
-
+*/
 	}
 
 }

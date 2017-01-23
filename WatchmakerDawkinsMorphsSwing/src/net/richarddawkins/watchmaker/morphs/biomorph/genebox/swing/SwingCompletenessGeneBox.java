@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.biomorph.genome.swing;
+package net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
 
@@ -33,7 +33,7 @@ public class SwingCompletenessGeneBox extends SwingTextGeneBox implements Comple
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		if(evt.getPropertyName().equals("completeness"))
+		if(evt.getPropertyName().equals("value"))
 			setCompleteness((CompletenessType) evt.getNewValue());
 	}
 

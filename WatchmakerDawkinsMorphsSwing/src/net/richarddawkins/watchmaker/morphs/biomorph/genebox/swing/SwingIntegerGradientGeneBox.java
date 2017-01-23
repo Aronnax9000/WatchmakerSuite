@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.biomorph.genome.swing;
+package net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing;
 
 import java.awt.BorderLayout;
 import java.awt.Graphics;

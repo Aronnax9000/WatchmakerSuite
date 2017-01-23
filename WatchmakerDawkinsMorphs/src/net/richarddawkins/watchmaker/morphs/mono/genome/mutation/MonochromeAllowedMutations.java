@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.mono.genome.mutation;
 
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
-import net.richarddawkins.watchmaker.morphs.colour.genome.BiomorphAllowedMutations;
+import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphAllowedMutations;
 
 public class MonochromeAllowedMutations extends BiomorphAllowedMutations implements AllowedMutations {
 	

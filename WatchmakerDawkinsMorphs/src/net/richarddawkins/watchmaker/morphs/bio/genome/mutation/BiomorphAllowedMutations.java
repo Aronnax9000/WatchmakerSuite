@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.colour.genome;
+package net.richarddawkins.watchmaker.morphs.bio.genome.mutation;
 
 import net.richarddawkins.watchmaker.genome.mutation.SimpleAllowedMutations;
 

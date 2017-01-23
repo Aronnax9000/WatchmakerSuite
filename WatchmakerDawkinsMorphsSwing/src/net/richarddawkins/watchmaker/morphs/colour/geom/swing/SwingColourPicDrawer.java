@@ -14,15 +14,15 @@ import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
 
 public class SwingColourPicDrawer extends SwingPicDrawer {
 
-    protected void limbRect(Graphics2D g2, ColourLin line, Rectangle square) {
+    protected void limbRect(Graphics2D g2, ColourPic pic, ColourLin line, Rectangle square) {
         g2.drawRect(square.x, square.y, square.width, square.height);
-        if (line.limbFill == LimbFillType.Filled)
+        if (pic.getLimbFill() == LimbFillType.Filled)
             g2.fillRect(square.x, square.y, square.width, square.height);
     }
 
-    protected void limbOval(Graphics2D g2, ColourLin line, Rectangle square) {
+    protected void limbOval(Graphics2D g2, ColourPic pic, ColourLin line, Rectangle square) {
         g2.drawOval(square.x, square.y, square.width, square.height);
-        if (line.limbFill == LimbFillType.Filled)
+        if (pic.getLimbFill() == LimbFillType.Filled)
             g2.fillOval(square.x, square.y, square.width, square.height);
     }
     
@@ -32,16 +32,17 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
     
     @Override
     protected void limb(Graphics2D g2, Pic pic, Lin line) {
-        ColourLin colourLin = (ColourLin) line;
+    	ColourPic colourPic = (ColourPic) pic;
+    	ColourLin colourLin = (ColourLin) line;
         g2.setColor(new Color(colourLin.color));
         Rectangle square = new Rectangle(Math.min(line.startPt.h, line.endPt.h), Math.min(line.startPt.v, line.endPt.v),
                 Math.abs(line.endPt.h - line.startPt.h), Math.abs(line.endPt.v - line.startPt.v));
 
-        switch (colourLin.limbShape) {
+        switch (colourPic.getLimbShape()) {
         case Oval:
-            limbOval(g2, colourLin, square);
+            limbOval(g2, colourPic, colourLin, square);
         case Rectangle:
-            limbRect(g2, colourLin, square);
+            limbRect(g2, colourPic, colourLin, square);
         default:
         }
         g2.drawLine(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);

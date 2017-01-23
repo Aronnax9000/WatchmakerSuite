@@ -19,6 +19,8 @@ public class ColourLin extends Lin implements Cloneable {
     public ColourLin clone() {
         ColourLin clone = (ColourLin) super.clone();
         clone.color = color;
+        clone.limbShape = limbShape;
+        clone.limbFill = limbFill;
         return clone;
       }
 
