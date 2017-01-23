@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="program_main.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="program_main"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="335"/>
         <CursorPos X="39" Y="356"/>
@@ -16,7 +15,6 @@
       <Unit1>
         <Filename Value="unit_engineering.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_engineering"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="133"/>
         <CursorPos X="23" Y="155"/>
@@ -25,7 +23,6 @@
       <Unit2>
         <Filename Value="unit_biomorphs.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_biomorphs"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="254"/>
         <CursorPos X="24" Y="277"/>
@@ -39,18 +36,17 @@
       <Unit4>
         <Filename Value="unit_miscellaneous.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_miscellaneous"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="1785"/>
-        <CursorPos X="17" Y="1807"/>
+        <CursorPos X="38" Y="1792"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="unit_globals.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_globals"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="58"/>
+        <TopLine Value="56"/>
         <CursorPos X="3" Y="80"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
@@ -58,7 +54,6 @@
       <Unit6>
         <Filename Value="unit_album.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_album"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="798"/>
         <CursorPos X="66" Y="804"/>
@@ -67,7 +62,6 @@
       <Unit7>
         <Filename Value="unit_pedigree.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_pedigree"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1154"/>
         <CursorPos X="18" Y="1174"/>
@@ -86,7 +80,6 @@
       <Unit10>
         <Filename Value="unit_initialize.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_initialize"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="381"/>
         <CursorPos X="31" Y="403"/>
@@ -95,7 +88,6 @@
       <Unit11>
         <Filename Value="unit_user_interface.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_user_interface"/>
         <EditorIndex Value="5"/>
         <TopLine Value="854"/>
         <CursorPos X="28" Y="877"/>
@@ -110,11 +102,8 @@
       <Unit13>
         <Filename Value="unit_develop.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_develop"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="230"/>
-        <CursorPos X="27" Y="251"/>
+        <CursorPos X="101" Y="266"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit13>
@@ -126,7 +115,6 @@
       <Unit15>
         <Filename Value="unit_snail_types.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_snail_types"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="277"/>
         <CursorPos X="3" Y="299"/>
@@ -135,7 +123,6 @@
       <Unit16>
         <Filename Value="unit_findthescale.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_findthescale"/>
         <EditorIndex Value="2"/>
         <TopLine Value="337"/>
         <CursorPos X="63" Y="355"/>
@@ -150,7 +137,6 @@
       <Unit18>
         <Filename Value="unit_array.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_array"/>
         <EditorIndex Value="4"/>
         <TopLine Value="174"/>
         <CursorPos X="34" Y="194"/>

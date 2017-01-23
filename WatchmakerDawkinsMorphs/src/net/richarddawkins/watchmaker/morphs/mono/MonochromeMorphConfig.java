@@ -4,9 +4,10 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
-import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeEmbryology;
+import net.richarddawkins.watchmaker.morphs.mono.embryo.MonochromeEmbryology;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
-import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeMutagen;
+import net.richarddawkins.watchmaker.morphs.mono.genome.mutation.MonochromeAllowedMutations;
+import net.richarddawkins.watchmaker.morphs.mono.genome.mutation.MonochromeMutagen;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 

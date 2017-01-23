@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.mono.genome;
+package net.richarddawkins.watchmaker.morphs.mono.genome.mutation;
 
 import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
@@ -14,7 +14,7 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.mono.MonochromeAllowedMutations;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public class MonochromeMutagen extends BiomorphMutagen  {
 

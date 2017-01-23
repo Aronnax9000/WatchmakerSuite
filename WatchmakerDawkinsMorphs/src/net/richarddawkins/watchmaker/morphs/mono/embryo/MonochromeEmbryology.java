@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.mono.genome;
+package net.richarddawkins.watchmaker.morphs.mono.embryo;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -8,6 +8,7 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneZeroOrGreater;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.util.Globals;
