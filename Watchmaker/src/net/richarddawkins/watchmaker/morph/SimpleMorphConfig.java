@@ -6,12 +6,26 @@ import java.beans.PropertyChangeSupport;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.embryo.Embryology;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
     
+	
+	
 	protected Embryology embryology;	
 
+	@Override
+	public Morph newMorph(int type) {
+		Morph morph = newMorph();
+		Genome genome = newGenome();
+		genome.setBasicType(type);
+		morph.setGenome(genome);
+		return morph;
+	}
+
+	
+	
     public Embryology getEmbryology() {
 		return embryology;
 	}
@@ -36,8 +50,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.addPropertyChangeListener(listener);
 	}
-	@Override
-	public abstract Morph createMorph(int type);
+
 
 	public Object getAppData() {
         return appData;

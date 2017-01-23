@@ -25,11 +25,29 @@ public abstract class SimpleMorph implements Morph {
 
     protected Rect pRect;
 
+    public Morph reproduce() {
+    	Morph childMorph = config.newMorph();
+    	childMorph.getPedigree().parent = this;
+    	this.getPedigree().addOffspring(childMorph);
+    	Genome childGenome = config.newGenome();
+    	genome.copy(childGenome);
+    	config.getMutagen().mutate(childGenome);
+    	childMorph.setGenome(childGenome);
+    	return childMorph;
+    }
+    
     public SimpleMorph(MorphConfig config) {
         this.config = config;
     }
 
-    @Override
+    public SimpleMorph(MorphConfig config, int basicType) {
+		this(config);
+		Genome genome = config.newGenome();
+		genome.setBasicType(basicType);
+		this.setGenome(genome);
+	}
+
+	@Override
     public Genome getGenome() {
         return genome;
     }

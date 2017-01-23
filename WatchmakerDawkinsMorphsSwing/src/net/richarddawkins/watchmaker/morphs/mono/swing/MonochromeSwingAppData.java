@@ -10,7 +10,7 @@ import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 public class MonochromeSwingAppData extends SwingAppData implements AppData {
 	public MonochromeSwingAppData() {
 		setMenuBuilder(new SwingMonochromeMenuBuilder(this));
-		setPicDrawer(new SwingMonoPicDrawer());
+		setPhenotypeDrawer(new SwingMonoPicDrawer());
 		this.setIcon(MorphType.MONOCHROME_BIOMORPH.getIconFilename());
 		config = new MonochromeMorphConfig();
 	}

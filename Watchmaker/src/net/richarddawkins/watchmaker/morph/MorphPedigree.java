@@ -28,6 +28,32 @@ public class MorphPedigree {
         return count;
     }
 
+	public void addOffspring(Morph childMorph) {
+		MorphPedigree childPedigree = childMorph.getPedigree();
+		if(firstBorn == null) {
+ 			firstBorn = childMorph;
+		} else {
+			// Real computer scientists, please shoot me now. -- ABC
+			Morph youngestOffspring = firstBorn;
+			while(youngestOffspring.getPedigree().youngerSib != null) {
+				youngestOffspring = youngestOffspring.getPedigree().youngerSib;
+			}
+			childPedigree.elderSib = youngestOffspring;
+			youngestOffspring.getPedigree().youngerSib = childMorph;
+			childPedigree.parent = me;
+		}
+		lastBorn = childMorph;
+		
+		
+		Morph youngestOffspring;
+		for(youngestOffspring = firstBorn; 
+				youngestOffspring != null; 
+				youngestOffspring = youngestOffspring.getPedigree().youngerSib) {
+			
+		}
+		
+	}
+
 
 
 

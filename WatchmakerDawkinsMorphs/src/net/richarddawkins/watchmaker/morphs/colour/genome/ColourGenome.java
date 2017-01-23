@@ -132,9 +132,9 @@ public class ColourGenome extends MonochromeGenome {
 
 	public Genome reproduce(Morph newMorph) {
 		ColourGenome child = new ColourGenome();
-		child.setMorph(newMorph);
 		copy(child);
 		newMorph.getMorphConfig().getMutagen().mutate(child);
+		newMorph.setGenome(child);
 		return child;
 	}
 

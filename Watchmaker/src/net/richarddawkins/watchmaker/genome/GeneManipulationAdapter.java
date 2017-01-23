@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class GeneManipulationAdapter implements GeneManipulationSupport {
 
-	protected Vector<GeneManipulationListener> listeners;
+	protected Vector<GeneManipulationListener> listeners = new Vector<GeneManipulationListener>();
 	
 	@Override
 	public void fireGeneManipulationEvent(GeneManipulationEvent event) {

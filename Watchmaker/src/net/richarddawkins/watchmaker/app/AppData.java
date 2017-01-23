@@ -33,8 +33,8 @@ public interface AppData {
 	public void setMorphConfig(MorphConfig config);
 	public void setMorphViewsTabbedPane(MorphViewsTabbedPanel morphViewsTabbedPane);
 	public void setName(String name);
-	public void setPicDrawer(PhenotypeDrawer newValue);
 	public void setShowBoundingBoxes(boolean newValue);
 	public void setToolTip(String toolTip);
 	public BoxesDrawer getBoxesDrawer();
+	public void setPhenotypeDrawer(PhenotypeDrawer newValue);
 }

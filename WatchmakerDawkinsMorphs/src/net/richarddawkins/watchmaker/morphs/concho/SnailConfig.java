@@ -1,16 +1,27 @@
 package net.richarddawkins.watchmaker.morphs.concho;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailEmbryology;
+import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailMutagen;
+import net.richarddawkins.watchmaker.morphs.concho.geom.SnailPic;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class SnailConfig extends SimpleMorphConfig {
-
+	@Override
+	public Genome newGenome() {
+		
+		return new SnailGenome();
+	}
 	protected boolean sideView = false;
-
+	@Override
+	public Phenotype newPhenotype() {
+		return new SnailPic();
+	}
 	protected SnailMutagen mutagen;
 
 	@Override
@@ -31,18 +42,16 @@ public class SnailConfig extends SimpleMorphConfig {
 		this.sideView = sideView;
 	}
 
-	@Override
-	public Morph createMorph(int type) {
-		return new Snail(this, type);
-	}
-	// private SnailMenuBuilder menuBuilder = new SnailMenuBuilder(this);
-
 	public SnailConfig() {
 		mutagen = new SnailMutagen(new SnailAllowedMutations());
 		embryology = new SnailEmbryology();
-		
 		setDefaultBreedingRows(3);
 		setDefaultBreedingCols(5);
+	}
+
+	@Override
+	public Morph newMorph() {
+		return new Snail(this);
 	}
 
 

@@ -19,40 +19,40 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
 	protected Genome genome;
-	
+
 	private static final long serialVersionUID = 1L;
 
-	
-	public SwingGeneBoxStrip() { 
-		this.setLayout(new GridLayout(1,0));
+	public SwingGeneBoxStrip() {
+		this.setLayout(new GridLayout(1, 0));
 	}
+
 	@Override
 	public GeneBox getGeneBoxForGene(Gene gene) {
-		if(gene instanceof IntegerGene)
+		if (gene instanceof IntegerGene)
 			return new SwingIntegerGeneBox();
 		else {
 			return null;
 		}
 	}
-	
+
 	public void setGeneBoxCount(int geneBoxCount) {
 		this.setLayout(new GridLayout(1, geneBoxCount));
-		
+
 	}
 
-	public void setEngineeringMode(boolean engineeringMode) {
-		Component[] components = this.getComponents();
-		for (Component component: components) {
-			GeneBox geneBox = (GeneBox) component;
-			if(engineeringMode)
-				geneBox.setEngineeringMode();
-		}
+	protected boolean engineeringMode;
+
+	public void setEngineeringMode(boolean newValue) {
+		this.engineeringMode = newValue;
 	}
 
 	public void setGenome(Genome newGenome) {
-		if(genome == null) {
-			for(Gene gene: newGenome.toGeneArray()) {
-					add((SwingGeneBox)getGeneBoxForGene(gene));
+		if (genome == null) {
+			for (Gene gene : newGenome.toGeneArray()) {
+				SwingGeneBox geneBox = (SwingGeneBox) getGeneBoxForGene(gene);
+				if(engineeringMode)
+					geneBox.setEngineeringMode();
+				add((Component) geneBox);
 			}
 		}
 		this.genome = newGenome;

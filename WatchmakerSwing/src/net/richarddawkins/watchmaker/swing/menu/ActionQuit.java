@@ -13,9 +13,9 @@ public class ActionQuit extends AbstractAction {
 
 	private static final long serialVersionUID = 1L;
 
-	public ActionQuit(Component component) {
+	public ActionQuit(Component menu) {
 		super("Quit");
-		this.component = component;
+		this.component = menu;
 	}
 
 	@Override

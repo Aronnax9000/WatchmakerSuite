@@ -1,9 +1,9 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.QuickDrawColor;
+import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 
-public class ArthromorphPic extends Pic  {
+public class ArthromorphPic extends ColourPic  {
     protected Integer limbFillColor = QuickDrawColor.GREEN;
 
     public Integer getLimbFillColor() {

@@ -1,17 +1,23 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphEmbryology;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.mutation.ArthromorphAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.mutation.ArthromorphMutagen;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class ArthromorphConfig extends SimpleMorphConfig  {
 
 	protected boolean centring = false;
 	protected boolean wantColor = true;
 	protected boolean sideways;
-	
+	@Override
+	public Phenotype newPhenotype() {
+		return new ArthromorphPic();
+	}
 	public ArthromorphConfig() {
 		super();
 		mutagen = new ArthromorphMutagen(new ArthromorphAllowedMutations());
@@ -55,6 +61,16 @@ public class ArthromorphConfig extends SimpleMorphConfig  {
 	
 	public void setWantColor(boolean wantColor) {
 		this.wantColor = wantColor;
+	}
+
+	@Override
+	public Genome newGenome() {
+		
+		return new ArthromorphGenome();
+	}
+	@Override
+	public Morph newMorph() {
+		return new Arthromorph(this);
 	}
 
 }

@@ -1,14 +1,12 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genome;
 
 import java.awt.Graphics2D;
-import java.util.Vector;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
 public class ArthromorphGenome extends SimpleGenome {
@@ -54,7 +52,7 @@ public class ArthromorphGenome extends SimpleGenome {
 	 * @throws ArthromorphGradientExceeds1000Exception
 	 *             if the gradient exceeds 1000.
 	 */
-	public void drawAnimal(Graphics2D g2, int x, int y) throws ArthromorphGradientExceeds1000Exception { // procedure
+	public void drawAnimal(Graphics2D g2, int x, int y, boolean centring, boolean sideways, boolean wantColor) throws ArthromorphGradientExceeds1000Exception { // procedure
 																											// DrawAnimal
 																											// (BoxNo,
 																											// x,
@@ -65,10 +63,10 @@ public class ArthromorphGenome extends SimpleGenome {
 			// ii, j, ySeg: integer;
 			params[ii] = 1.0; // clear it all out
 		int ySeg = y;
-		animalTrunk.draw(g2, params, x, y, x, ySeg);
+		animalTrunk.draw(g2, params, x, y, x, ySeg, centring, sideways, true);
 	}
 
-	public void drawInBox(Graphics2D g2)
+	public void drawInBox(Graphics2D g2, boolean centring, boolean sideways, boolean wantColor)
 			throws ArthromorphGradientExceeds1000Exception { // procedure
 																// DrawInBox
 																// (BoxNo:
@@ -76,20 +74,19 @@ public class ArthromorphGenome extends SimpleGenome {
 		Point where = new Point(0,0);
 	    int centre;
 		int start;
-		ArthromorphConfig config = (ArthromorphConfig) morph.getMorphConfig();
 		int midriff;
 		int verticalOffset = 0;
-		if (config.isSideways()) {
+		if (sideways) {
 			centre = where.v;
 			start = where.h;
             westPole = 0;
 			eastPole = 0;
-			if (config.isCentring()) {
+			if (centring) {
 				// Original implementation bracketed this call with hidePen /
 				// showPen. This
 				// implementation simply calls drawAnimal with a null graphics
 				// context.
-				drawAnimal(null, centre, start); // return with NorthPole and
+				drawAnimal(null, centre, start, centring, sideways, wantColor); // return with NorthPole and
 													// SouthPole updated
 				midriff = westPole + (eastPole - westPole) / 2;
 				verticalOffset = start - midriff;
@@ -99,10 +96,10 @@ public class ArthromorphGenome extends SimpleGenome {
 			centre = where.h;
 			northPole = 0;
 			southPole = 0;
-			if (config.isCentring()) {
+			if (centring) {
 				// Preliminary dummy draw to measure North & South extent of
 				// animal
-				drawAnimal(null, centre, start); // return with NorthPole and
+				drawAnimal(null, centre, start, centring, sideways, wantColor); // return with NorthPole and
 													// SouthPole updated
 				midriff = northPole + (southPole - northPole) / 2;
 				verticalOffset = start - midriff;
@@ -115,7 +112,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		// AnimalPicture[BoxNo] = OpenPicture(Box[BoxNo]);
 		// showpen;
 		// ClipRect(Box[BoxNo]);
-		drawAnimal(g2, centre, start + verticalOffset);
+		drawAnimal(g2, centre, start + verticalOffset, centring, sideways, wantColor);
 		// hidepen;
 		// ClipRect(Prect);
 		// ClosePicture;
@@ -209,10 +206,9 @@ public class ArthromorphGenome extends SimpleGenome {
 		animalTrunk = aa;
 	}
 
-	@Override
+	
 	public Genome reproduce(Morph newMorph) {
 		ArthromorphGenome child = new ArthromorphGenome();
-		child.setMorph(newMorph);
 		// A bit of a cheat, because reproduce needs access to the Config
 		// object.
 		copy(child);
@@ -283,9 +279,7 @@ public class ArthromorphGenome extends SimpleGenome {
 
 	@Override
 	public Gene[] toGeneArray() {
-		Vector<Atom> atoms = new Vector<Atom>();
-		animalTrunk.addChildrenToVectorDepthFirst(atoms);
-		return atoms.toArray(new Gene[atoms.size()]);
+		return new Gene[] { animalTrunk };
 	}
 
 

@@ -31,7 +31,6 @@ public abstract class SwingAppData implements AppData {
 	protected boolean showBoundingBoxes = true;
 	protected PhenotypeDrawer phenotypeDrawer;
 	protected String toolTip;
-	protected PhenotypeDrawer picDrawer;
 	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
 
 	@Override
@@ -101,7 +100,7 @@ public abstract class SwingAppData implements AppData {
 	
 	@Override
 	public PhenotypeDrawer getPhenotypeDrawer() {
-		return picDrawer;
+		return phenotypeDrawer;
 	}
 	
 	@Override
@@ -157,8 +156,8 @@ public abstract class SwingAppData implements AppData {
     }
 
 	@Override
-	public void setPicDrawer(PhenotypeDrawer newValue) {
-		this.picDrawer = newValue;
+	public void setPhenotypeDrawer(PhenotypeDrawer newValue) {
+		this.phenotypeDrawer = newValue;
 	}
 	@Override
 	public void setToolTip(String toolTip) {

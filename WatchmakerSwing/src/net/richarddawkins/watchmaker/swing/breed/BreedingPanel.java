@@ -65,7 +65,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
 
         Morph parent;
         if (morph == null)
-            parent = watchmakerPanel.getSwingAppData().getMorphConfig().createMorph(1);
+            parent = watchmakerPanel.getSwingAppData().getMorphConfig().newMorph(1);
         else
             parent = morph;
         BoxedMorph boxedMorph = new BoxedMorph(parent, boxes.midBox);

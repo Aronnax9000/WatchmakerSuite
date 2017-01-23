@@ -3,8 +3,6 @@ package net.richarddawkins.watchmaker.morphs.arthro;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
@@ -100,13 +98,10 @@ import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGradientExc
  */
 public class Arthromorph extends SimpleMorph implements Cloneable {
 	
-	
-	
 	public Arthromorph(MorphConfig config, int basicType) {
 	    super(config);
 	    this.pic = new ArthromorphPic();
 		ArthromorphGenome newGenome = new ArthromorphGenome();
-		newGenome.setMorph(this);
 		this.genome = newGenome;
 		genome.setBasicType(basicType);
 	}
@@ -116,11 +111,12 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	}
 	
 	public void draw(Graphics2D g2) {
+		ArthromorphConfig conf = (ArthromorphConfig) config;
 		g2.setColor(Color.BLACK);
 //		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
 //		g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
 		try {
-			((ArthromorphGenome)genome).drawInBox(g2);
+			((ArthromorphGenome)genome).drawInBox(g2, conf.isCentring(), conf.isSideways(), conf.isWantColor());
 		} catch (ArthromorphGradientExceeds1000Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -128,29 +124,6 @@ public class Arthromorph extends SimpleMorph implements Cloneable {
 	}
 	
 
-
-	@Override
-	public Morph reproduce() {
-		Arthromorph child = new Arthromorph(config);
-		child.setGenome(genome.reproduce(child));
-		child.getPedigree().parent = this;
-		return child;
-	}
-	
-	@Override
-	public Genome getGenome() {
-		return genome;
-	}
-
-	public void setGenome(Genome genome) {
-		this.genome = (ArthromorphGenome) genome;
-	}
-	
-	public Morph mutate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
 	
 }

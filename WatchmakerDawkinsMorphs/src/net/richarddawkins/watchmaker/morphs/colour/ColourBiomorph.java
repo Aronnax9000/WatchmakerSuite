@@ -1,10 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.colour;
 
-import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
-import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 
 /**
@@ -35,34 +32,13 @@ import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 public class ColourBiomorph extends SimpleMorph {
 	public static final int RAINBOW = 1 << 8;
 
-	public Genome getGenome() {
-		return genome;
-	}
-
-	public void setGenome(Genome genome) {
-		this.genome = (ColourGenome) genome;
-	}
-
 	public ColourBiomorph(MorphConfig config) {
 		super(config);
 		this.pic = new ColourPic();
 	}
 
 	public ColourBiomorph(MorphConfig config, int basicType) {
-		this(config);
-		Genome genome = new ColourGenome();
-		genome.setBasicType(basicType);
-		genome.setMorph(this);
-		setGenome(genome);
+		super(config, basicType);
 	}
 
-	@Override
-	public Morph reproduce() {
-		ColourBiomorph child = new ColourBiomorph(config);
-		Genome childGenome = genome.reproduce(child);
-		child.setGenome(childGenome);
-		child.getPedigree().parent = this;
-
-		return child;
-	}
 }

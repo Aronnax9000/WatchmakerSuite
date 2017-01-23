@@ -8,7 +8,6 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
 public class Atom extends SimpleGene implements Cloneable {
@@ -328,7 +327,10 @@ public class Atom extends SimpleGene implements Cloneable {
 	 * @throws ArthromorphGradientExceeds1000Exception
 	 *             if the cumulative gradient exceeds 1000.
 	 */
-	public void draw(Graphics2D g2, double[] params, int x, int y, int xCenter, int ySeg)
+	public void draw(Graphics2D g2, double[] params, int x, int y, int xCenter, int ySeg,
+			boolean centring,
+			boolean sideways,
+			boolean wantColor)
 			throws ArthromorphGradientExceeds1000Exception {
 		double[] myPars = params.clone();
 		// j, oldX, oldY, leftOldX, leftX, offset, thick: integer;
@@ -370,7 +372,7 @@ public class Atom extends SimpleGene implements Cloneable {
 						+ " which exceeds 1000. The original code would beep here and continue.");
 			params[1] = params[1] + gradientFactor * angle;
 			params[0] += gradientFactor * angle;
-			drawSeg(g2, x, ySeg, params[1], params[0]);
+			drawSeg(g2, x, ySeg, params[1], params[0], sideways, wantColor);
 			// Draw the oval in the right place. 1 = Width , 0 = Height
 			oldY = ySeg; // Save for next segment
 			x += (int) Math.round(params[1] / 2.0); // joint starts at the side
@@ -392,20 +394,20 @@ public class Atom extends SimpleGene implements Cloneable {
 																			// point
 			int thick = 1 + (int) Math.floor(params[3]); // 1 is minimum
 															// thickness
-			drawLine(g2, oldX, oldY, x, y, thick); // right side leg
+			drawLine(g2, oldX, oldY, x, y, thick, sideways); // right side leg
 			int leftX = xCenter - (x - xCenter); // do the left side leg
 			int leftOldX = xCenter - (oldX - xCenter);
-			drawLine(g2, leftOldX, oldY, leftX, y, thick);
+			drawLine(g2, leftOldX, oldY, leftX, y, thick, sideways);
 			if (g2 != null)
 				g2.setColor(Color.BLACK);
 		}
 
 		if (kind == AtomKind.Claw) {
-			drawClaw(g2, params, x, y, xCenter); // all work is done in here
+			drawClaw(g2, params, x, y, xCenter, sideways); // all work is done in here
 		} else {
 			// {TED: why else? Presumably because claw is the end of the line?}
 			if (firstBelowMe != null)
-				firstBelowMe.draw(g2, params, x, y, xCenter, ySeg); // build on
+				firstBelowMe.draw(g2, params, x, y, xCenter, ySeg, centring, sideways, wantColor); // build on
 																	// my
 																	// cumulative
 																	// numbers
@@ -420,10 +422,10 @@ public class Atom extends SimpleGene implements Cloneable {
 				// not the joint just before it.
 				// This is consistent with the way Sections and Segments work.
 				if (kind == AtomKind.AnimalJoint || kind == AtomKind.SectionJoint || kind == AtomKind.SegmentJoint)
-					nextLikeMe.draw(g2, params, x, y, xCenter, ySeg); // build
+					nextLikeMe.draw(g2, params, x, y, xCenter, ySeg, centring, sideways, wantColor); // build
 																		// on me
 				else if (kind != AtomKind.AnimalTrunk)
-					nextLikeMe.draw(g2, myPars, x, y, xCenter, ySeg); // build
+					nextLikeMe.draw(g2, myPars, x, y, xCenter, ySeg, centring, sideways, wantColor); // build
 																		// on my
 																		// parent's
 																		// numbers
@@ -441,7 +443,7 @@ public class Atom extends SimpleGene implements Cloneable {
 	 * @param y
 	 * @param xCenter
 	 */
-	void drawClaw(Graphics2D g2, double[] params, int x, int y, int xCenter) {
+	void drawClaw(Graphics2D g2, double[] params, int x, int y, int xCenter, boolean sideways) {
 
 		if (g2 != null)
 			g2.setColor(Color.RED);
@@ -455,23 +457,23 @@ public class Atom extends SimpleGene implements Cloneable {
 		// if no negative numbers
 		// ABC
 		int thick = 1 + (int) Math.floor(params[6]); // 1 is minimum thickness
-		drawLine(g2, oldX, oldY, x, y, thick); // right side, top of claw
+		drawLine(g2, oldX, oldY, x, y, thick, sideways); // right side, top of claw
 
 		int leftX = xCenter - (x - xCenter); // do the left side, top of claw
 		int leftOldX = xCenter - (oldX - xCenter);
-		drawLine(g2, leftOldX, oldY, leftX, y, thick);
+		drawLine(g2, leftOldX, oldY, leftX, y, thick, sideways);
 
 		// Bottom of the claw}
 		y = (int) Math.round(y - 2.0 * params[7] * Math.cos(ang));
-		drawLine(g2, oldX, oldY, x, y, thick); // right side}
-		drawLine(g2, leftOldX, oldY, leftX, y, thick); // left side
+		drawLine(g2, oldX, oldY, x, y, thick, sideways); // right side}
+		drawLine(g2, leftOldX, oldY, leftX, y, thick, sideways); // left side
 		if (g2 != null)
 			g2.setColor(Color.BLACK);
 	}
 
-	void drawLine(Graphics2D g2, int x, int y, int endX, int endY, int thick) {
-		ArthromorphConfig config = (ArthromorphConfig) genome.getMorph().getMorphConfig();
-		if (config.isSideways()) {
+	void drawLine(Graphics2D g2, int x, int y, int endX, int endY, int thick, boolean sideways) {
+		
+		if (sideways) {
 			int temp = x;
 			x = y;
 			y = temp;
@@ -487,10 +489,9 @@ public class Atom extends SimpleGene implements Cloneable {
 		}
 	}
 
-	public void drawOval(Graphics2D g2, int x, int y, int width, int height) {
+	public void drawOval(Graphics2D g2, int x, int y, int width, int height, boolean sideways, boolean wantColor) {
 
-		ArthromorphConfig config = (ArthromorphConfig) genome.getMorph().getMorphConfig();
-		if (config.isSideways()) {
+		if (sideways) {
 			int temp = x;
 			x = y;
 			y = temp;
@@ -506,7 +507,7 @@ public class Atom extends SimpleGene implements Cloneable {
 
 		((ArthromorphGenome) genome).expandPoles(rect.top, rect.bottom, rect.left, rect.right);
 		if (g2 != null) {
-			if (config.isWantColor()) {
+			if (wantColor) {
 				g2.setColor(Color.GREEN);
 			} else {
 				g2.setColor(Color.LIGHT_GRAY);
@@ -519,10 +520,10 @@ public class Atom extends SimpleGene implements Cloneable {
 		}
 	}
 
-	void drawSeg(Graphics2D g2, int x, int y, double width, double height) {
+	void drawSeg(Graphics2D g2, int x, int y, double width, double height, boolean sideways, boolean wantColor) {
 		int halfW = (int) Math.round(width / 2);
 		// We must adjust the position before drawing the oval
-		drawOval(g2, x - halfW, y, (int) Math.round(width), (int) Math.round(height));
+		drawOval(g2, x - halfW, y, (int) Math.round(width), (int) Math.round(height), sideways, wantColor);
 		if (g2 != null)
 			g2.setColor(Color.BLACK);
 		// convert from center of oval to left corner

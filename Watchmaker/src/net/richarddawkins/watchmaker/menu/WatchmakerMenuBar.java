@@ -6,5 +6,7 @@ public interface WatchmakerMenuBar {
 
 	void repaint();
 
+	void removeAll();
+
 
 }

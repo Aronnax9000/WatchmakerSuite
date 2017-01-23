@@ -13,7 +13,7 @@ public class ColourSwingAppData extends SwingAppData {
 		this.setIcon(MorphType.COLOUR_BIOMORPH.getIconFilename());
 		
 		setMenuBuilder(new ColourMenuBuilder(this));
-		setPicDrawer(new SwingColourPicDrawer());
+		setPhenotypeDrawer(new SwingColourPicDrawer());
 		config = new ColourBiomorphConfig();
 	}
 	@Override

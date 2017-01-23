@@ -1,10 +1,7 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
@@ -12,13 +9,10 @@ import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 
-public abstract class SwingMenuBuilder extends JMenuBar implements MenuBuilder {
-
-	/**
-	 * 
-	 */
+public abstract class SwingMenuBuilder  implements MenuBuilder {
 	
 	public SwingMenuBuilder() {} 
 	public SwingMenuBuilder(AppData appData) {this.appData = appData;};
@@ -34,21 +28,23 @@ public abstract class SwingMenuBuilder extends JMenuBar implements MenuBuilder {
 		this.appData = appData;
 	}
 
-	protected void addFileQuitAction(JMenu menu) {
-		menu.add(new JMenuItem(new ActionQuit(menu)));
+	protected void addFileQuitAction(WatchmakerMenu menu) {
+		menu.add(new SwingWatchmakerMenuItem(
+				new ActionQuit((Component)menu)));
 	}
 
 	public void buildMenu(WatchmakerMenuBar menuBar) {
-		super.removeAll();
-		super.add(buildWatchmakerMenu());
+		menuBar.removeAll();
+		menuBar.add(buildWatchmakerMenu());
 	}
 
-	protected JMenu buildWatchmakerMenu() {
-		JMenu watchMakerMenu = new JMenu("Watchmaker");
+	protected WatchmakerMenu buildWatchmakerMenu() {
+		WatchmakerMenu watchMakerMenu = new SwingWatchmakerMenu("Watchmaker");
 		AppDataFactory factory = AppDataFactoryService.getInstance().getFactory();
 		for (String morphType : factory.getMorphTypes()) {
 			factory.setMorphType(morphType);
-			NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(morphType, factory.getIcon(),
+			NewMorphTypeAction morphTypeAction 
+			= new NewMorphTypeAction(appData, morphType, factory.getIcon(),
 					(MultiMorphTypeTabbedPanel) appData.getFrame());
 			if (morphType.equals("Snails"))
 				morphTypeAction.setEnabled(false);

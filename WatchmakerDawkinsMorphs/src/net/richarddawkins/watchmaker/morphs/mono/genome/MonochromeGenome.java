@@ -65,7 +65,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 
     public Genome reproduce(Morph newMorph) {
         Genome childGenome = new MonochromeGenome();
-        childGenome.setMorph(newMorph);
         super.copy(childGenome);
         MorphConfig config = newMorph.getMorphConfig();
         Mutagen mutagen = config.getMutagen();

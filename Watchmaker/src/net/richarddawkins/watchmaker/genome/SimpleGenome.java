@@ -5,15 +5,24 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.beans.VetoableChangeSupport;
 
-import net.richarddawkins.watchmaker.morph.Morph;
-
-public abstract class SimpleGenome implements Genome {
-
-	protected Morph morph;
-
+public abstract class SimpleGenome implements Genome, Cloneable {
+//
+//	protected Morph morph;
+//	@Override
+//	public Morph getMorph() {
+//		return morph;
+//	}
+//
+//	@Override
+//	public void setMorph(Morph morph) {
+//		this.morph = morph;
+//	}
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected VetoableChangeSupport vcs = new VetoableChangeSupport(this);
 
+	
+	
+	
 	@Override
 	public void copy(Genome childGenome) {
 		Gene[] myGenes = toGeneArray();
@@ -33,10 +42,6 @@ public abstract class SimpleGenome implements Genome {
 		return toGeneArray()[i];
 	}
 
-	@Override
-	public Morph getMorph() {
-		return morph;
-	}
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
@@ -49,10 +54,6 @@ public abstract class SimpleGenome implements Genome {
 
 	}
 
-	@Override
-	public void setMorph(Morph morph) {
-		this.morph = morph;
-	}
 
 
 }

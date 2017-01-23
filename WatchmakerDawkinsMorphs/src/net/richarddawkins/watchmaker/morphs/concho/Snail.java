@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.concho;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
@@ -34,7 +33,6 @@ public class Snail extends SimpleMorph {
     public Snail(MorphConfig config) {
         super(config);
         Genome genome = new SnailGenome();
-        genome.setMorph(this);
         setGenome(genome);
         pic = new SnailPic();
     }
@@ -44,12 +42,6 @@ public class Snail extends SimpleMorph {
         genome.setBasicType(basicType);
     }
 
-    @Override
-    public Morph reproduce() {
-        Snail child = new Snail(config);
-        child.genome = (SnailGenome) genome.reproduce(child);
-        child.getPedigree().parent = this;
-        return child;
-    }
+    
 
 }

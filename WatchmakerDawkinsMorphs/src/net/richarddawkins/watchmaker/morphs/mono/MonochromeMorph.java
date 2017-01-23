@@ -3,12 +3,9 @@ package net.richarddawkins.watchmaker.morphs.mono;
 
 import java.awt.Rectangle;
 
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
-import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 /**
  * MonochromeBiomorph is a subinterface of Morph which represents Monochrome Biomorphs.
@@ -59,22 +56,6 @@ public class MonochromeMorph extends SimpleMorph {
 		this.pic = new MonoPic();
 	}
 
-	MonochromeMorph(MorphConfig config, int basicType) {
-		this(config);
-		Genome genome = new MonochromeGenome();
-		genome.setMorph(this);
-		genome.setBasicType(basicType);
-        setGenome(genome);
-	}
-
-	public Morph reproduce() {
-		MonochromeMorph child = new MonochromeMorph(config);
-		Genome childGenome = genome.reproduce((Morph) child);
-        child.setGenome(childGenome);
-		child.getPedigree().parent = this;
-		
-		return child;
-	}
 	
 	protected Rectangle surround;
 	protected Point origin;

@@ -3,7 +3,9 @@ package net.richarddawkins.watchmaker.morph;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.embryo.Embryology;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public interface MorphConfig {
     
@@ -12,8 +14,6 @@ public interface MorphConfig {
 	
 	Object getAppData();
 	void setAppData(Object object);
-
-	Morph createMorph(int type);
 
 	void addPropertyChangeListener(PropertyChangeListener listener);
 
@@ -26,8 +26,8 @@ public interface MorphConfig {
     void setMutagen(Mutagen mutagen);
 	Mutagen getMutagen();
 
-
-
+	Genome newGenome();
+	Phenotype newPhenotype();
 	int getDefaultBreedingRows();
 
 	int getDefaultBreedingCols();
@@ -37,6 +37,9 @@ public interface MorphConfig {
 	void setDefaultBreedingCols(int defaultBreedingCols);
 
 	Embryology getEmbryology();
+
+	Morph newMorph(int type);
+	Morph newMorph();
 
 
 }
