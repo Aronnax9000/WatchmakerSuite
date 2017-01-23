@@ -5,6 +5,7 @@ import java.beans.PropertyChangeSupport;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
@@ -37,7 +38,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
 
 
-	protected Object appData;
+	protected AppData appData;
 	protected int defaultBreedingCols;
 	protected int defaultBreedingRows;
     protected int geneBoxCount = 0;
@@ -52,7 +53,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 
-	public Object getAppData() {
+	public AppData getAppData() {
         return appData;
     }
 
@@ -84,8 +85,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 
-
-
 	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.removePropertyChangeListener(listener);
@@ -93,7 +92,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
 
 
-	public void setAppData(Object appData) {
+	public void setAppData(AppData appData) {
         this.appData = appData;
     }
 

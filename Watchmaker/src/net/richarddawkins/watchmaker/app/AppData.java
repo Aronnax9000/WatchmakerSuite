@@ -10,7 +10,22 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
+/**
+ * An instance of AppData provides a facade representing an instance
+ * of a Watchmaker session which deals with one particular subclass of Morph.
+ * 
+ * An AppData instance is associated with an instance of MorphConfig: this association
+ * bridges the gap between Watchmaker application logic and presentation logic.
+ * 
+ * @author Alan Canon
+ *
+ */
 public interface AppData {
+
+	public MorphConfig getMorphConfig();
+	public void setMorphConfig(MorphConfig config);
+
+	
 	public void addBreedingMorphView(Morph morph);
 	public void addDefaultMorphView();
 	public void addEngineeringMorphView(Morph morph);
@@ -18,7 +33,6 @@ public interface AppData {
 	public MultiMorphTypeTabbedPanel getFrame();
 	public String getIcon();
 	public MenuBuilder getMenuBuilder();
-	public MorphConfig getMorphConfig();
 	public Morph getMorphOfTheHour();
 	public MorphViewsTabbedPanel getMorphViewsTabbedPane();
 	public String getName();
@@ -30,7 +44,6 @@ public interface AppData {
     public void setFrame(MultiMorphTypeTabbedPanel frame);
 	public void setIcon(String icon);
 	public void setMenuBuilder(MenuBuilder menuBuilder);
-	public void setMorphConfig(MorphConfig config);
 	public void setMorphViewsTabbedPane(MorphViewsTabbedPanel morphViewsTabbedPane);
 	public void setName(String name);
 	public void setShowBoundingBoxes(boolean newValue);
