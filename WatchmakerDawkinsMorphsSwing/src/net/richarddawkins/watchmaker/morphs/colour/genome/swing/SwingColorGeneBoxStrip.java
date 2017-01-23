@@ -5,7 +5,7 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
-import net.richarddawkins.watchmaker.morphs.mono.swing.SwingMonochromeGeneBoxStrip;
+import net.richarddawkins.watchmaker.morphs.mono.genebox.swing.SwingMonochromeGeneBoxStrip;
 
 public class SwingColorGeneBoxStrip extends SwingMonochromeGeneBoxStrip {
 

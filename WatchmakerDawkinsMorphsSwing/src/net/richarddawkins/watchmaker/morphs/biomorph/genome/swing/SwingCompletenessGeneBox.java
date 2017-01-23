@@ -2,7 +2,9 @@ package net.richarddawkins.watchmaker.morphs.biomorph.genome.swing;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.bio.genebox.CompletenessGeneBox;
+import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
@@ -22,7 +24,11 @@ public class SwingCompletenessGeneBox extends SwingTextGeneBox implements Comple
 		super.setEngineeringMode(GeneBoxType.leftRightOnly);
 	}
 
-
+	@Override
+	public void setGene(Gene gene) {
+	    super.setGene(gene);
+	    setCompleteness(((CompletenessGene) gene).getValue());
+	}
 
 
 	@Override
@@ -41,7 +47,5 @@ public class SwingCompletenessGeneBox extends SwingTextGeneBox implements Comple
 				setText(Messages.getMessages().getString("STRO_12947,1"));
 				break;
 			}
-			repaint();
 		}
-
 }

@@ -28,14 +28,14 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		AppDataFactoryService service = AppDataFactoryService.getInstance();
 		AppDataFactory factory = service.getFactory();
 		for (String morphType : factory.getMorphTypes()) {
-			if (!morphType.equals("Snails")) {
+//			if (!morphType.equals("Snails")) {
 				logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
 				factory.setMorphType(morphType);
 				AppData appData = factory.newAppData();
 				
 				appData.setFrame(this);
 				addAppData(appData);
-			}
+//			}
 		}
 		if (this.getTabCount() != 0)
 			changeToTab(0);

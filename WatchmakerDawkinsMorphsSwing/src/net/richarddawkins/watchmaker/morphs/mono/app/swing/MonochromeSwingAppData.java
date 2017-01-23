@@ -1,9 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.mono.swing;
+package net.richarddawkins.watchmaker.morphs.mono.app.swing;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig;
+import net.richarddawkins.watchmaker.morphs.mono.genebox.swing.SwingMonochromeGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
+import net.richarddawkins.watchmaker.morphs.mono.menu.swing.SwingMonochromeMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 

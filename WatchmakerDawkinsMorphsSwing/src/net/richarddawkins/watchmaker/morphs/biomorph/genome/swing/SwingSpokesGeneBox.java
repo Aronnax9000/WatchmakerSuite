@@ -50,7 +50,6 @@ public class SwingSpokesGeneBox extends SwingTextGeneBox implements SpokesGeneBo
 	@Override
 	public void setEngineeringMode() {
 		super.setEngineeringMode(GeneBoxType.leftRightEquals);
-		
 	}
 
 

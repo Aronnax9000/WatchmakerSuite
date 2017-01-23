@@ -1,13 +1,15 @@
 package net.richarddawkins.watchmaker.morph;
 
 import java.awt.Image;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
-public abstract class SimpleMorph implements Morph {
+public abstract class SimpleMorph implements Morph, PropertyChangeListener {
 
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
 
@@ -71,6 +73,7 @@ public abstract class SimpleMorph implements Morph {
     public void setGenome(Genome genome) {
         this.genome = genome;
         config.getEmbryology().develop(genome, getPic());
+        genome.addPropertyChangeListener(this);
     }
 
     public void setImage(Image image) {
@@ -92,5 +95,8 @@ public abstract class SimpleMorph implements Morph {
     public void setPRect(Rect pRect) {
         this.pRect = pRect;
     }
-
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+    	config.getEmbryology().develop(genome, getPic());
+    }
 }

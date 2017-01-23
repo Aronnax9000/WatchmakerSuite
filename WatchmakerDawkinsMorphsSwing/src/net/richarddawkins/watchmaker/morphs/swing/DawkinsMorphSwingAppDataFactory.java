@@ -8,7 +8,7 @@ import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
 import net.richarddawkins.watchmaker.morphs.colour.swing.ColourSwingAppData;
 import net.richarddawkins.watchmaker.morphs.concho.swing.SnailSwingAppData;
-import net.richarddawkins.watchmaker.morphs.mono.swing.MonochromeSwingAppData;
+import net.richarddawkins.watchmaker.morphs.mono.app.swing.MonochromeSwingAppData;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 

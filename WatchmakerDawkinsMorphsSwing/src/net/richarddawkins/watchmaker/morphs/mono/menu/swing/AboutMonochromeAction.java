@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.mono.swing;
+package net.richarddawkins.watchmaker.morphs.mono.menu.swing;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
