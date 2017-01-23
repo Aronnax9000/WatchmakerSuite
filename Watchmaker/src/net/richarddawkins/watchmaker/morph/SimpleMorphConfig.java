@@ -110,8 +110,18 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		this.mutagen = mutagen;
 	}
 
-
-
+	@Override
+    public Morph reproduce(Morph parentMorph) {
+    	Morph childMorph = newMorph();
+    	childMorph.getPedigree().parent = parentMorph;
+    	parentMorph.getPedigree().addOffspring(childMorph);
+    	Genome childGenome = newGenome();
+    	parentMorph.getGenome().copy(childGenome);
+    	getMutagen().mutate(childGenome);
+    	childMorph.setGenome(childGenome);
+    	return childMorph;
+    }
+    
 
 
 	/*

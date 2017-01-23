@@ -10,15 +10,15 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
 public class ArthromorphGenome extends SimpleGenome {
-	Atom animalTrunk;
+	protected Atom animalTrunk;
 
-	int atomCount;
+	protected int atomCount;
 
-	double[] cumParams = new double[9]; // Was 1-based array in Pascal
+	protected double[] cumParams = new double[9]; // Was 1-based array in Pascal
 
 	protected int eastPole = 0;
 
-	int gradient;
+	protected int gradient;
 
 	protected int northPole = 0;
 
@@ -30,14 +30,12 @@ public class ArthromorphGenome extends SimpleGenome {
 
 	}
 
-	public void copy(Genome person) {
-		((ArthromorphGenome) person).setAnimalTrunk(animalTrunk.copy());
+	public void copy(Genome target) {
+		ArthromorphGenome genome = (ArthromorphGenome) target;
+		((ArthromorphGenome) target).setAnimalTrunk(animalTrunk.copy());
 	}
 
-	public void develop() {
-		// TODO Auto-generated method stub
 
-	}
 
 	/**
 	 * An example of how to call Draw for an animal

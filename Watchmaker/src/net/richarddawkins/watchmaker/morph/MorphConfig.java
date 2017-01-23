@@ -71,6 +71,7 @@ public interface MorphConfig {
 	void setDefaultBreedingCols(int defaultBreedingCols);
 
 	Embryology getEmbryology();
+	Morph reproduce(Morph parentMorph);
 
 
 }

@@ -14,7 +14,7 @@ public interface Morph {
 	public void setPic(Phenotype pic);
 	public Phenotype getPic();
 
-	public Morph reproduce();
+
     public MorphPedigree getPedigree();
     
     public Object getImage();

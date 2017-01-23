@@ -64,10 +64,14 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
     public void seed(Morph morph) {
 
         Morph parent;
-        if (morph == null)
-            parent = watchmakerPanel.getSwingAppData().getMorphConfig().newMorph(1);
-        else
+        if (morph == null) {
+        	MorphConfig config = watchmakerPanel.getSwingAppData().getMorphConfig();
+        	parent = config.newMorph(1);
+        
+        } else {
             parent = morph;
+        }
+        
         BoxedMorph boxedMorph = new BoxedMorph(parent, boxes.midBox);
         boxedMorphVector.add(boxedMorph);
         GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getUpperStrip();
@@ -146,7 +150,9 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
                 break;
             }
 
-            Morph babyMorph = boxedMorphSpecial.getMorph().reproduce();
+        	MorphConfig config = watchmakerPanel.getSwingAppData().getMorphConfig();
+
+            Morph babyMorph = config.reproduce(boxedMorphSpecial.getMorph());
             newestOffspring = new BoxedMorph(babyMorph, vacantBoxNumber);
             newestOffspring.setPosition(boxedMorphSpecial.getPosition());
             newestOffspring.setDestination(mids.elementAt(vacantBoxNumber));

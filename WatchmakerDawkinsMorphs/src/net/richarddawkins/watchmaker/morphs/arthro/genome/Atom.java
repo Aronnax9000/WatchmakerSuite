@@ -30,83 +30,6 @@ public class Atom extends SimpleGene implements Cloneable {
 
 	}
 
-	public int segmentNumber = 0;
-
-	public Atom(AtomKind kind, ArthromorphGenome genome) {
-		super(genome, kind.toString());
-		this.kind = kind;
-		height = 1.0;
-		width = 1.0;
-		angle = 1.0;
-	}
-
-	public AtomKind getKind() {
-		return kind;
-	}
-
-	public void setKind(AtomKind kind) {
-		this.kind = kind;
-	}
-
-	public double getHeight() {
-		return height;
-	}
-
-	public void setHeight(double height) {
-		this.height = height;
-	}
-
-	public double getWidth() {
-		return width;
-	}
-
-	public void setWidth(double width) {
-		this.width = width;
-	}
-
-	public double getAngle() {
-		return angle;
-	}
-
-	public void setAngle(double angle) {
-		this.angle = angle;
-	}
-
-	public Atom getNextLikeMe() {
-		return nextLikeMe;
-	}
-
-	public void setNextLikeMe(Atom nextLikeMe) {
-		this.nextLikeMe = nextLikeMe;
-	}
-
-	public Atom getFirstBelowMe() {
-		return firstBelowMe;
-	}
-
-	public void setFirstBelowMe(Atom firstBelowMe) {
-		this.firstBelowMe = firstBelowMe;
-	}
-
-	public Atom(AtomKind kind, double height, double width, double angle, Atom nextLikeMe, Atom firstBelowMe) {
-		super(null, kind.toString());
-		this.kind = kind;
-		this.height = height;
-		this.width = width;
-		this.angle = angle;
-		this.nextLikeMe = nextLikeMe;
-		this.firstBelowMe = firstBelowMe;
-	}
-
-	public AtomKind kind = AtomKind.Free;
-	/**
-	 * Original documentation: Also used for Thickness of a Joint
-	 */
-	public double height;
-	/**
-	 * Original documentation: Also used for Length of a Joint
-	 */
-	public double width;
 	/**
 	 * Original documentation:
 	 * <ul>
@@ -120,81 +43,54 @@ public class Atom extends SimpleGene implements Cloneable {
 	public double angle;
 
 	/**
-	 * Original documentation: Where to look in the BoneYard for the next atom.
-	 * 0 means end of chain. Also used in AnimalTrunk to store Gradient gene,
-	 * slightly more or less than 100. Treat as Percentage
-	 */
-	public Atom nextLikeMe;
-	/**
 	 * Original documentation: where to look in the BoneYard for the next atom.
 	 * 0 means end of chain
 	 */
 	public Atom firstBelowMe;
 
 	/**
-	 * Recursively traverse tree of atoms to calculate the total number of atoms
-	 * in the tree.
-	 * <h2>Original Pascal Source</h2>
-	 * <p>
-	 * In Classic Arthromorphs, the NextLikeMe field for AnimalTrunk was used to
-	 * store the gradient gene. In the Java version, gradient is separately
-	 * tracked in the Arthromorph class. For this reason, the "kind !=
-	 * AnimalTrunk" check is not needed.
-	 * </p>
-	 * 
-	 * <pre>
-	 * 	function CountAtoms (which: integer): integer;
-	 * 	{travel over the Animal, counting Atoms}
-	 * 		var
-	 * 			count: integer;
-	 * 	begin
-	 * 		count := 1;	{count me}
-	 * 		with BoneYard[which]^^ do
-	 * 			begin
-	 * 				if FirstBelowMe &lt;&gt; 0 then
-	 * 					count := count + CountAtoms(FirstBelowMe);
-	 * 				if (NextLikeMe &lt;&gt; 0) and (kind &lt;&gt; AnimalTrunk) then
-	 * 					count := count + CountAtoms(NextLikeMe);
-	 * 			end;
-	 * 		CountAtoms := count;	{Me and all below me}
-	 * 	end;
-	 * </pre>
-	 * 
-	 * @return the number of atoms in the tree.
+	 * Original documentation: Also used for Thickness of a Joint
 	 */
-	public int countAtoms() {
-		return this.toVector().size();
-	}
+	public double height;
 
-	public Vector<Atom> toVector() {
-		Vector<Atom> atoms = new Vector<Atom>();
-		atoms.add(this);
-		if (firstBelowMe != null)
-			atoms.addAll(firstBelowMe.toVector());
-		if (nextLikeMe != null)
-			atoms.addAll(nextLikeMe.toVector());
-		return atoms;
-	}
+	public AtomKind kind = AtomKind.Free;
 
 	/**
-	 * 
-	 * <h2>Original Documentation</h2>
-	 * <p>
-	 * Destroy this animal. Mark all of its Atoms as Free again.
-	 * </p>
-	 * <p>
-	 * Recursively step through the animal
-	 * </p>
+	 * Original documentation: Where to look in the BoneYard for the next atom.
+	 * 0 means end of chain. Also used in AnimalTrunk to store Gradient gene,
+	 * slightly more or less than 100. Treat as Percentage
 	 */
-	public void kill() {
-		if (firstBelowMe != null) {
-			firstBelowMe.kill();
-			firstBelowMe = null;
-		}
-		if (nextLikeMe != null) {
-			nextLikeMe.kill();
-			nextLikeMe = null;
-		}
+	public Atom nextLikeMe;
+
+	public int segmentNumber = 0;
+
+	/**
+	 * Original documentation: Also used for Length of a Joint
+	 */
+	public double width;
+
+	public Atom(AtomKind kind, ArthromorphGenome genome) {
+		super(genome, kind.toString());
+		this.kind = kind;
+		height = 1.0;
+		width = 1.0;
+		angle = 1.0;
+	}
+
+	public Atom(AtomKind kind, double height, double width, double angle, Atom nextLikeMe, Atom firstBelowMe) {
+		super(null, kind.toString());
+		this.kind = kind;
+		this.height = height;
+		this.width = width;
+		this.angle = angle;
+		this.nextLikeMe = nextLikeMe;
+		this.firstBelowMe = firstBelowMe;
+	}
+
+	protected void addChildrenToVectorDepthFirst(Vector<Atom> atoms) {
+		atoms.add(this);
+		if(this.firstBelowMe != null) this.firstBelowMe.addChildrenToVectorDepthFirst(atoms);
+		if(this.nextLikeMe != null) this.nextLikeMe.addChildrenToVectorDepthFirst(atoms);
 	}
 
 	public Object clone() {
@@ -231,6 +127,41 @@ public class Atom extends SimpleGene implements Cloneable {
 		}
 		copy.nextLikeMe = null;
 		return copy;
+	}
+
+	/**
+	 * Recursively traverse tree of atoms to calculate the total number of atoms
+	 * in the tree.
+	 * <h2>Original Pascal Source</h2>
+	 * <p>
+	 * In Classic Arthromorphs, the NextLikeMe field for AnimalTrunk was used to
+	 * store the gradient gene. In the Java version, gradient is separately
+	 * tracked in the Arthromorph class. For this reason, the "kind !=
+	 * AnimalTrunk" check is not needed.
+	 * </p>
+	 * 
+	 * <pre>
+	 * 	function CountAtoms (which: integer): integer;
+	 * 	{travel over the Animal, counting Atoms}
+	 * 		var
+	 * 			count: integer;
+	 * 	begin
+	 * 		count := 1;	{count me}
+	 * 		with BoneYard[which]^^ do
+	 * 			begin
+	 * 				if FirstBelowMe &lt;&gt; 0 then
+	 * 					count := count + CountAtoms(FirstBelowMe);
+	 * 				if (NextLikeMe &lt;&gt; 0) and (kind &lt;&gt; AnimalTrunk) then
+	 * 					count := count + CountAtoms(NextLikeMe);
+	 * 			end;
+	 * 		CountAtoms := count;	{Me and all below me}
+	 * 	end;
+	 * </pre>
+	 * 
+	 * @return the number of atoms in the tree.
+	 */
+	public int countAtoms() {
+		return this.toVector().size();
 	}
 
 	/**
@@ -432,7 +363,6 @@ public class Atom extends SimpleGene implements Cloneable {
 			}
 		}
 	}
-
 	/**
 	 * <h2>Original documentation</h2> Draw a claw, note that we don't [refer to
 	 * a specific atom] at all. Param info is already folded in
@@ -470,7 +400,6 @@ public class Atom extends SimpleGene implements Cloneable {
 		if (g2 != null)
 			g2.setColor(Color.BLACK);
 	}
-
 	void drawLine(Graphics2D g2, int x, int y, int endX, int endY, int thick, boolean sideways) {
 		
 		if (sideways) {
@@ -488,7 +417,6 @@ public class Atom extends SimpleGene implements Cloneable {
 			g2.setStroke(new BasicStroke(1)); // PenSize(1, 1);
 		}
 	}
-
 	public void drawOval(Graphics2D g2, int x, int y, int width, int height, boolean sideways, boolean wantColor) {
 
 		if (sideways) {
@@ -528,17 +456,89 @@ public class Atom extends SimpleGene implements Cloneable {
 			g2.setColor(Color.BLACK);
 		// convert from center of oval to left corner
 	}
-
 	@Override
 	public void geneManipulated(GeneManipulationEvent gbme) {
 		// TODO Auto-generated method stub
 
 	}
 
-protected void addChildrenToVectorDepthFirst(Vector<Atom> atoms) {
+	public double getAngle() {
+		return angle;
+	}
+
+	public Atom getFirstBelowMe() {
+		return firstBelowMe;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public AtomKind getKind() {
+		return kind;
+	}
+
+	public Atom getNextLikeMe() {
+		return nextLikeMe;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	/**
+	 * 
+	 * <h2>Original Documentation</h2>
+	 * <p>
+	 * Destroy this animal. Mark all of its Atoms as Free again.
+	 * </p>
+	 * <p>
+	 * Recursively step through the animal
+	 * </p>
+	 */
+	public void kill() {
+		if (firstBelowMe != null) {
+			firstBelowMe.kill();
+			firstBelowMe = null;
+		}
+		if (nextLikeMe != null) {
+			nextLikeMe.kill();
+			nextLikeMe = null;
+		}
+	}
+
+	public void setAngle(double angle) {
+		this.angle = angle;
+	}
+
+	public void setFirstBelowMe(Atom firstBelowMe) {
+		this.firstBelowMe = firstBelowMe;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public void setKind(AtomKind kind) {
+		this.kind = kind;
+	}
+
+	public void setNextLikeMe(Atom nextLikeMe) {
+		this.nextLikeMe = nextLikeMe;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+public Vector<Atom> toVector() {
+	Vector<Atom> atoms = new Vector<Atom>();
 	atoms.add(this);
-	if(this.firstBelowMe != null) this.firstBelowMe.addChildrenToVectorDepthFirst(atoms);
-	if(this.nextLikeMe != null) this.nextLikeMe.addChildrenToVectorDepthFirst(atoms);
+	if (firstBelowMe != null)
+		atoms.addAll(firstBelowMe.toVector());
+	if (nextLikeMe != null)
+		atoms.addAll(nextLikeMe.toVector());
+	return atoms;
 }
 
 }
