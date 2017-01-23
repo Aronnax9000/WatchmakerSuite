@@ -16,6 +16,7 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.BoxyMorphViewPanel;
 
@@ -42,8 +43,8 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
     public BreedingPanel(SwingBorderLayoutMorphView watchmakerPanel) {
         super(watchmakerPanel.getSwingAppData());
         this.watchmakerPanel = watchmakerPanel;
-        MorphConfig config = watchmakerPanel.getSwingAppData().getMorphConfig();
-        boxes = new Boxes(config.getDefaultBreedingCols(), config.getDefaultBreedingRows());
+        SwingAppData swingAppData = watchmakerPanel.getSwingAppData();
+        boxes = new Boxes(swingAppData.getDefaultBreedingCols(), swingAppData.getDefaultBreedingRows());
         mouseAdapter = new BreedingPanelMouseAdapter(this);
         this.addMouseMotionListener(new BreedingPanelMouseMotionAdapter(this));
         this.addMouseListener(mouseAdapter);

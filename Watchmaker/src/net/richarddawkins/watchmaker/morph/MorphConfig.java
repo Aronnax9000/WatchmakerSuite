@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
+import java.beans.VetoableChangeListener;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
@@ -22,6 +23,8 @@ public interface MorphConfig {
 
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	void removePropertyChangeListener(PropertyChangeListener listener);
+	void addVetoableChangeListener(VetoableChangeListener listener);
+	void removeVetoableChangeListener(VetoableChangeListener listener);	
 
 	/* Factory Methods */
 
@@ -62,16 +65,10 @@ public interface MorphConfig {
 	Mutagen getMutagen();
     void setMutagen(Mutagen mutagen);
 
-	int getDefaultBreedingRows();
-
-	int getDefaultBreedingCols();
-
-	void setDefaultBreedingRows(int defaultBreedingRows);
-
-	void setDefaultBreedingCols(int defaultBreedingCols);
 
 	Embryology getEmbryology();
 	Morph reproduce(Morph parentMorph);
+
 
 
 }

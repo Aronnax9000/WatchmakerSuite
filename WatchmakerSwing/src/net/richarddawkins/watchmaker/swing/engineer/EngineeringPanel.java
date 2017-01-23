@@ -27,11 +27,11 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 	public void seed(Morph morph) {
 		if(! boxedMorphVector.isEmpty()) {
 			for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
-				boxedMorph.getMorph().getGenome().removePropertyChangeListener(this);
+				boxedMorph.getMorph().removePropertyChangeListener(this);
 			}
 			boxedMorphVector.removeAllElements();
 		}
-		morph.getGenome().addPropertyChangeListener(this);
+		morph.addPropertyChangeListener(this);
 		boxedMorphVector.add(new BoxedMorph(morph, 0));
 		GeneBoxStrip geneBoxStrip = (GeneBoxStrip)this.engineeringWatchmakerPanel.getUpperStrip();
 		geneBoxStrip.setGenome(morph.getGenome());
@@ -44,8 +44,9 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		repaint();
-		
+		if(evt.getPropertyName().equals("phenotype")) {
+			repaint();
+		}
 	}
 
 }

@@ -14,16 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
+import net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthromorphDrawingPreferences;
+import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 
 public class ArthromorphPreferences extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected SwingAppData swingAppData;
-	protected ArthromorphConfig config;
+	protected ArthromorphDrawingPreferences preferences;
 	
 	JCheckBox wantColor = new JCheckBox("Color");
 	JCheckBox sideways = new JCheckBox("Sideways");
@@ -32,15 +31,14 @@ public class ArthromorphPreferences extends JFrame {
 	JTextField cols = new JTextField(2);
 	
 	
-	public ArthromorphPreferences(SwingAppData swingAppData) {
+	public ArthromorphPreferences(DrawingPreferences prefs) {
 		super("Preferences");
-		this.swingAppData = swingAppData;
-		this.config = (ArthromorphConfig)swingAppData.getMorphConfig();
+		this.preferences = (ArthromorphDrawingPreferences)prefs;
 		this.addComponentListener(new ComponentAdapter() {
 			public void componentShown(ComponentEvent e) {
-				wantColor.setSelected(config.isWantColor());
-				sideways.setSelected(config.isSideways());
-				centring.setSelected(config.isCentring());
+				wantColor.setSelected(preferences.isWantColor());
+				sideways.setSelected(preferences.isSideways());
+				centring.setSelected(preferences.isCentring());
 //				rows.setText(new Integer(config.getBreedingAndGeneBoxPanel().getBreedingPanel().getRows()).toString());
 //				cols.setText(new Integer(config.getBreedingAndGeneBoxPanel().getBreedingPanel().getCols()).toString());
 			}

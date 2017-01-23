@@ -10,7 +10,10 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 
 public class ColourPic extends BiomorphPic {
 
-    protected int backgroundColor;
+    public static final int RED = 0;
+	public static final int GREEN = 0;
+	public static final int LIGHT_GRAY = 0;
+	protected int backgroundColor;
     public int getBackgroundColor() {
         return backgroundColor;
     }
@@ -71,7 +74,7 @@ public class ColourPic extends BiomorphPic {
             rgbColorPalette[i] = new Color((10 - (i - 246)) * 25, (10 - (i - 246)) * 25, (10 - (i - 246)) * 25);
     }
 
-    public void picLine(int x, int y, int xnew, int ynew, int thickness, int color) {
+    public void picLine(int x, int y, int xnew, int ynew, int color) {
         if (lines.size() >= PICSIZEMAX) {
 
             // {Message(GetString(TooLargeString));}

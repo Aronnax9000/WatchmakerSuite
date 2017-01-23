@@ -45,14 +45,11 @@ public class SnailConfig extends SimpleMorphConfig {
 	public SnailConfig() {
 		mutagen = new SnailMutagen(new SnailAllowedMutations());
 		embryology = new SnailEmbryology();
-		setDefaultBreedingRows(3);
-		setDefaultBreedingCols(5);
 	}
-
 	@Override
 	public Morph newMorph() {
-		return new Snail(this);
+		Morph morph = new Snail();
+		wireMorphEvents(morph);
+		return morph;
 	}
-
-
 }

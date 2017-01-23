@@ -11,9 +11,12 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
+import net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences;
 
 public class SwingColourPicDrawer extends SwingPicDrawer {
-
+	public SwingColourPicDrawer() {
+		drawingPreferences = new SimpleDrawingPreferences();
+	}
     protected void limbRect(Graphics2D g2, ColourPic pic, ColourLin line, Rectangle square) {
         g2.drawRect(square.x, square.y, square.width, square.height);
         if (pic.getLimbFill() == LimbFillType.Filled)

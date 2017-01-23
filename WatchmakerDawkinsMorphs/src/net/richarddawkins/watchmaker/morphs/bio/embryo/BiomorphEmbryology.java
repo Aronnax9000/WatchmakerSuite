@@ -1,13 +1,13 @@
 package net.richarddawkins.watchmaker.morphs.bio.embryo;
 
-import net.richarddawkins.watchmaker.embryo.Embryology;
+import net.richarddawkins.watchmaker.embryo.SimpleEmbryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic.PicStyleType;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
-public class BiomorphEmbryology implements Embryology {
+public class BiomorphEmbryology extends SimpleEmbryology {
 	
 	protected int plugIn(int[] gene, int[] dx, int[] dy) {
 		int order = gene[8];

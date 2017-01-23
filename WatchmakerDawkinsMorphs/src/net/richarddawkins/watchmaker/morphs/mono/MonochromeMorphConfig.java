@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.mono;
 
+import java.util.logging.Logger;
+
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -12,6 +14,8 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig");
+
 	@Override
 	public Genome newGenome() {
 		return new MonochromeGenome();
@@ -25,9 +29,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	public MonochromeMorphConfig() {
 		mutagen = new MonochromeMutagen(new MonochromeAllowedMutations());
 		embryology = new MonochromeEmbryology();
-		geneBoxCount = 16;
-		setDefaultBreedingRows(3);
-		setDefaultBreedingCols(5);
+
 	}
 
 
@@ -43,7 +45,7 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	}
 	@Override
 	public Morph newMorph() {
-		Morph morph = new MonochromeMorph(this);
+		Morph morph = new MonochromeMorph();
 		return morph;
 	}
 }

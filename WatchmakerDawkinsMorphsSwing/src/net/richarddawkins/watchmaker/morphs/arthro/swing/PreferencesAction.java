@@ -27,7 +27,8 @@ public class PreferencesAction extends SwingWatchmakerAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(frame == null) {
-			frame = new ArthromorphPreferences(swingAppData);
+			frame = new ArthromorphPreferences(
+					swingAppData.getPhenotypeDrawer().getDrawingPreferences());
 	
 			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	

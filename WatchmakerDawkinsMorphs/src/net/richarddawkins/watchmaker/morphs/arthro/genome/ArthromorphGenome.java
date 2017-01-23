@@ -1,11 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genome;
 
-import java.awt.Graphics2D;
-
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
@@ -16,15 +13,9 @@ public class ArthromorphGenome extends SimpleGenome {
 
 	protected double[] cumParams = new double[9]; // Was 1-based array in Pascal
 
-	protected int eastPole = 0;
 
 	protected int gradient;
 
-	protected int northPole = 0;
-
-	protected int southPole = 0;
-
-	protected int westPole = 0;
 
 	public ArthromorphGenome() {
 
@@ -36,96 +27,6 @@ public class ArthromorphGenome extends SimpleGenome {
 	}
 
 
-
-	/**
-	 * An example of how to call Draw for an animal
-	 * 
-	 * @param g2
-	 *            a Graphics2D drawing context. May be null (for dry runs,
-	 *            calculating poles)
-	 * @param x
-	 *            the x coordinate where the animal is to be drawn.
-	 * @param y
-	 *            the y coordinate where the animal is to be drawn.
-	 * @throws ArthromorphGradientExceeds1000Exception
-	 *             if the gradient exceeds 1000.
-	 */
-	public void drawAnimal(Graphics2D g2, int x, int y, boolean centring, boolean sideways, boolean wantColor) throws ArthromorphGradientExceeds1000Exception { // procedure
-																											// DrawAnimal
-																											// (BoxNo,
-																											// x,
-																											// y:
-																											// integer);
-		double[] params = new double[9];
-		for (int ii = 0; ii < params.length; ii++)
-			// ii, j, ySeg: integer;
-			params[ii] = 1.0; // clear it all out
-		int ySeg = y;
-		animalTrunk.draw(g2, params, x, y, x, ySeg, centring, sideways, true);
-	}
-
-	public void drawInBox(Graphics2D g2, boolean centring, boolean sideways, boolean wantColor)
-			throws ArthromorphGradientExceeds1000Exception { // procedure
-																// DrawInBox
-																// (BoxNo:
-																// integer);
-		Point where = new Point(0,0);
-	    int centre;
-		int start;
-		int midriff;
-		int verticalOffset = 0;
-		if (sideways) {
-			centre = where.v;
-			start = where.h;
-            westPole = 0;
-			eastPole = 0;
-			if (centring) {
-				// Original implementation bracketed this call with hidePen /
-				// showPen. This
-				// implementation simply calls drawAnimal with a null graphics
-				// context.
-				drawAnimal(null, centre, start, centring, sideways, wantColor); // return with NorthPole and
-													// SouthPole updated
-				midriff = westPole + (eastPole - westPole) / 2;
-				verticalOffset = start - midriff;
-			}
-		} else {
-			start = where.v;
-			centre = where.h;
-			northPole = 0;
-			southPole = 0;
-			if (centring) {
-				// Preliminary dummy draw to measure North & South extent of
-				// animal
-				drawAnimal(null, centre, start, centring, sideways, wantColor); // return with NorthPole and
-													// SouthPole updated
-				midriff = northPole + (southPole - northPole) / 2;
-				verticalOffset = start - midriff;
-			}
-		}
-
-		// if AnimalPicture[BoxNo] <> nil then
-		// KillPicture(AnimalPicture[BoxNo]); {redraw Picture in correct
-		// position}
-		// AnimalPicture[BoxNo] = OpenPicture(Box[BoxNo]);
-		// showpen;
-		// ClipRect(Box[BoxNo]);
-		drawAnimal(g2, centre, start + verticalOffset, centring, sideways, wantColor);
-		// hidepen;
-		// ClipRect(Prect);
-		// ClosePicture;
-	}
-
-	public void expandPoles(int north, int south, int east, int west) {
-		if (north < northPole)
-			northPole = north;
-		if (south > southPole)
-			southPole = south;
-		if (west < westPole)
-			westPole = west;
-		if (east > eastPole)
-			eastPole = east;
-	}
 
 	public Atom getAnimalTrunk() {
 		return animalTrunk;
@@ -139,25 +40,6 @@ public class ArthromorphGenome extends SimpleGenome {
 		return cumParams;
 	}
 
-	public int getEastPole() {
-		return eastPole;
-	}
-
-	public int getGradient() {
-		return gradient;
-	}
-
-	public int getNorthPole() {
-		return northPole;
-	}
-
-	public int getSouthPole() {
-		return southPole;
-	}
-
-	public int getWestPole() {
-		return westPole;
-	}
 
 	public void minimalAnimal() {
 		Atom aa = new Atom(AtomKind.Claw, this);
@@ -210,31 +92,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		// A bit of a cheat, because reproduce needs access to the Config
 		// object.
 		copy(child);
-		int counter = 0;
-		boolean done = false;
-		do {
-			counter++;
-			done = newMorph.getMorphConfig().getMutagen().mutate(child); // If
-																			// it
-																			// fails,
-																			// just
-																			// try
-																			// again
-																			// until
-																			// we
-																			// succeed
-																			// at
-																			// changing
-																			// something}
-		} while (!done && counter <= 1000);
-
-		if (counter > 1000)
-			try {
-				throw new Exception("Timed out, perhaps attempting impossible duplication or deletion");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
 		return child;
 	}
 
@@ -255,25 +113,17 @@ public class ArthromorphGenome extends SimpleGenome {
 		this.cumParams = cumParams;
 	}
 
-	public void setEastPole(int eastPole) {
-		this.eastPole = eastPole;
+
+	public int getGradient() {
+		return gradient;
 	}
+
 
 	public void setGradient(int gradient) {
 		this.gradient = gradient;
 	}
 
-	public void setNorthPole(int northPole) {
-		this.northPole = northPole;
-	}
 
-	public void setSouthPole(int southPole) {
-		this.southPole = southPole;
-	}
-
-	public void setWestPole(int westPole) {
-		this.westPole = westPole;
-	}
 
 	@Override
 	public Gene[] toGeneArray() {

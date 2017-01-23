@@ -8,6 +8,6 @@ public interface Genome extends PropertyChangeListener {
 
 	Gene[] toGeneArray();
 	Gene getGene(int geneBoxIndex);
-	void addPropertyChangeListener(PropertyChangeListener listener);
-	void removePropertyChangeListener(PropertyChangeListener listener);
+	void addGenomeChangeListener(GenomeChangeListener listener);
+	void removeGenomeChangeListener(GenomeChangeListener listener);
 }

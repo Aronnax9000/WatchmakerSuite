@@ -15,22 +15,20 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	
 	@Override
 	public Genome newGenome() {
-		
 		return new ColourGenome();
 	}
 	public ColourBiomorphConfig() {
 		super();
 		setMutagen(new ColourMutagen(new ColourAllowedMutations()));
 		embryology = new ColourEmbryology();
-		
-		geneBoxCount = 28;
 
-	    setDefaultBreedingRows(3);
-	    setDefaultBreedingCols(3);
+
 	}
 	@Override
 	public Morph newMorph() {
-		return new ColourBiomorph(this);
+		Morph morph = new ColourBiomorph();
+		wireMorphEvents(morph);
+		return morph;
 	}
 	@Override
 	public Phenotype newPhenotype() {

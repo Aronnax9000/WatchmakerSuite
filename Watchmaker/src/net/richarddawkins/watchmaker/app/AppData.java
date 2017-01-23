@@ -24,6 +24,15 @@ public interface AppData {
 
 	public MorphConfig getMorphConfig();
 	public void setMorphConfig(MorphConfig config);
+	
+
+	public void setDefaultBreedingCols(int defaultBreedingCols);
+
+
+	public void setDefaultBreedingRows(int defaultBreedingRows);
+
+	public int getDefaultBreedingCols();
+	public int getDefaultBreedingRows();
 
 	
 	public void addBreedingMorphView(Morph morph);

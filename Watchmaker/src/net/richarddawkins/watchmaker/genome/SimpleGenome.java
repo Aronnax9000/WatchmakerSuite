@@ -1,9 +1,6 @@
 package net.richarddawkins.watchmaker.genome;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.beans.VetoableChangeSupport;
 
 public abstract class SimpleGenome implements Genome, Cloneable {
 //
@@ -17,11 +14,7 @@ public abstract class SimpleGenome implements Genome, Cloneable {
 //	public void setMorph(Morph morph) {
 //		this.morph = morph;
 //	}
-	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	protected VetoableChangeSupport vcs = new VetoableChangeSupport(this);
-
-	
-	
+	protected GenomeChangeSupport gcs = new GenomeChangeSupport(this);
 	
 	@Override
 	public void copy(Genome childGenome) {
@@ -33,8 +26,13 @@ public abstract class SimpleGenome implements Genome, Cloneable {
 	}
 	
 	@Override
-	public void addPropertyChangeListener(PropertyChangeListener listener) {
-		pcs.addPropertyChangeListener(listener);
+	public void addGenomeChangeListener(GenomeChangeListener listener) {
+		gcs.addGenomeChangeListener(listener);
+
+	}	
+	@Override
+	public void removeGenomeChangeListener(GenomeChangeListener listener) {
+		gcs.addGenomeChangeListener(listener);
 
 	}
 	@Override
@@ -45,14 +43,9 @@ public abstract class SimpleGenome implements Genome, Cloneable {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		pcs.firePropertyChange(evt);
+		gcs.fireGenomeChangeEvent(this, evt);
 	}
 
-	@Override
-	public void removePropertyChangeListener(PropertyChangeListener listener) {
-		pcs.removePropertyChangeListener(listener);
-
-	}
 
 
 

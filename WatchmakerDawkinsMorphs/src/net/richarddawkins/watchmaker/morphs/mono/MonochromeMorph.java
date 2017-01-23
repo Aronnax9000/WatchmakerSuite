@@ -4,7 +4,6 @@ package net.richarddawkins.watchmaker.morphs.mono;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 /**
@@ -51,8 +50,7 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
  */
 public class MonochromeMorph extends SimpleMorph {
 
-	MonochromeMorph(MorphConfig config) {
-		super(config);
+	MonochromeMorph() {
 		this.pic = new MonoPic();
 	}
 

@@ -1,9 +1,10 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome;
 
+import java.util.logging.Logger;
+
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
@@ -11,6 +12,7 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public class ColourGenome extends MonochromeGenome {
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome");
 
 	public static final int RAINBOW = 256;
 
@@ -130,13 +132,7 @@ public class ColourGenome extends MonochromeGenome {
 	}
 
 
-	public Genome reproduce(Morph newMorph) {
-		ColourGenome child = new ColourGenome();
-		copy(child);
-		newMorph.getMorphConfig().getMutagen().mutate(child);
-		newMorph.setGenome(child);
-		return child;
-	}
+
 
 	@Override
 	public Gene[] toGeneArray() {

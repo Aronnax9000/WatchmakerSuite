@@ -9,13 +9,19 @@ import java.awt.geom.AffineTransform;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 
 
 public abstract class SwingPicDrawer implements PhenotypeDrawer {
-
+	
+	protected DrawingPreferences drawingPreferences;
+	@Override
+	public DrawingPreferences getDrawingPreferences() {
+		return this.drawingPreferences;
+	}
     protected boolean showBoundingBoxes = true;
     
     protected abstract void limb(Graphics2D g2, Pic pic, Lin limb);

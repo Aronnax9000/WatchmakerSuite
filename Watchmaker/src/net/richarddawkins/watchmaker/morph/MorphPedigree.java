@@ -40,10 +40,9 @@ public class MorphPedigree {
 			}
 			childPedigree.elderSib = youngestOffspring;
 			youngestOffspring.getPedigree().youngerSib = childMorph;
-			childPedigree.parent = me;
 		}
 		lastBorn = childMorph;
-		
+		childPedigree.parent = me;
 		
 		Morph youngestOffspring;
 		for(youngestOffspring = firstBorn; 
@@ -53,10 +52,4 @@ public class MorphPedigree {
 		}
 		
 	}
-
-
-
-
-
-
 }

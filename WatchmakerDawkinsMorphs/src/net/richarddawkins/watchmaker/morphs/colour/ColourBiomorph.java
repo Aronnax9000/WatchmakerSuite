@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morphs.colour;
 
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 
@@ -32,13 +31,9 @@ import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 public class ColourBiomorph extends SimpleMorph {
 	public static final int RAINBOW = 1 << 8;
 
-	public ColourBiomorph(MorphConfig config) {
-		super(config);
+	public ColourBiomorph() {
 		this.pic = new ColourPic();
 	}
 
-	public ColourBiomorph(MorphConfig config, int basicType) {
-		super(config, basicType);
-	}
 
 }

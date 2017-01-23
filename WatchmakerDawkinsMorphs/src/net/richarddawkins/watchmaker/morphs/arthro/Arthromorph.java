@@ -1,12 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
-import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
-import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGradientExceeds1000Exception;
+import net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthromorphPic;
 /**
  * <h2>Original documentation from Arthromorphs/MyGlobals</h2>
  * <p>Arthromorphs   by Richard Dawkins and Ted Kaehler</p>
@@ -98,32 +93,8 @@ import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGradientExc
  */
 public class Arthromorph extends SimpleMorph implements Cloneable {
 	
-	public Arthromorph(MorphConfig config, int basicType) {
-	    super(config);
-	    this.pic = new ArthromorphPic();
-		ArthromorphGenome newGenome = new ArthromorphGenome();
-		this.genome = newGenome;
-		genome.setBasicType(basicType);
+	public Arthromorph() {
+		this.pic = new ArthromorphPic();
 	}
-
-	public Arthromorph(MorphConfig config) {
-	    super(config);
-	}
-	
-	public void draw(Graphics2D g2) {
-		ArthromorphConfig conf = (ArthromorphConfig) config;
-		g2.setColor(Color.BLACK);
-//		g2.drawString("Offspring " + this.getOffspringCount(false), 10, 20);
-//		g2.drawString(d.getWidth() + "x" + d.getHeight(), 10, 40);
-		try {
-			((ArthromorphGenome)genome).drawInBox(g2, conf.isCentring(), conf.isSideways(), conf.isWantColor());
-		} catch (ArthromorphGradientExceeds1000Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-
-
 	
 }

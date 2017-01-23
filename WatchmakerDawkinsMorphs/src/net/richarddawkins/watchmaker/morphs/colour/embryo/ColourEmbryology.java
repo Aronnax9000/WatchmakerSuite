@@ -10,7 +10,6 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneZeroOrGreater;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SegNoGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
@@ -18,8 +17,6 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
-import net.richarddawkins.watchmaker.util.Globals;
-import net.richarddawkins.watchmaker.util.ModeType;
 
 public class ColourEmbryology extends BiomorphEmbryology {
 	protected void tree(ColourGenome genome, ColourPic pic, int x, int y, int lgth, int dir, int[] dx, int[] dy, int order, boolean oddOne) {
@@ -48,7 +45,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		int subscript = (gene9 - lgth) % 8; // + 1; Trimmed off + 1
 														// to make it
 		// zero based.
-		pic.picLine(x, y, xnew, ynew, 1, genome.getColorGenes()[subscript].getValue());
+		pic.picLine(x, y, xnew, ynew, genome.getColorGenes()[subscript].getValue());
 		if (lgth > 1) {
 			if (oddOne) {
 				tree(genome, pic, xnew, ynew, lgth - 1, dir + 1, dx, dy, order, oddOne);
@@ -143,7 +140,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 				here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
 				incDistance += extraDistance;
 				dummyColour = 100;
-				pic.picLine(oldHere.h, oldHere.v, here.h, here.v, 1, dummyColour);
+				pic.picLine(oldHere.h, oldHere.v, here.h, here.v, dummyColour);
 				for (int j = 0; j < 8; j++) {
 					if (dGene[j] == SwellType.Swell) {
 						running[j] += trickleGene.getValue();

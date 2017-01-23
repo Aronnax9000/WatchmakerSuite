@@ -20,57 +20,69 @@ import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
 
 public abstract class SwingAppData implements AppData {
+	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
 
 	protected MorphConfig config;
+
+	protected int defaultBreedingCols = 5;
+
+	protected int defaultBreedingRows = 3;
+
 	protected MultiMorphTypeTabbedPanel frame;
 	protected String icon;
 	protected MenuBuilder menuBuilder;
 	protected MorphViewsTabbedPanel morphViewsTabbedPane;
 	protected String name;
-    protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	protected boolean showBoundingBoxes = true;
+	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected PhenotypeDrawer phenotypeDrawer;
+	protected boolean showBoundingBoxes = true;
 	protected String toolTip;
-	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
+	public SwingAppData() {
+	}
+	@Override
+	public void addBreedingMorphView(Morph morph) {
+		morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));
+	}
+	@Override
+	public void addDefaultMorphView() {
+		addBreedingMorphView(null);
+	}
+	@Override
+	public void addEngineeringMorphView(Morph morph) {
+		morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this, morph));
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		pcs.addPropertyChangeListener(listener);
+
+	}
 
 	@Override
 	public BoxesDrawer getBoxesDrawer() {
 		return boxesDrawer;
 	}
 
-
-
-	public SwingAppData() {}
-	
-	
-	
 	@Override
-	public void addBreedingMorphView(Morph morph) {
-	    morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));
-	}
-    @Override
-    public void addDefaultMorphView() {
-		addBreedingMorphView(null);
+	public int getDefaultBreedingCols() {
+		return defaultBreedingCols;
 	}
 
 	@Override
-	public void addEngineeringMorphView(Morph morph) {
-	    morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this, morph));
+	public int getDefaultBreedingRows() {
+		return defaultBreedingRows;
 	}
-	@Override
-	public void addPropertyChangeListener(PropertyChangeListener listener) {
-		pcs.addPropertyChangeListener(listener);
-		
-	}
+
 	@Override
 	public MultiMorphTypeTabbedPanel getFrame() {
 		return frame;
 	}
-	
+
 	@Override
 	public String getIcon() {
 		return icon;
 	}
+
 	@Override
 	public MenuBuilder getMenuBuilder() {
 		return menuBuilder;
@@ -83,34 +95,44 @@ public abstract class SwingAppData implements AppData {
 
 	@Override
 	public Morph getMorphOfTheHour() {
-        MorphViewsTabbedPanel pane = this.getMorphViewsTabbedPane();
-        MorphView morphView = (MorphView) ((JTabbedPane) pane).getSelectedComponent();
-        return morphView.getMorphOfTheHour();
-    }
+		MorphViewsTabbedPanel pane = this.getMorphViewsTabbedPane();
+		MorphView morphView = (MorphView) ((JTabbedPane) pane).getSelectedComponent();
+		return morphView.getMorphOfTheHour();
+	}
 
 	@Override
 	public MorphViewsTabbedPanel getMorphViewsTabbedPane() {
 		return this.morphViewsTabbedPane;
 	}
-	
+
 	@Override
 	public String getName() {
 		return name;
 	}
-	
+
 	@Override
 	public PhenotypeDrawer getPhenotypeDrawer() {
 		return phenotypeDrawer;
 	}
-	
+
 	@Override
 	public String getToolTip() {
 		return toolTip;
 	}
-	
+
 	@Override
 	public boolean isShowBoundingBoxes() {
 		return showBoundingBoxes;
+	}
+
+	@Override
+	public void setDefaultBreedingCols(int defaultBreedingCols) {
+		this.defaultBreedingCols = defaultBreedingCols;
+	}
+
+	@Override
+	public void setDefaultBreedingRows(int defaultBreedingRows) {
+		this.defaultBreedingRows = defaultBreedingRows;
 	}
 
 	@Override
@@ -124,8 +146,6 @@ public abstract class SwingAppData implements AppData {
 		this.icon = icon;
 	}
 
-
-
 	@Override
 	public void setMenuBuilder(MenuBuilder menuBuilder) {
 		this.menuBuilder = menuBuilder;
@@ -134,31 +154,34 @@ public abstract class SwingAppData implements AppData {
 	@Override
 	public void setMorphConfig(MorphConfig config) {
 		this.config = config;
-		
+
 	}
+
 	@Override
 	public void setMorphViewsTabbedPane(MorphViewsTabbedPanel morphViewsTabbedPane) {
 		this.morphViewsTabbedPane = morphViewsTabbedPane;
 
 	}
+
 	@Override
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	@Override
-    public void setShowBoundingBoxes(boolean newValue) {
-        boolean oldValue = this.showBoundingBoxes;
-        this.showBoundingBoxes = newValue;
-        
-        pcs.firePropertyChange("showBoundingBoxes", oldValue, newValue);
-        ((Component)((JTabbedPane) morphViewsTabbedPane).getSelectedComponent()).repaint();
-    }
-
-	@Override
 	public void setPhenotypeDrawer(PhenotypeDrawer newValue) {
 		this.phenotypeDrawer = newValue;
 	}
+
+	@Override
+	public void setShowBoundingBoxes(boolean newValue) {
+		boolean oldValue = this.showBoundingBoxes;
+		this.showBoundingBoxes = newValue;
+
+		pcs.firePropertyChange("showBoundingBoxes", oldValue, newValue);
+		((Component) ((JTabbedPane) morphViewsTabbedPane).getSelectedComponent()).repaint();
+	}
+
 	@Override
 	public void setToolTip(String toolTip) {
 		this.toolTip = toolTip;

@@ -15,7 +15,9 @@ public class ColourLin extends Lin implements Cloneable {
         this.color = color;
     }
 
-    @Override
+
+
+	@Override
     public ColourLin clone() {
         ColourLin clone = (ColourLin) super.clone();
         clone.color = color;

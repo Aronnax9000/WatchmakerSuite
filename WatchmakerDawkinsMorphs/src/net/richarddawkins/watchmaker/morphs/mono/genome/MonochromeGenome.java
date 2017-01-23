@@ -1,12 +1,10 @@
 package net.richarddawkins.watchmaker.morphs.mono.genome;
 
+import java.util.logging.Logger;
+
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.TriangleAble;
-import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
-import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
@@ -16,6 +14,7 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome");
 
     public MonochromeGenome() {
         
@@ -62,16 +61,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
         segDistGene.setValue(150);
     }
 
-
-    public Genome reproduce(Morph newMorph) {
-        Genome childGenome = new MonochromeGenome();
-        super.copy(childGenome);
-        MorphConfig config = newMorph.getMorphConfig();
-        Mutagen mutagen = config.getMutagen();
-        mutagen.mutate(childGenome);
-        
-        return childGenome;
-    }
 
     @Override
     public Gene[] toGeneArray() {

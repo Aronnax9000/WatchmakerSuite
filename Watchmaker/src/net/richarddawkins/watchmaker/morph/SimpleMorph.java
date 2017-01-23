@@ -3,23 +3,48 @@ package net.richarddawkins.watchmaker.morph;
 import java.awt.Image;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.beans.PropertyVetoException;
+import java.beans.VetoableChangeListener;
+import java.beans.VetoableChangeSupport;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GenomeChangeEvent;
+import net.richarddawkins.watchmaker.genome.GenomeChangeListener;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
-public abstract class SimpleMorph implements Morph, PropertyChangeListener {
+public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
+	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	protected final VetoableChangeSupport vcs = new VetoableChangeSupport(this);
 
-    protected MorphConfig config;
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		this.pcs.addPropertyChangeListener(listener);
+	}
+	
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		this.pcs.removePropertyChangeListener(listener);
+	}
+
+	@Override
+	public void addVetoableChangeListener(VetoableChangeListener listener) {
+		this.vcs.addVetoableChangeListener(listener);
+	}
+	
+	@Override
+	public void removeVetoableChangeListener(VetoableChangeListener listener) {
+		this.vcs.removeVetoableChangeListener(listener);
+	}
+
 
     protected Genome genome;
 
     protected Object image;
-
-    protected Phenotype myPic;
 
     protected final MorphPedigree pedigree = new MorphPedigree(this);
 
@@ -28,16 +53,6 @@ public abstract class SimpleMorph implements Morph, PropertyChangeListener {
     protected Rect pRect;
 
 
-    public SimpleMorph(MorphConfig config) {
-        this.config = config;
-    }
-
-    public SimpleMorph(MorphConfig config, int basicType) {
-		this(config);
-		Genome genome = config.newGenome();
-		genome.setBasicType(basicType);
-		this.setGenome(genome);
-	}
 
 	@Override
     public Genome getGenome() {
@@ -46,9 +61,6 @@ public abstract class SimpleMorph implements Morph, PropertyChangeListener {
     @Override
     public Object getImage() {
         return image;
-    }
-    public MorphConfig getMorphConfig() {
-        return config;
     }
 
     public MorphPedigree getPedigree() {
@@ -70,10 +82,14 @@ public abstract class SimpleMorph implements Morph, PropertyChangeListener {
     // }
 
     @Override
-    public void setGenome(Genome genome) {
-        this.genome = genome;
-        config.getEmbryology().develop(genome, getPic());
-        genome.addPropertyChangeListener(this);
+    public void setGenome(Genome newValue) throws PropertyVetoException {
+    	Genome oldValue = this.genome;
+    	if(oldValue != null)
+    		throw new PropertyVetoException("A Morph's genomes cannot be set once assigned.", 
+    				new PropertyChangeEvent(this, "genome", oldValue, newValue));
+        genome = newValue;
+        genome.addGenomeChangeListener(this);
+        pcs.firePropertyChange("genome", null, genome);
     }
 
     public void setImage(Image image) {
@@ -84,10 +100,6 @@ public abstract class SimpleMorph implements Morph, PropertyChangeListener {
         this.image = image;
     }
 
-    public void setMorphConfig(MorphConfig config) {
-        this.config = config;
-    }
-
     public void setPic(Phenotype pic) {
         this.pic = pic;
     }
@@ -96,7 +108,11 @@ public abstract class SimpleMorph implements Morph, PropertyChangeListener {
         this.pRect = pRect;
     }
     @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-    	config.getEmbryology().develop(genome, getPic());
+    public void genomeChange(GenomeChangeEvent evt) {
+    	pcs.firePropertyChange("genome", null, genome);
+    }
+    
+    public void firePropertyChange(PropertyChangeEvent event) {
+    	pcs.firePropertyChange(event);
     }
 }

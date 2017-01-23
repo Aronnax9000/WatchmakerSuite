@@ -2,6 +2,10 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.beans.PropertyVetoException;
+import java.beans.VetoableChangeListener;
+import java.beans.VetoableChangeSupport;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -11,69 +15,46 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-    
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
+
+	protected AppData appData;	
+
+	protected Embryology embryology;
 	
-	
-	protected Embryology embryology;	
-
-	@Override
-	public Morph newMorph(int type) {
-		Morph morph = newMorph();
-		Genome genome = newGenome();
-		genome.setBasicType(type);
-		morph.setGenome(genome);
-		return morph;
-	}
-
-	
-	
-    public Embryology getEmbryology() {
-		return embryology;
-	}
-	public void setEmbryology(Embryology embryology) {
-		this.embryology = embryology;
-	}
-
-
-
-
-
-	protected AppData appData;
-	protected int defaultBreedingCols;
-	protected int defaultBreedingRows;
-    protected int geneBoxCount = 0;
-
-	protected Mutagen mutagen;
+    protected Mutagen mutagen;
 	protected JPanel pageStartPanel;
-    protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+
 	protected boolean recordingFossils;
+	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	protected final VetoableChangeSupport vcs = new VetoableChangeSupport(this);
+
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.addPropertyChangeListener(listener);
 	}
+	
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		this.pcs.removePropertyChangeListener(listener);
+	}
 
-
-	public AppData getAppData() {
-        return appData;
-    }
-
-	public int getDefaultBreedingCols() {
-		return defaultBreedingCols;
+	@Override
+	public void addVetoableChangeListener(VetoableChangeListener listener) {
+		this.vcs.addVetoableChangeListener(listener);
 	}
 	
-
-	public int getDefaultBreedingRows() {
-		return defaultBreedingRows;
+	@Override
+	public void removeVetoableChangeListener(VetoableChangeListener listener) {
+		this.vcs.removeVetoableChangeListener(listener);
 	}
 
-
-	public int getGeneBoxCount() {
-		return geneBoxCount;
+    public AppData getAppData() {
+        return appData;
+    }
+	public Embryology getEmbryology() {
+		return embryology;
 	}
-
-
-
-
 	public Mutagen getMutagen() {
 		return mutagen;
 	}
@@ -84,11 +65,43 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return recordingFossils;
 	}
 
+	
+	protected void wireMorphEvents(Morph morph) {
+		morph.addPropertyChangeListener(getEmbryology());
+	}
 
 	@Override
-	public void removePropertyChangeListener(PropertyChangeListener listener) {
-		this.pcs.removePropertyChangeListener(listener);
+	public Morph newMorph(int type) {
+		Genome genome = newGenome();
+		genome.setBasicType(type);
+		Morph morph = newMorph();
+		morph.setPic(newPhenotype());
+		try {
+			morph.setGenome(genome);
+		} catch (PropertyVetoException e) {
+			logger.warning("Genome was already set at Morph creation. Genome:" 
+					+ morph.getGenome().toString());
+		}
+		wireMorphEvents(morph);
+		return morph;
 	}
+
+
+	@Override
+    public Morph reproduce(Morph parentMorph) {
+    	Genome childGenome = newGenome();
+    	parentMorph.getGenome().copy(childGenome);
+    	getMutagen().mutate(childGenome);
+    	Morph childMorph = newMorph();
+    	try {
+			childMorph.setGenome(childGenome);
+		} catch (PropertyVetoException e) {
+			logger.warning("Genome was already set at Morph creation. Genome:" 
+		+ childMorph.getGenome().toString());
+		}
+    	parentMorph.getPedigree().addOffspring(childMorph);
+    	return childMorph;
+    }
 
 
 
@@ -97,30 +110,13 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     }
 
 
-	public void setDefaultBreedingCols(int defaultBreedingCols) {
-		this.defaultBreedingCols = defaultBreedingCols;
-	}
-
-
-	public void setDefaultBreedingRows(int defaultBreedingRows) {
-		this.defaultBreedingRows = defaultBreedingRows;
+	public void setEmbryology(Embryology embryology) {
+		this.embryology = embryology;
 	}
 
 	public void setMutagen(Mutagen mutagen) {
 		this.mutagen = mutagen;
 	}
-
-	@Override
-    public Morph reproduce(Morph parentMorph) {
-    	Morph childMorph = newMorph();
-    	childMorph.getPedigree().parent = parentMorph;
-    	parentMorph.getPedigree().addOffspring(childMorph);
-    	Genome childGenome = newGenome();
-    	parentMorph.getGenome().copy(childGenome);
-    	getMutagen().mutate(childGenome);
-    	childMorph.setGenome(childGenome);
-    	return childMorph;
-    }
     
 
 
