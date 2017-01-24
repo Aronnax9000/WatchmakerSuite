@@ -8,7 +8,12 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
 import net.richarddawkins.watchmaker.morphs.mono.menu.swing.SwingMonochromeMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-
+/**
+ * Contains the factory methods required to create
+ * and represent a Monochrome session.
+ * @author Alan Canon
+ *
+ */
 public class MonochromeSwingAppData extends SwingAppData implements AppData {
 	public MonochromeSwingAppData() {
 		setMenuBuilder(new SwingMonochromeMenuBuilder(this));
