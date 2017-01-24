@@ -81,8 +81,7 @@
       <Unit10>
         <Filename Value="unit_genome_window.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_genome_window"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="70"/>
         <CursorPos X="156" Y="89"/>
         <UsageCount Value="200"/>
@@ -108,12 +107,12 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23" Y="12"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="88"/>
       </Unit13>
       <Unit14>
         <Filename Value="../Common/unit_dialog_helper.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="88"/>
       </Unit14>
       <Unit15>
         <Filename Value="unit_tell_error.pas"/>
@@ -155,7 +154,6 @@
       <Unit20>
         <Filename Value="unit_handle_mouse_down.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_handle_mouse_down"/>
         <EditorIndex Value="2"/>
         <TopLine Value="72"/>
         <CursorPos X="53" Y="76"/>
@@ -188,16 +186,14 @@
       <Unit24>
         <Filename Value="../Common/unit_strbuffer.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="88"/>
       </Unit24>
       <Unit25>
         <Filename Value="unit_watchdocrec.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unit_watchdocrec"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="156"/>
-        <CursorPos Y="175"/>
+        <CursorPos X="49" Y="176"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit25>
@@ -230,22 +226,24 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="54"/>
         <CursorPos X="10" Y="35"/>
-        <UsageCount Value="190"/>
+        <UsageCount Value="201"/>
       </Unit29>
       <Unit30>
         <Filename Value="unit_boneyard.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="6"/>
-        <UsageCount Value="190"/>
+        <UsageCount Value="201"/>
       </Unit30>
       <Unit31>
         <Filename Value="unit_draw.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="192"/>
-        <CursorPos X="18" Y="213"/>
-        <UsageCount Value="158"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="243"/>
+        <CursorPos Y="246"/>
+        <UsageCount Value="169"/>
+        <Loaded Value="True"/>
       </Unit31>
       <Unit32>
         <Filename Value="unit_grow_child.pas"/>
@@ -253,21 +251,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="109"/>
         <CursorPos X="15" Y="137"/>
-        <UsageCount Value="136"/>
+        <UsageCount Value="147"/>
       </Unit32>
       <Unit33>
         <Filename Value="unit_breed_docrec.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="13"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="143"/>
       </Unit33>
       <Unit34>
         <Filename Value="unit_prefs_dialog.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="17"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="117"/>
       </Unit34>
       <Unit35>
         <Filename Value="unit_mandelbrot.pas"/>
@@ -275,7 +273,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="95"/>
         <CursorPos X="36" Y="110"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="89"/>
       </Unit35>
       <Unit36>
         <Filename Value="unit_reproduce.pas"/>
@@ -290,7 +288,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos Y="36"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="76"/>
       </Unit37>
       <Unit38>
         <Filename Value="unit_muts.pas"/>
@@ -298,160 +296,159 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="8" Y="56"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="66"/>
       </Unit38>
       <Unit39>
         <Filename Value="../MacPascal/unit_dialog_helper.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="94"/>
         <CursorPos Y="41"/>
-        <UsageCount Value="195"/>
+        <UsageCount Value="194"/>
       </Unit39>
       <Unit40>
         <Filename Value="../MacPascal/unit_strbuffer.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="51"/>
         <CursorPos Y="81"/>
-        <UsageCount Value="196"/>
+        <UsageCount Value="195"/>
       </Unit40>
       <Unit41>
         <Filename Value="../MacPascal/think_pascal.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23" Y="12"/>
-        <UsageCount Value="195"/>
+        <UsageCount Value="194"/>
       </Unit41>
       <Unit42>
         <Filename Value="unit_atom_paramoffset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos X="7" Y="39"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="44"/>
       </Unit42>
       <Unit43>
         <Filename Value="unit_draw_atoms.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
         <CursorPos X="18" Y="64"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="29"/>
       </Unit43>
       <Unit44>
         <Filename Value="unit_draw_inbox.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="21" Y="79"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="29"/>
       </Unit44>
       <Unit45>
         <Filename Value="unit_draw_animal.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="7" Y="24"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="28"/>
       </Unit45>
       <Unit46>
         <Filename Value="unit_breed.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="47" Y="22"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="131"/>
       </Unit46>
       <Unit47>
         <Filename Value="unit_first_generation.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="39" Y="34"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="131"/>
       </Unit47>
       <Unit48>
         <Filename Value="unit_breeding_state.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20" Y="9"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="106"/>
       </Unit48>
       <Unit49>
         <Filename Value="unit_breed_queue_sched.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos X="6" Y="21"/>
-        <UsageCount Value="105"/>
+        <UsageCount Value="104"/>
       </Unit49>
       <Unit50>
         <Filename Value="unit_breed_instructions.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos Y="24"/>
-        <UsageCount Value="104"/>
+        <UsageCount Value="103"/>
       </Unit50>
       <Unit51>
         <Filename Value="unit_genome_output.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="10" Y="38"/>
-        <UsageCount Value="116"/>
+        <UsageCount Value="115"/>
       </Unit51>
       <Unit52>
         <Filename Value="unit_my_globals.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="172"/>
+        <UsageCount Value="171"/>
       </Unit52>
       <Unit53>
         <Filename Value="unit_ted_types.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="7" Y="367"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit53>
       <Unit54>
         <Filename Value="../RomanaII/Events.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="67"/>
         <CursorPos X="67" Y="84"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="1"/>
       </Unit54>
       <Unit55>
         <Filename Value="unit_mactoolbox_ess.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="77"/>
         <CursorPos Y="117"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit55>
       <Unit56>
         <Filename Value="unit_atom_tandem.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="8"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit56>
       <Unit57>
         <Filename Value="../RomanaII/StandardFile.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="181"/>
         <CursorPos X="25" Y="203"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit57>
       <Unit58>
         <Filename Value="../../../Dawkins/Arthromorphs/Brand_New.Pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="222"/>
         <CursorPos X="69" Y="234"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="11"/>
       </Unit58>
       <Unit59>
         <Filename Value="../RomanaII/Traps.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="528"/>
         <CursorPos X="2" Y="550"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit59>
       <Unit60>
         <Filename Value="../RomanaII/Types.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="41"/>
         <CursorPos Y="63"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit60>
       <Unit61>
         <Filename Value="../RomanaII/Memory.pas"/>
-        <UnitName Value="Memory"/>
         <EditorIndex Value="1"/>
         <TopLine Value="121"/>
         <CursorPos X="11" Y="142"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit61>
       <Unit62>
@@ -459,13 +456,13 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="141"/>
         <CursorPos X="19" Y="400"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="13"/>
       </Unit62>
       <Unit63>
         <Filename Value="../../workspacemars2/WatchmakerJ/Dawkins/Arthromorphs/MyGlobals"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="4"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit63>
       <Unit64>
@@ -473,14 +470,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="13"/>
         <CursorPos X="2" Y="29"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit64>
       <Unit65>
         <Filename Value="../RomanaII/OSUtils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="423"/>
         <CursorPos X="33" Y="430"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit65>
     </Units>
     <JumpHistory Count="27" HistoryIndex="26">
