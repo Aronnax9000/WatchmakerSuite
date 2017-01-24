@@ -1,10 +1,9 @@
 package net.richarddawkins.watchmaker.morphs.arthro.embryo;
 
 import net.richarddawkins.watchmaker.embryo.SimpleEmbryology;
-import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
 import net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthromorphPic;
-import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class ArthromorphEmbryology extends SimpleEmbryology {
 //
@@ -345,9 +344,9 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 //	}
 	
 	@Override
-	public void develop(Genome arthromorphGenome, Phenotype phenotype) {
-		ArthromorphGenome genome = (ArthromorphGenome) arthromorphGenome;
-		ArthromorphPic pic = (ArthromorphPic) phenotype;
+	public void develop(Morph morph) {
+		ArthromorphGenome genome = (ArthromorphGenome) morph.getGenome();
+		ArthromorphPic pic = (ArthromorphPic) morph.getPic();
 		
 	}
 

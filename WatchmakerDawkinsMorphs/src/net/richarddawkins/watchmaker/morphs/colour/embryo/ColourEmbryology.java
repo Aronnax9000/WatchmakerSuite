@@ -1,51 +1,59 @@
 package net.richarddawkins.watchmaker.morphs.colour.embryo;
 
-import net.richarddawkins.watchmaker.genome.Genome;
+import java.util.logging.Logger;
+
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneZeroOrGreater;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SegNoGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
+import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
-import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class ColourEmbryology extends BiomorphEmbryology {
-	protected void tree(ColourGenome genome, ColourPic pic, int x, int y, int lgth, int dir, int[] dx, int[] dy, int order, boolean oddOne) {
-		
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology");
+
+	protected void tree(ColourGenome genome, ColourPic pic, 
+			
+			int x, int y, int lgth, int dir, int[] dx, int[] dy, 
+			int order, boolean oddOne) {
+		logger.info("Tree:" +  lgth  + "/" + order);
 		int trickleGene = genome.getTrickleGene().getValue();
-		int thicknessGene = genome.getThicknessGene().getValue();
+		int thickness = genome.getThicknessGene().getValue();
 		int gene9 = genome.getGene9().getValue();
-		int xnew;
-		int ynew;
+
 		if (dir < 0) {
 			dir += 8;
 		}
 		if (dir >= 8) {
 			dir -= 8;
 		}
-		xnew = x + lgth * dx[dir] / trickleGene;
-		ynew = y + lgth * dy[dir] / trickleGene;
-		pic.margin.left = Math.min(pic.margin.left, x);
-		pic.margin.right = Math.max(pic.margin.right, x + thicknessGene);
-		pic.margin.bottom = Math.max(pic.margin.bottom, y + thicknessGene);
-		pic.margin.top = Math.min(pic.margin.top, y);
-		pic.margin.left = Math.min(pic.margin.left, xnew);
-		pic.margin.right = Math.max(pic.margin.right, xnew);
-		pic.margin.bottom = Math.max(pic.margin.bottom, ynew);
-		pic.margin.top = Math.min(pic.margin.top, ynew);
+		int xnew = x + lgth * dx[dir] / trickleGene;
+		int ynew = y + lgth * dy[dir] / trickleGene;
+		
 		int subscript = (gene9 - lgth) % 8; // + 1; Trimmed off + 1
 														// to make it
 		// zero based.
-		pic.picLine(x, y, xnew, ynew, genome.getColorGenes()[subscript].getValue());
+		ColorGene colorGene = null;
+		try {
+			ColorGene[] colorGenes = genome.getColorGenes();
+			colorGene = colorGenes[subscript];
+		}
+		catch (StackOverflowError soe) {
+			logger.warning("Subscript: " + subscript);
+		}
+		ColourLin lin = new ColourLin(new Point(x,y), new Point(xnew,ynew),
+				thickness, colorGene.getValue());
+		pic.addLin(lin);
 		if (lgth > 1) {
 			if (oddOne) {
 				tree(genome, pic, xnew, ynew, lgth - 1, dir + 1, dx, dy, order, oddOne);
@@ -62,10 +70,10 @@ public class ColourEmbryology extends BiomorphEmbryology {
 	}
 
 	@Override
-	public void develop(Genome colourGenome, Phenotype colourPic) {
-				super.develop(colourGenome, colourPic);
-    	ColourGenome genome = (ColourGenome) colourGenome;
-    	ColourPic pic = (ColourPic) colourPic;
+	public void develop(Morph morph) {
+				super.develop(morph);
+    	ColourGenome genome = (ColourGenome) morph.getGenome();
+    	ColourPic pic = (ColourPic) morph.getPic();
 		Gene12345678 gene1 = genome.getGene1();
     	Gene12345678 gene2 = genome.getGene2();
     	Gene12345678 gene3 = genome.getGene3();
@@ -77,7 +85,6 @@ public class ColourEmbryology extends BiomorphEmbryology {
     	Gene9 gene9 = genome.getGene9();
     	SegNoGene segNoGene = genome.getSegNoGene();
     	IntegerGradientGene segDistGene = genome.getSegDistGene();
-    	SpokesGene spokesGene = genome.getSpokesGene();
     	IntegerGeneZeroOrGreater trickleGene = genome.getTrickleGene();
 		
 
@@ -93,12 +100,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 	    pic.setBackgroundColor(backColorGene.getValue());
 	    
 	    pic.zero();
-		// int x;
-		// int y;
-		int upExtent;
-		int downExtent;
-		int wid;
-		int ht;
+
 		int[] dx = new int[8];
 		int[] dy = new int[8];
 		int[] running = new int[9];
@@ -112,6 +114,8 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		centre = (Point) here.clone();
 		int order = plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
 				gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
+		logger.info("Order:" + order);
+
 		pic.zero();
 		if (segNoGene.getValue() < 1) {
 			segNoGene.setValue(1);
@@ -140,7 +144,8 @@ public class ColourEmbryology extends BiomorphEmbryology {
 				here.v += (segDistGene.getValue() + incDistance) / trickleGene.getValue();
 				incDistance += extraDistance;
 				dummyColour = 100;
-				pic.picLine(oldHere.h, oldHere.v, here.h, here.v, dummyColour);
+				pic.addLin(new ColourLin(new Point(oldHere.h, oldHere.v), new Point(here.h, here.v), 
+						thicknessGene.getValue(), dummyColour));
 				for (int j = 0; j < 8; j++) {
 					if (dGene[j] == SwellType.Swell) {
 						running[j] += trickleGene.getValue();
@@ -156,37 +161,6 @@ public class ColourEmbryology extends BiomorphEmbryology {
 			}
 			tree(genome, pic, here.h, here.v, order, 2, dx, dy, order, oddOne);
 		}
-		/*
-		if (centre.h - pic.margin.left > pic.margin.right - centre.h) {
-			pic.margin.right = centre.h + (centre.h - pic.margin.left);
-		} else {
-			pic.margin.left = centre.h - (pic.margin.right - centre.h);
-		}
-		upExtent = centre.v - pic.margin.top;
-		downExtent = pic.margin.bottom - centre.v;
-
-		if (spokesGene.getValue() == SpokesType.NSouth || spokesGene.getValue() == SpokesType.Radial
-				|| Globals.theMode == ModeType.Engineering) {
-			// {Obscurely necessary to cope with erasing last rect in
-			// Manipulation}
-			if (upExtent > downExtent) {
-				pic.margin.bottom = centre.v + upExtent;
-			} else {
-				pic.margin.top = centre.v - downExtent;
-			}
-		}
-		if (spokesGene.getValue() == SpokesType.Radial) {
-			wid = pic.margin.right - pic.margin.left;
-			ht = pic.margin.bottom - pic.margin.top;
-			if (wid > ht) {
-				pic.margin.top = centre.v - wid / 2 - 1;
-				pic.margin.bottom = centre.v + wid / 2 + 1;
-			} else {
-				pic.margin.left = centre.h - ht / 2 - 1;
-				pic.margin.right = centre.h + ht / 2 + 1;
-			}
-		}
-*/
 	}
 
 }

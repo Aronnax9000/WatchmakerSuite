@@ -14,8 +14,10 @@ public class ArthroLin extends ColourLin implements Cloneable {
     public ArthroLin(Point startPt, Point endPt, int color, int thickness) {
     	this(startPt, endPt, color, thickness, ArthroLimbType.LineSegment);
     }
-    public ArthroLin(Point startPt, Point endPt, int color, int thickness, ArthroLimbType arthroLimbType) {
-        super(startPt, endPt, color);
+    
+    public ArthroLin(Point startPt, Point endPt, int color, int thickness, 
+    		ArthroLimbType arthroLimbType) {
+        super(startPt, endPt, thickness, color);
         this.thickness = thickness;
         this.arthroLimbType = arthroLimbType;
     }
@@ -25,8 +27,6 @@ public class ArthroLin extends ColourLin implements Cloneable {
         ArthroLin clone = (ArthroLin) super.clone();
         clone.arthroLimbType = arthroLimbType;
         clone.thickness = thickness;
-        
         return clone;
       }
-
 }

@@ -74,7 +74,7 @@ public class ColourPic extends BiomorphPic {
             rgbColorPalette[i] = new Color((10 - (i - 246)) * 25, (10 - (i - 246)) * 25, (10 - (i - 246)) * 25);
     }
 
-    public void picLine(int x, int y, int xnew, int ynew, int color) {
+    public void picLine(int x, int y, int xnew, int ynew, int thick, int color) {
         if (lines.size() >= PICSIZEMAX) {
 
             // {Message(GetString(TooLargeString));}
@@ -83,7 +83,7 @@ public class ColourPic extends BiomorphPic {
             // ', StopError);
             // ExitToShell
         } else {
-            Lin movePtr = new ColourLin(new Point(x, y), new Point(xnew, ynew), color);
+            Lin movePtr = new ColourLin(new Point(x, y), new Point(xnew, ynew), thick, color);
             addLin(movePtr);
         }
     }

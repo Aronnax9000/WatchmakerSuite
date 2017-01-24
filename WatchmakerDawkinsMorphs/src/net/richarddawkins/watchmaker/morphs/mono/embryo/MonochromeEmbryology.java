@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.mono.embryo;
 
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneZeroOrGreater;
@@ -10,7 +10,6 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
-import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeEmbryology extends BiomorphEmbryology {
@@ -187,11 +186,11 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
      */
 	
 	@Override
-	public void develop(Genome monochromeGenome, Phenotype monoPic) {
-		super.develop(monochromeGenome, monoPic);
+	public void develop(Morph morph) {
+		super.develop(morph);
 		
-		MonochromeGenome genome = (MonochromeGenome) monochromeGenome;
-		MonoPic pic = (MonoPic) monoPic;
+		MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
+		MonoPic pic = (MonoPic) morph.getPic();
         int sizeWorry;
         int[] dx = new int[8];
         int[] dy = new int[8];

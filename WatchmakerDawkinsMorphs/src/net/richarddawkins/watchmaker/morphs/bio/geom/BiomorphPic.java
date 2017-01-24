@@ -19,6 +19,33 @@ public abstract class BiomorphPic extends Pic {
 
 	public PicStyleType picStyle = PicStyleType.FF;
     
+	protected SpokesType spokesType;
+	public PicStyleType getPicStyle() {
+		return picStyle;
+	}
+
+	public void setPicStyle(PicStyleType picStyle) {
+		this.picStyle = picStyle;
+	}
+
+	public SpokesType getSpokesType() {
+		return spokesType;
+	}
+
+	public void setSpokesType(SpokesType spokesType) {
+		this.spokesType = spokesType;
+	}
+
+	public CompletenessType getCompletenessType() {
+		return completenessType;
+	}
+
+	public void setCompletenessType(CompletenessType completenessType) {
+		this.completenessType = completenessType;
+	}
+
+	protected CompletenessType completenessType;
+	
     public void addPicLines(BiomorphGenome genome, Lin lin) {
         addActualPicLine(lin.clone(), picStyle, Compass.NorthSouth);
         if (genome.getSpokesGene().getValue() == SpokesType.Radial) {
