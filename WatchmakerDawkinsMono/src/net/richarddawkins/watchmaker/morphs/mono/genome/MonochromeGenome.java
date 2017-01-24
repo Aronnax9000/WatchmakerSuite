@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.TriangleAble;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;

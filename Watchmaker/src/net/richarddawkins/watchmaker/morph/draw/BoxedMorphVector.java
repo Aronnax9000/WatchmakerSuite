@@ -27,7 +27,7 @@ public class BoxedMorphVector {
 	
 	public BoxedMorph getBoxedMorph(int boxNo) {
 		for(BoxedMorph boxedMorph: boxedMorphs) 
-			if(boxedMorph.boxNo == boxNo)
+			if(boxedMorph.getBoxNo() == boxNo)
 				return boxedMorph;
 		return null;
 	}

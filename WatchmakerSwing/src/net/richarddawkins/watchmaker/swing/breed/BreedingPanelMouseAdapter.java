@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.breed.BreedingPanel.Phase;
 
 public class BreedingPanelMouseAdapter extends MouseAdapter {
@@ -24,9 +25,13 @@ public class BreedingPanelMouseAdapter extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		
 		Point myPt = e.getPoint();
+		
 		switch(panel.phase) {
 		case breed_complete:
-			  panel.special = panel.getBoxes().getBoxNoContainingPoint(myPt, panel.getSize());
+			  panel.special 
+			  	= panel.getBoxes().getBoxNoContainingPoint(
+			  			SwingGeom.toWatchmakerPoint(myPt), 
+			  			SwingGeom.toWatchmakerDim(panel.getSize()));
 			  logger.log(Level.INFO, "Mouse pressed in box " + panel.special);
 			  panel.phase = Phase.mouse_clicked;
 			  panel.repaint();

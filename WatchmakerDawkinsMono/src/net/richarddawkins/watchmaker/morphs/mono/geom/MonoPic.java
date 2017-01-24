@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.mono.geom;
 
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 

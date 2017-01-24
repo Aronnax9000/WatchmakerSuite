@@ -13,11 +13,14 @@ public class GeneBoxyWatchmakerPanel extends SwingBorderLayoutMorphView {
 	}
 
 	public GeneBoxyWatchmakerPanel(
-			SwingAppData swingAppData, String icon, 
+			SwingAppData appData, String icon, 
 			String name, boolean engineeringMode) {
-		super(swingAppData, icon, name);
-		GeneBoxStrip geneBoxStrip = swingAppData.newGeneBoxStrip(engineeringMode);
+		super(appData, icon, name);
+		GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
 		setUpperStrip(geneBoxStrip);
+		SwingScaleSlider scaleSlider = new SwingScaleSlider();
+		scaleSlider.addWatchmakerScaleListener(appData.getPhenotypeDrawer().getDrawingPreferences());
+		setLowerStrip(scaleSlider);
 	}
 
 }

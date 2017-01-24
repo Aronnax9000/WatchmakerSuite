@@ -1,13 +1,12 @@
 package net.richarddawkins.watchmaker.morph.draw;
 
-import java.awt.Dimension;
-
-import net.richarddawkins.watchmaker.geom.LocatedMorph;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
 
 public interface MorphDrawer {
 
-	void draw(LocatedMorph locatedMorph, Object graphicsContext);
+	void setSize(Dim boxSize);
 
-	void setSize(Dimension boxSize);
+	void draw(BoxedMorph locatedMorph, Object graphicsContext, Dim d);
 
 }

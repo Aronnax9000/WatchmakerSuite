@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.components;
 
 import java.awt.BorderLayout;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.morphview.MorphViewComponent;
@@ -48,15 +49,19 @@ public class SwingBorderLayoutMorphView extends SwingMorphView {
 
 	public void setCentrePanel(MorphViewComponent centrePanel) {
 		if (this.centrePanel != null) {
-			this.remove((JPanel) this.centrePanel);
+			this.remove((JComponent) this.centrePanel);
 		}
 		this.centrePanel = centrePanel;
-		this.add((JPanel) this.centrePanel, BorderLayout.CENTER);
+		this.add((JComponent) this.centrePanel, BorderLayout.CENTER);
 
 	}
 
 	public void setLowerStrip(MorphViewComponent lowerStrip) {
+		if (this.lowerStrip != null)
+			this.remove((JComponent) this.lowerStrip);
 		this.lowerStrip = lowerStrip;
+		if (this.lowerStrip != null)
+			this.add((JComponent)this.lowerStrip, BorderLayout.PAGE_END);
 	}
 
 	protected void setSwingAppData(SwingAppData swingAppData) {

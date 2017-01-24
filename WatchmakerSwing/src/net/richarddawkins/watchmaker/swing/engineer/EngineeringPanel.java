@@ -1,12 +1,12 @@
 package net.richarddawkins.watchmaker.swing.engineer;
 
-import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
+import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.BoxyMorphViewPanel;
@@ -32,13 +32,13 @@ public class EngineeringPanel extends BoxyMorphViewPanel implements PropertyChan
 			boxedMorphVector.removeAllElements();
 		}
 		morph.addPropertyChangeListener(this);
-		boxedMorphVector.add(new BoxedMorph(morph, 0));
+		boxedMorphVector.add(new BoxedMorph(boxes, morph, 0));
 		GeneBoxStrip geneBoxStrip = (GeneBoxStrip)this.engineeringWatchmakerPanel.getUpperStrip();
 		geneBoxStrip.setGenome(morph.getGenome());
 	}
 
 	@Override
-	public void updateModel(Dimension size) {
+	public void updateModel(Dim size) {
 		this.getBoxedMorphVector().getBoxedMorph(0).setPosition(boxes.getMidPoint(size, 0));
 	}
 

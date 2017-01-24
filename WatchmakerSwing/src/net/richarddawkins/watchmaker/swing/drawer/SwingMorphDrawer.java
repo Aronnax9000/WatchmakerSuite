@@ -1,11 +1,11 @@
 package net.richarddawkins.watchmaker.swing.drawer;
 
-import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
-import net.richarddawkins.watchmaker.geom.LocatedMorph;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
@@ -15,8 +15,8 @@ public class SwingMorphDrawer implements MorphDrawer {
         this.picDrawer = picDrawer;
     }
     
-	protected Dimension size;
-	public void setSize(Dimension size) {
+	protected Dim size;
+	public void setSize(Dim size) {
 		this.size = size;
 	}
 
@@ -25,43 +25,39 @@ public class SwingMorphDrawer implements MorphDrawer {
 
 	
 	@Override
-	public void draw(LocatedMorph locatedMorph, Object graphicsContext) {
+	public void draw(BoxedMorph locatedMorph, Object graphicsContext, Dim d) {
 		Graphics2D g = (Graphics2D) graphicsContext;
 		Point position = locatedMorph.getPosition();
 		AffineTransform saveTransform = g.getTransform();
 		AffineTransform originTransform = 
-				AffineTransform.getTranslateInstance(position.x, position.y);
+				AffineTransform.getTranslateInstance(position.h, position.v);
 		g.transform(originTransform);
-		drawChildren(locatedMorph, g);
+		double scale = Math.pow(2, picDrawer.getDrawingPreferences().getScale());
+		g.scale(scale, scale);
+		drawChildren(locatedMorph, g, d);
 		g.setTransform(saveTransform);
 	}
     
-	public void drawChildren(LocatedMorph locatedMorph, Graphics2D g2) {
-		animate(locatedMorph, g2);
-		picDrawer.drawPic(g2, locatedMorph.getMorph().getPic());
+	public void drawChildren(BoxedMorph boxedMorph, Graphics2D g2, Dim d) {
+		animate(boxedMorph, g2, d);
+		picDrawer.drawPic(g2, boxedMorph.getMorph().getPic());
 	}
-	public void animate(LocatedMorph locatedMorph, Graphics2D g) {
-		int animationX = 0;
-		int animationY = 0;
+
+
+	public void animate(BoxedMorph boxedMorph, Graphics2D g, Dim d) {
 		double scale = 1;
-		Point origin = locatedMorph.getPosition();
-		Point destination = locatedMorph.getDestination();
-		double progress = locatedMorph.getProgress();
-		if(destination != null) {
-			animationX = (int) ((double)(destination.x - origin.x) * progress);
-			animationY = (int) ((double)(destination.y - origin.y) * progress);
-			scale = progress;
+		if(boxedMorph.getDestinationBoxNo() != -1) {
+			Point position = boxedMorph.getPosition(d);
+			scale = boxedMorph.getProgress();
 			AffineTransform animationTransform = 
-					AffineTransform.getTranslateInstance(animationX, animationY);
+					AffineTransform.getTranslateInstance(position.h, position.v);
 			g.transform(animationTransform);
-			if(locatedMorph.isScaleWithProgress()) {
+			if(boxedMorph.isScaleWithProgress()) {
 				AffineTransform scaleTransform = AffineTransform.getScaleInstance(scale, scale);
 				g.transform(scaleTransform);
 			}		
 		}
-
-	}
-	
+	}	
 
 
 

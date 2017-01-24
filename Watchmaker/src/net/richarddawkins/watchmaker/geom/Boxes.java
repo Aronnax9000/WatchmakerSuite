@@ -1,8 +1,6 @@
 package net.richarddawkins.watchmaker.geom;
 
 import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.util.Vector;
 /**
  * 
@@ -34,9 +32,9 @@ public class Boxes  {
 	 * @param d the size of the overall array of boxes, in pixels.
 	 * @return the box number containing the given point.
 	 */
-	public int getBoxNoContainingPoint(Point p, Dimension d) {
+	public int getBoxNoContainingPoint(Point p, Dim d) {
 		int boxIndex = 0;
-		for(Rectangle box: getBoxes(d)) {
+		for(Rect box: getBoxes(d)) {
 			if(box.contains(p)) {
 				return boxIndex;
 			}
@@ -52,8 +50,8 @@ public class Boxes  {
 	 * @param dimension the size of the overall array of boxes, in pixels
 	 * @return the size of an individual box within the array.
 	 */
-	public Dimension getBoxSize(Dimension dimension) {
-		return new Dimension(dimension.width / cols, dimension.height / rows);
+	public Dim getBoxSize(Dim dimension) {
+		return new Dim(dimension.width / cols, dimension.height / rows);
 	}
 	
 	/**
@@ -63,17 +61,17 @@ public class Boxes  {
 	 * @param dimension the size of the overall array of boxes, in pixels.
 	 * @return a Vector of Rectangles representing individual boxes, in row-major order.
 	 */
-	public Vector<Rectangle> getBoxes(Dimension dimension)
+	public Vector<Rect> getBoxes(Dim dimension)
 	{
-		Vector<Rectangle> boxes = new Vector<Rectangle>();
-		int boxwidth = dimension.width / cols;
-		int boxheight = dimension.height / rows;
+		Vector<Rect> boxes = new Vector<Rect>();
+		int boxwidth = (int) dimension.width / cols;
+		int boxheight = (int) dimension.height / rows;
 		for(int j = 0; j < rows; j++)
 			for(int i = 0; i < cols; i++)
 			{
 				int x = i * boxwidth;
 				int y = j * boxheight;
-				boxes.add(new Rectangle(x, y, boxwidth, boxheight));
+				boxes.add(new Rect(x, y, x + boxwidth, y + boxheight));
 			}
 		return boxes;
 	}
@@ -85,7 +83,7 @@ public class Boxes  {
 	 * @param boxNo the number of the box to retrieve (row major order)
 	 * @return the midpoint of the nth Box.
 	 */
-	public Point getMidPoint(Dimension dimension, int boxNo) {
+	public Point getMidPoint(Dim dimension, int boxNo) {
 		int col = boxNo % cols;
 		int row = boxNo / cols;
 		int boxwidth = dimension.width / cols;

@@ -20,15 +20,13 @@ import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
  * @author Alan Canon
  *
  */
-public interface AppData {
+public interface AppData  {
 
 	public MorphConfig getMorphConfig();
 	public void setMorphConfig(MorphConfig config);
 	
 
 	public void setDefaultBreedingCols(int defaultBreedingCols);
-
-
 	public void setDefaultBreedingRows(int defaultBreedingRows);
 
 	public int getDefaultBreedingCols();

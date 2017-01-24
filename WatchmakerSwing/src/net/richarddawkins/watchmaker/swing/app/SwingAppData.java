@@ -22,10 +22,11 @@ import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
 public abstract class SwingAppData implements AppData {
 	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
 
+
+	
 	protected MorphConfig config;
 
 	protected int defaultBreedingCols = 5;
-
 	protected int defaultBreedingRows = 3;
 
 	protected MultiMorphTypeTabbedPanel frame;

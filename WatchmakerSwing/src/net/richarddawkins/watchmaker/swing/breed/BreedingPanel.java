@@ -2,11 +2,9 @@ package net.richarddawkins.watchmaker.swing.breed;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
-import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.Timer;
@@ -14,6 +12,7 @@ import javax.swing.Timer;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Boxes;
+import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
@@ -73,7 +72,7 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
             parent = morph;
         }
         
-        BoxedMorph boxedMorph = new BoxedMorph(parent, boxes.midBox);
+        BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, boxes.midBox);
         boxedMorphVector.add(boxedMorph);
         GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getUpperStrip();
         geneBoxStrip.setGenome(parent.getGenome());
@@ -87,17 +86,17 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
         this.watchmakerPanel = watchmakerPanel;
     }
 
-    protected void updateModel(Dimension size) {
-        Vector<Point> mids = boxes.getMidPoints(size);
+    protected void updateModel(Dim size) {
+        
 
         switch (phase) {
         case breed_complete:
             special = -1;
             boxedMorphSpecial = null;
             timer.stop();
-
-            for (BoxedMorph boxedMorph : boxedMorphVector.getBoxedMorphs()) {
-                boxedMorph.setPosition(boxes.getMidPoint(size, boxedMorph.boxNo));
+            BoxedMorph[] boxedMorphs = boxedMorphVector.getBoxedMorphs().toArray(new BoxedMorph[0]);
+            for (int boxNo = 0; boxNo < boxedMorphs.length; boxNo++) {
+            		boxedMorphs[boxNo].setBoxNo(boxNo);
             }
 
             GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getUpperStrip();
@@ -107,9 +106,8 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
             boxedMorphSpecial = boxedMorphVector.getBoxedMorph(special);
             boxedMorphVector.removeAllElements();
             boxedMorphVector.add(boxedMorphSpecial);
-            Point midPoint = boxes.getMidPoint(size, special);
-            boxedMorphSpecial.setPosition(midPoint);
-            boxedMorphSpecial.setDestination(mids.elementAt(boxes.midBox));
+            boxedMorphSpecial.setBoxNo(special);
+            boxedMorphSpecial.setDestinationBoxNo(boxes.midBox);
             boxedMorphSpecial.setProgress(0.0d);
             boxedMorphSpecial.setScaleWithProgress(false);
             showBoxes = false;
@@ -117,8 +115,8 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
             timer.start();
             break;
         case animate_mother:
-            boxedMorphSpecial.setPosition(mids.elementAt(special));
-            boxedMorphSpecial.setDestination(mids.elementAt(boxes.midBox));
+            boxedMorphSpecial.setBoxNo(special);
+            boxedMorphSpecial.setDestinationBoxNo(boxes.midBox);
             boxedMorphSpecial.nudge();
             if (boxedMorphSpecial.getProgress() == 1.0d)
                 phase = Phase.reactivate_grid;
@@ -128,7 +126,6 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
             boxedMorphSpecial.setDestination(null);
             boxedMorphSpecial.setProgress(0.0d);
             boxedMorphSpecial.setBoxNo(boxes.midBox);
-            boxedMorphSpecial.setPosition(boxes.getMidPoint(size, boxes.midBox));
             showBoxes = true;
             vacantBoxNumber = 0;
             phase = Phase.draw_out_offspring;
@@ -138,8 +135,8 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
             if (newestOffspring != null) {
                 newestOffspring.nudge();
                 if (newestOffspring.getProgress() == 1.0d) {
-                    newestOffspring.setPosition(newestOffspring.getDestination());
-                    newestOffspring.setDestination(null);
+                    newestOffspring.setBoxNo(newestOffspring.getDestinationBoxNo());
+                    newestOffspring.setDestinationBoxNo(-1);
                     newestOffspring.setProgress(0.0d);
                     newestOffspring = null;
                 }
@@ -154,9 +151,8 @@ public class BreedingPanel extends BoxyMorphViewPanel implements ActionListener 
         	MorphConfig config = watchmakerPanel.getSwingAppData().getMorphConfig();
 
             Morph babyMorph = config.reproduce(boxedMorphSpecial.getMorph());
-            newestOffspring = new BoxedMorph(babyMorph, vacantBoxNumber);
-            newestOffspring.setPosition(boxedMorphSpecial.getPosition());
-            newestOffspring.setDestination(mids.elementAt(vacantBoxNumber));
+            newestOffspring = new BoxedMorph(boxes, babyMorph, boxes.midBox);
+            newestOffspring.setDestinationBoxNo(vacantBoxNumber);
             newestOffspring.setProgress(0.0d);
             newestOffspring.setScaleWithProgress(true);
             boxedMorphVector.add(newestOffspring);
