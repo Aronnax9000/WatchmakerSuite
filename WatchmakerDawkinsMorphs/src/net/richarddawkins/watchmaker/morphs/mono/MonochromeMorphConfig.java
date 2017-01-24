@@ -32,8 +32,6 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 
 	}
 
-
-
 	@Override
 	public void setMutagen(Mutagen mutagen) {
 		this.mutagen = (MonochromeMutagen) mutagen;
@@ -43,9 +41,12 @@ public class MonochromeMorphConfig extends BiomorphConfig {
 	public Phenotype newPhenotype() {
 		return new MonoPic();
 	}
+	
 	@Override
 	public Morph newMorph() {
 		Morph morph = new MonochromeMorph();
+		wireMorphEvents(morph);
 		return morph;
 	}
+
 }

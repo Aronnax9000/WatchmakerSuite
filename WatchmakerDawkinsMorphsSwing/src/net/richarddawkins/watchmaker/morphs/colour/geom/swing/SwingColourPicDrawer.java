@@ -44,6 +44,7 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
         switch (colourPic.getLimbShape()) {
         case Oval:
             limbOval(g2, colourPic, colourLin, square);
+            break;
         case Rectangle:
             limbRect(g2, colourPic, colourLin, square);
         default:
