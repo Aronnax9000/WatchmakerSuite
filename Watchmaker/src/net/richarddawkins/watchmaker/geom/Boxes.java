@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.geom;
 
-import java.awt.Dimension;
 import java.util.Vector;
+import java.util.logging.Logger;
 /**
  * 
  * @author Alan
@@ -13,6 +13,7 @@ public class Boxes  {
 	public final int rows;
 	public final int boxCount;
 	public final int midBox;
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.Boxes");
 
 	/**
 	 * Construct a cols * rows array of boxes.
@@ -71,7 +72,9 @@ public class Boxes  {
 			{
 				int x = i * boxwidth;
 				int y = j * boxheight;
-				boxes.add(new Rect(x, y, x + boxwidth, y + boxheight));
+				Rect rect = new Rect(x, y, x + boxwidth, y + boxheight);
+				logger.fine("GetBoxes " + (i + j*cols) + ": " + rect.toString());
+				boxes.add(rect);
 			}
 		return boxes;
 	}
@@ -101,7 +104,7 @@ public class Boxes  {
 	 * @param dimension the dimension of the entire array of boxes, in pixels
 	 * @return a Vector of box midpoints, in row-major order.
 	 */
-	public Vector<Point> getMidPoints(Dimension dimension) {
+	public Vector<Point> getMidPoints(Dim dimension) {
 		
 		int boxwidth = dimension.width / cols;
 		int boxheight = dimension.height / rows;

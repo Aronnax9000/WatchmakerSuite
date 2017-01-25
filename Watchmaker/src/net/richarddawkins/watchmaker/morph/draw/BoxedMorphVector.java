@@ -2,10 +2,13 @@ package net.richarddawkins.watchmaker.morph.draw;
 
 import java.util.Iterator;
 import java.util.Vector;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 
 public class BoxedMorphVector {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector");
+
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
 	public boolean isEmpty() {

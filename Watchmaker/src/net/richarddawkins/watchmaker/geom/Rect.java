@@ -137,6 +137,11 @@ public class Rect {
 		this.bottom = bottom;
 	}
 
+	@Override
+	public String toString() {
+		return "Rect((" + left + ", " + top + "), " + getWidth() + "x" + getHeight() + ")";
+	}
+	
 	/**
 	 * Create a Rect object with the same origin and dimensions as a Java
 	 * Rectangle.
@@ -202,7 +207,7 @@ public class Rect {
 	}
 
 	public boolean contains(Point p) {
-		return !(p.h < left || p.h > right || p.v < top || p.h > bottom);
+		return !(p.h < left || p.h > right || p.v < top || p.v > bottom);
 
 	}
 }

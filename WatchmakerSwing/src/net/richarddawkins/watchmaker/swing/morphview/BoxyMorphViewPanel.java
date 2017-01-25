@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -10,6 +9,7 @@ import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
+import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
 public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
@@ -36,16 +36,15 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 	}
 
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Dimension swingSize = getSize();
-        
-        Dim size = new Dim(swingSize.getWidth(), swingSize.getHeight());
+    	Graphics2D g2 = (Graphics2D) g;
+        super.paintComponent(g2);
+        Dim size = SwingGeom.toWatchmakerDim(getSize());
         updateModel(size);
         if(showBoxes) 
-        	appData.getBoxesDrawer().draw((Graphics2D)g, size, boxes);
+        	appData.getBoxesDrawer().draw(g2, size, boxes);
         for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
         	gd.setSize(boxes.getBoxSize(size));
-        	gd.draw(boxedMorph, (Graphics2D) g, size);
+        	gd.draw(boxedMorph, g2, size);
         }
     }
     abstract protected void updateModel(Dim size);

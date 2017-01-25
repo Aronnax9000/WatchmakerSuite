@@ -22,4 +22,8 @@ public class Dim {
 	}
 	public int width;
 	public int height;
+	@Override
+	public String toString() {
+		return "Dim:" + width + "x" + height;
+	}
 }

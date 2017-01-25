@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
 import java.beans.VetoableChangeListener;
+import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
@@ -21,6 +22,7 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
  */
 public interface MorphConfig {
 
+	
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	void removePropertyChangeListener(PropertyChangeListener listener);
 	void addVetoableChangeListener(VetoableChangeListener listener);
@@ -68,6 +70,8 @@ public interface MorphConfig {
 
 	Embryology getEmbryology();
 	Morph reproduce(Morph parentMorph);
+
+	Vector<Morph> getLitter(Morph parentMorph, int litterSize);
 
 
 

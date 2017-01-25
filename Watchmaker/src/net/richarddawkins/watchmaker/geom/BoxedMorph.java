@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.geom;
 
+import java.util.logging.Logger;
+
 import net.richarddawkins.watchmaker.morph.Morph;
 
 /**
@@ -8,6 +10,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
  *
  */
 public class BoxedMorph extends LocatedMorph {
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxedMorph");
 
 	protected int boxNo;
 	protected int destinationBoxNo = -1;
@@ -18,6 +21,7 @@ public class BoxedMorph extends LocatedMorph {
 	}
 
 	public BoxedMorph(Boxes boxes, Morph morph, int boxNo) {
+		logger.info("Adding morph to box number " + boxNo);
 		this.boxes = boxes;
 		this.morph = morph;
 		this.boxNo = boxNo;
@@ -30,8 +34,8 @@ public class BoxedMorph extends LocatedMorph {
 			Point origin = boxes.getMidPoint(dimension, boxNo);
 			Point destination = boxes.getMidPoint(dimension, destinationBoxNo);
 			Point position = new Point();
-			position.h = (int) ((double) (destination.h - origin.h) * progress);
-			position.v = (int) ((double) (destination.v - origin.v) * progress);
+			position.h = origin.h + (int) ((double) (destination.h - origin.h) * progress);
+			position.v = origin.v + (int) ((double) (destination.v - origin.v) * progress);
 			return position;
 		}
 	}
@@ -47,6 +51,7 @@ public class BoxedMorph extends LocatedMorph {
 	}
 
 	public void setDestinationBoxNo(int newValue) {
+		logger.info("Destination box number " + newValue);
 		int oldValue = this.destinationBoxNo;
 		this.destinationBoxNo = newValue;
 		firePropertyChange("destinationBoxNo", oldValue, newValue);

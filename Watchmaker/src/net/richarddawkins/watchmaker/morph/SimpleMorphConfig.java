@@ -5,6 +5,7 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
 import java.beans.VetoableChangeSupport;
+import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
@@ -23,6 +25,30 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	
     protected Mutagen mutagen;
 	protected JPanel pageStartPanel;
+
+	
+	
+	@Override
+	public Vector<Morph> getLitter(Morph parentMorph, int litterSize) {
+		Vector<Morph> litter = new Vector<Morph>();
+		for(int i = 0; i < litterSize; i++) {
+			litter.add(this.reproduce(parentMorph));
+		}
+		return litter;
+	}
+
+	@Override
+	public Phenotype newPhenotype() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Morph newMorph() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 	protected boolean recordingFossils;

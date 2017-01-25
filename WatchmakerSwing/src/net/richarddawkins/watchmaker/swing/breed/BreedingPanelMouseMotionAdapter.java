@@ -3,12 +3,14 @@ package net.richarddawkins.watchmaker.swing.breed;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 
 public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.breed.BreedingPanelMouseMotionAdapter");
 
 	private BreedingPanel panel;
 	public BreedingPanelMouseMotionAdapter(BreedingPanel panel) {
@@ -27,15 +29,20 @@ public class BreedingPanelMouseMotionAdapter implements MouseMotionListener {
 		Point myPt = e.getPoint();
 		switch(panel.phase) {
 		case breed_complete:
+			
 			int boxNo = panel.getBoxes().getBoxNoContainingPoint(
-					SwingGeom.toWatchmakerPoint(myPt), SwingGeom.toWatchmakerDim(panel.getSize()));
+					SwingGeom.toWatchmakerPoint(myPt), 
+					SwingGeom.toWatchmakerDim(panel.getSize()));
 			  if(boxNo != -1) {
-				  Morph morph = panel.getBoxedMorphVector().getBoxedMorph(boxNo).getMorph();
-				  if(morph != null) {
+				  
+				  BoxedMorph boxedMorph = panel.getBoxedMorphVector().getBoxedMorph(boxNo);
+				  
+				  if(boxedMorph != null) {
+					  
 					  GeneBoxStrip geneBoxStrip = (GeneBoxStrip)panel.
 							  getWatchmakerPanel().getUpperStrip();
 							  
-					  geneBoxStrip.setGenome(morph.getGenome());
+					  geneBoxStrip.setGenome(boxedMorph.getMorph().getGenome());
 				  }
 			  }
 			  break;

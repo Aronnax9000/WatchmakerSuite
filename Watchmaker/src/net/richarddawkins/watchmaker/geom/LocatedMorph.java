@@ -3,11 +3,13 @@ package net.richarddawkins.watchmaker.geom;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 
 public class LocatedMorph {
-	
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.LocatedMorph");
+
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	
 	public void addProperyChangeListener(PropertyChangeListener listener) {
