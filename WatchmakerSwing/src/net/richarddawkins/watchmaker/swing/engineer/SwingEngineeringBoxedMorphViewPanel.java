@@ -57,6 +57,7 @@ public class SwingEngineeringBoxedMorphViewPanel extends SwingBoxedMorphViewPane
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
+		super.propertyChange(evt);
 		if (evt.getPropertyName().equals("phenotype")) {
 			repaint();
 		}

@@ -16,8 +16,6 @@ import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
 public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel implements PropertyChangeListener {
 	protected boolean showBoxes = true;
-	protected MorphDrawer gd;
-//	protected GraphicsDrawer gd = new MorphDrawer();
 	
 	private static final long serialVersionUID = -224189863008500654L;
 	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();
@@ -34,10 +32,6 @@ public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel imple
 
 	public SwingBoxedMorphViewPanel(AppData appData) {
 		super(appData);
-		PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
-		gd = new SwingMorphDrawer(phenotypeDrawer);
-		phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
-		
 	}
 
     public void paintComponent(Graphics g) {
@@ -48,8 +42,8 @@ public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel imple
         if(showBoxes) 
         	appData.getBoxesDrawer().draw(g2, size, boxes);
         for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
-        	gd.setSize(boxes.getBoxSize(size));
-        	gd.draw(boxedMorph, g2, size);
+        	morphDrawer.setSize(boxes.getBoxSize(size));
+        	morphDrawer.draw(boxedMorph, g2, size);
         }
     }
     abstract protected void updateModel(Dim size);

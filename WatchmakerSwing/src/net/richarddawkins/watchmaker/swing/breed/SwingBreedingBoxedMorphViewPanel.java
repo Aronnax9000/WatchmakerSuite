@@ -48,10 +48,10 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 
 	protected SwingBorderLayoutMorphView watchmakerPanel;
 
-	public SwingBreedingBoxedMorphViewPanel(SwingBorderLayoutMorphView watchmakerPanel) {
-		super(watchmakerPanel.getAppData());
-		this.watchmakerPanel = watchmakerPanel;
-		AppData appData = watchmakerPanel.getAppData();
+	public SwingBreedingBoxedMorphViewPanel(SwingBorderLayoutMorphView parentMorphView) {
+		super(parentMorphView.getAppData());
+		this.watchmakerPanel = parentMorphView;
+		AppData appData = parentMorphView.getAppData();
 		boxes = new Boxes(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows());
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
