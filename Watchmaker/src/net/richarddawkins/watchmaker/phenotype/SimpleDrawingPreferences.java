@@ -3,8 +3,6 @@ package net.richarddawkins.watchmaker.phenotype;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.beans.VetoableChangeListener;
-import java.beans.VetoableChangeSupport;
 import java.util.logging.Logger;
 
 public class SimpleDrawingPreferences implements DrawingPreferences, PropertyChangeListener {
@@ -13,15 +11,11 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected int scale = 0;
 	protected boolean showBoundingBoxes = false;
-	protected VetoableChangeSupport vcs = new VetoableChangeSupport(this);
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(listener);
 	}
-	@Override
-	public void addVetoableChangeListener(VetoableChangeListener listener) {
-		vcs.addVetoableChangeListener(listener);
-	}
+
 
 	@Override
 	public int getScale() {
@@ -45,10 +39,6 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 		pcs.removePropertyChangeListener(listener);
 	}
 
-    @Override
-	public void removeVetoableChangeListener(VetoableChangeListener listener) {
-		vcs.removeVetoableChangeListener(listener);
-	}
 
     @Override
 	public void setScale(int newValue) {

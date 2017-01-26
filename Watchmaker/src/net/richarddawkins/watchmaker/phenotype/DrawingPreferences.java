@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.phenotype;
 
 import java.beans.PropertyChangeListener;
-import java.beans.VetoableChangeListener;
 
 public interface DrawingPreferences {
 	public int getScale();
@@ -12,7 +11,5 @@ public interface DrawingPreferences {
 
 	public void removePropertyChangeListener(PropertyChangeListener listener);
 
-	public void addVetoableChangeListener(VetoableChangeListener listener);
 
-	public void removeVetoableChangeListener(VetoableChangeListener listener);
 }

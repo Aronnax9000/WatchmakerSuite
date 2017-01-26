@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
-import java.beans.VetoableChangeListener;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
@@ -25,9 +24,6 @@ public interface MorphConfig {
 	
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	void removePropertyChangeListener(PropertyChangeListener listener);
-	void addVetoableChangeListener(VetoableChangeListener listener);
-	void removeVetoableChangeListener(VetoableChangeListener listener);	
-
 	/* Factory Methods */
 
 	/**

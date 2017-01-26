@@ -3,6 +3,8 @@ package net.richarddawkins.watchmaker.swing.menu;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 
+import javax.swing.Icon;
+
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
@@ -58,7 +60,7 @@ public abstract class SwingMenuBuilder  implements MenuBuilder {
 		for (String morphType : factory.getMorphTypes()) {
 			factory.setMorphType(morphType);
 			NewMorphTypeAction morphTypeAction 
-			= new NewMorphTypeAction(appData, morphType, factory.getIcon(),
+			= new NewMorphTypeAction(appData, morphType, (Icon) factory.getIcon(),
 					(MultiMorphTypeTabbedPanel) appData.getFrame());
 			if (morphType.equals("Snails"))
 				morphTypeAction.setEnabled(false);

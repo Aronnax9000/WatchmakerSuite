@@ -53,6 +53,8 @@ public class SwingMorphDrawer implements MorphDrawer {
 		Point position = boxedMorph.getPosition(d);
 
 		g2.translate(position.h - bufferedImage.getWidth() / 2, position.v - bufferedImage.getHeight() / 2);
+		
+//		g2.rotate(Math.PI * 2 * scale);
 		g2.drawImage(bufferedImage, 0, 0, null);
 		logger.fine("Restore transform");
 		g2.setTransform(saveTransform);

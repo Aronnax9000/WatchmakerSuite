@@ -2,9 +2,6 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
-import java.beans.VetoableChangeSupport;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -14,9 +11,9 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
-import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
+	@SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
 
 	protected AppData appData;	
@@ -37,23 +34,8 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		return litter;
 	}
 
-	@Override
-	public Phenotype newPhenotype() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Morph newMorph() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
 	protected boolean recordingFossils;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	protected final VetoableChangeSupport vcs = new VetoableChangeSupport(this);
 
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -65,15 +47,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		this.pcs.removePropertyChangeListener(listener);
 	}
 
-	@Override
-	public void addVetoableChangeListener(VetoableChangeListener listener) {
-		this.vcs.addVetoableChangeListener(listener);
-	}
-	
-	@Override
-	public void removeVetoableChangeListener(VetoableChangeListener listener) {
-		this.vcs.removeVetoableChangeListener(listener);
-	}
 
     public AppData getAppData() {
         return appData;
@@ -102,12 +75,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		genome.setBasicType(type);
 		Morph morph = newMorph();
 		morph.setPic(newPhenotype());
-		try {
-			morph.setGenome(genome);
-		} catch (PropertyVetoException e) {
-			logger.warning("Genome was already set at Morph creation. Genome:" 
-					+ morph.getGenome().toString());
-		}
+		morph.setGenome(genome);
 		wireMorphEvents(morph);
 		return morph;
 	}
@@ -120,12 +88,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     	parentMorph.getGenome().copy(childGenome);
     	getMutagen().mutate(childGenome);
     	Morph childMorph = newMorph();
-    	try {
-			childMorph.setGenome(childGenome);
-		} catch (PropertyVetoException e) {
-			logger.warning("Genome was already set at Morph creation. Genome:" 
-		+ childMorph.getGenome().toString());
-		}
+		childMorph.setGenome(childGenome);
     	parentMorph.getPedigree().addOffspring(childMorph);
     	return childMorph;
     }

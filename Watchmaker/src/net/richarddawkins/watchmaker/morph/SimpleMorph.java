@@ -4,9 +4,6 @@ import java.awt.Image;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
-import java.beans.VetoableChangeSupport;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -20,7 +17,6 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	protected final VetoableChangeSupport vcs = new VetoableChangeSupport(this);
 
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -30,16 +26,6 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.removePropertyChangeListener(listener);
-	}
-
-	@Override
-	public void addVetoableChangeListener(VetoableChangeListener listener) {
-		this.vcs.addVetoableChangeListener(listener);
-	}
-	
-	@Override
-	public void removeVetoableChangeListener(VetoableChangeListener listener) {
-		this.vcs.removeVetoableChangeListener(listener);
 	}
 
 
@@ -83,11 +69,8 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
     // }
 
     @Override
-    public void setGenome(Genome newValue) throws PropertyVetoException {
+    public void setGenome(Genome newValue)  {
     	Genome oldValue = this.genome;
-    	if(oldValue != null)
-    		throw new PropertyVetoException("A Morph's genomes cannot be set once assigned.", 
-    				new PropertyChangeEvent(this, "genome", oldValue, newValue));
         genome = newValue;
         genome.addGenomeChangeListener(this);
         pcs.firePropertyChange("genome", null, genome);

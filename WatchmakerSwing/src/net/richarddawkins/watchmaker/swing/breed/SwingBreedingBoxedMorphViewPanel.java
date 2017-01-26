@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.beans.PropertyChangeEvent;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;

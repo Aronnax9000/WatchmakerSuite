@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.genome;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.beans.VetoableChangeSupport;
 
 public abstract class SimpleGene implements Gene {
 	public SimpleGene(Genome genome, String name) {
@@ -20,7 +19,6 @@ public abstract class SimpleGene implements Gene {
 
 	public void setName(String name) {
 		String old = this.name;
-//        this.vcs.fireVetoableChange( "name", old, name );
         this.name = name;
         this.pcs.firePropertyChange( "name", old, name );
 	}
@@ -36,7 +34,6 @@ public abstract class SimpleGene implements Gene {
 	}
 
 	protected PropertyChangeSupport pcs  = new PropertyChangeSupport(this);
-	protected VetoableChangeSupport vcs  = new VetoableChangeSupport(this);
 	@Override
 	public void copy(Gene gene) {
 		((SimpleGene) gene).name = name;
