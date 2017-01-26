@@ -5,10 +5,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.QuickDrawColor;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;
 import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences;
 
 public class SwingMonoPicDrawer extends SwingPicDrawer {
@@ -17,7 +17,7 @@ public class SwingMonoPicDrawer extends SwingPicDrawer {
 		drawingPreferences = new SimpleDrawingPreferences();
 	}
 	
-	public void limb(Graphics2D g2, Pic pic, Lin line) {   
+	public void limb(Graphics2D g2, Phenotype pic, Lin line) {   
         MonoLin monoLin = (MonoLin) line;
         g2.setColor(new Color(QuickDrawColor.BLACK));
         g2.setStroke(new BasicStroke(monoLin.thickness));

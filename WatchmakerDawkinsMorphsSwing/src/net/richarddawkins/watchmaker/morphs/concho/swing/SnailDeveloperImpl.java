@@ -10,6 +10,7 @@ import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
+import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.swing.images.ClassicImage;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.util.ModeType;
@@ -58,7 +59,7 @@ public class SnailDeveloperImpl {
 	 * @param jLinIndex
 	 * @param jThreshold
 	 */
-	public void actualLine(Graphics2D g2, Pic thisPic, Lin lin, double theScale, Point place, int threshold,
+	public void actualLine(Graphics2D g2, Phenotype thisPic, Lin lin, double theScale, Point place, int threshold,
 			SnailGenome biomorph, int jLinIndex, int jThreshold) {
 		boolean doMirror, tooThin;
 		quarantine(thisPic, lin, theScale);
@@ -393,12 +394,12 @@ public class SnailDeveloperImpl {
 			theScale = widthScale;
 		return theScale * 0.95;
 	}
-	public void picLine(Pic myPic2, int xx1, int yy1, int xx2, int yy2) {
+	public void picLine(Phenotype myPic2, int xx1, int yy1, int xx2, int yy2) {
 
 	}
 
 	/** Originally (in Pascal) a nested procedure within drawPic. */
-	public void quarantine(Pic thisPic, Lin lin, double theScale) {
+	public void quarantine(Phenotype thisPic, Lin lin, double theScale) {
 		lin.startPt.v = (int) Math.round(theScale * (lin.startPt.v));
 		lin.endPt.v = (int) Math.round(theScale * (lin.endPt.v));
 		lin.startPt.h = (int) Math.round(theScale * (lin.startPt.h));

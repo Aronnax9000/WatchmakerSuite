@@ -110,7 +110,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		int extraDistance;
 		int incDistance;
 		int dummyColour;
-		pic.margin.zeroRect();
+		pic.zero();
 		centre = (Point) here.clone();
 		int order = plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
 				gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);

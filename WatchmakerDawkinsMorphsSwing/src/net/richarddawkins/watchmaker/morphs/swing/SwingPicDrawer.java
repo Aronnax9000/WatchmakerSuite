@@ -5,8 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 
-import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
@@ -23,9 +24,9 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
 		return this.drawingPreferences;
 	}
     
-    protected abstract void limb(Graphics2D g2, Pic pic, Lin limb);
+    protected abstract void limb(Graphics2D g2, Phenotype pic, Lin limb);
     
-    protected void picSpecifics(Graphics2D g2, Pic pic) {
+    protected void picSpecifics(Graphics2D g2, Phenotype pic) {
         // Default no-op
     }
     @Override
@@ -33,8 +34,7 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
     	Graphics2D g2 = (Graphics2D) graphicsContext;
         AffineTransform saveTransform = g2.getTransform();
         Pic pic = (Pic) phenotype;
-        Point midPoint = pic.margin.getMidPoint();
-        g2.translate(-midPoint.h, -midPoint.v);
+
 
         for (Lin line : pic.lines) {
             limb(g2, pic, line);
@@ -42,12 +42,25 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         if (drawingPreferences.isShowBoundingBoxes()) {
             g2.setStroke(new BasicStroke(1));
             g2.setColor(Color.BLUE);
-            Rectangle rectangle = pic.margin.toRectangle();
+            Rectangle rectangle = pic.getMargin().toRectangle();
             g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         }
         g2.setTransform(saveTransform);
     }
-
-    
+    @Override
+    public BufferedImage getBufferedImage(Phenotype phenotype, double scale) {
+    	Rect margin = phenotype.getMargin();
+    	
+    	BufferedImage bufferedImage = new BufferedImage((int) (margin.getWidth() * scale + 1)
+    			, 
+    			(int) (margin.getHeight() * scale + 1),
+    			BufferedImage.TYPE_INT_ARGB);
+    	Graphics2D g2 = bufferedImage.createGraphics();
+    	
+    	g2.translate(- margin.left * scale, - margin.top * scale);
+    	g2.scale(scale, scale);
+    	drawPic(g2, phenotype);
+		return bufferedImage;
+    }
 
 }

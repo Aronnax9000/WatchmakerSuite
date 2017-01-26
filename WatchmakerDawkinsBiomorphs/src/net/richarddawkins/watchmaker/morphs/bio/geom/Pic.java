@@ -62,9 +62,16 @@ public abstract class Pic implements Phenotype {
     public final static int PICSIZEMAX = 4* 4095;
 
     public Vector<Lin> lines = new Vector<Lin>();
-    public Rect margin = new Rect();
+    protected final Rect margin = new Rect();
 
-    public Morph morph;
+    @Override
+	public Rect getMargin() {
+		return margin;
+	}
+
+
+
+	public Morph morph;
     public Pic() {
         super();
     }

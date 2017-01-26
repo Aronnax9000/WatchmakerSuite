@@ -212,7 +212,6 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
     	IntegerGene trickleGene = genome.getTrickleGene();
 
         pic.zero();
-        pic.margin.zeroRect();
         int order = plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
                 gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
 
