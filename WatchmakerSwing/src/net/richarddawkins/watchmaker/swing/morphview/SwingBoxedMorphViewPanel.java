@@ -3,19 +3,22 @@ package net.richarddawkins.watchmaker.swing.morphview;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.beans.PropertyChangeListener;
+import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
-import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
-import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
-import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
 public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel implements PropertyChangeListener {
 	protected boolean showBoxes = true;
+	@Override
+	public Vector<Morph> getMorphs() {
+		return boxedMorphVector.getMorphs();
+	}
 	
 	private static final long serialVersionUID = -224189863008500654L;
 	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();

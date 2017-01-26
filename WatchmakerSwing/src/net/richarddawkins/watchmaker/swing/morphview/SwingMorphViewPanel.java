@@ -7,12 +7,13 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
-public class SwingMorphViewPanel extends JPanel implements MorphViewPanel, PropertyChangeListener {
+public abstract class SwingMorphViewPanel extends JPanel implements MorphViewPanel, PropertyChangeListener {
 
     protected AppData appData;
 	protected MorphDrawer morphDrawer;
@@ -23,7 +24,11 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel, Prope
     	switch(propertyName) {
     	case "showBoundingBoxes":
     	case "scale":
+    		for(Morph morph: getMorphs()) {
+    			morph.setImage(null);
+    		}
     		repaint();
+    		break;
     	default:
     	}
     }

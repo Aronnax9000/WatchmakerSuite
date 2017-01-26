@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingBorderLayoutMorphView extends SwingMorphView {
@@ -15,9 +16,9 @@ public class SwingBorderLayoutMorphView extends SwingMorphView {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView");
 	private static final long serialVersionUID = 8993086892827289437L;
 	protected MorphViewPanel centrePanel;
-	protected MorphViewPanel lowerStrip;
+	protected MorphViewWidget lowerStrip;
 
-	protected MorphViewPanel upperStrip;
+	protected MorphViewWidget upperStrip;
 
 	public SwingBorderLayoutMorphView(AppData appData) {
 		super(appData);
@@ -34,11 +35,11 @@ public class SwingBorderLayoutMorphView extends SwingMorphView {
 		return centrePanel;
 	}
 
-	public MorphViewPanel getLowerStrip() {
+	public MorphViewWidget getLowerStrip() {
 		return lowerStrip;
 	}
 
-	public MorphViewPanel getUpperStrip() {
+	public MorphViewWidget getUpperStrip() {
 		return upperStrip;
 	}
 
@@ -50,7 +51,7 @@ public class SwingBorderLayoutMorphView extends SwingMorphView {
 		this.add((JComponent) this.centrePanel, BorderLayout.CENTER);
 	}
 
-	public void setLowerStrip(MorphViewPanel lowerStrip) {
+	public void setLowerStrip(MorphViewWidget lowerStrip) {
 		if (this.lowerStrip != null)
 			this.remove((JComponent) this.lowerStrip);
 		this.lowerStrip = lowerStrip;
@@ -58,7 +59,7 @@ public class SwingBorderLayoutMorphView extends SwingMorphView {
 			this.add((JComponent)this.lowerStrip, BorderLayout.PAGE_END);
 	}
 
-	public void setUpperStrip(MorphViewPanel upperStrip) {
+	public void setUpperStrip(MorphViewWidget upperStrip) {
 		if (this.upperStrip != null)
 			this.remove((JPanel) this.upperStrip);
 		this.upperStrip = upperStrip;

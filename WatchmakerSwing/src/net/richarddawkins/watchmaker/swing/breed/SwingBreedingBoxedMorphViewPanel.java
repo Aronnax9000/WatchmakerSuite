@@ -201,6 +201,7 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 				newestOffspring.setScaleWithProgress(true);
 				boxedMorphVector.add(newestOffspring);
 			} else {
+				newestOffspring.getMorph().setImage(null);
 				newestOffspring.nudge();
 				if (newestOffspring.getProgress() == 1.0d) {
 					// newestOffspring has made it to its new home box.

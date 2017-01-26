@@ -6,10 +6,10 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 
-public class SwingScaleSlider extends JSlider implements MorphViewPanel, ChangeListener {
+public class SwingScaleSlider extends JSlider implements MorphViewWidget, ChangeListener {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.components.SwingScaleSlider");
 
 	private static final long serialVersionUID = 1L;

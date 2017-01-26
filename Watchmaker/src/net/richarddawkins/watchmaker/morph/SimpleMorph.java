@@ -45,7 +45,7 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
     protected Genome genome;
 
-    protected Object image;
+    protected Object image = null;
 
     protected final MorphPedigree pedigree = new MorphPedigree(this);
 
