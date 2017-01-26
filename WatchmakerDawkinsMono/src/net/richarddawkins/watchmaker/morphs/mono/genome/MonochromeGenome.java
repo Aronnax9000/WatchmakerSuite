@@ -13,7 +13,8 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome");
+	@SuppressWarnings("unused")
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome");
 
     public MonochromeGenome() {
         

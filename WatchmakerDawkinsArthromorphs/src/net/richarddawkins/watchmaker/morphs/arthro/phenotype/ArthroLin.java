@@ -6,6 +6,7 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 
 public class ArthroLin extends ColourLin implements Cloneable {
+	@SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthroLin");
 
     protected ArthroLimbType arthroLimbType;

@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 public class ClassicImageLoader {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader");
+	
+	@SuppressWarnings("unused")
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.resourceloader.ClassicImageLoader");
 
     public static String[] imageNames = { "BulletChar165_ALAN_0015_5x5", "AboutArthromorphs_PICT_00001_282x107",
             "AboutBlindWatchmaker_PICT_26817_463x287", "AboutColourWatchmaker_PICT_00257_486x352",

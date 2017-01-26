@@ -8,6 +8,8 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 public class LocatedMorph {
+	
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.LocatedMorph");
 
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);

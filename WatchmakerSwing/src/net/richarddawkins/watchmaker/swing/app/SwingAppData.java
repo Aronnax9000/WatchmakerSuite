@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.swing.app;
 
-import java.awt.Component;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -15,19 +14,18 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
-import net.richarddawkins.watchmaker.swing.breed.BreedingWatchmakerPanel;
+import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
-import net.richarddawkins.watchmaker.swing.engineer.EngineeringWatchmakerPanel;
+import net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView;
 
 public abstract class SwingAppData implements AppData {
 	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
-
-
 	
 	protected MorphConfig config;
 
 	protected int defaultBreedingCols = 5;
 	protected int defaultBreedingRows = 3;
+
 
 	protected MultiMorphTypeTabbedPanel frame;
 	protected String icon;
@@ -36,13 +34,12 @@ public abstract class SwingAppData implements AppData {
 	protected String name;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected PhenotypeDrawer phenotypeDrawer;
-	protected boolean showBoundingBoxes = true;
 	protected String toolTip;
 	public SwingAppData() {
 	}
 	@Override
 	public void addBreedingMorphView(Morph morph) {
-		morphViewsTabbedPane.addMorphView(new BreedingWatchmakerPanel(this, morph));
+		morphViewsTabbedPane.addMorphView(new SwingBreedingMorphView(this, morph));
 	}
 	@Override
 	public void addDefaultMorphView() {
@@ -50,7 +47,7 @@ public abstract class SwingAppData implements AppData {
 	}
 	@Override
 	public void addEngineeringMorphView(Morph morph) {
-		morphViewsTabbedPane.addMorphView(new EngineeringWatchmakerPanel(this, morph));
+		morphViewsTabbedPane.addMorphView(new SwingEngineeringMorphView(this, morph));
 	}
 
 	@Override
@@ -121,10 +118,6 @@ public abstract class SwingAppData implements AppData {
 		return toolTip;
 	}
 
-	@Override
-	public boolean isShowBoundingBoxes() {
-		return showBoundingBoxes;
-	}
 
 	@Override
 	public void setDefaultBreedingCols(int defaultBreedingCols) {
@@ -174,14 +167,6 @@ public abstract class SwingAppData implements AppData {
 		this.phenotypeDrawer = newValue;
 	}
 
-	@Override
-	public void setShowBoundingBoxes(boolean newValue) {
-		boolean oldValue = this.showBoundingBoxes;
-		this.showBoundingBoxes = newValue;
-
-		pcs.firePropertyChange("showBoundingBoxes", oldValue, newValue);
-		((Component) ((JTabbedPane) morphViewsTabbedPane).getSelectedComponent()).repaint();
-	}
 
 	@Override
 	public void setToolTip(String toolTip) {

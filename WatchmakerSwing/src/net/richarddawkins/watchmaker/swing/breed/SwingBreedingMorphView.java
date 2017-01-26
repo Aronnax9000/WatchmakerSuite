@@ -2,27 +2,27 @@ package net.richarddawkins.watchmaker.swing.breed;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-import net.richarddawkins.watchmaker.swing.components.GeneBoxyWatchmakerPanel;
+import net.richarddawkins.watchmaker.swing.components.SwingGeneBoxyMorphView;
 
-public class BreedingWatchmakerPanel extends GeneBoxyWatchmakerPanel {
+public class SwingBreedingMorphView extends SwingGeneBoxyMorphView {
 
 	
 	private static final long serialVersionUID = -5445629768562940527L;
-    public BreedingWatchmakerPanel(SwingAppData simpleSwingAppData, Morph morph) {
+    public SwingBreedingMorphView(SwingAppData simpleSwingAppData, Morph morph) {
        	super(simpleSwingAppData, 
        			"IconFlipBirdToBreedingGrid_ICON_00261_32x32", 
        			"Breeding",
        			false);
-       	BreedingPanel breedingPanel = new BreedingPanel(this);
+       	SwingBreedingBoxedMorphViewPanel breedingPanel = new SwingBreedingBoxedMorphViewPanel(this);
        	setCentrePanel(breedingPanel);
        	
        	breedingPanel.seed(morph);
     }
     @Override
     public Morph getMorphOfTheHour() {
-    	BreedingPanel breedingPanel =  (BreedingPanel) centrePanel;
+    	SwingBreedingBoxedMorphViewPanel breedingPanel =  (SwingBreedingBoxedMorphViewPanel) centrePanel;
     	return breedingPanel.getBoxedMorphVector()
-    			.getBoxedMorph(breedingPanel.getBoxes().midBox)
+    			.getBoxedMorph(breedingPanel.getBoxes().getMidBox())
     			.getMorph();
     }
 }

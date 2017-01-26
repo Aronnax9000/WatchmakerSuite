@@ -14,13 +14,13 @@ public class BoxedMorph extends LocatedMorph {
 
 	protected int boxNo;
 	protected int destinationBoxNo = -1;
-	protected Boxes boxes;
+	protected BoxManager boxes;
 
 	public int getDestinationBoxNo() {
 		return destinationBoxNo;
 	}
 
-	public BoxedMorph(Boxes boxes, Morph morph, int boxNo) {
+	public BoxedMorph(BoxManager boxes, Morph morph, int boxNo) {
 		logger.info("Adding morph to box number " + boxNo);
 		this.boxes = boxes;
 		this.morph = morph;

@@ -6,7 +6,8 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 public class SimpleEmbryology implements Embryology {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.embryo.SimpleEmbryology");
+	@SuppressWarnings("unused")
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.embryo.SimpleEmbryology");
 
 	@Override
 	public void develop(Morph morph) {

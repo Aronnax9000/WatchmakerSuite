@@ -22,7 +22,6 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
 	public DrawingPreferences getDrawingPreferences() {
 		return this.drawingPreferences;
 	}
-    protected boolean showBoundingBoxes = true;
     
     protected abstract void limb(Graphics2D g2, Pic pic, Lin limb);
     
@@ -40,7 +39,7 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         for (Lin line : pic.lines) {
             limb(g2, pic, line);
         }
-        if (showBoundingBoxes) {
+        if (drawingPreferences.isShowBoundingBoxes()) {
             g2.setStroke(new BasicStroke(1));
             g2.setColor(Color.BLUE);
             Rectangle rectangle = pic.margin.toRectangle();

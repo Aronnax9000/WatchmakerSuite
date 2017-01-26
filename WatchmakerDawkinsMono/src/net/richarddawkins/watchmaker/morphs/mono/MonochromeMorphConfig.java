@@ -14,7 +14,8 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public class MonochromeMorphConfig extends BiomorphConfig {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig");
+	@SuppressWarnings("unused")
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig");
 
 	@Override
 	public Genome newGenome() {

@@ -14,9 +14,23 @@ import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 
 public abstract class SwingMenuBuilder  implements MenuBuilder {
 	
-	public SwingMenuBuilder() {} 
-	public SwingMenuBuilder(AppData appData) {this.appData = appData;};
+
+	public SwingMenuBuilder(AppData appData) {
+		this.appData = appData;
+		viewBoundingBoxes
+		= new SwingWatchmakerCheckBoxMenuItem(new SwingWatchmakerAction(appData, "View Bounding Boxes") {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			appData.getPhenotypeDrawer().getDrawingPreferences().setShowBoundingBoxes(viewBoundingBoxes.isSelected());
+		}
+	});
 	
+	};
+	
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	protected AppData appData;
 
@@ -54,22 +68,6 @@ public abstract class SwingMenuBuilder  implements MenuBuilder {
 		return watchMakerMenu;
 	}
 
-	protected WatchmakerCheckBoxMenuItem viewBoundingBoxes 
-		= new SwingWatchmakerCheckBoxMenuItem(new SwingWatchmakerAction(appData, "View Bounding Boxes") {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			appData.setShowBoundingBoxes(viewBoundingBoxes.isSelected());
-			/*
-			 * BreedingPanel breedingPanel =
-			 * config.getBreedingAndGeneBoxPanel().getBreedingPanel();
-			 * breedingPanel.repaint(); breedingPanel.revalidate();
-			 */
-		}
-	});
+	protected WatchmakerCheckBoxMenuItem viewBoundingBoxes; 
 
 }

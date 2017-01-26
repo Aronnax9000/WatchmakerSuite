@@ -37,6 +37,7 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 	/**
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	private WatchmakerCheckBoxMenuItem recordingFossils 
 	= new SwingWatchmakerCheckBoxMenuItem("Recording Fossils");

@@ -8,7 +8,7 @@ import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class ArthromorphSwingAppData extends SwingAppData {
 	public ArthromorphSwingAppData() {
-		this.setMenuBuilder(new ArthromorphMenuBuilder());
+		this.setMenuBuilder(new ArthromorphMenuBuilder(this));
 		this.setPhenotypeDrawer(new SwingArthromorphPicDrawer());
 		
 		this.setIcon(MorphType.ARTHROMORPH.getIconFilename());

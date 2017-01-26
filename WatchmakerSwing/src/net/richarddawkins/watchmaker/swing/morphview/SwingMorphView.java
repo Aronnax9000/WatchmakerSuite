@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.swing.morphview;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class SwingMorphView extends JPanel implements MorphView {
 	private static final long serialVersionUID = 5555392236002752598L;
@@ -14,11 +14,15 @@ public class SwingMorphView extends JPanel implements MorphView {
 		this.icon = icon;
 	}
 
-	protected SwingAppData swingAppData;
+	protected AppData appData;
+	public AppData getAppData() {
+		return appData;
+	}
+
 	protected String toolTip;
 
-	public SwingMorphView(SwingAppData swingAppData) {
-		this.swingAppData = swingAppData;
+	public SwingMorphView(AppData appData) {
+		this.appData = appData;
 	}
 
 	@Override

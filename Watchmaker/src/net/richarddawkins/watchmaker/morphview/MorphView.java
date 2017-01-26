@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphview;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 public interface MorphView {
@@ -7,6 +8,7 @@ public interface MorphView {
 	String getIcon();
 	void setIcon(String icon);
 
+	AppData getAppData();
 
 	String getToolTip();
 

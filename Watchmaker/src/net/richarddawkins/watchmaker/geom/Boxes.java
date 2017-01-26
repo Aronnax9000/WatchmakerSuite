@@ -7,13 +7,20 @@ import java.util.logging.Logger;
  * @author Alan
  *
  */
-public class Boxes  {
-
+public class Boxes extends BoxManager  {
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.Boxes");
+	@Override
+	public int getBoxCount() {
+		return boxCount;
+	}
+	@Override
+	public int getMidBox() {
+		return midBox;
+	}
 	public final int cols;
 	public final int rows;
 	public final int boxCount;
 	public final int midBox;
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.Boxes");
 
 	/**
 	 * Construct a cols * rows array of boxes.
@@ -27,41 +34,20 @@ public class Boxes  {
 		this.midBox = boxCount / 2;	
 	}
 	
-	/**
-	 * Find the box within the array containing a particular point.
-	 * @param p the point to locate within one of the particular boxes
-	 * @param d the size of the overall array of boxes, in pixels.
-	 * @return the box number containing the given point.
+
+
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getBoxSize(net.richarddawkins.watchmaker.geom.Dim)
 	 */
-	public int getBoxNoContainingPoint(Point p, Dim d) {
-		int boxIndex = 0;
-		for(Rect box: getBoxes(d)) {
-			if(box.contains(p)) {
-				return boxIndex;
-			}
-			boxIndex++;
-		}
-		return -1;
-	}
-	/**
-	 * For the supplied dimension of the entire array of boxes,
-	 * return the size of one (any) box. The returned box width is the dimension
-	 * width divided by the number of columns, and the height is the dimension height
-	 * divided by the number of rows.
-	 * @param dimension the size of the overall array of boxes, in pixels
-	 * @return the size of an individual box within the array.
-	 */
+	@Override
 	public Dim getBoxSize(Dim dimension) {
 		return new Dim(dimension.width / cols, dimension.height / rows);
 	}
 	
-	/**
-	 * For the given dimension of the entire array of boxes,
-	 * return a vector of Rectangles describing the corners of
-	 * each box, in row-major order.
-	 * @param dimension the size of the overall array of boxes, in pixels.
-	 * @return a Vector of Rectangles representing individual boxes, in row-major order.
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getBoxes(net.richarddawkins.watchmaker.geom.Dim)
 	 */
+	@Override
 	public Vector<Rect> getBoxes(Dim dimension)
 	{
 		Vector<Rect> boxes = new Vector<Rect>();
@@ -79,13 +65,10 @@ public class Boxes  {
 		return boxes;
 	}
 
-	/**
-	 * Given supplied dimension of the entire array of boxes,
-	 * return the midpoint of the nth box (starting with n = 0).
-	 * @param dimension the dimensions of the overall array of boxes.
-	 * @param boxNo the number of the box to retrieve (row major order)
-	 * @return the midpoint of the nth Box.
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getMidPoint(net.richarddawkins.watchmaker.geom.Dim, int)
 	 */
+	@Override
 	public Point getMidPoint(Dim dimension, int boxNo) {
 		int col = boxNo % cols;
 		int row = boxNo / cols;
@@ -97,13 +80,10 @@ public class Boxes  {
 				boxheight * row + halfboxheight);
 		
 	}
-	/**
-	 * For the given dimension of the entire array of boxes,
-	 * return a vector of Points describing the midpoints of
-	 * each box, in row-major order.
-	 * @param dimension the dimension of the entire array of boxes, in pixels
-	 * @return a Vector of box midpoints, in row-major order.
+	/* (non-Javadoc)
+	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getMidPoints(net.richarddawkins.watchmaker.geom.Dim)
 	 */
+	@Override
 	public Vector<Point> getMidPoints(Dim dimension) {
 		
 		int boxwidth = dimension.width / cols;

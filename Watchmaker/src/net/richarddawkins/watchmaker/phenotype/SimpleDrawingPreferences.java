@@ -5,40 +5,32 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.beans.VetoableChangeListener;
 import java.beans.VetoableChangeSupport;
-
-import net.richarddawkins.watchmaker.scale.WatchmakerScaleEvent;
+import java.util.logging.Logger;
 
 public class SimpleDrawingPreferences implements DrawingPreferences, PropertyChangeListener {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences");
 
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	protected int scale = 0;
+	protected boolean showBoundingBoxes = false;
 	protected VetoableChangeSupport vcs = new VetoableChangeSupport(this);
-
+	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(listener);
 	}
-
-	public void removePropertyChangeListener(PropertyChangeListener listener) {
-		pcs.removePropertyChangeListener(listener);
-	}
-
+	@Override
 	public void addVetoableChangeListener(VetoableChangeListener listener) {
 		vcs.addVetoableChangeListener(listener);
 	}
 
-	public void removeVetoableChangeListener(VetoableChangeListener listener) {
-		vcs.removeVetoableChangeListener(listener);
+	@Override
+	public int getScale() {
+		return scale;
 	}
 
-	protected boolean showBoundingBoxes = false;
-
+	@Override
 	public boolean isShowBoundingBoxes() {
 		return showBoundingBoxes;
-	}
-
-	public void setShowBoundingBoxes(boolean newValue) {
-		boolean oldValue = this.showBoundingBoxes;
-		this.showBoundingBoxes = newValue;
-		pcs.firePropertyChange("showBoundingBoxes", oldValue, newValue);
 	}
 
 	@Override
@@ -49,20 +41,28 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	}
 
 	@Override
-	public void watchmakerScale(WatchmakerScaleEvent event) {
-		setScale(event.getScale());
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		pcs.removePropertyChangeListener(listener);
 	}
 
-
-	public int getScale() {
-		return scale;
+    @Override
+	public void removeVetoableChangeListener(VetoableChangeListener listener) {
+		vcs.removeVetoableChangeListener(listener);
 	}
 
+    @Override
 	public void setScale(int newValue) {
 		int oldValue = this.scale;
 		this.scale = newValue;
-		pcs.firePropertyChange("scale", oldValue, newValue);
+		logger.info("New DrawingPreferences scale " + this.scale);
+		pcs.firePropertyChange(new PropertyChangeEvent(this, "scale", oldValue, newValue));
 	}
 
-	protected int scale = 0;
+	@Override
+	public void setShowBoundingBoxes(boolean newValue) {
+		boolean oldValue = this.showBoundingBoxes;
+		this.showBoundingBoxes = newValue;
+		logger.info("New DrawingPreferences showBoundingBoxes " + this.showBoundingBoxes);
+		pcs.firePropertyChange(new PropertyChangeEvent(this, "showBoundingBoxes", oldValue, newValue));
+	}
 }

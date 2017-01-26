@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 
 public class BoxedMorphVector {
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector");
 
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();

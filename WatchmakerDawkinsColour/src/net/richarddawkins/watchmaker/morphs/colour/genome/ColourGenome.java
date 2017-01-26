@@ -12,7 +12,9 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 
 public class ColourGenome extends BiomorphGenome {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome");
+	
+	@SuppressWarnings("unused")
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome");
 
 	public static final int RAINBOW = 256;
 

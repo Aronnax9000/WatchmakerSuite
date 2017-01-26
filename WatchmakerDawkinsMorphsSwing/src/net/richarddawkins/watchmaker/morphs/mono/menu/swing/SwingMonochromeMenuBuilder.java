@@ -33,6 +33,7 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 	/**
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	SwingWatchmakerMenuItem segmentation = new SwingWatchmakerMenuItem("Segmentation");
 	SwingWatchmakerMenuItem gradient = new SwingWatchmakerMenuItem("Gradient");

@@ -8,6 +8,7 @@ import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
 public class Atom extends SimpleGene implements Cloneable {
+	@SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthroLin");
 
 	static int[] paramOffset = new int[AtomKind.values().length];

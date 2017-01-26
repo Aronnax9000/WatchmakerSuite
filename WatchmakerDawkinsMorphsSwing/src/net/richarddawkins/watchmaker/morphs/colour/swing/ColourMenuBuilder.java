@@ -32,6 +32,7 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 	/**
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
 	public ColourMenuBuilder(SwingAppData swingAppData) {

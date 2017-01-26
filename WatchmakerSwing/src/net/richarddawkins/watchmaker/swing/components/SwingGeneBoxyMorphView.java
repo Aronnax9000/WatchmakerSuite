@@ -1,25 +1,25 @@
 package net.richarddawkins.watchmaker.swing.components;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
-public class GeneBoxyWatchmakerPanel extends SwingBorderLayoutMorphView {
+public class SwingGeneBoxyMorphView extends SwingBorderLayoutMorphView {
 
 
 	private static final long serialVersionUID = 4916823549714431659L;
 
-	public GeneBoxyWatchmakerPanel(SwingAppData swingAppData) {
+	public SwingGeneBoxyMorphView(SwingAppData swingAppData) {
 		super(swingAppData);
 	}
 
-	public GeneBoxyWatchmakerPanel(
-			SwingAppData appData, String icon, 
+	public SwingGeneBoxyMorphView(
+			AppData appData, String icon, 
 			String name, boolean engineeringMode) {
 		super(appData, icon, name);
 		GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
 		setUpperStrip(geneBoxStrip);
-		SwingScaleSlider scaleSlider = new SwingScaleSlider();
-		scaleSlider.addWatchmakerScaleListener(appData.getPhenotypeDrawer().getDrawingPreferences());
+		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
 		setLowerStrip(scaleSlider);
 	}
 

@@ -45,7 +45,6 @@ public interface AppData  {
 	public String getName();
 	public PhenotypeDrawer getPhenotypeDrawer();
 	public String getToolTip();
-    public boolean isShowBoundingBoxes();
     public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
 
     public void setFrame(MultiMorphTypeTabbedPanel frame);
@@ -53,7 +52,6 @@ public interface AppData  {
 	public void setMenuBuilder(MenuBuilder menuBuilder);
 	public void setMorphViewsTabbedPane(MorphViewsTabbedPanel morphViewsTabbedPane);
 	public void setName(String name);
-	public void setShowBoundingBoxes(boolean newValue);
 	public void setToolTip(String toolTip);
 	public BoxesDrawer getBoxesDrawer();
 	public void setPhenotypeDrawer(PhenotypeDrawer newValue);

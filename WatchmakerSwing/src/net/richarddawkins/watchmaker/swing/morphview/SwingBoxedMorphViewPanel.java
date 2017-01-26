@@ -2,25 +2,27 @@ package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.beans.PropertyChangeListener;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Boxes;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
-public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
+public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel implements PropertyChangeListener {
 	protected boolean showBoxes = true;
 	protected MorphDrawer gd;
 //	protected GraphicsDrawer gd = new MorphDrawer();
 	
 	private static final long serialVersionUID = -224189863008500654L;
 	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();
-	protected Boxes boxes;
-	public Boxes getBoxes() {
+	protected BoxManager boxes;
+	public BoxManager getBoxes() {
 		return boxes;
 	}
 	public BoxedMorphVector getBoxedMorphVector() {
@@ -30,9 +32,12 @@ public abstract class BoxyMorphViewPanel extends SwingMorphViewPanelComponent {
 		this.boxedMorphVector = boxedMorphVector;
 	}
 
-	public BoxyMorphViewPanel(AppData appData) {
+	public SwingBoxedMorphViewPanel(AppData appData) {
 		super(appData);
-		gd = new SwingMorphDrawer(appData.getPhenotypeDrawer());
+		PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
+		gd = new SwingMorphDrawer(phenotypeDrawer);
+		phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
+		
 	}
 
     public void paintComponent(Graphics g) {

@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 
 import java.awt.Component;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
@@ -19,11 +20,10 @@ import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
 public class ArthromorphMenuBuilder extends SwingMenuBuilder  {
 	
 	
-	/**
-	 * 
-	 */
+	@SuppressWarnings("unused")
+
 	private static final long serialVersionUID = 1L;
-	public ArthromorphMenuBuilder() {}
+	public ArthromorphMenuBuilder(AppData appData) { super(appData);}
 	
 	public void buildMenu(WatchmakerMenuBar menuBar) {
 		super.buildMenu(menuBar);
