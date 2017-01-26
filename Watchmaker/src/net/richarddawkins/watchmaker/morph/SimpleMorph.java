@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morph;
 
-import java.awt.Image;
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -62,23 +62,13 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
         return pRect;
     }
 
-    // @Override
-    // public void draw(Graphics2D g2) {
-    // g2.setColor(Color.BLACK);
-    // getMorphConfig().getSwingPicDrawer().drawPic(g2, pic);
-    // }
-
     @Override
     public void setGenome(Genome newValue)  {
-    	Genome oldValue = this.genome;
         genome = newValue;
         genome.addGenomeChangeListener(this);
         pcs.firePropertyChange("genome", null, genome);
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
 
     public void setImage(Object image) {
         this.image = image;

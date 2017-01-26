@@ -5,7 +5,6 @@ import java.beans.PropertyChangeSupport;
 import java.util.Vector;
 import java.util.logging.Logger;
 
-import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
@@ -21,8 +20,6 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	protected Embryology embryology;
 	
     protected Mutagen mutagen;
-	protected JPanel pageStartPanel;
-
 	
 	
 	@Override

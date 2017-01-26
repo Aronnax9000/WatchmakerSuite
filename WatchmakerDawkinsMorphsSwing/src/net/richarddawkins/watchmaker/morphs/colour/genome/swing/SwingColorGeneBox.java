@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 
-import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
+import net.richarddawkins.watchmaker.swing.SwingColor;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 
 public class SwingColorGeneBox extends SwingIntegerGeneBox {
@@ -13,8 +13,8 @@ public class SwingColorGeneBox extends SwingIntegerGeneBox {
 	
 
 	public void setValue(int value) {
-		this.setBackground(ColourPic.rgbColorPalette[value]);
-		this.valueLabel.setBackground(ColourPic.rgbColorPalette[value]);
+		this.setBackground(SwingColor.rgbColorPalette[value]);
+		this.valueLabel.setBackground(SwingColor.rgbColorPalette[value]);
 		super.setValue(value);
 	}
 

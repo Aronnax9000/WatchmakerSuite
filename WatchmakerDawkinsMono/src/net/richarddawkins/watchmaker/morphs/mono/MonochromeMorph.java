@@ -1,9 +1,9 @@
 package net.richarddawkins.watchmaker.morphs.mono;
 
 
-import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.SimpleMorph;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 /**
@@ -55,14 +55,14 @@ public class MonochromeMorph extends SimpleMorph {
 	}
 
 	
-	protected Rectangle surround;
+	protected Rect surround;
 	protected Point origin;
 	protected Point centre;
 
 	protected boolean damaged; // ,Blackened
 	protected Object snapHandle;
 	protected int snapBytes;
-	protected Rectangle snapBounds;
+	protected Rect snapBounds;
 
 
 

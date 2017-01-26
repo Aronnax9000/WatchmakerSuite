@@ -47,7 +47,7 @@ public class SwingMorphDrawer implements MorphDrawer {
 		Morph morph = boxedMorph.getMorph();
 		BufferedImage bufferedImage = (BufferedImage) morph.getImage();
 		if (morph.getImage() == null) {
-			bufferedImage = picDrawer.getBufferedImage(phenotype, scale);
+			bufferedImage = (BufferedImage) picDrawer.getImage(phenotype, scale);
 			morph.setImage(bufferedImage);
 		}
 		Point position = boxedMorph.getPosition(d);

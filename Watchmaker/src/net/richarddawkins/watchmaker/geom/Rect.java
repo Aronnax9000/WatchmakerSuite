@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.geom;
 
-import java.awt.Rectangle;
 
 /**
  * Java class to simulate a QuickDraw Rect (rectangle)
@@ -142,20 +141,7 @@ public class Rect {
 		return "Rect((" + left + ", " + top + "), " + getWidth() + "x" + getHeight() + ")";
 	}
 	
-	/**
-	 * Create a Rect object with the same origin and dimensions as a Java
-	 * Rectangle.
-	 * 
-	 * @param rectangle
-	 *            a Java Rectangle to be duplicated as a Rect.
-	 */
-	public Rect(Rectangle rectangle) {
-		this.left = rectangle.x;
-		this.right = rectangle.x + rectangle.width;
-		this.top = rectangle.y;
-		this.bottom = rectangle.y + rectangle.height;
 
-	}
 
 	/**
 	 * Expand this rectangle where necessary so that it encompasses the given
@@ -181,16 +167,6 @@ public class Rect {
 		return Math.abs(bottom - top);
 	}
 
-	/**
-	 * Create a Java Rectangle with the equivalent origin and dimensions of this
-	 * Rect.
-	 * 
-	 * @return a Java Rectangle with the equivalent origin and dimensions of
-	 *         this Rect.
-	 */
-	public Rectangle toRectangle() {
-		return new Rectangle(left, top, getWidth(), getHeight());
-	}
 
 	public void setRect(int newleft, int newtop, int newright, int newbottom) {
 		left = newleft;

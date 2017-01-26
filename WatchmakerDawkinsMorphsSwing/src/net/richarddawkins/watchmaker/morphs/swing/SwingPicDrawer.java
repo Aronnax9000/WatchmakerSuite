@@ -13,6 +13,7 @@ import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
+import net.richarddawkins.watchmaker.swing.SwingGeom;
 
 
 
@@ -42,13 +43,13 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         if (drawingPreferences.isShowBoundingBoxes()) {
             g2.setStroke(new BasicStroke(1));
             g2.setColor(Color.BLUE);
-            Rectangle rectangle = pic.getMargin().toRectangle();
+            Rectangle rectangle = SwingGeom.toRectangle(pic.getMargin());
             g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         }
         g2.setTransform(saveTransform);
     }
     @Override
-    public BufferedImage getBufferedImage(Phenotype phenotype, double scale) {
+    public Object getImage(Phenotype phenotype, double scale) {
     	Rect margin = phenotype.getMargin();
     	
     	BufferedImage bufferedImage = new BufferedImage((int) (margin.getWidth() * scale + 1)

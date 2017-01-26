@@ -16,5 +16,4 @@ public class Point implements Cloneable {
     return new Point(h,v);
   }
   
-  public java.awt.Point toPoint() { return new java.awt.Point(h,v); }
 }
