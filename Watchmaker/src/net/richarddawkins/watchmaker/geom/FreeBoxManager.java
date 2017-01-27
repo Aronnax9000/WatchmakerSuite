@@ -65,7 +65,7 @@ public class FreeBoxManager extends BoxManager {
 	}
 	
 	
-	protected Rect scaleInternalRectToDimension(Rect r, Dim dimension) {
+	protected  Rect scaleInternalRectToDimension(Rect r, Dim dimension) {
 		Rect outputRect = new Rect();
 		outputRect.left = (int)((long) r.left  * dimension.getWidth() / Integer.MAX_VALUE);
 		outputRect.right = (int)((long) r.right * dimension.getWidth() / Integer.MAX_VALUE);
