@@ -18,7 +18,7 @@ import javax.swing.Timer;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Boxes;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -51,7 +51,7 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 		super(parentMorphView.getAppData());
 		this.watchmakerPanel = parentMorphView;
 		AppData appData = parentMorphView.getAppData();
-		boxes = new Boxes(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows());
+		boxes = new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows());
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -132,7 +132,7 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 		Morph parent;
 		if (morph == null) {
 			MorphConfig config = watchmakerPanel.getAppData().getMorphConfig();
-			parent = config.newMorph(1);
+			parent = config.newMorph(0);
 
 		} else {
 			parent = morph;

@@ -28,4 +28,5 @@ public class MonochromeSwingAppData extends SwingAppData implements AppData {
 		return geneBoxStrip;
 	}
 
+
 }

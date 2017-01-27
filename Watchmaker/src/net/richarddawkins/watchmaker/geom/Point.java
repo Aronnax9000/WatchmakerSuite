@@ -12,8 +12,16 @@ public class Point implements Cloneable {
     this.v = v;
   }
 
+  public Point subtract(Point p) {
+	  return new Point(this.h - p.h, this.v - p.v);
+  }
+  
   public Point clone() {
     return new Point(h,v);
+  }
+  
+  public String toString() {
+	  return "(" + h + ", " + v + ")";
   }
   
 }

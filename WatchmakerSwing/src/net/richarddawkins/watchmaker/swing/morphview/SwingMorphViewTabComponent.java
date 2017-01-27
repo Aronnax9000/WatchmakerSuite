@@ -18,29 +18,27 @@ public class SwingMorphViewTabComponent extends JPanel implements MorphViewTabCo
 	 * 
 	 */
 	private static final long serialVersionUID = -5284721564837850902L;
-	
 
-	
 	public void setIcon(String filename) {
-		lblIcon.setIcon(new ImageIcon(ClassicImageLoader.getPicture(filename).getImage()));
+		if (filename != null) {
+			lblIcon.setIcon(new ImageIcon(ClassicImageLoader.getPicture(filename).getImage()));
+		}
 	}
-	
+
 	public void setName(String name) {
 		lblTitle.setText(name);
 		btnClose.addActionListener(new MyCloseActionHandler(name));
 	}
-	
+
 	JLabel lblTitle = new JLabel();
 	JButton btnClose = new JButton("x");
 	JLabel lblIcon = new JLabel();
 
-	
 	public SwingMorphViewTabComponent() {
-		
-	
+
 		setLayout(new GridBagLayout());
 		setOpaque(false);
-		
+
 		GridBagConstraints gbc = new GridBagConstraints();
 
 		gbc.gridy = 0;
@@ -54,29 +52,30 @@ public class SwingMorphViewTabComponent extends JPanel implements MorphViewTabCo
 		gbc.weightx = 0;
 		add(btnClose, gbc);
 	}
-	
+
 	public class MyCloseActionHandler implements ActionListener {
 
-	    private String tabName;
+		private String tabName;
 
-	    public MyCloseActionHandler(String tabName) {
-	        this.tabName = tabName;
-	    }
+		public MyCloseActionHandler(String tabName) {
+			this.tabName = tabName;
+		}
 
-	    public String getTabName() {
-	        return tabName;
-	    }
+		public String getTabName() {
+			return tabName;
+		}
 
-	    public void actionPerformed(ActionEvent evt) {
-	        int index = swingMorphViewsTabbedPanel.indexOfTab(getTabName());
-	        if (index >= 0) {
-	        	swingMorphViewsTabbedPanel.removeTabAt(index);
-	            ((JButton)evt.getSource()).removeActionListener(this);
-	        }
+		public void actionPerformed(ActionEvent evt) {
+			int index = swingMorphViewsTabbedPanel.indexOfTab(getTabName());
+			if (index >= 0) {
+				swingMorphViewsTabbedPanel.removeTabAt(index);
+				((JButton) evt.getSource()).removeActionListener(this);
+			}
 
-	    }
+		}
 
 	}
+
 	SwingMorphViewsTabbedPanel swingMorphViewsTabbedPanel;
 
 	public SwingMorphViewsTabbedPanel getSwingMorphViewsTabbedPanel() {

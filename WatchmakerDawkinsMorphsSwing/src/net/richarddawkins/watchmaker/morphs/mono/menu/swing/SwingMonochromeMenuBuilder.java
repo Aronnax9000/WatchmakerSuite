@@ -144,7 +144,7 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		menu.add(new SwingWatchmakerMenuItem("Initialize Fossil Record"));
 		menu.add(new SwingWatchmakerMenuItem("Play Back Fossils"));
 		menu.add(new SwingWatchmakerMenuItem("Recording Fossils"));
-		menu.add(new SwingWatchmakerMenuItem("Triangle"));
+		menu.add(new ActionTriangle(appData));
 		return menu;
 	}
 

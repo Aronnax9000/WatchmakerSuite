@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Boxes;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
@@ -34,7 +34,7 @@ public class SwingEngineeringBoxedMorphViewPanel extends SwingBoxedMorphViewPane
 		super(engineeringWatchmakerPanel.getAppData());
 		setCursor(WatchmakerCursors.hypodermic);
 		this.engineeringWatchmakerPanel = engineeringWatchmakerPanel;
-		boxes = new Boxes(1, 1);
+		boxes = new GridBoxManager(1, 1);
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {

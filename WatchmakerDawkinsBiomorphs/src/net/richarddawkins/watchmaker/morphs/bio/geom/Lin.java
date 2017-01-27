@@ -51,5 +51,9 @@ public class Lin implements Cloneable {
         margin.expandPoint(startPt, 0);
         margin.expandPoint(endPt, 0);
     }
+    
+    public String toString() {
+    	return "Lin " + startPt.toString() + " to " + endPt.toString();
+    }
 	
 }

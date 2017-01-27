@@ -15,7 +15,6 @@ public class SwingBreedingMorphView extends SwingGeneBoxyMorphView {
        			false);
        	SwingBreedingBoxedMorphViewPanel breedingPanel = new SwingBreedingBoxedMorphViewPanel(this);
        	setCentrePanel(breedingPanel);
-       	
        	breedingPanel.seed(morph);
     }
     @Override

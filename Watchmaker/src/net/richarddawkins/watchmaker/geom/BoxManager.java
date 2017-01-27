@@ -7,7 +7,6 @@ abstract public class BoxManager {
 
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxManager");
-
 	/**
 	 * Find the box within the array containing a particular point.
 	 * 
@@ -77,5 +76,15 @@ abstract public class BoxManager {
 	public abstract int getMidBox();
 
 	public abstract int getBoxCount();
+
+	public void setMidPoint(Dim dim, Point point, int i) {
+		
+		
+	}
+
+	public void addBox(Rect margin, Dim dim) {
+		
+		
+	}
 
 }

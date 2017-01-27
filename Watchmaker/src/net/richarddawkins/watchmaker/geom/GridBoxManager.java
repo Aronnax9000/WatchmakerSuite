@@ -7,7 +7,7 @@ import java.util.logging.Logger;
  * @author Alan
  *
  */
-public class Boxes extends BoxManager  {
+public class GridBoxManager extends BoxManager  {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.Boxes");
 	@Override
 	public int getBoxCount() {
@@ -22,12 +22,15 @@ public class Boxes extends BoxManager  {
 	public final int boxCount;
 	public final int midBox;
 
+
+
+	
 	/**
 	 * Construct a cols * rows array of boxes.
 	 * @param cols the number of columns in the box array.
 	 * @param rows the number of rows in the box array.
 	 */
-	public Boxes(int cols, int rows) {
+	public GridBoxManager(int cols, int rows) {
 		this.cols = cols;
 		this.rows = rows;
 		this.boxCount = cols * rows;

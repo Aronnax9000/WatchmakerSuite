@@ -55,4 +55,5 @@ public interface AppData  {
 	public void setToolTip(String toolTip);
 	public BoxesDrawer getBoxesDrawer();
 	public void setPhenotypeDrawer(PhenotypeDrawer newValue);
+	public void addTriangleMorphView();
 }

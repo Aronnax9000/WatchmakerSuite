@@ -23,6 +23,10 @@ public class MonoLin extends Lin implements Cloneable {
         margin.expandPoint(startPt, thickness);
         margin.expandPoint(endPt, thickness);
     }
+    
+    public String toString() {
+    	return super.toString() + " thickness: " + thickness;
+    }
 
 
 }

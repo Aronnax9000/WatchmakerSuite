@@ -2,15 +2,14 @@ package net.richarddawkins.watchmaker.swing.components;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class SwingGeneBoxyMorphView extends SwingBorderLayoutMorphView {
 
 
 	private static final long serialVersionUID = 4916823549714431659L;
 
-	public SwingGeneBoxyMorphView(SwingAppData swingAppData) {
-		super(swingAppData);
+	public SwingGeneBoxyMorphView(AppData appData) {
+		super(appData);
 	}
 
 	public SwingGeneBoxyMorphView(

@@ -76,7 +76,7 @@ public abstract class Pic implements Phenotype {
         super();
     }
 
-
+    @Override
     public int size() { return lines.size(); }
     public void addLin(Lin lin) {
         lines.add(lin);

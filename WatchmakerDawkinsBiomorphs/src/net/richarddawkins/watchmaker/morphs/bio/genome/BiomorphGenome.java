@@ -73,13 +73,13 @@ public abstract class BiomorphGenome extends SimpleGenome {
 
 	public void setBasicType(int basicType) {
 		switch (basicType) {
-		case 1:
+		case 0:
 			basicTree();
 			break;
-		case 2:
+		case 1:
 			chess();
 			break;
-		case 3:
+		case 2:
 			insect();
 			break;
 		default:
