@@ -10,4 +10,5 @@ public interface Genome extends PropertyChangeListener {
 	Gene getGene(int geneBoxIndex);
 	void addGenomeChangeListener(GenomeChangeListener listener);
 	void removeGenomeChangeListener(GenomeChangeListener listener);
+
 }

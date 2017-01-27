@@ -8,8 +8,12 @@ import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
@@ -27,11 +31,6 @@ import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
 public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChangeListener {
 
 
-	
-	
-	/**
-	 * 
-	 */
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
@@ -82,14 +81,16 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
 		menu.add(new SwingWatchmakerMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
 
-			/**
-			 * 
-			 */
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				MorphConfig config = appData.getMorphConfig();
+				Mutagen mutagen = config.getMutagen();
+				Morph morph = appData.getMorphOfTheHour();
+				Genome genome = morph.getGenome();
+				mutagen.deliverSaltation(genome);
 
 			}
 		}));

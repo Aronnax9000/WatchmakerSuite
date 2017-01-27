@@ -158,6 +158,7 @@ public class ColourGenome extends BiomorphGenome {
 		theGenes[27] = thicknessGene;
 		return theGenes;
 	}
+	
 
 
 }

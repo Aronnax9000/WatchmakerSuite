@@ -367,4 +367,10 @@ public class ArthromorphMutagen extends SimpleMutagen {
 		return ok && mutOK;
 	}
 
+	@Override
+	public void deliverSaltation(Genome genome) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

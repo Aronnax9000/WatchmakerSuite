@@ -178,6 +178,9 @@ public class Rect implements Cloneable {
 		return Math.abs(bottom - top);
 	}
 
+	public Dim getDim() {
+		 return new Dim(getWidth(), getHeight());
+	}
 
 	public void setRect(int newleft, int newtop, int newright, int newbottom) {
 		left = newleft;

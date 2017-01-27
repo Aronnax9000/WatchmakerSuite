@@ -90,4 +90,10 @@ public class SnailMutagen extends SimpleMutagen {
 		return success;
 	}
 
+	@Override
+	public void deliverSaltation(Genome genome) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

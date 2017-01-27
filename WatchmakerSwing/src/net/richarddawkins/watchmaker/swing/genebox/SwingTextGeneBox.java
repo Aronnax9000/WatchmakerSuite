@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.swing.genebox;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 abstract public class SwingTextGeneBox extends SwingGeneBox {
 
