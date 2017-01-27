@@ -22,18 +22,27 @@ public class TestMonoBasicType {
 	 */
 	public static void main(String[] args) {
 		
-		// Get a new MonochromeMorphConfig.
+		// Get a new MonochromeMorphConfig, which is a subclass of 
+		// MorphConfig, so it's fine to assign it to a variable of type
+		// MorhConfig ("A MonochromeMorphConfig is a MorphConfig.")
 		MorphConfig config = new MonochromeMorphConfig();
 		
 		// Get the MorphConfig to cough up a minimal biomorph.
+		// Under the hood, it's actually a MonochromeMorph, but
+		// we just assign it to a variable of type Morph, which is fine,
+		// because MonochromeMorph is a subclasss of Morph. ("A MonochromeMorph
+		// is a Morph.")
 		Morph morph = config.newMorph(0);
 		
 		// Obtain a reference to the morph's body, a collection
 		// of drawing primitives and a calculated "margin",
 		// which is the bounding rectangle of the morph's body.
+		// It's actually a subclass of Phenotype called MonoPic,
+		// but here we can deal with it generically ("A MonoPic is a Pic,
+		// which is a Phenotype.")
 		Phenotype phenotype = morph.getPic();
 		
-		// Iterate through the list of lines. We cast the phenotype
+		// Iterate through the list of lines. We cast the Phenotype
 		// to its Pic subclass first, since Phenotype is more general and
 		// one could conceive of designing a biomorph type that has some
 		// other way of representing its body than a list of drawing primitives.
