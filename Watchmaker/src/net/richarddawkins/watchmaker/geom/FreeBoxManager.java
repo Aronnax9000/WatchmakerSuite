@@ -93,7 +93,7 @@ public class FreeBoxManager extends BoxManager {
 
 	@Override
 	public int getMidBox() {
-		return 0;
+		return -1;
 	}
 
 	@Override

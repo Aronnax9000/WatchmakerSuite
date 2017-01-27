@@ -63,10 +63,10 @@ public class LocatedMorph {
 		this.morph = morph;
 	}
 	public void nudge() {
-		if(Math.abs(1.0d - progress) < 0.1d) {
+		if(Math.abs(1.0d - progress) < 0.05d) {
     		progress = 1.0d;
     	} else {
-    		progress += (1.0d - progress) * 0.1;
+    		progress += (1.0d - progress) * 0.05;
     	}
 	}
 

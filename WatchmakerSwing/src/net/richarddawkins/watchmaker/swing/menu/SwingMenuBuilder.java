@@ -29,6 +29,16 @@ public abstract class SwingMenuBuilder  implements MenuBuilder {
 			appData.getPhenotypeDrawer().getDrawingPreferences().setShowBoundingBoxes(viewBoundingBoxes.isSelected());
 		}
 	});
+		spinBabyMorphs
+		= new SwingWatchmakerCheckBoxMenuItem(new SwingWatchmakerAction(appData, "Spin baby morphs") {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			appData.getPhenotypeDrawer().getDrawingPreferences().setSpinBabyMorphs(spinBabyMorphs.isSelected());
+		}
+	});
 	
 	};
 	
@@ -71,5 +81,6 @@ public abstract class SwingMenuBuilder  implements MenuBuilder {
 	}
 
 	protected WatchmakerCheckBoxMenuItem viewBoundingBoxes; 
+	protected WatchmakerCheckBoxMenuItem spinBabyMorphs; 
 
 }

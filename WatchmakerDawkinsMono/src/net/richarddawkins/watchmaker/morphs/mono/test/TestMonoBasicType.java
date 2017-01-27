@@ -17,6 +17,7 @@ public class TestMonoBasicType {
 	 * Creates a minimal monochrome biomorph, retrieves its Phenotype (body),
 	 * then prints its list of Lins to the console, together with a
 	 * a summary of the phenotype's characteristics. 
+	 * 
 	 * @author Alan Canon
 	 * @param args ignored.
 	 */
@@ -37,15 +38,28 @@ public class TestMonoBasicType {
 		// Obtain a reference to the morph's body, a collection
 		// of drawing primitives and a calculated "margin",
 		// which is the bounding rectangle of the morph's body.
-		// It's actually a subclass of Phenotype called MonoPic,
+		// The concrete class that's returned is actually a subclass 
+		// of Phenotype called MonoPic.
 		// but here we can deal with it generically ("A MonoPic is a Pic,
 		// which is a Phenotype.")
+		
 		Phenotype phenotype = morph.getPic();
 		
-		// Iterate through the list of lines. We cast the Phenotype
-		// to its Pic subclass first, since Phenotype is more general and
-		// one could conceive of designing a biomorph type that has some
-		// other way of representing its body than a list of drawing primitives.
+		// We've now obtained a phenotype for the morph in a generic way,
+		// which would work for any instance of MorphConfig. MorphConfig,
+		// Morph, and Phenotype are the top-level interfaces which are 
+		// common for all types of Morph: the "outer layers" of the application
+		// deal with Morphs using these generic interfaces, since they don't
+		// care specifically what kind of morph is being dealt with. In the
+		// "inner layers" of the application, where the kind of Morph matters,
+		// we use more specific subclasses of MorphConfig, Morph, Phenotype, etc.
+		// That kind of work is illustrated below.
+		
+		// Iterate through the list of lines. We cast the generic Phenotype
+		// to its Pic subclass first. Under the hood, the concrete subclass class of
+		// Phenotype for MonochromeMorph is MonoPic, and its lines colllection
+		// are of type MonoLin, a subclass of Lin.
+		
 		for(Lin lin: ((Pic) phenotype).lines) {
 
 			// We know this is a Monochrome Biomorph so it's safe to cast its

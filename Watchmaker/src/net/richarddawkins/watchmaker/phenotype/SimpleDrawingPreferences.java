@@ -11,6 +11,8 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	protected int scale = 0;
 	protected boolean showBoundingBoxes = false;
+
+	protected boolean spinBabyMorphs;
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(listener);
@@ -54,5 +56,22 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 		this.showBoundingBoxes = newValue;
 		logger.info("New DrawingPreferences showBoundingBoxes " + this.showBoundingBoxes);
 		pcs.firePropertyChange(new PropertyChangeEvent(this, "showBoundingBoxes", oldValue, newValue));
+	}
+
+
+	@Override
+	public boolean isSpinBabyMorphs() {
+		
+		return spinBabyMorphs;
+	}
+
+
+	@Override
+	public void setSpinBabyMorphs(boolean newValue) {
+		boolean oldValue = this.spinBabyMorphs;
+		this.spinBabyMorphs = newValue;
+		logger.info("New DrawingPreferences spin " + this.spinBabyMorphs);
+		pcs.firePropertyChange(new PropertyChangeEvent(this, "spinBabyMorphs", oldValue, newValue));
+		
 	}
 }

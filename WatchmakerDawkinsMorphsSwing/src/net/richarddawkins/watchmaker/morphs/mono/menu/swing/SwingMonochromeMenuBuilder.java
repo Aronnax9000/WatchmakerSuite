@@ -124,6 +124,7 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		menu.add(new SwingWatchmakerMenuItem("Make left of triangle"));
 		menu.add(new SwingWatchmakerMenuItem("Make right of triangle"));
 		menu.add(viewBoundingBoxes);
+		menu.add(spinBabyMorphs);
 
 		return menu;
 	}

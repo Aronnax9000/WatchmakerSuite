@@ -35,8 +35,6 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
     	Graphics2D g2 = (Graphics2D) graphicsContext;
         AffineTransform saveTransform = g2.getTransform();
         Pic pic = (Pic) phenotype;
-
-
         for (Lin line : pic.lines) {
             limb(g2, pic, line);
         }
@@ -58,9 +56,22 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
     			BufferedImage.TYPE_INT_ARGB);
     	Graphics2D g2 = bufferedImage.createGraphics();
     	
+        if (drawingPreferences.isShowBoundingBoxes()) {
+            g2.setStroke(new BasicStroke(1));
+            g2.setColor(Color.BLUE);
+            Rectangle rectangle = SwingGeom.toRectangle(phenotype.getMargin());
+            g2.drawRect(rectangle.x, rectangle.y, (int) (rectangle.width * scale), (int)(rectangle.height * scale));
+        }
+    	
     	g2.translate(- margin.left * scale, - margin.top * scale);
     	g2.scale(scale, scale);
-    	drawPic(g2, phenotype);
+    	if (drawingPreferences.isSpinBabyMorphs()) {
+    		g2.rotate(-Math.PI * 4 * scale);
+    	}
+        for (Lin line : ((Pic) phenotype).lines) {
+            limb(g2, phenotype, line);
+        }
+
 		return bufferedImage;
     }
 

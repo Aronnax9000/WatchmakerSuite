@@ -10,6 +10,9 @@ public interface DrawingPreferences {
 	public void addPropertyChangeListener(PropertyChangeListener listener);
 
 	public void removePropertyChangeListener(PropertyChangeListener listener);
+	public boolean isSpinBabyMorphs();
+	public void setSpinBabyMorphs(boolean spinOrNot);
+
 
 
 }
