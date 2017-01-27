@@ -14,15 +14,11 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
-import net.richarddawkins.watchmaker.swing.morphview.SwingBoxedMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
 
 public class SwingTriangleMorphViewPanel extends SwingBoxedMorphViewPanel {
 
-	protected Point[] trianglePoints = new Point[] { 
-			new Point(234, 41), 
-			new Point(134, 250), 
-			new Point(333, 250) };
-
+	protected Point[] trianglePoints = new Point[] { new Point(234, 41), new Point(134, 250), new Point(333, 250) };
 
 	/**
 	 * 
@@ -49,8 +45,11 @@ public class SwingTriangleMorphViewPanel extends SwingBoxedMorphViewPanel {
 		for (int i = 0; i < 3; i++) {
 			morph = appData.getMorphConfig().newMorph(i);
 			Rect margin = morph.getPic().getMargin();
-			boxes.addBox(margin, dim);
-			boxes.setMidPoint(dim, trianglePoints[i], i);
+			Point morphMidPoint = margin.getMidPoint();
+			Point displacement = trianglePoints[i].subtract(morphMidPoint);
+			Rect newRect = new Rect(displacement.h, displacement.v, margin.getWidth(), margin.getHeight());
+				
+			boxes.addBox(newRect, dim);
 			BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, i);
 			this.boxedMorphVector.add(boxedMorph);
 		}
@@ -60,23 +59,19 @@ public class SwingTriangleMorphViewPanel extends SwingBoxedMorphViewPanel {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		Vector<Point> points = new Vector<Point>();
-		for(int boxNo = 0; boxNo < 3; boxNo++) {
-			points.add(boxes.getMidPoint(SwingGeom.toWatchmakerDim(getSize()), boxNo));
+		for (int boxNo = 0; boxNo < 3; boxNo++) {
+			Dim dim = SwingGeom.toWatchmakerDim(getSize());
+			Point midPoint = boxes.getMidPoint(dim, boxNo);
+			points.add(midPoint);
 		}
-		g2.setColor(Color.BLACK); 
+		g2.setColor(Color.BLACK);
 		g2.setStroke(new BasicStroke(1));
-		g2.drawLine(
-				points.elementAt(0).h, points.elementAt(0).v, 
-				points.elementAt(1).h, points.elementAt(1).v);
-		g2.drawLine(
-				points.elementAt(1).h, points.elementAt(1).v, 
-				points.elementAt(2).h, points.elementAt(2).v);
-		g2.drawLine(
-				points.elementAt(2).h, points.elementAt(2).v, 
-				points.elementAt(0).h, points.elementAt(0).v);
+		g2.drawLine(points.elementAt(0).h, points.elementAt(0).v, points.elementAt(1).h, points.elementAt(1).v);
+		g2.drawLine(points.elementAt(1).h, points.elementAt(1).v, points.elementAt(2).h, points.elementAt(2).v);
+		g2.drawLine(points.elementAt(2).h, points.elementAt(2).v, points.elementAt(0).h, points.elementAt(0).v);
 		super.paintComponent(g);
 	}
-	
+
 	@Override
 	protected void updateModel(Dim size) {
 

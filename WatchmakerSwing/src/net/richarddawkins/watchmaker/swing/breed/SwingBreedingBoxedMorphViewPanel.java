@@ -24,7 +24,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingBoxedMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
 
 public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel implements ActionListener {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.breed.BreedingPanel");

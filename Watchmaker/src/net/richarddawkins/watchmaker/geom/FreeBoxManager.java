@@ -67,17 +67,19 @@ public class FreeBoxManager extends BoxManager {
 	
 	protected Rect scaleInternalRectToDimension(Rect r, Dim dimension) {
 		Rect outputRect = new Rect();
-		outputRect.left = (int)((long) r.left * Integer.MAX_VALUE / dimension.getWidth());
-		outputRect.right = (int)((long) r.right * Integer.MAX_VALUE / dimension.getWidth());
-		outputRect.top = (int)((long) r.top * Integer.MAX_VALUE / dimension.getHeight());
-		outputRect.bottom = (int)((long) r.bottom * Integer.MAX_VALUE / dimension.getHeight());
+		outputRect.left = (int)((long) r.left  * dimension.getWidth() / Integer.MAX_VALUE);
+		outputRect.right = (int)((long) r.right * dimension.getWidth() / Integer.MAX_VALUE);
+		outputRect.top = (int)((long) r.top * dimension.getHeight() / Integer.MAX_VALUE);
+		outputRect.bottom = (int)((long) r.bottom * dimension.getHeight() / Integer.MAX_VALUE);
 		return outputRect;
 	}
 	
 	@Override
 	public Point getMidPoint(Dim dimension, int boxNo) {
-		Rect scaledRect = scaleInternalRectToDimension(boxes.elementAt(boxNo), dimension);
-		return scaledRect.getMidPoint();
+		Rect internalRect = boxes.elementAt(boxNo);
+		Rect scaledRect = scaleInternalRectToDimension(internalRect, dimension);
+		Point midPoint = scaledRect.getMidPoint();
+		return midPoint;
 	}
 
 	@Override

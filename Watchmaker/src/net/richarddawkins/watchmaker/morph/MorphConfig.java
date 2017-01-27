@@ -44,7 +44,7 @@ public interface MorphConfig {
 	Morph newMorph(int type);
 	/**
 	 * Creates a new Morph with a null Genome.
-	 * @return
+	 * @return a Morph with a null Genome.
 	 */
 	Morph newMorph();
 

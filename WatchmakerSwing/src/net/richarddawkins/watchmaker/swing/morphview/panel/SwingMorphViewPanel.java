@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.morphview;
+package net.richarddawkins.watchmaker.swing.morphview.panel;
 
 import java.awt.LayoutManager;
 import java.beans.PropertyChangeEvent;

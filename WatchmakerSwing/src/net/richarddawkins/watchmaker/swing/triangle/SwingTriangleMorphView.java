@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.triangle;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
 import net.richarddawkins.watchmaker.swing.components.SwingGeneBoxyMorphView;
 
 public class SwingTriangleMorphView extends SwingGeneBoxyMorphView {
@@ -19,8 +20,9 @@ public class SwingTriangleMorphView extends SwingGeneBoxyMorphView {
     @Override
     public Morph getMorphOfTheHour() {
     	SwingTriangleMorphViewPanel trianglePanel =  (SwingTriangleMorphViewPanel) centrePanel;
-    	return trianglePanel.getBoxedMorphVector()
-    			.getBoxedMorph(trianglePanel.getBoxes().getMidBox())
+    	BoxedMorphVector boxedMorphVector = trianglePanel.getBoxedMorphVector();
+    	return boxedMorphVector
+    			.getBoxedMorph(boxedMorphVector.getBoxedMorphs().size() - 1)
     			.getMorph();
     }
 }
