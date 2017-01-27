@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 
 public class WatchmakerCursors {
   static Toolkit toolkit = Toolkit.getDefaultToolkit();
-  static Point hotspot = new Point(8,8);
+  static Point hotspot = new Point(4,4);
   public static final Cursor leftArrow = toolkit.createCustomCursor(
       ClassicImageLoader.getPicture(
           "CursorLeftArrow_CURS_00135_48x16").getImage().getSubimage(0, 0, 16, 16), 
@@ -28,6 +28,9 @@ public class WatchmakerCursors {
 	      hotspot, "Watch");
   public static final Cursor hypodermic = toolkit.createCustomCursor(
 	      ClassicImageLoader.getPicture("CursorHypodermic_CURS_00140_48x16").getImage().getSubimage(0, 0, 16, 16), 
+	      hotspot, "Watch");
+  public static final Cursor breed = toolkit.createCustomCursor(
+	      ClassicImageLoader.getPicture("CursorBreed_CURS_00145_48x16").getImage().getSubimage(0, 0, 16, 16), 
 	      hotspot, "Watch");
   
 }

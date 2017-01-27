@@ -2,10 +2,12 @@ package net.richarddawkins.watchmaker.swing.genebox;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.genebox.GeneBoxMouseMotionAdapter");
 
 	enum HorizPos {
 		LeftThird, MidThird, RightThird, LeftHalf, RightHalf
@@ -47,10 +49,13 @@ public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 				mouseHoriz = HorizPos.RightThird;
 
 			if (geneBoxType == GeneBoxType.leftRightUpDownEquals) {
-				int thirdHeight = e.getComponent().getHeight() / 3;
+				int height = e.getComponent().getHeight();
+				int thirdHeight = height / 3;
+				int twoThirdsHeight = 2 * height / 3;
+				logger.info("GeneBox Height: " + height + " 1/3: " + thirdHeight + " 2/3:" + twoThirdsHeight);
 				if (y < thirdHeight)
 					mouseVert = VertPos.TopRung;
-				else if (y < 2 * thirdHeight)
+				else if (y < twoThirdsHeight)
 					mouseVert = VertPos.MidRung;
 				else
 					mouseVert = VertPos.BottomRung;

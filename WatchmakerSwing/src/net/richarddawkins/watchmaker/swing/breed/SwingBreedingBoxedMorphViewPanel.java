@@ -24,6 +24,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView;
+import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
 
 public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel implements ActionListener {
@@ -49,6 +50,8 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 
 	public SwingBreedingBoxedMorphViewPanel(SwingBorderLayoutMorphView parentMorphView) {
 		super(parentMorphView.getAppData());
+		setCursor(WatchmakerCursors.breed);
+
 		this.watchmakerPanel = parentMorphView;
 		AppData appData = parentMorphView.getAppData();
 		boxes = new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows());

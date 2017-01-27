@@ -6,6 +6,7 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
@@ -20,8 +21,10 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 	}
 	
 	public SwingGeneBox() {
+		valueLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		this.setLayout(new BorderLayout());
+		
 	}
 	
 	private static final long serialVersionUID = 1L;
