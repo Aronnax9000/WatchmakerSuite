@@ -19,6 +19,11 @@ public class ColourLin extends Lin implements Cloneable {
         clone.color = color;
         clone.thickness = thickness;
         return clone;
-      }
+    }
+	@Override
+	public String toString() {
+		return super.toString() + " Color:" + color + " Thickness:" + thickness;
+	}
+	
 
 }

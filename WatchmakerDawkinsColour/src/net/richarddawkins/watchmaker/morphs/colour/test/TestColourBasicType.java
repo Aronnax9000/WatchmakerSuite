@@ -1,20 +1,20 @@
-package net.richarddawkins.watchmaker.morphs.mono.test;
+package net.richarddawkins.watchmaker.morphs.colour.test;
 
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
-import net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig;
-import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;
+import net.richarddawkins.watchmaker.morphs.colour.ColourBiomorphConfig;
+import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
-public class TestMonoBasicType {
+public class TestColourBasicType {
 
 	/**
-	 * Test harness for Monochrome biomorphs.
+	 * Test harness for Colour biomorphs.
 	 * 
-	 * Creates a minimal monochrome biomorph, retrieves its Phenotype (body),
+	 * Creates a minimal colourchrome biomorph, retrieves its Phenotype (body),
 	 * then prints its list of Lins to the console, together with a
 	 * a summary of the phenotype's characteristics. 
 	 * 
@@ -23,15 +23,15 @@ public class TestMonoBasicType {
 	 */
 	public static void main(String[] args) {
 		
-		// Get a new MonochromeMorphConfig, which is a subclass of 
+		// Get a new ColourMorphConfig, which is a subclass of 
 		// MorphConfig, so it's fine to assign it to a variable of type
-		// MorhConfig ("A MonochromeMorphConfig is a MorphConfig.")
-		MorphConfig config = new MonochromeMorphConfig();
+		// MorhConfig ("A ColourMorphConfig is a MorphConfig.")
+		MorphConfig config = new ColourBiomorphConfig();
 		
 		// Get the MorphConfig to cough up a minimal biomorph.
-		// Under the hood, it's actually a MonochromeMorph, but
+		// Under the hood, it's actually a ColourMorph, but
 		// we just assign it to a variable of type Morph, which is fine,
-		// because MonochromeMorph is a subclasss of Morph. ("A MonochromeMorph
+		// because ColourMorph is a subclasss of Morph. ("A ColourMorph
 		// is a Morph.")
 		Morph morph = config.newMorph(0);
 		
@@ -39,8 +39,8 @@ public class TestMonoBasicType {
 		// of drawing primitives and a calculated "margin",
 		// which is the bounding rectangle of the morph's body.
 		// The concrete class that's returned is actually a subclass 
-		// of Phenotype called MonoPic.
-		// but here we can deal with it generically ("A MonoPic is a Pic,
+		// of Phenotype called ColourPic.
+		// but here we can deal with it generically ("A ColourPic is a Pic,
 		// which is a Phenotype.")
 		
 		Phenotype phenotype = morph.getPic();
@@ -57,19 +57,19 @@ public class TestMonoBasicType {
 		
 		// Iterate through the list of lines. We cast the generic Phenotype
 		// to its Pic subclass first. Under the hood, the concrete subclass of
-		// Phenotype for MonochromeMorph is MonoPic, and its lines colllection
-		// are of type MonoLin, a subclass of Lin.
+		// Phenotype for ColourMorph is ColourPic, and its lines colllection
+		// are of type ColourLin, a subclass of Lin.
 		
 		for(Lin lin: ((Pic) phenotype).lines) {
 
-			// We know this is a Monochrome Biomorph so it's safe to cast its
-			// Lin instances to instances of the MonoLin subclass of Lin. 
+			// We know this is a Colour Biomorph so it's safe to cast its
+			// Lin instances to instances of the ColourLin subclass of Lin. 
 			// If you tried to do this to a ColourLin, you'd get a ClassCastException
 			// at runtime.
-			MonoLin monoLin = (MonoLin) lin;
+			ColourLin colourLin = (ColourLin) lin;
 			
 			// Print out a string representation of the Lin.
-			System.out.println(monoLin.toString());
+			System.out.println(colourLin.toString());
 		}
 		// How many Lins are in the morph's phenotype? Print it out.
 		System.out.println("Morph has " + phenotype.size() + " elements.");
