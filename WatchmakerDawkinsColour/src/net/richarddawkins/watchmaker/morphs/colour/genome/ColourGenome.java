@@ -36,7 +36,7 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
  * end; 
  * </pre>
  * <h2>Gene validation rules in Dawkins' Colour Biomorphs</h2>
- * <h3>Color Genes<h3>
+ * <h3>Color Genes</h3>
  * Integer values range from 0 to rainbow(), which calculates
  * the number of available colors based on pixel depth according
  * to the function 2^p - 1 where p is the pixel depth in bits. Check
