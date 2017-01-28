@@ -28,6 +28,6 @@ public class ColorGene extends IntegerGene {
 			newValue = ColourGenome.RAINBOW - 1;
 		else if(newValue < 0)
 			newValue = 0;
-		setValue(newValue);
+		super.setValue(newValue);
 	}	
 }

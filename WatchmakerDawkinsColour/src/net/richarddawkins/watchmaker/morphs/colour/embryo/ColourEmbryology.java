@@ -99,7 +99,8 @@ public class ColourEmbryology extends BiomorphEmbryology {
 	    pic.setLimbShape(limbShapeGene.getValue());
 	    pic.setLimbFill(limbFillGene.getValue());
 	    pic.setThickness(thicknessGene.getValue());
-	    pic.setBackgroundColor(backColorGene.getValue());
+	    int backgroundColor = backColorGene.getValue();
+	    pic.setBackgroundColor(backgroundColor);
 	    
 	    pic.zero();
 

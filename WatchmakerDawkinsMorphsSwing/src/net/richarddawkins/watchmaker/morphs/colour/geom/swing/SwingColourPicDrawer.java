@@ -4,7 +4,9 @@ import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
@@ -28,9 +30,13 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
         if (pic.getLimbFill() == LimbFillType.Filled)
             g2.fillOval(square.x, square.y, square.width, square.height);
     }
-    
+    @Override
     protected void picSpecifics(Graphics2D g2, Phenotype pic) {
-        g2.setStroke(new BasicStroke(((ColourPic)pic).getThickness()));
+    	Rect margin = pic.getMargin();
+    	g2.setColor(SwingColor.rgbColorPalette[pic.getBackgroundColor()]);
+    	g2.fillRect(margin.left, margin.top, margin.getWidth(), margin.getHeight());
+    	g2.setStroke(new BasicStroke(((ColourPic)pic).getThickness()));
+
     }
     
     @Override
