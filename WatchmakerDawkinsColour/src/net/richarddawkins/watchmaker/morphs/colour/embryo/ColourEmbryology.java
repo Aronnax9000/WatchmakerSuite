@@ -75,7 +75,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 	public void develop(Morph morph) {
 				super.develop(morph);
     	ColourGenome genome = (ColourGenome) morph.getGenome();
-    	ColourPic pic = (ColourPic) morph.getPic();
+    	ColourPic pic = (ColourPic) morph.getPhenotype();
 		Gene12345678 gene1 = genome.getGene1();
     	Gene12345678 gene2 = genome.getGene2();
     	Gene12345678 gene3 = genome.getGene3();

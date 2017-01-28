@@ -44,7 +44,7 @@ public class SwingTriangleMorphViewPanel extends SwingBoxedMorphViewPanel {
 		Morph morph;
 		for (int i = 0; i < 3; i++) {
 			morph = appData.getMorphConfig().newMorph(i);
-			Rect margin = morph.getPic().getMargin();
+			Rect margin = morph.getPhenotype().getMargin();
 			Point morphMidPoint = margin.getMidPoint();
 			Point displacement = trianglePoints[i].subtract(morphMidPoint);
 			Rect newRect = new Rect(displacement.h, displacement.v, margin.getWidth(), margin.getHeight());

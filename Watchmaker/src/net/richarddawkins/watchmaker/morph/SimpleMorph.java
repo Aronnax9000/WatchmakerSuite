@@ -33,7 +33,7 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
     protected Object image = null;
 
-    protected final MorphPedigree pedigree = new MorphPedigree(this);
+    protected final Pedigree pedigree = new Pedigree(this);
 
     protected Phenotype pic;
 
@@ -50,11 +50,11 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
         return image;
     }
 
-    public MorphPedigree getPedigree() {
+    public Pedigree getPedigree() {
         return pedigree;
     }
 
-    public Phenotype getPic() {
+    public Phenotype getPhenotype() {
         return pic;
     }
 
@@ -74,7 +74,7 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
         this.image = image;
     }
 
-    public void setPic(Phenotype pic) {
+    public void setPhenotype(Phenotype pic) {
         this.pic = pic;
     }
 

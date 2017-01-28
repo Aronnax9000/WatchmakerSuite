@@ -11,7 +11,7 @@ public class SimpleEmbryology implements Embryology {
 
 	@Override
 	public void develop(Morph morph) {
-		morph.getPic().zero();
+		morph.getPhenotype().zero();
 	}
 
 	@Override
@@ -19,7 +19,7 @@ public class SimpleEmbryology implements Embryology {
 		if(evt.getPropertyName().equals("genome")) {
 			Morph morph = (Morph)evt.getSource();
 			develop(morph);
-			morph.firePropertyChange(new PropertyChangeEvent(morph, "phenotype", null, morph.getPic()));
+			morph.firePropertyChange(new PropertyChangeEvent(morph, "phenotype", null, morph.getPhenotype()));
 		}
 	}
 }

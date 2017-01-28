@@ -71,7 +71,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		Genome genome = newGenome();
 		genome.setBasicType(type);
 		Morph morph = newMorph();
-		morph.setPic(newPhenotype());
+		morph.setPhenotype(newPhenotype());
 		morph.setGenome(genome);
 		wireMorphEvents(morph);
 		return morph;

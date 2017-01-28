@@ -32,7 +32,7 @@ public class SwingMorphDrawer implements MorphDrawer {
 	
 	@Override
 	public void draw(BoxedMorph boxedMorph, Object graphicsContext, Dim d) {
-		Phenotype phenotype = boxedMorph.getMorph().getPic();
+		Phenotype phenotype = boxedMorph.getMorph().getPhenotype();
 		Graphics2D g2 = (Graphics2D) graphicsContext;
 		AffineTransform saveTransform = g2.getTransform();
 		logger.fine("Draw BoxedMorph, saved transform");

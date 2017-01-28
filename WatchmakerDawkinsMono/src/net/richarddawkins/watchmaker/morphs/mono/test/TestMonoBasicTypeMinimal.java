@@ -21,7 +21,7 @@ public class TestMonoBasicTypeMinimal {
 	public static void main(String[] args) {
 		// In one go, create a new MonochromeMorphConfig, get it to cough up
 		// a minimal morph, get its phenotype, and cast it to MonoPic.
-		MonoPic monoPic = (MonoPic) new MonochromeMorphConfig().newMorph(0).getPic();
+		MonoPic monoPic = (MonoPic) new MonochromeMorphConfig().newMorph(0).getPhenotype();
 		
 		// Run through the list of lines and print out each one.
 		for(Lin lin: monoPic.lines) {

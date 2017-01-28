@@ -188,7 +188,7 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
 		super.develop(morph);
 		
 		MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
-		MonoPic pic = (MonoPic) morph.getPic();
+		MonoPic pic = (MonoPic) morph.getPhenotype();
         int sizeWorry;
         int[] dx = new int[8];
         int[] dy = new int[8];

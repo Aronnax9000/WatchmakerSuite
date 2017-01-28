@@ -12,6 +12,6 @@ public class NewArthromorphEmbryology extends SimpleEmbryology implements Embryo
 	public void develop(Morph morph) {
 		this.develop(morph);
 		ArthromorphGenome genes = (ArthromorphGenome) morph.getGenome();
-		ArthromorphPic pic = (ArthromorphPic) morph.getPic();
+		ArthromorphPic pic = (ArthromorphPic) morph.getPhenotype();
 	}
 }

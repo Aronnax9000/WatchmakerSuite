@@ -43,7 +43,7 @@ public class TestColourBasicType {
 		// but here we can deal with it generically ("A ColourPic is a Pic,
 		// which is a Phenotype.")
 		
-		Phenotype phenotype = morph.getPic();
+		Phenotype phenotype = morph.getPhenotype();
 		
 		// We've now obtained a phenotype for the morph in a generic way,
 		// which would work for any instance of MorphConfig. MorphConfig,

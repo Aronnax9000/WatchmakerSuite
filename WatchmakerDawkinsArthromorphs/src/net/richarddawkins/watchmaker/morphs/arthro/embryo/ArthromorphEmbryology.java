@@ -346,7 +346,7 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 	@Override
 	public void develop(Morph morph) {
 		ArthromorphGenome genome = (ArthromorphGenome) morph.getGenome();
-		ArthromorphPic pic = (ArthromorphPic) morph.getPic();
+		ArthromorphPic pic = (ArthromorphPic) morph.getPhenotype();
 		
 	}
 

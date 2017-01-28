@@ -33,7 +33,7 @@ public class BiomorphEmbryology extends SimpleEmbryology {
 	@Override
 	public void develop(Morph morph) {
 	        BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
-	        BiomorphPic pic = (BiomorphPic) morph.getPic();
+	        BiomorphPic pic = (BiomorphPic) morph.getPhenotype();
 	        pic.setSpokesType(genome.getSpokesGene().getValue());
 	        pic.setCompletenessType(genome.getCompletenessGene().getValue());
 	        

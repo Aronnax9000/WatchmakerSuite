@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morph;
 
-public class MorphPedigree {
+public class Pedigree {
     
-    public MorphPedigree(Morph me) {
+    public Pedigree(Morph me) {
         this.me = me;
     }
     
@@ -29,7 +29,7 @@ public class MorphPedigree {
     }
 
 	public void addOffspring(Morph childMorph) {
-		MorphPedigree childPedigree = childMorph.getPedigree();
+		Pedigree childPedigree = childMorph.getPedigree();
 		if(firstBorn == null) {
  			firstBorn = childMorph;
 		} else {
