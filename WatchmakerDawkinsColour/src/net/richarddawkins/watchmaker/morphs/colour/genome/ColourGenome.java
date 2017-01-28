@@ -46,7 +46,7 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
  * the value must fall in [-9 * TrickleGene, 9 * TrickleGene].
  * Both gradient and value are randomised until this condition is
  * satisfied.
- * Presently unimplemented TODO
+
  * <h3>Gene 9</h3>
  * Integer from 1 to 8: check occurs in reproduce().
  * <br>
@@ -60,7 +60,8 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
  * <h3>MutSizeGene</h3>
  * Positive integer: test occurs in reproduce().
  * <br>
- * In DeliverSaltation(), MutSizeGene is set to half whatever TrickleGene is,
+ * In DeliverSaltation(), After TrickleGene is randomised,
+ * MutSizeGene is set to half whatever TrickleGene is,
  * provided the result is nonzero.
  * <pre>
  * TrickleGene := 1 + randint(100) div 10;
@@ -75,7 +76,6 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
  * In DeliverSaltation(), gradient is randomised. The
  * resulting gradient may be Shrink or Swell, unless
  * the integer value, multiplied by SegNoGene, would then fall outside [-100,100].
- * Presently unimplemented TODO
  * <h3>SegNoGene</h3>
  * Positive integer: test occurs in reproduce().
  * 
@@ -206,9 +206,6 @@ public class ColourGenome extends BiomorphGenome {
         segDistGene.setValue(1);
     }
 
-
-
-
     @Override
     public Gene[] toGeneArray() {
         Gene[] theGenes = new Gene[28];
@@ -231,7 +228,4 @@ public class ColourGenome extends BiomorphGenome {
         theGenes[27] = thicknessGene;
         return theGenes;
     }
-    
-
-
 }
