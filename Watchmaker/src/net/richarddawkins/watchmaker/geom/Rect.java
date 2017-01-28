@@ -54,8 +54,8 @@ public class Rect implements Cloneable {
 	 * Push the Rect's left boundary leftward if necessary. If the left value
 	 * was null, set it to the new left value.
 	 * 
-	 * @param left
-	 *            the potential new lefthand boundary
+	 * @param left the potential new lefthand boundary
+	 * @param thick the thickness of the drawing primitive
 	 */
 	public void expandLeft(int left, int thick) {
 		int extent = left - thick / 2;
@@ -67,8 +67,8 @@ public class Rect implements Cloneable {
 	 * Push the Rect's righthand boundary rightward if necessary. If the
 	 * righthand value was null, set it to the new righthand value.
 	 * 
-	 * @param right
-	 *            the potential new righthand boundary
+	 * @param right the potential new righthand boundary
+	 * @param thick the thickness of the drawing primitive
 	 */
 	public void expandRight(int right, int thick) {
 		int extent = right + thick / 2;
@@ -80,8 +80,8 @@ public class Rect implements Cloneable {
 	 * Push the Rect's top boundary upward if necessary. If the top value was
 	 * null, set it to the new top value.
 	 * 
-	 * @param top
-	 *            the potential new top boundary
+	 * @param top the potential new top boundary
+	 * @param thick the thickness of the drawing primitive
 	 */
 	public void expandTop(int top, int thick) {
 		int extent = top - thick / 2;
@@ -93,8 +93,8 @@ public class Rect implements Cloneable {
 	 * Push the Rect's bottom boundary downward if necessary. If the bottom
 	 * value was null, set it to the new top value.
 	 * 
-	 * @param bottom
-	 *            the potential new bottom boundary
+	 * @param bottom the potential new bottom boundary
+	 * @param thick the thickness of the drawing primitive
 	 */
 	public void expandBottom(int bottom, int thick) {
 		int extent = bottom + thick / 2;

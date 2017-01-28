@@ -1,0 +1,14 @@
+net.richarddawkins.watchmaker.app
+net.richarddawkins.watchmaker.deities
+net.richarddawkins.watchmaker.embryo
+net.richarddawkins.watchmaker.genebox
+net.richarddawkins.watchmaker.genome
+net.richarddawkins.watchmaker.genome.mutation
+net.richarddawkins.watchmaker.geom
+net.richarddawkins.watchmaker.menu
+net.richarddawkins.watchmaker.morph
+net.richarddawkins.watchmaker.morph.draw
+net.richarddawkins.watchmaker.morphview
+net.richarddawkins.watchmaker.phenotype
+net.richarddawkins.watchmaker.resourceloader
+net.richarddawkins.watchmaker.util

@@ -13,9 +13,7 @@ public class IntegerGeneOneOrGreater extends IntegerGene {
 		super(genome, name);
 		setValue(value);
 	}
-	/** New value is not allowed to fall below 1. 
-	 * @param summand the quantity to add to the MutSizeGene 
-	 */
+
 	@Override
 	public void setValue(int newValue) {
 		if (newValue < 1)

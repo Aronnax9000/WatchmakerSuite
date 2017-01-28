@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="../Watchmaker/bin" destdir="../docs/javadoc/WatchmakerDawkinsBiomorphs" doctitle="WatchmakerDawkinsBiomorphs (Classes shared by Dawkins' original biomorphs)" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="net.richarddawkins.watchmaker.morphs.bio.geom,net.richarddawkins.watchmaker.morphs.bio.genome.type,net.richarddawkins.watchmaker.morphs.bio.genebox,net.richarddawkins.watchmaker.morphs.bio.genome.mutation,net.richarddawkins.watchmaker.morphs.bio.genome,net.richarddawkins.watchmaker.morphs.bio,net.richarddawkins.watchmaker.morphs.bio.embryo" source="1.8" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
