@@ -12,6 +12,7 @@ import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences;
+import net.richarddawkins.watchmaker.swing.SwingColor;
 
 public class SwingColourPicDrawer extends SwingPicDrawer {
 	public SwingColourPicDrawer() {
@@ -37,7 +38,7 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
     protected void limb(Graphics2D g2, Phenotype pic, Lin line) {
     	ColourPic colourPic = (ColourPic) pic;
     	ColourLin colourLin = (ColourLin) line;
-        g2.setColor(new Color(colourLin.color));
+        g2.setColor(SwingColor.rgbColorPalette[colourLin.color]);
         Rectangle square = new Rectangle(Math.min(line.startPt.h, line.endPt.h), Math.min(line.startPt.v, line.endPt.v),
                 Math.abs(line.endPt.h - line.startPt.h), Math.abs(line.endPt.v - line.startPt.v));
 

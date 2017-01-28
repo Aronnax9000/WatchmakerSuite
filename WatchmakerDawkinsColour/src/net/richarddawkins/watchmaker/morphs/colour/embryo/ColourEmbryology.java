@@ -51,8 +51,10 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		catch (StackOverflowError soe) {
 			logger.warning("Subscript: " + subscript);
 		}
+		int color = colorGene.getValue();
 		ColourLin lin = new ColourLin(new Point(x,y), new Point(xnew,ynew),
-				thickness, colorGene.getValue());
+				thickness, color);
+		logger.info("ColorLin: " + color);
 		pic.addLin(lin);
 		if (lgth > 1) {
 			if (oddOne) {
