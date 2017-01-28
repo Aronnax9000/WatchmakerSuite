@@ -9,8 +9,28 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 
 public abstract class BiomorphGenome extends SimpleGenome {
 	
-	protected int gene9Max = 8;
 
+
+	protected final Gene12345678 gene1 = new Gene12345678(this, "Gene 1");
+	protected final Gene12345678 gene2 = new Gene12345678(this, "Gene 2");
+	protected final Gene12345678 gene3 = new Gene12345678(this, "Gene 3");
+	protected final Gene12345678 gene4 = new Gene12345678(this, "Gene 4");
+	protected final Gene12345678 gene5 = new Gene12345678(this, "Gene 5");
+	protected final Gene12345678 gene6 = new Gene12345678(this, "Gene 6");
+	protected final Gene12345678 gene7 = new Gene12345678(this, "Gene 7");
+	protected final Gene12345678 gene8 = new Gene12345678(this, "Gene 8");
+	protected final Gene9 gene9 = new Gene9(this, "Gene 9");
+	protected final SegNoGene segNoGene = new SegNoGene(this, "Segment Number");
+	protected final IntegerGradientGene segDistGene = new IntegerGradientGene(this, "Segment Distance");
+	protected final CompletenessGene completenessGene = new CompletenessGene(this, "Completeness");
+	protected final SpokesGene spokesGene = new SpokesGene(this, "Spokes");
+	protected final IntegerGeneOneOrGreater trickleGene = new IntegerGeneOneOrGreater(this, "Trickle");
+	protected final IntegerGeneOneOrGreater mutSizeGene = new IntegerGeneOneOrGreater(this, "Mutation Size");
+	protected final IntegerGene1To100 mutProbGene = new IntegerGene1To100(this, "Mutation Probability");
+
+
+
+	
 	public Gene12345678 getGene1() {
 		return gene1;
 	}
@@ -47,23 +67,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		return gene9;
 	}
 
-
-	protected final Gene12345678 gene1 = new Gene12345678(this, "Gene 1");
-	protected final Gene12345678 gene2 = new Gene12345678(this, "Gene 2");
-	protected final Gene12345678 gene3 = new Gene12345678(this, "Gene 3");
-	protected final Gene12345678 gene4 = new Gene12345678(this, "Gene 4");
-	protected final Gene12345678 gene5 = new Gene12345678(this, "Gene 5");
-	protected final Gene12345678 gene6 = new Gene12345678(this, "Gene 6");
-	protected final Gene12345678 gene7 = new Gene12345678(this, "Gene 7");
-	protected final Gene12345678 gene8 = new Gene12345678(this, "Gene 8");
-	protected final Gene9 gene9 = new Gene9(this, "Gene 9");
-	protected final SegNoGene segNoGene = new SegNoGene(this, "Segment Number");
-	protected final IntegerGradientGene segDistGene = new IntegerGradientGene(this, "Segment Distance");
-	protected final CompletenessGene completenessGene = new CompletenessGene(this, "Completeness");
-	protected final SpokesGene spokesGene = new SpokesGene(this, "Spokes");
-	protected final IntegerGeneZeroOrGreater trickleGene = new IntegerGeneZeroOrGreater(this, "Trickle");
-	protected final IntegerGeneOneOrGreater mutSizeGene = new IntegerGeneOneOrGreater(this, "Mutation Size");
-	protected final IntegerGene1To100 mutProbGene = new IntegerGene1To100(this, "Mutation Probability");
 
 	abstract public void basicTree();
 
@@ -103,7 +106,7 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		return spokesGene;
 	}
 
-	public IntegerGeneZeroOrGreater getTrickleGene() {
+	public IntegerGeneOneOrGreater getTrickleGene() {
 		return trickleGene;
 	}
 
@@ -115,13 +118,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		return mutProbGene;
 	}
 
-	public int getGene9Max() {
-		return gene9Max;
-	}
-
-	public void setGene9Max(int max) {
-		gene9Max = max;
-	}
     @Override
     public Gene[] toGeneArray() {
         Gene[] theGenes = new Gene[16];

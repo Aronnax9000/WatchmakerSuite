@@ -92,7 +92,6 @@ public class ColourMutagen extends BiomorphMutagen {
 
 		if (mut[10] && randInt(100) < mutProb) {
 			target.addToBackColorGene(direction9());
-
 			success = true;
 		}
 

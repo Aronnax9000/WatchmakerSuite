@@ -11,28 +11,15 @@ public class IntegerGeneOneOrGreater extends IntegerGene {
 
 	public IntegerGeneOneOrGreater(Genome genome, String name, int value) {
 		super(genome, name);
-		this.value = value;
+		setValue(value);
 	}
-
-	@Override
-	public void decrementGene() {
-		int newValue = this.value - 1;
-		
-		if (newValue < 1)
-			newValue = 1;
-		setValue(newValue);
-	}
-	
-	
 	/** New value is not allowed to fall below 1. 
 	 * @param summand the quantity to add to the MutSizeGene 
 	 */
 	@Override
-	public void addToGene(int summand) {
-		int newValue = this.value + summand;
-		
+	public void setValue(int newValue) {
 		if (newValue < 1)
 			newValue = 1;
-		setValue(newValue);
+		super.setValue(newValue);
 	}
 }

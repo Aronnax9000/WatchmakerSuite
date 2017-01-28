@@ -6,7 +6,7 @@ import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.util.Globals;
 
-public class SegNoGene extends IntegerGene {
+public class SegNoGene extends IntegerGeneOneOrGreater {
 
 	public SegNoGene(Genome genome, String name) {
 		super(genome, name);
@@ -40,9 +40,6 @@ public class SegNoGene extends IntegerGene {
 			int sizeWorry = newValue * 1 << ((IntegerGene) genome.getGene(8)).getValue();
 			if (sizeWorry > Globals.worryMax)
 				newValue--;
-			if (newValue < 1)
-				newValue = 1;
-
 		}
 		setValue(newValue);
 

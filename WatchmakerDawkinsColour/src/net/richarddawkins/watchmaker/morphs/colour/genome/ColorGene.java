@@ -14,17 +14,20 @@ public class ColorGene extends IntegerGene {
 
 	public ColorGene(Genome genome, String name, int i) {
 		this(genome, name);
-		this.value = i;
+		setValue(i);
 	}
 
 	@Override
 	public void addToGene(int summand) {
-		int newValue = this.value + summand;
-		if(newValue > ColourGenome.RAINBOW)
-			newValue = ColourGenome.RAINBOW;
+		setValue(this.value + summand);
+	}
+
+	@Override
+	public void setValue(int newValue) {
+		if(newValue > ColourGenome.RAINBOW - 1)
+			newValue = ColourGenome.RAINBOW - 1;
 		else if(newValue < 0)
 			newValue = 0;
 		setValue(newValue);
-	}
-	
+	}	
 }

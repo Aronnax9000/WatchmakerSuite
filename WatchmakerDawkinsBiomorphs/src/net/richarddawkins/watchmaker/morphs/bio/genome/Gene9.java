@@ -6,10 +6,20 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class Gene9 extends IntegerGradientGene {
+	
 	public Gene9(Genome genome, String name) {
 		super(genome, name);
 	}
 
+	protected int gene9Max = 8;
+	public int getGene9Max() {
+		return gene9Max;
+	}
+
+	public void setGene9Max(int max) {
+		gene9Max = max;
+	}
+	
 	public void goose(GooseDirection direction) {
 		BiomorphGenome biomorphGenome = (BiomorphGenome) genome;
 		if (direction.equals(GooseDirection.leftArrow)) {
@@ -36,16 +46,16 @@ public class Gene9 extends IntegerGradientGene {
 	 * @param summand the quantity to add to the gene.
 	 */
 	public void addToGene(int summand) {
-		int newValue = this.value + summand;
+		this.setValue(this.value + summand);
+	}
+	
+	@Override
+	public void setValue(int newValue) {
 		if (newValue < 1)
 			newValue = 1;
-		else {
-			int gene9Max = ((BiomorphGenome)this.getGenome()).getGene9Max();
-			if (newValue > gene9Max) {
-				newValue = gene9Max;
-			}
- 		}
-		// Call the setter to make sure a PropertyChangeEvent is fired.
-		this.setValue(newValue);
+		if (newValue > gene9Max)
+			newValue = gene9Max;
+		super.setValue(newValue);
 	}
+	
 }

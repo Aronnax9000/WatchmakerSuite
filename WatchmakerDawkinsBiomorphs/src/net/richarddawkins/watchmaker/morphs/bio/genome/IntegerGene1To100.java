@@ -11,13 +11,11 @@ public class IntegerGene1To100 extends IntegerGene {
 	
 	@Override
 	public void incrementGene() {
-		if(this.value < 99) 
-			setValue(this.value + 1);
+		setValue(this.value + 1);
 	}
 	@Override
 	public void decrementGene() {
-		if(this.value > 1) 
-			setValue(this.value - 1);
+		setValue(this.value - 1);
 	}
 	/**
 	 * Add a quantity to the gene. If the the result is less than one, it
@@ -26,14 +24,15 @@ public class IntegerGene1To100 extends IntegerGene {
 	 */
 	@Override
 	public void addToGene(int summand) {
-		
-		int newValue = this.value + summand;
+		setValue(this.value + summand);
+	}
+
+	@Override
+	public void setValue(int newValue) {
 		if (newValue < 1)
 			newValue = 1;
 		if (newValue > 100)
 			newValue = 100;
-		// Call setter to make sure PropertyChangeEvent is fired
-		setValue(newValue);
+		super.setValue(newValue);
 	}
-
 }

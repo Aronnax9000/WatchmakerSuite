@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour.geom.swing;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 

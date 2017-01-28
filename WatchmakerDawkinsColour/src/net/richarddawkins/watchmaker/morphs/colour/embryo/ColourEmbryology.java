@@ -8,7 +8,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneZeroOrGreater;
+import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SegNoGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
@@ -87,7 +87,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
     	Gene9 gene9 = genome.getGene9();
     	SegNoGene segNoGene = genome.getSegNoGene();
     	IntegerGradientGene segDistGene = genome.getSegDistGene();
-    	IntegerGeneZeroOrGreater trickleGene = genome.getTrickleGene();
+    	IntegerGeneOneOrGreater trickleGene = genome.getTrickleGene();
 		
 
 		Point here = new Point(0,0);
