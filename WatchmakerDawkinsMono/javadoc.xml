@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsBiomorphs/bin:/home/alan/git/WatchmakerSuite/Watchmaker/bin" destdir="../docs/javadoc/WatchmakerDawkinsMono" doctitle="WatchmakerDawkinsMono (Classes specific to Dawkins' Monochrome Biomorphs)" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="net.richarddawkins.watchmaker.morphs.mono.genome,net.richarddawkins.watchmaker.morphs.mono,net.richarddawkins.watchmaker.morphs.mono.genome.mutation,net.richarddawkins.watchmaker.morphs.mono.test,net.richarddawkins.watchmaker.morphs.mono.embryo,net.richarddawkins.watchmaker.morphs.mono.geom" source="1.8" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
