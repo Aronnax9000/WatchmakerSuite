@@ -11,7 +11,9 @@ public class ColourSwingAppData extends SwingAppData {
 	
 	public ColourSwingAppData() {
 		this.setIcon(MorphType.COLOUR_BIOMORPH.getIconFilename());
-		
+		this.setDefaultBreedingCols(3);
+		this.setDefaultBreedingRows(3);
+		this.setBreedRightAway(false);
 		setMenuBuilder(new ColourMenuBuilder(this));
 		setPhenotypeDrawer(new SwingColourPicDrawer());
 		config = new ColourBiomorphConfig();

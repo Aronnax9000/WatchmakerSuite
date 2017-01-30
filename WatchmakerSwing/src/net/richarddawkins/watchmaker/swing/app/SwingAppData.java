@@ -26,6 +26,14 @@ public abstract class SwingAppData implements AppData {
 
 	protected int defaultBreedingCols = 5;
 	protected int defaultBreedingRows = 3;
+	protected boolean breedRightAway = true;
+
+	public boolean isBreedRightAway() {
+		return breedRightAway;
+	}
+	public void setBreedRightAway(boolean breedRightAway) {
+		this.breedRightAway = breedRightAway;
+	}
 
 
 	protected MultiMorphTypeTabbedPanel frame;

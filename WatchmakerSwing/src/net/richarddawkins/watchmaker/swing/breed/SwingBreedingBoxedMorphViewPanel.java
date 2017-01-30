@@ -98,30 +98,36 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 					SwingGeom.toWatchmakerDim(getSize()));
 				if(boxNo != -1) {
 					special = boxNo;
-					logger.log(Level.INFO, "Mouse pressed in box " + special);
-					boxedMorphSpecial = boxedMorphVector.getBoxedMorph(special);
-					if(boxedMorphSpecial != null) {
-						boxedMorphVector.removeAllElements();
-						int midBox = boxes.getMidBox();
-						if (special != midBox) {
-							boxedMorphSpecial.setDestinationBoxNo(midBox);
-							boxedMorphSpecial.setProgress(0.0d);
-							boxedMorphSpecial.setScaleWithProgress(false);
-							showBoxes = false;
-							phase = Phase.animate_mother;
-						} else {
-							phase = Phase.reactivate_grid;
-						}
-						boxedMorphVector.add(boxedMorphSpecial);
-						timer.start();
-					}
-					break;
+					breedFromSpecial();
 				}
 			break;
 		default:
 		}
 	}
 	
+	public void breedFromSpecial() {
+		logger.log(Level.INFO, "Breeding from box " + special);
+		boxedMorphSpecial = boxedMorphVector.getBoxedMorph(special);
+		if(boxedMorphSpecial != null) {
+			boxedMorphVector.removeAllElements();
+			int midBox = boxes.getMidBox();
+			if (special != midBox) {
+				boxedMorphSpecial.setDestinationBoxNo(midBox);
+				boxedMorphSpecial.setProgress(0.0d);
+				boxedMorphSpecial.setScaleWithProgress(false);
+				showBoxes = false;
+				phase = Phase.animate_mother;
+			} else {
+				phase = Phase.reactivate_grid;
+			}
+			boxedMorphVector.add(boxedMorphSpecial);
+			timer.start();
+		}
+
+
+		
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.repaint();
@@ -149,7 +155,11 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 		geneBoxStrip.setGenome(parent.getGenome());
 		// Trigger first breeding
 		special = midBox;
-		phase = Phase.breed_complete;
+		if(appData.isBreedRightAway()) {
+			this.breedFromSpecial();
+		} else {
+			phase = Phase.breed_complete; 
+		}
 		parent.setImage(null);
 		repaint();
 

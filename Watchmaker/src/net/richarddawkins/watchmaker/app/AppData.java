@@ -22,6 +22,9 @@ import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
  */
 public interface AppData  {
 
+	public boolean isBreedRightAway();
+	public void setBreedRightAway(boolean newValue);
+	
 	public MorphConfig getMorphConfig();
 	public void setMorphConfig(MorphConfig config);
 	
