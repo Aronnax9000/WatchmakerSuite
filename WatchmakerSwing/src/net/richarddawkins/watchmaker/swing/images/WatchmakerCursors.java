@@ -28,9 +28,12 @@ public class WatchmakerCursors {
 	      hotspot, "Watch");
   public static final Cursor hypodermic = toolkit.createCustomCursor(
 	      ClassicImageLoader.getPicture("CursorHypodermic_CURS_00140_48x16").getImage().getSubimage(0, 0, 16, 16), 
-	      hotspot, "Watch");
+	      hotspot, "Hypodermic");
   public static final Cursor breed = toolkit.createCustomCursor(
 	      ClassicImageLoader.getPicture("CursorBreed_CURS_00145_48x16").getImage().getSubimage(0, 0, 16, 16), 
-	      hotspot, "Watch");
+	      hotspot, "Breed");
+  public static final Cursor random = toolkit.createCustomCursor(
+	      ClassicImageLoader.getPicture("CursorCentreDie_CURS_00144_48x16").getImage().getSubimage(16, 0, 16, 16), 
+	      hotspot, "Random");
   
 }

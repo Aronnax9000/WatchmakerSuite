@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.morphs.colour.genome;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
@@ -104,23 +103,23 @@ public class ColourGenome extends BiomorphGenome {
     protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater(this, "Thickness", 1);
 
     public ColourGenome() { }
-    @Override
-    public void copy(Genome person) {
-        ColourGenome child = (ColourGenome) person;
-        super.copy(child);
-        child.colorGene1.setValue(colorGene1.getValue());
-        child.colorGene2.setValue(colorGene2.getValue());
-        child.colorGene3.setValue(colorGene3.getValue());
-        child.colorGene4.setValue(colorGene4.getValue());
-        child.colorGene5.setValue(colorGene5.getValue());
-        child.colorGene6.setValue(colorGene6.getValue());
-        child.colorGene7.setValue(colorGene7.getValue());
-        child.colorGene8.setValue(colorGene8.getValue());
-        child.backColorGene.setValue(backColorGene.getValue());
-        child.limbShapeGene.setValue(limbShapeGene.getValue());
-        child.limbFillGene.setValue(limbFillGene.getValue());
-        child.thicknessGene.setValue(thicknessGene.getValue());
-    }
+//    @Override
+//    public void copy(Genome person) {
+//        ColourGenome child = (ColourGenome) person;
+//        super.copy(child);
+//        child.colorGene1.setValue(colorGene1.getValue());
+//        child.colorGene2.setValue(colorGene2.getValue());
+//        child.colorGene3.setValue(colorGene3.getValue());
+//        child.colorGene4.setValue(colorGene4.getValue());
+//        child.colorGene5.setValue(colorGene5.getValue());
+//        child.colorGene6.setValue(colorGene6.getValue());
+//        child.colorGene7.setValue(colorGene7.getValue());
+//        child.colorGene8.setValue(colorGene8.getValue());
+//        child.backColorGene.setValue(backColorGene.getValue());
+//        child.limbShapeGene.setValue(limbShapeGene.getValue());
+//        child.limbFillGene.setValue(limbFillGene.getValue());
+//        child.thicknessGene.setValue(thicknessGene.getValue());
+//    }
 
 
     public ColorGene getBackColorGene() {

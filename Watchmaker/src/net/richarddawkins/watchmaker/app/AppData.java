@@ -25,6 +25,9 @@ public interface AppData  {
 	public boolean isBreedRightAway();
 	public void setBreedRightAway(boolean newValue);
 	
+	public boolean isSaltOnEmptyBreedingBoxClick();
+	public void setSaltOnEmptyBreedingBoxClick(boolean newValue);
+	
 	public MorphConfig getMorphConfig();
 	public void setMorphConfig(MorphConfig config);
 	

@@ -21,7 +21,15 @@ import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 
 public abstract class SwingAppData implements AppData {
 	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
-	
+	protected boolean saltOnEmptyBreedingBoxClick = false;
+	public boolean isSaltOnEmptyBreedingBoxClick() {
+		return saltOnEmptyBreedingBoxClick;
+	}
+	public void setSaltOnEmptyBreedingBoxClick(boolean saltOnEmptyBreedingBoxClick) {
+		this.saltOnEmptyBreedingBoxClick = saltOnEmptyBreedingBoxClick;
+	}
+
+
 	protected MorphConfig config;
 
 	protected int defaultBreedingCols = 5;

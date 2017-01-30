@@ -32,7 +32,6 @@ public class IntegerGradientGene extends IntegerGene {
 			setGradient(SwellType.Shrink);
 			break;
 		default:
-			
 		}
 	}
 	public void setGradient(SwellType newValue) {

@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.swing.breed;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -59,19 +60,19 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-
 				Point myPt = e.getPoint();
 				switch (phase) {
 				case breed_complete:
-
 					int boxNo = getBoxes().getBoxNoContainingPoint(SwingGeom.toWatchmakerPoint(myPt),
 							SwingGeom.toWatchmakerDim(getSize()));
 					if (boxNo != -1) {
-
 						BoxedMorph boxedMorph = getBoxedMorphVector().getBoxedMorph(boxNo);
 						if (boxedMorph != null) {
 							GeneBoxStrip geneBoxStrip = (GeneBoxStrip) getWatchmakerPanel().getUpperStrip();
 							geneBoxStrip.setGenome(boxedMorph.getMorph().getGenome());
+							setCursor(WatchmakerCursors.breed);
+						} else {
+							setCursor(WatchmakerCursors.random);
 						}
 					}
 					break;
@@ -122,6 +123,10 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 			}
 			boxedMorphVector.add(boxedMorphSpecial);
 			timer.start();
+		} else {
+			if(appData.isSaltOnEmptyBreedingBoxClick()) {
+				this.seed(appData.getMorphConfig().newMorph(GenomeFactory.RANDOM));
+			}
 		}
 
 

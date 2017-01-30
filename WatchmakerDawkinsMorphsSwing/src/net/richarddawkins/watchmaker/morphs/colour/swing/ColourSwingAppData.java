@@ -14,6 +14,7 @@ public class ColourSwingAppData extends SwingAppData {
 		this.setDefaultBreedingCols(3);
 		this.setDefaultBreedingRows(3);
 		this.setBreedRightAway(false);
+		this.setSaltOnEmptyBreedingBoxClick(true);
 		setMenuBuilder(new ColourMenuBuilder(this));
 		setPhenotypeDrawer(new SwingColourPicDrawer());
 		config = new ColourBiomorphConfig();
