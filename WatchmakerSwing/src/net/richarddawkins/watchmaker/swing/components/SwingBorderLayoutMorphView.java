@@ -67,4 +67,9 @@ public class SwingBorderLayoutMorphView extends SwingMorphView {
 			this.add((JPanel) this.upperStrip, BorderLayout.PAGE_START);
 
 	}
+
+	@Override
+	public MorphViewPanel getMorphViewPanel() {
+		return centrePanel;
+	}
 }

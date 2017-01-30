@@ -85,4 +85,10 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		}
 	}
 
+	@Override
+	public MorphView getSelectedMorphView() {
+		MorphView selectedMorphView = (MorphView)this.getSelectedComponent();
+		return selectedMorphView;
+	}
+
 }

@@ -108,10 +108,4 @@ public class MonochromeMutagen extends BiomorphMutagen  {
 		return success;
 	}
 
-	@Override
-	public void deliverSaltation(Genome genome) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

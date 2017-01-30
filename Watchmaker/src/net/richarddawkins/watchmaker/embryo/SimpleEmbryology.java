@@ -19,7 +19,8 @@ public class SimpleEmbryology implements Embryology {
 		if(evt.getPropertyName().equals("genome")) {
 			Morph morph = (Morph)evt.getSource();
 			develop(morph);
-			morph.firePropertyChange(new PropertyChangeEvent(morph, "phenotype", null, morph.getPhenotype()));
+			PropertyChangeEvent event = new PropertyChangeEvent(morph, "phenotype", null, morph.getPhenotype());
+			morph.firePropertyChange(event);
 		}
 	}
 }

@@ -17,9 +17,10 @@ import javax.swing.Timer;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
@@ -135,19 +136,22 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 		Morph parent;
 		if (morph == null) {
 			MorphConfig config = watchmakerPanel.getAppData().getMorphConfig();
-			parent = config.newMorph(0);
-
+			parent = config.newMorph(config.getStartingMorphBasicType());
 		} else {
 			parent = morph;
 		}
 		int midBox = boxes.getMidBox();
 		BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
+		boxedMorphVector.removeAllElements();
 		boxedMorphVector.add(boxedMorph);
+		
 		GeneBoxStrip geneBoxStrip = (GeneBoxStrip) watchmakerPanel.getUpperStrip();
 		geneBoxStrip.setGenome(parent.getGenome());
 		// Trigger first breeding
 		special = midBox;
 		phase = Phase.breed_complete;
+		parent.setImage(null);
+		repaint();
 
 	}
 

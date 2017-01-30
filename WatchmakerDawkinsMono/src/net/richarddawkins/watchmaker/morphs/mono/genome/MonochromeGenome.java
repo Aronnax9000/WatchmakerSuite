@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.TriangleAble;
-import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
@@ -24,34 +23,6 @@ public class MonochromeGenome extends BiomorphGenome implements TriangleAble {
 		trickleGene.setShowPositiveSign(true);
 		mutSizeGene.setShowPositiveSign(true);
 		mutProbGene.setShowPositiveSign(true);
-	}
-
-	public void basicTree() {
-		makeGenes(-10, -20, -20, -15, -15, 0, 15, 15, 7);
-		segNoGene.setValue(2);
-		segDistGene.setValue(150);
-		completenessGene.setValue(CompletenessType.Single);
-		gene4.setGradient(SwellType.Shrink);
-		gene5.setGradient(SwellType.Shrink);
-		gene6.setGradient(SwellType.Shrink);
-		gene9.setGradient(SwellType.Shrink);
-		trickleGene.setValue(9);
-
-	}
-
-	public void chess() {
-		makeGenes(-Biomorph.TRICKLE, 3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE,
-				Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 6 * Biomorph.TRICKLE, -5 * Biomorph.TRICKLE, 7);
-	}
-
-	public void insect() {
-		makeGenes(Biomorph.TRICKLE, Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, Biomorph.TRICKLE, -Biomorph.TRICKLE,
-				-2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
-	}
-
-	public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
-		super.makeGenes(a, b, c, d, e, f, g, h, i);
-		segDistGene.setValue(150);
 	}
 
 	/**

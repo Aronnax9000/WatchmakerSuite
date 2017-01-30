@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
@@ -104,50 +103,7 @@ public class ColourGenome extends BiomorphGenome {
     protected final LimbFillGene limbFillGene = new LimbFillGene(this, "Limb Fill", LimbFillType.Filled);
     protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater(this, "Thickness", 1);
 
-    int thick;
-
-    public ColourGenome() {
-        
-    }
-
-    public void addToBackColorGene(int summand) {
-
-        int newValue = backColorGene.getValue() + summand;
-        if (newValue > RAINBOW - 1) {
-            newValue = RAINBOW - 1;
-        }
-        if (newValue < 0) {
-            newValue = 0;
-        }
-        backColorGene.setValue(newValue);
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * net.richarddawkins.watchmaker.morphs.colour.impl.ColourBiomorph#basicTree
-     * ()
-     */
-    @Override
-    public void basicTree() {
-        makeGenes(-Biomorph.TRICKLE, -Biomorph.TRICKLE, -Biomorph.TRICKLE, -Biomorph.TRICKLE, -Biomorph.TRICKLE, 0,
-                Biomorph.TRICKLE, Biomorph.TRICKLE, 6);
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * net.richarddawkins.watchmaker.morphs.colour.impl.ColourBiomorph#chess()
-     */
-    @Override
-    public void chess() {
-
-        makeGenes(-Biomorph.TRICKLE, 3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE, -3 * Biomorph.TRICKLE,
-                Biomorph.TRICKLE, -2 * Biomorph.TRICKLE, 6 * Biomorph.TRICKLE, -5 * Biomorph.TRICKLE, 7);
-    }
-
+    public ColourGenome() { }
     @Override
     public void copy(Genome person) {
         ColourGenome child = (ColourGenome) person;
@@ -186,24 +142,6 @@ public class ColourGenome extends BiomorphGenome {
 
     public IntegerGene getThicknessGene() {
         return thicknessGene;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * net.richarddawkins.watchmaker.morphs.colour.impl.ColourBiomorph#insect()
-     */
-    @Override
-    public void insect() {
-        makeGenes(Biomorph.TRICKLE, Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, Biomorph.TRICKLE, -Biomorph.TRICKLE,
-                -2 * Biomorph.TRICKLE, 8 * Biomorph.TRICKLE, -4 * Biomorph.TRICKLE, 6);
-
-    }
-
-    public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
-        super.makeGenes(a, b, c, d, e, f, g, h, i);
-        segDistGene.setValue(1);
     }
 
     @Override

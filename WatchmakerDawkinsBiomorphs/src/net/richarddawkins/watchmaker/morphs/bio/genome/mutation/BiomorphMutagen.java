@@ -14,7 +14,7 @@ public abstract class BiomorphMutagen extends SimpleMutagen {
 	}
 
 
-	static protected SwellType randSwell(SwellType indGene) {
+	public static SwellType randSwell(SwellType indGene) {
 		SwellType swellType;
 		switch(indGene) {
 		case Shrink: 

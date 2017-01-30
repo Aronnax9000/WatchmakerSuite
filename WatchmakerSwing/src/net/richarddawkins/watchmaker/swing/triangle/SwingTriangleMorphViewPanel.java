@@ -77,4 +77,10 @@ public class SwingTriangleMorphViewPanel extends SwingBoxedMorphViewPanel {
 
 	}
 
+	@Override
+	public void seed(Morph morph) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

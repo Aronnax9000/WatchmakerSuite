@@ -1,17 +1,19 @@
 package net.richarddawkins.watchmaker.morphs.colour;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.bio.BiomorphConfig;
+import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenomeFactory;
 import net.richarddawkins.watchmaker.morphs.colour.embryo.ColourEmbryology;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
+import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenomeFactory;
 import net.richarddawkins.watchmaker.morphs.colour.genome.mutation.ColourAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.colour.genome.mutation.ColourMutagen;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
-public class ColourBiomorphConfig extends BiomorphConfig {
-
+public class ColourBiomorphConfig extends SimpleMorphConfig {
 	
 	@Override
 	public Genome newGenome() {
@@ -19,10 +21,11 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	}
 	public ColourBiomorphConfig() {
 		super();
-		setMutagen(new ColourMutagen(new ColourAllowedMutations()));
-		embryology = new ColourEmbryology();
-
-
+		this.setStartingMorphBasicType(BiomorphGenomeFactory.RANDOM); // Random
+		AllowedMutations muts = new ColourAllowedMutations();
+		this.setGenomeFactory(new ColourGenomeFactory(muts));
+		this.setMutagen(new ColourMutagen(muts));
+		this.setEmbryology(new ColourEmbryology());
 	}
 	@Override
 	public Morph newMorph() {
@@ -34,7 +37,4 @@ public class ColourBiomorphConfig extends BiomorphConfig {
 	public Phenotype newPhenotype() {
 		return new ColourPic();
 	}
-
-
-
 }

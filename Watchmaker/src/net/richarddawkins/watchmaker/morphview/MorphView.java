@@ -17,6 +17,6 @@ public interface MorphView {
 	Morph getMorphOfTheHour();
 	String getName();
 	void setName(String newName);
-
+	MorphViewPanel getMorphViewPanel();
 
 }

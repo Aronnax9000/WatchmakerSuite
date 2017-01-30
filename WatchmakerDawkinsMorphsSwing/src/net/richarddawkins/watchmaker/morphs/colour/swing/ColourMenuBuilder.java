@@ -9,11 +9,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
@@ -87,11 +87,12 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MorphConfig config = appData.getMorphConfig();
-				Mutagen mutagen = config.getMutagen();
 				Morph morph = appData.getMorphOfTheHour();
-				Genome genome = morph.getGenome();
-				mutagen.deliverSaltation(genome);
-
+				Genome genome = config.getGenomeFactory().deliverSaltation();
+				morph.setGenome(genome);
+				MorphViewPanel morphViewPanel = 
+				appData.getMorphViewsTabbedPane().getSelectedMorphView().getMorphViewPanel();
+				morphViewPanel.seed(morph);
 			}
 		}));
 		return menu;

@@ -6,7 +6,7 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 
-public class SwingMorphView extends JPanel implements MorphView {
+abstract public class SwingMorphView extends JPanel implements MorphView {
 	private static final long serialVersionUID = 5555392236002752598L;
 	protected String icon;
 
@@ -44,4 +44,6 @@ public class SwingMorphView extends JPanel implements MorphView {
 	public void setToolTip(String toolTip) {
 		this.toolTip = toolTip;
 	}
+
+
 }

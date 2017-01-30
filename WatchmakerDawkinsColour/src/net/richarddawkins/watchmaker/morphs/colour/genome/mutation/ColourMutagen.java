@@ -13,7 +13,6 @@ import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphMutagen;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
@@ -26,7 +25,7 @@ public class ColourMutagen extends BiomorphMutagen {
 
 	}
 
-	LimbShapeType randLimbType() {
+	public static LimbShapeType randLimbType() {
 		switch (randInt(3)) {
 		case 1:
 			return LimbShapeType.Stick;
@@ -39,7 +38,7 @@ public class ColourMutagen extends BiomorphMutagen {
 		}
 	}
 
-	LimbFillType randLimbFill() {
+	public static LimbFillType randLimbFill() {
 		switch (randInt(2)) {
 		case 1:
 			return LimbFillType.Open;
@@ -91,7 +90,7 @@ public class ColourMutagen extends BiomorphMutagen {
 		}
 
 		if (mut[10] && randInt(100) < mutProb) {
-			target.addToBackColorGene(direction9());
+			target.getBackColorGene().addToGene(direction9());
 			success = true;
 		}
 
@@ -154,149 +153,14 @@ public class ColourMutagen extends BiomorphMutagen {
 		return success;
 	}
 
-	protected void randomForeColour(ColourGenome genome) {
+	public static void randomForeColour(ColourGenome genome) {
 		for (int j = 0; j < 7; j++)
 			genome.getColorGenes()[j].setValue(randInt(256)); // RAINBOW
 	}
 
-	protected void randomBackColour(ColourGenome genome) {
+	public static void randomBackColour(ColourGenome genome) {
 		genome.getBackColorGene().setValue(Random.randInt(256)); // RAINBOW
 	}
 
-	@Override
-	public void deliverSaltation(Genome theGenome) {
-		// procedure DeliverSaltation (var thebiomorph: person);
-		// var
-		// j, maxgene, r: INTEGER;
-		// factor: -1..1;
-		//
-		// begin
-		// DelayedDrawing := FALSE;
-		// special := MidBox;
-		// with theBiomorph do {bomb 5, range check failed, here after killing
-		// top Adam}
-		// begin
-		ColourGenome genome = (ColourGenome) theGenome;
-		ColourAllowedMutations muts = (ColourAllowedMutations) allowedMutations;
-		IntegerGene segNoGene = genome.getSegNoGene();
-		IntegerGradientGene segDistGene = genome.getSegDistGene();
-		if (muts.getMut(0)) {
-			// if Mut[1] then
-			// begin
-			segNoGene.setValue(Random.randInt(6));
-			segDistGene.setValue(Random.randInt(20));
-
-		} else {
-			segNoGene.setValue(1);
-			segDistGene.setValue(1);
-		}
-		int r = Random.randInt(100);
-
-		CompletenessGene completenessGene = genome.getCompletenessGene();
-
-		if (muts.getMut(2)) {
-			if (r < 50) {
-				completenessGene.setValue(CompletenessType.Single);
-			} else {
-				completenessGene.setValue(CompletenessType.Double);
-			}
-		} else {
-			// Dawkins did this no matter what, above the top of the enclosing
-			// if.
-			completenessGene.setValue(CompletenessType.Double);
-		}
-		r = Random.randInt(100);
-		SpokesGene spokesGene = genome.getSpokesGene();
-		if (muts.getMut(3)) {
-			if (r < 33) {
-				spokesGene.setValue(SpokesType.Radial);
-			} else if (r < 66) {
-				spokesGene.setValue(SpokesType.NSouth);
-			} else {
-				spokesGene.setValue(SpokesType.NorthOnly);
-			}
-		} else {
-			spokesGene.setValue(SpokesType.NorthOnly);
-		}
-
-		IntegerGene trickleGene = genome.getTrickleGene();
-
-		if (muts.getMut(4)) {
-			trickleGene.setValue(1 + Random.randInt(100) / 10);
-			if (trickleGene.getValue() > 1) {
-				genome.getMutSizeGene().setValue(trickleGene.getValue() / 2);
-			}
-		}
-		if (muts.getMut(9)) {
-			randomForeColour(genome);
-		}
-		if (muts.getMut(7)) {
-			genome.getLimbShapeGene().setValue(randLimbType());
-		}
-		if (muts.getMut(8)) {
-			genome.getLimbFillGene().setValue(randLimbFill());
-		}
-		if (muts.getMut(10)) {
-			randomBackColour(genome);
-		}
-		if (muts.getMut(11)) {
-			genome.getThicknessGene().setValue(Random.randInt(3));
-		}
-		int maxGene;
-		for (int j = 0; j < 7; j++) {
-
-			IntegerGradientGene gene = (IntegerGradientGene) genome.getGene(j);
-			do {
-				if (muts.getMut(12)) {
-					gene.setValue(genome.getMutSizeGene().getValue() * (Random.randInt(19) - 10));
-				}
-				if (muts.getMut(1)) {
-					gene.setGradient(randSwell(gene.getGradient()));
-				} else {
-					gene.setGradient(SwellType.Same);
-				}
-				int factor = 0;
-				switch (((IntegerGradientGene) genome.getGene(j)).getGradient()) {
-				case Shrink:
-					factor = 1;
-					break;
-				case Same:
-					factor = 0;
-					break;
-				case Swell:
-					factor = 1;
-					break;
-				default:
-				}
-				maxGene = gene.getValue() * segNoGene.getValue() * factor;
-			} while (!((maxGene <= 9 * trickleGene.getValue()) && (maxGene >= -9 * trickleGene.getValue())));
-			do {
-				
-				if (muts.getMut(1)) {
-					segDistGene.setGradient(randSwell(segDistGene.getGradient()));
-				} else {
-					segDistGene.setGradient(SwellType.Same);
-				}
-				int factor = 0;
-				switch (gene.getGradient()) {
-				case Shrink:
-					factor = 1;
-					break;
-				case Same:
-					factor = 0;
-					break;
-				case Swell:
-					factor = 1;
-					break;
-				default:
-				}
-				maxGene = segDistGene.getValue() * segNoGene.getValue() * factor;
-			} while (!((maxGene <= 100) && (maxGene >= -100)));
-		}
-		IntegerGradientGene gene9 = genome.getGene9();
-		gene9.setValue(Random.randInt(5) + 1); // 2..6
-		gene9.setGradient(SwellType.Same);
-
-	}
 
 }

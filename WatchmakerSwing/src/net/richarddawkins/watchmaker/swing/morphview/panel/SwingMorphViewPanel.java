@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.swing.morphview.panel;
 import java.awt.LayoutManager;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -14,6 +15,7 @@ import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
 public abstract class SwingMorphViewPanel extends JPanel implements MorphViewPanel, PropertyChangeListener {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.morphview.panel.SwingMorphViewPanel");
 
     protected AppData appData;
 	protected MorphDrawer morphDrawer;
@@ -24,6 +26,8 @@ public abstract class SwingMorphViewPanel extends JPanel implements MorphViewPan
     	switch(propertyName) {
     	case "showBoundingBoxes":
     	case "scale":
+    	case "phenotype":
+    		logger.info("SwingMorphViewPanel propertyChange:" + propertyName);
     		for(Morph morph: getMorphs()) {
     			morph.setImage(null);
     		}

@@ -6,6 +6,8 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GenomeFactory;
+import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
@@ -21,17 +23,35 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
  */
 public interface MorphConfig {
 
-	
 	void addPropertyChangeListener(PropertyChangeListener listener);
-	void removePropertyChangeListener(PropertyChangeListener listener);
-	/* Factory Methods */
+	AllowedMutations getAllowedMutations();
+	
+	/**
+	 * Returns the AppData instance representing a 
+	 * running Watchmaker application.
+	 * @return the AppData instance associated with this MorphConfig
+	 */
+	AppData getAppData();
+	Embryology getEmbryology();
 
+	GenomeFactory getGenomeFactory();
+	Vector<Morph> getLitter(Morph parentMorph, int litterSize);
+	Mutagen getMutagen();
+	int getStartingMorphBasicType();
+
+	
+	boolean isRecordingFossils();
 	/**
 	 * Creates and returns a new instance of Genome for this morph type.
 	 * @return a new Genome of the appropriate type.
 	 */
 	Genome newGenome();
-	Phenotype newPhenotype();
+
+	/**
+	 * Creates a new Morph with a null Genome.
+	 * @return a Morph with a null Genome.
+	 */
+	Morph newMorph();
 	/**
 	 * Create a new Genome initialized to a specified one of a number of
 	 * built-in Genomes.
@@ -42,33 +62,21 @@ public interface MorphConfig {
 	 * @return a Morph with a Genome initialized to the specified type.
 	 */
 	Morph newMorph(int type);
-	/**
-	 * Creates a new Morph with a null Genome.
-	 * @return a Morph with a null Genome.
-	 */
-	Morph newMorph();
 
-	
-	/**
-	 * Returns the AppData instance representing a 
-	 * running Watchmaker application.
-	 * @return the AppData instance associated with this MorphConfig
-	 */
-	AppData getAppData();
-	void setAppData(AppData object);
-
-	boolean isRecordingFossils();
-	void setRecordingFossils(boolean newValue);
-
-	Mutagen getMutagen();
-    void setMutagen(Mutagen mutagen);
+	Phenotype newPhenotype();
+    void removePropertyChangeListener(PropertyChangeListener listener);
+	/* Factory Methods */
 
 
-	Embryology getEmbryology();
 	Morph reproduce(Morph parentMorph);
+	void setAllowedMutations(AllowedMutations muts);
 
-	Vector<Morph> getLitter(Morph parentMorph, int litterSize);
-
+	void setAppData(AppData object);
+	void setEmbryology(Embryology embryology);
+	void setGenomeFactory(GenomeFactory factory);
+	void setMutagen(Mutagen mutagen);
+	void setRecordingFossils(boolean newValue);
+	void setStartingMorphBasicType(int startingMorphBasicType);
 
 
 }

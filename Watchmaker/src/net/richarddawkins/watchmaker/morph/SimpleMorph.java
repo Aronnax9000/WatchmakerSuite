@@ -64,9 +64,10 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
     @Override
     public void setGenome(Genome newValue)  {
+    	Genome oldValue = genome;
         genome = newValue;
         genome.addGenomeChangeListener(this);
-        pcs.firePropertyChange("genome", null, genome);
+        pcs.firePropertyChange("genome", oldValue, newValue);
     }
 
 

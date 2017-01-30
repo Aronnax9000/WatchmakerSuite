@@ -5,7 +5,6 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.logging.Logger;
 
@@ -16,8 +15,8 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
@@ -53,7 +52,7 @@ public class SwingEngineeringBoxedMorphViewPanel extends SwingBoxedMorphViewPane
 
 	
 	private static final long serialVersionUID = -5519820942516604540L;
-
+	@Override
 	public void seed(Morph morph) {
 		if (!boxedMorphVector.isEmpty()) {
 			for (BoxedMorph boxedMorph : boxedMorphVector.getBoxedMorphs()) {
@@ -72,14 +71,7 @@ public class SwingEngineeringBoxedMorphViewPanel extends SwingBoxedMorphViewPane
 		this.getBoxedMorphVector().getBoxedMorph(0).setPosition(boxes.getMidPoint(size, 0));
 	}
 
-	@Override
-	public void propertyChange(PropertyChangeEvent evt) {
-		super.propertyChange(evt);
-		if (evt.getPropertyName().equals("phenotype")) {
-			getBoxedMorphVector().getBoxedMorph(0).getMorph().setImage(null);
-			repaint();
-		}
-	}
+
 
 	class HypodermicWarning extends JPanel {
 		private static final long serialVersionUID = 1L;

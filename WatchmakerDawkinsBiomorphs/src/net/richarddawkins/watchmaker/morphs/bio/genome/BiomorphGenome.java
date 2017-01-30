@@ -2,10 +2,6 @@ package net.richarddawkins.watchmaker.morphs.bio.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
-import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 
 public abstract class BiomorphGenome extends SimpleGenome {
 	
@@ -67,29 +63,6 @@ public abstract class BiomorphGenome extends SimpleGenome {
 		return gene9;
 	}
 
-
-	abstract public void basicTree();
-
-	abstract public void chess();
-
-	abstract public void insect();
-
-	public void setBasicType(int basicType) {
-		switch (basicType) {
-		case 0:
-			basicTree();
-			break;
-		case 1:
-			chess();
-			break;
-		case 2:
-			insect();
-			break;
-		default:
-			break;
-		}
-	}
-
 	public SegNoGene getSegNoGene() {
 		return segNoGene;
 	}
@@ -141,33 +114,5 @@ public abstract class BiomorphGenome extends SimpleGenome {
 
         return theGenes;
     }
-
-
-
-	public void makeGenes(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
-		Gene[] myGenes = toGeneArray();
-		for (int j = 0; j < 8; j++) {
-			IntegerGradientGene myGene = (IntegerGradientGene) myGenes[j];
-			myGene.setGradient(SwellType.Same);
-		}
-		segDistGene.setGradient(SwellType.Same);
-		segNoGene.setValue(1);
-		completenessGene.setValue(CompletenessType.Double);
-		spokesGene.setValue(SpokesType.NorthOnly);
-		trickleGene.setValue(Biomorph.TRICKLE);
-		mutSizeGene.setValue(Biomorph.TRICKLE / 2);
-		mutProbGene.setValue(10);
-
-		gene1.setValue(a);
-		gene2.setValue(b);
-		gene3.setValue(c);
-		gene4.setValue(d);
-		gene5.setValue(e);
-		gene6.setValue(f);
-		gene7.setValue(g);
-		gene8.setValue(h);
-		gene9.setValue(i);
-
-	}
 
 }

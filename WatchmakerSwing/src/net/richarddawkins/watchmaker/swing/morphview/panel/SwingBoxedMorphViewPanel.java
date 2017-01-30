@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.swing.morphview.panel;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
@@ -14,7 +13,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 
-public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel implements PropertyChangeListener {
+public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel  {
 	protected boolean showBoxes = true;
 
 	@Override
