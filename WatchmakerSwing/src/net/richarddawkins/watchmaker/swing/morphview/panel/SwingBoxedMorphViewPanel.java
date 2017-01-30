@@ -48,7 +48,7 @@ public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel  {
 		updateModel(size);
 		if (showBoxes) {
 			BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
-			boxesDrawer.draw(g2, size, boxes);
+			boxesDrawer.draw(g2, size, boxes, boxedMorphVector.getBoxedMorphs().size() == 1);
 		}
 		for (BoxedMorph boxedMorph : boxedMorphVector.getBoxedMorphs()) {
 			morphDrawer.setSize(boxes.getBoxSize(size));
