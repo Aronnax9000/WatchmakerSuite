@@ -11,6 +11,7 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.swing.SwingColor;
 
 public class SwingBoxesDrawer implements BoxesDrawer {
 
@@ -21,9 +22,12 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 	 * @param g the Graphics2D on which drawing is to take place.
 	 * @param dimension the size of the overall grid of boxes.
 	 */
-	public void draw(Object graphicsContext, Dim dimension, BoxManager boxes, boolean midBoxOnly) {
+	public void draw(Object graphicsContext, 
+			Dim dimension, 
+			BoxManager boxes, 
+			boolean midBoxOnly,
+			Vector<Integer> backgroundColors) {
 		Graphics2D g2 = (Graphics2D) graphicsContext;
-		g2.setColor(Color.BLACK);
 		Stroke saveStroke = g2.getStroke();
 		int boxIndex = 0;
 		Vector<Rect> boxRects = boxes.getBoxes(dimension);
@@ -36,10 +40,14 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 			} else {
 				g2.setStroke(new BasicStroke(2.0f));
 			}
-			
+			int backgroundColor = backgroundColors.elementAt(boxIndex);
 			if(! midBoxOnly || boxIndex == midBox) {
+				if(backgroundColor != -1) {
+					g2.setColor(SwingColor.rgbColorPalette[backgroundColor]);
+					g2.fillRect(r.left, r.top, r.getWidth(), r.getHeight());
+				}
+				g2.setColor(Color.BLACK);
 				g2.drawRect(r.left, r.top, r.getWidth(), r.getHeight());
-				
 			}
 			g2.setStroke(saveStroke);
 			boxIndex++;

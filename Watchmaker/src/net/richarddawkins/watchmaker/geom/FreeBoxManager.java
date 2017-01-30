@@ -4,6 +4,7 @@ import java.util.Vector;
 import java.util.logging.Logger;
 
 public class FreeBoxManager extends BoxManager {
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.FreeBoxManager");
 
 	protected Vector<Rect> boxes = new Vector<Rect>();

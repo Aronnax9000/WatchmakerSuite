@@ -102,7 +102,9 @@ public class ColourGenome extends BiomorphGenome {
     protected final LimbFillGene limbFillGene = new LimbFillGene(this, "Limb Fill", LimbFillType.Filled);
     protected final IntegerGeneOneOrGreater thicknessGene = new IntegerGeneOneOrGreater(this, "Thickness", 1);
 
-    public ColourGenome() { }
+    public ColourGenome() { 
+    	this.getMutProbGene().setValue(10);
+    }
 //    @Override
 //    public void copy(Genome person) {
 //        ColourGenome child = (ColourGenome) person;

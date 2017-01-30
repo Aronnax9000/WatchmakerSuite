@@ -46,9 +46,24 @@ public abstract class SwingBoxedMorphViewPanel extends SwingMorphViewPanel  {
 		super.paintComponent(g2);
 		Dim size = SwingGeom.toWatchmakerDim(getSize());
 		updateModel(size);
+		Vector<Integer> backgroundColors = new Vector<Integer>();
+		for(int i = 0; i < this.boxes.getBoxCount(); i++) {
+			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(i);
+			if(boxedMorph != null) {
+				backgroundColors.add(boxedMorph.getMorph().getPhenotype().getBackgroundColor());
+			} else {
+				backgroundColors.add(-1);
+			}
+		}
 		if (showBoxes) {
 			BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
-			boxesDrawer.draw(g2, size, boxes, boxedMorphVector.getBoxedMorphs().size() == 1);
+			boxesDrawer.draw(
+					g2, 
+					size, 
+					boxes, 
+					boxedMorphVector.getBoxedMorphs().size() == 1,
+					backgroundColors
+					);
 		}
 		for (BoxedMorph boxedMorph : boxedMorphVector.getBoxedMorphs()) {
 			morphDrawer.setSize(boxes.getBoxSize(size));

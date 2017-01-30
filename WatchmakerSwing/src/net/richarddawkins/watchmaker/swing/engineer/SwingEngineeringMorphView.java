@@ -7,6 +7,7 @@ import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.components.SwingGeneBoxyMorphView;
 
 public class SwingEngineeringMorphView extends SwingGeneBoxyMorphView {
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 
 	public SwingEngineeringMorphView(SwingAppData swingAppData, Morph morph) {
