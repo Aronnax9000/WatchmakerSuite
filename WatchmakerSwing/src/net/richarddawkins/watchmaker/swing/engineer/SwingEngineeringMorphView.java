@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-import net.richarddawkins.watchmaker.swing.components.SwingGeneBoxyMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingGeneBoxyMorphView;
 
 public class SwingEngineeringMorphView extends SwingGeneBoxyMorphView {
 	@SuppressWarnings("unused")

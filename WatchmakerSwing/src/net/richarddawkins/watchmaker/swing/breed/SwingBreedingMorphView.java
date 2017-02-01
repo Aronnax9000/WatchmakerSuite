@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.swing.breed;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-import net.richarddawkins.watchmaker.swing.components.SwingGeneBoxyMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingGeneBoxyMorphView;
 
 public class SwingBreedingMorphView extends SwingGeneBoxyMorphView {
 

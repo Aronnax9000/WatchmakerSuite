@@ -24,8 +24,8 @@ import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
-import net.richarddawkins.watchmaker.swing.components.SwingBorderLayoutMorphView;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
+import net.richarddawkins.watchmaker.swing.morphview.SwingBorderLayoutMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
 
 public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel implements ActionListener {

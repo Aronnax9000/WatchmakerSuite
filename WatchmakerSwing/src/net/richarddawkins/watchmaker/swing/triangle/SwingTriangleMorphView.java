@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.swing.triangle;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
-import net.richarddawkins.watchmaker.swing.components.SwingGeneBoxyMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingGeneBoxyMorphView;
 
 public class SwingTriangleMorphView extends SwingGeneBoxyMorphView {
 

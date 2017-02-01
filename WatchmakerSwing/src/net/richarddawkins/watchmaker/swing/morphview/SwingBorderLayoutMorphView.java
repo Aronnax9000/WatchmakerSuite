@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.components;
+package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.BorderLayout;
 import java.util.logging.Logger;
@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingBorderLayoutMorphView extends SwingMorphView {
 	@SuppressWarnings("unused")
