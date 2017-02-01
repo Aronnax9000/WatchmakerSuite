@@ -21,9 +21,9 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
-import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.morphview.panel.SwingMorphViewPanel;
 
-public class SwingEngineeringBoxedMorphViewPanel extends SwingBoxedMorphViewPanel implements PropertyChangeListener {
+public class SwingEngineeringBoxedMorphViewPanel extends SwingMorphViewPanel implements PropertyChangeListener {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringBoxedMorphViewPanel");
 
 	SwingEngineeringMorphView engineeringWatchmakerPanel;

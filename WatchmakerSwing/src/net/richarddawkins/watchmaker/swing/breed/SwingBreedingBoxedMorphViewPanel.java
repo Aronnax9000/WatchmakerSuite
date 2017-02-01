@@ -26,9 +26,9 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.morphview.panel.SwingMorphViewPanel;
 
-public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel implements ActionListener {
+public class SwingBreedingBoxedMorphViewPanel extends SwingMorphViewPanel implements ActionListener {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.breed.BreedingPanel");
 
 	enum Phase {
@@ -172,7 +172,7 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 	public void setWatchmakerPanel(SwingMorphView watchmakerPanel) {
 		this.watchmakerPanel = watchmakerPanel;
 	}
-
+	@Override
 	protected void updateModel(Dim size) {
 
 		int midBox = boxes.getMidBox();

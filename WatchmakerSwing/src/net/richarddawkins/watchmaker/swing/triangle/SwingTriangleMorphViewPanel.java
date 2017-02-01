@@ -14,9 +14,9 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
-import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.morphview.panel.SwingMorphViewPanel;
 
-public class SwingTriangleMorphViewPanel extends SwingBoxedMorphViewPanel {
+public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
 
 	protected Point[] trianglePoints = new Point[] { new Point(234, 41), new Point(134, 250), new Point(333, 250) };
 
