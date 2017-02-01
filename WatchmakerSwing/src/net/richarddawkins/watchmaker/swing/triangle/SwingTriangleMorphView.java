@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.swing.triangle;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
-import net.richarddawkins.watchmaker.swing.morphview.SwingGeneBoxyMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
-public class SwingTriangleMorphView extends SwingGeneBoxyMorphView {
+public class SwingTriangleMorphView extends SwingMorphView {
 
 	
 	private static final long serialVersionUID = -5445629768562940527L;

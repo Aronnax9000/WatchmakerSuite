@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.swing.breed;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-import net.richarddawkins.watchmaker.swing.morphview.SwingGeneBoxyMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
-public class SwingBreedingMorphView extends SwingGeneBoxyMorphView {
+public class SwingBreedingMorphView extends SwingMorphView {
 
 	
 	private static final long serialVersionUID = -5445629768562940527L;

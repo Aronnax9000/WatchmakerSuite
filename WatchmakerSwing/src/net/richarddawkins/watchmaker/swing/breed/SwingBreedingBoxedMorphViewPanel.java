@@ -25,7 +25,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
-import net.richarddawkins.watchmaker.swing.morphview.SwingBorderLayoutMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.panel.SwingBoxedMorphViewPanel;
 
 public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel implements ActionListener {
@@ -47,9 +47,9 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 
 	private int vacantBoxNumber = -1;
 
-	protected SwingBorderLayoutMorphView watchmakerPanel;
+	protected SwingMorphView watchmakerPanel;
 
-	public SwingBreedingBoxedMorphViewPanel(SwingBorderLayoutMorphView parentMorphView) {
+	public SwingBreedingBoxedMorphViewPanel(SwingMorphView parentMorphView) {
 		super(parentMorphView.getAppData());
 		setCursor(WatchmakerCursors.breed);
 
@@ -137,7 +137,7 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 		this.repaint();
 	}
 
-	public SwingBorderLayoutMorphView getWatchmakerPanel() {
+	public SwingMorphView getWatchmakerPanel() {
 		return watchmakerPanel;
 	}
 
@@ -169,7 +169,7 @@ public class SwingBreedingBoxedMorphViewPanel extends SwingBoxedMorphViewPanel i
 
 	}
 
-	public void setWatchmakerPanel(SwingBorderLayoutMorphView watchmakerPanel) {
+	public void setWatchmakerPanel(SwingMorphView watchmakerPanel) {
 		this.watchmakerPanel = watchmakerPanel;
 	}
 
