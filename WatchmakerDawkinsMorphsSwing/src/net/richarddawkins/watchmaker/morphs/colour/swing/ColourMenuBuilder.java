@@ -13,7 +13,7 @@ import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
@@ -90,9 +90,9 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 				Morph morph = appData.getMorphOfTheHour();
 				Genome genome = config.getGenomeFactory().deliverSaltation();
 				morph.setGenome(genome);
-				MorphViewPanel morphViewPanel = 
-				appData.getMorphViewsTabbedPane().getSelectedMorphView().getMorphViewPanel();
-				morphViewPanel.seed(morph);
+				MorphView morphView = 
+				appData.getMorphViewsTabbedPane().getSelectedMorphView();
+				morphView.seed(morph);
 			}
 		}));
 		return menu;
