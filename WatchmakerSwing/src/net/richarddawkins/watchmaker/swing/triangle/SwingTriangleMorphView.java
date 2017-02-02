@@ -13,6 +13,7 @@ import net.richarddawkins.watchmaker.geom.FreeBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
@@ -36,11 +37,13 @@ public class SwingTriangleMorphView extends SwingMorphView {
 	 */
 	public SwingTriangleMorphView(AppData appData) {
 		super(appData);
+		setName("Triangle");
 		setBoxes(new FreeBoxManager());
 		Dim dim = new Dim(512, 342);
 		Morph morph;
+		MorphConfig config = appData.getMorphConfig();
 		for (int i = 0; i < 3; i++) {
-			morph = appData.getMorphConfig().newMorph(i);
+			morph = config.newMorph(i + 1);
 			Rect margin = morph.getPhenotype().getMargin();
 			Point morphMidPoint = margin.getMidPoint();
 			Point displacement = trianglePoints[i].subtract(morphMidPoint);

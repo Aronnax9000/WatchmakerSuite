@@ -42,7 +42,8 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		while (!unique) {
 			boolean found = false;
 			for (MorphView morphView : morphViews) {
-				if (newName.equals(morphView.getName())) {
+				String morphViewName = morphView.getName();
+				if (newName.equals(morphViewName)) {
 					found = true;
 					break;
 				}
