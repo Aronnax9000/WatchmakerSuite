@@ -5,6 +5,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
@@ -12,7 +13,6 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
@@ -28,8 +28,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	public int special = -1;
 	Timer timer = new Timer();
 
-	public SwingBreedingMorphView(SwingAppData simpleSwingAppData, Morph morph) {
-		super(simpleSwingAppData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding", false);
+	public SwingBreedingMorphView(AppData appData, Morph morph) {
+		super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding", false);
 		centrePanel.setCursor(WatchmakerCursors.breed);
 		setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows()));
 
