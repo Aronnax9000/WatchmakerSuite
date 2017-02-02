@@ -85,12 +85,6 @@ public class SwingTriangleMorphView extends SwingMorphView {
 	}
 
 	@Override
-	public void updateModel(Dim size) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	protected void boxClicked(Point point) {
 		// TODO Auto-generated method stub
 		

@@ -51,12 +51,12 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	}
 
 	@Override
-	public Vector<Morph> getLitter(Morph parentMorph, int litterSize) {
+	public Morph getLitter(Morph parentMorph, int litterSize) {
 		Vector<Morph> litter = new Vector<Morph>();
 		for(int i = 0; i < litterSize; i++) {
 			litter.add(this.reproduce(parentMorph));
 		}
-		return litter;
+		return litter.elementAt(0);
 	}
 	public Mutagen getMutagen() {
 		return mutagen;

@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
-import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
@@ -35,7 +34,13 @@ public interface MorphConfig {
 	Embryology getEmbryology();
 
 	GenomeFactory getGenomeFactory();
-	Vector<Morph> getLitter(Morph parentMorph, int litterSize);
+	/**
+	 * Generates a new litter and returns the eldest sibling among them.
+	 * @param parentMorph
+	 * @param litterSize
+	 * @return
+	 */
+	Morph getLitter(Morph parentMorph, int litterSize);
 	Mutagen getMutagen();
 	int getStartingMorphBasicType();
 

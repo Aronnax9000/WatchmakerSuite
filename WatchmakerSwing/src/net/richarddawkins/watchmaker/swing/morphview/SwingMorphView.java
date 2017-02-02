@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.swing.morphview;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -24,7 +25,7 @@ import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
@@ -39,7 +40,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	private static final long serialVersionUID = 5555392236002752598L;
 	protected AppData appData;
 
-	protected BoxedMorphVector boxedMorphVector = new BoxedMorphVector();
+	protected BoxedMorphCollection boxedMorphVector = new BoxedMorphCollection();
 
 	protected BoxManager boxes;
 	protected final JPanel centrePanel;
@@ -59,7 +60,17 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	public SwingMorphView(AppData appData) {
 		this.appData = appData;
 		this.setLayout(new BorderLayout());
-       	this.centrePanel = new JPanel();
+       	this.centrePanel = new JPanel() {
+       		/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+       		public void paintComponent(Graphics g) {
+       			paintMorphViewPanel((Graphics2D)g, SwingGeom.toWatchmakerDim(this.getSize()));
+       		}
+       	};
        	this.setPreferredSize(new Dimension(640, 480));
        	this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.add(centrePanel, BorderLayout.CENTER);
@@ -103,7 +114,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	}
 
 	@Override
-	public BoxedMorphVector getBoxedMorphVector() {
+	public BoxedMorphCollection getBoxedMorphVector() {
 		return boxedMorphVector;
 	}
 
@@ -159,7 +170,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 
 	@Override
 	public void paintMorphViewPanel(Graphics2D g2, Dim size) {
-		updateModel(size);
 		Vector<Integer> backgroundColors = new Vector<Integer>();
 		for (int i = 0; i < this.boxes.getBoxCount(); i++) {
 			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(i);
@@ -201,7 +211,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	}
 
 	@Override
-	public void setBoxedMorphVector(BoxedMorphVector boxedMorphVector) {
+	public void setBoxedMorphVector(BoxedMorphCollection boxedMorphVector) {
 		this.boxedMorphVector = boxedMorphVector;
 	}
 

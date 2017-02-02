@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -57,10 +56,7 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 	 * 
 	 */
 	private static final long serialVersionUID = 8224824610112892419L;
-	@Override
-	public void updateModel(Dim size) {
-		this.getBoxedMorphVector().getBoxedMorph(0).setPosition(boxes.getMidPoint(size, 0));
-	}
+
 	class HypodermicWarning extends JPanel {
 		private static final long serialVersionUID = 1L;
 		public HypodermicWarning() {
