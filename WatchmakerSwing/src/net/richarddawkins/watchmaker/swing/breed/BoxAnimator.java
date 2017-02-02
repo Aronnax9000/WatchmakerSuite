@@ -98,7 +98,9 @@ public class BoxAnimator extends TimerTask {
 				boxedNewestOffspring.setScaleWithProgress(true);
 				// Add the newest boxed morph to the view's collection of boxed
 				// morphs
-				boxedMorphVector.add(boxedNewestOffspring);
+				synchronized(boxedMorphVector) {
+					boxedMorphVector.add(boxedNewestOffspring);
+				}
 				phase = Phase.draw_out_offspring;
 			} else {
 				phase = Phase.breed_complete;

@@ -198,10 +198,15 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 				boolean midBoxOnly = boxedMorphVector.getBoxedMorphs().size() == 1;
 				boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly, backgroundColors);
 			}
+			int counter = 0;
 			Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
+			logger.info("Iterator size: " + boxedMorphVector.getBoxedMorphs().size());
 			while(iter.hasNext()) {
 				morphDrawer.setSize(boxes.getBoxSize(size));
-				morphDrawer.draw(iter.next(), graphicsContext, size);
+				logger.info("Getting BoxedMorph " + counter);
+				BoxedMorph boxedMorph = iter.next();
+				morphDrawer.draw(boxedMorph, graphicsContext, size);
+				counter++;
 			}
 		}
 	}
