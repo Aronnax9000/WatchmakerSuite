@@ -14,6 +14,7 @@ public class WatchmakerFrame extends JFrame {
 	public static void newInstance() {
     	WatchmakerFrame frame = new WatchmakerFrame();
         //Display the window.
+    	frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.pack();
         frame.setVisible(true);
 	}

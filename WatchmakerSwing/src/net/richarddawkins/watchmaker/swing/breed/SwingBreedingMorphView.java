@@ -17,9 +17,6 @@ import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingBreedingMorphView extends SwingMorphView {
-	enum Phase {
-		animate_mother, breed_complete, draw_out_offspring, reactivate_grid
-	}
 
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView");
 	private static final long serialVersionUID = -5445629768562940527L;
@@ -28,7 +25,6 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
 	Vector<Morph> litter;
 
-	public Phase phase = Phase.breed_complete;
 	public int special = -1;
 	Timer timer = new Timer();
 
@@ -39,22 +35,22 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
 		seed(morph);
 	}
-
+	
 	public void boxClicked(Point myPt) {
-		switch (phase) {
-		case breed_complete:
+		if(centrePanel.getCursor() == WatchmakerCursors.breed) {
 			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(getSize()));
 			if (boxNo != -1) {
 				special = boxNo;
 				breedFromSpecial();
 			}
-			break;
-		default:
+		} else if(centrePanel.getCursor() == WatchmakerCursors.random) {
+			seed(appData.getMorphConfig().newMorph(0));
 		}
 	}
 
 	public void breedFromSpecial() {
 		logger.log(Level.INFO, "Breeding from box " + special);
+		centrePanel.setCursor(WatchmakerCursors.watchCursor);
 		BoxAnimator animator = new BoxAnimator(this, special);
 		timer.schedule(animator, 0, 17);
 	}
@@ -66,21 +62,22 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
 	@Override
 	public void processMouseMotion(Point myPt) {
-		switch (phase) {
-		case breed_complete:
-			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(getSize()));
-			if (boxNo != -1) {
+		int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(getSize()));
+		if (boxNo != -1) {
+			synchronized(boxedMorphVector) {
 				BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
 				if (boxedMorph != null) {
 					GeneBoxStrip geneBoxStrip = (GeneBoxStrip) getUpperStrip();
 					geneBoxStrip.setGenome(boxedMorph.getMorph().getGenome());
-					setCursor(WatchmakerCursors.breed);
+					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor) {
+						centrePanel.setCursor(WatchmakerCursors.breed);
+					}
 				} else {
-					setCursor(WatchmakerCursors.random);
+					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor) {
+						centrePanel.setCursor(WatchmakerCursors.random);
+					}
 				}
 			}
-			break;
-		default:
 		}
 	}
 
@@ -105,8 +102,6 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		special = midBox;
 		if (appData.isBreedRightAway()) {
 			breedFromSpecial();
-		} else {
-			phase = Phase.breed_complete;
 		}
 		parent.setImage(null);
 		repaint();

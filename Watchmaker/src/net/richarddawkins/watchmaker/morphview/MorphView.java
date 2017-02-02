@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morphview;
 
-import java.awt.Graphics2D;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -27,7 +26,6 @@ public interface MorphView {
 	String getName();
 	void setName(String newName);
 	Vector<Morph> getMorphs();
-	void paintMorphViewPanel(Graphics2D g2, Dim size);
 	void setUpperStrip(MorphViewWidget upperStrip);
 	void setShowBoxes(boolean showBoxes);
 	void setMorphDrawer(MorphDrawer morphDrawer);
@@ -42,4 +40,5 @@ public interface MorphView {
 	JPanel getCentrePanel();
 	BoxManager getBoxes();
 	BoxedMorphCollection getBoxedMorphVector();
+	void paintMorphViewPanel(Object graphicsContext, Dim size);
 }

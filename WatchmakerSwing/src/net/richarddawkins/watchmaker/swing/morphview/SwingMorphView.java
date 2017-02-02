@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
@@ -10,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -60,19 +60,17 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	public SwingMorphView(AppData appData) {
 		this.appData = appData;
 		this.setLayout(new BorderLayout());
-       	this.centrePanel = new JPanel() {
-       		/**
-			 * 
-			 */
+		this.centrePanel = new JPanel() {
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
-       		public void paintComponent(Graphics g) {
-       			paintMorphViewPanel((Graphics2D)g, SwingGeom.toWatchmakerDim(this.getSize()));
-       		}
-       	};
-       	this.setPreferredSize(new Dimension(640, 480));
-       	this.setBorder(BorderFactory.createLineBorder(Color.black));
+			public void paintComponent(Graphics g) {
+				paintMorphViewPanel((Graphics2D) g, SwingGeom.toWatchmakerDim(this.getSize()));
+			}
+		};
+//		this.setPreferredSize(new Dimension(640, 480));
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.add(centrePanel, BorderLayout.CENTER);
 		centrePanel.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
@@ -82,13 +80,12 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			}
 		});
 
-
 		centrePanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				boxClicked(SwingGeom.toWatchmakerPoint(e.getPoint()));
 			}
-		});	
+		});
 		PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
 		morphDrawer = new SwingMorphDrawer(phenotypeDrawer);
 		phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
@@ -108,6 +105,8 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
 		setLowerStrip(scaleSlider);
 	}
+
+	abstract protected void boxClicked(Point point);
 
 	public AppData getAppData() {
 		return appData;
@@ -169,25 +168,45 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	}
 
 	@Override
-	public void paintMorphViewPanel(Graphics2D g2, Dim size) {
-		Vector<Integer> backgroundColors = new Vector<Integer>();
-		for (int i = 0; i < this.boxes.getBoxCount(); i++) {
-			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(i);
-			if (boxedMorph != null) {
-				backgroundColors.add(boxedMorph.getMorph().getPhenotype().getBackgroundColor());
-			} else {
-				backgroundColors.add(-1);
+	/**
+	 * Draw the MorphView's breeding box outlines (if showBoxes is set) and its
+	 * morphs, on the MorphView's centre panel.
+	 * 
+	 * Morph phenotypes have a background color, which PhenotypeDrawer instances
+	 * may use to fill the bounding rectangle of the morph. In order to also
+	 * paint the morph's background color within its breeding box, this
+	 * implementation iterates through the morph collection in box number order,
+	 * and builds a list of background colors to be passed to
+	 * BoxesDrawer.draw().
+	 * 
+	 */
+	public synchronized void paintMorphViewPanel(Object graphicsContext, Dim size) {
+		synchronized (boxedMorphVector) {
+			if (showBoxes) {
+				Vector<Integer> backgroundColors = new Vector<Integer>();
+
+				for (int i = 0; i < this.boxes.getBoxCount(); i++) {
+					BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(i);
+					if (boxedMorph != null) {
+						backgroundColors.add(boxedMorph.getMorph().getPhenotype().getBackgroundColor());
+					} else {
+						backgroundColors.add(-1);
+					}
+				}
+
+				BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
+				boolean midBoxOnly = boxedMorphVector.getBoxedMorphs().size() == 1;
+				boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly, backgroundColors);
+			}
+			Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
+			while(iter.hasNext()) {
+				morphDrawer.setSize(boxes.getBoxSize(size));
+				morphDrawer.draw(iter.next(), graphicsContext, size);
 			}
 		}
-		if (showBoxes) {
-			BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
-			boxesDrawer.draw(g2, size, boxes, boxedMorphVector.getBoxedMorphs().size() == 1, backgroundColors);
-		}
-		for (BoxedMorph boxedMorph : boxedMorphVector.getBoxedMorphs()) {
-			morphDrawer.setSize(boxes.getBoxSize(size));
-			morphDrawer.draw(boxedMorph, g2, size);
-		}
 	}
+
+	abstract protected void processMouseMotion(Point myPt);
 
 	public void propertyChange(PropertyChangeEvent event) {
 		String propertyName = event.getPropertyName();
@@ -219,12 +238,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	public void setBoxes(BoxManager boxes) {
 		this.boxes = boxes;
 	}
-
-
-
-	abstract protected void boxClicked(Point point);
-
-	abstract protected void processMouseMotion(Point myPt);
 
 	public void setIcon(String icon) {
 		this.icon = icon;

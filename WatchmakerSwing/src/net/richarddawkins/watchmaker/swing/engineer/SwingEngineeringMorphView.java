@@ -11,13 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
@@ -25,11 +27,18 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 public class SwingEngineeringMorphView extends SwingMorphView {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 
-	public SwingEngineeringMorphView(SwingAppData swingAppData, Morph morph) {
-		super(swingAppData, "Hypodermic_PICT_03937_16x16", "Engineering", true);
+	public SwingEngineeringMorphView(AppData appData, Morph morph) {
+		super(appData, "Hypodermic_PICT_03937_16x16", "Engineering", true);
 		boxes = new GridBoxManager(1, 1);
 		((Component)this.getCentrePanel()).setCursor(WatchmakerCursors.hypodermic);
-		seed(morph);
+		MorphConfig config = appData.getMorphConfig();
+		Morph copy = config.newMorph();
+		
+		Genome genome = config.newGenome();
+		morph.getGenome().copy(genome);
+		copy.setGenome(genome);
+		seed(copy);
+		
 	}
 
 
