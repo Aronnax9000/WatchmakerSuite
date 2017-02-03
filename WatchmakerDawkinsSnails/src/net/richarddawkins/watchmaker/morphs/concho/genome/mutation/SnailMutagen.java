@@ -1,10 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.concho.genome;
+package net.richarddawkins.watchmaker.morphs.concho.genome.mutation;
 
 import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.SimpleMutagen;
+import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 
 public class SnailMutagen extends SimpleMutagen {
 

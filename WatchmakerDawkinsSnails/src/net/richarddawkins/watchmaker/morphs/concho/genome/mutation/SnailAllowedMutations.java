@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.concho.genome;
+package net.richarddawkins.watchmaker.morphs.concho.genome.mutation;
 
 import net.richarddawkins.watchmaker.genome.mutation.SimpleAllowedMutations;
 
