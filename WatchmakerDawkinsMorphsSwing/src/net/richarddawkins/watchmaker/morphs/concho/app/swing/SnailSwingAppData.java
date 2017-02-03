@@ -1,7 +1,10 @@
-package net.richarddawkins.watchmaker.morphs.concho.swing;
+package net.richarddawkins.watchmaker.morphs.concho.app.swing;
 
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.concho.SnailConfig;
+import net.richarddawkins.watchmaker.morphs.concho.genebox.swing.SwingSnailGeneBoxStrip;
+import net.richarddawkins.watchmaker.morphs.concho.geom.swing.SwingSnailPicDrawer;
+import net.richarddawkins.watchmaker.morphs.concho.swing.SnailMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 

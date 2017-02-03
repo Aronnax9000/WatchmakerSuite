@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.concho.swing;
+package net.richarddawkins.watchmaker.morphs.concho.geom.swing;
 
 import net.richarddawkins.watchmaker.morphs.mono.geom.swing.SwingMonoPicDrawer;
 import net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences;

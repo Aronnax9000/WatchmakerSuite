@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.concho.swing;
+package net.richarddawkins.watchmaker.morphs.concho.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
 
