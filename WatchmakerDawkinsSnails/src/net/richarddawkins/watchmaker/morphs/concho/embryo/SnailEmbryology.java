@@ -14,7 +14,8 @@ import net.richarddawkins.watchmaker.morphs.concho.geom.SnailPic;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;
 
 public class SnailEmbryology extends SimpleEmbryology {
-	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryology");
+	private static Logger logger = Logger
+			.getLogger("net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryology");
 
 	SnailEmbryologyPreferences prefs = new SnailEmbryologyPreferences();
 
@@ -36,47 +37,6 @@ public class SnailEmbryology extends SimpleEmbryology {
 	}
 
 	/**
-	 * {@code
-	 * procedure DrawTop(var margin: Rect; var MyPic: Pic; var theShell: person; where: Point);
-	 * var
-	 *   mn: RealPoint;
-	 *   v1: RealPoint;
-	 *   v2: RealPoint;
-	 *   u1: RealPoint;
-	 *   u2: RealPoint;
-	 *   p1: RealPoint;
-	 *   p2: RealPoint;
-	 *   denom, theSize, W, D: real;
-	 *   RAD: real;
-	 *   PI, I, BD, WI: real;
-	 *   M, start, inc: integer;
-	 *   p: real;
-	 * 
-	 * begin
-	 *   with theShell do
-	 *   begin
-	 *     DGradient := 1;
-	 *     W := WOpening;
-	 *     D := DDisplacement;
-	 *     Inc := Coarsegraininess;
-	 *     start := reach * 360;
-	 *     rad := 100;
-	 * end;
-	 *   theSize := 0.74;
-	 *   denom := 136 * theSize;
-	 *   mn.x := (-(100 / denom) * where.h); mn.y := (-(100 / denom) * where.v);
-	 * {the smaller or more negative the number,the lower down the page} {mxy :=
-	 * 90;}
-	 * 
-	 * V1.x := 0; v1.y := 0; U1.x := 0; U1.y := 0; PI := 3.14159; m := start;
-	 * repeat p := (start - (start - m) * (1 - theShell.DGradient)) / start; D
-	 * := theShell.DDisplacement * p; i := m / 360; BD := 2 * PI * I; WI := RAD
-	 * * EXP(-I * LN(W)); V2.x := theShell.handedness * (-WI * COS(BD)); V2.y :=
-	 * WI * SIN(BD); U2.x := V2.x * D; U2.y := V2.y * D; p1 := v1; p2 := v2;
-	 * EnlargeMarginAndDoPicLine(margin, myPic, p1, p2, mn); p1 := p2; p2 := u2;
-	 * if m <= 0 then EnlargeMarginAndDoPicLine(margin, myPic, p1, p2, mn); p1
-	 * := p2; p2 := u1; EnlargeMarginAndDoPicLine(margin, myPic, p1, p2, mn); v1
-	 * := v2; u1 := u2; m := m - Inc; until m < 0; end; }
 	 * 
 	 * @param genome
 	 *            the SnailGenome
@@ -91,13 +51,10 @@ public class SnailEmbryology extends SimpleEmbryology {
 		double w = genome.getOpening().getValue();
 
 		DoubleGene dDisplacement = genome.getDisplacement();
-		
+
 		int inc = genome.getCoarsegraininess().getValue();
 		int start = genome.getReach().getValue() * 360;
 		double rad = 100;
-
-
-
 		double theSize = 0.74;
 		double denom = 136 * theSize;
 		// mn.x = (-(100 / denom) * where.h);
@@ -112,30 +69,60 @@ public class SnailEmbryology extends SimpleEmbryology {
 		int m = start;
 		int handedness = genome.getHandedness().getValue() == HandednessType.Left ? -1 : 1;
 		do {
+
 			logger.fine("Top of drawTop loop");
+			// p := (start - (start - m) * (1 - theShell.DGradient)) / start;
 			double p = (start - (start - m) * (1 - dGradient.getValue())) / start;
+			// D := theShell.DDisplacement * p;
 			double d = dDisplacement.getValue() * p;
-			double i = m / 360;
+			// i := m / 360;
+			double i = (double) m / 360;
+			// BD := 2 * PI * I;
 			double bd = 2 * Math.PI * i;
+			// WI := RAD * EXP(-I * LN(W));
 			double wi = rad * Math.exp(-i * Math.log(w));
-			
+
+			// V2.x := theShell.handedness * (-WI * COS(BD));
+			// V2.y := WI * SIN(BD);
 			RealPoint v2 = new RealPoint(handedness * (-wi * Math.cos(bd)), wi * Math.sin(bd));
+			logger.info("WI:" + wi + " BD:" + bd + " -> y:" + wi*Math.sin(bd));
+
+			// U2.x := V2.x * D;
+			// U2.y := V2.y * D;
 			RealPoint u2 = v2.scale(d);
-			
+
+			// p1 := v1;
 			RealPoint p1 = v1.copy();
+
+			// p2 := v2;
 			RealPoint p2 = v2.copy();
+
+			// EnlargeMarginAndDoPicLine(margin, myPic, p1, p2, mn);
 			enlargeMarginAndDoPicLine(pic, p1, p2);
+
+			// p1 := p2;
 			p1 = p2.copy();
+
+			// p2 := u2;
 			p2 = u2.copy();
+
+			// if m <= 0 then
 			if (m <= 0) {
+				// EnlargeMarginAndDoPicLine(margin, myPic, p1, p2, mn);
 				enlargeMarginAndDoPicLine(pic, p1, p2);
 			}
+			// p1 := p2;
 			p1 = p2.copy();
+			// p2 := u1;
 			p2 = u1.copy();
+			// EnlargeMarginAndDoPicLine(margin, myPic, p1, p2, mn);
 			enlargeMarginAndDoPicLine(pic, p1, p2);
+			// v1 := v2;
 			v1 = v2.copy();
+			// u1 := u2;
 			u1 = u2.copy();
-			m -=  inc;
+			// m := m - Inc;
+			m -= inc;
 		} while (!(m < 0));
 	}
 
@@ -145,7 +132,7 @@ public class SnailEmbryology extends SimpleEmbryology {
 		Lin lin = new MonoLin(startPt, endPt, 1);
 		logger.fine("Snail adding lin:" + lin);
 		pic.addLin(lin);
-		
+
 	}
 
 	private void drawShell(SnailGenome genome, SnailPic pic) {

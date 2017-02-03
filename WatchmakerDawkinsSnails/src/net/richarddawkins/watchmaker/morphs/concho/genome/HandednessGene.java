@@ -4,8 +4,6 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
-import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.genome.NumericGene;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 
