@@ -33,8 +33,7 @@ public class SwingSpokesGeneBox extends SwingTextGeneBox implements SpokesGeneBo
 		default:
 			labelString = ""; // Shouldn't happen.
 		}
-		this.valueLabel.setText(labelString);
-		repaint();
+		this.setText(labelString);
 	}
 
 	@Override

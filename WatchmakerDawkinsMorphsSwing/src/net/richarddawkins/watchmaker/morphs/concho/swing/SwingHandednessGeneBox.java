@@ -2,15 +2,15 @@ package net.richarddawkins.watchmaker.morphs.concho.swing;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.genome.Gene;
+import net.richarddawkins.watchmaker.morphs.concho.genome.HandednessGene;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 
 public class SwingHandednessGeneBox extends SwingTextGeneBox {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -19,7 +19,7 @@ public class SwingHandednessGeneBox extends SwingTextGeneBox {
 		
 	}
 	
-	public void setValue(HandednessType handednessType) {
+	public void setHandedness(HandednessType handednessType) {
 		if(handednessType == HandednessType.Left)
 			setText("Left");
 		else if(handednessType == HandednessType.Right)
@@ -28,11 +28,12 @@ public class SwingHandednessGeneBox extends SwingTextGeneBox {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		if(evt.getPropertyName().equals("value")) {
-			setValue((HandednessType)evt.getNewValue());
-		}
-		
+		setHandedness((HandednessType) evt.getNewValue());
 	}
-
+	@Override
+	public void setGene(Gene gene) {
+	    super.setGene(gene);
+	    setHandedness(((HandednessGene) gene).getValue());
+	}
 
 }
