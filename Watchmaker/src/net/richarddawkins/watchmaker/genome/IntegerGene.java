@@ -49,5 +49,8 @@ public class IntegerGene extends NumericGene {
 			addToGene(getGooseSize());
 		} 
 	}
-	
+	@Override
+	public String toString() {
+		return name + ":" + value;
+	}
 }

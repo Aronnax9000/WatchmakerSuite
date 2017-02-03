@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.morphs.concho;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
-import net.richarddawkins.watchmaker.morphs.concho.genome.SnailEmbryology;
+import net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryology;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenomeFactory;
 import net.richarddawkins.watchmaker.morphs.concho.genome.mutation.SnailAllowedMutations;

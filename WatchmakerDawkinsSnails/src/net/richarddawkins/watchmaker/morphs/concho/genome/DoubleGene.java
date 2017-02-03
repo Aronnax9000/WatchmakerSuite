@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.concho.genome;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
@@ -30,7 +31,13 @@ public class DoubleGene extends NumericGene {
 	@Override
 	public void geneManipulated(GeneManipulationEvent gbme) {
 		GooseDirection direction = gbme.getGooseDirection();
-		
 	}
-    
+	@Override
+	public String toString() {
+		return name + ":" + value;
+	}
+	@Override
+	public void copy(Gene destinationGene) {
+		((DoubleGene)destinationGene).setValue(getValue());
+	}
 }

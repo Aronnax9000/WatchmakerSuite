@@ -14,7 +14,7 @@ public class SnailGenomeFactory extends GenomeFactory {
 	@Override
 	public Genome getBasicType(int i) {
 		SnailGenome genome = new SnailGenome();
-		ClassicSnail snail = ClassicSnail.values()[i];
+		ClassicSnail snail = ClassicSnail.values()[i - 1];
 		genome.getOpening().setValue(snail.getOpening());
 		genome.getDisplacement().setValue(snail.getDisplacement());
 		genome.getShape().setValue(snail.getShape());
