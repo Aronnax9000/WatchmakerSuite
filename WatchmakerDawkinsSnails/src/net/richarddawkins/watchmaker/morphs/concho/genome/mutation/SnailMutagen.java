@@ -65,27 +65,28 @@ public class SnailMutagen extends SimpleMutagen {
 	public boolean mutate(Genome genome) {
 		SnailGenome target = (SnailGenome) genome;
 		SnailAllowedMutations muts = (SnailAllowedMutations) allowedMutations;
-		int mutProb = muts.getMutProb();
+		int mutProb = target.getMutProb().getValue();
 		boolean success = false;
+		
 		if (randInt(100) < mutProb) {
 			target.opening.setValue(margarine(target.opening.getValue(), direction()));
 			success = true;
 		}
 
 		if (randInt(100) < mutProb) {
-
 			target.displacement.addToGene(direction9() * DMUTSIZE);
 			success = true;
 		}
+
 		if (randInt(100) < mutProb && muts.isSideView()) {
 			// Don't let Translation gene drift when you can't see its
 			// consequences
 			target.translation.addToGene(direction9() * TMUTSIZE);
 			success = true;
 		}
+
 		if (randInt(100) < 1) {
 			target.handedness.flipHandedness();
-
 			success = true;
 		}
 		return success;
