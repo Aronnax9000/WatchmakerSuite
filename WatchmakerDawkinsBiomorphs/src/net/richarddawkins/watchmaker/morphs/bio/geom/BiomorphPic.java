@@ -16,7 +16,7 @@ public abstract class BiomorphPic extends Pic {
 
     protected CompletenessType completenessType;
 
-	public PicStyleType picStyle = PicStyleType.FF;
+	public PicStyleType picStyle = PicStyleType.LF;
     
 	protected SpokesType spokesType;
 	
