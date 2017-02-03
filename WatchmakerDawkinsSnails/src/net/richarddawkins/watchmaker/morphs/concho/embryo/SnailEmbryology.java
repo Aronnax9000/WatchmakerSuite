@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.embryo.SimpleEmbryology;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.concho.genome.DoubleGene;
@@ -30,7 +31,7 @@ public class SnailEmbryology extends SimpleEmbryology {
 		SnailPic pic = (SnailPic) morph.getPhenotype();
 
 		if (prefs.isSideView()) {
-			drawShell(genome, pic);
+			drawShell(genome, pic, false);
 		} else {
 			drawTop(genome, pic);
 		}
@@ -135,9 +136,64 @@ public class SnailEmbryology extends SimpleEmbryology {
 
 	}
 
-	private void drawShell(SnailGenome genome, SnailPic pic) {
-		// TODO Auto-generated method stub
+	private void drawShell(SnailGenome genome, SnailPic pic, boolean dontDraw) {
 
+		double theSize = 0.8; 
+		double rad = 100;
+		double twoPi = Math.PI * 2;
+      
+		double w = genome.getOpening().getValue();
+		double d = genome.getDisplacement().getValue();
+		double s = genome.getShape().getValue();
+	    int inc = genome.getCoarsegraininess().getValue();
+	    if(inc < 1) {
+	    	inc = 1;
+	    }
+	    int reach = genome.getReach().getValue();
+	    if(reach < 1) {
+	      reach = 1;
+	    }
+	    int start = reach * 360;  
+	    double rad1 = 1.088 * (rad + rad * d) / 2;
+	    double rad2 = 1.088 * (rad - rad * d) / 2;
+
+	    int m = start; 
+		int handedness = genome.getHandedness().getValue() == HandednessType.Left ? -1 : 1;
+
+
+		Rect theRect;
+		double translation = genome.getTranslation().getValue();
+		double translationGradient = genome.getTranslationGradient().getValue();
+		do {
+		    double p = (start - (start - m) * (1 - translationGradient)) / start;
+		    double t = translation * p;
+		    double i = (double) m / 360;
+		    double fw = Math.exp(-i * Math.log(w));
+		    double grunge = fw * Math.cos(twoPi * i);
+
+		    double xc = handedness * (rad1 * grunge);
+		    double yc = -rad1 * t * (1 - fw);
+		    double xr = handedness * (rad2 * grunge);
+		    double yr = -rad2 * fw * s;
+		    // the minus signs are to invert the whole snail
+		    double left = xc - xr;
+		    double top = yc + yr;
+	
+		    double right = xc + xr; 
+		    double bottom = yc - yr;
+		    Point startPt = new RealPoint(left, top).toPoint();
+		    Point endPt = new RealPoint(right, bottom).toPoint();
+		    if(! dontDraw) {
+		    	Lin lin = new MonoLin(startPt, endPt, 1);
+				logger.fine("Snail adding lin:" + lin);
+				pic.addLin(lin);
+		    }
+		    
+		    
+		    
+		    m -= inc;
+		} while (!(m < 0));
+	
 	}
 
 }

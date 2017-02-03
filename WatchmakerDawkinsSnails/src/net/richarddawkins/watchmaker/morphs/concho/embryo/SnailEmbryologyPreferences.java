@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.morphs.concho.embryo;
 import net.richarddawkins.watchmaker.embryo.EmbryologyPreferences;
 
 public class SnailEmbryologyPreferences implements EmbryologyPreferences {
-	protected boolean sideView = false;
+	protected boolean sideView = true;
 	
 	public boolean isSideView() {
 		return sideView;
