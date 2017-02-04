@@ -26,10 +26,10 @@ public class SnailEmbryology extends SimpleEmbryology {
 
 	public void develop(Morph morph) {
 		super.develop(morph);
-
+		
 		SnailGenome genome = (SnailGenome) morph.getGenome();
 		SnailPic pic = (SnailPic) morph.getPhenotype();
-
+		pic.setSideView(prefs.isSideView());
 		if (prefs.isSideView()) {
 			drawShell(genome, pic, false);
 		} else {
@@ -188,9 +188,6 @@ public class SnailEmbryology extends SimpleEmbryology {
 				logger.fine("Snail adding lin:" + lin);
 				pic.addLin(lin);
 		    }
-		    
-		    
-		    
 		    m -= inc;
 		} while (!(m < 0));
 	

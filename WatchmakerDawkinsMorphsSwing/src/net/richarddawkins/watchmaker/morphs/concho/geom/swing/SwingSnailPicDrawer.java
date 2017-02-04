@@ -24,6 +24,4 @@ public class SwingSnailPicDrawer extends SwingMonoPicDrawer {
         // TODO hic sunt draconis
         g2.drawOval(line.startPt.h, line.startPt.v, line.endPt.h, line.endPt.v);
     }
-	
-
 }
