@@ -21,7 +21,8 @@ public class SnailGenome extends SimpleGenome {
 
 	public final IntegerGene coarsegraininess = new IntegerGene(this, "Coarsegraininess");
 
-	public final DoubleGene displacement = new Double0To1Gene(this, "Displacement");
+//	public final DoubleGene displacement = new Double0To1Gene(this, "Displacement");
+	public final DisplacementGene displacement = new DisplacementGene(this);
 
 	public final IntegerGene generatingCurve = new IntegerGene(this, "GeneratingCurve");
 
@@ -31,13 +32,13 @@ public class SnailGenome extends SimpleGenome {
 
 	public final IntegerGene mutProb = new IntegerGene(this, "Mutation Probability");
 
-	public final DoubleGene opening = new DoubleGene(this, "Opening");
+	public final OpeningGene opening = new OpeningGene(this);
 
 	public final IntegerGene reach = new IntegerGene(this, "Reach");
 
-	public final DoubleGene shape = new DoubleGene(this, "Shape");
+	public final ShapeGene shape = new ShapeGene(this);
 
-	public final DoubleGene translation = new DoubleGene(this, "Translation");
+	public final TranslationGene translation = new TranslationGene(this);
 
 	public final DoubleGene translationGradient = new DoubleGene(this, "TranslationGradient");
 

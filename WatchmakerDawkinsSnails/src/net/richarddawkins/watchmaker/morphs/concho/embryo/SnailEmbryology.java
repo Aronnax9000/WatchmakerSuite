@@ -86,7 +86,7 @@ public class SnailEmbryology extends SimpleEmbryology {
 			// V2.x := theShell.handedness * (-WI * COS(BD));
 			// V2.y := WI * SIN(BD);
 			RealPoint v2 = new RealPoint(handedness * (-wi * Math.cos(bd)), wi * Math.sin(bd));
-			logger.info("WI:" + wi + " BD:" + bd + " -> y:" + wi*Math.sin(bd));
+			logger.fine("WI:" + wi + " BD:" + bd + " -> y:" + wi*Math.sin(bd));
 
 			// U2.x := V2.x * D;
 			// U2.y := V2.y * D;

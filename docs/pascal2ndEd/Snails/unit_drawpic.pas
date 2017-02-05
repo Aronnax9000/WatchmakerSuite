@@ -20,12 +20,17 @@ uses  Quickdraw, Memory, ToolUtils;
 {$ENDC}
 var
   RectOfInterest: Rect;
-  MugShot, Mirrorshot: bitmap;
+  MugShot, MirrorShot: bitmap;
   CurrentGeneratingCurve: integer;
 
 var
   GenCurveRect: rect;
 
+{Sets the unit-scoped Rect 'GenCurveRect' to 512x512 dimensions, sets the }
+{unit scoped variable 'CurrentGeneratingCurve' to 0, then calls MakeOffScreen}
+{with the 512x512 rectangle to initialize two 512x512 BitMaps 'MugShot' and}
+{'MirrorShot'. The boolean value 'burst' returned by MakeOffScreen is }
+{discarded.}
 procedure InitDrawPic;
 var
   burst: boolean;
@@ -38,6 +43,9 @@ begin
 
 end;
 
+{Adjusts the 'startPt' and 'endPt' fields of the most recent Lin in a Pic }
+{based on the value of 'theScale' from SnailPreferences, and the 'Origin' point}
+{of the Pic.}
 procedure quarantine(prefs: SnailPreferencesHandle; ThisPic: Pic);
 begin
   with ThisPic.MovePtr^ do
@@ -50,8 +58,18 @@ begin
     end;
 end;
 
+{Retrieves the custom snail outline designated by the Biomorph's }
+{'GeneratingCurve' field. Sets the unit-scoped Rect 'RectOfInterest' to a }
+{(0,0) origin rectangle of the same dimensions as the outline's frame, but }
+{adds 1 to the width if necessary to ensure that RectOfInterest's width is }
+{even. Draws the generating curve image to MugShot after first drawing a }
+{white rectangle using RectOfInterest. Sets the clipping rectangle to }
+{the SnailPrefrences' 'Prect' rectangle, and sets thedrawing target }
+{to the supplied SaveBitMap. Finally, calls MirrorBits with MugShot as the }
+{source BitMap, the RectOfInterest, and MirrorShot as the destination BitMap.}
 
-  procedure ChangeTheBitMaps(prefs: SnailPreferencesHandle; Biomorph: person; var SaveBitMap: BitMap);
+  procedure ChangeTheBitMaps(
+    prefs: SnailPreferencesHandle; Biomorph: person; var SaveBitMap: BitMap);
   var
     StrangePicture: PicHandle;
   begin
@@ -67,7 +85,7 @@ end;
     SetPortBits(MugShot);
     FillRect(RectOfInterest, White); {Off screen}
     DrawPicture(StrangePicture, RectOfInterest);
-    Cliprect(prefs^^.Prect);
+    ClipRect(prefs^^.Prect);
     SetPortBits(SaveBitMap);
     MirrorBits(MugShot, RectOfInterest, MirrorShot);
   end;
@@ -102,6 +120,8 @@ end;
     else
     begin
       doMirror := False;
+      {If the end point is left of the start point, the generating curve }
+      {will need to be flipped left-to-right. }
       if x1 < x0 then
       begin {here we need a mirror image}
         DoMirror := True;
@@ -118,6 +138,7 @@ end;
         if (Biomorph.GeneratingCurve = 0) or (prefs^^.theMode = Triangling) or
           ((J < JThreshold) and TooThin) then
         begin
+          {No generating curve, just use an oval}
           if Width = 0 then
           begin
             MoveTo(left, top);
@@ -128,6 +149,7 @@ end;
         end
         else
         begin
+          {Use a generating curve, which may need to be flipped left-to-right}
           if odd(Width) then
             right := right + 1;
           if not doMirror then

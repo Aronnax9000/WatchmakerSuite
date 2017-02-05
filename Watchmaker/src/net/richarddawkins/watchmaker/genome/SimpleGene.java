@@ -56,6 +56,9 @@ public abstract class SimpleGene implements Gene {
 		return 1;
 	}
 
-
+	@Override
+	public double getDoubleGooseSize() {
+		return (double) getGooseSize();
+	}
 	
 }

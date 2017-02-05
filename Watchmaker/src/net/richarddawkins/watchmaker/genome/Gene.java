@@ -11,4 +11,5 @@ public interface Gene extends GeneManipulationListener {
 	void removePropertyChangeListener(PropertyChangeListener listener);
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	int getGooseSize();
+	double getDoubleGooseSize();
 }

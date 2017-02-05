@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.concho.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
+import java.text.DecimalFormat;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.concho.genebox.DoubleGeneBox;
@@ -13,13 +14,14 @@ public class SwingDoubleGeneBox extends SwingTextGeneBox implements DoubleGeneBo
 	 * 
 	 */
 	private static final long serialVersionUID = 143109406407187838L;
-
+	DecimalFormat df = new DecimalFormat("#.00"); 
 	public SwingDoubleGeneBox() {
 		
 	}
 	@Override
 	public void setValue(Double value){
-		valueLabel.setText((value > 0 && ((DoubleGene)gene).isShowPositiveSign() ? "+" : "") + new Double(value).toString());
+		valueLabel.setText((value > 0 && ((DoubleGene)gene).isShowPositiveSign() ? "+" : "") + 
+				df.format(value));
 		repaint();
 	}
 	@Override

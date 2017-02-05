@@ -12,10 +12,12 @@ public class DoubleGene extends NumericGene {
 		super(genome, name);
 	}
 	
-	public void addToGene(double summand) {
-		setValue(this.value + summand);
-	}
 
+	public void addToGene(double summand) {
+		double newValue = this.value + summand;
+		setValue(newValue);
+	}
+	
 	double value;
 
 	public double getValue() {
@@ -27,10 +29,14 @@ public class DoubleGene extends NumericGene {
 		this.value = newValue;
 		pcs.firePropertyChange("value", oldValue, newValue);
 	}
-
 	@Override
 	public void geneManipulated(GeneManipulationEvent gbme) {
 		GooseDirection direction = gbme.getGooseDirection();
+		if (direction.equals(GooseDirection.leftArrow)) {
+			addToGene(-getDoubleGooseSize());
+		} else if (direction.equals(GooseDirection.rightArrow)) {
+			addToGene(getDoubleGooseSize());
+		} 
 	}
 	@Override
 	public String toString() {

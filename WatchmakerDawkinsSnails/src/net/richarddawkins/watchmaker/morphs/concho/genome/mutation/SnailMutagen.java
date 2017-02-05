@@ -13,7 +13,7 @@ public class SnailMutagen extends SimpleMutagen {
 		super(allowedMutations);
 	}
 
-	public double direction() {
+	public static double direction() {
 		if (randInt(2) == 2) {
 			return 1;
 		} else {
@@ -26,10 +26,10 @@ public class SnailMutagen extends SimpleMutagen {
 	 * 
 	 * @return
 	 */
-	private double margarine(double w, double direction) {
+	public static double margarine(double w, double direction) {
 		double wMutSize = 0.1f;
 		double logged = Math.log(w);
-		double logchanged = logged + wMutSize * direction();
+		double logchanged = logged + wMutSize * direction;
 		if (logchanged > 20.0f) {
 			logchanged = 20.0f;
 		}
@@ -40,7 +40,7 @@ public class SnailMutagen extends SimpleMutagen {
 		return m;
 	}
 
-	private double direction9() {
+	public static double direction9() {
 		int r = randInt(5);
 		switch (r) {
 		case 5:
