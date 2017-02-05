@@ -14,7 +14,7 @@ public class SwingDoubleGeneBox extends SwingTextGeneBox implements DoubleGeneBo
 	 * 
 	 */
 	private static final long serialVersionUID = 143109406407187838L;
-	DecimalFormat df = new DecimalFormat("#.00"); 
+	DecimalFormat df = new DecimalFormat("0.00"); 
 	public SwingDoubleGeneBox() {
 		
 	}
