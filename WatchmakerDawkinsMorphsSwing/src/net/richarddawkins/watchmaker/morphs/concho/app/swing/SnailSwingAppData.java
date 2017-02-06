@@ -7,7 +7,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphs.concho.SnailConfig;
 import net.richarddawkins.watchmaker.morphs.concho.genebox.swing.SwingSnailGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.concho.geom.swing.SwingSnailPicDrawer;
-import net.richarddawkins.watchmaker.morphs.concho.swing.SnailMenuBuilder;
+import net.richarddawkins.watchmaker.morphs.concho.menu.swing.SnailMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 

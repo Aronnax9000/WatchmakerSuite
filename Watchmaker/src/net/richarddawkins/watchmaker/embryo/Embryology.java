@@ -6,4 +6,5 @@ import net.richarddawkins.watchmaker.morph.Morph;
 
 public interface Embryology extends PropertyChangeListener {
 	void develop(Morph morph);
+	public EmbryologyPreferences getEmbryologyPreferences();
 }

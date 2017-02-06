@@ -18,10 +18,10 @@ public class SnailEmbryology extends SimpleEmbryology {
 	private static Logger logger = Logger
 			.getLogger("net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryology");
 
-	SnailEmbryologyPreferences prefs = new SnailEmbryologyPreferences();
 
 	public SnailEmbryology() {
-
+		prefs = new SnailEmbryologyPreferences();
+		
 	}
 
 	public void develop(Morph morph) {
@@ -29,8 +29,9 @@ public class SnailEmbryology extends SimpleEmbryology {
 		
 		SnailGenome genome = (SnailGenome) morph.getGenome();
 		SnailPic pic = (SnailPic) morph.getPhenotype();
-		pic.setSideView(prefs.isSideView());
-		if (prefs.isSideView()) {
+		SnailEmbryologyPreferences snailPrefs = (SnailEmbryologyPreferences) prefs;
+		pic.setSideView(snailPrefs.isSideView());
+		if (snailPrefs.isSideView()) {
 			drawShell(genome, pic, false);
 		} else {
 			drawTop(genome, pic);

@@ -1,15 +1,19 @@
-package net.richarddawkins.watchmaker.morphs.concho.swing;
+package net.richarddawkins.watchmaker.morphs.concho.menu.swing;
 
 import java.awt.Component;
+import java.awt.event.ActionEvent;
 
 import javax.swing.ButtonGroup;
 
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryologyPreferences;
+import net.richarddawkins.watchmaker.morphs.concho.swing.AboutSnailsAction;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
@@ -39,12 +43,21 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 	 */
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
-	private WatchmakerCheckBoxMenuItem recordingFossils 
-	= new SwingWatchmakerCheckBoxMenuItem("Recording Fossils");
-
+	private WatchmakerCheckBoxMenuItem recordingFossils = new SwingWatchmakerCheckBoxMenuItem("Recording Fossils");
 
 	public SnailMenuBuilder(SwingAppData swingAppData) {
 		super(swingAppData);
+		changeView = new SwingWatchmakerCheckBoxMenuItem(new SwingWatchmakerAction(appData, "Change View") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SnailEmbryologyPreferences prefs = (SnailEmbryologyPreferences)
+				appData.getMorphConfig().getEmbryology().getEmbryologyPreferences();
+				prefs.setSideView(changeView.isSelected());
+			}
+		});
 	}
 
 	public void buildMenu(WatchmakerMenuBar menuBar) {
@@ -124,15 +137,17 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 	 * View (More Rows, Fewer Rows, More Columns, Fewer Columns, Change View,
 	 * Drift Sweep, Make top of triangle) Make left of triangle, Make right of
 	 * triangle, View Pedigree)
+	 * 
 	 * @return the new View menu
 	 */
 	public WatchmakerMenu buildViewMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
+		WatchmakerMenu menu = new SwingWatchmakerMenu("View");
 		menu.add(new SwingWatchmakerMenuItem("More Rows"));
 		menu.add(new SwingWatchmakerMenuItem("Fewer Rows"));
 		menu.add(new SwingWatchmakerMenuItem("More Columns"));
 		menu.add(new SwingWatchmakerMenuItem("Fewer Columns"));
-		menu.add(new SwingWatchmakerCheckBoxMenuItem("Change View"));
+		menu.add(changeView);
+
 		menu.add(new SwingWatchmakerCheckBoxMenuItem("Drift Sweep"));
 		menu.add(new SwingWatchmakerMenuItem("Make top of triangle"));
 		menu.add(new SwingWatchmakerMenuItem("Make left of triangle"));
@@ -194,7 +209,7 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 		item = new SwingWatchmakerCheckBoxMenuItem("Double Mirrors");
 		menu.add(item);
 		group.add(item);
-		
+
 		menu.addSeparator();
 		menu.add(new SwingWatchmakerMenuItem("Move"));
 		menu.add(new SwingWatchmakerMenuItem("Detach"));
@@ -211,16 +226,16 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Help");
 		menu.add(new SwingWatchmakerMenuItem("Help with current operation"));
 		menu.add(new SwingWatchmakerMenuItem("Miscellaneous Help"));
-		menu.add(new SwingWatchmakerMenuItem(new AboutSnailsAction((Component)menu)));
+		menu.add(new SwingWatchmakerMenuItem(new AboutSnailsAction((Component) menu)));
 		return menu;
 	}
 
-//	@Override
-//	public void propertyChange(PropertyChangeEvent evt) {
-//		if (evt.getPropertyName().equals("recordingFossils"))
-//			recordingFossils.setSelected((Boolean) evt.getNewValue());
-//
-//	}
+	// @Override
+	// public void propertyChange(PropertyChangeEvent evt) {
+	// if (evt.getPropertyName().equals("recordingFossils"))
+	// recordingFossils.setSelected((Boolean) evt.getNewValue());
+	//
+	// }
 
-	
+	protected WatchmakerCheckBoxMenuItem changeView;
 }
