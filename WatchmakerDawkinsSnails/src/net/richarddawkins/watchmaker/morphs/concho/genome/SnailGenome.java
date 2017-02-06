@@ -18,10 +18,10 @@ import net.richarddawkins.watchmaker.genome.SimpleGenome;
  */
 public class SnailGenome extends SimpleGenome {
 
-
 	public final IntegerGene coarsegraininess = new IntegerGene(this, "Coarsegraininess");
 
-//	public final DoubleGene displacement = new Double0To1Gene(this, "Displacement");
+	// public final DoubleGene displacement = new Double0To1Gene(this,
+	// "Displacement");
 	public final DisplacementGene displacement = new DisplacementGene(this);
 
 	public final IntegerGene generatingCurve = new IntegerGene(this, "GeneratingCurve");
@@ -45,45 +45,54 @@ public class SnailGenome extends SimpleGenome {
 	public SnailGenome() {
 
 	}
+
 	public IntegerGene getCoarsegraininess() {
 		return coarsegraininess;
 	}
+
 	public DoubleGene getDisplacement() {
 		return displacement;
 	}
+
 	public IntegerGene getGeneratingCurve() {
 		return generatingCurve;
 	}
+
 	public DoubleGene getGradient() {
 		return gradient;
 	}
+
 	public HandednessGene getHandedness() {
 		return handedness;
 	}
+
 	public IntegerGene getMutProb() {
 		return mutProb;
 	}
+
 	public DoubleGene getOpening() {
 		return opening;
 	}
+
 	public IntegerGene getReach() {
 		return reach;
 	}
+
 	public DoubleGene getShape() {
 		return shape;
 	}
+
 	public DoubleGene getTranslation() {
 		return translation;
 	}
+
 	public DoubleGene getTranslationGradient() {
 		return translationGradient;
 	}
 
-
-
 	public Gene[] toGeneArray() {
-		return new Gene[] { opening, displacement, shape, translation, mutProb, coarsegraininess, reach, generatingCurve,
-				translationGradient, gradient, handedness };
+		return new Gene[] { opening, displacement, shape, translation, mutProb, coarsegraininess, reach,
+				generatingCurve, translationGradient, gradient, handedness };
 	}
 
 }
