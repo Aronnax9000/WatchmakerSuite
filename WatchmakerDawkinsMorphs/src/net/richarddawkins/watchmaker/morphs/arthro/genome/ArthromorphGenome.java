@@ -9,13 +9,6 @@ public class ArthromorphGenome extends SimpleGenome {
 	protected Atom animalTrunk;
 
 	protected int atomCount;
-
-	protected double[] cumParams = new double[9]; // Was 1-based array in Pascal
-
-
-	protected int gradient;
-
-
 	public ArthromorphGenome() {
 
 	}
@@ -35,9 +28,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		return atomCount;
 	}
 
-	public double[] getCumParams() {
-		return cumParams;
-	}
+
 	
 	public Genome reproduce(Morph newMorph) {
 		ArthromorphGenome child = new ArthromorphGenome();
@@ -55,24 +46,6 @@ public class ArthromorphGenome extends SimpleGenome {
 	public void setAtomCount(int atomCount) {
 		this.atomCount = atomCount;
 	}
-
-
-
-	public void setCumParams(double[] cumParams) {
-		this.cumParams = cumParams;
-	}
-
-
-	public int getGradient() {
-		return gradient;
-	}
-
-
-	public void setGradient(int gradient) {
-		this.gradient = gradient;
-	}
-
-
 
 	@Override
 	public Gene[] toGeneArray() {

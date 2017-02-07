@@ -61,7 +61,7 @@ public class ArthromorphGenomeFactory extends GenomeFactory {
 		aa.setFirstBelowMe(bb);
 		aa.setHeight(20);
 		aa.setWidth(20);
-		genome.setGradient(-2); // Gradient, by convention
+		aa.setGradientGene(-2); 
 		genome.setAtomCount(aa.countAtoms());
 		genome.setAnimalTrunk(aa);
 		return genome;

@@ -167,7 +167,7 @@ public class ArthromorphMutagen extends SimpleMutagen {
 		// subtree
 		// 6 reverse an angle , 7 reverse sign of Gradient
 		if (change == 7 && target.kind == AtomKind.AnimalTrunk) {
-			targetGenome.setGradient(-targetGenome.getGradient());
+			target.setGradientGene(-target.getGradientGene());
 		}
 
 		if (change == 4) {
@@ -273,7 +273,7 @@ public class ArthromorphMutagen extends SimpleMutagen {
 				if (change == 4) {
 					if (muts.duplicationMut) {
 						if (target.kind == AtomKind.AnimalTrunk)
-							targetGenome.setGradient(targetGenome.getGradient() + 1); // Special
+							target.setGradientGene(target.getGradientGene() + 1); // Special
 																						// case,
 																						// means
 																						// GradientFactor
@@ -342,7 +342,7 @@ public class ArthromorphMutagen extends SimpleMutagen {
 				if (change == 5) {
 					if (muts.deletionMut) {
 						if (target.kind == AtomKind.AnimalTrunk)
-							targetGenome.setGradient(targetGenome.getGradient() - 1);
+							target.setGradientGene(target.getGradientGene() - 1);
 
 						// Delete. Complex because we need to talk to the atom
 						// above where we delete}

@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
 public class Atom extends SimpleGene implements Cloneable {
 	@SuppressWarnings("unused")
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthroLin");
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthroLin");
 
 	static int[] paramOffset = new int[AtomKind.values().length];
 
@@ -61,6 +61,16 @@ public class Atom extends SimpleGene implements Cloneable {
 	 */
 	public Atom nextLikeMe;
 
+	public int gradientGene = 0;
+	
+	public int getGradientGene() {
+		return gradientGene;
+	}
+
+	public void setGradientGene(int gradientGene) {
+		this.gradientGene = gradientGene;
+	}
+
 	public int segmentNumber = 0;
 
 	/**
@@ -88,8 +98,10 @@ public class Atom extends SimpleGene implements Cloneable {
 
 	protected void addChildrenToVectorDepthFirst(Vector<Atom> atoms) {
 		atoms.add(this);
-		if(this.firstBelowMe != null) this.firstBelowMe.addChildrenToVectorDepthFirst(atoms);
-		if(this.nextLikeMe != null) this.nextLikeMe.addChildrenToVectorDepthFirst(atoms);
+		if (this.firstBelowMe != null)
+			this.firstBelowMe.addChildrenToVectorDepthFirst(atoms);
+		if (this.nextLikeMe != null)
+			this.nextLikeMe.addChildrenToVectorDepthFirst(atoms);
 	}
 
 	public Object clone() {
@@ -232,6 +244,7 @@ public class Atom extends SimpleGene implements Cloneable {
 				}
 		return doDelete;
 	}
+
 	@Override
 	public void geneManipulated(GeneManipulationEvent gbme) {
 		// TODO Auto-generated method stub
@@ -307,14 +320,20 @@ public class Atom extends SimpleGene implements Cloneable {
 		this.width = width;
 	}
 
-public Vector<Atom> toVector() {
-	Vector<Atom> atoms = new Vector<Atom>();
-	atoms.add(this);
-	if (firstBelowMe != null)
-		atoms.addAll(firstBelowMe.toVector());
-	if (nextLikeMe != null)
-		atoms.addAll(nextLikeMe.toVector());
-	return atoms;
-}
+	@Override
+	public String toString() {
+		return kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " segNo:" + segmentNumber
+				+ " atomCount:" + countAtoms();
+	}
+
+	public Vector<Atom> toVector() {
+		Vector<Atom> atoms = new Vector<Atom>();
+		atoms.add(this);
+		if (firstBelowMe != null)
+			atoms.addAll(firstBelowMe.toVector());
+		if (nextLikeMe != null)
+			atoms.addAll(nextLikeMe.toVector());
+		return atoms;
+	}
 
 }

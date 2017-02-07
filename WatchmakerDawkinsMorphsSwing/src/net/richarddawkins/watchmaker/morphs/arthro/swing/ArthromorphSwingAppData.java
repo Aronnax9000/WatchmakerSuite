@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingArthromorphGeneBoxStrip;
+import net.richarddawkins.watchmaker.morphs.arthro.geom.swing.SwingArthromorphPicDrawer;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
@@ -22,4 +23,6 @@ public class ArthromorphSwingAppData extends SwingAppData {
 		geneBoxStrip.setEngineeringMode(engineeringMode); 
 		return geneBoxStrip;
 	}
+	
+	
 }

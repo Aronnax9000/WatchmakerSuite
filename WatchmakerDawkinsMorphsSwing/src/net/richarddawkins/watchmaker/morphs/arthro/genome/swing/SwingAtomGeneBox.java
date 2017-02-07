@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -14,6 +15,7 @@ import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 
 public class SwingAtomGeneBox extends SwingGeneBox {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingAtomGeneBox");
 
 	public JPanel firstBelowMePanel = new JPanel() {
 		private static final long serialVersionUID = 1L;
@@ -26,8 +28,9 @@ public class SwingAtomGeneBox extends SwingGeneBox {
 	
 	public SwingAtomGeneBox() {
 		likeMePanel.setLayout(new GridLayout(0,1));
-		likeMePanel.add(this.valueLabel, BorderLayout.PAGE_START);
+		likeMePanel.add(this.valueLabel);
 		likeMePanel.add(firstBelowMePanel);
+		add(likeMePanel, BorderLayout.CENTER);
 	}
 	
 	/**
@@ -50,9 +53,9 @@ public class SwingAtomGeneBox extends SwingGeneBox {
 	}
 
 	private void setValue(Atom newValue) {
-		setText(newValue.kind.toString() + " w:" + newValue.width + " h:" + newValue.height
-				+ " a:" + newValue.angle + " segNo:" + newValue.segmentNumber
-				+ " atomCount:" + newValue.countAtoms());
+		String text = newValue.toString();
+		logger.info(text);
+		setText(text);
 	}
 	@Override
 	public void setGene(Gene gene) {

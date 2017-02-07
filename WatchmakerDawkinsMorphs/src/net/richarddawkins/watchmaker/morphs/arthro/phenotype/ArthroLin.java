@@ -3,14 +3,15 @@ package net.richarddawkins.watchmaker.morphs.arthro.phenotype;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 
 public class ArthroLin extends ColourLin implements Cloneable {
 	@SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthroLin");
 
-    protected ArthroLimbType arthroLimbType;
-    protected int thickness;
+	public ArthroLimbType arthroLimbType;
+    public int thickness;
     
     public ArthroLin(Point startPt, Point endPt, int color, int thickness) {
     	this(startPt, endPt, color, thickness, ArthroLimbType.LineSegment);
@@ -30,4 +31,13 @@ public class ArthroLin extends ColourLin implements Cloneable {
         clone.thickness = thickness;
         return clone;
       }
+    @Override
+    public void expandMargin(Rect margin) {
+        margin.expandPoint(startPt, thickness);
+    	if(arthroLimbType == ArthroLimbType.LineSegment) {
+	        margin.expandPoint(endPt, thickness);
+    	} else {
+    		margin.expandPoint(startPt.add(endPt), thickness);
+    	}
+    }
 }

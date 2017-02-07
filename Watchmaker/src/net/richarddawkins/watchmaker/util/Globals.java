@@ -7,4 +7,12 @@ public class Globals {
 	public static int worryMax = 4095;
 	public static ModeType theMode;
 	public static boolean delayedDrawing;
+	/**
+	 * Make some very rude noise for the specified time.
+	 * @param i the amount of time to make the very rude noise in.
+	 */
+	public static void sysbeep(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 }
