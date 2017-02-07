@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.morphs.mono.test;
 
 import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.mono.MonochromeMorphConfig;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 

@@ -1,11 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome.mutation;
+package net.richarddawkins.watchmaker.morphs.mono.genome.mutation;
 
 import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.SimpleMutagen;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public abstract class BiomorphMutagen extends SimpleMutagen {
 	

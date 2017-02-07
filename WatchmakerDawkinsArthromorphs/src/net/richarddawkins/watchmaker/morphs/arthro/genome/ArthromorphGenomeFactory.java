@@ -4,7 +4,7 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenomeFactory;
+import net.richarddawkins.watchmaker.morphs.mono.genome.BiomorphGenomeFactory;
 
 public class ArthromorphGenomeFactory extends GenomeFactory {
 

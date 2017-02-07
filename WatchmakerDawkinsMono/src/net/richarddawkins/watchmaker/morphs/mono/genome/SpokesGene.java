@@ -1,11 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome;
+package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
 public class SpokesGene extends SimpleGene {
 	protected SpokesType value;
 	public SpokesGene(Genome genome, String name) {

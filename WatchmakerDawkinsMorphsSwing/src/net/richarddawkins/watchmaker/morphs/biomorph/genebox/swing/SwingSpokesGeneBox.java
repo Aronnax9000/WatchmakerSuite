@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing;
 import java.beans.PropertyChangeEvent;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.morphs.bio.genebox.SpokesGeneBox;
-import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs. mono.genebox.SpokesGeneBox;
+import net.richarddawkins.watchmaker.morphs.mono.genome.SpokesGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.bio.genebox;
+package net.richarddawkins.watchmaker.morphs.mono.genebox;
 
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 

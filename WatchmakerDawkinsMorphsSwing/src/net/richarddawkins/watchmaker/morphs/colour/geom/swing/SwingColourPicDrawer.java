@@ -5,10 +5,10 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences;

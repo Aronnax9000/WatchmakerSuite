@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.morphs.arthro.swing;
 import java.awt.Graphics2D;
 
 import net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthromorphDrawingPreferences;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 

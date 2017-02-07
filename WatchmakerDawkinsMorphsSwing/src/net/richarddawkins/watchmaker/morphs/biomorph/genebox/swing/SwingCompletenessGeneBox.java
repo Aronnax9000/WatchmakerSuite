@@ -3,9 +3,9 @@ package net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing;
 import java.beans.PropertyChangeEvent;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.morphs.bio.genebox.CompletenessGeneBox;
-import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morphs. mono.genebox.CompletenessGeneBox;
+import net.richarddawkins.watchmaker.morphs.mono.genome.CompletenessGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;

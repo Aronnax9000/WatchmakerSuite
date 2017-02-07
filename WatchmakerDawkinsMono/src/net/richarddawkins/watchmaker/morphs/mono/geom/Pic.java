@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.bio.geom;
+package net.richarddawkins.watchmaker.morphs.mono.geom;
 
 import java.util.Vector;
 

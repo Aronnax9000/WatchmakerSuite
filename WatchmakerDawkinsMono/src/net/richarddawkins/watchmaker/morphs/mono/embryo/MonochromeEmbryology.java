@@ -3,10 +3,9 @@ package net.richarddawkins.watchmaker.morphs.mono.embryo;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
 import net.richarddawkins.watchmaker.util.Globals;
 

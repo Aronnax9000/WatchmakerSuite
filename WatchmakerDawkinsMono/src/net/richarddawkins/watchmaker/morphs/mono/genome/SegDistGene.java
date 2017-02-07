@@ -1,8 +1,7 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome;
+package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
-import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public class SegDistGene extends Gene12345678 {
 

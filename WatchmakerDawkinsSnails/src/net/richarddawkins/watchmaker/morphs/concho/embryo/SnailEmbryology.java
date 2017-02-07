@@ -6,12 +6,12 @@ import net.richarddawkins.watchmaker.embryo.SimpleEmbryology;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.concho.genome.DoubleGene;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 import net.richarddawkins.watchmaker.morphs.concho.geom.RealPoint;
 import net.richarddawkins.watchmaker.morphs.concho.geom.SnailPic;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoLin;
 
 public class SnailEmbryology extends SimpleEmbryology {

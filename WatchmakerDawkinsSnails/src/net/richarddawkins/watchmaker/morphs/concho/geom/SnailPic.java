@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.concho.geom;
 
-import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
+import net.richarddawkins.watchmaker.morphs.mono.geom.BiomorphPic;
 
 public class SnailPic extends BiomorphPic {
 

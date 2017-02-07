@@ -6,17 +6,17 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Random;
-import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.mutation.BiomorphMutagen;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.CompletenessGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morphs.mono.genome.SpokesGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.mutation.BiomorphMutagen;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
 
 public class ColourMutagen extends BiomorphMutagen {
 

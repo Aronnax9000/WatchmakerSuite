@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.bio.geom;
+package net.richarddawkins.watchmaker.morphs.mono.geom;
 
 public class QuickDrawColor {
     public static final int BLACK = 0;

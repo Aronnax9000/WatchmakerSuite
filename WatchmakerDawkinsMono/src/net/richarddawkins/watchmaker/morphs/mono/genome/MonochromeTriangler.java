@@ -3,10 +3,9 @@ package net.richarddawkins.watchmaker.morphs.mono.genome;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.Triangler;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeTriangler implements Triangler {

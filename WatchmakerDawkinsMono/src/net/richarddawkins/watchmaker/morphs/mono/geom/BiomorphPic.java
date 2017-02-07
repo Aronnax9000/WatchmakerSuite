@@ -1,8 +1,8 @@
-package net.richarddawkins.watchmaker.morphs.bio.geom;
+package net.richarddawkins.watchmaker.morphs.mono.geom;
 
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
 
 public abstract class BiomorphPic extends Pic {
     

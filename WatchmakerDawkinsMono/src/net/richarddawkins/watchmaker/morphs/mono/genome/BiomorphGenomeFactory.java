@@ -1,14 +1,13 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome;
+package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
-import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
-import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morphs.mono.Biomorph;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public abstract class BiomorphGenomeFactory extends GenomeFactory {
 	

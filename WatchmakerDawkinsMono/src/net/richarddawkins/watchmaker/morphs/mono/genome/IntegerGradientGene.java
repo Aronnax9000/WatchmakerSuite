@@ -1,11 +1,11 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome;
+package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public class IntegerGradientGene extends IntegerGene {
 	public IntegerGradientGene(Genome genome, String name) {

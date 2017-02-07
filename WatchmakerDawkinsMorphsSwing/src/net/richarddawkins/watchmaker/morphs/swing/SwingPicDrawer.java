@@ -7,8 +7,8 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Pic;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Pic;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;

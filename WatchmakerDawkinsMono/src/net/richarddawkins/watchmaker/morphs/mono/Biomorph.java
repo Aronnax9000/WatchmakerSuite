@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.bio;
+package net.richarddawkins.watchmaker.morphs.mono;
 
 import net.richarddawkins.watchmaker.morph.Morph;
 

@@ -4,9 +4,9 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 /**
  * <h2>The Genome in Dawkins' Colour Biomorphs</h2>

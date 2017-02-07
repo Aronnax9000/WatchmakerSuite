@@ -3,10 +3,10 @@ package net.richarddawkins.watchmaker.morphs.colour.geom;
 
 
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
-import net.richarddawkins.watchmaker.morphs.bio.geom.Lin;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
+import net.richarddawkins.watchmaker.morphs.mono.geom.BiomorphPic;
+import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 
 public class ColourPic extends BiomorphPic {
 

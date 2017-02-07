@@ -6,17 +6,9 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
 import net.richarddawkins.watchmaker.genome.TriangleAble;
-import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
-import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGene1To100;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.SegNoGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends SimpleGenome implements TriangleAble {

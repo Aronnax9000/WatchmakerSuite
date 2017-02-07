@@ -1,7 +1,6 @@
-package net.richarddawkins.watchmaker.morphs.bio.genome;
+package net.richarddawkins.watchmaker.morphs.mono.genome;
 
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public class Gene12345678 extends IntegerGradientGene {
 	public Gene12345678(Genome genome, String name) {

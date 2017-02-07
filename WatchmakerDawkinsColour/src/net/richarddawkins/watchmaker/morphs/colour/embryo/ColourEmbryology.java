@@ -5,19 +5,19 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology;
-import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
-import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.SegNoGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbFillGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourLin;
 import net.richarddawkins.watchmaker.morphs.colour.geom.ColourPic;
+import net.richarddawkins.watchmaker.morphs.mono.embryo.BiomorphEmbryology;
+import net.richarddawkins.watchmaker.morphs.mono.genome.Gene12345678;
+import net.richarddawkins.watchmaker.morphs.mono.genome.Gene9;
+import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGeneOneOrGreater;
+import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGradientGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.SegNoGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public class ColourEmbryology extends BiomorphEmbryology {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology");

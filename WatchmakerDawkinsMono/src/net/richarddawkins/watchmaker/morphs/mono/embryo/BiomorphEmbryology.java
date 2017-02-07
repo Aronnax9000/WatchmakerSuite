@@ -1,10 +1,10 @@
-package net.richarddawkins.watchmaker.morphs.bio.embryo;
+package net.richarddawkins.watchmaker.morphs.mono.embryo;
 
 import net.richarddawkins.watchmaker.embryo.SimpleEmbryology;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
-import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic.PicStyleType;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
+import net.richarddawkins.watchmaker.morphs.mono.geom.BiomorphPic;
+import net.richarddawkins.watchmaker.morphs.mono.geom.BiomorphPic.PicStyleType;
 
 public class BiomorphEmbryology extends SimpleEmbryology {
 	

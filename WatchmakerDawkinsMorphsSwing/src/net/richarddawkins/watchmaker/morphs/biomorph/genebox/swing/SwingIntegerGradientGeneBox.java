@@ -9,9 +9,9 @@ import java.beans.PropertyChangeEvent;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.genome.Gene;
-import net.richarddawkins.watchmaker.morphs.bio.genebox.IntegerGradientGeneBox;
-import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs. mono.genebox.IntegerGradientGeneBox;
+import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGradientGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
