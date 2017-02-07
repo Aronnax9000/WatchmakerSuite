@@ -127,12 +127,12 @@ public class MonochromeTriangler implements Triangler {
 	 *            the weight to assign to the second supplied genome
 	 * @param r3
 	 *            the weight to assign to the third supplied genome
-	 * @param a
-	 *            the first supplied genome
-	 * @param b
-	 *            the second supplied genome
-	 * @param c
-	 *            the third supplied genome
+	 * @param genericA
+	 *            the first supplied genome.  An unchecked ClassCastException will occur if the genome is not of the correct type.
+	 * @param genericB
+	 *            the second supplied genome.  An unchecked ClassCastException will occur if the genome is not of the correct type.
+	 * @param genericC
+	 *            the third supplied genome. An unchecked ClassCastException will occur if the genome is not of the correct type.
 	 * 
 	 */
 	@Override

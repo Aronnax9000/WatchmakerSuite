@@ -19,8 +19,11 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 
 	/**
 	 * Draw boxes on a Graphics2D context.
-	 * @param g the Graphics2D on which drawing is to take place.
+	 * @param graphicsContext the Graphics2D on which drawing is to take place.
 	 * @param dimension the size of the overall grid of boxes.
+	 * @param boxes the BoxManager
+	 * @param midBoxOnly
+	 * @param backgroundColors
 	 */
 	public void draw(Object graphicsContext, 
 			Dim dimension, 
