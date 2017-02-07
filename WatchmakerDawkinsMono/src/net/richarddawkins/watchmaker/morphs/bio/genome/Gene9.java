@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morphs.bio.genome;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class Gene9 extends IntegerGradientGene {
@@ -21,12 +22,12 @@ public class Gene9 extends IntegerGradientGene {
 	}
 	
 	public void goose(GooseDirection direction) {
-		BiomorphGenome biomorphGenome = (BiomorphGenome) genome;
+		MonochromeGenome MonochromeGenome = (MonochromeGenome) genome;
 		if (direction.equals(GooseDirection.leftArrow)) {
 			decrementGene();
 		} else if (direction.equals(GooseDirection.rightArrow)) {
 			long sizeWorry 
-				= (long) ((biomorphGenome.getSegNoGene().getValue() + 1) 
+				= (long) ((MonochromeGenome.getSegNoGene().getValue() + 1) 
 				* Math.pow(2, value));
 			if (sizeWorry <= Globals.worryMax) {
 				incrementGene();

@@ -2,9 +2,9 @@ package net.richarddawkins.watchmaker.morphs.bio.embryo;
 
 import net.richarddawkins.watchmaker.embryo.SimpleEmbryology;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic;
 import net.richarddawkins.watchmaker.morphs.bio.geom.BiomorphPic.PicStyleType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public class BiomorphEmbryology extends SimpleEmbryology {
 	
@@ -32,7 +32,7 @@ public class BiomorphEmbryology extends SimpleEmbryology {
 
 	@Override
 	public void develop(Morph morph) {
-	        BiomorphGenome genome = (BiomorphGenome) morph.getGenome();
+	        MonochromeGenome genome = (MonochromeGenome) morph.getGenome();
 	        BiomorphPic pic = (BiomorphPic) morph.getPhenotype();
 	        pic.setSpokesType(genome.getSpokesGene().getValue());
 	        pic.setCompletenessType(genome.getCompletenessGene().getValue());

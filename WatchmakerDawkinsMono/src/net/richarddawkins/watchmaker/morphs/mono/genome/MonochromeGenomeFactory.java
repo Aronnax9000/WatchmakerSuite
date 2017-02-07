@@ -3,7 +3,6 @@ package net.richarddawkins.watchmaker.morphs.mono.genome;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenomeFactory;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
@@ -42,7 +41,7 @@ public class MonochromeGenomeFactory extends BiomorphGenomeFactory {
 		return genome;
 	}
 
-	protected void makeGenes(BiomorphGenome genome, int a, int b, int c, int d, int e, int f, int g, int h, int i) {
+	protected void makeGenes(MonochromeGenome genome, int a, int b, int c, int d, int e, int f, int g, int h, int i) {
 		super.makeGenes(genome, a, b, c, d, e, f, g, h, i);
 		genome.getSegDistGene().setValue(150);
 	}

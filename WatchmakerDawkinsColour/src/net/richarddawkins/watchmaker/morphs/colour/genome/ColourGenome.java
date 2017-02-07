@@ -4,10 +4,10 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGeneOneOrGreater;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 /**
  * <h2>The Genome in Dawkins' Colour Biomorphs</h2>
  * <pre>
@@ -82,7 +82,7 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
  * @author Alan Canon
  *
  */
-public class ColourGenome extends BiomorphGenome {
+public class ColourGenome extends MonochromeGenome {
     
     @SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome");

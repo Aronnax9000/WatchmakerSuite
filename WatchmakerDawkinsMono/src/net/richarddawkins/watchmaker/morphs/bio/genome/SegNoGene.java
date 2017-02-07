@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SegNoGene extends IntegerGeneOneOrGreater {
@@ -18,9 +19,9 @@ public class SegNoGene extends IntegerGeneOneOrGreater {
 		if (direction.equals(GooseDirection.leftArrow)) {
 			decrementGene();
 		} else if (direction.equals(GooseDirection.rightArrow)) {
-			BiomorphGenome biomorphGenome = (BiomorphGenome) genome;
+			MonochromeGenome MonochromeGenome = (MonochromeGenome) genome;
 
-			long sizeWorry = (long) ((this.value + 1) * Math.pow(2, biomorphGenome.gene9.getValue()));
+			long sizeWorry = (long) ((this.value + 1) * Math.pow(2, MonochromeGenome.getGene9().getValue()));
 			if (sizeWorry <= Globals.worryMax) {
 				incrementGene();
 			}

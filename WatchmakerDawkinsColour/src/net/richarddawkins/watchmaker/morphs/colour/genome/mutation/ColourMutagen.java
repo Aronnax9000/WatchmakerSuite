@@ -6,7 +6,6 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Random;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.SpokesGene;
@@ -17,6 +16,7 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public class ColourMutagen extends BiomorphMutagen {
 
@@ -64,7 +64,7 @@ public class ColourMutagen extends BiomorphMutagen {
 		if (mut[12]) {
 			for (int j = 0; j < 8; j++)
 				if (randInt(100) < mutProb) {
-					((IntegerGene) target.getGene(j)).addToGene(direction((BiomorphGenome) genome));
+					((IntegerGene) target.getGene(j)).addToGene(direction((MonochromeGenome) genome));
 					success = true;
 				}
 			if (randInt(100) < mutProb) {

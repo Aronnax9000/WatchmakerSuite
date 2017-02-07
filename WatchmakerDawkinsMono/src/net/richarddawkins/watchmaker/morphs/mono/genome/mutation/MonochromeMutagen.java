@@ -5,7 +5,6 @@ import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.CompletenessGene;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene12345678;
 import net.richarddawkins.watchmaker.morphs.bio.genome.Gene9;
@@ -39,7 +38,7 @@ public class MonochromeMutagen extends BiomorphMutagen  {
 		}
 		for (int j = 0; j < 8; j++) {
 			if (randInt(100) < mutProb) {
-				((Gene12345678) target.getGene(j)).addToGene(direction((BiomorphGenome) genome));
+				((Gene12345678) target.getGene(j)).addToGene(direction((MonochromeGenome) genome));
 				success = true;
 			}
 		}

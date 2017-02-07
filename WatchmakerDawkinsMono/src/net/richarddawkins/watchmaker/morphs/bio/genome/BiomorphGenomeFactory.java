@@ -8,12 +8,9 @@ import net.richarddawkins.watchmaker.morphs.bio.Biomorph;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.CompletenessType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public abstract class BiomorphGenomeFactory extends GenomeFactory {
-	
-
-	
-	
 	
 	public BiomorphGenomeFactory(AllowedMutations muts) {
 		super(muts);
@@ -35,7 +32,7 @@ public abstract class BiomorphGenomeFactory extends GenomeFactory {
 		}
 	}
 
-	protected void makeGenes(BiomorphGenome genome, int a, int b, int c, int d, int e, int f, int g, int h, int i) {
+	protected void makeGenes(MonochromeGenome genome, int a, int b, int c, int d, int e, int f, int g, int h, int i) {
 		Gene[] myGenes = genome.toGeneArray();
 		for (int j = 0; j < 8; j++) {
 			IntegerGradientGene myGene = (IntegerGradientGene) myGenes[j];

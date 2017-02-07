@@ -4,8 +4,8 @@ import static net.richarddawkins.watchmaker.genome.mutation.Random.randInt;
 
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.SimpleMutagen;
-import net.richarddawkins.watchmaker.morphs.bio.genome.BiomorphGenome;
 import net.richarddawkins.watchmaker.morphs.bio.genome.type.SwellType;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 
 public abstract class BiomorphMutagen extends SimpleMutagen {
 	
@@ -36,7 +36,7 @@ public abstract class BiomorphMutagen extends SimpleMutagen {
 	}
 
 
-	static public int direction(BiomorphGenome genome) {
+	static public int direction(MonochromeGenome genome) {
 		int mutSizeGene = genome.getMutSizeGene().getValue();
 		if(randInt(2) == 2) {
 			return mutSizeGene;
