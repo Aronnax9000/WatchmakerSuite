@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing;
+package net.richarddawkins.watchmaker.morphs.arthro.geom.swing;
 
 import java.awt.Graphics2D;
 

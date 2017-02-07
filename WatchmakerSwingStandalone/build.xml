@@ -16,11 +16,7 @@
             <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphsSwing/bin"/>
             <fileset dir="/home/alan/git/WatchmakerSuite/Watchmaker/bin"/>
             <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerSwing/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsArthromorphs/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsColour/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsBiomorphs/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMono/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsSnails/bin"/>
+            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphs/bin"/>
         </jar>
     </target>
 </project>
