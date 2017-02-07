@@ -114,7 +114,7 @@ public class ArthromorphMutagen extends SimpleMutagen {
 		do {
 			counter++;
 			// If it fails, just try again until we succeed at changing
-			// something. - CRD
+			// something. - RD
 			done = tryMutate(genome);
 
 		} while (!done && counter <= 1000);
@@ -162,10 +162,15 @@ public class ArthromorphMutagen extends SimpleMutagen {
 
 		// Decide what to do
 		int change = randInt(7); // seven basic operations
+		
 		// 1 twiddle Height, 2 twiddle Width, 3 twiddle Angle, 4 Duplicate
 		// entire subtree, 5 Delete
 		// subtree
 		// 6 reverse an angle , 7 reverse sign of Gradient
+		
+		// TODO FIXME
+//		change = 4; // For testing only, force duplication.
+		
 		if (change == 7 && target.kind == AtomKind.AnimalTrunk) {
 			target.setGradientGene(-target.getGradientGene());
 		}
@@ -259,7 +264,7 @@ public class ArthromorphMutagen extends SimpleMutagen {
 		boolean ok = false;
 		if (mutOK) {
 			ok = true;
-			if (change == 4 || (change == 5 && target.kind == AtomKind.Claw)) {
+			if ((change == 4 || change == 5) && target.kind == AtomKind.Claw) {
 				ok = false; // Forbid delete or dup of claw
 			}
 			if ((change == 3 || change == 6)
@@ -272,32 +277,19 @@ public class ArthromorphMutagen extends SimpleMutagen {
 			if (ok) {
 				if (change == 4) {
 					if (muts.duplicationMut) {
-						if (target.kind == AtomKind.AnimalTrunk)
-							target.setGradientGene(target.getGradientGene() + 1); // Special
-																						// case,
-																						// means
-																						// GradientFactor
-						else
-							target.nextLikeMe = target.copyExceptNext(); // Insert
-																			// copy
-																			// of
-																			// me
-																			// after
-																			// me
-						// CopyExceptNext makes sure NextLikeMe of copy now
-						// points to old NextLikeMe of target
-						// So brothers are kept, and new subtree is inserted
-						if (target.kind == AtomKind.Joint && target.firstBelowMe != null) { // last
-																							// joint
-																							// has
-																							// claw.
-																							// When
-																							// duplicate,
-																							// get
-																							// rid
-																							// of
-																							// extra
-																							// claw}
+						if (target.kind == AtomKind.AnimalTrunk) {
+							// Special case, means GradientFactor
+							target.setGradientGene(target.getGradientGene() + 1);
+						} else {
+							// Insert copy of me after me
+							// CopyExceptNext makes sure NextLikeMe of copy now
+							// points to old NextLikeMe of target
+							// So brothers are kept, and new subtree is inserted
+							// last joint has claw. When duplicate, get rid of extra claw
+							target.nextLikeMe = target.copyExceptNext(); 
+						}
+						
+						if (target.kind == AtomKind.Joint && target.firstBelowMe != null) { 
 							Atom extraClaw = target.firstBelowMe;
 							target.firstBelowMe = null;
 							extraClaw.kill();
@@ -366,6 +358,5 @@ public class ArthromorphMutagen extends SimpleMutagen {
 
 		return ok && mutOK;
 	}
-
 
 }

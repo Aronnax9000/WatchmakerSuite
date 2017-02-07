@@ -9,6 +9,7 @@ import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
 public class ArthromorphSwingAppData extends SwingAppData {
 	public ArthromorphSwingAppData() {
+		this.setGeneBoxToSide(true);
 		this.setMenuBuilder(new ArthromorphMenuBuilder(this));
 		this.setPhenotypeDrawer(new SwingArthromorphPicDrawer());
 		

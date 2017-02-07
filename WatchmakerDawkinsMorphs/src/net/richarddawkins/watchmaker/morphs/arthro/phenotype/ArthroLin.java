@@ -40,4 +40,9 @@ public class ArthroLin extends ColourLin implements Cloneable {
     		margin.expandPoint(startPt.add(endPt), thickness);
     	}
     }
+    
+    @Override
+    public String toString() {
+    	return arthroLimbType.name() + " " + super.toString();
+    }
 }

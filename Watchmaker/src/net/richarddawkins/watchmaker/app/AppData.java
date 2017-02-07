@@ -62,4 +62,6 @@ public interface AppData  {
 	public BoxesDrawer getBoxesDrawer();
 	public void setPhenotypeDrawer(PhenotypeDrawer newValue);
 	public void addTriangleMorphView();
+	public boolean isGeneBoxToSide();
+	public void setGeneBoxToSide(boolean newValue);
 }

@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morphs.colour.geom;
 
 
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.WatchmakerColor;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 import net.richarddawkins.watchmaker.morphs.mono.geom.BiomorphPic;
@@ -10,10 +11,8 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 
 public class ColourPic extends BiomorphPic {
 
-    public static final int RED = 0;
-	public static final int GREEN = 0;
-	public static final int LIGHT_GRAY = 0;
-	protected int backgroundColor;
+
+	protected int backgroundColor = WatchmakerColor.WhiteColor;
     public int getBackgroundColor() {
         return backgroundColor;
     }

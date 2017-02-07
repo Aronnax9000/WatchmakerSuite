@@ -98,8 +98,13 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 
 	}
 
-	public SwingMorphView(AppData appData, String icon, String name, boolean engineeringMode) {
+	public SwingMorphView(AppData appData, String icon, String name, boolean engineeringMode, boolean geneBoxToSide) {
 		this(appData, icon, name);
+		if(geneBoxToSide) {
+			this.upperStripBorderLayoutLocation = BorderLayout.LINE_END;
+		} else{
+			this.upperStripBorderLayoutLocation = BorderLayout.PAGE_START;
+		}
 		GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
 		setUpperStrip(geneBoxStrip);
 		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
@@ -274,7 +279,16 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			this.remove((JPanel) this.upperStrip);
 		this.upperStrip = upperStrip;
 		if (this.upperStrip != null)
-			this.add((JPanel) this.upperStrip, BorderLayout.PAGE_START);
+			this.add((JPanel) this.upperStrip, upperStripBorderLayoutLocation);
 
+	}
+	protected String upperStripBorderLayoutLocation = BorderLayout.PAGE_START;
+
+	public String getUpperStripBorderLayoutLocation() {
+		return upperStripBorderLayoutLocation;
+	}
+
+	public void setUpperStripBorderLayoutLocation(String upperStripBorderLayoutLocation) {
+		this.upperStripBorderLayoutLocation = upperStripBorderLayoutLocation;
 	}
 }

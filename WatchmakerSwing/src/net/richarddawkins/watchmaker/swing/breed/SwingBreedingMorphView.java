@@ -29,7 +29,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	Timer timer = new Timer();
 
 	public SwingBreedingMorphView(AppData appData, Morph morph) {
-		super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding", false);
+		super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding", false, appData.isGeneBoxToSide());
 		centrePanel.setCursor(WatchmakerCursors.breed);
 		setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows()));
 
@@ -38,7 +38,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	
 	public void boxClicked(Point myPt) {
 		if(centrePanel.getCursor() == WatchmakerCursors.breed) {
-			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(getSize()));
+			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
 			if (boxNo != -1) {
 				special = boxNo;
 				breedFromSpecial();

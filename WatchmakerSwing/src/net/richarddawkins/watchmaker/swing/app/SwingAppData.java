@@ -29,6 +29,14 @@ public abstract class SwingAppData implements AppData {
 		this.saltOnEmptyBreedingBoxClick = saltOnEmptyBreedingBoxClick;
 	}
 
+	protected boolean geneBoxToSide;
+
+	public boolean isGeneBoxToSide() {
+		return geneBoxToSide;
+	}
+	public void setGeneBoxToSide(boolean geneBoxToSide) {
+		this.geneBoxToSide = geneBoxToSide;
+	}
 
 	protected MorphConfig config;
 

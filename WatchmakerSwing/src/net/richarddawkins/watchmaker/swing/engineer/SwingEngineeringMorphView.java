@@ -28,7 +28,7 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 
 	public SwingEngineeringMorphView(AppData appData, Morph morph) {
-		super(appData, "Hypodermic_PICT_03937_16x16", "Engineering", true);
+		super(appData, "Hypodermic_PICT_03937_16x16", "Engineering", true, appData.isGeneBoxToSide());
 		boxes = new GridBoxManager(1, 1);
 		((Component)this.getCentrePanel()).setCursor(WatchmakerCursors.hypodermic);
 		MorphConfig config = appData.getMorphConfig();

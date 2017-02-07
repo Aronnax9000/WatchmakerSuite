@@ -7,7 +7,7 @@ import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
-public class Atom extends SimpleGene implements Cloneable {
+public class Atom extends SimpleGene {
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthroLin");
 
@@ -47,6 +47,8 @@ public class Atom extends SimpleGene implements Cloneable {
 	 */
 	public Atom firstBelowMe;
 
+	public int gradientGene = 0;
+
 	/**
 	 * Original documentation: Also used for Thickness of a Joint
 	 */
@@ -60,17 +62,7 @@ public class Atom extends SimpleGene implements Cloneable {
 	 * slightly more or less than 100. Treat as Percentage
 	 */
 	public Atom nextLikeMe;
-
-	public int gradientGene = 0;
 	
-	public int getGradientGene() {
-		return gradientGene;
-	}
-
-	public void setGradientGene(int gradientGene) {
-		this.gradientGene = gradientGene;
-	}
-
 	public int segmentNumber = 0;
 
 	/**
@@ -86,12 +78,13 @@ public class Atom extends SimpleGene implements Cloneable {
 		angle = 1.0;
 	}
 
-	public Atom(AtomKind kind, double height, double width, double angle, Atom nextLikeMe, Atom firstBelowMe) {
+	public Atom(AtomKind kind, double height, double width, double angle, int gradientGene, Atom nextLikeMe, Atom firstBelowMe) {
 		super(null, kind.toString());
 		this.kind = kind;
 		this.height = height;
 		this.width = width;
 		this.angle = angle;
+		this.gradientGene = gradientGene;
 		this.nextLikeMe = nextLikeMe;
 		this.firstBelowMe = firstBelowMe;
 	}
@@ -104,39 +97,23 @@ public class Atom extends SimpleGene implements Cloneable {
 			this.nextLikeMe.addChildrenToVectorDepthFirst(atoms);
 	}
 
-	public Object clone() {
-		Atom clone = null;
-		try {
-			clone = (Atom) super.clone();
-			if (clone.firstBelowMe != null)
-				clone.firstBelowMe = (Atom) clone.firstBelowMe.clone();
-			if (clone.nextLikeMe != null)
-				clone.nextLikeMe = (Atom) clone.nextLikeMe.clone();
-		} catch (CloneNotSupportedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return clone;
-	}
-
 	public Atom copy() {
-		Atom copy = (Atom) this.clone();
-		if (copy.firstBelowMe != null) {
-			copy.firstBelowMe = copy.firstBelowMe.copy();
-		}
-		if (copy.nextLikeMe != null) {
-			copy.nextLikeMe = copy.nextLikeMe.copy();
+		Atom copy = copyExceptNext();
+		if (nextLikeMe != null) {
+			copy.nextLikeMe = nextLikeMe.copy();
 		}
 		return copy;
 	}
 
 	public Atom copyExceptNext() {
-		Atom copy = (Atom) this.clone();
-		if (copy.firstBelowMe != null) {
-			copy.firstBelowMe = copy.firstBelowMe.copy();
+		Atom copy = new Atom(kind, height, width, angle, gradientGene, null, null);
+		copy.setGenome(genome);
+		if (firstBelowMe != null) {
+			copy.firstBelowMe = firstBelowMe.copy();
 		}
-		copy.nextLikeMe = null;
+		if (nextLikeMe != null) {
+			copy.nextLikeMe = nextLikeMe.copy();
+		}
 		return copy;
 	}
 
@@ -259,6 +236,10 @@ public class Atom extends SimpleGene implements Cloneable {
 		return firstBelowMe;
 	}
 
+	public int getGradientGene() {
+		return gradientGene;
+	}
+
 	public double getHeight() {
 		return height;
 	}
@@ -304,6 +285,10 @@ public class Atom extends SimpleGene implements Cloneable {
 		this.firstBelowMe = firstBelowMe;
 	}
 
+	public void setGradientGene(int gradientGene) {
+		this.gradientGene = gradientGene;
+	}
+
 	public void setHeight(double height) {
 		this.height = height;
 	}
@@ -320,10 +305,32 @@ public class Atom extends SimpleGene implements Cloneable {
 		this.width = width;
 	}
 
+	public void recurseToStringBuffer(StringBuffer text, int recurseLevel) {
+		text.append(kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " g:" + gradientGene + " segNo:" + segmentNumber
+				+ " atomCount:" + countAtoms());
+		
+		if(firstBelowMe != null) {
+			text.append("<br>\n");
+			for(int i = 0; i < recurseLevel; i++) {
+				text.append("&gt;");
+			}
+			firstBelowMe.recurseToStringBuffer(text, recurseLevel + 1);
+		}
+		if(nextLikeMe != null) {
+			text.append("<br>\n");
+			for(int i = 0; i < recurseLevel - 1; i++) {
+				text.append("&gt;");
+			}
+			nextLikeMe.recurseToStringBuffer(text, recurseLevel + 1);
+		}
+	}
+	
 	@Override
 	public String toString() {
-		return kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " segNo:" + segmentNumber
-				+ " atomCount:" + countAtoms();
+		StringBuffer text = new StringBuffer();
+		recurseToStringBuffer(text, 0);
+
+		return text.toString();
 	}
 
 	public Vector<Atom> toVector() {
