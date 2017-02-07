@@ -29,7 +29,7 @@ public class GeneBoxMouseAdapter extends MouseAdapter implements GeneManipulatio
 	 long doubleClickInterval = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
 	 
 	 @Override
-	 public void mousePressed(MouseEvent e)
+	 public void mousePressed(final MouseEvent e)
      {
          if(longPressTimer == null)
          {

@@ -32,7 +32,7 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (evt.getPropertyName().equals("showBoundingBoxes")) {
-			setShowBoundingBoxes((boolean) evt.getNewValue());
+			setShowBoundingBoxes((Boolean) evt.getNewValue());
 		}
 	}
 

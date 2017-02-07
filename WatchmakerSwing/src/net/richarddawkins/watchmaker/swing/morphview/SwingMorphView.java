@@ -69,7 +69,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 				paintMorphViewPanel((Graphics2D) g, SwingGeom.toWatchmakerDim(this.getSize()));
 			}
 		};
-//		this.setPreferredSize(new Dimension(640, 480));
+		// this.setPreferredSize(new Dimension(640, 480));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.add(centrePanel, BorderLayout.CENTER);
 		centrePanel.addMouseMotionListener(new MouseMotionAdapter() {
@@ -201,7 +201,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			int counter = 0;
 			Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
 			logger.info("Iterator size: " + boxedMorphVector.getBoxedMorphs().size());
-			while(iter.hasNext()) {
+			while (iter.hasNext()) {
 				morphDrawer.setSize(boxes.getBoxSize(size));
 				logger.info("Getting BoxedMorph " + counter);
 				BoxedMorph boxedMorph = iter.next();
@@ -215,17 +215,13 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 
 	public void propertyChange(PropertyChangeEvent event) {
 		String propertyName = event.getPropertyName();
-		switch (propertyName) {
-		case "showBoundingBoxes":
-		case "scale":
-		case "phenotype":
+		if (propertyName.equals("showBoundingBoxes") || propertyName.equals("scale")
+				|| propertyName.equals("phenotype")) {
 			logger.info("SwingMorphViewPanel propertyChange:" + propertyName);
 			for (Morph morph : getMorphs()) {
 				morph.setImage(null);
 			}
 			repaint();
-			break;
-		default:
 		}
 	}
 

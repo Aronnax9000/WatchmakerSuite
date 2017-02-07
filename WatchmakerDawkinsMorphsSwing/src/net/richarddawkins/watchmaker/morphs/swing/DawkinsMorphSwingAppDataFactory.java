@@ -86,36 +86,26 @@ public class DawkinsMorphSwingAppDataFactory implements AppDataFactory {
 		this.name = "Dawkins' Morphs";
 	};
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.richarddawkins.watchmaker.morphs.swing.SwingAppDataFactory#
-	 * newSwingAppData()
+
+	/**
+	 * @return a new SwingAppData depending on the value of MorphType (Arthromorphs, Colour, Snails, Monochrome)
 	 */
 	@Override
 	public SwingAppData newAppData() {
-		SwingAppData swingAppData;
-
-		switch (morphType) {
-		case "Arthromorphs":
+		SwingAppData swingAppData = null;
+		if(morphType.equals("Arthromorphs")) {
 			swingAppData = new ArthromorphSwingAppData();
-			break;
-		case "Colour":
+		} else if(morphType.equals("Colour")) {
 			swingAppData = new ColourSwingAppData();
-			break;
-		case "Snails":
+		} else if(morphType.equals("Snails")) {
 			swingAppData = new SnailSwingAppData();
-			break;
-		case "Monochrome":
+		} else if(morphType.equals("Monochrome")) {
 			swingAppData = new MonochromeSwingAppData();
-			break;
-		default:
-			swingAppData = null;
-
+		} 
+		if(swingAppData != null) {
+			swingAppData.setName(morphType);
+			swingAppData.setMorphViewsTabbedPane(new SwingMorphViewsTabbedPanel(swingAppData));
 		}
-		swingAppData.setName(morphType);
-		swingAppData.setMorphViewsTabbedPane(new SwingMorphViewsTabbedPanel(swingAppData));
-
 		return swingAppData;
 	}
 

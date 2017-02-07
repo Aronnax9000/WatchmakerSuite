@@ -78,7 +78,7 @@ public class ArthromorphsEngineer extends JFrame {
   public ArthromorphsEngineer(AppData appData) {
     super("Allowed Mutations");
     this.appData = appData;
-    ArthromorphAllowedMutations muts = (ArthromorphAllowedMutations) appData.getMorphConfig().getMutagen().getAllowedMutations();
+    final ArthromorphAllowedMutations muts = (ArthromorphAllowedMutations) appData.getMorphConfig().getMutagen().getAllowedMutations();
     this.addComponentListener(new ComponentAdapter() {
       public void componentShown(ComponentEvent e) {
         animalTrunkMut.setSelected(muts.animalTrunkMut);
