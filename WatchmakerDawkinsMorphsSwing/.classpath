@@ -6,9 +6,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Watchmaker"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WatchmakerSwing"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/WatchmakerDawkinsArthromorphs"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/WatchmakerDawkinsBiomorphs"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/WatchmakerDawkinsColour"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/WatchmakerDawkinsMono"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/WatchmakerDawkinsSnails"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
