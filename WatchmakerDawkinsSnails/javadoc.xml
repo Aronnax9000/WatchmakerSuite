@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="javadoc">
-    <target name="javadoc">
-        <javadoc access="public" author="true" classpath="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsBiomorphs/bin:/home/alan/git/WatchmakerSuite/Watchmaker/bin:/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMono/bin" destdir="/home/alan/git/WatchmakerSuite/docs/javadoc/WatchmakerDawkinsSnails" doctitle="WatchmakerDawkinsSnails (Classes specific to Dawkins' Conchomorphs (Snails)" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="net.richarddawkins.watchmaker.morphs.concho,net.richarddawkins.watchmaker.morphs.concho.genebox,net.richarddawkins.watchmaker.morphs.concho.embryo,net.richarddawkins.watchmaker.morphs.concho.genome,net.richarddawkins.watchmaker.morphs.concho.genome.mutation,net.richarddawkins.watchmaker.morphs.concho.geom,net.richarddawkins.watchmaker.morphs.concho.genome.type" source="1.8" sourcepath="src" splitindex="true" use="true" version="true"/>
-    </target>
-</project>

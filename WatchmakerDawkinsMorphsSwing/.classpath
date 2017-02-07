@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Watchmaker"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WatchmakerSwing"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/WatchmakerDawkinsMorphs"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

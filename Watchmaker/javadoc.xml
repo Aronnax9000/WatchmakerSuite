@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="javadoc">
-    <target name="javadoc">
-        <javadoc access="public" author="true" classpath="." destdir="../docs/javadoc/Watchmaker" doctitle="Watchmaker (Core classes for Watchmaker Suite)" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="net.richarddawkins.watchmaker.geom,net.richarddawkins.watchmaker.resourceloader,net.richarddawkins.watchmaker.morphview,net.richarddawkins.watchmaker.embryo,net.richarddawkins.watchmaker.phenotype,net.richarddawkins.watchmaker.genome,net.richarddawkins.watchmaker.genebox,net.richarddawkins.watchmaker.menu,net.richarddawkins.watchmaker.genome.mutation,net.richarddawkins.watchmaker.app,net.richarddawkins.watchmaker.morph,net.richarddawkins.watchmaker.deities,net.richarddawkins.watchmaker.morph.draw,net.richarddawkins.watchmaker.util" source="1.8" sourcepath="src:resources" splitindex="true" use="true" version="true"/>
-    </target>
-</project>
