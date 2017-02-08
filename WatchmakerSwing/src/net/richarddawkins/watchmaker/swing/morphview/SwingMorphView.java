@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
@@ -76,7 +77,9 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			@Override
 			public void mouseMoved(MouseEvent e) {
 
-				processMouseMotion(SwingGeom.toWatchmakerPoint(e.getPoint()));
+				processMouseMotion(
+						SwingGeom.toWatchmakerPoint(e.getPoint()),
+						SwingGeom.toWatchmakerDim(((Component)e.getSource()).getSize()));
 			}
 		});
 
@@ -216,7 +219,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		}
 	}
 
-	abstract protected void processMouseMotion(Point myPt);
+	abstract protected void processMouseMotion(Point myPt, Dim size);
 
 	public void propertyChange(PropertyChangeEvent event) {
 		String propertyName = event.getPropertyName();

@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -61,8 +62,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	}
 
 	@Override
-	public void processMouseMotion(Point myPt) {
-		int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(getSize()));
+	public void processMouseMotion(Point myPt, Dim size) {
+		int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
 		if (boxNo != -1) {
 			synchronized(boxedMorphVector) {
 				BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);

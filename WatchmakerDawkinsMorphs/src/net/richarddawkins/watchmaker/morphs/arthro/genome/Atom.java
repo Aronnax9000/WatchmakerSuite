@@ -306,22 +306,19 @@ public class Atom extends SimpleGene {
 	}
 
 	public void recurseToStringBuffer(StringBuffer text, int recurseLevel) {
+		for(int i = 0; i < recurseLevel; i++) {
+			text.append("&nbsp;&nbsp;&nbsp;&nbsp;");
+		}
 		text.append(kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " g:" + gradientGene + " segNo:" + segmentNumber
 				+ " atomCount:" + countAtoms());
 		
 		if(firstBelowMe != null) {
 			text.append("<br>\n");
-			for(int i = 0; i < recurseLevel; i++) {
-				text.append("&gt;");
-			}
 			firstBelowMe.recurseToStringBuffer(text, recurseLevel + 1);
 		}
 		if(nextLikeMe != null) {
 			text.append("<br>\n");
-			for(int i = 0; i < recurseLevel - 1; i++) {
-				text.append("&gt;");
-			}
-			nextLikeMe.recurseToStringBuffer(text, recurseLevel + 1);
+			nextLikeMe.recurseToStringBuffer(text, recurseLevel);
 		}
 	}
 	

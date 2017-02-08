@@ -15,6 +15,7 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -99,7 +100,7 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 		
 	}
 	@Override
-	protected void processMouseMotion(Point myPt) {
+	protected void processMouseMotion(Point myPt, Dim size) {
 		// TODO Auto-generated method stub
 		
 	}

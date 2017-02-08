@@ -94,7 +94,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
 	}
 
 	@Override
-	protected void processMouseMotion(Point myPt) {
+	protected void processMouseMotion(Point myPt, Dim size) {
 		// TODO Auto-generated method stub
 		
 	}
