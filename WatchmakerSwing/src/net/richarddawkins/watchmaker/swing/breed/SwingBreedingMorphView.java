@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
@@ -61,15 +60,21 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		return boxedMorphVector.getBoxedMorph(boxes.getMidBox()).getMorph();
 	}
 
+	protected BoxedMorph selectedBoxedMorph = null;
+	
 	@Override
 	public void processMouseMotion(Point myPt, Dim size) {
 		int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
 		if (boxNo != -1) {
 			synchronized(boxedMorphVector) {
 				BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+				
 				if (boxedMorph != null) {
-					GeneBoxStrip geneBoxStrip = (GeneBoxStrip) getUpperStrip();
-					geneBoxStrip.setGenome(boxedMorph.getMorph().getGenome());
+					if(boxedMorph != selectedBoxedMorph)
+					pcs.firePropertyChange("genome", null, 
+							boxedMorph.getMorph().getGenome());
+					selectedBoxedMorph = boxedMorph;
+
 					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor) {
 						centrePanel.setCursor(WatchmakerCursors.breed);
 					}
@@ -96,9 +101,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
 		boxedMorphVector.removeAllElements();
 		boxedMorphVector.add(boxedMorph);
-
-		GeneBoxStrip geneBoxStrip = (GeneBoxStrip) getUpperStrip();
-		geneBoxStrip.setGenome(parent.getGenome());
+		pcs.firePropertyChange("genome", null, 
+				boxedMorph.getMorph().getGenome());
 		// Trigger first breeding
 		special = midBox;
 		if (appData.isBreedRightAway()) {

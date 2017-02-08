@@ -1,15 +1,17 @@
 package net.richarddawkins.watchmaker.genebox;
 
+import java.beans.PropertyChangeListener;
+
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
 
-public interface GeneBoxStrip extends MorphViewWidget {
+public interface GeneBoxStrip extends MorphViewWidget, PropertyChangeListener {
 
-	public abstract void setGenome(Genome genome);
+	void setGenome(Genome genome);
 	
-	public abstract GeneBox getGeneBoxForGene(Gene gene);
+	GeneBox getGeneBoxForGene(Gene gene);
 
-	public abstract void setEngineeringMode(boolean engineeringMode);
+	void setEngineeringMode(boolean engineeringMode);
 
 }

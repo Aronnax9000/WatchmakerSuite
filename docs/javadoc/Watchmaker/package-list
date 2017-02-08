@@ -12,12 +12,9 @@ net.richarddawkins.watchmaker.morphs.arthro
 net.richarddawkins.watchmaker.morphs.arthro.embryo
 net.richarddawkins.watchmaker.morphs.arthro.genome
 net.richarddawkins.watchmaker.morphs.arthro.genome.mutation
-net.richarddawkins.watchmaker.morphs.arthro.genome.swing
 net.richarddawkins.watchmaker.morphs.arthro.genome.type
-net.richarddawkins.watchmaker.morphs.arthro.geom.gui.swing
 net.richarddawkins.watchmaker.morphs.arthro.phenotype
 net.richarddawkins.watchmaker.morphs.arthro.swing
-net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing
 net.richarddawkins.watchmaker.morphs.colour
 net.richarddawkins.watchmaker.morphs.colour.embryo
 net.richarddawkins.watchmaker.morphs.colour.genebox

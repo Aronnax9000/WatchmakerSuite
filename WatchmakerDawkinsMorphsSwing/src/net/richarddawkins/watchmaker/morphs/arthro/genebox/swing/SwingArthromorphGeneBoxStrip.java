@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.arthro.genome.swing;
+package net.richarddawkins.watchmaker.morphs.arthro.genebox.swing;
 
 import java.util.logging.Logger;
 

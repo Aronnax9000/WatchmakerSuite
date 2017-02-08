@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.morphs.biomorph.genebox.swing;
+package net.richarddawkins.watchmaker.morphs.mono.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
 

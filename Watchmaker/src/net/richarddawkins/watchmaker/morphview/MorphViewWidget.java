@@ -6,4 +6,6 @@ package net.richarddawkins.watchmaker.morphview;
  */
 public interface MorphViewWidget {
 
+	Object getPanel();
+	void setPanel(Object newValue);
 }

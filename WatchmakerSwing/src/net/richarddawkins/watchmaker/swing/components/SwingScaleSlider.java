@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.components;
 
 import java.util.logging.Logger;
 
+import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -35,6 +36,19 @@ public class SwingScaleSlider extends JSlider implements MorphViewWidget, Change
 			logger.info("New scale slider value: " + scale);
 			drawingPreferences.setScale(scale);
 		}
+		
+	}
+
+	protected JSlider panel = (JSlider) this;
+	
+	@Override
+	public Object getPanel() {
+		return panel;
+	}
+
+	@Override
+	public void setPanel(Object newValue) {
+		this.panel = (JSlider) newValue;
 		
 	}
 }

@@ -2,6 +2,8 @@ package net.richarddawkins.watchmaker.swing.geneboxstrip;
 
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import javax.swing.JPanel;
@@ -14,7 +16,19 @@ import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 
-public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
+public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip, PropertyChangeListener {
+
+	protected JPanel panel = (JPanel) this;
+
+	@Override
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	@Override
+	public void setPanel(Object newValue) {
+		this.panel = (JPanel) newValue;
+	}
 
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
@@ -50,7 +64,7 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 		if (genome == null) {
 			for (Gene gene : newGenome.toGeneArray()) {
 				SwingGeneBox geneBox = (SwingGeneBox) getGeneBoxForGene(gene);
-				if(engineeringMode)
+				if (engineeringMode)
 					geneBox.setEngineeringMode();
 				add((Component) geneBox);
 			}
@@ -61,6 +75,13 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip {
 		for (int i = 0; i < components.length; i++) {
 			GeneBox geneBox = (GeneBox) components[i];
 			geneBox.setGene(genes[i]);
+		}
+	}
+	
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if(evt.getPropertyName().equals("genome")) {
+			setGenome((Genome) evt.getNewValue());
 		}
 	}
 }

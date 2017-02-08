@@ -26,17 +26,14 @@ public interface MorphView {
 	String getName();
 	void setName(String newName);
 	Vector<Morph> getMorphs();
-	void setUpperStrip(MorphViewWidget upperStrip);
 	void setShowBoxes(boolean showBoxes);
 	void setMorphDrawer(MorphDrawer morphDrawer);
-	void setLowerStrip(MorphViewWidget lowerStrip);
+	
 	void setBoxes(BoxManager boxes);
 	void setBoxedMorphVector(BoxedMorphCollection boxedMorphVector);
 	void setAppData(AppData appData);
 	boolean isShowBoxes();
-	MorphViewWidget getUpperStrip();
 	MorphDrawer getMorphDrawer();
-	MorphViewWidget getLowerStrip();
 	JPanel getCentrePanel();
 	BoxManager getBoxes();
 	BoxedMorphCollection getBoxedMorphVector();

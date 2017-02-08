@@ -57,13 +57,11 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 
 	/**
 	 * 
-	 * @param genome
 	 * @param pic
-	 * @param gene
+	 * @param atom
 	 * @param params
 	 * @param x
 	 * @param y
-	 * @param xCenter
 	 * @param ySeg
 	 * @param gradientFactor
 	 * @param overlap

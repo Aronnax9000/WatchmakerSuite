@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
@@ -58,9 +57,11 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 			boxedMorphVector.removeAllElements();
 		}
 		morph.addPropertyChangeListener(this);
-		boxedMorphVector.add(new BoxedMorph(boxes, morph, 0));
-		GeneBoxStrip geneBoxStrip = (GeneBoxStrip) getUpperStrip();
-		geneBoxStrip.setGenome(morph.getGenome());
+		BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, 0); 
+		boxedMorphVector.add(boxedMorph);
+		pcs.firePropertyChange("genome", null, 
+				boxedMorph.getMorph().getGenome());
+
 	}
 	/**
 	 * 

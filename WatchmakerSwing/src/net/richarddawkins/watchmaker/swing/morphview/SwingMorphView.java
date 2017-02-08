@@ -5,18 +5,20 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
@@ -29,7 +31,6 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.components.SwingScaleSlider;
@@ -40,23 +41,17 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 
 	private static final long serialVersionUID = 5555392236002752598L;
 	protected AppData appData;
-
 	protected BoxedMorphCollection boxedMorphVector = new BoxedMorphCollection();
-
 	protected BoxManager boxes;
-	protected final JPanel centrePanel;
-
-	protected String icon;
-
-	protected MorphViewWidget lowerStrip;
-
 	protected MorphDrawer morphDrawer;
 
+	protected final JPanel centrePanel;
+	protected String icon;
 	protected boolean showBoxes = true;
-
 	protected String toolTip;
 
-	protected MorphViewWidget upperStrip;
+//	protected MorphViewWidget lowerStrip;
+//	protected MorphViewWidget upperStrip;
 
 	public SwingMorphView(AppData appData) {
 		this.appData = appData;
@@ -101,17 +96,30 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 
 	}
 
-	public SwingMorphView(AppData appData, String icon, String name, boolean engineeringMode, boolean geneBoxToSide) {
+	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	
+	public SwingMorphView(AppData appData, String icon, String name, 
+			boolean engineeringMode, 
+			boolean geneBoxToSide) {
 		this(appData, icon, name);
-		if(geneBoxToSide) {
-			this.upperStripBorderLayoutLocation = BorderLayout.LINE_END;
-		} else{
-			this.upperStripBorderLayoutLocation = BorderLayout.PAGE_START;
-		}
 		GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
-		setUpperStrip(geneBoxStrip);
-		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
-		setLowerStrip(scaleSlider);
+		
+		// So it can hear it when the selected genome changes.
+		pcs.addPropertyChangeListener(geneBoxStrip);
+		
+		JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel(); 
+		if(geneBoxToSide) {
+			geneBoxStripPanel.setLayout(new GridLayout(0, 1));
+			this.add(geneBoxStripPanel, BorderLayout.LINE_END);
+		} else{
+			geneBoxStripPanel.setLayout(new GridLayout(1, 0));
+			this.add(geneBoxStripPanel, BorderLayout.PAGE_START);
+		}
+
+		SwingScaleSlider scaleSlider = new SwingScaleSlider(
+				appData.getPhenotypeDrawer().getDrawingPreferences());
+		
+		this.add((JSlider) scaleSlider.getPanel(), BorderLayout.PAGE_END);
 	}
 
 	abstract protected void boxClicked(Point point);
@@ -140,10 +148,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		return icon;
 	}
 
-	@Override
-	public MorphViewWidget getLowerStrip() {
-		return lowerStrip;
-	}
 
 	@Override
 	public MorphDrawer getMorphDrawer() {
@@ -163,11 +167,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	@Override
 	public String getToolTip() {
 		return toolTip;
-	}
-
-	@Override
-	public MorphViewWidget getUpperStrip() {
-		return upperStrip;
 	}
 
 	@Override
@@ -252,14 +251,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		this.icon = icon;
 	}
 
-	@Override
-	public void setLowerStrip(MorphViewWidget lowerStrip) {
-		if (this.lowerStrip != null)
-			this.remove((JComponent) this.lowerStrip);
-		this.lowerStrip = lowerStrip;
-		if (this.lowerStrip != null)
-			this.add((JComponent) this.lowerStrip, BorderLayout.PAGE_END);
-	}
+
 
 	@Override
 	public void setMorphDrawer(MorphDrawer morphDrawer) {
@@ -276,22 +268,4 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		this.toolTip = toolTip;
 	}
 
-	@Override
-	public void setUpperStrip(MorphViewWidget upperStrip) {
-		if (this.upperStrip != null)
-			this.remove((JPanel) this.upperStrip);
-		this.upperStrip = upperStrip;
-		if (this.upperStrip != null)
-			this.add((JPanel) this.upperStrip, upperStripBorderLayoutLocation);
-
-	}
-	protected String upperStripBorderLayoutLocation = BorderLayout.PAGE_START;
-
-	public String getUpperStripBorderLayoutLocation() {
-		return upperStripBorderLayoutLocation;
-	}
-
-	public void setUpperStripBorderLayoutLocation(String upperStripBorderLayoutLocation) {
-		this.upperStripBorderLayoutLocation = upperStripBorderLayoutLocation;
-	}
 }
