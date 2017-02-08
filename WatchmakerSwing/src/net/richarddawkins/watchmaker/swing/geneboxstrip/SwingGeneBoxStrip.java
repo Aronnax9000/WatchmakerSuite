@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.swing.geneboxstrip;
 
+import java.awt.BasicStroke;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
@@ -8,6 +9,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
+import javax.swing.border.StrokeBorder;
 
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
@@ -40,6 +42,7 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip, 
 
 	public SwingGeneBoxStrip() {
 		this.setLayout(new GridLayout(1, 0));
+		this.setBorder(new StrokeBorder(new BasicStroke(1)));
 	}
 
 	@Override

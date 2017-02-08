@@ -1,8 +1,12 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genebox.swing;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.util.logging.Logger;
+
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.Atom;
@@ -16,6 +20,9 @@ public class SwingAtomGeneBox extends SwingGeneBox {
 	
 	public SwingAtomGeneBox() {
 		this.add(valueLabel, BorderLayout.CENTER);
+		valueLabel.setVerticalAlignment(SwingConstants.TOP);
+		valueLabel.setBorder(new LineBorder(Color.RED));
+		this.setBorder(new LineBorder(Color.BLUE));
 	}
 	
 	/**
