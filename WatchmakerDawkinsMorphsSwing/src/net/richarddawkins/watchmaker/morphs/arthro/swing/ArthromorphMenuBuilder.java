@@ -5,6 +5,7 @@ import java.awt.Component;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
 import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
@@ -62,6 +63,7 @@ public class ArthromorphMenuBuilder extends SwingMenuBuilder  {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
 		menu.add(new SwingWatchmakerMenuItem(new SwingActionBreed(appData)));
 		menu.add(new SwingWatchmakerMenuItem(new ShowAsTextAction(appData)));
+		menu.add(new ActionEngineering(appData));
 		menu.add(new SwingWatchmakerMenuItem(new EngineerAction(appData)));
 		return menu;
 	}

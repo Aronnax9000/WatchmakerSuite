@@ -20,6 +20,36 @@ public class ArthromorphGenomeFactory extends GenomeFactory {
 			return minimalAnimal();
 	}
 
+	protected Genome complexAnimal() {
+		ArthromorphGenome genome = new ArthromorphGenome();
+//		Height Width Angle
+//		20.00 20.00 24.00 AnimalTrunk
+//		01.00 05.00 05.00     AnimalJoint
+//		01.00 01.00 01.00     AnimalClaw
+//		01.00 01.00 00.50         SectionTrunk
+//		01.00 01.00 01.00             SectionJoint
+//		01.00 01.00 01.00             SectionClaw
+//		01.00 01.00 01.00                 SegmentTrunk 1
+//		01.00 01.00 01.79                     SegmentJoint
+//		01.00 01.00 01.00                     SegmentClaw
+//		01.00 05.00 02.00                       Joint
+//		01.00 05.00 -2.00                       Joint
+//		01.00 01.00 01.00                       Claw
+//		01.00 01.00 02.00                 SegmentTrunk 2
+//		01.00 01.00 02.00                     SegmentJoint
+//		01.00 01.00 01.00                     SegmentClaw
+//		01.00 05.00 02.00                       Joint
+//		01.00 05.00 -2.00                       Joint
+//		01.00 01.00 01.00                       Claw
+//		01.00 01.00 03.00                 SegmentTrunk 2
+//		01.00 01.00 02.00                     SegmentJoint
+//		01.00 01.00 01.00                     SegmentClaw
+//		01.00 05.00 02.00                       Joint
+//		01.00 05.00 -2.00                       Joint
+//		01.00 01.00 01.00                       Claw		
+		return genome;
+	}
+	
 	protected Genome minimalAnimal() {
 		ArthromorphGenome genome = new ArthromorphGenome();
 		Atom aa = new Atom(AtomKind.Claw, genome);

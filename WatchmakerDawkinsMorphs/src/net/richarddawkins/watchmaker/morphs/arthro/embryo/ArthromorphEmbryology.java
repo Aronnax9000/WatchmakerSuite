@@ -16,7 +16,8 @@ import net.richarddawkins.watchmaker.morphs.arthro.phenotype.ArthromorphPic;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class ArthromorphEmbryology extends SimpleEmbryology {
-	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.embryo.ArthromorphEmbryology");
+	private static Logger logger = Logger
+			.getLogger("net.richarddawkins.watchmaker.morphs.arthro.embryo.ArthromorphEmbryology");
 
 	private static int[] kindsData;
 
@@ -39,7 +40,6 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 		return kindsData;
 	}
 
-
 	@Override
 	public void develop(Morph morph) {
 		super.develop(morph);
@@ -51,7 +51,7 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 			params[ii] = 1.0; // Clear it all out
 		}
 
-		draw(pic, (Atom) genome.getGene(0), params, 0, 0, 0, 0, 0d, 0d);
+		draw(pic, (Atom) genome.getGene(0), params, 0, 0, 0, 0d, 0d);
 
 	}
 
@@ -69,8 +69,8 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 	 * @param overlap
 	 * @return the new value of ySeg, used by recursive calls to draw.
 	 */
-	public int draw(ArthromorphPic pic, Atom atom, double[] params, int x, int y, int xCenter,
-			int ySeg, double gradientFactor, double overlap) {
+	public int draw(ArthromorphPic pic, Atom atom, double[] params, int x, int y, int ySeg, double gradientFactor,
+			double overlap) {
 
 		double jointscale = 0.5;
 		// local copy so next segment builds on section above, not this segment
@@ -106,9 +106,9 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 			logger.info("HalfW:" + halfW);
 			Point startPt = new Point(x - halfW, ySeg);
 			Point endPt = new Point((int) params[1], (int) params[0]);
-			// Draw the oval in the right place. params[1] = width , params[0] = height
-			pic.addLin(new ArthroLin(startPt, endPt, WatchmakerColor.BlackColor, 1, 
-					ArthroLimbType.Oval));
+			// Draw the oval in the right place. params[1] = width , params[0] =
+			// height
+			pic.addLin(new ArthroLin(startPt, endPt, WatchmakerColor.BlackColor, 1, ArthroLimbType.Oval));
 
 			oldY = ySeg; // Save for next segment
 			// joint starts at the side of the segment
@@ -121,10 +121,12 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 			oldX = x;
 			oldY = y;
 			double ang = params[5];
-			x = (int) Math.round(x + jointscale * params[4] * Math.cos(ang));
+			double xDisp = jointscale * params[4] * Math.cos(ang);
+			double yDisp = jointscale * params[4] * Math.sin(ang);
+			x = x + (int) Math.round(xDisp);
 
 			// line end point width*sine(angle)
-			y = (int) Math.round(y + jointscale * params[4] * Math.sin(ang));
+			y = y + (int) Math.round(yDisp);
 
 			int thick = (int) (1 + Math.floor(params[3])); // 1 is minimum
 															// thickness
@@ -135,8 +137,8 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 			pic.addLin(new ArthroLin(startPt, endPt, WatchmakerColor.BlackColor, thick, ArthroLimbType.LineSegment));
 
 			// do the left side leg
-			int leftX = xCenter - (x - xCenter);
-			int leftOldX = xCenter - (oldX - xCenter);
+			int leftX = -x;
+			int leftOldX = -oldX;
 			startPt = new Point(leftOldX, oldY);
 			endPt = new Point(leftX, y);
 			pic.addLin(new ArthroLin(startPt, endPt, WatchmakerColor.BlackColor, thick, ArthroLimbType.LineSegment));
@@ -153,29 +155,30 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 															// thickness
 
 			// right side, top of claw
-			pic.addLin(new ArthroLin(new Point(clawOldX, clawOldY), new Point(clawX, clawY), WatchmakerColor.RedColor, thick));
+			pic.addLin(new ArthroLin(new Point(clawOldX, clawOldY), new Point(clawX, clawY), WatchmakerColor.RedColor,
+					thick, ArthroLimbType.LineSegment));
 
 			// do the left side, top of claw
-			int clawLeftX = xCenter - (clawX - xCenter);
-			int clawLeftOldX = xCenter - (clawOldX - xCenter);
-			pic.addLin(new ArthroLin(new Point(clawLeftOldX, clawOldY), new Point(clawLeftX, clawY), WatchmakerColor.RedColor, thick,
-					ArthroLimbType.LineSegment));
+			int clawLeftX = -clawX;
+			int clawLeftOldX = -clawOldX;
+			pic.addLin(new ArthroLin(new Point(clawLeftOldX, clawOldY), new Point(clawLeftX, clawY),
+					WatchmakerColor.RedColor, thick, ArthroLimbType.LineSegment));
 			// Bottom of the claw
 			clawY = (int) Math.round(clawY - 2.0 * params[7] * Math.cos(ang));
 			// right side
-			pic.addLin(new ArthroLin(new Point(clawOldX, clawOldY), new Point(clawX, clawY), WatchmakerColor.RedColor, thick,
-					ArthroLimbType.LineSegment));
+			pic.addLin(new ArthroLin(new Point(clawOldX, clawOldY), new Point(clawX, clawY), WatchmakerColor.RedColor,
+					thick, ArthroLimbType.LineSegment));
 			// left side
-			pic.addLin(new ArthroLin(new Point(clawLeftOldX, clawOldY), new Point(clawLeftX, clawY), thick, 0,
-					ArthroLimbType.LineSegment));
+			pic.addLin(new ArthroLin(new Point(clawLeftOldX, clawOldY), new Point(clawLeftX, clawY),
+					WatchmakerColor.RedColor, thick, ArthroLimbType.LineSegment));
 
 		}
 		if (atom.firstBelowMe != null) {
-			ySeg = draw(pic, atom.firstBelowMe, params, x, y, xCenter, ySeg, gradientFactor, overlap);
+			ySeg = draw(pic, atom.firstBelowMe, params, x, y, ySeg, gradientFactor, overlap);
 		}
 		// build on my cumulative numbers
 		if (atom.kind == AtomKind.SegmentTrunk) {
-			x = xCenter;
+			x = 0;
 			// Jump down by height of this segment to the next segment
 			ySeg = (int) Math.round(oldY + overlap * params[0]); // Seg
 		}
@@ -184,14 +187,14 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 		// joint just before it.
 		// This is consistant with the way Sections and Segments work.
 
-		if(atom.nextLikeMe != null) {
-			if(atom.kind == AtomKind.AnimalClaw || atom.kind == AtomKind.AnimalClaw 
-			|| atom.kind == AtomKind.SegmentJoint) {
-				ySeg = draw(pic, atom.nextLikeMe, params, x, y, xCenter, ySeg, gradientFactor, overlap); 
-			}  else if(atom.kind != AtomKind.AnimalTrunk) {
+		if (atom.nextLikeMe != null) {
+			if (atom.kind == AtomKind.AnimalJoint || atom.kind == AtomKind.SectionJoint
+					|| atom.kind == AtomKind.SegmentJoint) {
+				ySeg = draw(pic, atom.nextLikeMe, params, x, y, ySeg, gradientFactor, overlap);
+			} else if (atom.kind != AtomKind.AnimalTrunk) {
 				// build on my parent's numbers
-				ySeg = draw(pic, atom.nextLikeMe, myPars, x, y, xCenter, ySeg, gradientFactor, overlap);
-		
+				ySeg = draw(pic, atom.nextLikeMe, myPars, x, y, ySeg, gradientFactor, overlap);
+
 			}
 		}
 

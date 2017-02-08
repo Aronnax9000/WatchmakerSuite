@@ -13,7 +13,7 @@ public class EngineerAction extends SwingWatchmakerAction {
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
 	public EngineerAction(AppData appData) {
-		super("Engineer");
+		super("Allowed Mutations");
 		this.appData = appData;
 	}
 	@Override
