@@ -7,6 +7,8 @@ import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
 public class SpokesGene extends SimpleGene {
+	@Override
+	public String toString() {return value.name();}
 	protected SpokesType value;
 	public SpokesGene(Genome genome, String name) {
 		super(genome, name);

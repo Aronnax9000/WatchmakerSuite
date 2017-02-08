@@ -44,7 +44,10 @@ public class SwingBreedingMorphView extends SwingMorphView {
 				breedFromSpecial();
 			}
 		} else if(centrePanel.getCursor() == WatchmakerCursors.random) {
+			centrePanel.setCursor(WatchmakerCursors.watchCursor);
 			seed(appData.getMorphConfig().newMorph(0));
+			centrePanel.setCursor(WatchmakerCursors.random);
+			
 		}
 	}
 

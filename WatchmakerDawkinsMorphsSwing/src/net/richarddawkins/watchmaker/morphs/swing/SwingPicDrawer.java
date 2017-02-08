@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
@@ -17,7 +18,8 @@ import net.richarddawkins.watchmaker.swing.SwingGeom;
 
 
 public abstract class SwingPicDrawer implements PhenotypeDrawer {
-	
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer");
+
 	protected DrawingPreferences drawingPreferences;
 	@Override
 	public DrawingPreferences getDrawingPreferences() {
@@ -29,22 +31,7 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
     protected void picSpecifics(Graphics2D g2, Phenotype pic) {
         // Default no-op
     }
-//    @Override
-//    public void drawPic(Object graphicsContext, Phenotype phenotype) {
-//    	Graphics2D g2 = (Graphics2D) graphicsContext;
-//        AffineTransform saveTransform = g2.getTransform();
-//        Pic pic = (Pic) phenotype;
-//        for (Lin line : pic.lines) {
-//            limb(g2, pic, line);
-//        }
-//        if (drawingPreferences.isShowBoundingBoxes()) {
-//            g2.setStroke(new BasicStroke(1));
-//            g2.setColor(Color.BLUE);
-//            Rectangle rectangle = SwingGeom.toRectangle(pic.getMargin());
-//            g2.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-//        }
-//        g2.setTransform(saveTransform);
-//    }
+
     @Override
     public Object getImage(Phenotype phenotype, double scale) {
     	Rect margin = phenotype.getMargin();
@@ -73,7 +60,7 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         for (Lin line : ((Pic) phenotype).lines) {
             limb(g2, phenotype, line);
         }
-
+        logger.info("SwingPicDrawer.getImage() complete");
 		return bufferedImage;
     }
 

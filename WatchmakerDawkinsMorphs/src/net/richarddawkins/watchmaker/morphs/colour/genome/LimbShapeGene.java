@@ -9,7 +9,8 @@ import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
 
 public class LimbShapeGene extends SimpleGene {
 	protected LimbShapeType value;
-
+	@Override
+	public String toString() {return value.name();}
 	public LimbShapeGene(Genome genome, String name) {
 		super(genome, name);
 	}

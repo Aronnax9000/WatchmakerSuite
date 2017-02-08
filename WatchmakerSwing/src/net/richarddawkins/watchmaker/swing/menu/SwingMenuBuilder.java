@@ -72,8 +72,8 @@ public abstract class SwingMenuBuilder  implements MenuBuilder {
 			NewMorphTypeAction morphTypeAction 
 			= new NewMorphTypeAction(appData, morphType, (Icon) factory.getIcon(),
 					(MultiMorphTypeTabbedPanel) appData.getFrame());
-			if (morphType.equals("Snails"))
-				morphTypeAction.setEnabled(false);
+//			if (morphType.equals("Snails"))
+//				morphTypeAction.setEnabled(false);
 			watchMakerMenu.add(morphTypeAction);
 		}
 		addFileQuitAction(watchMakerMenu);

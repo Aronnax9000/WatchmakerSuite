@@ -20,13 +20,13 @@ import net.richarddawkins.watchmaker.morphs.mono.genome.SegNoGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public class ColourEmbryology extends BiomorphEmbryology {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.bio.embryo.BiomorphEmbryology");
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.colour.embryo.ColourEmbryology");
 
 	protected void tree(ColourGenome genome, ColourPic pic, 
 			
 			int x, int y, int lgth, int dir, int[] dx, int[] dy, 
 			int order, boolean oddOne) {
-		logger.info("Tree:" +  lgth  + "/" + order);
+		logger.fine("Tree:" +  lgth  + "/" + order);
 		int trickleGene = genome.getTrickleGene().getValue();
 		int thickness = genome.getThicknessGene().getValue();
 		int gene9 = genome.getGene9().getValue();
@@ -54,7 +54,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		int color = colorGene.getValue();
 		ColourLin lin = new ColourLin(new Point(x,y), new Point(xnew,ynew),
 				thickness, color);
-		logger.info("ColorLin: " + color);
+		logger.fine("ColorLin: " + color);
 		pic.addLin(lin);
 		if (lgth > 1) {
 			if (oddOne) {
@@ -117,7 +117,7 @@ public class ColourEmbryology extends BiomorphEmbryology {
 		centre = (Point) here.clone();
 		int order = plugIn(new int[] { gene1.getValue(), gene2.getValue(), gene3.getValue(), gene4.getValue(), gene5.getValue(),
 				gene6.getValue(), gene7.getValue(), gene8.getValue(), gene9.getValue() }, dx, dy);
-		logger.info("Order:" + order);
+		logger.fine("Order:" + order);
 
 		pic.zero();
 		if (segNoGene.getValue() < 1) {
@@ -164,6 +164,8 @@ public class ColourEmbryology extends BiomorphEmbryology {
 			}
 			tree(genome, pic, here.h, here.v, order, 2, dx, dy, order, oddOne);
 		}
+		logger.info("ColourEmbryology.develop() complete");
 	}
+	
 
 }

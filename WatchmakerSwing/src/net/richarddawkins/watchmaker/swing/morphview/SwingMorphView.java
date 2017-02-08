@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 
 import net.richarddawkins.watchmaker.app.AppData;
@@ -110,7 +111,9 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel(); 
 		if(geneBoxToSide) {
 			geneBoxStripPanel.setLayout(new GridLayout(0, 1));
-			this.add(geneBoxStripPanel, BorderLayout.LINE_END);
+			JScrollPane scrollPane = new JScrollPane(geneBoxStripPanel);
+			
+			this.add(scrollPane, BorderLayout.LINE_END);
 		} else{
 			geneBoxStripPanel.setLayout(new GridLayout(1, 0));
 			this.add(geneBoxStripPanel, BorderLayout.PAGE_START);

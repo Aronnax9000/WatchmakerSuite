@@ -24,6 +24,9 @@ public class CompletenessGene extends SimpleGene {
 		pcs.firePropertyChange("value", oldValue, newValue);
 
 	}
+	
+	@Override
+	public String toString() {return value.name();}
 
 	@Override
 	public void copy(Gene gene) {

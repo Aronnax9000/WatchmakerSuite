@@ -11,6 +11,11 @@ public class IntegerGradientGene extends IntegerGene {
 	public IntegerGradientGene(Genome genome, String name) {
 		super(genome, name);
 	}
+	@Override
+	public String toString() {
+		return super.toString() + 
+				(gradient == SwellType.Same ? "" : (gradient == SwellType.Shrink ? "-" : "+"));
+	}
 	
 	protected SwellType gradient = SwellType.Same;
 

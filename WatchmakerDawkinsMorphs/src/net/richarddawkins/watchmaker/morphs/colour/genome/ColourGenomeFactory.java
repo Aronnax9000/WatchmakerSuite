@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome;
 
+import java.util.logging.Logger;
+
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Random;
@@ -15,6 +17,8 @@ import net.richarddawkins.watchmaker.morphs.mono.genome.type.SpokesType;
 import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public class ColourGenomeFactory extends BiomorphGenomeFactory {
+	private static Logger logger = Logger
+			.getLogger("net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenomeFactory");
 
 	public ColourGenomeFactory(AllowedMutations muts) {
 		super(muts);
@@ -51,6 +55,7 @@ public class ColourGenomeFactory extends BiomorphGenomeFactory {
 
 	@Override
 	public ColourGenome deliverSaltation() {
+
 		ColourGenome genome = new ColourGenome();
 
 		ColourAllowedMutations muts = (ColourAllowedMutations) this.muts;
@@ -98,9 +103,13 @@ public class ColourGenomeFactory extends BiomorphGenomeFactory {
 		IntegerGene trickleGene = genome.getTrickleGene();
 
 		if (muts.getMut(4)) {
-			trickleGene.setValue(1 + Random.randInt(100) / 10);
+			int newTrickleGeneValue = 1 + Random.randInt(100) / 10;
+			trickleGene.setValue(newTrickleGeneValue);
 			if (trickleGene.getValue() > 1) {
-				genome.getMutSizeGene().setValue(trickleGene.getValue() / 2);
+				int newMutSizeGeneValue = trickleGene.getValue() / 2;
+				genome.getMutSizeGene().setValue(newMutSizeGeneValue);
+			} else {
+				logger.warning("MutSizeGene not set by deliverSaltation.");
 			}
 		}
 		if (muts.getMut(9)) {
@@ -119,9 +128,10 @@ public class ColourGenomeFactory extends BiomorphGenomeFactory {
 			genome.getThicknessGene().setValue(Random.randInt(3));
 		}
 		int maxGene;
-		for (int j = 0; j < 7; j++) {
+		IntegerGradientGene gene = null;
+		for (int j = 0; j < 8; j++) {
 
-			IntegerGradientGene gene = (IntegerGradientGene) genome.getGene(j);
+			gene = (IntegerGradientGene) genome.getGene(j);
 			do {
 				if (muts.getMut(12)) {
 					gene.setValue(genome.getMutSizeGene().getValue() * (Random.randInt(19) - 10));
@@ -146,32 +156,47 @@ public class ColourGenomeFactory extends BiomorphGenomeFactory {
 				}
 				maxGene = gene.getValue() * segNoGene.getValue() * factor;
 			} while (!((maxGene <= 9 * trickleGene.getValue()) && (maxGene >= -9 * trickleGene.getValue())));
-			do {
 
-				if (muts.getMut(1)) {
-					segDistGene.setGradient(ColourMutagen.randSwell(segDistGene.getGradient()));
-				} else {
-					segDistGene.setGradient(SwellType.Same);
-				}
-				int factor = 0;
-				switch (gene.getGradient()) {
-				case Shrink:
-					factor = 1;
-					break;
-				case Same:
-					factor = 0;
-					break;
-				case Swell:
-					factor = 1;
-					break;
-				default:
-				}
-				maxGene = segDistGene.getValue() * segNoGene.getValue() * factor;
-			} while (!((maxGene <= 100) && (maxGene >= -100)));
+
 		}
+
+
+		int counter = 0;
+		do {
+
+			if (muts.getMut(1)) {
+				segDistGene.setGradient(ColourMutagen.randSwell(segDistGene.getGradient()));
+			} else {
+				segDistGene.setGradient(SwellType.Same);
+			}
+			int factor = 0;
+			// Correcting what I think is a bug in original Blind Watchmaker, which
+			// references dGene[j] following the for loop above. -- ABC  
+			switch (segDistGene.getGradient()) { 
+			case Shrink:
+				factor = 1;
+				break;
+			case Same:
+				factor = 0;
+				break;
+			case Swell:
+				factor = 1;
+				break;
+			default:
+			}
+			maxGene = segDistGene.getValue() * segNoGene.getValue() * factor;
+
+			if (counter++ > 1000) {
+				logger.warning("Breaking after 1000 attempts. SegDistGene:" + segDistGene.getValue() + " SegNoGene:"
+						+ segNoGene.getValue() + " factor:" + factor + " maxGene:" + maxGene);
+
+				break;
+			}
+		} while (!((maxGene <= 100) && (maxGene >= -100)));
 		IntegerGradientGene gene9 = genome.getGene9();
 		gene9.setValue(Random.randInt(5) + 1); // 2..6
 		gene9.setGradient(SwellType.Same);
+		logger.fine("ColourGenomeFactory.deliverSaltation():" + genome.toString());
 		return genome;
 	}
 

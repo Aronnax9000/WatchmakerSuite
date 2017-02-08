@@ -19,7 +19,8 @@ public class WatchmakerColor {
     		int r = index / 36;
     		int g = (index - (36 * r)) / 6;
     		int b = index % 6;
-    		return new RGBTriple(r * 256 / 6, g * 256 / 6, b * 256 / 6);
+    		return new RGBTriple(255 - (5 - r) * 256/6,
+    				255 - (5 - g) * 256/6,255 - (5 - b) * 256/6);
     	} else {
     		int indexMinus216 = index - 216;
     		int singleColorIntensity = 255 - (indexMinus216 % 10) * 25;

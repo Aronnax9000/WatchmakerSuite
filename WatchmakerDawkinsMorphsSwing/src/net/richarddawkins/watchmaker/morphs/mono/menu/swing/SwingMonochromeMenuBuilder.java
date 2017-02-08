@@ -1,12 +1,14 @@
 package net.richarddawkins.watchmaker.morphs.mono.menu.swing;
 
+import java.awt.Component;
+
 import javax.swing.ButtonGroup;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
-import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
 import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
+import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
@@ -79,7 +81,7 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Help");
 		menu.add(new SwingWatchmakerMenuItem("Help with current operation"));
 		menu.add(new SwingWatchmakerMenuItem("Miscellaneous Help"));
-		menu.add(new SwingWatchmakerMenuItem(new AboutMonochromeAction(appData.getFrame())));
+		menu.add(new SwingWatchmakerMenuItem(new AboutMonochromeAction((Component)appData.getFrame())));
 		return menu;
 	}
 

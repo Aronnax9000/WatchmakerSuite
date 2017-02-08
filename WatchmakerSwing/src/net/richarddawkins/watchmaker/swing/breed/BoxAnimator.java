@@ -9,6 +9,7 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 public class BoxAnimator extends TimerTask {
 	enum Phase {
 		deactivate_grid, animate_mother, reactivate_grid, box_next_offspring, draw_out_offspring, breed_complete;
@@ -125,7 +126,7 @@ public class BoxAnimator extends TimerTask {
 
 		case breed_complete:
 			this.cancel();
-			breedingPanel.getCentrePanel().setCursor(null);
+			breedingPanel.getCentrePanel().setCursor(WatchmakerCursors.breed);
 			logger.info("Breed Complete");
 			break;
 		}

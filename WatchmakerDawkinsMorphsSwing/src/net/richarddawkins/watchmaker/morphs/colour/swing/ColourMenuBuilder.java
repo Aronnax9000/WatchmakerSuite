@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour.swing;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -100,7 +101,7 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 
 	private WatchmakerMenu buildHelpMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Help");
-		menu.add(new AboutColourAction());
+		menu.add(new AboutColourAction((Component)appData.getFrame()));
 		return menu;
 	}
 

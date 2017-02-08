@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -17,6 +18,7 @@ import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 
 public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip, PropertyChangeListener {
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip");
 
 	protected JPanel panel = (JPanel) this;
 

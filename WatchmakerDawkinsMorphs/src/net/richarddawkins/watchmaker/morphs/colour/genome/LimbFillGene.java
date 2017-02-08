@@ -8,7 +8,8 @@ import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbFillType;
 
 public class LimbFillGene extends SimpleGene {
-	
+	@Override
+	public String toString() {return value.name();}
 	public LimbFillGene(Genome genome, String name) {
 		super(genome, name);
 	}
