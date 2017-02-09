@@ -1,8 +1,11 @@
 package net.richarddawkins.watchmaker.morphs.concho;
 
+import java.util.Vector;
+
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryology;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenome;
 import net.richarddawkins.watchmaker.morphs.concho.genome.SnailGenomeFactory;
@@ -33,5 +36,10 @@ public class SnailConfig extends SimpleMorphConfig {
 		Morph morph = new Snail();
 		wireMorphEvents(morph);
 		return morph;
+	}
+	@Override
+	public Vector<BoxedMorphCollection> getAlbums() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

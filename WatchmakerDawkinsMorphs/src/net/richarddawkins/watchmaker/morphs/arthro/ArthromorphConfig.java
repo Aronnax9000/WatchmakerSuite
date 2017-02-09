@@ -1,9 +1,12 @@
 package net.richarddawkins.watchmaker.morphs.arthro;
 
+import java.util.Vector;
+
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphs.arthro.embryo.ArthromorphEmbryology;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenome;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.ArthromorphGenomeFactory;
@@ -38,6 +41,12 @@ public class ArthromorphConfig extends SimpleMorphConfig {
 		Arthromorph arthromorph = new Arthromorph();
 		wireMorphEvents(arthromorph);
 		return arthromorph;
+	}
+
+	@Override
+	public Vector<BoxedMorphCollection> getAlbums() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -15,6 +15,8 @@ public abstract class BiomorphGenomeFactory extends GenomeFactory {
 		super(muts);
 	}
 
+	
+	
 	@Override
 	public Genome getBasicType(int basicType) {
 		switch (basicType) {

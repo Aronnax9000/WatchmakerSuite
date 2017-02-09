@@ -136,7 +136,7 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 	 * 
 	 * @return
 	 */
-	private WatchmakerMenu buildOperationMenu() {
+	protected WatchmakerMenu buildOperationMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
 		menu.add(new SwingActionBreed(appData));
 		menu.add(new SwingWatchmakerMenuItem("Drift"));

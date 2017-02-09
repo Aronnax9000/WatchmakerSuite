@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.genome;
 
 import java.beans.PropertyChangeEvent;
+import java.nio.ByteBuffer;
 
 public abstract class SimpleGenome implements Genome, Cloneable {
 	//
@@ -50,10 +51,18 @@ public abstract class SimpleGenome implements Genome, Cloneable {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		for(Gene gene: this.toGeneArray()) {
+		for (Gene gene : this.toGeneArray()) {
 			sb.append(gene.toString() + " ");
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public void readFromByteBuffer(ByteBuffer byteBuffer) {
+	}
+
+	@Override
+	public void writeToByteBuffer(ByteBuffer byteBuffer) {
 	}
 
 }

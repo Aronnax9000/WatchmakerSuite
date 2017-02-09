@@ -4,7 +4,7 @@ import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 
 public class MonochromeAllowedMutations extends BiomorphAllowedMutations implements AllowedMutations {
 	
-	public static final int MutTypeNo = 9;
+	public final int MutTypeNo = 9;
 	
 	public MonochromeAllowedMutations() {
 		mut = new boolean[MutTypeNo];

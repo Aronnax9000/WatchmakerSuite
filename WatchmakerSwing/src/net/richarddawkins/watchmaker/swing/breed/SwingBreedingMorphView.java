@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
@@ -31,12 +32,13 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	public SwingBreedingMorphView(AppData appData, Morph morph) {
 		super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding", false, appData.isGeneBoxToSide());
 		centrePanel.setCursor(WatchmakerCursors.breed);
-		setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows()));
+		boxedMorphVector.setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows()));
 
 		seed(morph);
 	}
-	
+	@Override
 	public void boxClicked(Point myPt) {
+		BoxManager boxes = boxedMorphVector.getBoxes();
 		if(centrePanel.getCursor() == WatchmakerCursors.breed) {
 			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
 			if (boxNo != -1) {
@@ -71,6 +73,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		if(boxedMorph != null) {
 			return boxedMorph.getMorph();
 		} else {
+			BoxManager boxes = boxedMorphVector.getBoxes();
+
 			return boxedMorphVector.getBoxedMorph(boxes.getMidBox()).getMorph();
 		}
 	}
@@ -79,8 +83,10 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	
 	@Override
 	public void processMouseMotion(Point myPt, Dim size) {
+		
 		if(!(centrePanel.getCursor() == WatchmakerCursors.highlight 
 				&& boxedMorphVector.getSelectedBoxedMorph() != null)) {
+			BoxManager boxes = boxedMorphVector.getBoxes();
 			int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
 			if (boxNo != -1) {
 				synchronized(boxedMorphVector) {
@@ -117,6 +123,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		} else {
 			parent = morph;
 		}
+		BoxManager boxes = boxedMorphVector.getBoxes();
+
 		int midBox = boxes.getMidBox();
 		BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
 		boxedMorphVector.removeAllElements();

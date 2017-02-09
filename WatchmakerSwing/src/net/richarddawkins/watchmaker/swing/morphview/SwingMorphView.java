@@ -43,7 +43,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	private static final long serialVersionUID = 5555392236002752598L;
 	protected AppData appData;
 	protected BoxedMorphCollection boxedMorphVector = new BoxedMorphCollection();
-	protected BoxManager boxes;
+
 	protected MorphDrawer morphDrawer;
 
 	protected final JPanel centrePanel;
@@ -137,10 +137,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		return boxedMorphVector;
 	}
 
-	@Override
-	public BoxManager getBoxes() {
-		return boxes;
-	}
+
 
 	@Override
 	public JPanel getCentrePanel() {
@@ -193,10 +190,11 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	 */
 	public synchronized void paintMorphViewPanel(Object graphicsContext, Dim size) {
 		synchronized (boxedMorphVector) {
+			BoxManager boxes = boxedMorphVector.getBoxes();
 			if (showBoxes) {
 				Vector<Integer> backgroundColors = new Vector<Integer>();
 
-				for (int i = 0; i < this.boxes.getBoxCount(); i++) {
+				for (int i = 0; i < boxes.getBoxCount(); i++) {
 					BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(i);
 					if (boxedMorph != null) {
 						backgroundColors.add(boxedMorph.getMorph().getPhenotype().getBackgroundColor());
@@ -244,11 +242,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	@Override
 	public void setBoxedMorphVector(BoxedMorphCollection boxedMorphVector) {
 		this.boxedMorphVector = boxedMorphVector;
-	}
-
-	@Override
-	public void setBoxes(BoxManager boxes) {
-		this.boxes = boxes;
 	}
 
 	public void setIcon(String icon) {

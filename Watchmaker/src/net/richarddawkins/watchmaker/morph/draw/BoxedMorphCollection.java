@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.morph.Morph;
 
@@ -14,8 +15,26 @@ public class BoxedMorphCollection {
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
 	protected BoxedMorph selectedBoxedMorph = null;
+	protected String name;
+
+	protected BoxManager boxes;
 	
-	
+	public BoxManager getBoxes() {
+		return boxes;
+	}
+
+	public void setBoxes(BoxManager boxes) {
+		this.boxes = boxes;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public BoxedMorph getSelectedBoxedMorph() {
 		return selectedBoxedMorph;
 	}

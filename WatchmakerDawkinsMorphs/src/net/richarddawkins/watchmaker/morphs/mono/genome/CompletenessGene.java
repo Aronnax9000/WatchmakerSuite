@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.mono.genome;
 
+import java.nio.ByteBuffer;
+
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -8,6 +10,21 @@ import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.type.CompletenessType;
 
 public class CompletenessGene extends SimpleGene {
+
+	@Override
+	public void readIndexedValueFromByteBuffer(ByteBuffer byteBuffer, int index) {
+		if (index == 0) {
+			setValue(CompletenessType.values()[byteBuffer.get()]);
+		}
+	}
+
+	@Override
+	public void writeIndexedValueToByteBuffer(ByteBuffer byteBuffer, int index) {
+		if (index == 0) {
+			byteBuffer.put((byte) value.ordinal());
+		}
+	}
+
 	public CompletenessGene(Genome genome, String name) {
 		super(genome, name);
 	}
@@ -24,9 +41,14 @@ public class CompletenessGene extends SimpleGene {
 		pcs.firePropertyChange("value", oldValue, newValue);
 
 	}
-	
+
 	@Override
-	public String toString() {return value.name();}
+	public String toString() {
+		if (value != null)
+			return value.name();
+		else
+			return "(Not Set)";
+	}
 
 	@Override
 	public void copy(Gene gene) {
@@ -41,7 +63,7 @@ public class CompletenessGene extends SimpleGene {
 			setValue(CompletenessType.Single);
 		} else if (direction.equals(GooseDirection.rightArrow)) {
 			setValue(CompletenessType.Double);
-		} 
+		}
 
 	}
 

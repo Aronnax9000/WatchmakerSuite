@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.genome;
 
+import java.nio.ByteBuffer;
+
 public class IntegerGene extends NumericGene {
 
 	
@@ -8,6 +10,19 @@ public class IntegerGene extends NumericGene {
 	public IntegerGene(Genome genome, String name) {
 		super(genome, name);
 	}
+	@Override
+	public void readIndexedValueFromByteBuffer(ByteBuffer byteBuffer, int index) {
+		if(index == 0) {
+			setValue(byteBuffer.getShort());
+		}
+	}
+	@Override
+	public void writeIndexedValueToByteBuffer(ByteBuffer byteBuffer, int index) {
+		if(index == 0) {
+			byteBuffer.putShort((short) value);
+		}
+	}
+	
 	
 	public int getValue() {
 		return value;

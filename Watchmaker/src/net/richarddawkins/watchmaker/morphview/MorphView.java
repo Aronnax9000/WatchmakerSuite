@@ -5,7 +5,6 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -29,13 +28,12 @@ public interface MorphView {
 	void setShowBoxes(boolean showBoxes);
 	void setMorphDrawer(MorphDrawer morphDrawer);
 	
-	void setBoxes(BoxManager boxes);
+
 	void setBoxedMorphVector(BoxedMorphCollection boxedMorphVector);
 	void setAppData(AppData appData);
 	boolean isShowBoxes();
 	MorphDrawer getMorphDrawer();
 	JPanel getCentrePanel();
-	BoxManager getBoxes();
 	BoxedMorphCollection getBoxedMorphVector();
 	void paintMorphViewPanel(Object graphicsContext, Dim size);
 }

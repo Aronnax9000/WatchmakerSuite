@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.genome;
 
 import java.beans.PropertyChangeListener;
+import java.nio.ByteBuffer;
 
 public interface Gene extends GeneManipulationListener {
 	Genome getGenome();
@@ -12,4 +13,10 @@ public interface Gene extends GeneManipulationListener {
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	int getGooseSize();
 	double getDoubleGooseSize();
+	void readValueFromByteBuffer(ByteBuffer byteBuffer);
+	void writeValueToByteBuffer(ByteBuffer byteBuffer);
+	void readIndexedValueFromByteBuffer(ByteBuffer byteBuffer, int index);
+	void writeIndexedValueToByteBuffer(ByteBuffer byteBuffer, int index);
+	
+	
 }

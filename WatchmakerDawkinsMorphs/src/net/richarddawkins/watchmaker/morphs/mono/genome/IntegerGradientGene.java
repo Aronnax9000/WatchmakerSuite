@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morphs.mono.genome;
 
+import java.nio.ByteBuffer;
+
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -16,7 +18,20 @@ public class IntegerGradientGene extends IntegerGene {
 		return super.toString() + 
 				(gradient == SwellType.Same ? "" : (gradient == SwellType.Shrink ? "-" : "+"));
 	}
-	
+	@Override
+	public void readIndexedValueFromByteBuffer(ByteBuffer byteBuffer, int index) {
+		super.readIndexedValueFromByteBuffer(byteBuffer, index);
+		if(index == 1) {
+			setGradient(SwellType.values()[byteBuffer.get()]);
+		}
+	}
+	@Override
+	public void writeIndexedValueToByteBuffer(ByteBuffer byteBuffer, int index) {
+		super.writeIndexedValueToByteBuffer(byteBuffer, index);
+		if(index == 1) {
+			byteBuffer.put((byte) gradient.ordinal());
+		}
+	}
 	protected SwellType gradient = SwellType.Same;
 
 	public SwellType getGradient() {

@@ -1,22 +1,12 @@
 package net.richarddawkins.watchmaker.morphs.colour.swing;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
-import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
-import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
@@ -57,32 +47,14 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 	}
 
 
-
-	private WatchmakerMenu buildOperationMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
-
+	@Override
+	protected WatchmakerMenu buildOperationMenu() {
+		WatchmakerMenu menu = super.buildOperationMenu();
 		menu.add(new SwingWatchmakerMenuItem(new ColourActionBreed(appData)));
 		menu.add(new ActionEngineering(appData));
 
 		
-		Icon newRandomStartIcon = new ImageIcon(
-				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
-		menu.add(new SwingWatchmakerMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
-
-
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				MorphConfig config = appData.getMorphConfig();
-				Morph morph = appData.getMorphOfTheHour();
-				Genome genome = config.getGenomeFactory().deliverSaltation();
-				morph.setGenome(genome);
-				MorphView morphView = 
-				appData.getMorphViewsTabbedPane().getSelectedMorphView();
-				morphView.seed(morph);
-			}
-		}));
+		
 		return menu;
 	}
 

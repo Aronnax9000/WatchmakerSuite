@@ -137,7 +137,11 @@ public abstract class SwingAppData implements AppData {
 	public Morph getMorphOfTheHour() {
 		MorphViewsTabbedPanel pane = this.getMorphViewsTabbedPane();
 		MorphView morphView = (MorphView) ((JTabbedPane) pane).getSelectedComponent();
-		return morphView.getMorphOfTheHour();
+		if(morphView != null) {
+			return morphView.getMorphOfTheHour();
+		} else {
+			return null;
+		}
 	}
 
 	@Override

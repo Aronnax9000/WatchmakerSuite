@@ -1,9 +1,12 @@
 package net.richarddawkins.watchmaker.morphs.colour;
 
+import java.util.Vector;
+
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphs.colour.embryo.ColourEmbryology;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenome;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColourGenomeFactory;
@@ -36,5 +39,10 @@ public class ColourBiomorphConfig extends SimpleMorphConfig {
 	@Override
 	public Phenotype newPhenotype() {
 		return new ColourPic();
+	}
+	@Override
+	public Vector<BoxedMorphCollection> getAlbums() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

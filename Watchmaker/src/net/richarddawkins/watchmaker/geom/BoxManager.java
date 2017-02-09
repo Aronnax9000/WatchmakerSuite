@@ -83,8 +83,14 @@ abstract public class BoxManager {
 	}
 
 	public void addBox(Rect margin, Dim dim) {
-		
-		
 	}
 
+	protected boolean accentuateMidBox = false;
+	public boolean isAccentuateMidBox() {
+		return accentuateMidBox;
+	}
+
+	public void setAccentuateMidBox(boolean accentuateMidBox) {
+		this.accentuateMidBox = accentuateMidBox;
+	}
 }

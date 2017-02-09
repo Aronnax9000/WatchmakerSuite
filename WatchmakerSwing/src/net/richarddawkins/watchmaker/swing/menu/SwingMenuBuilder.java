@@ -4,7 +4,9 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 
+import javax.swing.AbstractAction;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPanel;
 
@@ -12,12 +14,16 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public abstract class SwingMenuBuilder implements MenuBuilder {
@@ -119,7 +125,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 		menu.add(new SwingWatchmakerMenuItem("Undo"));
 		menu.addSeparator();
 		menu.add(new SwingWatchmakerMenuItem("Cut"));
-		menu.add(new SwingWatchmakerMenuItem("Copy"));
+		menu.add(new ActionCopy(appData));
 		menu.add(new SwingWatchmakerMenuItem("Paste"));
 		menu.add(new SwingWatchmakerMenuItem("Clear"));
 		menu.add(new SwingWatchmakerMenuItem("Select All"));
@@ -128,7 +134,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 		menu.add(highlightBiomorph);
 
 		menu.add(new SwingWatchmakerMenuItem("Add Biomorph to Album"));
-		menu.add(new SwingWatchmakerMenuItem("Show Album"));
+		menu.add(new ActionShowAlbum(appData));
 		return menu;
 	}
 
@@ -137,6 +143,29 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 		menu.add(viewBoundingBoxes);
 		menu.add(spinBabyMorphs);
 
+		return menu;
+	}
+
+	protected WatchmakerMenu buildOperationMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
+		Icon newRandomStartIcon = new ImageIcon(
+				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
+		menu.add(new SwingWatchmakerMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
+
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MorphConfig config = appData.getMorphConfig();
+				Morph morph = appData.getMorphOfTheHour();
+				Genome genome = config.getGenomeFactory().deliverSaltation();
+				morph.setGenome(genome);
+				MorphView morphView = 
+				appData.getMorphViewsTabbedPane().getSelectedMorphView();
+				morphView.seed(morph);
+			}
+		}));
 		return menu;
 	}
 

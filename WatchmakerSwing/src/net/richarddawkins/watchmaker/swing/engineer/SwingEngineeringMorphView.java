@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
@@ -29,15 +30,21 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 
 	public SwingEngineeringMorphView(AppData appData, Morph morph) {
 		super(appData, "Hypodermic_PICT_03937_16x16", "Engineering", true, appData.isGeneBoxToSide());
-		boxes = new GridBoxManager(1, 1);
+		boxedMorphVector.setBoxes(new GridBoxManager(1, 1));
 		((Component)this.getCentrePanel()).setCursor(WatchmakerCursors.hypodermic);
 		MorphConfig config = appData.getMorphConfig();
-		Morph copy = config.newMorph();
 		
-		Genome genome = config.newGenome();
-		morph.getGenome().copy(genome);
-		copy.setGenome(genome);
-		seed(copy);
+		
+		if(morph != null) {
+			Morph copy = config.newMorph();
+			Genome genome = config.newGenome();
+			morph.getGenome().copy(genome);
+			copy.setGenome(genome);
+			seed(copy);
+		} else {
+			morph = config.newMorph(0);
+			seed(morph);
+		}
 		
 	}
 
@@ -57,6 +64,8 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 			boxedMorphVector.removeAllElements();
 		}
 		morph.addPropertyChangeListener(this);
+		BoxManager boxes = boxedMorphVector.getBoxes();
+
 		BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, 0); 
 		boxedMorphVector.add(boxedMorph);
 		pcs.firePropertyChange("genome", null, 

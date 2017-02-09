@@ -31,7 +31,7 @@ public class BoxAnimator extends TimerTask {
 		AppData appData = breedingPanel.getAppData();
 		MorphConfig config = appData.getMorphConfig();
 		this.boxedMorphVector = breedingPanel.getBoxedMorphVector();
-		this.boxes = breedingPanel.getBoxes();
+		this.boxes = boxedMorphVector.getBoxes();
 		this.midBox = boxes.getMidBox();
 		boxedMorphParent = boxedMorphVector.getBoxedMorph(special);
 

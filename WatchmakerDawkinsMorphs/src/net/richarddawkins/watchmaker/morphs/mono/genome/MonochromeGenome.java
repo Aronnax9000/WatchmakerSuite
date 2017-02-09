@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.mono.genome;
 
+import java.nio.ByteBuffer;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Gene;
@@ -12,7 +13,6 @@ import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeGenome extends SimpleGenome implements TriangleAble {
-	@SuppressWarnings("unused")
 	private static Logger logger = Logger
 			.getLogger("net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome");
 
@@ -310,4 +310,53 @@ public class MonochromeGenome extends SimpleGenome implements TriangleAble {
 				+ r2 * b.segDistGene.getGradient().ordinal() + r3 * c.segDistGene.getGradient().ordinal())]);
 
 	}
+	@Override
+    public void readFromByteBuffer(ByteBuffer byteBuffer) {
+		Gene[] genes = toGeneArray();
+    	for(int index = 0; index < 9; index++) {
+    		genes[index].readIndexedValueFromByteBuffer(byteBuffer, 0);
+    		logger.fine(this.toString());
+    	}
+		// Grabs the ten gradient genes, for Gene1-Gene9 and SegDistGene
+		for(int index: new int[] {0,1,2,3,4,5,6,7,8,10}) {
+			genes[index].readIndexedValueFromByteBuffer(byteBuffer, 1);
+    		logger.fine(this.toString());
+		}
+		segNoGene.readValueFromByteBuffer(byteBuffer);
+		// Note gradient already read in: this just grabs numeric value.
+		logger.fine(this.toString());
+		segDistGene.readValueFromByteBuffer(byteBuffer);
+		logger.fine(this.toString());
+		completenessGene.readValueFromByteBuffer(byteBuffer);
+		logger.fine(this.toString());
+		spokesGene.readValueFromByteBuffer(byteBuffer);
+		logger.fine(this.toString());
+		trickleGene.readValueFromByteBuffer(byteBuffer);
+		logger.fine(this.toString());
+		mutSizeGene.readValueFromByteBuffer(byteBuffer);
+		logger.fine(this.toString());
+		mutProbGene.readValueFromByteBuffer(byteBuffer);
+		logger.fine(this.toString());
+    }
+    @Override
+    public void writeToByteBuffer(ByteBuffer byteBuffer) {
+    	Gene[] genes = toGeneArray();
+    	for(int index = 0; index < 8; index++) {
+    		genes[index].writeIndexedValueToByteBuffer(byteBuffer, 0);
+    	}
+		// Remember to add SegDistGene code after this for Gene 
+		for(int index: new int[] {0,1,2,3,4,5,6,7,8,10}) {
+			genes[index].writeIndexedValueToByteBuffer(byteBuffer, 1);
+		}
+		segNoGene.writeValueToByteBuffer(byteBuffer);
+		// Note gradient already read in: this just grabs numeric value.
+		segDistGene.writeValueToByteBuffer(byteBuffer);
+		completenessGene.writeValueToByteBuffer(byteBuffer);
+		spokesGene.writeValueToByteBuffer(byteBuffer);
+		trickleGene.writeValueToByteBuffer(byteBuffer);
+		mutSizeGene.writeValueToByteBuffer(byteBuffer);
+		mutProbGene.writeValueToByteBuffer(byteBuffer);
+    }
+
+	
 }

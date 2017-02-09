@@ -36,15 +36,16 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 		Vector<Rect> boxRects = boxes.getBoxes(dimension);
 		logger.fine("Got " + boxRects.size() + " boxes with dimensions " + dimension.toString());
 		int midBox = boxes.getMidBox();
+		boolean accentuateMidBox = boxes.isAccentuateMidBox();
 		for(Rect r: boxRects) {
 			// Middle box has a thicker line
-			if(boxIndex == midBox) {
+			if(boxIndex == midBox && accentuateMidBox) {
 				g2.setStroke(new BasicStroke(4.0f));
 			} else {
 				g2.setStroke(new BasicStroke(2.0f));
 			}
 			int backgroundColor = backgroundColors.elementAt(boxIndex);
-			if(! midBoxOnly || boxIndex == midBox) {
+			if(! midBoxOnly || (boxIndex == midBox && accentuateMidBox)) {
 				if(backgroundColor != -1) {
 					g2.setColor(SwingColor.rgbColorPalette[backgroundColor]);
 					g2.fillRect(r.left, r.top, r.getWidth(), r.getHeight());

@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.FreeBoxManager;
@@ -38,10 +39,14 @@ public class SwingTriangleMorphView extends SwingMorphView {
 	public SwingTriangleMorphView(AppData appData) {
 		super(appData);
 		setName("Triangle");
-		setBoxes(new FreeBoxManager());
+		
+
+		boxedMorphVector.setBoxes(new FreeBoxManager());
 		Dim dim = new Dim(512, 342);
 		Morph morph;
 		MorphConfig config = appData.getMorphConfig();
+		BoxManager boxes = boxedMorphVector.getBoxes();
+
 		for (int i = 0; i < 3; i++) {
 			morph = config.newMorph(i + 1);
 			Rect margin = morph.getPhenotype().getMargin();
@@ -59,6 +64,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		Vector<Point> points = new Vector<Point>();
+		BoxManager boxes = boxedMorphVector.getBoxes();
 		for (int boxNo = 0; boxNo < 3; boxNo++) {
 			Dim dim = SwingGeom.toWatchmakerDim(getSize());
 			Point midPoint = boxes.getMidPoint(dim, boxNo);
