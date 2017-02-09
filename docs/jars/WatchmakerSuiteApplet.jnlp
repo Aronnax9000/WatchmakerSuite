@@ -16,7 +16,7 @@
     </resources>
     <applet-desc 
          name="Richard Dawkins Watchmaker Suite"
-         main-class="net.richarddawkins.watchmaker.gui.WatchmakerApplet"
+         main-class="net.richarddawkins.watchmaker.swing.WatchmakerApplet"
          width="1024"
          height="768">
      </applet-desc>
