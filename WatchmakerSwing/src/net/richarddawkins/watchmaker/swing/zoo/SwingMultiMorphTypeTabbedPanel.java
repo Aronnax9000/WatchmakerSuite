@@ -76,6 +76,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 
 		
 		SwingMultiMorphTypeTabComponent tabComponent = new SwingMultiMorphTypeTabComponent();
+		tabComponent.setPane(this);
 		tabComponent.setName(newAppData.getName());
 		tabComponent.setIconFromFilename(newAppData.getIcon());
 		

@@ -31,7 +31,7 @@ public class NewMorphTypeAction extends SwingWatchmakerAction {
 		
 		factory.setMorphType((String)this.getValue(NAME));
 		AppData newSwingAppData = factory.newAppData();
-		
+		appData.setFrame(pane);
 		pane.addAppData(newSwingAppData);
 		
 	}

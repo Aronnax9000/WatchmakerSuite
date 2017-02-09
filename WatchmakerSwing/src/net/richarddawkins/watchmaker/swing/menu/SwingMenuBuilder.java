@@ -101,7 +101,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 		AppDataFactory factory = AppDataFactoryService.getInstance().getFactory();
 		for (String morphType : factory.getMorphTypes()) {
 			factory.setMorphType(morphType);
-			NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(appData, morphType, (Icon) factory.getIcon(),
+			NewMorphTypeAction morphTypeAction = new NewMorphTypeAction(appData, 
+					morphType, (Icon) factory.getIcon(),
 					(MultiMorphTypeTabbedPanel) appData.getFrame());
 			// if (morphType.equals("Snails"))
 			// morphTypeAction.setEnabled(false);
