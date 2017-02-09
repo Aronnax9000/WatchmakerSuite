@@ -1,12 +1,10 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genebox.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.util.logging.Logger;
 
+import javax.swing.BoxLayout;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.Atom;
@@ -15,14 +13,16 @@ import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 
 public class SwingAtomGeneBox extends SwingGeneBox {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingAtomGeneBox");
+	
 
-	
-	
+
 	public SwingAtomGeneBox() {
-		this.add(valueLabel, BorderLayout.CENTER);
+		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		this.setBorder(null);
 		valueLabel.setVerticalAlignment(SwingConstants.TOP);
-		valueLabel.setBorder(new LineBorder(Color.RED));
-		this.setBorder(new LineBorder(Color.BLUE));
+		valueLabel.setHorizontalAlignment(SwingConstants.LEFT);
+//		valueLabel.setBorder(new LineBorder(Color.RED));
+		this.add(valueLabel);
 	}
 	
 	/**
@@ -45,12 +45,7 @@ public class SwingAtomGeneBox extends SwingGeneBox {
 	}
 
 	private void setValue(Atom newValue) {
-		StringBuffer text = new StringBuffer();
-		text.append("<html>");
-		text.append(newValue.toString());
-		text.append("</html>");
-		logger.info(text.toString());
-		setText(text.toString());
+		setText(newValue.toString());
 	}
 	@Override
 	public void setGene(Gene gene) {

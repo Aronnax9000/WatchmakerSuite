@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.swing.geneboxstrip;
 
-import java.awt.BasicStroke;
 import java.awt.Component;
+import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -9,7 +9,6 @@ import java.beans.PropertyChangeSupport;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
-import javax.swing.border.StrokeBorder;
 
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
@@ -23,6 +22,16 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip, 
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip");
 
 	protected JPanel panel = (JPanel) this;
+
+	protected boolean geneBoxToSide = false;
+	
+	public boolean isGeneBoxToSide() {
+		return geneBoxToSide;
+	}
+
+	public void setGeneBoxToSide(boolean geneBoxToSide) {
+		this.geneBoxToSide = geneBoxToSide;
+	}
 
 	@Override
 	public JPanel getPanel() {
@@ -41,8 +50,7 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip, 
 	private static final long serialVersionUID = 1L;
 
 	public SwingGeneBoxStrip() {
-		this.setLayout(new GridLayout(1, 0));
-		this.setBorder(new StrokeBorder(new BasicStroke(1)));
+//		this.setBorder(new LineBorder(Color.GREEN));
 	}
 
 	@Override
@@ -66,23 +74,48 @@ public abstract class SwingGeneBoxStrip extends JPanel implements GeneBoxStrip, 
 	}
 
 	public void setGenome(Genome newGenome) {
-		if (genome == null) {
+		
+		this.removeAll();
+		if(newGenome != null) {
+			GridBagConstraints constraints = new GridBagConstraints();
+			constraints.gridx = 0;
+			constraints.gridy = 0;
+			constraints.weightx = 1;
+			constraints.weighty = 0;
+			constraints.fill = GridBagConstraints.HORIZONTAL;
+			
 			for (Gene gene : newGenome.toGeneArray()) {
 				SwingGeneBox geneBox = (SwingGeneBox) getGeneBoxForGene(gene);
-				if (engineeringMode)
+				if (engineeringMode) {
 					geneBox.setEngineeringMode();
-				add((Component) geneBox);
+					geneBox.setGene(gene);
+				}
+				applyGeneSpecificConstraints(constraints, gene);
+				add((Component) geneBox, constraints);
+				if(this.geneBoxToSide) {
+					constraints.gridy++;
+				} else {
+					constraints.gridx++;
+				}
 			}
 		}
 		this.genome = newGenome;
-		Component[] components = this.getComponents();
-		Gene[] genes = genome.toGeneArray();
-		for (int i = 0; i < components.length; i++) {
-			GeneBox geneBox = (GeneBox) components[i];
-			geneBox.setGene(genes[i]);
+		if(genome != null) {
+			Component[] components = this.getComponents();
+			Gene[] genes = genome.toGeneArray();
+			for (int i = 0; i < components.length; i++) {
+				GeneBox geneBox = (GeneBox) components[i];
+				geneBox.setGene(genes[i]);
+			}
 		}
+		repaint();
 	}
 	
+	protected void applyGeneSpecificConstraints(GridBagConstraints constraints, Gene gene) {
+		
+		
+	}
+
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if(evt.getPropertyName().equals("genome")) {

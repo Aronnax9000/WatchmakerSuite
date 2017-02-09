@@ -62,15 +62,6 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 		return menu;
 	}
 
-	private WatchmakerMenu buildEditMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
-		menu.addSeparator();
-		menu.addSeparator();
-		menu.add(new SwingWatchmakerMenuItem("Copy"));
-		menu.add(new SwingWatchmakerMenuItem("Paste"));
-		return menu;
-	}
-
 	private WatchmakerMenu buildOperationMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
 

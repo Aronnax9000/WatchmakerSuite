@@ -4,6 +4,7 @@ import java.util.Vector;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
@@ -62,7 +63,7 @@ public class Atom extends SimpleGene {
 	 * slightly more or less than 100. Treat as Percentage
 	 */
 	public Atom nextLikeMe;
-	
+
 	public int segmentNumber = 0;
 
 	/**
@@ -70,7 +71,7 @@ public class Atom extends SimpleGene {
 	 */
 	public double width;
 
-	public Atom(AtomKind kind, ArthromorphGenome genome) {
+	public Atom(ArthromorphGenome genome, AtomKind kind) {
 		super(genome, kind.toString());
 		this.kind = kind;
 		height = 1.0;
@@ -78,9 +79,9 @@ public class Atom extends SimpleGene {
 		angle = 1.0;
 	}
 
-	public Atom(AtomKind kind, double height, double width, double angle, int gradientGene, Atom nextLikeMe, Atom firstBelowMe) {
-		super(null, kind.toString());
-		this.kind = kind;
+	public Atom(ArthromorphGenome genome, AtomKind kind, double height, double width, double angle, int gradientGene, Atom nextLikeMe,
+			Atom firstBelowMe) {
+		this(genome, kind);
 		this.height = height;
 		this.width = width;
 		this.angle = angle;
@@ -97,22 +98,22 @@ public class Atom extends SimpleGene {
 			this.nextLikeMe.addChildrenToVectorDepthFirst(atoms);
 	}
 
-	public Atom copy() {
-		Atom copy = copyExceptNext();
+	public Atom copy(Genome genome) {
+		Atom copy = copyExceptNext(genome);
 		if (nextLikeMe != null) {
-			copy.nextLikeMe = nextLikeMe.copy();
+			copy.nextLikeMe = nextLikeMe.copy(genome);
 		}
 		return copy;
 	}
 
-	public Atom copyExceptNext() {
-		Atom copy = new Atom(kind, height, width, angle, gradientGene, null, null);
+	public Atom copyExceptNext(Genome genome) {
+		Atom copy = new Atom((ArthromorphGenome)genome, kind, height, width, angle, gradientGene, null, null);
 		copy.setGenome(genome);
 		if (firstBelowMe != null) {
-			copy.firstBelowMe = firstBelowMe.copy();
+			copy.firstBelowMe = firstBelowMe.copy(genome);
 		}
 		if (nextLikeMe != null) {
-			copy.nextLikeMe = nextLikeMe.copy();
+			copy.nextLikeMe = nextLikeMe.copy(genome);
 		}
 		return copy;
 	}
@@ -150,6 +151,29 @@ public class Atom extends SimpleGene {
 	 */
 	public int countAtoms() {
 		return this.toVector().size();
+	}
+
+	public int depthBelow(Atom ancestor, Atom descendent) {
+		int returnValue = -1; // Not below
+
+		if (ancestor == descendent)
+			return 0;
+
+		if (ancestor.firstBelowMe != null) {
+			int depthInFirstBelowTree = depthBelow(ancestor.firstBelowMe, descendent);
+			if (depthInFirstBelowTree != -1) {
+				return depthInFirstBelowTree + 1;
+			} 
+		}
+		
+		if (ancestor.nextLikeMe != null) {
+			int depthInNextBelowTree = depthBelow(ancestor.nextLikeMe, descendent);
+			if (depthInNextBelowTree != -1) {
+				return depthInNextBelowTree;
+			}
+		}
+
+		return returnValue;
 	}
 
 	/**
@@ -305,29 +329,28 @@ public class Atom extends SimpleGene {
 		this.width = width;
 	}
 
-	public void recurseToStringBuffer(StringBuffer text, int recurseLevel) {
-		for(int i = 0; i < recurseLevel; i++) {
-			text.append("&nbsp;&nbsp;&nbsp;&nbsp;");
-		}
-		text.append(kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " g:" + gradientGene + " segNo:" + segmentNumber
-				+ " atomCount:" + countAtoms());
-		
-		if(firstBelowMe != null) {
-			text.append("<br>\n");
-			firstBelowMe.recurseToStringBuffer(text, recurseLevel + 1);
-		}
-		if(nextLikeMe != null) {
-			text.append("<br>\n");
-			nextLikeMe.recurseToStringBuffer(text, recurseLevel);
-		}
-	}
-	
+	// public void recurseToStringBuffer(StringBuffer text, int recurseLevel) {
+	// for(int i = 0; i < recurseLevel; i++) {
+	// text.append("&nbsp;&nbsp;&nbsp;&nbsp;");
+	// }
+	// text.append(this.toString());
+	//
+	// if(firstBelowMe != null) {
+	// text.append("<br>\n");
+	// firstBelowMe.recurseToStringBuffer(text, recurseLevel + 1);
+	// }
+	// if(nextLikeMe != null) {
+	// text.append("<br>\n");
+	// nextLikeMe.recurseToStringBuffer(text, recurseLevel);
+	// }
+	// }
+
 	@Override
 	public String toString() {
-		StringBuffer text = new StringBuffer();
-		recurseToStringBuffer(text, 0);
-
-		return text.toString();
+		ArthromorphGenome arthGenome = (ArthromorphGenome) genome;
+		return kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " g:" + gradientGene + " segNo:"
+				+ segmentNumber + " atomCount:" + countAtoms() 
+				+ " db:" + depthBelow(arthGenome.getAnimalTrunk(), this);
 	}
 
 	public Vector<Atom> toVector() {

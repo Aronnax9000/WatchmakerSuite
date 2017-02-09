@@ -13,6 +13,17 @@ public class BoxedMorphCollection {
 
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
+	protected BoxedMorph selectedBoxedMorph = null;
+	
+	
+	public BoxedMorph getSelectedBoxedMorph() {
+		return selectedBoxedMorph;
+	}
+
+	public void setSelectedBoxedMorph(BoxedMorph selectedBoxedMorph) {
+		this.selectedBoxedMorph = selectedBoxedMorph;
+	}
+
 	public Vector<Morph> getMorphs() {
 		Vector<Morph> morphs = new Vector<Morph>();
 		for(BoxedMorph boxedMorph: boxedMorphs) {
@@ -29,9 +40,13 @@ public class BoxedMorphCollection {
 		boxedMorphs.add(boxedMorph);
 	}
 	public void remove(BoxedMorph boxedMorph) {
+		if(selectedBoxedMorph == boxedMorph) {
+			selectedBoxedMorph = null;
+		}
 		boxedMorphs.remove(boxedMorph);
 	}
 	public void removeAllElements() {
+		selectedBoxedMorph = null;
 		boxedMorphs.removeAllElements();
 	}
 	public Iterator<BoxedMorph> iterator() {

@@ -25,6 +25,7 @@ public class SnailSwingAppData extends SwingAppData {
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
 		GeneBoxStrip geneBoxStrip = new SwingSnailGeneBoxStrip();
 		geneBoxStrip.setEngineeringMode(engineeringMode);
+		geneBoxStrip.setGeneBoxToSide(false);
 		return geneBoxStrip;
 	}
 	

@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridLayout;
+import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -20,6 +20,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.border.LineBorder;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
@@ -109,13 +110,14 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		pcs.addPropertyChangeListener(geneBoxStrip);
 		
 		JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel(); 
+		geneBoxStripPanel.setLayout(new GridBagLayout());
 		if(geneBoxToSide) {
-			geneBoxStripPanel.setLayout(new GridLayout(0, 1));
-			JScrollPane scrollPane = new JScrollPane(geneBoxStripPanel);
-			
+			// Nassty nassty JScrollPane will center our content otherwise
+			JPanel dummy = new JPanel();
+			dummy.add(geneBoxStripPanel);
+			JScrollPane scrollPane = new JScrollPane(dummy);
 			this.add(scrollPane, BorderLayout.LINE_END);
 		} else{
-			geneBoxStripPanel.setLayout(new GridLayout(1, 0));
 			this.add(geneBoxStripPanel, BorderLayout.PAGE_START);
 		}
 
@@ -215,7 +217,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 				morphDrawer.setSize(boxes.getBoxSize(size));
 				logger.info("Getting BoxedMorph " + counter);
 				BoxedMorph boxedMorph = iter.next();
-				morphDrawer.draw(boxedMorph, graphicsContext, size);
+				morphDrawer.draw(boxedMorph, graphicsContext, size, boxedMorph == this.boxedMorphVector.getSelectedBoxedMorph());
 				counter++;
 			}
 		}

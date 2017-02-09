@@ -35,5 +35,9 @@ public class WatchmakerCursors {
   public static final Cursor random = toolkit.createCustomCursor(
 	      ClassicImageLoader.getPicture("CursorCentreDie_CURS_00144_48x16").getImage().getSubimage(16, 0, 16, 16), 
 	      hotspot, "Random");
+  public static final Cursor highlight = toolkit.createCustomCursor(
+	      ClassicImageLoader.getPicture("CursorBlackMonolith_CURS_00142_48x16").getImage().getSubimage(16, 0, 16, 16), 
+	      hotspot, "Random");
+  
   
 }

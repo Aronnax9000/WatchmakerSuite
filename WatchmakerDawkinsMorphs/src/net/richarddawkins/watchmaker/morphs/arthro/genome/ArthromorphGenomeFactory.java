@@ -52,42 +52,42 @@ public class ArthromorphGenomeFactory extends GenomeFactory {
 	
 	protected Genome minimalAnimal() {
 		ArthromorphGenome genome = new ArthromorphGenome();
-		Atom aa = new Atom(AtomKind.Claw, genome);
-		Atom bb = new Atom(AtomKind.Joint, genome);
+		Atom aa = new Atom(genome, AtomKind.Claw);
+		Atom bb = new Atom(genome, AtomKind.Joint);
 
 		bb.setWidth(5);
 		bb.setAngle(2);
 		bb.setFirstBelowMe(aa);
 
-		aa = new Atom(AtomKind.SegmentClaw, genome);
+		aa = new Atom(genome, AtomKind.SegmentClaw);
 		aa.setFirstBelowMe(bb);
 
-		bb = new Atom(AtomKind.SegmentJoint, genome);
+		bb = new Atom(genome, AtomKind.SegmentJoint);
 		bb.setNextLikeMe(aa);
 		bb.setAngle(2);
 
-		aa = new Atom(AtomKind.SegmentTrunk, genome);
+		aa = new Atom(genome, AtomKind.SegmentTrunk);
 		aa.setFirstBelowMe(bb);
 
-		bb = new Atom(AtomKind.SectionClaw, genome);
+		bb = new Atom(genome, AtomKind.SectionClaw);
 		bb.setFirstBelowMe(aa);
 
-		aa = new Atom(AtomKind.SectionJoint, genome);
+		aa = new Atom(genome, AtomKind.SectionJoint);
 		aa.setNextLikeMe(bb);
 
-		bb = new Atom(AtomKind.SectionTrunk, genome);
+		bb = new Atom(genome, AtomKind.SectionTrunk);
 		bb.setAngle(0.5); // Segment overlap, by convention
 		bb.setFirstBelowMe(aa);
 
-		aa = new Atom(AtomKind.AnimalClaw, genome);
+		aa = new Atom(genome, AtomKind.AnimalClaw);
 		aa.setFirstBelowMe(bb);
 
-		bb = new Atom(AtomKind.AnimalJoint, genome);
+		bb = new Atom(genome, AtomKind.AnimalJoint);
 		bb.setNextLikeMe(aa);
 		bb.setWidth(5); // make it visible
 		bb.setAngle(5);
 
-		aa = new Atom(AtomKind.AnimalTrunk, genome);
+		aa = new Atom(genome, AtomKind.AnimalTrunk);
 		aa.setFirstBelowMe(bb);
 		aa.setHeight(20);
 		aa.setWidth(20);

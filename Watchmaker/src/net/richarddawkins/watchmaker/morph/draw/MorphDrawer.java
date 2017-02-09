@@ -7,6 +7,6 @@ public interface MorphDrawer {
 
 	void setSize(Dim boxSize);
 
-	void draw(BoxedMorph locatedMorph, Object graphicsContext, Dim d);
+	void draw(BoxedMorph locatedMorph, Object graphicsContext, Dim d, boolean selectionState);
 
 }

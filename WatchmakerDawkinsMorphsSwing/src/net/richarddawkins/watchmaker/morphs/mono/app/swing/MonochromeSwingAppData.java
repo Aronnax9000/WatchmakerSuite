@@ -25,6 +25,7 @@ public class MonochromeSwingAppData extends SwingAppData implements AppData {
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
 		GeneBoxStrip geneBoxStrip = new SwingMonochromeGeneBoxStrip();
 		geneBoxStrip.setEngineeringMode(engineeringMode);
+		geneBoxStrip.setGeneBoxToSide(false);
 		return geneBoxStrip;
 	}
 

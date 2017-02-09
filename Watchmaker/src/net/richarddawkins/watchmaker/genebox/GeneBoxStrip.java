@@ -14,4 +14,6 @@ public interface GeneBoxStrip extends MorphViewWidget, PropertyChangeListener {
 
 	void setEngineeringMode(boolean engineeringMode);
 
+	void setGeneBoxToSide(boolean geneBoxToSide);
+	boolean isGeneBoxToSide();
 }

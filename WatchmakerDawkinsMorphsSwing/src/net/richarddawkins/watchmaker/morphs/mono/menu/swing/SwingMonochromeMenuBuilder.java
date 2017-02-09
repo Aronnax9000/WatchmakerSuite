@@ -151,26 +151,8 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		return menu;
 	}
 
-	/**
-	 * Edit (Undo | Cut, Copy, Paste, Clear | Highlight Biomorph, Add Biomorph
-	 * to Album, Show Album)
-	 * 
-	 * @return
-	 */
-	private WatchmakerMenu buildEditMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
-		menu.add(new SwingWatchmakerMenuItem("Undo"));
-		menu.addSeparator();
-		menu.add(new SwingWatchmakerMenuItem("Cut"));
-		menu.add(new SwingWatchmakerMenuItem("Copy"));
-		menu.add(new SwingWatchmakerMenuItem("Paste"));
-		menu.add(new SwingWatchmakerMenuItem("Clear"));
-		menu.addSeparator();
-		menu.add(new SwingWatchmakerMenuItem("Highlight Biomorph"));
-		menu.add(new SwingWatchmakerMenuItem("Add Biomorph to Album"));
-		menu.add(new SwingWatchmakerMenuItem("Show Album"));
-		return menu;
-	}
+
+
 
 	/**
 	 * File (Load to Album..., Load as Fossils..., Save Biomorph..., Save

@@ -47,18 +47,7 @@ public class ArthromorphMenuBuilder extends SwingMenuBuilder  {
 		
 		return menu;
 	}
-	public WatchmakerMenu buildEditMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
-		menu.add(new SwingWatchmakerMenuItem("Undo"));
-		menu.add(new SwingWatchmakerMenuItem("Cut"));
-		menu.add(new SwingWatchmakerMenuItem("Copy"));
-		menu.add(new SwingWatchmakerMenuItem("Paste"));
-		menu.add(new SwingWatchmakerMenuItem("Clear"));
-		menu.add(new SwingWatchmakerMenuItem("Select All"));
-		menu.add(new SwingWatchmakerMenuItem("Show Clipboard"));
 
-		return menu;
-	}
 	public WatchmakerMenu buildOperationMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
 		menu.add(new SwingWatchmakerMenuItem(new SwingActionBreed(appData)));

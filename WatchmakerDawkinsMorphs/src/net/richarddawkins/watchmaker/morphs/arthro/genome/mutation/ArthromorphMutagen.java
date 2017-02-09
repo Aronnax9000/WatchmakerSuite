@@ -286,7 +286,7 @@ public class ArthromorphMutagen extends SimpleMutagen {
 							// points to old NextLikeMe of target
 							// So brothers are kept, and new subtree is inserted
 							// last joint has claw. When duplicate, get rid of extra claw
-							target.nextLikeMe = target.copyExceptNext(); 
+							target.nextLikeMe = target.copyExceptNext(target.getGenome()); 
 						}
 						
 						if (target.kind == AtomKind.Joint && target.firstBelowMe != null) { 

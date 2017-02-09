@@ -47,6 +47,10 @@ public class SwingBreedingMorphView extends SwingMorphView {
 			centrePanel.setCursor(WatchmakerCursors.watchCursor);
 			seed(appData.getMorphConfig().newMorph(0));
 			centrePanel.setCursor(WatchmakerCursors.random);
+		}  else if(centrePanel.getCursor() == WatchmakerCursors.highlight) {
+			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+			this.boxedMorphVector.setSelectedBoxedMorph(this.boxedMorphVector.getBoxedMorph(boxNo));
+			repaint();
 			
 		}
 	}
@@ -78,11 +82,13 @@ public class SwingBreedingMorphView extends SwingMorphView {
 							boxedMorph.getMorph().getGenome());
 					selectedBoxedMorph = boxedMorph;
 
-					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor) {
+					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
+							&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
 						centrePanel.setCursor(WatchmakerCursors.breed);
 					}
 				} else {
-					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor) {
+					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
+							&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
 						centrePanel.setCursor(WatchmakerCursors.random);
 					}
 				}

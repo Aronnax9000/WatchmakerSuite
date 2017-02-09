@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.swing.components;
 
 import java.util.logging.Logger;
 
-import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

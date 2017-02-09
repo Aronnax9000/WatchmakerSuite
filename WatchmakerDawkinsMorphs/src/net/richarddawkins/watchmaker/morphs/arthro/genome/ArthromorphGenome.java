@@ -15,7 +15,7 @@ public class ArthromorphGenome extends SimpleGenome {
 
 	public void copy(Genome target) {
 		ArthromorphGenome genome = (ArthromorphGenome) target;
-		((ArthromorphGenome) target).setAnimalTrunk(animalTrunk.copy());
+		((ArthromorphGenome) target).setAnimalTrunk(animalTrunk.copy(target));
 	}
 
 
@@ -47,9 +47,10 @@ public class ArthromorphGenome extends SimpleGenome {
 		this.atomCount = atomCount;
 	}
 
+	
 	@Override
 	public Gene[] toGeneArray() {
-		return new Gene[] { animalTrunk };
+		return animalTrunk.toVector().toArray(new Gene[0]);
 	}
 
 

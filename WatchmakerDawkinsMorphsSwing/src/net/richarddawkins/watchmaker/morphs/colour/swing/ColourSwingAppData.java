@@ -23,6 +23,7 @@ public class ColourSwingAppData extends SwingAppData {
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 
 		GeneBoxStrip geneBoxStrip = new SwingColorGeneBoxStrip();
 		geneBoxStrip.setEngineeringMode(engineeringMode);
+		geneBoxStrip.setGeneBoxToSide(false);
 		return geneBoxStrip;
 	}
 
