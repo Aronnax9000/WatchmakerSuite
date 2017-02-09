@@ -137,15 +137,8 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 	 * @return
 	 */
 	protected WatchmakerMenu buildOperationMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
-		menu.add(new SwingActionBreed(appData));
-		menu.add(new SwingWatchmakerMenuItem("Drift"));
-		menu.add(new ActionEngineering(appData));
+		WatchmakerMenu menu = super.buildOperationMenu();
 
-		menu.add(new SwingWatchmakerMenuItem("Hopeful Monster"));
-		menu.add(new SwingWatchmakerMenuItem("Initialize Fossil Record"));
-		menu.add(new SwingWatchmakerMenuItem("Play Back Fossils"));
-		menu.add(new SwingWatchmakerMenuItem("Recording Fossils"));
 		menu.add(new ActionTriangle(appData));
 		return menu;
 	}

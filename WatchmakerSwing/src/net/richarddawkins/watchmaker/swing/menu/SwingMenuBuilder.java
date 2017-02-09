@@ -149,8 +149,15 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
 	protected WatchmakerMenu buildOperationMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
+		menu.add(new SwingActionBreed(appData));
+		menu.add(new SwingWatchmakerMenuItem("Drift"));
+		menu.add(new ActionEngineering(appData));
+
+		
 		Icon newRandomStartIcon = new ImageIcon(
 				ClassicImageLoader.getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32").getImage());
+
+		
 		menu.add(new SwingWatchmakerMenuItem(new AbstractAction("New Random Start", newRandomStartIcon) {
 
 
@@ -167,6 +174,11 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 				morphView.seed(morph);
 			}
 		}));
+		menu.add(new SwingWatchmakerMenuItem("Hopeful Monster"));
+		menu.add(new SwingWatchmakerMenuItem("Initialize Fossil Record"));
+		menu.add(new SwingWatchmakerMenuItem("Play Back Fossils"));
+		menu.add(new SwingWatchmakerMenuItem("Recording Fossils"));
+
 		return menu;
 	}
 

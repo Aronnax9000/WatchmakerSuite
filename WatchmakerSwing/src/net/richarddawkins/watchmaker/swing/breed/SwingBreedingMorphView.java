@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
@@ -33,8 +34,17 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32", "Breeding", false, appData.isGeneBoxToSide());
 		centrePanel.setCursor(WatchmakerCursors.breed);
 		boxedMorphVector.setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(), appData.getDefaultBreedingRows()));
-
-		seed(morph);
+		if(morph != null) {
+			MorphConfig config = appData.getMorphConfig();
+			Morph copy = config.newMorph();
+			Genome genome = config.newGenome();
+			morph.getGenome().copy(genome);
+			copy.setGenome(genome);
+			seed(copy);
+		} else {
+			seed(null);
+		}
+		
 	}
 	@Override
 	public void boxClicked(Point myPt) {
