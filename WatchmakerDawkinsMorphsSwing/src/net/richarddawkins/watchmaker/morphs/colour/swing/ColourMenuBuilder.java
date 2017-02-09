@@ -56,11 +56,7 @@ public class ColourMenuBuilder extends SwingMenuBuilder implements PropertyChang
 		return menu;
 	}
 
-	private WatchmakerMenu buildViewMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("View");
-		menu.add(viewBoundingBoxes);
-		return menu;
-	}
+
 
 	private WatchmakerMenu buildOperationMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");

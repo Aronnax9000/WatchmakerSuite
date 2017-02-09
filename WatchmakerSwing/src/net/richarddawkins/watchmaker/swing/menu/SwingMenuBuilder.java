@@ -130,4 +130,12 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 		return menu;
 	}
 
+	protected WatchmakerMenu buildViewMenu() {
+		WatchmakerMenu menu = new SwingWatchmakerMenu("View");
+		menu.add(viewBoundingBoxes);
+		menu.add(spinBabyMorphs);
+
+		return menu;
+	}
+
 }

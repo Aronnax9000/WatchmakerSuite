@@ -113,8 +113,9 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 	 * 
 	 * @return
 	 */
-	private WatchmakerMenu buildViewMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("View");
+	@Override
+	protected WatchmakerMenu buildViewMenu() {
+		WatchmakerMenu menu = super.buildViewMenu();
 		menu.add(new SwingWatchmakerMenuItem("More Rows"));
 		menu.add(new SwingWatchmakerMenuItem("Fewer Rows"));
 		menu.add(new SwingWatchmakerMenuItem("More Columns"));
@@ -125,8 +126,6 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		menu.add(new SwingWatchmakerMenuItem("Make top of triangle"));
 		menu.add(new SwingWatchmakerMenuItem("Make left of triangle"));
 		menu.add(new SwingWatchmakerMenuItem("Make right of triangle"));
-		menu.add(viewBoundingBoxes);
-		menu.add(spinBabyMorphs);
 
 		return menu;
 	}

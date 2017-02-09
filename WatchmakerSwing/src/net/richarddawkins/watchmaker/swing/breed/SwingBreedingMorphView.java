@@ -49,7 +49,10 @@ public class SwingBreedingMorphView extends SwingMorphView {
 			centrePanel.setCursor(WatchmakerCursors.random);
 		}  else if(centrePanel.getCursor() == WatchmakerCursors.highlight) {
 			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
-			this.boxedMorphVector.setSelectedBoxedMorph(this.boxedMorphVector.getBoxedMorph(boxNo));
+			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+			this.boxedMorphVector.setSelectedBoxedMorph(boxedMorph);
+			pcs.firePropertyChange("genome", null, 
+					boxedMorph.getMorph().getGenome());
 			repaint();
 			
 		}
@@ -64,32 +67,40 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
 	@Override
 	public Morph getMorphOfTheHour() {
-		return boxedMorphVector.getBoxedMorph(boxes.getMidBox()).getMorph();
+		BoxedMorph boxedMorph = boxedMorphVector.getSelectedBoxedMorph();
+		if(boxedMorph != null) {
+			return boxedMorph.getMorph();
+		} else {
+			return boxedMorphVector.getBoxedMorph(boxes.getMidBox()).getMorph();
+		}
 	}
 
 	protected BoxedMorph selectedBoxedMorph = null;
 	
 	@Override
 	public void processMouseMotion(Point myPt, Dim size) {
-		int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
-		if (boxNo != -1) {
-			synchronized(boxedMorphVector) {
-				BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
-				
-				if (boxedMorph != null) {
-					if(boxedMorph != selectedBoxedMorph)
-					pcs.firePropertyChange("genome", null, 
-							boxedMorph.getMorph().getGenome());
-					selectedBoxedMorph = boxedMorph;
-
-					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
-							&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
-						centrePanel.setCursor(WatchmakerCursors.breed);
-					}
-				} else {
-					if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
-							&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
-						centrePanel.setCursor(WatchmakerCursors.random);
+		if(!(centrePanel.getCursor() == WatchmakerCursors.highlight 
+				&& boxedMorphVector.getSelectedBoxedMorph() != null)) {
+			int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
+			if (boxNo != -1) {
+				synchronized(boxedMorphVector) {
+					BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+					
+					if (boxedMorph != null) {
+						if(boxedMorph != selectedBoxedMorph)
+						pcs.firePropertyChange("genome", null, 
+								boxedMorph.getMorph().getGenome());
+						selectedBoxedMorph = boxedMorph;
+	
+						if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
+								&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
+							centrePanel.setCursor(WatchmakerCursors.breed);
+						}
+					} else {
+						if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
+								&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
+							centrePanel.setCursor(WatchmakerCursors.random);
+						}
 					}
 				}
 			}

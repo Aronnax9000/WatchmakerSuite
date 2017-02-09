@@ -56,8 +56,10 @@ public class ArthromorphMenuBuilder extends SwingMenuBuilder  {
 		menu.add(new SwingWatchmakerMenuItem(new EngineerAction(appData)));
 		return menu;
 	}
+	@Override
 	public WatchmakerMenu buildViewMenu() {
-		WatchmakerMenu menu = new SwingWatchmakerMenu("View");
+		
+		WatchmakerMenu menu = super.buildViewMenu();
 		PreferencesAction preferencesAction = new PreferencesAction(appData); 
 		
 		menu.add(preferencesAction);
