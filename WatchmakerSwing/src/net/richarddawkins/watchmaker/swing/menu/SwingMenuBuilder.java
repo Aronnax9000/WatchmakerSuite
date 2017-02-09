@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.menu;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.Icon;
 import javax.swing.JCheckBoxMenuItem;
@@ -64,6 +65,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 						}
 					}
 				});
+		appData.addPropertyChangeListener("highlighting", (PropertyChangeListener)highlightBiomorph);
 
 	};
 

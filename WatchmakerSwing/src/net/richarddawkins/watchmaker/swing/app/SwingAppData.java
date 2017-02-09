@@ -28,7 +28,15 @@ public abstract class SwingAppData implements AppData {
 	public void setSaltOnEmptyBreedingBoxClick(boolean saltOnEmptyBreedingBoxClick) {
 		this.saltOnEmptyBreedingBoxClick = saltOnEmptyBreedingBoxClick;
 	}
-
+	protected boolean highlighting = false;
+	public boolean isHighlighting() {
+		return highlighting;
+	}
+	public void setHighlighting(boolean newValue) {
+		boolean oldValue = highlighting;
+		highlighting = newValue;
+		pcs.firePropertyChange("highlighting", oldValue, newValue);
+	}
 	protected boolean geneBoxToSide;
 
 	public boolean isGeneBoxToSide() {
@@ -84,7 +92,10 @@ public abstract class SwingAppData implements AppData {
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(listener);
-
+	}
+	@Override
+	public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+		pcs.addPropertyChangeListener(propertyName, listener);
 	}
 
 	@Override

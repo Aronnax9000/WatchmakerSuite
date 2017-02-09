@@ -1,10 +1,13 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import javax.swing.JCheckBoxMenuItem;
 
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 
-public class SwingWatchmakerCheckBoxMenuItem extends JCheckBoxMenuItem implements WatchmakerCheckBoxMenuItem {
+public class SwingWatchmakerCheckBoxMenuItem extends JCheckBoxMenuItem implements PropertyChangeListener, WatchmakerCheckBoxMenuItem {
 
 	/**
 	 * 
@@ -18,6 +21,10 @@ public class SwingWatchmakerCheckBoxMenuItem extends JCheckBoxMenuItem implement
 	
 	public SwingWatchmakerCheckBoxMenuItem(String name) {
 		super(name);
+	}
+	
+	public void propertyChange(PropertyChangeEvent evt) {
+		this.setSelected((Boolean)evt.getNewValue());
 	}
 
 }

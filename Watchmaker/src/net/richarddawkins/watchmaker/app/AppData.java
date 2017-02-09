@@ -64,4 +64,8 @@ public interface AppData  {
 	public void addTriangleMorphView();
 	public boolean isGeneBoxToSide();
 	public void setGeneBoxToSide(boolean newValue);
+	public void setHighlighting(boolean b);
+	public boolean isHighlighting();
+	public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
+
 }
