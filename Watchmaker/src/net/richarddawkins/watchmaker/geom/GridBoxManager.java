@@ -17,11 +17,30 @@ public class GridBoxManager extends BoxManager  {
 	public int getMidBox() {
 		return midBox;
 	}
-	public final int cols;
-	public final int rows;
-	public final int boxCount;
-	public final int midBox;
+	public int getCols() {
+		return cols;
+	}
+	public void setCols(int cols) {
+		this.cols = cols;
+		update();
+	}
+	public int getRows() {
+		return rows;
+	}
+	public void setRows(int rows) {
+		this.rows = rows;
+		update();
+	}
 
+	public int cols;
+	public int rows;
+	public int boxCount;
+	public int midBox;
+
+	public void update() {
+		this.boxCount = cols * rows;
+		this.midBox = boxCount / 2;	
+	}
 
 
 	
@@ -33,12 +52,15 @@ public class GridBoxManager extends BoxManager  {
 	public GridBoxManager(int cols, int rows) {
 		this.cols = cols;
 		this.rows = rows;
-		this.boxCount = cols * rows;
-		this.midBox = boxCount / 2;	
+		
+		update();
 	}
 	
 
 
+	public GridBoxManager() {
+		// TODO Auto-generated constructor stub
+	}
 	/* (non-Javadoc)
 	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getBoxSize(net.richarddawkins.watchmaker.geom.Dim)
 	 */

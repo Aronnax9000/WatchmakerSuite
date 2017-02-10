@@ -1,10 +1,12 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
 import java.awt.event.ActionEvent;
+import java.util.Vector;
 
 import javax.swing.Icon;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 
@@ -24,9 +26,12 @@ public class ActionShowAlbum extends SwingWatchmakerAction {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-		for(BoxedMorphCollection album: appData.getMorphConfig().getAlbums()) {
-			appData.getMorphViewsTabbedPane().addMorphView(new SwingAlbumMorphView(appData, album));
+		MorphConfig config = appData.getMorphConfig();
+		Vector<BoxedMorphCollection> albums = config.getAlbums();
+		if(albums != null) {
+			for(BoxedMorphCollection album: albums) {
+				appData.getMorphViewsTabbedPane().addMorphView(new SwingAlbumMorphView(appData, album));
+			}
 		}
 	}
 

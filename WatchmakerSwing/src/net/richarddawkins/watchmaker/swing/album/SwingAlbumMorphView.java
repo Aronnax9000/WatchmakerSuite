@@ -1,7 +1,11 @@
 package net.richarddawkins.watchmaker.swing.album;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.logging.Logger;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
@@ -22,7 +26,11 @@ public class SwingAlbumMorphView extends SwingMorphView {
 		super(appData, "Hypodermic_PICT_03937_16x16", "Album", true, appData.isGeneBoxToSide());
 		this.setBoxedMorphVector(collection);
 		collection.getBoxes().setAccentuateMidBox(false);
-		((Component)this.getCentrePanel()).setCursor(WatchmakerCursors.highlight);
+		this.remove(centrePanel);
+
+		JScrollPane scrollPane = new JScrollPane(centrePanel);
+		this.add(scrollPane, BorderLayout.CENTER);
+		((Component)centrePanel).setCursor(WatchmakerCursors.highlight);
 	}
 
 	public void boxClicked(Point myPt) {

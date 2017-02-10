@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.arthro.genome;
 
+import java.nio.ByteBuffer;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -14,6 +15,8 @@ public class Atom extends SimpleGene {
 
 	static int[] paramOffset = new int[AtomKind.values().length];
 
+
+	
 	static {
 		// where in a CumParams the Width of an AnimalTrunk gets multiplied in
 		paramOffset[AtomKind.AnimalTrunk.ordinal()] = 0;
@@ -40,7 +43,7 @@ public class Atom extends SimpleGene {
 	 * segment</li>
 	 * </ul>
 	 */
-	public double angle;
+	public double angle = 1.0;
 
 	/**
 	 * Original documentation: where to look in the BoneYard for the next atom.
@@ -53,7 +56,7 @@ public class Atom extends SimpleGene {
 	/**
 	 * Original documentation: Also used for Thickness of a Joint
 	 */
-	public double height;
+	public double height = 1.0;
 
 	public AtomKind kind = AtomKind.Free;
 
@@ -69,14 +72,15 @@ public class Atom extends SimpleGene {
 	/**
 	 * Original documentation: Also used for Length of a Joint
 	 */
-	public double width;
+	public double width = 1.0;
 
+	public Atom(ArthromorphGenome genome) {
+		super(genome, "");
+	}
+	
 	public Atom(ArthromorphGenome genome, AtomKind kind) {
 		super(genome, kind.toString());
 		this.kind = kind;
-		height = 1.0;
-		width = 1.0;
-		angle = 1.0;
 	}
 
 	public Atom(ArthromorphGenome genome, AtomKind kind, double height, double width, double angle, int gradientGene, Atom nextLikeMe,
@@ -319,6 +323,7 @@ public class Atom extends SimpleGene {
 
 	public void setKind(AtomKind kind) {
 		this.kind = kind;
+		this.setName(kind.name());
 	}
 
 	public void setNextLikeMe(Atom nextLikeMe) {
@@ -349,8 +354,7 @@ public class Atom extends SimpleGene {
 	public String toString() {
 		ArthromorphGenome arthGenome = (ArthromorphGenome) genome;
 		return kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " g:" + gradientGene + " segNo:"
-				+ segmentNumber + " atomCount:" + countAtoms() 
-				+ " db:" + depthBelow(arthGenome.getAnimalTrunk(), this);
+				+ segmentNumber;
 	}
 
 	public Vector<Atom> toVector() {
@@ -362,5 +366,16 @@ public class Atom extends SimpleGene {
 			atoms.addAll(nextLikeMe.toVector());
 		return atoms;
 	}
-
+	@Override
+	public void readValueFromByteBuffer(ByteBuffer byteBuffer) {
+		this.setKind(AtomKind.values()[byteBuffer.get()]);
+		byteBuffer.get(); // Skip
+		this.setHeight(byteBuffer.getFloat());
+		this.setWidth(byteBuffer.getFloat());
+		this.setAngle(byteBuffer.getFloat());
+	}
+	@Override
+	public void writeValueToByteBuffer(ByteBuffer byteBuffer) {
+		
+	}
 }

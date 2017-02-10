@@ -93,4 +93,5 @@ abstract public class BoxManager {
 	public void setAccentuateMidBox(boolean accentuateMidBox) {
 		this.accentuateMidBox = accentuateMidBox;
 	}
+
 }

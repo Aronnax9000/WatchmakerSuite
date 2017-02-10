@@ -16,6 +16,14 @@ public class BoxedMorph extends LocatedMorph {
 	protected int destinationBoxNo = -1;
 	protected BoxManager boxes;
 
+	public BoxManager getBoxes() {
+		return boxes;
+	}
+
+	public void setBoxes(BoxManager boxes) {
+		this.boxes = boxes;
+	}
+
 	public int getDestinationBoxNo() {
 		return destinationBoxNo;
 	}

@@ -85,6 +85,7 @@ public interface MorphConfig {
 	void setRecordingFossils(boolean newValue);
 	void setStartingMorphBasicType(int startingMorphBasicType);
 	Vector<BoxedMorphCollection> getAlbums();
+	String[] getSavedAnimals();
 
 
 }

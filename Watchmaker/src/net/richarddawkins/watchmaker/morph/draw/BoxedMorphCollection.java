@@ -16,7 +16,7 @@ public class BoxedMorphCollection {
 	
 	protected BoxedMorph selectedBoxedMorph = null;
 	protected String name;
-
+	public int size() { return boxedMorphs.size(); }
 	protected BoxManager boxes;
 	
 	public BoxManager getBoxes() {

@@ -2,6 +2,10 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -11,10 +15,13 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
+import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-	@SuppressWarnings("unused")
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
 	protected AllowedMutations allowedMutations;	
@@ -140,6 +147,87 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 	protected void wireMorphEvents(Morph morph) {
 		morph.addPropertyChangeListener(getEmbryology());
 	}
+	@Override
+	public String[] getSavedAnimals() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	@Override
+	public Vector<BoxedMorphCollection> getAlbums()  {
+		Vector<BoxedMorphCollection> albums = new Vector<BoxedMorphCollection>();
+		for(String name: getSavedAnimals()) {
+			logger.info("Loading:" + name);
+			InputStream is =
+			this.getClass().getResourceAsStream(name);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			while(true) {
+				int readByte = -1;
+				try {
+					readByte = is.read();
+				} catch (IOException e) {
+					logger.severe("While reading from saved animal file " + name + ":" + e.getMessage());
+				}
+				if(readByte == -1) {
+					break;
+				}
+				baos.write(readByte);
+			}
+			ByteBuffer byteBuffer = ByteBuffer.wrap(baos.toByteArray());
+//			byteBuffer.order(ByteOrder.BIG_ENDIAN);
+			
+			BoxedMorphCollection album = new BoxedMorphCollection();
+			GridBoxManager boxManager = new GridBoxManager();
+			boxManager.setCols(5);
+			album.setBoxes(boxManager);
+			album.setName(name);
+			int boxNo = 0;
+			while(byteBuffer.hasRemaining() && boxNo < 60) {
+				Genome genome = newGenome();
+				genome.readFromByteBuffer(byteBuffer);
+				Morph morph = newMorph();
+				morph.setGenome(genome);
+				logger.info(name+ " box:" + boxNo + " Genome:" + genome.toString());
+				BoxedMorph boxedMorph = new BoxedMorph(boxManager, morph, boxNo++);
+				album.add(boxedMorph);
+			}
+			boxManager.setRows((boxNo + 1) / 5);
+			logger.info("Album " + name + " contained " + boxNo + " genomes.");
+			album.setSelectedBoxedMorph(album.getBoxedMorph(0));
+			albums.add(album);
+		}
+		Vector<BoxedMorphCollection> singletonCollections = new Vector<BoxedMorphCollection>();
+		
+		for(BoxedMorphCollection album: albums) {
+			if(album.size() == 1) {
+				singletonCollections.add(album);
+			}
+		}
+		
+		if(singletonCollections.size() != 0) {
+			BoxedMorphCollection singletonCollection = new BoxedMorphCollection();
+			GridBoxManager boxManager = new GridBoxManager();
+			boxManager.setCols(5);
+			singletonCollection.setBoxes(boxManager);
+			int boxNo = 0;
+			for(BoxedMorphCollection album: singletonCollections) {
+				for(BoxedMorph boxedMorph: album.getBoxedMorphs()) {
+					boxedMorph.setBoxes(boxManager);
+					boxedMorph.setBoxNo(boxNo++);
+					singletonCollection.add(boxedMorph);
+				}
+				albums.remove(album);
+			}
+			boxManager.setRows(boxNo / 5 + 1);
+			
+			albums.add(singletonCollection);
+		}
+		
+		
+		return albums;
+	}
+
 	
 
 }
