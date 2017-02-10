@@ -1,8 +1,11 @@
 package net.richarddawkins.watchmaker.morphs.concho.genome;
 
+import java.nio.ByteBuffer;
+
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.genome.SimpleGenome;
+import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 
 /**
  * <pre>
@@ -95,4 +98,32 @@ public class SnailGenome extends SimpleGenome {
 				generatingCurve, translationGradient, gradient, handedness };
 	}
 
+	/**
+	 * WOpening: real;
+    DDisplacement: real;
+    SShape: real;
+    TTranslation: real;
+    Coarsegraininess: integer;
+    Reach: integer; 
+    GeneratingCurve: integer;
+    TranslationGradient: real;
+    DGradient: real;
+    Handedness: -1..1;
+	 */
+	public void readFromByteBuffer(ByteBuffer byteBuffer) {
+		opening.setValue(byteBuffer.getFloat());
+		displacement.setValue(byteBuffer.getFloat());
+		shape.setValue(byteBuffer.getFloat());
+		translation.setValue(byteBuffer.getFloat());
+		coarsegraininess.setValue(byteBuffer.getShort());
+		reach.setValue(byteBuffer.getShort());
+		generatingCurve.setValue(byteBuffer.getShort());
+		translationGradient.setValue(byteBuffer.getFloat());
+		gradient.setValue(byteBuffer.getFloat());
+		byteBuffer.getShort();
+		handedness.setValue(HandednessType.values()[byteBuffer.get()]);
+		byteBuffer.get();
+		
+	}
+	
 }

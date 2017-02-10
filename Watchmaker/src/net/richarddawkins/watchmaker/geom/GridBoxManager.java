@@ -21,19 +21,23 @@ public class GridBoxManager extends BoxManager  {
 		return cols;
 	}
 	public void setCols(int cols) {
-		this.cols = cols;
-		update();
+		if(cols > 0) {
+			this.cols = cols;
+			update();
+		}
 	}
 	public int getRows() {
 		return rows;
 	}
 	public void setRows(int rows) {
-		this.rows = rows;
-		update();
+		if(rows > 0) {
+			this.rows = rows;
+			update();
+		}
 	}
 
-	public int cols;
-	public int rows;
+	public int cols = 1;
+	public int rows = 1;
 	public int boxCount;
 	public int midBox;
 
