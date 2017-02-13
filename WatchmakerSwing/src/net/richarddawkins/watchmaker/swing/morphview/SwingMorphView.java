@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagLayout;
+import java.awt.MouseInfo;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -20,6 +21,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.SwingUtilities;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
@@ -233,7 +235,19 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			repaint();
 		}
 	}
-
+	@Override
+	public void updateCursor() {
+		java.awt.Point p = MouseInfo.getPointerInfo().getLocation();
+		logger.info("Raw point " + p);
+		SwingUtilities.convertPointFromScreen(p, centrePanel);
+		logger.info("Converted point " + p);
+		if(p.x > -1 && p.y > -1) {
+			processMouseMotion(
+					SwingGeom.toWatchmakerPoint(p), 
+					SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+		}
+		
+	}
 	@Override
 	public void setAppData(AppData appData) {
 		this.appData = appData;

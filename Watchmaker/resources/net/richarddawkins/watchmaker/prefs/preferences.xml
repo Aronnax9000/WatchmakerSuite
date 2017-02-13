@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE preferences SYSTEM 'http://java.sun.com/dtd/preferences.dtd'>
+<preferences EXTERNAL_XML_VERSION="1.0">
+	<root type="user">
+		<map />
+		<node name="net">
+			<map />
+			<node name="richarddawkins">
+				<map />
+				<node name="watchmaker">
+					<map />
+					<node name="ui">
+						<map>
+<!--  							<entry key="font" value="ChicagoFLF" /> -->
+							<entry key="font" value="virtue" />
+						</map>
+					</node>
+				</node>
+			</node>
+		</node>
+	</root>
+</preferences>

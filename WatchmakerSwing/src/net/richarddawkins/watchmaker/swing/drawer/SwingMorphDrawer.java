@@ -3,6 +3,8 @@ package net.richarddawkins.watchmaker.swing.drawer;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.font.FontRenderContext;
+import java.awt.font.LineMetrics;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
@@ -57,10 +59,19 @@ public class SwingMorphDrawer implements MorphDrawer {
 		if(selectionState) {
 			g2.drawImage(bufferedImage, 0, 0, null);
 			g2.setColor(Color.BLACK);
-			g2.setStroke(new BasicStroke(1));
+			g2.setStroke(new BasicStroke(2));
 			g2.drawRect(0, 0, bufferedImage.getWidth(), bufferedImage.getHeight());
 		} else {
 			g2.drawImage(bufferedImage, 0, 0, null);
+		}
+		String name = morph.getName();
+		if(name != null) {
+			FontRenderContext frc = g2.getFontRenderContext();
+			
+			float width = (float) g2.getFont().getStringBounds(name, frc).getWidth();
+			float height = (float) g2.getFont().getStringBounds(name, frc).getHeight();
+			g2.translate((bufferedImage.getWidth() - width) / 2, bufferedImage.getHeight() + height);
+			g2.drawString(name, 0, 0);
 		}
 		logger.fine("Restore transform");
 		g2.setTransform(saveTransform);

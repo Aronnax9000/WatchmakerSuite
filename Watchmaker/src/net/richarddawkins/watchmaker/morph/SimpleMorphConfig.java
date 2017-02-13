@@ -15,7 +15,6 @@ import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
-import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -201,6 +200,10 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		
 		for(BoxedMorphCollection album: albums) {
 			if(album.size() == 1) {
+				for(BoxedMorph boxedMorph: album.getBoxedMorphs()) {
+					String name = album.getName();
+					boxedMorph.getMorph().setName(name.substring(name.lastIndexOf('/') + 1));
+				}
 				singletonCollections.add(album);
 			}
 		}

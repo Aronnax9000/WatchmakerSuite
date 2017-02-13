@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.logging.Logger;
 
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.richarddawkins.watchmaker.app.AppData;
@@ -86,6 +85,5 @@ public class SwingAlbumMorphView extends SwingMorphView {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 }

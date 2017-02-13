@@ -47,4 +47,6 @@ public interface Morph {
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	void removePropertyChangeListener(PropertyChangeListener listener);
 	public void firePropertyChange(PropertyChangeEvent event);
+	void setName(String name);
+	String getName();
 }

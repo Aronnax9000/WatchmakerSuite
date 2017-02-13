@@ -7,8 +7,6 @@ import javax.swing.ButtonGroup;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
-import net.richarddawkins.watchmaker.swing.menu.ActionEngineering;
-import net.richarddawkins.watchmaker.swing.menu.SwingActionBreed;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;

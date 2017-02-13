@@ -126,7 +126,8 @@ public class BoxAnimator extends TimerTask {
 
 		case breed_complete:
 			this.cancel();
-			breedingPanel.getCentrePanel().setCursor(WatchmakerCursors.breed);
+			breedingPanel.getCentrePanel().setCursor(null);
+			breedingPanel.updateCursor();
 			logger.info("Breed Complete");
 			break;
 		}

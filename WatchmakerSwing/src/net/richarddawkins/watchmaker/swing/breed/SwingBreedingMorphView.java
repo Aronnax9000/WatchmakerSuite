@@ -58,7 +58,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		} else if(centrePanel.getCursor() == WatchmakerCursors.random) {
 			centrePanel.setCursor(WatchmakerCursors.watchCursor);
 			seed(appData.getMorphConfig().newMorph(0));
-			centrePanel.setCursor(WatchmakerCursors.random);
+			centrePanel.setCursor(null);
+			updateCursor();
 		}  else if(centrePanel.getCursor() == WatchmakerCursors.highlight) {
 			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
 			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
@@ -74,7 +75,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		logger.log(Level.INFO, "Breeding from box " + special);
 		centrePanel.setCursor(WatchmakerCursors.watchCursor);
 		BoxAnimator animator = new BoxAnimator(this, special);
-		timer.schedule(animator, 0, 17);
+		timer.schedule(animator, 0, appData.getTickDelay());
 	}
 
 	@Override
@@ -89,7 +90,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		}
 	}
 
-	protected BoxedMorph selectedBoxedMorph = null;
+	protected int selectedBoxNo = -1;
+
 	
 	@Override
 	public void processMouseMotion(Point myPt, Dim size) {
@@ -103,10 +105,10 @@ public class SwingBreedingMorphView extends SwingMorphView {
 					BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
 					
 					if (boxedMorph != null) {
-						if(boxedMorph != selectedBoxedMorph)
+						if(boxNo != selectedBoxNo)
 						pcs.firePropertyChange("genome", null, 
 								boxedMorph.getMorph().getGenome());
-						selectedBoxedMorph = boxedMorph;
+						selectedBoxNo = boxNo;
 	
 						if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
 								&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
@@ -150,4 +152,5 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		repaint();
 
 	}
+
 }

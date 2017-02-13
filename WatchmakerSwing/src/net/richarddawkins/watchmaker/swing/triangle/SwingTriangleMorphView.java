@@ -104,4 +104,5 @@ public class SwingTriangleMorphView extends SwingMorphView {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

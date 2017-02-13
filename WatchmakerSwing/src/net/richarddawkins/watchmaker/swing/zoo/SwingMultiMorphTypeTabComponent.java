@@ -2,9 +2,11 @@ package net.richarddawkins.watchmaker.swing.zoo;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,7 +48,10 @@ public class SwingMultiMorphTypeTabComponent extends JPanel implements Watchmake
 		setOpaque(false);
 		lblTitle = new JLabel();
 		btnClose = new JButton("x");
+		btnClose.setMargin(new Insets(0,0,0,0));
+		
 		lblIcon = new JLabel();
+		
 
 		GridBagConstraints gbc = new GridBagConstraints();
 
@@ -61,10 +66,8 @@ public class SwingMultiMorphTypeTabComponent extends JPanel implements Watchmake
 
 		gbc.gridx++;
 		gbc.weightx = 0;
+		gbc.weighty = 0;
 		add(btnClose, gbc);
-
-		
-		
 		
 	}
 	

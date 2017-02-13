@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,6 +51,7 @@ public class SwingMorphViewTabComponent extends JPanel implements MorphViewTabCo
 
 		gbc.gridx++;
 		gbc.weightx = 0;
+		btnClose.setMargin(new Insets(0,0,0,0));
 		add(btnClose, gbc);
 	}
 

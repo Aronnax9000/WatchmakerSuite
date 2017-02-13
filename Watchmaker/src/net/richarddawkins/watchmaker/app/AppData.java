@@ -67,5 +67,7 @@ public interface AppData  {
 	public void setHighlighting(boolean b);
 	public boolean isHighlighting();
 	public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
+	public long getTickDelay();
+	void setTickDelay(long tickDelay);
 
 }

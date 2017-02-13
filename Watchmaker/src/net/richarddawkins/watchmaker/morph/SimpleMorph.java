@@ -14,7 +14,19 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
+	protected String name;
 	
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorph");
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);

@@ -22,6 +22,17 @@ import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 public abstract class SwingAppData implements AppData {
 	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
 	protected boolean saltOnEmptyBreedingBoxClick = false;
+	
+	protected long tickDelay = 5;
+	
+	@Override
+	public long getTickDelay() {
+		return tickDelay;
+	}
+	@Override
+	public void setTickDelay(long tickDelay) {
+		this.tickDelay = tickDelay;
+	}
 	public boolean isSaltOnEmptyBreedingBoxClick() {
 		return saltOnEmptyBreedingBoxClick;
 	}

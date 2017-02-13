@@ -36,4 +36,5 @@ public interface MorphView {
 	JPanel getCentrePanel();
 	BoxedMorphCollection getBoxedMorphVector();
 	void paintMorphViewPanel(Object graphicsContext, Dim size);
+	void updateCursor();
 }
