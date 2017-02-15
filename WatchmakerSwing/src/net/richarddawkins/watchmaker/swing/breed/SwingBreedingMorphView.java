@@ -23,6 +23,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView");
 	private static final long serialVersionUID = -5445629768562940527L;
 
+	protected boolean busyBreeding = false;
+	
 	protected BoxedMorph boxedMorphSpecial;
 
 	Vector<Morph> litter;
@@ -48,6 +50,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	}
 	@Override
 	public void boxClicked(Point myPt) {
+		logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
 		BoxManager boxes = boxedMorphVector.getBoxes();
 		if(centrePanel.getCursor() == WatchmakerCursors.breed) {
 			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
@@ -95,7 +98,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	
 	@Override
 	public void processMouseMotion(Point myPt, Dim size) {
-		
+		logger.info("processMouseMotion(" + myPt + ", " + size);
 		if(!(centrePanel.getCursor() == WatchmakerCursors.highlight 
 				&& boxedMorphVector.getSelectedBoxedMorph() != null)) {
 			BoxManager boxes = boxedMorphVector.getBoxes();
@@ -121,6 +124,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 						}
 					}
 				}
+			} else {
+				logger.warning("boxNo is -1");
 			}
 		}
 	}

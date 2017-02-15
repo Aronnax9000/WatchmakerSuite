@@ -234,6 +234,7 @@
       <Unit30>
         <Filename Value="unit_boneyard.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <CursorPos Y="6"/>
         <UsageCount Value="201"/>
@@ -242,9 +243,8 @@
       <Unit31>
         <Filename Value="unit_draw.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="209"/>
+        <TopLine Value="208"/>
         <CursorPos X="84" Y="145"/>
         <UsageCount Value="177"/>
         <Loaded Value="True"/>
@@ -404,7 +404,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="67"/>
         <CursorPos X="67" Y="84"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit54>
       <Unit55>
         <Filename Value="unit_mactoolbox_ess.pas"/>

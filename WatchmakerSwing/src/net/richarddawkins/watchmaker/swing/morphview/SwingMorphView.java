@@ -53,8 +53,8 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	protected boolean showBoxes = true;
 	protected String toolTip;
 
-//	protected MorphViewWidget lowerStrip;
-//	protected MorphViewWidget upperStrip;
+	// protected MorphViewWidget lowerStrip;
+	// protected MorphViewWidget upperStrip;
 
 	public SwingMorphView(AppData appData) {
 		this.appData = appData;
@@ -75,9 +75,8 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			@Override
 			public void mouseMoved(MouseEvent e) {
 
-				processMouseMotion(
-						SwingGeom.toWatchmakerPoint(e.getPoint()),
-						SwingGeom.toWatchmakerDim(((Component)e.getSource()).getSize()));
+				processMouseMotion(SwingGeom.toWatchmakerPoint(e.getPoint()),
+						SwingGeom.toWatchmakerDim(((Component) e.getSource()).getSize()));
 			}
 		});
 
@@ -100,31 +99,28 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	}
 
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	
-	public SwingMorphView(AppData appData, String icon, String name, 
-			boolean engineeringMode, 
-			boolean geneBoxToSide) {
+
+	public SwingMorphView(AppData appData, String icon, String name, boolean engineeringMode, boolean geneBoxToSide) {
 		this(appData, icon, name);
 		GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
-		
+
 		// So it can hear it when the selected genome changes.
 		pcs.addPropertyChangeListener(geneBoxStrip);
-		
-		JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel(); 
+
+		JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel();
 		geneBoxStripPanel.setLayout(new GridBagLayout());
-		if(geneBoxToSide) {
+		if (geneBoxToSide) {
 			// Nassty nassty JScrollPane will center our content otherwise
 			JPanel dummy = new JPanel();
 			dummy.add(geneBoxStripPanel);
 			JScrollPane scrollPane = new JScrollPane(dummy);
 			this.add(scrollPane, BorderLayout.LINE_END);
-		} else{
+		} else {
 			this.add(geneBoxStripPanel, BorderLayout.PAGE_START);
 		}
 
-		SwingScaleSlider scaleSlider = new SwingScaleSlider(
-				appData.getPhenotypeDrawer().getDrawingPreferences());
-		
+		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
+
 		this.add((JSlider) scaleSlider.getPanel(), BorderLayout.PAGE_END);
 	}
 
@@ -139,8 +135,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		return boxedMorphVector;
 	}
 
-
-
 	@Override
 	public JPanel getCentrePanel() {
 		return centrePanel;
@@ -150,7 +144,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	public String getIcon() {
 		return icon;
 	}
-
 
 	@Override
 	public MorphDrawer getMorphDrawer() {
@@ -211,12 +204,13 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			}
 			int counter = 0;
 			Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
-			logger.info("Iterator size: " + boxedMorphVector.getBoxedMorphs().size());
+			logger.fine("Boxed morphs to paint: " + boxedMorphVector.getBoxedMorphs().size());
 			while (iter.hasNext()) {
 				morphDrawer.setSize(boxes.getBoxSize(size));
-				logger.info("Getting BoxedMorph " + counter);
+				logger.fine("SwingMorphView.paintMorphViewPanel() Getting BoxedMorph " + counter);
 				BoxedMorph boxedMorph = iter.next();
-				morphDrawer.draw(boxedMorph, graphicsContext, size, boxedMorph == this.boxedMorphVector.getSelectedBoxedMorph());
+				morphDrawer.draw(boxedMorph, graphicsContext, size,
+						boxedMorph == this.boxedMorphVector.getSelectedBoxedMorph());
 				counter++;
 			}
 		}
@@ -235,19 +229,22 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			repaint();
 		}
 	}
+
 	@Override
 	public void updateCursor() {
 		java.awt.Point p = MouseInfo.getPointerInfo().getLocation();
 		logger.info("Raw point " + p);
 		SwingUtilities.convertPointFromScreen(p, centrePanel);
 		logger.info("Converted point " + p);
-		if(p.x > -1 && p.y > -1) {
-			processMouseMotion(
-					SwingGeom.toWatchmakerPoint(p), 
-					SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+		if (p.x > -1 && p.y > -1) {
+			Dim size = SwingGeom.toWatchmakerDim(centrePanel.getSize());
+			logger.info("processMouseMotion called");
+			processMouseMotion(SwingGeom.toWatchmakerPoint(p), size);
+			logger.info("processMouseMotion returned");
 		}
-		
+
 	}
+
 	@Override
 	public void setAppData(AppData appData) {
 		this.appData = appData;
@@ -261,8 +258,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
-
-
 
 	@Override
 	public void setMorphDrawer(MorphDrawer morphDrawer) {

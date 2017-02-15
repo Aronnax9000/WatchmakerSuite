@@ -52,7 +52,7 @@ public class GeneBoxMouseMotionAdapter extends MouseMotionAdapter {
 				int height = e.getComponent().getHeight();
 				int thirdHeight = height / 3;
 				int twoThirdsHeight = 2 * height / 3;
-				logger.info("GeneBox Height: " + height + " 1/3: " + thirdHeight + " 2/3:" + twoThirdsHeight);
+				logger.fine("GeneBox Height: " + height + " 1/3: " + thirdHeight + " 2/3:" + twoThirdsHeight);
 				if (y < thirdHeight)
 					mouseVert = VertPos.TopRung;
 				else if (y < twoThirdsHeight)

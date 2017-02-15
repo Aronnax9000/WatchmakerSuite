@@ -94,7 +94,7 @@ public class BoxAnimator extends TimerTask {
 					// skip it (the parent already occupies it.)
 					vacantBoxNumber++;
 				}
-				logger.info("box_next_offspring:" + boxedNewestOffspring.getBoxNo() + " to "
+				logger.fine("BoxAnimator.run() box_next_offspring:" + boxedNewestOffspring.getBoxNo() + " to "
 						+ boxedNewestOffspring.getDestinationBoxNo());
 				boxedNewestOffspring.setScaleWithProgress(true);
 				// Add the newest boxed morph to the view's collection of boxed
@@ -126,7 +126,7 @@ public class BoxAnimator extends TimerTask {
 
 		case breed_complete:
 			this.cancel();
-			breedingPanel.getCentrePanel().setCursor(null);
+			breedingPanel.getCentrePanel().setCursor(WatchmakerCursors.breed);
 			breedingPanel.updateCursor();
 			logger.info("Breed Complete");
 			break;
