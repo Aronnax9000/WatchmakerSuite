@@ -243,7 +243,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 	 * Thinner Pen, Drift Sweep, Make top of triangle, Make left of triangle,
 	 * Make right of triangle)
 	 * 
-	 * @return
+	 * @return the new View menu. Subclasses may add their own view menu items
+	 * by a overriding this method and then calling it with super.buildViewMenu().
 	 */
 
 	protected WatchmakerMenu buildViewMenu() {

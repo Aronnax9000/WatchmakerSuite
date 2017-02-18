@@ -19,9 +19,8 @@ public class AboutArthromorphsAction extends SwingWatchmakerAction  {
   private static final long serialVersionUID = 1L;
   protected Component component;
   
-  public AboutArthromorphsAction(Component component) {
+  public AboutArthromorphsAction() {
     super("About Arthromorphs");
-    this.component = component;
   }
 
   @Override

@@ -38,9 +38,9 @@ public interface MorphConfig {
 	GenomeFactory getGenomeFactory();
 	/**
 	 * Generates a new litter and returns the eldest sibling among them.
-	 * @param parentMorph
-	 * @param litterSize
-	 * @return
+	 * @param parentMorph the parent morph to breed from
+	 * @param litterSize how many offspring to return
+	 * @return the eldest sibling among the litter of new offspring.
 	 */
 	Morph getLitter(Morph parentMorph, int litterSize);
 	Mutagen getMutagen();

@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.ArthromorphConfig;
 import net.richarddawkins.watchmaker.morphs.arthro.genebox.swing.SwingArthromorphGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.arthro.geom.swing.SwingArthromorphPicDrawer;
+import net.richarddawkins.watchmaker.morphs.arthro.menu.swing.ArthromorphMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 

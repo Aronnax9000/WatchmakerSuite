@@ -14,6 +14,7 @@ import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 public class SwingAtomGeneBox extends SwingGeneBox {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingAtomGeneBox");
 	
+	private static final long serialVersionUID = 1L;
 
 
 	public SwingAtomGeneBox() {
@@ -25,33 +26,28 @@ public class SwingAtomGeneBox extends SwingGeneBox {
 		this.add(valueLabel);
 	}
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 
 	
 	
-	@Override
-	public void setEngineeringMode() {
-		super.setEngineeringMode(GeneBoxType.clickForPicker);
-		
-	}
-
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		setValue((Atom)evt.getNewValue());
-		
 	}
 
-	private void setValue(Atom newValue) {
-		setText(newValue.toString());
+	@Override
+	public void setEngineeringMode() {
+		super.setEngineeringMode(GeneBoxType.leftRightUpDownEquals);
 	}
+
 	@Override
 	public void setGene(Gene gene) {
 		super.setGene(gene);
 		Atom atom = (Atom) gene;
 		setValue(atom);
+	}
+	private void setValue(Atom newValue) {
+		setText(newValue.toString());
 	}
 
 

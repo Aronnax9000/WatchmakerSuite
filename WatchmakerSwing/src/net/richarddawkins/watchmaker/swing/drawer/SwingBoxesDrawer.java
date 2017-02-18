@@ -22,8 +22,8 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 	 * @param graphicsContext the Graphics2D on which drawing is to take place.
 	 * @param dimension the size of the overall grid of boxes.
 	 * @param boxes the BoxManager
-	 * @param midBoxOnly
-	 * @param backgroundColors
+	 * @param midBoxOnly whether only to draw the midBox.
+	 * @param backgroundColors a list of background colors for the box list (a morph's phenotype may have a background color.)
 	 */
 	public void draw(Object graphicsContext, 
 			Dim dimension, 

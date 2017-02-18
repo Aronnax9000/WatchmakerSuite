@@ -22,9 +22,12 @@ public class SnailMutagen extends SimpleMutagen {
 	}
 
 	/**
-	 * we want to change by large amounts when low, small amounts when large
-	 * 
-	 * @return
+	 * Calculate the scale of a 'reasonable' alteration to a double, concomitant with its size.
+	 * Original Pascal source comment from Richard Dawkins: 
+	 * 'we want to change by large amounts when low, small amounts when large'
+	 * @param w the number whose scale is being measured.
+	 * @param direction the direction of the change.
+	 * @return the factor by which to multiply w in order to make a reasonable incremental change.
 	 */
 	public static double margarine(double w, double direction) {
 		double wMutSize = 0.1f;

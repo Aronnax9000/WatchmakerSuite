@@ -34,7 +34,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
 	 * 		c.v := round(250 * ScreenHeight / 342);
 	 * </pre>
 	 * 
-	 * @param appData
+	 * @param appData the appData for the morph type which owns this morph view.
 	 */
 	public SwingTriangleMorphView(AppData appData) {
 		super(appData);

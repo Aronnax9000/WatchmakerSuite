@@ -57,14 +57,14 @@ public class ArthromorphEmbryology extends SimpleEmbryology {
 
 	/**
 	 * 
-	 * @param pic
-	 * @param atom
-	 * @param params
-	 * @param x
-	 * @param y
-	 * @param ySeg
-	 * @param gradientFactor
-	 * @param overlap
+	 * @param pic the phenotype to draw.
+	 * @param atom the current atom being drawn
+	 * @param params cumulative parameters
+	 * @param x center of horizontal drawing. 
+	 * @param y center of vertical drawing.
+	 * @param ySeg how vertically offset this atom's origin is from the origin of the entire animal.
+	 * @param gradientFactor multiplicative factor for 'angle.'
+	 * @param overlap how much a segment overlaps the previous segment.
 	 * @return the new value of ySeg, used by recursive calls to draw.
 	 */
 	public int draw(ArthromorphPic pic, Atom atom, double[] params, int x, int y, int ySeg, double gradientFactor,

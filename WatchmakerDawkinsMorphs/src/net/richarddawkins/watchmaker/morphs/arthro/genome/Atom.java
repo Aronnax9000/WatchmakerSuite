@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 
@@ -15,8 +16,6 @@ public class Atom extends SimpleGene {
 
 	static int[] paramOffset = new int[AtomKind.values().length];
 
-
-	
 	static {
 		// where in a CumParams the Width of an AnimalTrunk gets multiplied in
 		paramOffset[AtomKind.AnimalTrunk.ordinal()] = 0;
@@ -77,14 +76,14 @@ public class Atom extends SimpleGene {
 	public Atom(ArthromorphGenome genome) {
 		super(genome, "");
 	}
-	
+
 	public Atom(ArthromorphGenome genome, AtomKind kind) {
 		super(genome, kind.toString());
 		this.kind = kind;
 	}
 
-	public Atom(ArthromorphGenome genome, AtomKind kind, double height, double width, double angle, int gradientGene, Atom nextLikeMe,
-			Atom firstBelowMe) {
+	public Atom(ArthromorphGenome genome, AtomKind kind, double height, double width, double angle, int gradientGene,
+			Atom nextLikeMe, Atom firstBelowMe) {
 		this(genome, kind);
 		this.height = height;
 		this.width = width;
@@ -111,7 +110,7 @@ public class Atom extends SimpleGene {
 	}
 
 	public Atom copyExceptNext(Genome genome) {
-		Atom copy = new Atom((ArthromorphGenome)genome, kind, height, width, angle, gradientGene, null, null);
+		Atom copy = new Atom((ArthromorphGenome) genome, kind, height, width, angle, gradientGene, null, null);
 		copy.setGenome(genome);
 		if (firstBelowMe != null) {
 			copy.firstBelowMe = firstBelowMe.copy(genome);
@@ -167,9 +166,9 @@ public class Atom extends SimpleGene {
 			int depthInFirstBelowTree = depthBelow(ancestor.firstBelowMe, descendent);
 			if (depthInFirstBelowTree != -1) {
 				return depthInFirstBelowTree + 1;
-			} 
+			}
 		}
-		
+
 		if (ancestor.nextLikeMe != null) {
 			int depthInNextBelowTree = depthBelow(ancestor.nextLikeMe, descendent);
 			if (depthInNextBelowTree != -1) {
@@ -252,7 +251,22 @@ public class Atom extends SimpleGene {
 
 	@Override
 	public void geneManipulated(GeneManipulationEvent gbme) {
-		// TODO Auto-generated method stub
+		switch (gbme.getGooseDirection()) {
+		case leftArrow:
+			setWidth(width - 1);
+			break;
+		case rightArrow:
+			setWidth(width + 1);
+			break;
+		case upArrow:
+			setWidth(height - 1);
+			break;
+		case downArrow:
+			setWidth(height + 1);
+			break;
+			default:
+				break;
+		}
 
 	}
 
@@ -317,8 +331,10 @@ public class Atom extends SimpleGene {
 		this.gradientGene = gradientGene;
 	}
 
-	public void setHeight(double height) {
-		this.height = height;
+	public void setHeight(double newValue) {
+		double oldValue = height;
+		this.height = newValue;
+		pcs.firePropertyChange("height", oldValue, newValue);
 	}
 
 	public void setKind(AtomKind kind) {
@@ -330,9 +346,13 @@ public class Atom extends SimpleGene {
 		this.nextLikeMe = nextLikeMe;
 	}
 
-	public void setWidth(double width) {
-		this.width = width;
+	public void setWidth(double newValue) {
+		double oldValue = height;
+		this.width = newValue;
+		pcs.firePropertyChange("width", oldValue, newValue);
 	}
+
+
 
 	// public void recurseToStringBuffer(StringBuffer text, int recurseLevel) {
 	// for(int i = 0; i < recurseLevel; i++) {
@@ -366,6 +386,7 @@ public class Atom extends SimpleGene {
 			atoms.addAll(nextLikeMe.toVector());
 		return atoms;
 	}
+
 	@Override
 	public void readValueFromByteBuffer(ByteBuffer byteBuffer) {
 		this.setKind(AtomKind.values()[byteBuffer.get()]);
@@ -374,8 +395,9 @@ public class Atom extends SimpleGene {
 		this.setWidth(byteBuffer.getFloat());
 		this.setAngle(byteBuffer.getFloat());
 	}
+
 	@Override
 	public void writeValueToByteBuffer(ByteBuffer byteBuffer) {
-		
+
 	}
 }
