@@ -43,7 +43,6 @@ public interface AppData  {
 	public void addDefaultMorphView();
 	public void addEngineeringMorphView(Morph morph);
 	public void addPropertyChangeListener(PropertyChangeListener listener);
-	public MultiMorphTypeTabbedPanel getFrame();
 	public String getIcon();
 	public MenuBuilder getMenuBuilder();
 	public Morph getMorphOfTheHour();
@@ -53,7 +52,7 @@ public interface AppData  {
 	public String getToolTip();
     public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode);
 
-    public void setFrame(MultiMorphTypeTabbedPanel frame);
+
 	public void setIcon(String icon);
 	public void setMenuBuilder(MenuBuilder menuBuilder);
 	public void setMorphViewsTabbedPane(MorphViewsTabbedPanel morphViewsTabbedPane);

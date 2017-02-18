@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.app;
 
+import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
+
 public interface MultiMorphTypeTabbedPanel {
 
 	int indexOfTab(String tabName);
@@ -7,5 +9,8 @@ public interface MultiMorphTypeTabbedPanel {
 	void removeTabAt(int index);
 
 	void addAppData(AppData appData);
+
+	MorphViewsTabbedPanel getSelectedMorphViewsTabbledPanel();
+
 
 }

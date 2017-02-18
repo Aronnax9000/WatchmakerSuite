@@ -19,4 +19,16 @@ public class SwingWatchmakerMenuBar extends JMenuBar implements WatchmakerMenuBa
 		
 	}
 
+	private static SwingWatchmakerMenuBar instance;
+	
+	protected SwingWatchmakerMenuBar() {}
+	
+	public synchronized static WatchmakerMenuBar getInstance() {
+		if(instance == null) {
+			instance = new SwingWatchmakerMenuBar();
+		}
+		
+		return instance;
+	}
+
 }

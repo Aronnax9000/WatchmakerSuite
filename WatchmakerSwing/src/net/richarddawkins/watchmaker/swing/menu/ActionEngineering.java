@@ -1,11 +1,14 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class ActionEngineering extends SwingWatchmakerAction {
 
@@ -18,7 +21,8 @@ public class ActionEngineering extends SwingWatchmakerAction {
 		this.appData = appData;
 	}
 	public ActionEngineering(AppData appData) {
-		this(appData, "Engineering", null);
+		this(appData, "Engineering", new ImageIcon(
+				ClassicImageLoader.getPicture("Hypodermic_PICT_03937_16x16").getImage().getScaledInstance(32, 32, Image.SCALE_DEFAULT)));
 	}
 	
 	@Override

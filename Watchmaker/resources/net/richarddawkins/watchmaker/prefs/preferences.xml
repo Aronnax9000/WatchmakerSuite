@@ -15,6 +15,12 @@
 							<entry key="font" value="virtue" />
 						</map>
 					</node>
+					<node name="startup">
+						<map>
+<!-- 							<entry key="morphs" value="Monochrome,Colour,Arthromorphs,Snails" />  -->
+							<entry key="morphs" value="Monochrome" />
+						</map>
+					</node>					
 				</node>
 			</node>
 		</node>

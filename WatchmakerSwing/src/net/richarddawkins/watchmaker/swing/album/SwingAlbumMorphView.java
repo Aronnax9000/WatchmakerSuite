@@ -22,7 +22,7 @@ public class SwingAlbumMorphView extends SwingMorphView {
 
 	public SwingAlbumMorphView(AppData appData, BoxedMorphCollection collection) {
 		// TODO change to appropriate icon
-		super(appData, "Hypodermic_PICT_03937_16x16", "Album", false, appData.isGeneBoxToSide());
+		super(appData, "Hypodermic_PICT_03937_16x16", collection.getName() + " Album", false, appData.isGeneBoxToSide());
 		this.setBoxedMorphVector(collection);
 		collection.getBoxes().setAccentuateMidBox(false);
 		this.remove(centrePanel);
@@ -57,8 +57,7 @@ public class SwingAlbumMorphView extends SwingMorphView {
 				BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
 
 				if (boxedMorph != null) {
-					
-						logger.info("SwingAlbumMorphView.processMouseMotion(" + myPt + ", " + size+ ") firing genome change");
+						logger.fine("SwingAlbumMorphView.processMouseMotion(" + myPt + ", " + size+ ") firing genome change");
 						pcs.firePropertyChange("genome", null, boxedMorph.getMorph().getGenome());
 						selectedBoxNo = boxNo;
 					

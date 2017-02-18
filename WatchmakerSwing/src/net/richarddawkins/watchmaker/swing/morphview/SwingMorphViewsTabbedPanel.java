@@ -19,11 +19,11 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane");
 
 	protected AppData appData;
-
+	@Override
 	public AppData getAppData() {
 		return appData;
 	}
-
+	@Override
 	public void setAppData(AppData appData) {
 		this.appData = appData;
 	}

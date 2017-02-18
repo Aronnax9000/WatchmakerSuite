@@ -180,7 +180,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 			GridBoxManager boxManager = new GridBoxManager();
 			boxManager.setCols(5);
 			album.setBoxes(boxManager);
-			album.setName(name);
+			album.setName(name.substring(name.lastIndexOf('/') + 1));
 			int boxNo = 0;
 			while(byteBuffer.hasRemaining() && boxNo < 60) {
 				Genome genome = newGenome();
@@ -210,6 +210,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		
 		if(singletonCollections.size() != 0) {
 			BoxedMorphCollection singletonCollection = new BoxedMorphCollection();
+			singletonCollection.setName("Singleton");
 			GridBoxManager boxManager = new GridBoxManager();
 			boxManager.setCols(5);
 			singletonCollection.setBoxes(boxManager);

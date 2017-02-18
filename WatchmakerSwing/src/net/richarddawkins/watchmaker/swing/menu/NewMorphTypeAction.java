@@ -7,19 +7,17 @@ import javax.swing.Icon;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
-import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
+import net.richarddawkins.watchmaker.swing.zoo.SwingMultiMorphTypeTabbedPanel;
 public class NewMorphTypeAction extends SwingWatchmakerAction {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4736552636289435148L;
+
 	
-	protected MultiMorphTypeTabbedPanel pane;
-	public NewMorphTypeAction(AppData appData, String morphType, Icon icon, 
-			MultiMorphTypeTabbedPanel multiMorphTypeTabbedPanel) {
+	public NewMorphTypeAction(AppData appData, String morphType, Icon icon) {
 		super(appData, morphType, icon);
-		this.pane = multiMorphTypeTabbedPanel;
 	}
 
 
@@ -31,8 +29,7 @@ public class NewMorphTypeAction extends SwingWatchmakerAction {
 		
 		factory.setMorphType((String)this.getValue(NAME));
 		AppData newSwingAppData = factory.newAppData();
-		appData.setFrame(pane);
-		pane.addAppData(newSwingAppData);
+		SwingMultiMorphTypeTabbedPanel.getInstance().addAppData(newSwingAppData);
 		
 	}
 	

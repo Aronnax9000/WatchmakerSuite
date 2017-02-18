@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.colour.ColourBiomorphConfig;
 import net.richarddawkins.watchmaker.morphs.colour.genome.swing.SwingColorGeneBoxStrip;
 import net.richarddawkins.watchmaker.morphs.colour.geom.swing.SwingColourPicDrawer;
+import net.richarddawkins.watchmaker.morphs.colour.menu.swing.SwingColourMenuBuilder;
 import net.richarddawkins.watchmaker.morphs.swing.MorphType;
 import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 
@@ -15,7 +16,7 @@ public class ColourSwingAppData extends SwingAppData {
 		this.setDefaultBreedingRows(3);
 		this.setBreedRightAway(false);
 		this.setSaltOnEmptyBreedingBoxClick(true);
-		setMenuBuilder(new ColourMenuBuilder(this));
+		setMenuBuilder(new SwingColourMenuBuilder(this));
 		setPhenotypeDrawer(new SwingColourPicDrawer());
 		config = new ColourBiomorphConfig();
 	}

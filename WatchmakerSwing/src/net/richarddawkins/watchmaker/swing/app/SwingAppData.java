@@ -6,7 +6,6 @@ import java.beans.PropertyChangeSupport;
 import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -21,70 +20,35 @@ import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 
 public abstract class SwingAppData implements AppData {
 	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
-	protected boolean saltOnEmptyBreedingBoxClick = false;
+	protected boolean breedRightAway = true;
 	
-	protected long tickDelay = 5;
-	
-	@Override
-	public long getTickDelay() {
-		return tickDelay;
-	}
-	@Override
-	public void setTickDelay(long tickDelay) {
-		this.tickDelay = tickDelay;
-	}
-	public boolean isSaltOnEmptyBreedingBoxClick() {
-		return saltOnEmptyBreedingBoxClick;
-	}
-	public void setSaltOnEmptyBreedingBoxClick(boolean saltOnEmptyBreedingBoxClick) {
-		this.saltOnEmptyBreedingBoxClick = saltOnEmptyBreedingBoxClick;
-	}
-	protected boolean highlighting = false;
-	public boolean isHighlighting() {
-		return highlighting;
-	}
-	public void setHighlighting(boolean newValue) {
-		boolean oldValue = highlighting;
-		highlighting = newValue;
-		pcs.firePropertyChange("highlighting", oldValue, newValue);
-	}
-	protected boolean geneBoxToSide;
-
-	public boolean isGeneBoxToSide() {
-		return geneBoxToSide;
-	}
-	public void setGeneBoxToSide(boolean geneBoxToSide) {
-		this.geneBoxToSide = geneBoxToSide;
-	}
-
 	protected MorphConfig config;
-
+	
 	protected int defaultBreedingCols = 5;
 	protected int defaultBreedingRows = 3;
-	protected boolean breedRightAway = true;
-
-	public boolean isBreedRightAway() {
-		return breedRightAway;
-	}
-	public void setBreedRightAway(boolean breedRightAway) {
-		this.breedRightAway = breedRightAway;
-	}
-
-
-	protected MultiMorphTypeTabbedPanel frame;
+	protected boolean geneBoxToSide;
+	protected boolean highlighting = false;
 	protected String icon;
 	protected MenuBuilder menuBuilder;
 	protected MorphViewsTabbedPanel morphViewsTabbedPane;
+
 	protected String name;
 	protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
 	protected PhenotypeDrawer phenotypeDrawer;
+
+	protected boolean saltOnEmptyBreedingBoxClick = false;
+	protected long tickDelay = 5;
 	protected String toolTip;
+
 	public SwingAppData() {
 	}
 	@Override
 	public void addBreedingMorphView(Morph morph) {
 		morphViewsTabbedPane.addMorphView(new SwingBreedingMorphView(this, morph));
 	}
+
+
 	@Override
 	public void addDefaultMorphView() {
 		addBreedingMorphView(null);
@@ -93,13 +57,6 @@ public abstract class SwingAppData implements AppData {
 	public void addEngineeringMorphView(Morph morph) {
 		morphViewsTabbedPane.addMorphView(new SwingEngineeringMorphView(this, morph));
 	}
-
-	@Override
-	public void addTriangleMorphView() {
-		morphViewsTabbedPane.addMorphView(new SwingTriangleMorphView(this));
-		
-	}
-	
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(listener);
@@ -108,42 +65,35 @@ public abstract class SwingAppData implements AppData {
 	public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(propertyName, listener);
 	}
-
+	@Override
+	public void addTriangleMorphView() {
+		morphViewsTabbedPane.addMorphView(new SwingTriangleMorphView(this));
+		
+	}
 	@Override
 	public BoxesDrawer getBoxesDrawer() {
 		return boxesDrawer;
 	}
-
 	@Override
 	public int getDefaultBreedingCols() {
 		return defaultBreedingCols;
 	}
-
 	@Override
 	public int getDefaultBreedingRows() {
 		return defaultBreedingRows;
 	}
-
-	@Override
-	public MultiMorphTypeTabbedPanel getFrame() {
-		return frame;
-	}
-
 	@Override
 	public String getIcon() {
 		return icon;
 	}
-
 	@Override
 	public MenuBuilder getMenuBuilder() {
 		return menuBuilder;
 	}
-
 	@Override
 	public MorphConfig getMorphConfig() {
 		return config;
 	}
-
 	@Override
 	public Morph getMorphOfTheHour() {
 		MorphViewsTabbedPanel pane = this.getMorphViewsTabbedPane();
@@ -159,15 +109,19 @@ public abstract class SwingAppData implements AppData {
 	public MorphViewsTabbedPanel getMorphViewsTabbedPane() {
 		return this.morphViewsTabbedPane;
 	}
-
+	
 	@Override
 	public String getName() {
 		return name;
 	}
-
 	@Override
 	public PhenotypeDrawer getPhenotypeDrawer() {
 		return phenotypeDrawer;
+	}
+
+	@Override
+	public long getTickDelay() {
+		return tickDelay;
 	}
 
 	@Override
@@ -175,6 +129,27 @@ public abstract class SwingAppData implements AppData {
 		return toolTip;
 	}
 
+	public boolean isBreedRightAway() {
+		return breedRightAway;
+	}
+
+
+
+	public boolean isGeneBoxToSide() {
+		return geneBoxToSide;
+	}
+
+	public boolean isHighlighting() {
+		return highlighting;
+	}
+
+	public boolean isSaltOnEmptyBreedingBoxClick() {
+		return saltOnEmptyBreedingBoxClick;
+	}
+
+	public void setBreedRightAway(boolean breedRightAway) {
+		this.breedRightAway = breedRightAway;
+	}
 
 	@Override
 	public void setDefaultBreedingCols(int defaultBreedingCols) {
@@ -186,11 +161,16 @@ public abstract class SwingAppData implements AppData {
 		this.defaultBreedingRows = defaultBreedingRows;
 	}
 
-	@Override
-	public void setFrame(MultiMorphTypeTabbedPanel frame) {
-		this.frame = frame;
-
+	public void setGeneBoxToSide(boolean geneBoxToSide) {
+		this.geneBoxToSide = geneBoxToSide;
 	}
+
+	public void setHighlighting(boolean newValue) {
+		boolean oldValue = highlighting;
+		highlighting = newValue;
+		pcs.firePropertyChange("highlighting", oldValue, newValue);
+	}
+
 
 	@Override
 	public void setIcon(String icon) {
@@ -222,6 +202,15 @@ public abstract class SwingAppData implements AppData {
 	@Override
 	public void setPhenotypeDrawer(PhenotypeDrawer newValue) {
 		this.phenotypeDrawer = newValue;
+	}
+
+	public void setSaltOnEmptyBreedingBoxClick(boolean saltOnEmptyBreedingBoxClick) {
+		this.saltOnEmptyBreedingBoxClick = saltOnEmptyBreedingBoxClick;
+	}
+
+	@Override
+	public void setTickDelay(long tickDelay) {
+		this.tickDelay = tickDelay;
 	}
 
 

@@ -18,17 +18,15 @@ public class AboutColourAction extends SwingWatchmakerAction {
 
 
 
-  private Component component;
-  public AboutColourAction(Component component) {
+  public AboutColourAction() {
     super("About Colour Biomorphs");
-    this.component = component;
   }
 
 
   @Override
   public void actionPerformed(ActionEvent e) {
 	  
-    JOptionPane.showMessageDialog(component,
+    JOptionPane.showMessageDialog((Component)e.getSource(),
         new ImageIcon(
             ClassicImageLoader.getPicture("AboutColourWatchmaker_PICT_00257_486x352").getImage()),
         "About Blind Watchmaker", JOptionPane.PLAIN_MESSAGE, null);

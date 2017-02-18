@@ -98,7 +98,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 	
 	@Override
 	public void processMouseMotion(Point myPt, Dim size) {
-		logger.info("processMouseMotion(" + myPt + ", " + size);
+		logger.fine("processMouseMotion(" + myPt + ", " + size);
 		if(!(centrePanel.getCursor() == WatchmakerCursors.highlight 
 				&& boxedMorphVector.getSelectedBoxedMorph() != null)) {
 			BoxManager boxes = boxedMorphVector.getBoxes();

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.menu;
+package net.richarddawkins.watchmaker.swing.album;
 
 import java.awt.event.ActionEvent;
 import java.util.Vector;
@@ -8,7 +8,7 @@ import javax.swing.Icon;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
-import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ActionShowAlbum extends SwingWatchmakerAction {
 

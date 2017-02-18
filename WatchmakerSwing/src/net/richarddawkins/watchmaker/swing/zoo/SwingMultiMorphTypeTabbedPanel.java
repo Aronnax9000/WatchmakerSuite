@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.swing.zoo;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.Preferences;
 
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
@@ -12,30 +13,42 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
-import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuBar;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 
 public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements MultiMorphTypeTabbedPanel {
 
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane");
-
+	@Override
+	public MorphViewsTabbedPanel getSelectedMorphViewsTabbledPanel() {
+		return (MorphViewsTabbedPanel) this.getComponentAt(this.getSelectedIndex());
+	}
 
 
 	private static final long serialVersionUID = -9105080336982806166L;
-
-	public SwingMultiMorphTypeTabbedPanel(WatchmakerMenuBar menuBar) {
-		this.menuBar = menuBar;
+	private static SwingMultiMorphTypeTabbedPanel instance;
+	
+	public static synchronized SwingMultiMorphTypeTabbedPanel getInstance() {
+		if(instance == null) {
+			instance = new SwingMultiMorphTypeTabbedPanel();
+		}
+		return instance;
+	}
+	protected SwingMultiMorphTypeTabbedPanel() {
+		
+        Preferences prefs = Preferences.userRoot().node("net/richarddawkins/watchmaker/startup");
+        String morphs = prefs.get("morphs", "Monochrome,Colour,Arthromorphs,Snails");
 		AppDataFactoryService service = AppDataFactoryService.getInstance();
 		AppDataFactory factory = service.getFactory();
 		for (String morphType : factory.getMorphTypes()) {
-//			if (!morphType.equals("Snails")) {
+			if (morphs.indexOf(morphType) != -1) {
 				logger.log(Level.INFO, "Creating WatchmakerTabbedPane for " + morphType.toString());
 				factory.setMorphType(morphType);
 				AppData appData = factory.newAppData();
-				
-				appData.setFrame(this);
+
 				addAppData(appData);
-//			}
+			}
 		}
 		if (this.getTabCount() != 0)
 			changeToTab(0);
@@ -44,8 +57,6 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 	}
 
 	protected Vector<AppData> appDatas = new Vector<AppData>();
-
-	protected WatchmakerMenuBar menuBar;
 
 	public String uniquify(String name) {
 		String newName = name;
@@ -93,7 +104,7 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 	}
 
 	public void changeToTab(int selectedIndex) {
-		appDatas.elementAt(selectedIndex).getMenuBuilder().buildMenu(menuBar);
+		appDatas.elementAt(selectedIndex).getMenuBuilder().buildMenu(SwingWatchmakerMenuBar.getInstance());
 	}
 
 	class TabChangeListener implements ChangeListener {
@@ -102,8 +113,4 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		}
 	}
 
-	public void setMenuBar(WatchmakerMenuBar menuBar) {
-		this.menuBar = menuBar;
-		
-	}
 }

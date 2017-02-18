@@ -5,8 +5,10 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JMenu;
 import javax.swing.JOptionPane;
 
+import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class AboutMonochromeAction extends AbstractAction {
@@ -17,9 +19,10 @@ public class AboutMonochromeAction extends AbstractAction {
   private static final long serialVersionUID = 1L;
 
   private Component component;
-  public AboutMonochromeAction(Component component) {
+  public AboutMonochromeAction(WatchmakerMenu menu) {
+	  
     super("About Monochrome Biomorphs");
-    this.component = component;
+    this.component = ((JMenu)menu).getRootPane();
   }
 
   @Override
