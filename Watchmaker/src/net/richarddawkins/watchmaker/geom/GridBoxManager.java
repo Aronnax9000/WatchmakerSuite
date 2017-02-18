@@ -69,7 +69,7 @@ public class GridBoxManager extends BoxManager  {
 	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getBoxSize(net.richarddawkins.watchmaker.geom.Dim)
 	 */
 	@Override
-	public Dim getBoxSize(Dim dimension) {
+	public Dim getBoxSize(int boxNo, Dim dimension) {
 		return new Dim(dimension.width / cols, dimension.height / rows);
 	}
 	
@@ -129,6 +129,16 @@ public class GridBoxManager extends BoxManager  {
 				midPoints.add(new Point(x, y));
 			}
 		return midPoints;
+	}
+	/**
+	 * The size of the box collection managed by a GridBoxManager is fixed by the choice
+	 * of rows and cols, and it is not meaningful to add boxes to such a collection.
+	 * Accordingly, this implementation of addBox does nothing.
+	 */
+	@Override
+	public void addBox(Rect margin, Dim dim) {
+		
+		
 	}
 	
 

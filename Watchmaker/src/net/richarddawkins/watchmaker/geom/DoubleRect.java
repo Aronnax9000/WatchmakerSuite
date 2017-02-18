@@ -2,7 +2,7 @@ package net.richarddawkins.watchmaker.geom;
 
 
 /**
- * Java class to simulate a QuickDraw Rect (rectangle)
+ * Java class to simulate a QuickDraw Rect (rectangle) with double coordinates
  * 
  * In Pascal, a QuickDraw Rect is defined this way:
  * 
@@ -12,8 +12,8 @@ package net.richarddawkins.watchmaker.geom;
  * which is defined by left, top, right, and bottom coordinates. This is at
  * variance with the Java way of doing things, where Rectangles are defined by
  * their upper left corner (x,y) and (width,height). This class bridges the two.
- * 
 
+ * 
  * 
  * This implementation of Rect also includes convenience methods for determining
  * the midpoint of the Rect, and for expanding the boundaries of the rectangle
@@ -23,12 +23,12 @@ package net.richarddawkins.watchmaker.geom;
  * @author alan
  *
  */
-public class Rect implements Cloneable {
+public class DoubleRect implements Cloneable {
 
 
 	
 	public Object clone() {
-		Rect r = new Rect();
+		DoubleRect r = new DoubleRect();
 		r.left = left;
 		r.right = right;
 		r.top = top;
@@ -36,10 +36,10 @@ public class Rect implements Cloneable {
 		return r;
 	}
 	
-	public int left = 0;
-	public int right = 0;
-	public int top = 0;
-	public int bottom = 0;
+	public double left = 0;
+	public double right = 0;
+	public double top = 0;
+	public double bottom = 0;
 
 	public void zero() {
 		left = 0;
@@ -55,8 +55,8 @@ public class Rect implements Cloneable {
 	 * @param left the potential new lefthand boundary
 	 * @param thick the thickness of the drawing primitive
 	 */
-	public void expandLeft(int left, int thick) {
-		int extent = left - thick / 2;
+	public void expandLeft(double left, double thick) {
+		double extent = left - thick / 2;
 		if (extent < this.left)
 			this.left = extent;
 	}
@@ -68,8 +68,8 @@ public class Rect implements Cloneable {
 	 * @param right the potential new righthand boundary
 	 * @param thick the thickness of the drawing primitive
 	 */
-	public void expandRight(int right, int thick) {
-		int extent = right + thick / 2;
+	public void expandRight(double right, double thick) {
+		double extent = right + thick / 2;
 		if (extent > this.right)
 			this.right = extent;
 	}
@@ -81,8 +81,8 @@ public class Rect implements Cloneable {
 	 * @param top the potential new top boundary
 	 * @param thick the thickness of the drawing primitive
 	 */
-	public void expandTop(int top, int thick) {
-		int extent = top - thick / 2;
+	public void expandTop(double top, double thick) {
+		double extent = top - thick / 2;
 		if (extent < this.top)
 			this.top = extent;
 	}
@@ -94,34 +94,43 @@ public class Rect implements Cloneable {
 	 * @param bottom the potential new bottom boundary
 	 * @param thick the thickness of the drawing primitive
 	 */
-	public void expandBottom(int bottom, int thick) {
-		int extent = bottom + thick / 2;
+	public void expandBottom(double bottom, double thick) {
+		double extent = bottom + thick / 2;
 		if (extent > this.bottom)
 			this.bottom = extent;
 	}
 
-	public void expandPoint(Point point, int thick) {
+	public void expandPoint(Point point, double thick) {
 		expandLeft(point.h, thick);
 		expandRight(point.h, thick);
 		expandTop(point.v, thick);
 		expandBottom(point.v, thick);
 	}
 
-	public void expandHorizontal(int h, int thick) {
+	public void expandHorizontal(double h, double thick) {
 		expandLeft(h, thick);
 		expandRight(h, thick);
 	}
 
-	public void expandVertical(int v, int thick) {
+	public void expandVertical(double v, double thick) {
 		expandTop(v, thick);
 		expandBottom(v, thick);
 	}
 
-	public Point getMidPoint() {
-		return new Point(left + (right - left) / 2, top + (bottom - top) / 2);
+	public DoublePoint getMidPoint() {
+		return new DoublePoint(left + (right - left) / 2, top + (bottom - top) / 2);
+	}
+	
+	public Rect toRect(Dim scale) {
+		Rect rect = new Rect();
+		rect.left = (int) Math.round(scale.width * left);
+		rect.right = (int) Math.round(scale.width * right);
+		rect.top = (int) Math.round(scale.height * top);
+		rect.bottom = (int) Math.round(scale.height * bottom);
+		return rect;
 	}
 
-	public Rect() {
+	public DoubleRect() {
 	}
 
 	/**
@@ -138,7 +147,7 @@ public class Rect implements Cloneable {
 	 * @param bottom
 	 *            bottom edge of the rectangle.
 	 */
-	public Rect(int left, int top, int right, int bottom) {
+	public DoubleRect(double left, double top, double right, double bottom) {
 		this.left = left;
 		this.right = right;
 		this.top = top;
@@ -160,7 +169,7 @@ public class Rect implements Cloneable {
 	 *            the rectangle to be union'ed with this one.
 	 * @return the union'ed rectangle
 	 */
-	public Rect unionRect(Rect r) {
+	public DoubleRect unionRect(DoubleRect r) {
 		this.left = Math.min(left, r.left);
 		this.top = Math.min(top, r.top);
 		this.right = Math.max(right, r.right);
@@ -168,11 +177,11 @@ public class Rect implements Cloneable {
 		return this;
 	}
 
-	public int getWidth() {
+	public double getWidth() {
 		return Math.abs(right - left);
 	}
 
-	public int getHeight() {
+	public double getHeight() {
 		return Math.abs(bottom - top);
 	}
 
@@ -180,7 +189,7 @@ public class Rect implements Cloneable {
 		 return new Dim(getWidth(), getHeight());
 	}
 
-	public void setRect(int newleft, int newtop, int newright, int newbottom) {
+	public void setRect(double newleft, double newtop, double newright, double newbottom) {
 		left = newleft;
 		top = newtop;
 		right = newright;

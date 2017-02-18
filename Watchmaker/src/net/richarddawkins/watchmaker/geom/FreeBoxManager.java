@@ -7,15 +7,15 @@ public class FreeBoxManager extends BoxManager {
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.FreeBoxManager");
 
-	protected Vector<Rect> boxes = new Vector<Rect>();
+	protected Vector<DoubleRect> boxes = new Vector<DoubleRect>();
 	
 	public void addBox(Rect r, Dim screenSize) {
-		Rect newRect = new Rect();
+		DoubleRect newRect = new DoubleRect();
 		
-		newRect.left = Integer.MAX_VALUE / screenSize.width * r.left;
-		newRect.right = Integer.MAX_VALUE / screenSize.width * r.right;
-		newRect.top = Integer.MAX_VALUE / screenSize.height * r.top;
-		newRect.bottom = Integer.MAX_VALUE / screenSize.height * r.bottom;
+		newRect.left = (double) r.left / screenSize.width;
+		newRect.right = (double) r.right / screenSize.width;
+		newRect.top = (double) r.top / screenSize.height;
+		newRect.bottom = (double) r.bottom / screenSize.height;
 
 		boxes.add(newRect); 
 	}
@@ -23,71 +23,39 @@ public class FreeBoxManager extends BoxManager {
 	
 	/**
 	 * Returns null, as boxes are not of uniform size.
+	 * @return the size of the box requested scaled to the specified full-screen dimension.
 	 */
 	@Override
-	public Dim getBoxSize(Dim dimension) {
-		return null;
+	public Dim getBoxSize(int boxNo, Dim dimension) {
+		DoubleRect rect = boxes.elementAt(boxNo);
+		Dim boxSize = new Dim(rect.getWidth() * dimension.width, rect.getHeight() * dimension.height);
+		return boxSize;
 	}
 
 	@Override
-	public Vector<Rect> getBoxes(Dim dimension) {
+	public Vector<Rect> getBoxes(Dim scale) {
 		Vector<Rect> rects = new Vector<Rect>();
-		for(Rect r: boxes) {
-			rects.add(this.scaleInternalRectToDimension(r, dimension));
+		for(DoubleRect r: boxes) {
+			rects.add(r.toRect(scale));
 		}
 		return rects;
 	}
+	
 
-	public void setMidPoint(Dim screenSize, Point newMidPoint, int boxNo) {
-		Rect box = boxes.elementAt(boxNo);
-		Point internalOldMidPoint = box.getMidPoint();
-		Point internalNewMidPoint = scaleExternalPointByDimension(newMidPoint, screenSize);
-		
-		Point displacement = internalNewMidPoint.subtract(internalOldMidPoint);
-		box.left += displacement.h;
-		box.right += displacement.h;
-		box.top += displacement.v;
-		box.bottom += displacement.v;
-	}
-
-	protected Point scaleExternalPointByDimension(Point p, Dim dimension) {
-		Point outputPoint = new Point();
-		outputPoint.h = (int)((long) p.h * dimension.getWidth() / Integer.MAX_VALUE);
-		outputPoint.v = (int)((long) p.v * dimension.getHeight() / Integer.MAX_VALUE);
-		return outputPoint;
-	}
-	
-	
-	protected Point scaleInternalPointToDimension(Point p, Dim dimension) {
-		Point outputPoint = new Point();
-		outputPoint.h = (int)((long) p.h * Integer.MAX_VALUE / dimension.getWidth());
-		outputPoint.v = (int)((long) p.v * Integer.MAX_VALUE / dimension.getHeight());
-		return outputPoint;
-	}
-	
-	
-	protected  Rect scaleInternalRectToDimension(Rect r, Dim dimension) {
-		Rect outputRect = new Rect();
-		outputRect.left = (int)((long) r.left  * dimension.getWidth() / Integer.MAX_VALUE);
-		outputRect.right = (int)((long) r.right * dimension.getWidth() / Integer.MAX_VALUE);
-		outputRect.top = (int)((long) r.top * dimension.getHeight() / Integer.MAX_VALUE);
-		outputRect.bottom = (int)((long) r.bottom * dimension.getHeight() / Integer.MAX_VALUE);
-		return outputRect;
-	}
 	
 	@Override
-	public Point getMidPoint(Dim dimension, int boxNo) {
-		Rect internalRect = boxes.elementAt(boxNo);
-		Rect scaledRect = scaleInternalRectToDimension(internalRect, dimension);
+	public Point getMidPoint(Dim scale, int boxNo) {
+		DoubleRect internalRect = boxes.elementAt(boxNo);
+		Rect scaledRect = internalRect.toRect(scale);
 		Point midPoint = scaledRect.getMidPoint();
 		return midPoint;
 	}
 
 	@Override
-	public Vector<Point> getMidPoints(Dim dimension) {
+	public Vector<Point> getMidPoints(Dim scale) {
 		Vector<Point> midPoints = new Vector<Point>();
-		for(Rect r: boxes) {
-			midPoints.add(scaleInternalRectToDimension(r, dimension).getMidPoint());
+		for(DoubleRect r: boxes) {
+			midPoints.add(r.toRect(scale).getMidPoint());
 		}
 		return midPoints;
 	}

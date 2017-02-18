@@ -7,6 +7,28 @@ abstract public class BoxManager {
 
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxManager");
+	protected boolean accentuateMidBox = false;
+
+	/**
+	 * 
+	 * @param margin a Rect describing the left, right, top, and bottom of a box.
+	 * @param dim the dimensions of the grid to which the Rect's coordinates are relative.
+	 */
+	public abstract void addBox(Rect margin, Dim dim);
+
+	public abstract int getBoxCount();
+
+	/**
+	 * For the given dimension of the entire array of boxes, return a vector of
+	 * Rectangles describing the corners of each box, in row-major order.
+	 * 
+	 * @param dimension
+	 *            the size of the overall array of boxes, in pixels.
+	 * @return a Vector of Rectangles representing individual boxes, in
+	 *         row-major order.
+	 */
+	public abstract Vector<Rect> getBoxes(Dim dimension);
+
 	/**
 	 * Find the box within the array containing a particular point.
 	 * 
@@ -38,18 +60,9 @@ abstract public class BoxManager {
 	 *            the size of the overall array of boxes, in pixels
 	 * @return the size of an individual box within the array.
 	 */
-	public abstract Dim getBoxSize(Dim dimension);
+	public abstract Dim getBoxSize(int boxNo, Dim dimension);
 
-	/**
-	 * For the given dimension of the entire array of boxes, return a vector of
-	 * Rectangles describing the corners of each box, in row-major order.
-	 * 
-	 * @param dimension
-	 *            the size of the overall array of boxes, in pixels.
-	 * @return a Vector of Rectangles representing individual boxes, in
-	 *         row-major order.
-	 */
-	public abstract Vector<Rect> getBoxes(Dim dimension);
+	public abstract int getMidBox();
 
 	/**
 	 * Given supplied dimension of the entire array of boxes, return the
@@ -73,25 +86,12 @@ abstract public class BoxManager {
 	 */
 	public abstract Vector<Point> getMidPoints(Dim dimension);
 
-	public abstract int getMidBox();
-
-	public abstract int getBoxCount();
-
-	public void setMidPoint(Dim dim, Point point, int i) {
-		
-		
-	}
-
-	public void addBox(Rect margin, Dim dim) {
-	}
-
-	protected boolean accentuateMidBox = false;
 	public boolean isAccentuateMidBox() {
 		return accentuateMidBox;
 	}
-
 	public void setAccentuateMidBox(boolean accentuateMidBox) {
 		this.accentuateMidBox = accentuateMidBox;
 	}
+
 
 }
