@@ -19,5 +19,6 @@
             <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphs/bin"/>
         </jar>
     	<ant dir="../WatchmakerSwing" antfile="javadoc.xml" />
+    	 
     </target>
 </project>

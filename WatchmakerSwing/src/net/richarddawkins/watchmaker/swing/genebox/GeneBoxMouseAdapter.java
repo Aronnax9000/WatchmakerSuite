@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.TimerTask;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.GeneManipulationAdapter;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
@@ -22,11 +23,25 @@ import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
  *
  */
 public class GeneBoxMouseAdapter extends MouseAdapter implements GeneManipulationSupport {
+    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.genebox.GeneBoxMouseAdapter");
+
+    public GeneBoxMouseAdapter() {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        if(toolkit != null) {
+            Object multiClickInterval = toolkit.getDesktopProperty("awt.multiClickInterval");
+            if(multiClickInterval != null) {
+                doubleClickInterval = (Integer) multiClickInterval;
+                logger.info("DoubleClickInterval: " + multiClickInterval);
+            }
+        }
+    }
+    
 	protected GeneManipulationAdapter geneManipulationAdapter 
 		= new GeneManipulationAdapter();
 	 private java.util.Timer longPressTimer;
 
-	 long doubleClickInterval = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
+	 long doubleClickInterval = 500;
+	 
 	 
 	 @Override
 	 public void mousePressed(final MouseEvent e)
