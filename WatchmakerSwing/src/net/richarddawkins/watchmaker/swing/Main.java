@@ -38,13 +38,13 @@ public class Main {
 
 	        String fontName = prefs.get("font", "");
 			
-	        logger.info("Font:" + fontName);
+	        logger.info("Loading font from resource:" + fontName);
 			
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			InputStream fontStream = Main.class.getResourceAsStream("/net/richarddawkins/watchmaker/font/" + fontName + ".ttf");
 			
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
-			logger.info("Font name: " + font.getName());
+			logger.info("Created font: " + font.getName());
 			ge.registerFont(font);
 			FontUIResource fontUIResource = new javax.swing.plaf.FontUIResource(fontName, Font.PLAIN, 12);
 			logger.info("FontUIResource " + fontUIResource);

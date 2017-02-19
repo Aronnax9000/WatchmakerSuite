@@ -111,21 +111,56 @@ public class SwingTriangleMorphView extends SwingMorphView {
 
     }
 
-    protected double[] point2TriangleDists(Point point) {
+    /**
+     * 
+     * <pre>
+     *      r1 := y / k;
+     *      r3 := (x - y / 2) / k;
+     *      r2 := (k - x - y / 2) / k;
+     * </pre>
+     * 
+     * @param point
+     * @param size
+     * @return
+     */
+    protected double[] point2TriangleDists(Point point, Dim size) {
+        Point scaledPoint = new Point(512 * point.h / size.width,
+                342 * point.v / size.height);
+        logger.info("Scaled point: " + scaledPoint);
         double[] r = new double[SwingTriangleMorphView.trianglePoints.length];
         double rSum = 0;
         for (int i = 0; i < r.length; i++) {
-            r[i] = Math.sqrt(Math.pow(
-                    point.h - SwingTriangleMorphView.trianglePoints[i].h, 2)
+            r[i] = Math.sqrt(Math
+                    .pow(scaledPoint.h
+                            - SwingTriangleMorphView.trianglePoints[i].h, 2)
                     + Math.pow(
-                            point.v - SwingTriangleMorphView.trianglePoints[i].v,
+                            scaledPoint.v
+                                    - SwingTriangleMorphView.trianglePoints[i].v,
                             2));
             rSum += r[i];
+            logger.info("Distance to point " + i + " " + r[i]);
         }
         // Normalize lengths
+        logger.info("Sum of distances to points: " + rSum);
+        double rNewSum = 0;
+        double averageDistance = rSum / r.length;
+        logger.info("averageDistance to points: " + averageDistance);
         for (int i = 0; i < r.length; i++) {
-            r[i] /= rSum;
+            r[i] = 1.0 / (r[i] / rSum);
+            logger.info("1/(r[i]/rSum) " + i + " " + r[i]);
+            rNewSum += r[i];
         }
+        double closenesses = 0;
+        for (int i = 0; i < r.length; i++) {
+            r[i] = r[i]/rNewSum;
+            logger.info("r[i]/newSum " + i + " " + r[i]);
+            closenesses += r[i];
+
+        }
+        logger.info("Sum of closenesses: " + closenesses);
+        
+        
+        
         return r;
     }
 
@@ -135,7 +170,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
         MorphConfig config = appData.getMorphConfig();
         Genome genome = config.newGenome();
         Triangler triangler = config.getTriangler();
-        double[] dists = point2TriangleDists(point);
+        double[] dists = point2TriangleDists(point, size);
         Genome[] genomes = new Genome[] {
                 boxedMorphVector.getBoxedMorph(0).getMorph().getGenome(),
                 boxedMorphVector.getBoxedMorph(1).getMorph().getGenome(),
