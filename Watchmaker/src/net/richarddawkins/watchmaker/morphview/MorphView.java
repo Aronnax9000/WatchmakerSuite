@@ -12,6 +12,7 @@ import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
 public interface MorphView {
 
+    
 	String getIcon();
 	void setIcon(String icon);
 

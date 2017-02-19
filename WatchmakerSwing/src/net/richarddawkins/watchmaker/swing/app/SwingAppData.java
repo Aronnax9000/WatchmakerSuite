@@ -16,6 +16,7 @@ import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView;
+import net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView;
 import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 
 public abstract class SwingAppData implements AppData {
@@ -70,6 +71,11 @@ public abstract class SwingAppData implements AppData {
 		morphViewsTabbedPane.addMorphView(new SwingTriangleMorphView(this));
 		
 	}
+    @Override
+    public void addPedigreeMorphView(Morph morph) {
+        morphViewsTabbedPane.addMorphView(new SwingPedigreeMorphView(this, morph));
+        
+    }	
 	@Override
 	public BoxesDrawer getBoxesDrawer() {
 		return boxesDrawer;

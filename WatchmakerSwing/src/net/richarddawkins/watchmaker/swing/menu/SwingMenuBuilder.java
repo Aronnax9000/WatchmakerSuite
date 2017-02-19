@@ -183,7 +183,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 		menu.add(new SwingActionBreed(appData));
 		menu.add(new SwingWatchmakerMenuItem("Drift"));
 		menu.add(new ActionEngineering(appData));
-		menu.add(new ActionTriangle(appData));
+        menu.add(new ActionTriangle(appData));
 
 
 		
@@ -220,7 +220,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 	 */
 	public WatchmakerMenu buildPedigreeMenu() {
 		WatchmakerMenu menu = new SwingWatchmakerMenu("Pedigree");
-		menu.add(new SwingWatchmakerMenuItem("Display Pedigree"));
+        menu.add(new ActionPedigree(appData));
 		menu.addSeparator();
 		menu.add(new SwingWatchmakerMenuItem("Draw Out Offspring"));
 		menu.add(noMirrors);

@@ -37,7 +37,7 @@ public class SwingAlbumMorphView extends SwingMorphView {
     }
 
     @Override
-    public void boxClicked(Point myPt, Dim size) {
+    public void processMouseClicked(Point myPt, Dim size) {
         BoxManager boxes = boxedMorphVector.getBoxes();
         if (centrePanel.getCursor() == WatchmakerCursors.highlight) {
             int boxNo = boxes.getBoxNoContainingPoint(myPt, size);

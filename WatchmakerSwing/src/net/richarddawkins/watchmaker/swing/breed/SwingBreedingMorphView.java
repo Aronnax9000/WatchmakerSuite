@@ -49,7 +49,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		
 	}
 	@Override
-	public void boxClicked(Point myPt, Dim size) {
+	public void processMouseClicked(Point myPt, Dim size) {
 		logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
 		BoxManager boxes = boxedMorphVector.getBoxes();
 		if(centrePanel.getCursor() == WatchmakerCursors.breed) {

@@ -165,7 +165,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
     }
 
     @Override
-    protected void boxClicked(Point point, Dim size) {
+    protected void processMouseClicked(Point point, Dim size) {
         logger.info("Triangle box clicked at " + point);
         MorphConfig config = appData.getMorphConfig();
         Genome genome = config.newGenome();

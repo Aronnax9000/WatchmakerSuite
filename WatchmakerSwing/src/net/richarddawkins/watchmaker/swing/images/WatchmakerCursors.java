@@ -1,10 +1,14 @@
 package net.richarddawkins.watchmaker.swing.images;
 
 import java.awt.Cursor;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 
 public class WatchmakerCursors {
+  public static Cursor createCustomCursor(Image image) {
+        return toolkit.createCustomCursor(image, hotspot, "morph");
+    }
   static Toolkit toolkit = Toolkit.getDefaultToolkit();
   static Point hotspot = new Point(4,4);
   public static final Cursor leftArrow = toolkit.createCustomCursor(
@@ -37,7 +41,9 @@ public class WatchmakerCursors {
 	      hotspot, "Random");
   public static final Cursor highlight = toolkit.createCustomCursor(
 	      ClassicImageLoader.getPicture("CursorBlackMonolith_CURS_00142_48x16").getImage().getSubimage(16, 0, 16, 16), 
-	      hotspot, "Random");
-  
+	      hotspot, "Highlight");
+public static final Cursor pedigree = toolkit.createCustomCursor(
+        ClassicImageLoader.getPicture("CursorPedigreeMaybe_CURS_00147_48x16").getImage().getSubimage(16, 0, 16, 16), 
+        hotspot, "Pedigree");
   
 }
