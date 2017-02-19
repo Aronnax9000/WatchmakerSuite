@@ -83,7 +83,8 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		centrePanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				boxClicked(SwingGeom.toWatchmakerPoint(e.getPoint()));
+				boxClicked(SwingGeom.toWatchmakerPoint(e.getPoint()),
+				        SwingGeom.toWatchmakerDim(((Component) e.getSource()).getSize()));
 			}
 		});
 		PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
@@ -126,7 +127,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 
 	}
 
-	abstract protected void boxClicked(Point point);
+	abstract protected void boxClicked(Point point, Dim size);
 
 	public AppData getAppData() {
 		return appData;

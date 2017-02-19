@@ -114,33 +114,49 @@ public class SwingTriangleMorphView extends SwingMorphView {
     protected double[] point2TriangleDists(Point point) {
         double[] r = new double[SwingTriangleMorphView.trianglePoints.length];
         double rSum = 0;
-        for(int i = 0; i < r.length; i++) {
-            r[i] = Math.sqrt(Math.pow(point.h - SwingTriangleMorphView.trianglePoints[i].h, 2) +
-                    Math.pow(point.v - SwingTriangleMorphView.trianglePoints[i].v, 2));
+        for (int i = 0; i < r.length; i++) {
+            r[i] = Math.sqrt(Math.pow(
+                    point.h - SwingTriangleMorphView.trianglePoints[i].h, 2)
+                    + Math.pow(
+                            point.v - SwingTriangleMorphView.trianglePoints[i].v,
+                            2));
             rSum += r[i];
         }
         // Normalize lengths
-        for(int i = 0; i < r.length; i++) {
+        for (int i = 0; i < r.length; i++) {
             r[i] /= rSum;
         }
         return r;
     }
-    
+
     @Override
-    protected void boxClicked(Point point) {
+    protected void boxClicked(Point point, Dim size) {
         logger.info("Triangle box clicked at " + point);
         MorphConfig config = appData.getMorphConfig();
         Genome genome = config.newGenome();
         Triangler triangler = config.getTriangler();
         double[] dists = point2TriangleDists(point);
-        Genome a = boxedMorphVector.getBoxedMorph(0).getMorph().getGenome();
-        Genome b = boxedMorphVector.getBoxedMorph(1).getMorph().getGenome();
-        Genome c = boxedMorphVector.getBoxedMorph(2).getMorph().getGenome();
-        triangler.concoct(genome, dists[0], dists[1], dists[2], a, b, c);
+        Genome[] genomes = new Genome[] {
+                boxedMorphVector.getBoxedMorph(0).getMorph().getGenome(),
+                boxedMorphVector.getBoxedMorph(1).getMorph().getGenome(),
+                boxedMorphVector.getBoxedMorph(2).getMorph().getGenome() };
+        triangler.concoct(genome, dists, genomes);
         Morph morph = config.newMorph();
         morph.setGenome(genome);
-        
-        
+        BoxManager boxes = boxedMorphVector.getBoxes();
+        Rect margin = morph.getPhenotype().getMargin();
+        int width = margin.getWidth();
+        int height = margin.getHeight();
+        Rect newRect = new Rect(point.h, point.v, point.h + width,
+                point.v + height);
+        int boxNo = boxes.getBoxCount();
+        boxes.addBox(newRect, size);
+
+        BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, boxNo);
+
+        boxedMorphVector.add(boxedMorph);
+        repaint();
+
     }
 
     @Override

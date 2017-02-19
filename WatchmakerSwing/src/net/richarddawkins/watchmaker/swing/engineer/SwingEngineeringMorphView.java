@@ -97,7 +97,7 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 		
 	}
 	@Override
-	protected void boxClicked(Point point) {
+	protected void boxClicked(Point point, Dim size) {
 		logger.info("Showing hypodermic message dialog");
 		Object[] options = { "Okay" };
 	    JOptionPane.showOptionDialog(
