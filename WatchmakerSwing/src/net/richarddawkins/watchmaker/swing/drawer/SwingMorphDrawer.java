@@ -23,18 +23,13 @@ public class SwingMorphDrawer implements MorphDrawer {
 		this.picDrawer = picDrawer;
 	}
 
-	protected Dim size;
-
-	public void setSize(Dim size) {
-		this.size = size;
-	}
 
 	protected PhenotypeDrawer picDrawer;
 
 	
 	
 	@Override
-	public void draw(BoxedMorph boxedMorph, Object graphicsContext, Dim d, boolean selectionState) {
+	public void draw(BoxedMorph boxedMorph, Object graphicsContext, Dim size, boolean selectionState) {
 		Phenotype phenotype = boxedMorph.getMorph().getPhenotype();
 		Graphics2D g2 = (Graphics2D) graphicsContext;
 		AffineTransform saveTransform = g2.getTransform();
@@ -53,8 +48,11 @@ public class SwingMorphDrawer implements MorphDrawer {
 			bufferedImage = (BufferedImage) picDrawer.getImage(phenotype, scale);
 			morph.setImage(bufferedImage);
 		}
-		Point position = boxedMorph.getPosition(d);
+		Point position = boxedMorph.getPosition(size);
 		g2.translate(position.h - bufferedImage.getWidth() / 2, position.v - bufferedImage.getHeight() / 2);
+		g2.clearRect(0, 0, bufferedImage.getWidth(), bufferedImage.getHeight());
+
+		
 		if(selectionState) {
 			g2.drawImage(bufferedImage, 0, 0, null);
 			g2.setColor(Color.BLACK);

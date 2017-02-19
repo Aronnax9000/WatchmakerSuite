@@ -17,7 +17,7 @@ public class ArthromorphSwingAppData extends SwingAppData {
 		this.setIcon(MorphType.ARTHROMORPH.getIconFilename());
 		menuBuilder.setAppData(this);
 		
-		config = new ArthromorphConfig();
+		this.setMorphConfig(new ArthromorphConfig());
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {

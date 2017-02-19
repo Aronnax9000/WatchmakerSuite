@@ -122,10 +122,11 @@ public class DoubleRect implements Cloneable {
 	}
 	
 	public Rect toRect(Dim scale) {
+		
 		Rect rect = new Rect();
 		rect.left = (int) Math.round(scale.width * left);
-		rect.right = (int) Math.round(scale.width * right);
 		rect.top = (int) Math.round(scale.height * top);
+		rect.right = (int) Math.round(scale.width * right);
 		rect.bottom = (int) Math.round(scale.height * bottom);
 		return rect;
 	}

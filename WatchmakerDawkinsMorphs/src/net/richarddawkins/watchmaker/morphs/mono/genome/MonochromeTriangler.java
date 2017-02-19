@@ -10,6 +10,16 @@ import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeTriangler implements Triangler {
 
+    private static MonochromeTriangler instance;
+    
+    protected MonochromeTriangler() {}
+    public synchronized static MonochromeTriangler getInstance() {
+        if(instance == null) {
+            instance = new MonochromeTriangler();
+        }
+        return instance;
+    }
+    
 	/**
 	 * Return 0, 1, or 2 depending on the range of the rounded value of a
 	 * floating point number.

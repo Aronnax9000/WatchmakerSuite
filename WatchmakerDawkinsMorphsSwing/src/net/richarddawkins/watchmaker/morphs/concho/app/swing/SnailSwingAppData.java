@@ -18,7 +18,7 @@ public class SnailSwingAppData extends SwingAppData {
 		
 		setMenuBuilder(new SnailMenuBuilder(this));
 		setPhenotypeDrawer(new SwingSnailPicDrawer());
-		config = new SnailConfig();
+		this.setMorphConfig(new SnailConfig());
 		
 	}
 	@Override

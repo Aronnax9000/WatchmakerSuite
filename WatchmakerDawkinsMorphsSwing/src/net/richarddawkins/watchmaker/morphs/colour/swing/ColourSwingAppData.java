@@ -18,7 +18,7 @@ public class ColourSwingAppData extends SwingAppData {
 		this.setSaltOnEmptyBreedingBoxClick(true);
 		setMenuBuilder(new SwingColourMenuBuilder(this));
 		setPhenotypeDrawer(new SwingColourPicDrawer());
-		config = new ColourBiomorphConfig();
+		this.setMorphConfig(new ColourBiomorphConfig());
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) { 

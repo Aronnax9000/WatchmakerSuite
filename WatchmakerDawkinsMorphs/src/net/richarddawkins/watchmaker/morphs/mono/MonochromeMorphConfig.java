@@ -3,12 +3,14 @@ package net.richarddawkins.watchmaker.morphs.mono;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.Triangler;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.SimpleMorphConfig;
 import net.richarddawkins.watchmaker.morphs.mono.embryo.MonochromeEmbryology;
 import net.richarddawkins.watchmaker.morphs.mono.genome.BiomorphGenomeFactory;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenome;
 import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeGenomeFactory;
+import net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeTriangler;
 import net.richarddawkins.watchmaker.morphs.mono.genome.mutation.MonochromeAllowedMutations;
 import net.richarddawkins.watchmaker.morphs.mono.genome.mutation.MonochromeMutagen;
 import net.richarddawkins.watchmaker.morphs.mono.geom.MonoPic;
@@ -23,6 +25,9 @@ public class MonochromeMorphConfig extends SimpleMorphConfig {
 		return new MonochromeGenome();
 	}
 
+	@Override
+	public Triangler getTriangler() { return MonochromeTriangler.getInstance(); }
+	
 	public MonochromeMorphConfig() {
 		this.setStartingMorphBasicType(BiomorphGenomeFactory.BASIC_TREE);
 		this.setAllowedMutations(new MonochromeAllowedMutations());

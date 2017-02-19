@@ -89,6 +89,10 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 		PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
 		morphDrawer = new SwingMorphDrawer(phenotypeDrawer);
 		phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
+		
+		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
+
+		this.add((JSlider) scaleSlider.getPanel(), BorderLayout.PAGE_END);
 	}
 
 	public SwingMorphView(AppData appData, String icon, String name) {
@@ -119,9 +123,7 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			this.add(geneBoxStripPanel, BorderLayout.PAGE_START);
 		}
 
-		SwingScaleSlider scaleSlider = new SwingScaleSlider(appData.getPhenotypeDrawer().getDrawingPreferences());
 
-		this.add((JSlider) scaleSlider.getPanel(), BorderLayout.PAGE_END);
 	}
 
 	abstract protected void boxClicked(Point point);
@@ -206,7 +208,6 @@ public abstract class SwingMorphView extends JPanel implements MorphView, Proper
 			Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
 			logger.fine("Boxed morphs to paint: " + boxedMorphVector.getBoxedMorphs().size());
 			while (iter.hasNext()) {
-				morphDrawer.setSize(boxes.getBoxSize(counter, size));
 				logger.fine("SwingMorphView.paintMorphViewPanel() Getting BoxedMorph " + counter);
 				BoxedMorph boxedMorph = iter.next();
 				morphDrawer.draw(boxedMorph, graphicsContext, size,

@@ -55,7 +55,7 @@ abstract public class BoxManager {
 	 * of one (any) box. The returned box width is the dimension width divided
 	 * by the number of columns, and the height is the dimension height divided
 	 * by the number of rows.
-	 * 
+	 * @param boxNo the 0-based index of the box in the collection.
 	 * @param dimension
 	 *            the size of the overall array of boxes, in pixels
 	 * @return the size of an individual box within the array.

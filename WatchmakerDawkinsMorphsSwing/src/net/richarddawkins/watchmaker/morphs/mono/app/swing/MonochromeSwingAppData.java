@@ -19,7 +19,7 @@ public class MonochromeSwingAppData extends SwingAppData implements AppData {
 		setMenuBuilder(new SwingMonochromeMenuBuilder(this));
 		setPhenotypeDrawer(new SwingMonoPicDrawer());
 		this.setIcon(MorphType.MONOCHROME_BIOMORPH.getIconFilename());
-		config = new MonochromeMorphConfig();
+		this.setMorphConfig(new MonochromeMorphConfig());
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {

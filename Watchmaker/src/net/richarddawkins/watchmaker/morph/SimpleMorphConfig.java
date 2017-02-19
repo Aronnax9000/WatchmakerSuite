@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morph;
 
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.ByteArrayOutputStream;
@@ -13,11 +14,13 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
+import net.richarddawkins.watchmaker.genome.Triangler;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
@@ -32,6 +35,11 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
 	int startingMorphBasicType;
 
+	@Override
+	public Triangler getTriangler() {
+	    return null;
+	}
+	
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.addPropertyChangeListener(listener);
@@ -85,6 +93,10 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 		morph.setPhenotype(newPhenotype());
 		morph.setGenome(genome);
 		wireMorphEvents(morph);
+		
+		PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
+		BufferedImage bufferedImage = (BufferedImage) phenotypeDrawer.getImage(morph.getPhenotype(), 1.0);
+		morph.setImage(bufferedImage);
 		return morph;
 	}
 	@Override

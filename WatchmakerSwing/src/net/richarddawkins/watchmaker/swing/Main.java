@@ -22,7 +22,7 @@ public class Main {
 			Object key = keys.nextElement();
 			Object value = UIManager.get(key);
 			if (value != null && value instanceof javax.swing.plaf.FontUIResource) {
-				logger.info("UIManager key " + key);
+				logger.fine("UIManager key " + key);
 				UIManager.put(key, f);
 			}
 		}

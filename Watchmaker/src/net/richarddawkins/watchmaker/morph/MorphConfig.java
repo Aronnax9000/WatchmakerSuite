@@ -7,6 +7,7 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeFactory;
+import net.richarddawkins.watchmaker.genome.Triangler;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -86,6 +87,7 @@ public interface MorphConfig {
 	void setStartingMorphBasicType(int startingMorphBasicType);
 	Vector<BoxedMorphCollection> getAlbums();
 	String[] getSavedAnimals();
+    Triangler getTriangler();
 
 
 }

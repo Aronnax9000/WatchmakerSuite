@@ -185,6 +185,7 @@ public abstract class SwingAppData implements AppData {
 	@Override
 	public void setMorphConfig(MorphConfig config) {
 		this.config = config;
+		config.setAppData(this);
 
 	}
 
