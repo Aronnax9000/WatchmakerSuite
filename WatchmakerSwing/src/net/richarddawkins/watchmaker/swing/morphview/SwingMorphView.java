@@ -222,9 +222,9 @@ public abstract class SwingMorphView extends JPanel
             BoxManager boxes = boxedMorphVector.getBoxes();
             if (showBoxes) {
                 Vector<Integer> backgroundColors = new Vector<Integer>();
-
+                Vector<BoxedMorph> boxedMorphs = boxedMorphVector.getBoxedMorphs();
                 for (int i = 0; i < boxes.getBoxCount(); i++) {
-                    BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(i);
+                    BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxes.getBox(i));
                     if (boxedMorph != null) {
                         backgroundColors.add(boxedMorph.getMorph()
                                 .getPhenotype().getBackgroundColor());

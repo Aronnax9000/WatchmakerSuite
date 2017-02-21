@@ -12,6 +12,7 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
@@ -29,7 +30,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
 	Vector<Morph> litter;
 
-	public int special = -1;
+	public Rect special = null;
 	Timer timer = new Timer();
 
 	public SwingBreedingMorphView(AppData appData, Morph morph) {
@@ -53,9 +54,9 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
 		BoxManager boxes = boxedMorphVector.getBoxes();
 		if(centrePanel.getCursor() == WatchmakerCursors.breed) {
-			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
-			if (boxNo != -1) {
-				special = boxNo;
+			Rect box = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+			if (box != null) {
+				special = box;
 				breedFromSpecial();
 			}
 		} else if(centrePanel.getCursor() == WatchmakerCursors.random) {
@@ -64,8 +65,8 @@ public class SwingBreedingMorphView extends SwingMorphView {
 			centrePanel.setCursor(null);
 			updateCursor();
 		}  else if(centrePanel.getCursor() == WatchmakerCursors.highlight) {
-			int boxNo = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
-			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+			Rect box = boxes.getBoxNoContainingPoint(myPt, SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+			BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
 			this.boxedMorphVector.setSelectedBoxedMorph(boxedMorph);
 			pcs.firePropertyChange("genome", null, 
 					boxedMorph.getMorph().getGenome());
@@ -93,7 +94,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		}
 	}
 
-	protected int selectedBoxNo = -1;
+	protected Rect selectedBox = null;
 
 	
 	@Override
@@ -102,16 +103,16 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		if(!(centrePanel.getCursor() == WatchmakerCursors.highlight 
 				&& boxedMorphVector.getSelectedBoxedMorph() != null)) {
 			BoxManager boxes = boxedMorphVector.getBoxes();
-			int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
-			if (boxNo != -1) {
+			Rect box = boxes.getBoxNoContainingPoint(myPt, size);
+			if (box != null) {
 				synchronized(boxedMorphVector) {
-					BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+					BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
 					
 					if (boxedMorph != null) {
-						if(boxNo != selectedBoxNo)
+						if(box != selectedBox)
 						pcs.firePropertyChange("genome", null, 
 								boxedMorph.getMorph().getGenome());
-						selectedBoxNo = boxNo;
+						selectedBox = box;
 	
 						if(centrePanel.getCursor() != WatchmakerCursors.watchCursor 
 								&& centrePanel.getCursor() != WatchmakerCursors.highlight) {
@@ -142,7 +143,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
 		}
 		BoxManager boxes = boxedMorphVector.getBoxes();
 
-		int midBox = boxes.getMidBox();
+		Rect midBox = boxes.getMidBox();
 		BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
 		boxedMorphVector.removeAllElements();
 		boxedMorphVector.add(boxedMorph);

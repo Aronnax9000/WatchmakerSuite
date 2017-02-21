@@ -68,7 +68,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
                     upperLeft.v + (margin.getHeight() + 14) / 2);
 
             boxes.addBox(newRect, dim);
-            BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, i);
+            BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
             boxedMorphVector.add(boxedMorph);
         }
     }
@@ -79,8 +79,8 @@ public class SwingTriangleMorphView extends SwingMorphView {
         Graphics2D g2 = (Graphics2D) graphicsContext;
         Vector<Point> points = new Vector<Point>();
         BoxManager boxes = boxedMorphVector.getBoxes();
-        for (int boxNo = 0; boxNo < 3; boxNo++) {
-            Point midPoint = boxes.getMidPoint(size, boxNo);
+        for (Rect box: boxes.getBoxes(size)) {
+            Point midPoint = boxes.getMidPoint(size, box);
             points.add(midPoint);
         }
         g2.setColor(Color.BLACK);
@@ -100,9 +100,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
 
     @Override
     public Morph getMorphOfTheHour() {
-        return boxedMorphVector
-                .getBoxedMorph(boxedMorphVector.getBoxedMorphs().size() - 1)
-                .getMorph();
+        return boxedMorphVector.getBoxedMorphs().lastElement().getMorph();
     }
 
     @Override
@@ -152,15 +150,13 @@ public class SwingTriangleMorphView extends SwingMorphView {
         }
         double closenesses = 0;
         for (int i = 0; i < r.length; i++) {
-            r[i] = r[i]/rNewSum;
+            r[i] = r[i] / rNewSum;
             logger.info("r[i]/newSum " + i + " " + r[i]);
             closenesses += r[i];
 
         }
         logger.info("Sum of closenesses: " + closenesses);
-        
-        
-        
+
         return r;
     }
 
@@ -172,9 +168,9 @@ public class SwingTriangleMorphView extends SwingMorphView {
         Triangler triangler = config.getTriangler();
         double[] dists = point2TriangleDists(point, size);
         Genome[] genomes = new Genome[] {
-                boxedMorphVector.getBoxedMorph(0).getMorph().getGenome(),
-                boxedMorphVector.getBoxedMorph(1).getMorph().getGenome(),
-                boxedMorphVector.getBoxedMorph(2).getMorph().getGenome() };
+                boxedMorphVector.getBoxedMorphs().elementAt(0).getMorph().getGenome(),
+                boxedMorphVector.getBoxedMorphs().elementAt(1).getMorph().getGenome(),
+                boxedMorphVector.getBoxedMorphs().elementAt(2).getMorph().getGenome() };
         triangler.concoct(genome, dists, genomes);
         Morph morph = config.newMorph();
         morph.setGenome(genome);
@@ -184,10 +180,9 @@ public class SwingTriangleMorphView extends SwingMorphView {
         int height = margin.getHeight();
         Rect newRect = new Rect(point.h, point.v, point.h + width,
                 point.v + height);
-        int boxNo = boxes.getBoxCount();
         boxes.addBox(newRect, size);
 
-        BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, boxNo);
+        BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
 
         boxedMorphVector.add(boxedMorph);
         repaint();

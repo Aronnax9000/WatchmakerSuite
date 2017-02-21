@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -22,11 +23,11 @@ public class BoxAnimator extends TimerTask {
 	protected BoxedMorph boxedNewestOffspring;
 	protected Phase phase;
 	protected BoxedMorphCollection boxedMorphVector;
-	protected int midBox;
+	protected Rect midBox;
 	protected BoxedMorph boxedMorphParent;
 	protected BoxManager boxes;
 
-	public BoxAnimator(SwingBreedingMorphView breedingPanel, int special) {
+	public BoxAnimator(SwingBreedingMorphView breedingPanel, Rect special) {
 		this.breedingPanel = breedingPanel;
 		AppData appData = breedingPanel.getAppData();
 		MorphConfig config = appData.getMorphConfig();
@@ -52,7 +53,7 @@ public class BoxAnimator extends TimerTask {
 
 			if (special != midBox) {
 				// Need to animate mother
-				boxedMorphParent.setDestinationBoxNo(midBox);
+				boxedMorphParent.setDestinationBox(midBox);
 				boxedMorphParent.setProgress(0.0d);
 				boxedMorphParent.setScaleWithProgress(false);
 				phase = Phase.deactivate_grid;
@@ -79,23 +80,25 @@ public class BoxAnimator extends TimerTask {
 		case reactivate_grid:
 			logger.info("Reactivate Grid");
 			breedingPanel.setShowBoxes(true);
-			boxedMorphParent.setBoxNo(midBox);
-			boxedMorphParent.setDestinationBoxNo(-1);
+			boxedMorphParent.setBox(midBox);
+			boxedMorphParent.setDestinationBox(null);
 			boxedMorphParent.setProgress(0.0d);
 			phase = Phase.box_next_offspring;
 			break;
 		case box_next_offspring:
 			if (newestOffspring != null) {
 				boxedNewestOffspring = new BoxedMorph(boxes, newestOffspring, midBox);
-				boxedNewestOffspring.setDestinationBoxNo(vacantBoxNumber++);
+				logger.info("Boxing to vacantBoxNumber:" + vacantBoxNumber);
+				boxedNewestOffspring.setDestinationBox(boxes.getBox(vacantBoxNumber));
+				vacantBoxNumber++;
 				boxedNewestOffspring.setScaleWithProgress(true);
 				// If the pointer to the next 'vacant' box points to the midBox,
-				if (vacantBoxNumber == midBox) {
+				if (vacantBoxNumber < boxes.getBoxCount() && boxes.getBox(vacantBoxNumber) == midBox) {
 					// skip it (the parent already occupies it.)
 					vacantBoxNumber++;
 				}
-				logger.fine("BoxAnimator.run() box_next_offspring:" + boxedNewestOffspring.getBoxNo() + " to "
-						+ boxedNewestOffspring.getDestinationBoxNo());
+				logger.fine("BoxAnimator.run() box_next_offspring:" + boxedNewestOffspring.getBox() + " to "
+						+ boxedNewestOffspring.getDestinationBox());
 				boxedNewestOffspring.setScaleWithProgress(true);
 				// Add the newest boxed morph to the view's collection of boxed
 				// morphs
@@ -112,8 +115,8 @@ public class BoxAnimator extends TimerTask {
 			boxedNewestOffspring.nudge();
 			if (boxedNewestOffspring.getProgress() == 1.0d) {
 				// newestOffspring has made it to its new home box.
-				boxedNewestOffspring.setBoxNo(boxedNewestOffspring.getDestinationBoxNo());
-				boxedNewestOffspring.setDestinationBoxNo(-1);
+				boxedNewestOffspring.setBox(boxedNewestOffspring.getDestinationBox());
+				boxedNewestOffspring.setDestinationBox(null);
 				boxedNewestOffspring.setProgress(0.0d);
 				boxedNewestOffspring.setScaleWithProgress(false);
 				// Finished with the reference to the newest boxed offspring

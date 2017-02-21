@@ -12,8 +12,8 @@ import net.richarddawkins.watchmaker.morph.Morph;
 public class BoxedMorph extends LocatedMorph {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxedMorph");
 
-	protected int boxNo;
-	protected int destinationBoxNo = -1;
+	protected Rect box;
+	protected Rect destinationBox = null;
 	protected BoxManager boxes;
 
 	public BoxManager getBoxes() {
@@ -24,23 +24,23 @@ public class BoxedMorph extends LocatedMorph {
 		this.boxes = boxes;
 	}
 
-	public int getDestinationBoxNo() {
-		return destinationBoxNo;
+	public Rect getDestinationBox() {
+		return destinationBox;
 	}
 
-	public BoxedMorph(BoxManager boxes, Morph morph, int boxNo) {
-		logger.info("Adding morph to box number " + boxNo);
+	public BoxedMorph(BoxManager boxes, Morph morph, Rect box) {
+		logger.info("Adding morph to box  " + box);
 		this.boxes = boxes;
 		this.morph = morph;
-		this.boxNo = boxNo;
+		this.box = box;
 	}
 
 	public Point getPosition(Dim dimension) {
-		if (destinationBoxNo == -1) {
-			return boxes.getMidPoint(dimension, boxNo);
+		if (destinationBox == null) {
+			return boxes.getMidPoint(dimension, box);
 		} else {
-			Point origin = boxes.getMidPoint(dimension, boxNo);
-			Point destination = boxes.getMidPoint(dimension, destinationBoxNo);
+			Point origin = boxes.getMidPoint(dimension, box);
+			Point destination = boxes.getMidPoint(dimension, destinationBox);
 			Point position = new Point();
 			position.h = origin.h + (int) ((double) (destination.h - origin.h) * progress);
 			position.v = origin.v + (int) ((double) (destination.v - origin.v) * progress);
@@ -48,21 +48,21 @@ public class BoxedMorph extends LocatedMorph {
 		}
 	}
 
-	public int getBoxNo() {
-		return boxNo;
+	public Rect getBox() {
+		return box;
 	}
 
-	public void setBoxNo(int newValue) {
-		int oldValue = this.boxNo;
-		this.boxNo = newValue;
-		firePropertyChange("boxNo", oldValue, newValue);
+	public void setBox(Rect newValue) {
+	    Rect oldValue = this.box;
+		this.box = newValue;
+		firePropertyChange("Box", oldValue, newValue);
 	}
 
-	public void setDestinationBoxNo(int newValue) {
+	public void setDestinationBox(Rect newValue) {
 		logger.info("Destination box number " + newValue);
-		int oldValue = this.destinationBoxNo;
-		this.destinationBoxNo = newValue;
-		firePropertyChange("destinationBoxNo", oldValue, newValue);
+		Rect oldValue = this.destinationBox;
+		this.destinationBox = newValue;
+		firePropertyChange("destinationBox", oldValue, newValue);
 	}
 
 }

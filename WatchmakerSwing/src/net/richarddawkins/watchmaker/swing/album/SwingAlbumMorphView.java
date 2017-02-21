@@ -11,6 +11,7 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
@@ -40,9 +41,9 @@ public class SwingAlbumMorphView extends SwingMorphView {
     public void processMouseClicked(Point myPt, Dim size) {
         BoxManager boxes = boxedMorphVector.getBoxes();
         if (centrePanel.getCursor() == WatchmakerCursors.highlight) {
-            int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
+            Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
-            BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+            BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
             this.boxedMorphVector.setSelectedBoxedMorph(boxedMorph);
             pcs.firePropertyChange("genome", null,
                     boxedMorph.getMorph().getGenome());
@@ -50,7 +51,7 @@ public class SwingAlbumMorphView extends SwingMorphView {
         }
     }
 
-    protected int selectedBoxNo = -1;
+    protected Rect selectedBox = null;
 
     @Override
     public void processMouseMotion(Point myPt, Dim size) {
@@ -58,17 +59,17 @@ public class SwingAlbumMorphView extends SwingMorphView {
         // size + ")");
 
         BoxManager boxes = boxedMorphVector.getBoxes();
-        int boxNo = boxes.getBoxNoContainingPoint(myPt, size);
-        if (boxNo != -1 && boxNo != selectedBoxNo) {
+        Rect box = boxes.getBoxNoContainingPoint(myPt, size);
+        if (box != null && box != selectedBox) {
             synchronized (boxedMorphVector) {
-                BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxNo);
+                BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
 
                 if (boxedMorph != null) {
                     logger.fine("SwingAlbumMorphView.processMouseMotion(" + myPt
                             + ", " + size + ") firing genome change");
                     pcs.firePropertyChange("genome", null,
                             boxedMorph.getMorph().getGenome());
-                    selectedBoxNo = boxNo;
+                    selectedBox = box;
 
                 }
             }

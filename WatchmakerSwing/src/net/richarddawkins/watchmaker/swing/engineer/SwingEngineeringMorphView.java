@@ -48,11 +48,10 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 		
 	}
 
-
     @Override
     public Morph getMorphOfTheHour() {
     	return boxedMorphVector
-    			.getBoxedMorph(0)
+    			.getBoxedMorphs().lastElement()
     			.getMorph();
     }
 	@Override
@@ -66,7 +65,7 @@ public class SwingEngineeringMorphView extends SwingMorphView {
 		morph.addPropertyChangeListener(this);
 		BoxManager boxes = boxedMorphVector.getBoxes();
 
-		BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, 0); 
+		BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, boxes.getBox(0)); 
 		boxedMorphVector.add(boxedMorph);
 		pcs.firePropertyChange("genome", null, 
 				boxedMorph.getMorph().getGenome());

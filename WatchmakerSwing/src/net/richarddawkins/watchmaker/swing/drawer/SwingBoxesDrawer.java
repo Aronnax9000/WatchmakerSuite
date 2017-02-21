@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -32,20 +33,21 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 			Vector<Integer> backgroundColors) {
 		Graphics2D g2 = (Graphics2D) graphicsContext;
 		Stroke saveStroke = g2.getStroke();
-		int boxIndex = 0;
+		Iterator<Integer> backgroundColorIterator = backgroundColors.iterator();
+
 		Vector<Rect> boxRects = boxes.getBoxes(dimension);
 		logger.fine("Got " + boxRects.size() + " boxes with dimensions " + dimension.toString());
-		int midBox = boxes.getMidBox();
+		Rect midBox = boxes.getMidBox();
 		boolean accentuateMidBox = boxes.isAccentuateMidBox();
 		for(Rect r: boxRects) {
 			// Middle box has a thicker line
-			if(boxIndex == midBox && accentuateMidBox) {
+			if(r == midBox && accentuateMidBox) {
 				g2.setStroke(new BasicStroke(4.0f));
 			} else {
 				g2.setStroke(new BasicStroke(2.0f));
 			}
-			int backgroundColor = backgroundColors.elementAt(boxIndex);
-			if(! midBoxOnly || (boxIndex == midBox && accentuateMidBox)) {
+			int backgroundColor = backgroundColorIterator.next();
+			if(! midBoxOnly || (r == midBox && accentuateMidBox)) {
 				if(backgroundColor != -1) {
 					g2.setColor(SwingColor.rgbColorPalette[backgroundColor]);
 					g2.fillRect(r.left, r.top, r.getWidth(), r.getHeight());
@@ -54,7 +56,6 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 				g2.drawRect(r.left, r.top, r.getWidth(), r.getHeight());
 			}
 			g2.setStroke(saveStroke);
-			boxIndex++;
 		}
 		logger.fine("Finished Drawing Boxes");
 		

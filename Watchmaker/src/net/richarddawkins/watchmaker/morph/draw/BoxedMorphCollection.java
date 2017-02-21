@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.Pedigree;
 
@@ -63,16 +64,8 @@ public class BoxedMorphCollection {
 		if(selectedBoxedMorph == boxedMorphVictim) {
 			selectedBoxedMorph = null;
 		}
-		int boxNo = boxedMorphVictim.getBoxNo();
-		boxes.removeBox(boxNo);
-		
+		boxes.removeBox(boxedMorphVictim.getBox());
 		boxedMorphs.remove(boxedMorphVictim);
-		for(BoxedMorph boxedMorph: boxedMorphs) {
-		    int boxedMorphBoxNo = boxedMorph.getBoxNo();
-		    if(boxedMorph.getBoxNo() > boxNo) {
-		        boxedMorph.setBoxNo(boxNo - 1);
-		    }
-		}
 	}
 	public void removeAllElements() {
 		selectedBoxedMorph = null;
@@ -82,9 +75,9 @@ public class BoxedMorphCollection {
 		return boxedMorphs.iterator();
 	}
 	
-	public BoxedMorph getBoxedMorph(int boxNo) {
+	public BoxedMorph getBoxedMorph(Rect box) {
 		for(BoxedMorph boxedMorph: boxedMorphs) 
-			if(boxedMorph.getBoxNo() == boxNo)
+			if(boxedMorph.getBox() == box)
 				return boxedMorph;
 		return null;
 	}
@@ -117,7 +110,10 @@ public class BoxedMorphCollection {
     	    while(child != null) {
     	        BoxedMorph childBoxedMorph = findBoxedMorphForMorph(child);
     	        if(childBoxedMorph != null) {
-        	        boxedMorphAndDescendents.addAll(findBoxedMorphsForMorphAndDescendents(childBoxedMorph));
+    	            if(child.getPedigree().parent != null) {
+    	                boxedMorphAndDescendents.addAll(findBoxedMorphsForMorphAndDescendents(childBoxedMorph));
+                        
+    	            }
         	        child = childBoxedMorph.getMorph().getPedigree().youngerSib;
     	        } else {
     	            child = null;

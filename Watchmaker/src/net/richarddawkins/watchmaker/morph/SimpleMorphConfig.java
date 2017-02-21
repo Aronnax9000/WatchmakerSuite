@@ -216,13 +216,14 @@ public abstract class SimpleMorphConfig implements MorphConfig {
                 morph.setGenome(genome);
                 logger.info(name + " box:" + boxNo + " Genome:"
                         + genome.toString());
+                
                 BoxedMorph boxedMorph = new BoxedMorph(boxManager, morph,
-                        boxNo++);
+                        boxManager.getBox(boxNo++));
                 album.add(boxedMorph);
             }
-            boxManager.setRows((boxNo + 1) / 5);
+//            boxManager.setRows((boxNo + 1) / 5);
             logger.info("Album " + name + " contained " + boxNo + " genomes.");
-            album.setSelectedBoxedMorph(album.getBoxedMorph(0));
+            album.setSelectedBoxedMorph(album.getBoxedMorphs().firstElement());
             albums.add(album);
         }
         Vector<BoxedMorphCollection> singletonCollections = new Vector<BoxedMorphCollection>();
@@ -248,7 +249,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
             for (BoxedMorphCollection album : singletonCollections) {
                 for (BoxedMorph boxedMorph : album.getBoxedMorphs()) {
                     boxedMorph.setBoxes(boxManager);
-                    boxedMorph.setBoxNo(boxNo++);
+                    boxedMorph.setBox(boxManager.getBox(boxNo++));
                     singletonCollection.add(boxedMorph);
                 }
                 albums.remove(album);

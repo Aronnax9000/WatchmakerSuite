@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.geom;
 
-import java.util.Collections;
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -9,51 +9,48 @@ public class FreeBoxManager extends BoxManager {
     private static Logger logger = Logger
             .getLogger("net.richarddawkins.watchmaker.geom.FreeBoxManager");
 
-    protected Vector<DoubleRect> boxes = new Vector<DoubleRect>();
+    protected Vector<DoubleRect> doubleBoxes = new Vector<DoubleRect>();
 
-    public void addBox(Rect r, Dim screenSize) {
+    public void addBox(Rect r, Dim scale) {
         DoubleRect newRect = new DoubleRect();
 
-        newRect.left = (double) r.left / screenSize.width;
-        newRect.right = (double) r.right / screenSize.width;
-        newRect.top = (double) r.top / screenSize.height;
-        newRect.bottom = (double) r.bottom / screenSize.height;
+        newRect.left = (double) r.left / scale.width;
+        newRect.right = (double) r.right / scale.width;
+        newRect.top = (double) r.top / scale.height;
+        newRect.bottom = (double) r.bottom / scale.height;
 
-        boxes.add(newRect);
-    }
-
-    public void removeBox(Rect r) {
-        boxes.remove(r);
+        doubleBoxes.add(newRect);
+        boxes.add(r);
     }
 
     /**
-     * Returns null, as boxes are not of uniform size.
+     * Returns null, as doubleBoxes are not of uniform size.
      * 
      * @return the size of the box requested scaled to the specified full-screen
      *         dimension.
      */
     @Override
     public Dim getBoxSize(int boxNo, Dim dimension) {
-        DoubleRect rect = boxes.elementAt(boxNo);
+        DoubleRect rect = doubleBoxes.elementAt(boxNo);
         Dim boxSize = new Dim(rect.getWidth() * dimension.width,
                 rect.getHeight() * dimension.height);
         return boxSize;
     }
-    
-
 
     @Override
     public Vector<Rect> getBoxes(Dim scale) {
-        Vector<Rect> rects = new Vector<Rect>();
-        for (DoubleRect r : boxes) {
-            rects.add(r.toRect(scale));
+        Iterator<Rect> rects = boxes.iterator();
+        for (DoubleRect doubleRect : doubleBoxes) {
+            Rect rect = rects.next();
+            Rect r = doubleRect.toRect(scale);
+            rect.setRect(r.left, r.top, r.right, r.bottom);
         }
-        return rects;
+        return boxes;
     }
 
     @Override
-    public void setBox(int boxNo, Rect newBox, Dim size) {
-        DoubleRect newRect = boxes.elementAt(boxNo);
+    public void setBox(Rect shadowBox, Rect newBox, Dim size) {
+        DoubleRect newRect = doubleBoxes.elementAt(boxes.indexOf(shadowBox));
         newRect.left = (double) newBox.left / size.width;
         newRect.right = (double) newBox.right / size.width;
         newRect.top = (double) newBox.top / size.height;
@@ -61,34 +58,36 @@ public class FreeBoxManager extends BoxManager {
     }
 
     @Override
-    public Point getMidPoint(Dim scale, int boxNo) {
-        DoubleRect internalRect = boxes.elementAt(boxNo);
+    public Point getMidPoint(Dim scale, Rect box) {
+        DoubleRect internalRect = doubleBoxes.elementAt(boxes.indexOf(box));
         Rect scaledRect = internalRect.toRect(scale);
         Point midPoint = scaledRect.getMidPoint();
         return midPoint;
     }
+
     @Override
-    public void removeBox(int boxNo) {
-        boxes.remove(boxNo);
+    public void removeBox(Rect box) {
+        doubleBoxes.remove(boxes.indexOf(box));
+        boxes.remove(box);
     }
-    
+
     @Override
     public Vector<Point> getMidPoints(Dim scale) {
         Vector<Point> midPoints = new Vector<Point>();
-        for (DoubleRect r : boxes) {
+        for (DoubleRect r : doubleBoxes) {
             midPoints.add(r.toRect(scale).getMidPoint());
         }
         return midPoints;
     }
 
     @Override
-    public int getMidBox() {
-        return -1;
+    public Rect getMidBox() {
+        return null;
     }
 
     @Override
     public int getBoxCount() {
-        return boxes.size();
+        return doubleBoxes.size();
     }
 
 }

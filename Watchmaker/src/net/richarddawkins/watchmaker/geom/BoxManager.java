@@ -44,17 +44,15 @@ abstract public class BoxManager {
 	 * @return the box number containing the given point.
 	 */
 
-	public int getBoxNoContainingPoint(Point p, Dim d) {
-		int boxIndex = 0;
+	public Rect getBoxNoContainingPoint(Point p, Dim d) {
 		Vector<Rect> boxes = getBoxesReversed(d);
 		for (Rect box : boxes) {
 			if (box.contains(p)) {
 			    // Reverse the sense of the index, since we were operating on a reversed copy.
-				return boxes.size() - boxIndex - 1;
+				return box;
 			}
-			boxIndex++;
 		}
-		return -1;
+		return null;
 	}
 
 	/**
@@ -69,7 +67,7 @@ abstract public class BoxManager {
 	 */
 	public abstract Dim getBoxSize(int boxNo, Dim dimension);
 
-	public abstract int getMidBox();
+	public abstract Rect getMidBox();
 
 	/**
 	 * Given supplied dimension of the entire array of boxes, return the
@@ -81,7 +79,7 @@ abstract public class BoxManager {
 	 *            the number of the box to retrieve (row major order)
 	 * @return the midpoint of the nth Box.
 	 */
-	public abstract Point getMidPoint(Dim dimension, int boxNo);
+	public abstract Point getMidPoint(Dim dimension, Rect box);
 
 	/**
 	 * For the given dimension of the entire array of boxes, return a vector of
@@ -100,7 +98,7 @@ abstract public class BoxManager {
 		this.accentuateMidBox = accentuateMidBox;
 	}
 
-    public void setBox(int BoxNo, Rect newBox, Dim size) {
+    public void setBox(Rect box, Rect newBox, Dim size) {
         // TODO Auto-generated method stub
         
     }
@@ -108,7 +106,7 @@ abstract public class BoxManager {
     public Rect getBox(int boxNo, Dim size) {
         return getBoxes(size).elementAt(boxNo);
     }
-    public void removeBox(int boxNo) {
+    public void removeBox(Rect boxedMorphBox) {
         // TODO Auto-generated method stub
         
     }
@@ -120,15 +118,22 @@ abstract public class BoxManager {
      * @param scale the size of the MorphView centre panel in pixels.
      * @return the same Vector as getBoxes() in reverse order.
      */
+    @SuppressWarnings("unchecked")
     public Vector<Rect> getBoxesReversed(Dim scale) {
         Vector<Rect> rects = getBoxes(scale);
-        Collections.reverse(rects);
+        Collections.reverse((Vector<Rect>)rects.clone());
         return rects;
     }
 
     public Point getOrigin(Dim size, int selectedBoxNo) {
         Rect rect = getBoxes(size).elementAt(selectedBoxNo);
         return new Point(rect.left, rect.top);
+    }
+    protected Vector<Rect> boxes = new Vector<Rect>();
+
+    public Rect getBox(int boxNo) {
+        
+        return boxes.elementAt(boxNo);
     }
 
 
