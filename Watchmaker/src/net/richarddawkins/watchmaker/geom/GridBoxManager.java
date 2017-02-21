@@ -56,7 +56,9 @@ public class GridBoxManager extends BoxManager  {
 	public GridBoxManager(int cols, int rows) {
 		this.cols = cols;
 		this.rows = rows;
-		
+		for(int i = 0; i < cols * rows; i++) {
+		    boxes.add(new Rect());
+		}
 		update();
 	}
 	
@@ -72,14 +74,11 @@ public class GridBoxManager extends BoxManager  {
 	public Dim getBoxSize(int boxNo, Dim dimension) {
 		return new Dim(dimension.width / cols, dimension.height / rows);
 	}
-	
-	/* (non-Javadoc)
-	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getBoxes(net.richarddawkins.watchmaker.geom.Dim)
-	 */
+	protected Vector<Rect> boxes = new Vector<Rect>();
+
 	@Override
 	public Vector<Rect> getBoxes(Dim dimension)
 	{
-		Vector<Rect> boxes = new Vector<Rect>();
 		int boxwidth = (int) dimension.width / cols;
 		int boxheight = (int) dimension.height / rows;
 		for(int j = 0; j < rows; j++)
@@ -87,16 +86,17 @@ public class GridBoxManager extends BoxManager  {
 			{
 				int x = i * boxwidth;
 				int y = j * boxheight;
-				Rect rect = new Rect(x, y, x + boxwidth, y + boxheight);
+				// Row major order
+				Rect rect = boxes.elementAt(j * cols + i);
+				rect.left = x;
+				rect.right = x + boxwidth;
+                rect.top = y;
+                rect.bottom = y + boxheight;
 				logger.fine("GetBoxes " + (i + j*cols) + ": " + rect.toString());
-				boxes.add(rect);
 			}
 		return boxes;
 	}
 
-	/* (non-Javadoc)
-	 * @see net.richarddawkins.watchmaker.geom.BoxManager#getMidPoint(net.richarddawkins.watchmaker.geom.Dim, int)
-	 */
 	@Override
 	public Point getMidPoint(Dim dimension, int boxNo) {
 		int col = boxNo % cols;
@@ -137,7 +137,6 @@ public class GridBoxManager extends BoxManager  {
 	 */
 	@Override
 	public void addBox(Rect margin, Dim dim) {
-		
 		
 	}
 	

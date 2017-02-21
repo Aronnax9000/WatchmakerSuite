@@ -20,7 +20,11 @@ import net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView;
 import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 
 public abstract class SwingAppData implements AppData {
-	protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
+	
+
+    
+    
+    protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
 	protected boolean breedRightAway = true;
 	
 	protected MorphConfig config;

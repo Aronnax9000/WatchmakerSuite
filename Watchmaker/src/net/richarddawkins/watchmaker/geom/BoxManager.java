@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.geom;
 
+import java.util.Collections;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -30,7 +31,11 @@ abstract public class BoxManager {
 	public abstract Vector<Rect> getBoxes(Dim dimension);
 
 	/**
-	 * Find the box within the array containing a particular point.
+	 * Find the box within the array containing a particular point, in reverse
+	 * order to the natural (drawing) order. Operating on the reversed order
+	 * means that offspring precede their parents in search order. This is
+	 * useful in Pedigree mode, where it is used to ensure that click order
+	 * follows the reverse of drawing order, so that box-selecting is sane.
 	 * 
 	 * @param p
 	 *            the point to locate within one of the particular boxes
@@ -41,9 +46,11 @@ abstract public class BoxManager {
 
 	public int getBoxNoContainingPoint(Point p, Dim d) {
 		int boxIndex = 0;
-		for (Rect box : getBoxes(d)) {
+		Vector<Rect> boxes = getBoxesReversed(d);
+		for (Rect box : boxes) {
 			if (box.contains(p)) {
-				return boxIndex;
+			    // Reverse the sense of the index, since we were operating on a reversed copy.
+				return boxes.size() - boxIndex - 1;
 			}
 			boxIndex++;
 		}
@@ -92,6 +99,37 @@ abstract public class BoxManager {
 	public void setAccentuateMidBox(boolean accentuateMidBox) {
 		this.accentuateMidBox = accentuateMidBox;
 	}
+
+    public void setBox(int BoxNo, Rect newBox, Dim size) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public Rect getBox(int boxNo, Dim size) {
+        return getBoxes(size).elementAt(boxNo);
+    }
+    public void removeBox(int boxNo) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    /**
+     * Return the boxes in reverse order, so that offspring are "on top" of their
+     * ancestors. Useful for z-ordering so that younger morphs overlap their
+     * parents in click order as well as drawing order.
+     * @param scale the size of the MorphView centre panel in pixels.
+     * @return the same Vector as getBoxes() in reverse order.
+     */
+    public Vector<Rect> getBoxesReversed(Dim scale) {
+        Vector<Rect> rects = getBoxes(scale);
+        Collections.reverse(rects);
+        return rects;
+    }
+
+    public Point getOrigin(Dim size, int selectedBoxNo) {
+        Rect rect = getBoxes(size).elementAt(selectedBoxNo);
+        return new Point(rect.left, rect.top);
+    }
 
 
 }

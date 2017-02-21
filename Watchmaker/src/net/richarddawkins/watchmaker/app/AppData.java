@@ -69,5 +69,7 @@ public interface AppData  {
 	public long getTickDelay();
 	void setTickDelay(long tickDelay);
     public void addPedigreeMorphView(Morph morph);
+    
+    
 
 }

@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.Pedigree;
 
 public class BoxedMorphCollection {
 	@SuppressWarnings("unused")
@@ -58,11 +59,20 @@ public class BoxedMorphCollection {
 	public void add(BoxedMorph boxedMorph) {
 		boxedMorphs.add(boxedMorph);
 	}
-	public void remove(BoxedMorph boxedMorph) {
-		if(selectedBoxedMorph == boxedMorph) {
+	public void remove(BoxedMorph boxedMorphVictim) {
+		if(selectedBoxedMorph == boxedMorphVictim) {
 			selectedBoxedMorph = null;
 		}
-		boxedMorphs.remove(boxedMorph);
+		int boxNo = boxedMorphVictim.getBoxNo();
+		boxes.removeBox(boxNo);
+		
+		boxedMorphs.remove(boxedMorphVictim);
+		for(BoxedMorph boxedMorph: boxedMorphs) {
+		    int boxedMorphBoxNo = boxedMorph.getBoxNo();
+		    if(boxedMorph.getBoxNo() > boxNo) {
+		        boxedMorph.setBoxNo(boxNo - 1);
+		    }
+		}
 	}
 	public void removeAllElements() {
 		selectedBoxedMorph = null;
@@ -86,4 +96,35 @@ public class BoxedMorphCollection {
 	public void setBoxedMorphs(Vector<BoxedMorph> boxedMorphs) {
 		this.boxedMorphs = boxedMorphs;
 	}
+	
+	public BoxedMorph findBoxedMorphForMorph(Morph morph) {
+	    for(BoxedMorph boxedMorph: boxedMorphs) {
+	        if(boxedMorph.getMorph() == morph) {
+	            return boxedMorph;
+	        }
+	    }
+	    return null;
+	}
+
+	public Vector<BoxedMorph> findBoxedMorphsForMorphAndDescendents(BoxedMorph boxedMorph) {
+	    
+	    Vector<BoxedMorph> boxedMorphAndDescendents = new Vector<BoxedMorph>();
+	    if(boxedMorph != null) {
+    	    boxedMorphAndDescendents.add(boxedMorph);
+    	    Morph parentMorph = boxedMorph.getMorph();
+    	    Pedigree pedigree = parentMorph.getPedigree();
+    	    Morph child = pedigree.firstBorn;
+    	    while(child != null) {
+    	        BoxedMorph childBoxedMorph = findBoxedMorphForMorph(child);
+    	        if(childBoxedMorph != null) {
+        	        boxedMorphAndDescendents.addAll(findBoxedMorphsForMorphAndDescendents(childBoxedMorph));
+        	        child = childBoxedMorph.getMorph().getPedigree().youngerSib;
+    	        } else {
+    	            child = null;
+    	        }
+    	    }
+	    }
+	    return boxedMorphAndDescendents;
+	}
+	
 }

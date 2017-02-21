@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.type.AtomKind;
 

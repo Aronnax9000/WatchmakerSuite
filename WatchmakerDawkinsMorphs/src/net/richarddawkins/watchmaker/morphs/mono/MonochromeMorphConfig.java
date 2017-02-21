@@ -34,6 +34,7 @@ public class MonochromeMorphConfig extends SimpleMorphConfig {
 		this.setMutagen(new MonochromeMutagen(allowedMutations));
 		this.setGenomeFactory(new MonochromeGenomeFactory(allowedMutations));
 		this.setEmbryology(new MonochromeEmbryology());
+
 	}
 
 	@Override

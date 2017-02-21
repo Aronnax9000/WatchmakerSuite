@@ -15,6 +15,15 @@ public class WatchmakerCursors {
       ClassicImageLoader.getPicture(
           "CursorLeftArrow_CURS_00135_48x16").getImage().getSubimage(0, 0, 16, 16), 
       hotspot, "Left arrow");
+  public static final Cursor kill = toolkit.createCustomCursor(
+          ClassicImageLoader.getPicture("CursorGun_CURS_00149_48x16").getImage().getSubimage(0, 0, 16, 16), 
+          hotspot, "Kill");
+  public static final Cursor move = toolkit.createCustomCursor(
+          ClassicImageLoader.getPicture("CursorPointyHand_CURS_00146_48x16").getImage().getSubimage(0, 0, 16, 16), 
+          hotspot, "Move");
+  public static final Cursor detach = toolkit.createCustomCursor(
+          ClassicImageLoader.getPicture("CursorScissors_CURS_00148_48x16").getImage().getSubimage(0, 0, 16, 16), 
+          hotspot, "Detach");
   public static final Cursor rightArrow = toolkit.createCustomCursor(
       ClassicImageLoader.getPicture("CursorRightArrow_CURS_00136_48x16").getImage().getSubimage(0, 0, 16, 16), 
       hotspot, "Right arrow");

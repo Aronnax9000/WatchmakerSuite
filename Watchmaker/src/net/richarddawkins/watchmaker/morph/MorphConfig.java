@@ -27,7 +27,7 @@ public interface MorphConfig {
 
 	void addPropertyChangeListener(PropertyChangeListener listener);
 	AllowedMutations getAllowedMutations();
-	
+	public Morph[] getTriangleMorphs();
 	/**
 	 * Returns the AppData instance representing a 
 	 * running Watchmaker application.

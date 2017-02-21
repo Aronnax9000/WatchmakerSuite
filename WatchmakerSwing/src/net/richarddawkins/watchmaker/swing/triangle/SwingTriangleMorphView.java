@@ -50,11 +50,11 @@ public class SwingTriangleMorphView extends SwingMorphView {
         BoxManager boxes = new FreeBoxManager();
         boxedMorphVector.setBoxes(boxes);
         Dim dim = new Dim(512, 342);
-        Morph morph;
         MorphConfig config = appData.getMorphConfig();
 
+        Morph[] triangleMorphs = config.getTriangleMorphs();
         for (int i = 0; i < 3; i++) {
-            morph = config.newMorph(i + 1);
+            Morph morph = triangleMorphs[i];
             BufferedImage image = (BufferedImage) morph.getImage();
             Point upperLeft = new Point(trianglePoints[i].h,
                     trianglePoints[i].v);

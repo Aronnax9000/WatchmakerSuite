@@ -7,7 +7,6 @@ import net.richarddawkins.watchmaker.morphs.arthro.swing.EngineerAction;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.PreferencesAction;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ShowAsTextAction;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
-import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenu;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuItem;
 /**
  * File (New | Open, Close, Save, Save As... | Quit)
