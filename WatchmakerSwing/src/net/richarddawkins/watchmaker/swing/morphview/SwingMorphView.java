@@ -57,7 +57,6 @@ public abstract class SwingMorphView extends JPanel
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     protected boolean showBoxes = true;
 
-
     protected String toolTip;
 
     public SwingMorphView(AppData appData) {
@@ -91,6 +90,7 @@ public abstract class SwingMorphView extends JPanel
                         SwingGeom.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
+
             @Override
             public void mouseMoved(MouseEvent e) {
                 processMouseMotion(SwingGeom.toWatchmakerPoint(e.getPoint()),
@@ -105,6 +105,7 @@ public abstract class SwingMorphView extends JPanel
                         SwingGeom.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
+
             @Override
             public void mouseReleased(MouseEvent e) {
                 logger.info("mouseReleased");
@@ -156,7 +157,7 @@ public abstract class SwingMorphView extends JPanel
     }
 
     protected void processMouseClicked(Point point, Dim size) {
-        
+
     }
 
     public AppData getAppData() {
@@ -203,6 +204,36 @@ public abstract class SwingMorphView extends JPanel
         return showBoxes;
     }
 
+    /**
+     * Draw boxes in box order (not in boxed Morph order.)
+     * 
+     * @param graphicsContext
+     *            the abstract graphics context onto which subclasses should do
+     *            their drawing.
+     * @param size
+     *            the current display size of the graphics context drawing area.
+     */
+    protected void drawBoxes(Object graphicsContext, Dim size) {
+        BoxManager boxes = boxedMorphVector.getBoxes();
+        Vector<Integer> backgroundColors = new Vector<Integer>();
+        Vector<BoxedMorph> boxedMorphs = boxedMorphVector.getBoxedMorphs();
+        for (int i = 0; i < boxes.getBoxCount(); i++) {
+            BoxedMorph boxedMorph = boxedMorphVector
+                    .getBoxedMorph(boxes.getBox(i));
+            if (boxedMorph != null) {
+                backgroundColors.add(boxedMorph.getMorph().getPhenotype()
+                        .getBackgroundColor());
+            } else {
+                backgroundColors.add(-1);
+            }
+        }
+
+        BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
+        boolean midBoxOnly = boxedMorphVector.getBoxedMorphs().size() == 1;
+        boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
+                backgroundColors);
+    }
+
     @Override
     /**
      * Draw the MorphView's breeding box outlines (if showBoxes is set) and its
@@ -219,44 +250,36 @@ public abstract class SwingMorphView extends JPanel
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
         synchronized (boxedMorphVector) {
-            BoxManager boxes = boxedMorphVector.getBoxes();
-            if (showBoxes) {
-                Vector<Integer> backgroundColors = new Vector<Integer>();
-                Vector<BoxedMorph> boxedMorphs = boxedMorphVector.getBoxedMorphs();
-                for (int i = 0; i < boxes.getBoxCount(); i++) {
-                    BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(boxes.getBox(i));
-                    if (boxedMorph != null) {
-                        backgroundColors.add(boxedMorph.getMorph()
-                                .getPhenotype().getBackgroundColor());
-                    } else {
-                        backgroundColors.add(-1);
-                    }
-                }
 
-                BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
-                boolean midBoxOnly = boxedMorphVector.getBoxedMorphs()
-                        .size() == 1;
-                boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
-                        backgroundColors);
+            if (showBoxes) {
+                drawBoxes(graphicsContext, size);
             }
-            int counter = 0;
-            Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
-            logger.fine("Boxed morphs to paint: "
-                    + boxedMorphVector.getBoxedMorphs().size());
-            while (iter.hasNext()) {
-                logger.fine(
-                        "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
-                                + counter);
-                BoxedMorph boxedMorph = iter.next();
-                morphDrawer.draw(boxedMorph, graphicsContext, size,
-                        boxedMorph == this.boxedMorphVector
-                                .getSelectedBoxedMorph());
-                counter++;
-            }
+
+            drawMorphs(graphicsContext, size);
         }
     }
 
-    protected void processMouseMotion(Point myPt, Dim size) {}
+    protected void drawMorphs(Object graphicsContext, Dim size) {
+
+        int counter = 0;
+        Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
+        logger.fine("Boxed morphs to paint: "
+                + boxedMorphVector.getBoxedMorphs().size());
+        while (iter.hasNext()) {
+            logger.fine(
+                    "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
+                            + counter);
+            BoxedMorph boxedMorph = iter.next();
+            morphDrawer.draw(boxedMorph, graphicsContext, size,
+                    boxedMorph == this.boxedMorphVector
+                            .getSelectedBoxedMorph());
+            counter++;
+        }
+
+    }
+
+    protected void processMouseMotion(Point myPt, Dim size) {
+    }
 
     protected void processMousePressed(Point watchmakerPoint,
             Dim watchmakerDim) {
@@ -265,23 +288,22 @@ public abstract class SwingMorphView extends JPanel
 
     }
 
-    
     protected void processMouseDragged(Point watchmakerPoint,
             Dim watchmakerDim) {
         this.lastMouseDrag = watchmakerPoint;
         this.lastMouseDragSize = watchmakerDim;
         repaint();
     }
-    
+
     protected void processMouseReleased(Point watchmakerPoint,
             Dim watchmakerDim) {
         this.lastMouseDown = null;
         this.lastMouseDownSize = null;
         this.lastMouseDrag = null;
-        this.lastMouseDragSize = null;  
+        this.lastMouseDragSize = null;
         repaint();
     }
-    
+
     public void propertyChange(PropertyChangeEvent event) {
         String propertyName = event.getPropertyName();
         if (propertyName.equals("showBoundingBoxes")

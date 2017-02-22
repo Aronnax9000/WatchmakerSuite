@@ -43,7 +43,8 @@ public class SwingPedigreeMorphView extends SwingMorphView
 
     /**
      * The Macintosh II, the first color model, had a screen resolution of
-     * 512x384.
+     * 512x384. Richard apparently had a screen height of only 342 to work with,
+     * which is 42 pixels shorter. RIP DNA. - ABC
      * 
      * <pre>
      * 		a.h := round(234 * ScreenWidth / 512);
@@ -66,6 +67,26 @@ public class SwingPedigreeMorphView extends SwingMorphView
         centrePanel.setCursor(WatchmakerCursors.pedigree);
     }
 
+    protected Vector<Point> getEndPoints(Point origin, Point delta) {
+        int dx = delta.h - origin.h;
+        int dy = delta.v - origin.v;
+        Vector<Point> endPoints = new Vector<Point>();
+        
+        // Egregious use of fall-through ahead. - ABC
+        switch (mirrorType) {
+        case DOUBLE:
+            endPoints.add(new Point(origin.h + dy, origin.v - dx));
+            endPoints.add(new Point(origin.h - dy, origin.v + dx));
+            // Fall through by design - ABC
+        case SINGLE:
+            endPoints.add(new Point(origin.h - dx, origin.v - dy));
+            // Fall through by design - ABC
+        case NONE:
+            endPoints.add(new Point(origin.h + dx, origin.v + dy));
+        }
+        return endPoints;
+    }
+
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
@@ -74,20 +95,12 @@ public class SwingPedigreeMorphView extends SwingMorphView
         g2.setStroke(new BasicStroke(1));
         if (centrePanel.getCursor() != WatchmakerCursors.move
                 && this.lastMouseDown != null && this.lastMouseDrag != null) {
-            int dx = lastMouseDrag.h - lastMouseDown.h;
-            int dy = lastMouseDrag.v - lastMouseDown.v;
-            g2.drawLine(lastMouseDown.h, lastMouseDown.v, lastMouseDown.h + dx,
-                    lastMouseDown.v + dy);
-            if (mirrorType == MirrorType.SINGLE
-                    || mirrorType == MirrorType.DOUBLE) {
-                g2.drawLine(lastMouseDown.h, lastMouseDown.v,
-                        lastMouseDown.h - dx, lastMouseDown.v - dy);
-                if (mirrorType == MirrorType.DOUBLE) {
-                    g2.drawLine(lastMouseDown.h, lastMouseDown.v,
-                            lastMouseDown.h + dx, lastMouseDown.v - dy);
-                    g2.drawLine(lastMouseDown.h, lastMouseDown.v,
-                            lastMouseDown.h - dx, lastMouseDown.v + dy);
-                }
+            Point midPoint = selectedBox.getMidPoint();
+            Vector<Point> endPoints = getEndPoints(midPoint,
+                    lastMouseDrag);
+            for (Point endPoint : endPoints) {
+                g2.drawLine(midPoint.h, midPoint.v, endPoint.h,
+                        endPoint.v);
             }
         }
         for (BoxedMorph putativeParent : boxedMorphVector.getBoxedMorphs()) {
@@ -113,8 +126,8 @@ public class SwingPedigreeMorphView extends SwingMorphView
 
     @Override
     public Morph getMorphOfTheHour() {
-        return boxedMorphVector
-                .getBoxedMorphs().elementAt(boxedMorphVector.getBoxedMorphs().size() - 1)
+        return boxedMorphVector.getBoxedMorphs()
+                .elementAt(boxedMorphVector.getBoxedMorphs().size() - 1)
                 .getMorph();
     }
 
@@ -146,9 +159,14 @@ public class SwingPedigreeMorphView extends SwingMorphView
         logger.info("Pedigree box pressed at " + point);
         BoxManager boxes = this.boxedMorphVector.getBoxes();
         selectedBox = boxes.getBoxNoContainingPoint(point, size);
-        Morph morph = boxedMorphVector.getBoxedMorph(selectedBox).getMorph();
+        
         if (selectedBox != null) {
-
+            BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(selectedBox);
+            Morph morph = boxedMorph.getMorph();
+            if(boxedMorph != boxedMorphVector.getBoxedMorphs().lastElement()) {
+                boxedMorphVector.moveToEnd(boxedMorph);
+            }
+            
             this.lastMouseDown = point;
             this.lastMouseDownSize = size;
             if (centrePanel.getCursor() == WatchmakerCursors.pedigree) {
@@ -158,30 +176,34 @@ public class SwingPedigreeMorphView extends SwingMorphView
             } else if (centrePanel.getCursor() == WatchmakerCursors.detach) {
                 morph.getPedigree().parent = null;
             } else if (centrePanel.getCursor() == WatchmakerCursors.kill) {
-                BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(selectedBox);
-                Vector<BoxedMorph> boxedMorphsToKill = boxedMorphVector.findBoxedMorphsForMorphAndDescendents(boxedMorph);
-                for(BoxedMorph victim: boxedMorphsToKill) {
+               
+                Vector<BoxedMorph> boxedMorphsToKill = boxedMorphVector
+                        .findBoxedMorphsForMorphAndDescendents(boxedMorph);
+                for (BoxedMorph victim : boxedMorphsToKill) {
                     this.boxedMorphVector.remove(victim);
                 }
             }
         }
+
         repaint();
     }
 
     @Override
     protected void processMouseDragged(Point point, Dim size) {
         if (centrePanel.getCursor() == WatchmakerCursors.move) {
-
             if (selectedBox != null) {
+                BoxManager boxes = boxedMorphVector.getBoxes();
+                Dim dim = boxes.getBoxSize(selectedBox, size);
                 
-                int dx = point.h - this.lastMouseDown.h;
-                int dy = point.v - this.lastMouseDown.v;
+                Point delta = point.subtract(lastMouseDown);
                 
-                selectedBox.left += dx;
-                selectedBox.right += dx;
-                selectedBox.top += dy;
-                selectedBox.bottom += dy;
-                boxedMorphVector.getBoxes().setBox(selectedBox, selectedBox, size);
+                selectedBox.left += delta.h;
+                selectedBox.right += delta.h;
+                selectedBox.top += delta.v;
+                selectedBox.bottom += delta.v;
+                
+                boxedMorphVector.getBoxes().setBox(selectedBox, selectedBox,
+                        size);
                 // Remember where the mouse is now, since
                 // we are still dragging.
                 lastMouseDown = point;
@@ -201,26 +223,38 @@ public class SwingPedigreeMorphView extends SwingMorphView
 
         } else if (centrePanel.getCursor() == WatchmakerCursors.detach) {
         } else if (centrePanel.getCursor() == WatchmakerCursors.kill) {
-            
+
         } else {
 
             BoxManager boxes = this.boxedMorphVector.getBoxes();
+            Rect releasedInRect = boxes.getBoxNoContainingPoint(point, size);
+            // Cancel spawn if released in same rectangle.
+            if(selectedBox != releasedInRect) {
+                Morph parentMorph = boxedMorphVector.getBoxedMorph(selectedBox)
+                        .getMorph();
+                MorphConfig config = this.appData.getMorphConfig();
+    
+                Vector<Point> spawnPoints = this.getEndPoints(selectedBox.getMidPoint(),
+                        point);
+                for (Point spawnPoint : spawnPoints) {
+    
+                    Morph morph = config.reproduce(parentMorph);
+    
+                    Rect margin = morph.getPhenotype().getMargin();
+                    int width = margin.getWidth();
+                    int height = margin.getHeight();
+                    spawnPoint = spawnPoint
+                            .subtract(new Point(width / 2, height / 2));
+                    Rect newRect = new Rect(spawnPoint.h, spawnPoint.v,
+                            spawnPoint.h + width, spawnPoint.v + height);
+                    boxes.addBox(newRect, size);
+    
+                    BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
+                    boxedMorphVector.add(boxedMorph);
+                }
+            }
             centrePanel.setCursor(WatchmakerCursors.pedigree);
-            Morph parentMorph = boxedMorphVector.getBoxedMorph(selectedBox)
-                    .getMorph();
-            MorphConfig config = this.appData.getMorphConfig();
-            Morph morph = config.reproduce(parentMorph);
 
-            Rect margin = morph.getPhenotype().getMargin();
-            int width = margin.getWidth();
-            int height = margin.getHeight();
-            point = point.subtract(new Point(width /2, height/ 2));
-            Rect newRect = new Rect(point.h, point.v, point.h + width,
-                    point.v + height);
-            boxes.addBox(newRect, size);
-
-            BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
-            boxedMorphVector.add(boxedMorph);
         }
         super.processMouseReleased(point, size);
     }

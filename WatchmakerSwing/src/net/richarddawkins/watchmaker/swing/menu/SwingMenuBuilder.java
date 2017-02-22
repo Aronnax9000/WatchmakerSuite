@@ -34,10 +34,72 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
     public SwingMenuBuilder(AppData appData) {
         this.appData = appData;
         ButtonGroup group = new ButtonGroup();
+        noMirrors = new SwingWatchmakerCheckBoxMenuItem(
+                new SwingWatchmakerAction(appData, "No Mirrors") {
+
+                    /**
+                     * 
+                     */
+                    private static final long serialVersionUID = 1L;
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
+                        if(morphView instanceof PedigreeMorphView) {
+                            ((PedigreeMorphView) morphView).setMirrorType(MirrorType.NONE);
+                        }
+
+                    }
+
+                });
+
+        singleMirror = new SwingWatchmakerCheckBoxMenuItem(
+                new SwingWatchmakerAction(appData, "Single Mirror") {
+
+                    /**
+                     * 
+                     */
+                    private static final long serialVersionUID = 1L;
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
+                        if(morphView instanceof PedigreeMorphView) {
+                            ((PedigreeMorphView) morphView).setMirrorType(MirrorType.SINGLE);
+                        }
+                    }
+
+                }
+
+        );
+
+        doubleMirrors = new SwingWatchmakerCheckBoxMenuItem(
+                new SwingWatchmakerAction(appData, "Double Mirrors") {
+
+                    /**
+                     * 
+                     */
+                    private static final long serialVersionUID = 1L;
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
+                        if(morphView instanceof PedigreeMorphView) {
+                            ((PedigreeMorphView) morphView).setMirrorType(MirrorType.DOUBLE);
+                        }
+
+                    }
+
+                }
+
+        );
+        
         group.add(noMirrors);
         group.add(singleMirror);
         group.add(doubleMirrors);
         noMirrors.setSelected(true);
+        
+        
         viewBoundingBoxes = new SwingWatchmakerCheckBoxMenuItem(
                 new SwingWatchmakerAction(appData, "View Bounding Boxes") {
 
@@ -247,63 +309,9 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         return menu;
     }
 
-    SwingWatchmakerCheckBoxMenuItem noMirrors = new SwingWatchmakerCheckBoxMenuItem(
-            new SwingWatchmakerAction(appData, "No Mirrors") {
-
-                /**
-                 * 
-                 */
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
-                    if(morphView instanceof PedigreeMorphView) {
-                        ((PedigreeMorphView) morphView).setMirrorType(MirrorType.NONE);
-                    }
-
-                }
-
-            });
-    SwingWatchmakerCheckBoxMenuItem singleMirror = new SwingWatchmakerCheckBoxMenuItem(
-            new SwingWatchmakerAction(appData, "Single Mirror") {
-
-                /**
-                 * 
-                 */
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
-                    if(morphView instanceof PedigreeMorphView) {
-                        ((PedigreeMorphView) morphView).setMirrorType(MirrorType.SINGLE);
-                    }
-                }
-
-            }
-
-    );
-    SwingWatchmakerCheckBoxMenuItem doubleMirrors = new SwingWatchmakerCheckBoxMenuItem(
-            new SwingWatchmakerAction(appData, "Double Mirrors") {
-
-                /**
-                 * 
-                 */
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
-                    if(morphView instanceof PedigreeMorphView) {
-                        ((PedigreeMorphView) morphView).setMirrorType(MirrorType.DOUBLE);
-                    }
-
-                }
-
-            }
-
-    );
+    SwingWatchmakerCheckBoxMenuItem noMirrors;
+    SwingWatchmakerCheckBoxMenuItem singleMirror;
+    SwingWatchmakerCheckBoxMenuItem doubleMirrors; 
     SwingWatchmakerMenuItem recordingFossils = new SwingWatchmakerMenuItem(
             "Recording Fossils");
     SwingWatchmakerMenuItem driftSweep = new SwingWatchmakerMenuItem(

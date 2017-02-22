@@ -122,5 +122,14 @@ public class BoxedMorphCollection {
 	    }
 	    return boxedMorphAndDescendents;
 	}
+
+    public void moveToEnd(BoxedMorph boxedMorph) {
+        synchronized(boxedMorphs) {
+            boxedMorphs.remove(boxedMorph);
+            boxedMorphs.add(boxedMorph);
+            boxes.moveToEnd(boxedMorph.getBox());
+        }
+        
+    }
 	
 }

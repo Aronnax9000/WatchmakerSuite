@@ -9,7 +9,9 @@ abstract public class BoxManager {
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxManager");
 	protected boolean accentuateMidBox = false;
-
+    public void moveToEnd(Rect box) {
+        
+    }
 	/**
 	 * 
 	 * @param margin a Rect describing the left, right, top, and bottom of a box.
@@ -60,12 +62,12 @@ abstract public class BoxManager {
 	 * of one (any) box. The returned box width is the dimension width divided
 	 * by the number of columns, and the height is the dimension height divided
 	 * by the number of rows.
-	 * @param boxNo the 0-based index of the box in the collection.
+	 * @param selectedBox the 0-based index of the box in the collection.
 	 * @param dimension
 	 *            the size of the overall array of boxes, in pixels
 	 * @return the size of an individual box within the array.
 	 */
-	public abstract Dim getBoxSize(int boxNo, Dim dimension);
+	public abstract Dim getBoxSize(Rect selectedBox, Dim dimension);
 
 	public abstract Rect getMidBox();
 
@@ -75,8 +77,8 @@ abstract public class BoxManager {
 	 * 
 	 * @param dimension
 	 *            the dimensions of the overall array of boxes.
-	 * @param boxNo
-	 *            the number of the box to retrieve (row major order)
+	 * @param box
+	 *            the box to retrieve.
 	 * @return the midpoint of the nth Box.
 	 */
 	public abstract Point getMidPoint(Dim dimension, Rect box);
@@ -120,8 +122,8 @@ abstract public class BoxManager {
      */
     @SuppressWarnings("unchecked")
     public Vector<Rect> getBoxesReversed(Dim scale) {
-        Vector<Rect> rects = getBoxes(scale);
-        Collections.reverse((Vector<Rect>)rects.clone());
+        Vector<Rect> rects = (Vector<Rect>)getBoxes(scale).clone();
+        Collections.reverse(rects);
         return rects;
     }
 

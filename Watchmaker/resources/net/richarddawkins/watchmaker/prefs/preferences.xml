@@ -18,7 +18,7 @@
 					<node name="startup">
 						<map>
 <!-- 							<entry key="morphs" value="Monochrome,Colour,Arthromorphs,Snails" />  -->
-							<entry key="morphs" value="Monochrome" />
+							<entry key="morphs" value="Colour" />
 						</map>
 					</node>					
 				</node>

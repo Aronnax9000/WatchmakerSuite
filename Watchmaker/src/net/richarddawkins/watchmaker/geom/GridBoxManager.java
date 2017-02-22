@@ -88,7 +88,7 @@ public class GridBoxManager extends BoxManager {
      * richarddawkins.watchmaker.geom.Dim)
      */
     @Override
-    public Dim getBoxSize(int boxNo, Dim dimension) {
+    public Dim getBoxSize(Rect box, Dim dimension) {
         return new Dim(dimension.width / cols, dimension.height / rows);
     }
 

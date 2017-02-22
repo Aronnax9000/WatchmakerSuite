@@ -30,13 +30,21 @@ public class FreeBoxManager extends BoxManager {
      *         dimension.
      */
     @Override
-    public Dim getBoxSize(int boxNo, Dim dimension) {
-        DoubleRect rect = doubleBoxes.elementAt(boxNo);
+    public Dim getBoxSize(Rect box, Dim dimension) {
+        DoubleRect rect = doubleBoxes.elementAt(boxes.indexOf(box));
         Dim boxSize = new Dim(rect.getWidth() * dimension.width,
                 rect.getHeight() * dimension.height);
         return boxSize;
     }
-
+    @Override
+    public void moveToEnd(Rect box) {
+        DoubleRect doubleRect = doubleBoxes.elementAt(boxes.indexOf(box));
+        doubleBoxes.remove(doubleRect);
+        boxes.remove(box);
+        doubleBoxes.add(doubleRect);
+        boxes.add(box);
+    }
+    
     @Override
     public Vector<Rect> getBoxes(Dim scale) {
         Iterator<Rect> rects = boxes.iterator();

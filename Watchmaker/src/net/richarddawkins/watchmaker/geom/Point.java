@@ -11,7 +11,11 @@ public class Point implements Cloneable {
     this.h = h;
     this.v = v;
   }
-  public Point add(Point p) {
+  public Point(Point point) {
+    this(point.h, point.v);
+}
+
+public Point add(Point p) {
 	  return new Point(this.h + p.h, this.v + p.v);
   }
   public Point subtract(Point p) {
