@@ -139,13 +139,13 @@ public class SwingPedigreeMorphView extends SwingMorphView
         BufferedImage image = (BufferedImage) morph.getImage();
         Point upperLeft = new Point(255, 170);
         Rect margin = morph.getPhenotype().getMargin();
+        int boxPad = 4;
+        int width = margin.getWidth() + boxPad;
+        int height = margin.getHeight() + boxPad;
 
-        Rect correctedMargin = new Rect(0, 0, margin.getWidth(),
-                margin.getHeight());
-
-        Rect newRect = new Rect(upperLeft.h, upperLeft.v + 2,
-                upperLeft.h + (margin.getWidth() - 3) / 2 + 1,
-                upperLeft.v + (margin.getHeight() + 14) / 2);
+        Rect newRect = new Rect(upperLeft.h, upperLeft.v,
+                upperLeft.h + width,
+                upperLeft.v + height);
 
         boxes.addBox(newRect, dim);
         BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
@@ -220,43 +220,46 @@ public class SwingPedigreeMorphView extends SwingMorphView
     protected void processMouseReleased(Point point, Dim size) {
         logger.info("Pedigree box released at " + point);
         if (centrePanel.getCursor() == WatchmakerCursors.move) {
-
         } else if (centrePanel.getCursor() == WatchmakerCursors.detach) {
         } else if (centrePanel.getCursor() == WatchmakerCursors.kill) {
-
         } else {
-
-            BoxManager boxes = this.boxedMorphVector.getBoxes();
-            Rect releasedInRect = boxes.getBoxNoContainingPoint(point, size);
-            // Cancel spawn if released in same rectangle.
-            if(selectedBox != releasedInRect) {
-                Morph parentMorph = boxedMorphVector.getBoxedMorph(selectedBox)
-                        .getMorph();
-                MorphConfig config = this.appData.getMorphConfig();
-    
-                Vector<Point> spawnPoints = this.getEndPoints(selectedBox.getMidPoint(),
-                        point);
-                for (Point spawnPoint : spawnPoints) {
-    
-                    Morph morph = config.reproduce(parentMorph);
-    
-                    Rect margin = morph.getPhenotype().getMargin();
-                    int width = margin.getWidth();
-                    int height = margin.getHeight();
-                    spawnPoint = spawnPoint
-                            .subtract(new Point(width / 2, height / 2));
-                    Rect newRect = new Rect(spawnPoint.h, spawnPoint.v,
-                            spawnPoint.h + width, spawnPoint.v + height);
-                    boxes.addBox(newRect, size);
-    
-                    BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
-                    boxedMorphVector.add(boxedMorph);
-                }
-            }
-            centrePanel.setCursor(WatchmakerCursors.pedigree);
-
+            spawn(point, size);
         }
         super.processMouseReleased(point, size);
     }
 
+    protected void spawn(Point point, Dim size) {
+        BoxManager boxes = this.boxedMorphVector.getBoxes();
+        Rect releasedInRect = boxes.getBoxNoContainingPoint(point, size);
+        // Cancel spawn if released in same rectangle.
+        if(selectedBox != releasedInRect) {
+            Morph parentMorph = boxedMorphVector.getBoxedMorph(selectedBox)
+                    .getMorph();
+            MorphConfig config = this.appData.getMorphConfig();
+
+            Vector<Point> spawnPoints = this.getEndPoints(selectedBox.getMidPoint(),
+                    point);
+            for (Point spawnPoint : spawnPoints) {
+
+                Morph morph = config.reproduce(parentMorph);
+
+                Rect margin = morph.getPhenotype().getMargin();
+                int boxPadding = 4;
+                int width = margin.getWidth() + boxPadding;
+                int height = margin.getHeight() + boxPadding;
+                spawnPoint = spawnPoint
+                        .subtract(new Point(width / 2, height / 2));
+                Rect newRect = new Rect(spawnPoint.h, spawnPoint.v,
+                        spawnPoint.h + width, spawnPoint.v + height);
+                boxes.addBox(newRect, size);
+
+                BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
+                boxedMorphVector.add(boxedMorph);
+            }
+        }
+        centrePanel.setCursor(WatchmakerCursors.pedigree);
+
+        
+    }
+    
 }

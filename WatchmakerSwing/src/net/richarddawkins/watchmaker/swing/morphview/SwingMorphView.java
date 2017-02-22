@@ -250,12 +250,11 @@ public abstract class SwingMorphView extends JPanel
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
         synchronized (boxedMorphVector) {
-
             if (showBoxes) {
                 drawBoxes(graphicsContext, size);
             }
-
             drawMorphs(graphicsContext, size);
+
         }
     }
 

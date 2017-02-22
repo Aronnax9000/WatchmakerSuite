@@ -50,7 +50,7 @@ public class SwingMorphDrawer implements MorphDrawer {
 		}
 		Point position = boxedMorph.getPosition(size);
 		g2.translate(position.h - bufferedImage.getWidth() / 2, position.v - bufferedImage.getHeight() / 2);
-		g2.clearRect(0, 0, bufferedImage.getWidth(), bufferedImage.getHeight());
+		g2.clearRect(0, 0, bufferedImage.getWidth() - 1, bufferedImage.getHeight() - 1);
 
 		
 		if(selectionState) {
