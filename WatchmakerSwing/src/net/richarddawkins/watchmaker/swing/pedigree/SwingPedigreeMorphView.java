@@ -142,10 +142,10 @@ public class SwingPedigreeMorphView extends SwingMorphView
         int boxPad = 4;
         int width = margin.getWidth() + boxPad;
         int height = margin.getHeight() + boxPad;
-
+        upperLeft = upperLeft.subtract(new Point(width/2,height/2));
         Rect newRect = new Rect(upperLeft.h, upperLeft.v,
-                upperLeft.h + width,
-                upperLeft.v + height);
+                upperLeft.h + width/2,
+                upperLeft.v + height/2);
 
         boxes.addBox(newRect, dim);
         BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
