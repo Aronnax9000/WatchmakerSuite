@@ -37,9 +37,6 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         noMirrors = new SwingWatchmakerCheckBoxMenuItem(
                 new SwingWatchmakerAction(appData, "No Mirrors") {
 
-                    /**
-                     * 
-                     */
                     private static final long serialVersionUID = 1L;
 
                     @Override
@@ -56,9 +53,6 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         singleMirror = new SwingWatchmakerCheckBoxMenuItem(
                 new SwingWatchmakerAction(appData, "Single Mirror") {
 
-                    /**
-                     * 
-                     */
                     private static final long serialVersionUID = 1L;
 
                     @Override
@@ -221,7 +215,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
      */
     protected WatchmakerMenu buildEditMenu() {
         WatchmakerMenu menu = new SwingWatchmakerMenu("Edit");
-        menu.add(new SwingWatchmakerMenuItem("Undo"));
+        menu.add(new ActionUndo(appData));
+        menu.add(new ActionRedo(appData));
         menu.addSeparator();
         menu.add(new SwingWatchmakerMenuItem("Cut"));
         menu.add(new ActionCopy(appData));

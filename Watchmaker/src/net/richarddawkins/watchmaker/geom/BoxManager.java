@@ -133,9 +133,17 @@ abstract public class BoxManager {
     }
     protected Vector<Rect> boxes = new Vector<Rect>();
 
+    public Vector<Rect> getBoxes() {
+        return boxes;
+    }
+    
     public Rect getBox(int boxNo) {
         
         return boxes.elementAt(boxNo);
+    }
+    public void addBox(Rect box) {
+        boxes.add(box);
+        
     }
 
 

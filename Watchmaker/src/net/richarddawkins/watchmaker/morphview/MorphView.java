@@ -38,4 +38,6 @@ public interface MorphView {
 	BoxedMorphCollection getBoxedMorphVector();
 	void paintMorphViewPanel(Object graphicsContext, Dim size);
 	void updateCursor();
+    void undo();
+    void redo();
 }

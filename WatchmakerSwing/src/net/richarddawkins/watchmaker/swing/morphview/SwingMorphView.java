@@ -22,6 +22,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
 
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
@@ -45,7 +46,7 @@ public abstract class SwingMorphView extends JPanel
 
     private static final long serialVersionUID = 5555392236002752598L;
     protected AppData appData;
-    protected BoxedMorphCollection boxedMorphVector = new BoxedMorphCollection();
+    protected BoxedMorphCollection boxedMorphVector;
 
     protected final JPanel centrePanel;
     protected String icon;
@@ -56,12 +57,29 @@ public abstract class SwingMorphView extends JPanel
     protected MorphDrawer morphDrawer;
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     protected boolean showBoxes = true;
-
+    protected Album album;
     protected String toolTip;
 
-    public SwingMorphView(AppData appData) {
+    public void undo() {}
+    public void redo() {}
+    
+    public SwingMorphView(AppData appData, Album newAlbum) {
         this.appData = appData;
         this.setLayout(new BorderLayout());
+        if(newAlbum != null) {
+            this.album = newAlbum;
+        } else {
+            this.album = new Album("backing");
+        }
+
+        if(album.size() == 0) {
+            boxedMorphVector = new BoxedMorphCollection();
+            album.addPage(boxedMorphVector);
+        } else {
+            boxedMorphVector = album.getPage(0);
+        }
+            
+            
         this.centrePanel = new JPanel() {
 
             private static final long serialVersionUID = 1L;
@@ -127,16 +145,16 @@ public abstract class SwingMorphView extends JPanel
         this.add((JSlider) scaleSlider.getPanel(), BorderLayout.PAGE_END);
     }
 
-    public SwingMorphView(AppData appData, String icon, String name) {
-        this(appData);
+    public SwingMorphView(AppData appData, String icon, String name, Album album) {
+        this(appData, album);
         this.setIcon(icon);
         this.setName(name);
 
     }
 
     public SwingMorphView(AppData appData, String icon, String name,
-            boolean engineeringMode, boolean geneBoxToSide) {
-        this(appData, icon, name);
+            boolean engineeringMode, boolean geneBoxToSide, Album album) {
+        this(appData, icon, name, album);
         GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
 
         // So it can hear it when the selected genome changes.

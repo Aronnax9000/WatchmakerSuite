@@ -18,11 +18,25 @@ public class BoxedMorphCollection {
 	
 	protected BoxedMorph selectedBoxedMorph = null;
 	protected String name;
-	public int size() { return boxedMorphs.size(); }
+    public BoxedMorphCollection() {
+    }
+	
+	public BoxedMorphCollection(String name, BoxManager boxes) {
+        this.name = name;
+        this.boxes = boxes;
+    }
+
+
+    public int size() { return boxedMorphs.size(); }
 	protected BoxManager boxes;
 	
 	public BoxManager getBoxes() {
 		return boxes;
+	}
+	
+
+	public void clear() {
+	    boxedMorphs.clear();
 	}
 
 	public void setBoxes(BoxManager boxes) {
@@ -81,6 +95,8 @@ public class BoxedMorphCollection {
 				return boxedMorph;
 		return null;
 	}
+	
+
 	
 	public Vector<BoxedMorph> getBoxedMorphs() {
 		return boxedMorphs;

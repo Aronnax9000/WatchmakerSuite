@@ -1,11 +1,9 @@
 package net.richarddawkins.watchmaker.swing.album;
 
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.logging.Logger;
 
-import javax.swing.JScrollPane;
-
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
@@ -13,7 +11,6 @@ import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
@@ -22,17 +19,16 @@ public class SwingAlbumMorphView extends SwingMorphView {
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView");
 
     public SwingAlbumMorphView(AppData appData,
-            BoxedMorphCollection collection) {
-        // TODO change to appropriate icon
-        super(appData, "Hypodermic_PICT_03937_16x16",
-                collection.getName() + " Album", false,
-                appData.isGeneBoxToSide());
-        this.setBoxedMorphVector(collection);
-        collection.getBoxes().setAccentuateMidBox(false);
-        this.remove(centrePanel);
-
-        JScrollPane scrollPane = new JScrollPane(centrePanel);
-        this.add(scrollPane, BorderLayout.CENTER);
+            Album album) {
+        super(appData, "IconAlbum_ALAN_32x32",
+                album.getName() + " Album", false,
+                appData.isGeneBoxToSide(), album);
+        this.setBoxedMorphVector(album.getPage(0));
+        boxedMorphVector.getBoxes().setAccentuateMidBox(false);
+//        this.remove(centrePanel);
+//
+//        JScrollPane scrollPane = new JScrollPane(centrePanel);
+//        this.add(scrollPane, BorderLayout.CENTER);
         ((Component) centrePanel).setCursor(WatchmakerCursors.highlight);
         updateCursor();
     }

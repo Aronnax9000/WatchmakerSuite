@@ -11,6 +11,18 @@ public class FreeBoxManager extends BoxManager {
 
     protected Vector<DoubleRect> doubleBoxes = new Vector<DoubleRect>();
 
+    public void addBox(Rect r) {
+        DoubleRect newRect = new DoubleRect();
+
+        newRect.left = r.left;
+        newRect.right = r.right;
+        newRect.top = r.top;
+        newRect.bottom = r.bottom;
+
+        doubleBoxes.add(newRect);
+        boxes.add(r);
+    }
+    
     public void addBox(Rect r, Dim scale) {
         DoubleRect newRect = new DoubleRect();
 

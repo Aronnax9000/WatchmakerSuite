@@ -60,7 +60,8 @@ public class ClassicImageLoader {
             "SnailOutline142UnnamedARGB_PICT_00142_78x181", "SnailOutline144UnnamedARGB_PICT_00144_164x201",
             "SnailOutline146EloiseARGB_PICT_00146_91x172", "SnailOutline148ScallopARGB_PICT_00148_232x231",
             "SnailOutline150LightningARGB_PICT_00150_57x173", "SnailOutline152SundialARGB_PICT_00152_259x171",
-            "SnailOutline154UnnamedARGB_PICT_00154_68x173", "AntelopeHornsFromSuperPaint_19940119_2056_187x320"};
+            "SnailOutline154UnnamedARGB_PICT_00154_68x173", "AntelopeHornsFromSuperPaint_19940119_2056_187x320",
+            "IconAlbum_ALAN_32x32"};
     static Vector<ClassicImage> classicImages = new Vector<ClassicImage>();
     static HashMap<String, ClassicImage> imageMap = new HashMap<String, ClassicImage>();
 

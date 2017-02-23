@@ -59,7 +59,7 @@ public class SwingPedigreeMorphView extends SwingMorphView
      *            the appData for the morph type which owns this morph view.
      */
     public SwingPedigreeMorphView(AppData appData, Morph morph) {
-        super(appData);
+        super(appData, null);
         setName("Pedigree");
         BoxManager boxes = new FreeBoxManager();
         boxedMorphVector.setBoxes(boxes);

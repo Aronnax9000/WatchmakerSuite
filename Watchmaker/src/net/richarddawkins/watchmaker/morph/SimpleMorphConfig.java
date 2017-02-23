@@ -7,9 +7,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -17,6 +19,7 @@ import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.Triangler;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -181,8 +184,8 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     }
 
     @Override
-    public Vector<BoxedMorphCollection> getAlbums() {
-        Vector<BoxedMorphCollection> albums = new Vector<BoxedMorphCollection>();
+    public Vector<Album> getAlbums() {
+        Vector<BoxedMorphCollection> rawAlbums = new Vector<BoxedMorphCollection>();
         for (String name : getSavedAnimals()) {
             logger.info("Loading:" + name);
             InputStream is = this.getClass().getResourceAsStream(name);
@@ -203,11 +206,9 @@ public abstract class SimpleMorphConfig implements MorphConfig {
             ByteBuffer byteBuffer = ByteBuffer.wrap(baos.toByteArray());
             // byteBuffer.order(ByteOrder.BIG_ENDIAN);
 
-            BoxedMorphCollection album = new BoxedMorphCollection();
-            GridBoxManager boxManager = new GridBoxManager();
-            boxManager.setCols(5);
-            album.setBoxes(boxManager);
-            album.setName(name.substring(name.lastIndexOf('/') + 1));
+            String rawName = name.substring(name.lastIndexOf('/') + 1);
+            GridBoxManager boxManager = new GridBoxManager(5);
+            BoxedMorphCollection rawAlbum = new BoxedMorphCollection(rawName, boxManager);
             int boxNo = 0;
             while (byteBuffer.hasRemaining() && boxNo < 60) {
                 Genome genome = newGenome();
@@ -219,46 +220,68 @@ public abstract class SimpleMorphConfig implements MorphConfig {
                 
                 BoxedMorph boxedMorph = new BoxedMorph(boxManager, morph,
                         boxManager.getBox(boxNo++));
-                album.add(boxedMorph);
+                rawAlbum.add(boxedMorph);
             }
 //            boxManager.setRows((boxNo + 1) / 5);
             logger.info("Album " + name + " contained " + boxNo + " genomes.");
-            album.setSelectedBoxedMorph(album.getBoxedMorphs().firstElement());
-            albums.add(album);
+            rawAlbum.setSelectedBoxedMorph(rawAlbum.getBoxedMorphs().firstElement());
+            rawAlbums.add(rawAlbum);
         }
         Vector<BoxedMorphCollection> singletonCollections = new Vector<BoxedMorphCollection>();
 
-        for (BoxedMorphCollection album : albums) {
-            if (album.size() == 1) {
-                for (BoxedMorph boxedMorph : album.getBoxedMorphs()) {
-                    String name = album.getName();
+        for (BoxedMorphCollection rawAlbum : rawAlbums) {
+            if (rawAlbum.size() == 1) {
+                for (BoxedMorph boxedMorph : rawAlbum.getBoxedMorphs()) {
+                    String name = rawAlbum.getName();
                     boxedMorph.getMorph()
                             .setName(name.substring(name.lastIndexOf('/') + 1));
                 }
-                singletonCollections.add(album);
+                singletonCollections.add(rawAlbum);
             }
         }
 
         if (singletonCollections.size() != 0) {
-            BoxedMorphCollection singletonCollection = new BoxedMorphCollection();
-            singletonCollection.setName("Singleton");
-            GridBoxManager boxManager = new GridBoxManager();
-            boxManager.setCols(5);
-            singletonCollection.setBoxes(boxManager);
-            int boxNo = 0;
-            for (BoxedMorphCollection album : singletonCollections) {
-                for (BoxedMorph boxedMorph : album.getBoxedMorphs()) {
+            GridBoxManager boxManager = new GridBoxManager(5);
+            BoxedMorphCollection singletonCollection = new BoxedMorphCollection("Singleton", boxManager);
+            for (BoxedMorphCollection rawAlbum : singletonCollections) {
+                for (BoxedMorph boxedMorph : rawAlbum.getBoxedMorphs()) {
                     boxedMorph.setBoxes(boxManager);
-                    boxedMorph.setBox(boxManager.getBox(boxNo++));
+                    boxManager.addBox(boxedMorph.getBox());
                     singletonCollection.add(boxedMorph);
                 }
-                albums.remove(album);
+                rawAlbums.remove(rawAlbum);
             }
-            boxManager.setRows(boxNo / 5 + 1);
-
-            albums.add(singletonCollection);
+            rawAlbums.add(singletonCollection);
         }
-
+        
+        Vector<Album> albums = new Vector<Album>();
+        
+        for(BoxedMorphCollection rawAlbum: rawAlbums) {
+            Album album = new Album(rawAlbum.getName());
+            albums.add(album);
+            Iterator<BoxedMorph> boxedMorphIter = rawAlbum.iterator();
+            BoxedMorphCollection page = null;
+            GridBoxManager boxes = null;
+            int size = 0;
+            while(boxedMorphIter.hasNext()) {
+                if(page == null) {
+                    boxes = new GridBoxManager(5);
+                    boxes.setAccentuateMidBox(false);
+                    page = new BoxedMorphCollection("Page " + (size / 15 + 1), boxes);
+                    
+                    album.addPage(page);
+                }
+                BoxedMorph boxedMorph = boxedMorphIter.next();
+                boxedMorph.setBoxes(boxes);
+                boxes.addBox(boxedMorph.getBox());
+                page.add(boxedMorph);
+                if(++size % 15 == 0) {
+                    page = null;
+                }
+            }
+            rawAlbum.clear();
+            
+        }
         return albums;
     }
 

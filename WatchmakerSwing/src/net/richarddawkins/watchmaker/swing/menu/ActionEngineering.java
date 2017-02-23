@@ -12,23 +12,25 @@ import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class ActionEngineering extends SwingWatchmakerAction {
 
+    private static final long serialVersionUID = 4121419685469500509L;
+    protected AppData appData;
 
-	private static final long serialVersionUID = 4121419685469500509L;
-	protected AppData appData;
-	
-	public ActionEngineering(AppData appData, String name, Icon icon) {
-		super(appData, name, icon);
-		this.appData = appData;
-	}
-	public ActionEngineering(AppData appData) {
-		this(appData, "Engineering", new ImageIcon(
-				ClassicImageLoader.getPicture("Hypodermic_PICT_03937_16x16").getImage().getScaledInstance(32, 32, Image.SCALE_DEFAULT)));
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-	    Morph morph = appData.getMorphOfTheHour();
-	    appData.addEngineeringMorphView(morph);
-	}
+    public ActionEngineering(AppData appData, String name, Icon icon) {
+        super(appData, name, icon);
+        this.appData = appData;
+    }
+
+    public ActionEngineering(AppData appData) {
+        this(appData, "Engineering",
+                new ImageIcon(ClassicImageLoader
+                        .getPicture("Hypodermic_PICT_03937_16x16").getImage()
+                        .getScaledInstance(32, 32, Image.SCALE_DEFAULT)));
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent arg0) {
+        Morph morph = appData.getMorphOfTheHour();
+        appData.addEngineeringMorphView(morph);
+    }
 
 }

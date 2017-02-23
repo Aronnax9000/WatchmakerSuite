@@ -65,6 +65,7 @@ public class BoxAnimator extends TimerTask {
 
 	@Override
 	public void run() {
+	    logger.info("BoxAnimator.run() " + phase);
 		switch (phase) {
 		case deactivate_grid:
 			breedingPanel.setShowBoxes(false);

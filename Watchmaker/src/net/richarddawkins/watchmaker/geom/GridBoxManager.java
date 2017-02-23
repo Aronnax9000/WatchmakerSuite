@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.geom;
 
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -50,15 +51,22 @@ public class GridBoxManager extends BoxManager {
     public Rect midBox;
 
     public void update() {
-        boxCount = rows * cols;
-        if(boxCount / 2 < boxes.size()) {
+        boxCount = boxes.size();
+        rows = boxCount / cols + (boxCount % cols == 0 ? 0 : 1);
+        
+        if (boxCount >= rows * cols / 2) {
             midBox = boxes.elementAt(boxCount / 2);
         } else {
             midBox = null;
         }
-            
+
     }
 
+    public GridBoxManager(int cols) {
+        this.cols = cols;
+    }
+    
+    
     /**
      * Construct a cols * rows array of boxes.
      * 
@@ -96,12 +104,16 @@ public class GridBoxManager extends BoxManager {
     public Vector<Rect> getBoxes(Dim dimension) {
         int boxwidth = (int) dimension.width / cols;
         int boxheight = (int) dimension.height / rows;
-        for (int j = 0; j < rows; j++)
+        Iterator<Rect> rects = boxes.iterator();
+        rowloop: for (int j = 0; j < rows; j++) {
             for (int i = 0; i < cols; i++) {
+                if (!rects.hasNext()) {
+                    break rowloop;
+                }
                 int x = i * boxwidth;
                 int y = j * boxheight;
-                // Row major order
-                Rect rect = boxes.elementAt(j * cols + i);
+
+                Rect rect = rects.next();
                 rect.left = x;
                 rect.right = x + boxwidth;
                 rect.top = y;
@@ -109,6 +121,7 @@ public class GridBoxManager extends BoxManager {
                 logger.fine(
                         "GetBoxes " + (i + j * cols) + ": " + rect.toString());
             }
+        }
         return boxes;
     }
 
@@ -150,15 +163,15 @@ public class GridBoxManager extends BoxManager {
         return midPoints;
     }
 
-    /**
-     * The size of the box collection managed by a GridBoxManager is fixed by
-     * the choice of rows and cols, and it is not meaningful to add boxes to
-     * such a collection. Accordingly, this implementation of addBox does
-     * nothing.
-     */
     @Override
-    public void addBox(Rect margin, Dim dim) {
+    public void addBox(Rect box) {
+        boxes.add(box);
+        update();
+    }
 
+    @Override
+    public void addBox(Rect box, Dim dim) {
+        this.addBox(box);
     }
 
     @Override
@@ -171,7 +184,7 @@ public class GridBoxManager extends BoxManager {
             rows++;
             update();
         }
-       
+
         Rect rect = super.getBox(boxNo);
         return rect;
     }

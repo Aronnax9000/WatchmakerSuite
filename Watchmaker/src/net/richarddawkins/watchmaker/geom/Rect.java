@@ -24,9 +24,6 @@ package net.richarddawkins.watchmaker.geom;
  *
  */
 public class Rect implements Cloneable {
-
-
-	
 	public Object clone() {
 		Rect r = new Rect();
 		r.left = left;
@@ -143,6 +140,14 @@ public class Rect implements Cloneable {
 		this.right = right;
 		this.top = top;
 		this.bottom = bottom;
+	}
+	
+	public Rect(Rect r) {
+        this.left = r.left;
+        this.right = r.right;
+        this.top = r.top;
+        this.bottom = r.bottom;
+	    
 	}
 
 	@Override
