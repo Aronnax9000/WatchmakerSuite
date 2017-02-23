@@ -10,17 +10,12 @@ import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.swing.zoo.SwingMultiMorphTypeTabbedPanel;
 public class NewMorphTypeAction extends SwingWatchmakerAction {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4736552636289435148L;
 
 	
 	public NewMorphTypeAction(AppData appData, String morphType, Icon icon) {
 		super(appData, morphType, icon);
 	}
-
-
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {

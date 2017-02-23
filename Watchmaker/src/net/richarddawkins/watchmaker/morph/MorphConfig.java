@@ -74,7 +74,7 @@ public interface MorphConfig {
 	Phenotype newPhenotype();
     void removePropertyChangeListener(PropertyChangeListener listener);
 	/* Factory Methods */
-
+    Morph copyMorph(Morph morph);
 
 	Morph reproduce(Morph parentMorph);
 	void setAllowedMutations(AllowedMutations muts);

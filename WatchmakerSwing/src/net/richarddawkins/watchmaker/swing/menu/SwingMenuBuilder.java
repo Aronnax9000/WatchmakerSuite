@@ -134,7 +134,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                         } else {
                             centrePanel.setCursor(null);
                             BoxedMorphCollection boxedMorphs = selectedMorphView
-                                    .getBoxedMorphVector();
+                                    .getBoxedMorphCollection();
                             if (boxedMorphs.getSelectedBoxedMorph() != null) {
                                 boxedMorphs.setSelectedBoxedMorph(null);
                                 centrePanel.repaint();

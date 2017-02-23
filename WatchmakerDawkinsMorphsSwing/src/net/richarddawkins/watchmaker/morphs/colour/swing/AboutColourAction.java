@@ -6,20 +6,17 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class AboutColourAction extends SwingWatchmakerAction {
 
-  /**
-   * 
-   */
+
   private static final long serialVersionUID = 1L;
 
-
-
-  public AboutColourAction() {
-    super("About Colour Biomorphs");
+  public AboutColourAction(AppData appData) {
+    super(appData, "About Colour Biomorphs");
   }
 
 

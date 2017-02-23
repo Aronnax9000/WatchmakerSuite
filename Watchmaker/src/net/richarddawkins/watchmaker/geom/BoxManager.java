@@ -50,7 +50,6 @@ abstract public class BoxManager {
 		Vector<Rect> boxes = getBoxesReversed(d);
 		for (Rect box : boxes) {
 			if (box.contains(p)) {
-			    // Reverse the sense of the index, since we were operating on a reversed copy.
 				return box;
 			}
 		}

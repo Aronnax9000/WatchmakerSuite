@@ -34,7 +34,7 @@ public class SwingColourMenuBuilder extends SwingMonochromeMenuBuilder {
 	@Override
 	protected WatchmakerMenu buildHelpMenu() {
 		WatchmakerMenu menu = super.buildHelpMenu();
-		menu.add(new AboutColourAction());
+		menu.add(new AboutColourAction(appData));
 		return menu;
 	}
 	

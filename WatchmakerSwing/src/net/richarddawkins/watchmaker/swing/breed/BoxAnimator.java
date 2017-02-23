@@ -31,7 +31,7 @@ public class BoxAnimator extends TimerTask {
 		this.breedingPanel = breedingPanel;
 		AppData appData = breedingPanel.getAppData();
 		MorphConfig config = appData.getMorphConfig();
-		this.boxedMorphVector = breedingPanel.getBoxedMorphVector();
+		this.boxedMorphVector = breedingPanel.getBoxedMorphCollection();
 		this.boxes = boxedMorphVector.getBoxes();
 		this.midBox = boxes.getMidBox();
 		boxedMorphParent = boxedMorphVector.getBoxedMorph(special);
@@ -65,21 +65,21 @@ public class BoxAnimator extends TimerTask {
 
 	@Override
 	public void run() {
-	    logger.info("BoxAnimator.run() " + phase);
+	    logger.fine("BoxAnimator.run() " + phase);
 		switch (phase) {
 		case deactivate_grid:
 			breedingPanel.setShowBoxes(false);
 			phase = Phase.animate_mother;
 			break;
 		case animate_mother:
-			logger.info("Animate Mother");
+			logger.fine("Animate Mother");
 			boxedMorphParent.nudge();
 			if (boxedMorphParent.getProgress() == 1.0d) {
 				phase = Phase.reactivate_grid;
 			}
 			break;
 		case reactivate_grid:
-			logger.info("Reactivate Grid");
+			logger.fine("Reactivate Grid");
 			breedingPanel.setShowBoxes(true);
 			boxedMorphParent.setBox(midBox);
 			boxedMorphParent.setDestinationBox(null);
@@ -89,14 +89,16 @@ public class BoxAnimator extends TimerTask {
 		case box_next_offspring:
 			if (newestOffspring != null) {
 				boxedNewestOffspring = new BoxedMorph(boxes, newestOffspring, midBox);
-				logger.info("Boxing to vacantBoxNumber:" + vacantBoxNumber);
+				logger.fine("Boxing to vacantBoxNumber:" + vacantBoxNumber);
 				boxedNewestOffspring.setDestinationBox(boxes.getBox(vacantBoxNumber));
 				vacantBoxNumber++;
 				boxedNewestOffspring.setScaleWithProgress(true);
 				// If the pointer to the next 'vacant' box points to the midBox,
 				if (vacantBoxNumber < boxes.getBoxCount() && boxes.getBox(vacantBoxNumber) == midBox) {
-					// skip it (the parent already occupies it.)
+//				    boxedMorphVector.add(boxedMorphParent);
+				    // skip it (the parent already occupies it.)
 					vacantBoxNumber++;
+					logger.fine("Skipped midbox index, new one is:" + vacantBoxNumber);
 				}
 				logger.fine("BoxAnimator.run() box_next_offspring:" + boxedNewestOffspring.getBox() + " to "
 						+ boxedNewestOffspring.getDestinationBox());
@@ -104,7 +106,8 @@ public class BoxAnimator extends TimerTask {
 				// Add the newest boxed morph to the view's collection of boxed
 				// morphs
 				synchronized(boxedMorphVector) {
-					boxedMorphVector.add(boxedNewestOffspring);
+				    logger.fine("Adding boxedMorph at index:" + (vacantBoxNumber - 1));
+					boxedMorphVector.add(vacantBoxNumber - 1, boxedNewestOffspring);
 				}
 				phase = Phase.draw_out_offspring;
 			} else {

@@ -13,110 +13,190 @@ import net.richarddawkins.watchmaker.genome.GeneManipulationListener;
 import net.richarddawkins.watchmaker.genome.GeneManipulationSupport;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
-/**
- * GeneBoxMouseAdapter is the bridge between Swing mouse click events
- * (occurring on gene boxes) and GeneManipulation events. When it receives
- * a mouse click, it determines the area of the genebox clicked (left, right,
- * middle, top, bottom) and emits a GeneManipulationEvent to interested parties
- * (typically, Genes) containing the appropriate value of "GooseDirection".
- * @author sven
- *
- */
-public class GeneBoxMouseAdapter extends MouseAdapter implements GeneManipulationSupport {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.genebox.GeneBoxMouseAdapter");
 
-    public GeneBoxMouseAdapter() {
+public class GeneBoxMouseAdapter extends MouseAdapter  implements GeneManipulationSupport {
+    private static Logger logger = Logger.getLogger(
+            "net.richarddawkins.watchmaker.swing.genebox.GeneBoxMouseMotionAdapter");
+
+    enum HorizPos {
+        LeftThird, MidThird, RightThird, LeftHalf, RightHalf
+    }
+
+    enum VertPos {
+        TopRung, MidRung, BottomRung
+    }
+
+    public GeneBoxMouseAdapter(GeneBoxType geneBoxType) {
+        this.geneBoxType = geneBoxType;
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        if(toolkit != null) {
-            Object multiClickInterval = toolkit.getDesktopProperty("awt.multiClickInterval");
-            if(multiClickInterval != null) {
+        if (toolkit != null) {
+            Object multiClickInterval = toolkit
+                    .getDesktopProperty("awt.multiClickInterval");
+            if (multiClickInterval != null) {
                 doubleClickInterval = (Integer) multiClickInterval;
-                logger.info("DoubleClickInterval: " + multiClickInterval);
+                logger.fine("DoubleClickInterval: " + multiClickInterval);
+            }
+        }
+
+    }
+
+    protected GeneManipulationAdapter geneManipulationAdapter = new GeneManipulationAdapter();
+    private java.util.Timer longPressTimer;
+
+    long doubleClickInterval = 500;
+    protected GeneBoxType geneBoxType;
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+        int x = e.getX();
+        int y = e.getY();
+
+        HorizPos mouseHoriz;
+
+        VertPos mouseVert = null;
+
+        if (geneBoxType == GeneBoxType.leftRightOnly) {
+            int halfWidth = e.getComponent().getWidth() / 2;
+            if (x < halfWidth)
+                mouseHoriz = HorizPos.LeftHalf;
+            else
+                mouseHoriz = HorizPos.RightHalf;
+        } else {
+            int thirdWidth = e.getComponent().getWidth() / 3;
+            if (x < thirdWidth)
+                mouseHoriz = HorizPos.LeftThird;
+            else if (x < 2 * thirdWidth)
+                mouseHoriz = HorizPos.MidThird;
+            else
+                mouseHoriz = HorizPos.RightThird;
+
+            if (geneBoxType == GeneBoxType.leftRightUpDownEquals) {
+                int height = e.getComponent().getHeight();
+                int thirdHeight = height / 3;
+                int twoThirdsHeight = 2 * height / 3;
+                logger.fine("GeneBox Height: " + height + " 1/3: " + thirdHeight
+                        + " 2/3:" + twoThirdsHeight);
+                if (y < thirdHeight)
+                    mouseVert = VertPos.TopRung;
+                else if (y < twoThirdsHeight)
+                    mouseVert = VertPos.MidRung;
+                else
+                    mouseVert = VertPos.BottomRung;
+            }
+        }
+
+        switch (mouseHoriz) {
+        case LeftThird:
+        case LeftHalf:
+            e.getComponent().setCursor(WatchmakerCursors.leftArrow);
+            break;
+        case RightThird:
+        case RightHalf:
+            e.getComponent().setCursor(WatchmakerCursors.rightArrow);
+            break;
+        case MidThird:
+            if (mouseVert != null) {
+                switch (mouseVert) {
+                case TopRung:
+                    e.getComponent().setCursor(WatchmakerCursors.upArrow);
+                    break;
+                case BottomRung:
+                    e.getComponent().setCursor(WatchmakerCursors.downArrow);
+                    break;
+                case MidRung:
+                default:
+                    e.getComponent().setCursor(WatchmakerCursors.equalsSign);
+                }
+            } else {
+                e.getComponent().setCursor(WatchmakerCursors.equalsSign);
             }
         }
     }
+
     
-	protected GeneManipulationAdapter geneManipulationAdapter 
-		= new GeneManipulationAdapter();
-	 private java.util.Timer longPressTimer;
+    
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        mouseMoved(e);
+    }
 
-	 long doubleClickInterval = 500;
-	 
-	 
-	 @Override
-	 public void mousePressed(final MouseEvent e)
-     {
-         if(longPressTimer == null)
-         {
-        	 longPressTimer = new java.util.Timer();
-         }
-         longPressTimer.schedule(new TimerTask()
-         {
-             public void run()
-             {
-                 mouseClicked(e);
-             }
-         },doubleClickInterval, 17);
-     }
-	 @Override
-     public void mouseReleased(MouseEvent e)
-     {
-         if(longPressTimer != null)
-         {
-        	 longPressTimer.cancel();
-        	 longPressTimer = null;
-         }
-     }	 
-	 
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-		Cursor cursor = e.getComponent().getCursor();
-		
-		GooseDirection direction = null;
-		
-		if(cursor == WatchmakerCursors.leftArrow)
-			direction = GooseDirection.leftArrow;
-		else if(cursor == WatchmakerCursors.rightArrow)
-			direction = GooseDirection.rightArrow;
-		else if (cursor == WatchmakerCursors.upArrow)
-			direction = GooseDirection.upArrow;
-		else if (cursor == WatchmakerCursors.downArrow)
-			direction = GooseDirection.downArrow;
-		else if (cursor == WatchmakerCursors.equalsSign)
-			direction = GooseDirection.equalsSign;
-		if(direction != null)
-			fireGeneManipulationEvent(new GeneManipulationEvent(direction));
-		
-	}
 
-	@Override
-	public void fireGeneManipulationEvent(GeneManipulationEvent event) {
-		geneManipulationAdapter.fireGeneManipulationEvent(event);
-	}
+    @Override
+    public void mousePressed(final MouseEvent e)
+    {
+        if(longPressTimer == null)
+        {
+            longPressTimer = new java.util.Timer();
+        }
+        longPressTimer.schedule(new TimerTask()
+        {
+            public void run()
+            {
+                mouseClicked(e);
+            }
+        },doubleClickInterval, 17);
+    }
+    @Override
+    public void mouseReleased(MouseEvent e)
+    {
+        if(longPressTimer != null)
+        {
+            longPressTimer.cancel();
+            longPressTimer = null;
+        }
+    }   
+    
 
-	@Override
-	public void addGeneManipulationListener(GeneManipulationListener listener) {
-		geneManipulationAdapter.addGeneManipulationListener(listener);
-		
-	}
+   @Override
+   public void mouseClicked(MouseEvent e) {
+       
+       Cursor cursor = e.getComponent().getCursor();
+       
+       GooseDirection direction = null;
+       
+       if(cursor == WatchmakerCursors.leftArrow)
+           direction = GooseDirection.leftArrow;
+       else if(cursor == WatchmakerCursors.rightArrow)
+           direction = GooseDirection.rightArrow;
+       else if (cursor == WatchmakerCursors.upArrow)
+           direction = GooseDirection.upArrow;
+       else if (cursor == WatchmakerCursors.downArrow)
+           direction = GooseDirection.downArrow;
+       else if (cursor == WatchmakerCursors.equalsSign)
+           direction = GooseDirection.equalsSign;
+       if(direction != null)
+           fireGeneManipulationEvent(new GeneManipulationEvent(direction));
+       
+   }
 
-	@Override
-	public void removeAllGeneManipulationListeners() {
-		geneManipulationAdapter.removeAllGeneManipulationListeners();
-		
-	}
-	
-	
-	@Override
-	public void removeGeneManipulationListener(GeneManipulationListener listener) {
-		geneManipulationAdapter.removeGeneManipulationListener(listener);
-		
-	}
+   @Override
+   public void fireGeneManipulationEvent(GeneManipulationEvent event) {
+       geneManipulationAdapter.fireGeneManipulationEvent(event);
+   }
 
-	@Override
-	public GeneManipulationListener[] getGeneManipulationListeners() {
-		return geneManipulationAdapter.getGeneManipulationListeners();
-	}
+   @Override
+   public void addGeneManipulationListener(GeneManipulationListener listener) {
+       geneManipulationAdapter.addGeneManipulationListener(listener);
+       
+   }
+
+   @Override
+   public void removeAllGeneManipulationListeners() {
+       geneManipulationAdapter.removeAllGeneManipulationListeners();
+       
+   }
+   
+   
+   @Override
+   public void removeGeneManipulationListener(GeneManipulationListener listener) {
+       geneManipulationAdapter.removeGeneManipulationListener(listener);
+       
+   }
+
+   @Override
+   public GeneManipulationListener[] getGeneManipulationListeners() {
+       return geneManipulationAdapter.getGeneManipulationListeners();
+   }
 }

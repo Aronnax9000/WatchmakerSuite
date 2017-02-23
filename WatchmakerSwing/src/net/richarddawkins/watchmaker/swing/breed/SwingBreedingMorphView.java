@@ -1,12 +1,10 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
-import java.util.Iterator;
 import java.util.Timer;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxManager;
@@ -17,12 +15,11 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
-public class SwingBreedingMorphView extends SwingMorphView {
+public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView");
@@ -34,13 +31,13 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
     Vector<Morph> litter;
 
-    public Rect special = null;
+
 
     public SwingBreedingMorphView(AppData appData, Morph morph) {
         super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32",
                 "Breeding", false, appData.isGeneBoxToSide(), null);
         centrePanel.setCursor(WatchmakerCursors.breed);
-        boxedMorphVector
+        boxedMorphCollection
                 .setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(),
                         appData.getDefaultBreedingRows()));
         if (morph != null) {
@@ -59,7 +56,7 @@ public class SwingBreedingMorphView extends SwingMorphView {
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
         logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
-        BoxManager boxes = boxedMorphVector.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxes();
         if (centrePanel.getCursor() == WatchmakerCursors.breed) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
                     SwingGeom.toWatchmakerDim(centrePanel.getSize()));
@@ -75,66 +72,26 @@ public class SwingBreedingMorphView extends SwingMorphView {
         } else if (centrePanel.getCursor() == WatchmakerCursors.highlight) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
                     SwingGeom.toWatchmakerDim(centrePanel.getSize()));
-            BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
-            this.boxedMorphVector.setSelectedBoxedMorph(boxedMorph);
+            BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
+            this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
             pcs.firePropertyChange("genome", null,
                     boxedMorph.getMorph().getGenome());
             repaint();
 
         }
     }
-    @Override
-    public void undo() {
-        int level = album.indexOfPage(boxedMorphVector);
-        if(level > 0) {
-            boxedMorphVector = album.getPage(level - 1);
-            repaint();
-        } 
-    }
-    @Override
-    public void redo() {
-        int level = album.indexOfPage(boxedMorphVector);
-        if(level < album.size() - 1) {
-            boxedMorphVector = album.getPage(level + 1);
-            repaint();
-        } 
-    }
+
     
     public void breedFromSpecial() {
         logger.log(Level.INFO, "Breeding from box " + special);
         centrePanel.setCursor(WatchmakerCursors.watchCursor);
-        GridBoxManager newBoxManager = new GridBoxManager(
-                appData.getDefaultBreedingCols(),
-                appData.getDefaultBreedingRows());
+        
         
         // Delete undo history after this point, if any.
-        album.removePagesAfter(boxedMorphVector);
         
-        BoxedMorphCollection newBoxedMorphs = new BoxedMorphCollection(
-                "backing", newBoxManager);
-        Iterator<Rect> boxIterator = newBoxManager.getBoxes().iterator();
-        for(BoxedMorph boxedMorph: boxedMorphVector.getBoxedMorphs()) {
-            Rect box;
-            if(boxedMorphVector.size() == 1) {
-                box = newBoxManager.getMidBox();
-            } else {
-                box = boxIterator.next();
-            }
-            if(boxedMorph.getBox() == special) {
-                special = box;
-            }
-            BoxedMorph newBoxedMorph = new BoxedMorph(newBoxManager, boxedMorph.getMorph(), box);
-            
-            newBoxedMorphs.add(newBoxedMorph);
-        }
-        album.addPage(newBoxedMorphs);
-        if(album.size() > Album.MAX_PAGES) {
-            album.removePage(0);
-        }
-        boxedMorphVector = newBoxedMorphs;
+        backup(false);
         
         try {
-
             Timer timer = new Timer();
             BoxAnimator animator = new BoxAnimator(this, special);
             timer.schedule(animator, 0, appData.getTickDelay());
@@ -146,13 +103,13 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
     @Override
     public Morph getMorphOfTheHour() {
-        BoxedMorph boxedMorph = boxedMorphVector.getSelectedBoxedMorph();
+        BoxedMorph boxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
         if (boxedMorph != null) {
             return boxedMorph.getMorph();
         } else {
-            BoxManager boxes = boxedMorphVector.getBoxes();
+            BoxManager boxes = boxedMorphCollection.getBoxes();
 
-            return boxedMorphVector.getBoxedMorph(boxes.getMidBox()).getMorph();
+            return boxedMorphCollection.getBoxedMorph(boxes.getMidBox()).getMorph();
         }
     }
 
@@ -160,15 +117,15 @@ public class SwingBreedingMorphView extends SwingMorphView {
 
     @Override
     public void processMouseMotion(Point myPt, Dim size) {
-        logger.info("processMouseMotion(" + myPt + ", " + size);
+        logger.fine("processMouseMotion(" + myPt + ", " + size);
         if (!(centrePanel.getCursor() == WatchmakerCursors.highlight
-                && boxedMorphVector.getSelectedBoxedMorph() != null)) {
-            BoxManager boxes = boxedMorphVector.getBoxes();
+                && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
+            BoxManager boxes = boxedMorphCollection.getBoxes();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             if (box != null) {
-                logger.info("processMouseMotion entering formerly synchronized section");
+                logger.fine("processMouseMotion entering formerly synchronized section");
 //                synchronized (boxedMorphVector) {
-                    BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
+                    BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
 
                     if (boxedMorph != null) {
                         if (box != selectedBox)
@@ -191,10 +148,10 @@ public class SwingBreedingMorphView extends SwingMorphView {
                         }
                     }
 //                }
-                logger.info("processMouseMotion leaving formerly synchronized section");
+                logger.fine("processMouseMotion leaving formerly synchronized section");
 
             } else {
-                logger.warning("boxNo is -1");
+//                logger.warning("No box selected");
             }
         }
     }
@@ -209,12 +166,12 @@ public class SwingBreedingMorphView extends SwingMorphView {
         } else {
             parent = morph;
         }
-        BoxManager boxes = boxedMorphVector.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxes();
 
         Rect midBox = boxes.getMidBox();
         BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
-        boxedMorphVector.removeAllElements();
-        boxedMorphVector.add(boxedMorph);
+        boxedMorphCollection.removeAllElements();
+        boxedMorphCollection.add(boxedMorph);
         pcs.firePropertyChange("genome", null,
                 boxedMorph.getMorph().getGenome());
         // Trigger first breeding

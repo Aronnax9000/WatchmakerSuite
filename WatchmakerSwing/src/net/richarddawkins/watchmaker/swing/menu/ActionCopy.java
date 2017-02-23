@@ -1,14 +1,17 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
+import java.awt.Event;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import javax.swing.Icon;
+import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -17,14 +20,9 @@ public class ActionCopy extends SwingWatchmakerAction {
 
 
 	private static final long serialVersionUID = 4121419685469500509L;
-	protected AppData appData;
 	
-	public ActionCopy(AppData appData, String name, Icon icon) {
-		super(appData, name, icon);
-		this.appData = appData;
-	}
 	public ActionCopy(AppData appData) {
-		this(appData, "Copy", null);
+		super(appData, "Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.ALT_MASK));
 	}
 	
 	@Override

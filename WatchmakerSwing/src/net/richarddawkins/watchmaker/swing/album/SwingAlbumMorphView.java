@@ -23,8 +23,8 @@ public class SwingAlbumMorphView extends SwingMorphView {
         super(appData, "IconAlbum_ALAN_32x32",
                 album.getName() + " Album", false,
                 appData.isGeneBoxToSide(), album);
-        this.setBoxedMorphVector(album.getPage(0));
-        boxedMorphVector.getBoxes().setAccentuateMidBox(false);
+        this.setBoxedMorphCollection(album.getPage(0));
+        boxedMorphCollection.getBoxes().setAccentuateMidBox(false);
 //        this.remove(centrePanel);
 //
 //        JScrollPane scrollPane = new JScrollPane(centrePanel);
@@ -35,12 +35,12 @@ public class SwingAlbumMorphView extends SwingMorphView {
 
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
-        BoxManager boxes = boxedMorphVector.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxes();
         if (centrePanel.getCursor() == WatchmakerCursors.highlight) {
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
-            BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
-            this.boxedMorphVector.setSelectedBoxedMorph(boxedMorph);
+            BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
+            this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
             pcs.firePropertyChange("genome", null,
                     boxedMorph.getMorph().getGenome());
             repaint();
@@ -54,11 +54,11 @@ public class SwingAlbumMorphView extends SwingMorphView {
         // logger.info("SwingAlbumMorphView.processMouseMotion(" + myPt + ", " +
         // size + ")");
 
-        BoxManager boxes = boxedMorphVector.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxes();
         Rect box = boxes.getBoxNoContainingPoint(myPt, size);
         if (box != null && box != selectedBox) {
-            synchronized (boxedMorphVector) {
-                BoxedMorph boxedMorph = boxedMorphVector.getBoxedMorph(box);
+            synchronized (boxedMorphCollection) {
+                BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
 
                 if (boxedMorph != null) {
                     logger.fine("SwingAlbumMorphView.processMouseMotion(" + myPt
@@ -77,7 +77,7 @@ public class SwingAlbumMorphView extends SwingMorphView {
 
     @Override
     public Morph getMorphOfTheHour() {
-        return boxedMorphVector.getSelectedBoxedMorph().getMorph();
+        return boxedMorphCollection.getSelectedBoxedMorph().getMorph();
     }
 
     /**

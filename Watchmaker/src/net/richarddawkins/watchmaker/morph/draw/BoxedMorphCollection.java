@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.LocatedMorph;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.Pedigree;
@@ -146,6 +147,16 @@ public class BoxedMorphCollection {
             boxes.moveToEnd(boxedMorph.getBox());
         }
         
+    }
+
+    public void add(int index, BoxedMorph boxedNewestOffspring) {
+        boxedMorphs.add(index, boxedNewestOffspring);
+        
+    }
+
+    public LocatedMorph firstElement() {
+        
+        return boxedMorphs.firstElement();
     }
 	
 }

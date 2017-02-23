@@ -11,7 +11,6 @@ import net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView;
 
 public class ActionPedigreeKill  extends SwingWatchmakerAction {
     private static final long serialVersionUID = 4121419685469500509L;
-    protected AppData appData;
     
     public ActionPedigreeKill(AppData appData, String name, Icon icon) {
         super(appData, name, icon);

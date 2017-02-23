@@ -41,7 +41,7 @@ public class ArthromorphMenuBuilder extends SwingMenuBuilder  {
 	@Override
 	public WatchmakerMenu buildHelpMenu() {
 		WatchmakerMenu menu = super.buildHelpMenu();
-		menu.add(new AboutArthromorphsAction());
+		menu.add(new AboutArthromorphsAction(appData));
 		return menu;
 	}
 	

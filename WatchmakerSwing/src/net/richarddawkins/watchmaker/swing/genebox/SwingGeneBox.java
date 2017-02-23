@@ -54,9 +54,8 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 	}
 	
 	public void setEngineeringMode(GeneBoxType geneBoxType) {
-		GeneBoxMouseMotionAdapter mouseMotionAdapter = new GeneBoxMouseMotionAdapter(geneBoxType);
-		this.addMouseMotionListener(mouseMotionAdapter);
-		geneBoxMouseAdapter = new GeneBoxMouseAdapter();
+        geneBoxMouseAdapter = new GeneBoxMouseAdapter(geneBoxType);
+		this.addMouseMotionListener(geneBoxMouseAdapter);
 		this.addMouseListener(geneBoxMouseAdapter);
 	}
 }

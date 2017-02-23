@@ -13,8 +13,7 @@ public class EngineerAction extends SwingWatchmakerAction {
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
 	public EngineerAction(AppData appData) {
-		super("Allowed Mutations");
-		this.appData = appData;
+		super(appData, "Allowed Mutations");
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -25,7 +24,6 @@ public class EngineerAction extends SwingWatchmakerAction {
 	
 			frame.pack();
 		}
-//		frame.setLocationRelativeTo(WatchmakerGUI.INSTANCE);
 		frame.setVisible(true);
 		
 	}

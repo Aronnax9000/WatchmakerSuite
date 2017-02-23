@@ -30,14 +30,15 @@ public interface MorphView {
 	void setMorphDrawer(MorphDrawer morphDrawer);
 	
 
-	void setBoxedMorphVector(BoxedMorphCollection boxedMorphVector);
+	void setBoxedMorphCollection(BoxedMorphCollection boxedMorphVector);
 	void setAppData(AppData appData);
 	boolean isShowBoxes();
 	MorphDrawer getMorphDrawer();
 	JPanel getCentrePanel();
-	BoxedMorphCollection getBoxedMorphVector();
+	BoxedMorphCollection getBoxedMorphCollection();
 	void paintMorphViewPanel(Object graphicsContext, Dim size);
 	void updateCursor();
     void undo();
     void redo();
+    void backup(boolean copyMorph);
 }

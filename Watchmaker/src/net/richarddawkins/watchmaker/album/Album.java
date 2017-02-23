@@ -77,4 +77,9 @@ public class Album {
            pages.remove(pages.lastElement());
         }
     }
+
+    public void addPage(int i, BoxedMorphCollection backupBoxedMorphs) {
+        pages.add(i, backupBoxedMorphs);
+        
+    }
 }

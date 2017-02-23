@@ -8,7 +8,6 @@ import net.richarddawkins.watchmaker.app.AppData;
 
 public class ActionMakeLeft  extends SwingWatchmakerAction {
     private static final long serialVersionUID = 4121419685469500509L;
-    protected AppData appData;
     
     public ActionMakeLeft(AppData appData, String name, Icon icon) {
         super(appData, name, icon);

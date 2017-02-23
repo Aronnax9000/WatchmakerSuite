@@ -30,6 +30,7 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
@@ -46,7 +47,7 @@ public abstract class SwingMorphView extends JPanel
 
     private static final long serialVersionUID = 5555392236002752598L;
     protected AppData appData;
-    protected BoxedMorphCollection boxedMorphVector;
+    protected BoxedMorphCollection boxedMorphCollection;
 
     protected final JPanel centrePanel;
     protected String icon;
@@ -59,9 +60,16 @@ public abstract class SwingMorphView extends JPanel
     protected boolean showBoxes = true;
     protected Album album;
     protected String toolTip;
-
+    public Rect special = null;
     public void undo() {}
     public void redo() {}
+    public void backup(boolean copyMorph) {}
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        logger.fine("SwingMorphView.paintComponent()");
+        super.paintComponent(g);
+    }
     
     public SwingMorphView(AppData appData, Album newAlbum) {
         this.appData = appData;
@@ -73,12 +81,11 @@ public abstract class SwingMorphView extends JPanel
         }
 
         if(album.size() == 0) {
-            boxedMorphVector = new BoxedMorphCollection();
-            album.addPage(boxedMorphVector);
+            boxedMorphCollection = new BoxedMorphCollection();
+            album.addPage(boxedMorphCollection);
         } else {
-            boxedMorphVector = album.getPage(0);
+            boxedMorphCollection = album.getPage(0);
         }
-            
             
         this.centrePanel = new JPanel() {
 
@@ -86,6 +93,7 @@ public abstract class SwingMorphView extends JPanel
 
             @Override
             public void paintComponent(Graphics g) {
+                logger.fine("centrePanel.paintComponent()");
                 paintMorphViewPanel((Graphics2D) g,
                         SwingGeom.toWatchmakerDim(this.getSize()));
             }
@@ -159,7 +167,6 @@ public abstract class SwingMorphView extends JPanel
 
         // So it can hear it when the selected genome changes.
         pcs.addPropertyChangeListener(geneBoxStrip);
-
         JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel();
         geneBoxStripPanel.setLayout(new GridBagLayout());
         if (geneBoxToSide) {
@@ -183,8 +190,8 @@ public abstract class SwingMorphView extends JPanel
     }
 
     @Override
-    public BoxedMorphCollection getBoxedMorphVector() {
-        return boxedMorphVector;
+    public BoxedMorphCollection getBoxedMorphCollection() {
+        return boxedMorphCollection;
     }
 
     @Override
@@ -209,7 +216,7 @@ public abstract class SwingMorphView extends JPanel
 
     @Override
     public Vector<Morph> getMorphs() {
-        return boxedMorphVector.getMorphs();
+        return boxedMorphCollection.getMorphs();
     }
 
     @Override
@@ -232,11 +239,11 @@ public abstract class SwingMorphView extends JPanel
      *            the current display size of the graphics context drawing area.
      */
     protected void drawBoxes(Object graphicsContext, Dim size) {
-        BoxManager boxes = boxedMorphVector.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxes();
         Vector<Integer> backgroundColors = new Vector<Integer>();
-        Vector<BoxedMorph> boxedMorphs = boxedMorphVector.getBoxedMorphs();
+        Vector<BoxedMorph> boxedMorphs = boxedMorphCollection.getBoxedMorphs();
         for (int i = 0; i < boxes.getBoxCount(); i++) {
-            BoxedMorph boxedMorph = boxedMorphVector
+            BoxedMorph boxedMorph = boxedMorphCollection
                     .getBoxedMorph(boxes.getBox(i));
             if (boxedMorph != null) {
                 backgroundColors.add(boxedMorph.getMorph().getPhenotype()
@@ -247,7 +254,7 @@ public abstract class SwingMorphView extends JPanel
         }
 
         BoxesDrawer boxesDrawer = appData.getBoxesDrawer();
-        boolean midBoxOnly = boxedMorphVector.getBoxedMorphs().size() == 1;
+        boolean midBoxOnly = boxedMorphCollection.getBoxedMorphs().size() == 1;
         boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
                 backgroundColors);
     }
@@ -267,7 +274,7 @@ public abstract class SwingMorphView extends JPanel
      */
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
-        synchronized (boxedMorphVector) {
+        synchronized (boxedMorphCollection) {
             if (showBoxes) {
                 drawBoxes(graphicsContext, size);
             }
@@ -279,16 +286,16 @@ public abstract class SwingMorphView extends JPanel
     protected void drawMorphs(Object graphicsContext, Dim size) {
 
         int counter = 0;
-        Iterator<BoxedMorph> iter = boxedMorphVector.iterator();
+        Iterator<BoxedMorph> iter = boxedMorphCollection.iterator();
         logger.fine("Boxed morphs to paint: "
-                + boxedMorphVector.getBoxedMorphs().size());
+                + boxedMorphCollection.getBoxedMorphs().size());
         while (iter.hasNext()) {
             logger.fine(
                     "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
                             + counter);
             BoxedMorph boxedMorph = iter.next();
             morphDrawer.draw(boxedMorph, graphicsContext, size,
-                    boxedMorph == this.boxedMorphVector
+                    boxedMorph == this.boxedMorphCollection
                             .getSelectedBoxedMorph());
             counter++;
         }
@@ -340,8 +347,8 @@ public abstract class SwingMorphView extends JPanel
     }
 
     @Override
-    public void setBoxedMorphVector(BoxedMorphCollection boxedMorphVector) {
-        this.boxedMorphVector = boxedMorphVector;
+    public void setBoxedMorphCollection(BoxedMorphCollection boxedMorphVector) {
+        this.boxedMorphCollection = boxedMorphVector;
     }
 
     public void setIcon(String icon) {

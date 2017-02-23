@@ -5,36 +5,28 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class PreferencesAction extends SwingWatchmakerAction {
 
-	protected SwingAppData swingAppData;
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
-	public PreferencesAction() {
-		super("Preferences");
-	}
+
 	public PreferencesAction(AppData appData) {
-		super("Preferences");
-		this.appData = appData;
+		super(appData, "Preferences");
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(frame == null) {
 			frame = new ArthromorphPreferences(
-					swingAppData.getPhenotypeDrawer().getDrawingPreferences());
+					appData.getPhenotypeDrawer().getDrawingPreferences());
 	
 			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	
 			frame.pack();
 		}
-//		frame.setLocationRelativeTo(WatchmakerGUI.INSTANCE);
 		frame.setVisible(true);
 		
 	}

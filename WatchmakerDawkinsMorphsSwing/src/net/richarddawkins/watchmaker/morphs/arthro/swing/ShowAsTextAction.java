@@ -5,11 +5,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ShowAsTextAction extends SwingWatchmakerAction {
-	protected SwingAppData swingAppData;
 	// protected ArthromorphConfig config;
 	/**
 	 * 
@@ -18,8 +16,7 @@ public class ShowAsTextAction extends SwingWatchmakerAction {
 	public static JFrame frame = null;
 
 	public ShowAsTextAction(AppData appData) {
-		super("Show as Text");
-		this.appData = appData;
+		super(appData, "Show as Text");
 	}
 
 	@Override

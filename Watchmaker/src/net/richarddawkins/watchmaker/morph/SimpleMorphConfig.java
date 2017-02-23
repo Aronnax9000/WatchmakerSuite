@@ -19,7 +19,6 @@ import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.Triangler;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
-import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -36,7 +35,14 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     protected GenomeFactory genomeFactory;
     protected Mutagen mutagen;
     protected boolean recordingFossils;
-
+    @Override
+    public Morph copyMorph(Morph morph) {
+        Morph copy = newMorph();
+        Genome genome = newGenome();
+        morph.getGenome().copy(genome);
+        copy.setGenome(genome);
+        return copy;
+    }
     int startingMorphBasicType;
     protected Morph[] triangleMorphs = null;
 
