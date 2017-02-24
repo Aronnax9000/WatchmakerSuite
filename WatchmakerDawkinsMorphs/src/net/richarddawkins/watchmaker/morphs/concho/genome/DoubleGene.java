@@ -46,4 +46,13 @@ public class DoubleGene extends NumericGene {
 	public void copy(Gene destinationGene) {
 		((DoubleGene)destinationGene).setValue(getValue());
 	}
+
+
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof DoubleGene)) return false;
+        DoubleGene that = (DoubleGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
 }

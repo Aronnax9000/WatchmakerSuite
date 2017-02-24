@@ -18,4 +18,7 @@ public interface Genome extends PropertyChangeListener {
 
 	void writeToByteBuffer(ByteBuffer byteBuffer);
 
+
+    boolean genomicallyEquals(Genome genome);
+
 }

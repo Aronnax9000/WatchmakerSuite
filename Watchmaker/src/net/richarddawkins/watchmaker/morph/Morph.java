@@ -49,4 +49,5 @@ public interface Morph {
 	public void firePropertyChange(PropertyChangeEvent event);
 	void setName(String name);
 	String getName();
+    public boolean genomicallyEquals(Morph thatMorph);
 }

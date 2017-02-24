@@ -17,9 +17,25 @@ public class BoxedMorphCollection {
 
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
+	public boolean genomicallyEquals(BoxedMorphCollection those) {
+	    Vector<BoxedMorph> thoseMorphs = those.getBoxedMorphs();
+	    if(thoseMorphs.size() != boxedMorphs.size()) {
+	        return false;
+	    }
+        Iterator<BoxedMorph> theseBoxedMorphs = boxedMorphs.iterator();
+        Iterator<BoxedMorph> thoseBoxedMorphs = thoseMorphs.iterator();
+        while(theseBoxedMorphs.hasNext()) {
+            if(! theseBoxedMorphs.next().genomicallyEquals(thoseBoxedMorphs.next())) {
+                return false;
+            }
+        }
+        return true;
+	}
+	
 	protected BoxedMorph selectedBoxedMorph = null;
 	protected String name;
     public BoxedMorphCollection() {
+        
     }
 	
 	public BoxedMorphCollection(String name, BoxManager boxes) {

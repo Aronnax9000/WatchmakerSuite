@@ -4,7 +4,6 @@ import java.awt.Event;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-import javax.swing.Icon;
 import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;

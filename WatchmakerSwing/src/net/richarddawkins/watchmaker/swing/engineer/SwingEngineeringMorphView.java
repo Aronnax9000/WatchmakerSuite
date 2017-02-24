@@ -17,6 +17,7 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
+import net.richarddawkins.watchmaker.geom.LocatedMorph;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -62,7 +63,6 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
         }
         morph.addPropertyChangeListener(this);
         BoxManager boxes = boxedMorphCollection.getBoxes();
-
         BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, boxes.getBox(0));
         boxedMorphCollection.add(boxedMorph);
         pcs.firePropertyChange("genome", null,
@@ -71,6 +71,28 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
 
     }
 
+    @Override
+    public void undo() {
+        super.undo();
+        
+        LocatedMorph boxedMorph = boxedMorphCollection.firstElement();
+        Morph morph = boxedMorph.getMorph();
+        morph.addPropertyChangeListener(this);
+        pcs.firePropertyChange("genome", null,
+                boxedMorph.getMorph().getGenome());
+        
+    }
+    @Override
+    public void redo() {
+        super.redo();
+        LocatedMorph boxedMorph = boxedMorphCollection.firstElement();
+        Morph morph = boxedMorph.getMorph();
+        morph.addPropertyChangeListener(this);
+        pcs.firePropertyChange("genome", null,
+                boxedMorph.getMorph().getGenome());
+    }
+    
+    
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 // too late?

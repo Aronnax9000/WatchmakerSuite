@@ -14,7 +14,14 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
-	protected String name;
+	@Override
+    public boolean genomicallyEquals(Morph thatMorph) {
+        
+        return genome.genomicallyEquals(thatMorph.getGenome());
+    }
+
+
+    protected String name;
 	
 	@Override
 	public String getName() {

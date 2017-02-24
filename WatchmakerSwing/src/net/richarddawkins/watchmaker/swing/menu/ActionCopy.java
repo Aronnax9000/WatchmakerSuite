@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import javax.swing.Icon;
 import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
@@ -22,7 +21,7 @@ public class ActionCopy extends SwingWatchmakerAction {
 	private static final long serialVersionUID = 4121419685469500509L;
 	
 	public ActionCopy(AppData appData) {
-		super(appData, "Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.ALT_MASK));
+		super(appData, "Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_C, Event.ALT_MASK));
 	}
 	
 	@Override

@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
@@ -15,6 +16,8 @@ public class Atom extends SimpleGene {
 
 	static int[] paramOffset = new int[AtomKind.values().length];
 
+	
+	
 	static {
 		// where in a CumParams the Width of an AnimalTrunk gets multiplied in
 		paramOffset[AtomKind.AnimalTrunk.ordinal()] = 0;
@@ -399,4 +402,16 @@ public class Atom extends SimpleGene {
 	public void writeValueToByteBuffer(ByteBuffer byteBuffer) {
 
 	}
+
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof Atom)) return false;
+        Atom that = (Atom) gene;
+        if(this.kind != that.kind) return false;
+        if(this.angle != that.angle) return false;
+        if(this.width != that.width) return false;
+        if(this.height != that.height) return false;
+        if(this.gradientGene != that.gradientGene) return false;
+        return true;
+    }
 }

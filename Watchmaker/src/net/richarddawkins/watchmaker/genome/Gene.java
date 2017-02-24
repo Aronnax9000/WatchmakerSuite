@@ -17,6 +17,7 @@ public interface Gene extends GeneManipulationListener {
 	void writeValueToByteBuffer(ByteBuffer byteBuffer);
 	void readIndexedValueFromByteBuffer(ByteBuffer byteBuffer, int index);
 	void writeIndexedValueToByteBuffer(ByteBuffer byteBuffer, int index);
+    boolean genomicallyEquals(Gene gene);
 	
 	
 }

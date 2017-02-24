@@ -10,7 +10,15 @@ import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 
 public class IntegerGradientGene extends IntegerGene {
-	public IntegerGradientGene(Genome genome, String name) {
+	@Override
+    public boolean genomicallyEquals(Gene gene) {
+        
+        if(! (gene instanceof IntegerGradientGene)) return false;
+        IntegerGradientGene that = (IntegerGradientGene) gene;
+        if(this.gradient != that.getGradient()) return false;
+        return super.genomicallyEquals(gene);
+    }
+    public IntegerGradientGene(Genome genome, String name) {
 		super(genome, name);
 	}
 	@Override

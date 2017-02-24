@@ -79,7 +79,21 @@ public class Album {
     }
 
     public void addPage(int i, BoxedMorphCollection backupBoxedMorphs) {
-        pages.add(i, backupBoxedMorphs);
+        if (i < 0) {
+            pages.add(backupBoxedMorphs); 
+        } else {
+            pages.add(i, backupBoxedMorphs);
+        }
+    }
+
+    public boolean contains(BoxedMorphCollection boxedMorphCollection) {
         
+        return pages.contains(boxedMorphCollection);
+    }
+
+    public BoxedMorphCollection getPreviousPage(
+            BoxedMorphCollection boxedMorphCollection) {
+        
+        return pages.get(pages.indexOf(boxedMorphCollection) - 1);
     }
 }

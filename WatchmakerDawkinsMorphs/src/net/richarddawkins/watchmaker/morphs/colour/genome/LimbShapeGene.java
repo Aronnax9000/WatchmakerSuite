@@ -48,4 +48,11 @@ public class LimbShapeGene extends SimpleGene {
 		super.copy(gene);
 		((LimbShapeGene) gene).value = this.value;
 	}
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof LimbShapeGene)) return false;
+        LimbShapeGene that = (LimbShapeGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
 }

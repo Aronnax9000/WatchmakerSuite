@@ -68,4 +68,11 @@ public class IntegerGene extends NumericGene {
 	public String toString() {
 		return name + ":" + value;
 	}
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof IntegerGene)) return false;
+        IntegerGene that = (IntegerGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
 }

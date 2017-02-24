@@ -66,4 +66,12 @@ public class SpokesGene extends SimpleGene {
 			setValue(SpokesType.Radial);
 		}
 	}
+
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof SpokesGene)) return false;
+        SpokesGene that = (SpokesGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
 }

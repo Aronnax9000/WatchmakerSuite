@@ -67,4 +67,12 @@ public class CompletenessGene extends SimpleGene {
 
 	}
 
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof CompletenessGene)) return false;
+        CompletenessGene that = (CompletenessGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
+
 }

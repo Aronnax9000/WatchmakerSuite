@@ -45,7 +45,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
      *            the appData for the morph type which owns this morph view.
      */
     public SwingTriangleMorphView(AppData appData) {
-        super(appData, null);
+        super(appData, null, false);
         setName("Triangle");
         BoxManager boxes = new FreeBoxManager();
         boxedMorphCollection.setBoxes(boxes);

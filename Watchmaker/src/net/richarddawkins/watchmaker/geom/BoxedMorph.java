@@ -65,4 +65,10 @@ public class BoxedMorph extends LocatedMorph {
 		firePropertyChange("destinationBox", oldValue, newValue);
 	}
 
+    public boolean genomicallyEquals(BoxedMorph thatBoxedMorph) {
+        Morph thatMorph = thatBoxedMorph.getMorph();
+        
+        return morph.genomicallyEquals(thatMorph);
+    }
+
 }

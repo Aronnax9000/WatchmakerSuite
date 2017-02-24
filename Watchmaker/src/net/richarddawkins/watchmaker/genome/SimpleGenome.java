@@ -4,7 +4,28 @@ import java.beans.PropertyChangeEvent;
 import java.nio.ByteBuffer;
 
 public abstract class SimpleGenome implements Genome, Cloneable {
-	//
+	@Override
+    public boolean genomicallyEquals(Genome thatGenome) {
+        Gene[] thoseGenes = thatGenome.toGeneArray();
+        Gene[] genes = this.toGeneArray();
+        if(thoseGenes.length != genes.length) {
+            return false;
+        }
+        for(int index = 0; index < genes.length; index++) {
+            if(! genes[index].genomicallyEquals(thoseGenes[index])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        // TODO Auto-generated method stub
+        return super.clone();
+    }
+
+    //
 	// protected Morph morph;
 	// @Override
 	// public Morph getMorph() {

@@ -71,8 +71,9 @@ public abstract class SwingMorphView extends JPanel
         super.paintComponent(g);
     }
     
-    public SwingMorphView(AppData appData, Album newAlbum) {
+    public SwingMorphView(AppData appData, Album newAlbum, boolean engineeringMode) {
         this.appData = appData;
+        
         this.setLayout(new BorderLayout());
         if(newAlbum != null) {
             this.album = newAlbum;
@@ -82,7 +83,9 @@ public abstract class SwingMorphView extends JPanel
 
         if(album.size() == 0) {
             boxedMorphCollection = new BoxedMorphCollection();
-            album.addPage(boxedMorphCollection);
+            if(! engineeringMode) {
+                album.addPage(boxedMorphCollection);
+            }
         } else {
             boxedMorphCollection = album.getPage(0);
         }
@@ -153,8 +156,8 @@ public abstract class SwingMorphView extends JPanel
         this.add((JSlider) scaleSlider.getPanel(), BorderLayout.PAGE_END);
     }
 
-    public SwingMorphView(AppData appData, String icon, String name, Album album) {
-        this(appData, album);
+    public SwingMorphView(AppData appData, String icon, String name, Album album, boolean engineeringMode) {
+        this(appData, album, engineeringMode);
         this.setIcon(icon);
         this.setName(name);
 
@@ -162,7 +165,7 @@ public abstract class SwingMorphView extends JPanel
 
     public SwingMorphView(AppData appData, String icon, String name,
             boolean engineeringMode, boolean geneBoxToSide, Album album) {
-        this(appData, icon, name, album);
+        this(appData, icon, name, album, engineeringMode);
         GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(engineeringMode);
 
         // So it can hear it when the selected genome changes.
@@ -375,12 +378,12 @@ public abstract class SwingMorphView extends JPanel
         java.awt.Point p = MouseInfo.getPointerInfo().getLocation();
         logger.info("Raw point " + p);
         SwingUtilities.convertPointFromScreen(p, centrePanel);
-        logger.info("Converted point " + p);
+        logger.fine("Converted point " + p);
         if (p.x > -1 && p.y > -1) {
             Dim size = SwingGeom.toWatchmakerDim(centrePanel.getSize());
-            logger.info("processMouseMotion called");
+            logger.fine("processMouseMotion called");
             processMouseMotion(SwingGeom.toWatchmakerPoint(p), size);
-            logger.info("processMouseMotion returned");
+            logger.fine("processMouseMotion returned");
         }
 
     }

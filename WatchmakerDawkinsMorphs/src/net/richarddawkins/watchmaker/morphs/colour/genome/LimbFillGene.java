@@ -48,4 +48,11 @@ public class LimbFillGene extends SimpleGene {
 		}
 		
 	}
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof LimbFillGene)) return false;
+        LimbFillGene that = (LimbFillGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
 }

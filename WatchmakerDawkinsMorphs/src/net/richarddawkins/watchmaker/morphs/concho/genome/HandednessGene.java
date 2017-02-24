@@ -5,9 +5,10 @@ import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
 import net.richarddawkins.watchmaker.genome.SimpleGene;
+import net.richarddawkins.watchmaker.morphs.arthro.genome.Atom;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
 
-public class HandednessGene extends SimpleGene implements Gene {
+public class HandednessGene extends SimpleGene {
 
 	protected HandednessType value;
 
@@ -47,5 +48,13 @@ public class HandednessGene extends SimpleGene implements Gene {
 	public String toString() {
 		return name + ":" + value.name();
 	}
+
+    @Override
+    public boolean genomicallyEquals(Gene gene) {
+        if(! (gene instanceof Atom)) return false;
+        HandednessGene that = (HandednessGene) gene;
+        if(this.value != that.getValue()) return false;
+        return true;
+    }
 
 }
