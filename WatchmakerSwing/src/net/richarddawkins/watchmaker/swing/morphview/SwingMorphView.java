@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridBagLayout;
 import java.awt.MouseInfo;
 import java.awt.event.MouseAdapter;
@@ -35,6 +34,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.components.SwingScaleSlider;
@@ -49,7 +49,7 @@ public abstract class SwingMorphView extends JPanel
     protected AppData appData;
     protected BoxedMorphCollection boxedMorphCollection;
 
-    protected final JPanel centrePanel;
+    protected final Vector<MorphViewPanel> panels = new Vector<MorphViewPanel>();
     protected String icon;
     protected Point lastMouseDown;
     protected Dim lastMouseDownSize;
@@ -89,21 +89,12 @@ public abstract class SwingMorphView extends JPanel
         } else {
             boxedMorphCollection = album.getPage(0);
         }
-            
-        this.centrePanel = new JPanel() {
+        
+        this.panels.add(new SwingMorphViewPanel(this));    
 
-            private static final long serialVersionUID = 1L;
-
-            @Override
-            public void paintComponent(Graphics g) {
-                logger.fine("centrePanel.paintComponent()");
-                paintMorphViewPanel((Graphics2D) g,
-                        SwingGeom.toWatchmakerDim(this.getSize()));
-            }
-        };
         // this.setPreferredSize(new Dimension(640, 480));
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        this.add(centrePanel, BorderLayout.CENTER);
+        this.add((JPanel)panels.firstElement(), BorderLayout.CENTER);
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -144,8 +135,8 @@ public abstract class SwingMorphView extends JPanel
             }
 
         };
-        centrePanel.addMouseListener(mouseAdapter);
-        centrePanel.addMouseMotionListener(mouseAdapter);
+        ((Component)panels.firstElement()).addMouseListener(mouseAdapter);
+        ((Component)panels.firstElement()).addMouseMotionListener(mouseAdapter);
         PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
         morphDrawer = new SwingMorphDrawer(phenotypeDrawer);
         phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
@@ -198,8 +189,8 @@ public abstract class SwingMorphView extends JPanel
     }
 
     @Override
-    public JPanel getCentrePanel() {
-        return centrePanel;
+    public Vector<MorphViewPanel> getPanels() {
+        return panels;
     }
 
     @Override
@@ -377,10 +368,10 @@ public abstract class SwingMorphView extends JPanel
     public void updateCursor() {
         java.awt.Point p = MouseInfo.getPointerInfo().getLocation();
         logger.info("Raw point " + p);
-        SwingUtilities.convertPointFromScreen(p, centrePanel);
+        SwingUtilities.convertPointFromScreen(p, (Component)panels.firstElement());
         logger.fine("Converted point " + p);
         if (p.x > -1 && p.y > -1) {
-            Dim size = SwingGeom.toWatchmakerDim(centrePanel.getSize());
+            Dim size = SwingGeom.toWatchmakerDim((((Component)panels.firstElement()).getSize()));
             logger.fine("processMouseMotion called");
             processMouseMotion(SwingGeom.toWatchmakerPoint(p), size);
             logger.fine("processMouseMotion returned");

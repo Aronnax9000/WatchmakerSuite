@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
+import java.awt.Component;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
@@ -133,7 +134,7 @@ public class BoxAnimator extends TimerTask {
 
 		case breed_complete:
 			this.cancel();
-			breedingPanel.getCentrePanel().setCursor(WatchmakerCursors.breed);
+			((Component)breedingPanel.getPanels().firstElement()).setCursor(WatchmakerCursors.breed);
 			breedingPanel.updateCursor();
 			logger.info("Breed Complete");
 			break;

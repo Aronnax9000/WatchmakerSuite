@@ -34,7 +34,7 @@ public interface MorphView {
 	void setAppData(AppData appData);
 	boolean isShowBoxes();
 	MorphDrawer getMorphDrawer();
-	JPanel getCentrePanel();
+	Vector<MorphViewPanel> getPanels();
 	BoxedMorphCollection getBoxedMorphCollection();
 	void paintMorphViewPanel(Object graphicsContext, Dim size);
 	void updateCursor();

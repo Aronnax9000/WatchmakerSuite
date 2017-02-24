@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
+import java.awt.Component;
 import java.util.Timer;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -36,7 +37,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     public SwingBreedingMorphView(AppData appData, Morph morph) {
         super(appData, "IconFlipBirdToBreedingGrid_ICON_00261_32x32",
                 "Breeding", false, appData.isGeneBoxToSide(), null);
-        centrePanel.setCursor(WatchmakerCursors.breed);
+        ((Component)panels.firstElement()).setCursor(WatchmakerCursors.breed);
         boxedMorphCollection
                 .setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(),
                         appData.getDefaultBreedingRows()));
@@ -57,21 +58,21 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     public void processMouseClicked(Point myPt, Dim size) {
         logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
         BoxManager boxes = boxedMorphCollection.getBoxes();
-        if (centrePanel.getCursor() == WatchmakerCursors.breed) {
+        if (((Component)panels.firstElement()).getCursor() == WatchmakerCursors.breed) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
-                    SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+                    SwingGeom.toWatchmakerDim(((Component)panels.firstElement()).getSize()));
             if (box != null) {
                 special = box;
                 breedFromSpecial();
             }
-        } else if (centrePanel.getCursor() == WatchmakerCursors.random) {
-            centrePanel.setCursor(WatchmakerCursors.watchCursor);
+        } else if (((Component)panels.firstElement()).getCursor() == WatchmakerCursors.random) {
+            ((Component)panels.firstElement()).setCursor(WatchmakerCursors.watchCursor);
             seed(appData.getMorphConfig().newMorph(0));
-            centrePanel.setCursor(null);
+            ((Component)panels.firstElement()).setCursor(null);
             updateCursor();
-        } else if (centrePanel.getCursor() == WatchmakerCursors.highlight) {
+        } else if (((Component)panels.firstElement()).getCursor() == WatchmakerCursors.highlight) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
-                    SwingGeom.toWatchmakerDim(centrePanel.getSize()));
+                    SwingGeom.toWatchmakerDim(((Component)panels.firstElement()).getSize()));
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
             this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
             pcs.firePropertyChange("genome", null,
@@ -84,7 +85,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     
     public void breedFromSpecial() {
         logger.log(Level.INFO, "Breeding from box " + special);
-        centrePanel.setCursor(WatchmakerCursors.watchCursor);
+        ((Component)panels.firstElement()).setCursor(WatchmakerCursors.watchCursor);
         
         
         // Delete undo history after this point, if any.
@@ -118,7 +119,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     @Override
     public void processMouseMotion(Point myPt, Dim size) {
         logger.fine("processMouseMotion(" + myPt + ", " + size);
-        if (!(centrePanel.getCursor() == WatchmakerCursors.highlight
+        if (!(((Component)panels.firstElement()).getCursor() == WatchmakerCursors.highlight
                 && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
             BoxManager boxes = boxedMorphCollection.getBoxes();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
@@ -133,18 +134,18 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                                     boxedMorph.getMorph().getGenome());
                         selectedBox = box;
 
-                        if (centrePanel
+                        if (((Component)panels.firstElement())
                                 .getCursor() != WatchmakerCursors.watchCursor
-                                && centrePanel
+                                && ((Component)panels.firstElement())
                                         .getCursor() != WatchmakerCursors.highlight) {
-                            centrePanel.setCursor(WatchmakerCursors.breed);
+                            ((Component)panels.firstElement()).setCursor(WatchmakerCursors.breed);
                         }
                     } else {
-                        if (centrePanel
+                        if (((Component)panels.firstElement())
                                 .getCursor() != WatchmakerCursors.watchCursor
-                                && centrePanel
+                                && ((Component)panels.firstElement())
                                         .getCursor() != WatchmakerCursors.highlight) {
-                            centrePanel.setCursor(WatchmakerCursors.random);
+                            ((Component)panels.firstElement()).setCursor(WatchmakerCursors.random);
                         }
                     }
 //                }

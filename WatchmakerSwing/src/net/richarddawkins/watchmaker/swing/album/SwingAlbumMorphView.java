@@ -29,14 +29,14 @@ public class SwingAlbumMorphView extends SwingMorphView {
 //
 //        JScrollPane scrollPane = new JScrollPane(centrePanel);
 //        this.add(scrollPane, BorderLayout.CENTER);
-        ((Component) centrePanel).setCursor(WatchmakerCursors.highlight);
+        ((Component) panels.firstElement()).setCursor(WatchmakerCursors.highlight);
         updateCursor();
     }
 
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
         BoxManager boxes = boxedMorphCollection.getBoxes();
-        if (centrePanel.getCursor() == WatchmakerCursors.highlight) {
+        if (((Component)panels.firstElement()).getCursor() == WatchmakerCursors.highlight) {
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);

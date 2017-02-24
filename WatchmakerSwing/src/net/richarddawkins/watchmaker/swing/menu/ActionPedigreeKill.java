@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import javax.swing.Icon;
@@ -24,7 +25,7 @@ public class ActionPedigreeKill  extends SwingWatchmakerAction {
     public void actionPerformed(ActionEvent arg0) {
        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
        if(morphView instanceof SwingPedigreeMorphView) {
-           morphView.getCentrePanel().setCursor(WatchmakerCursors.kill);
+           ((Component)morphView.getPanels().firstElement()).setCursor(WatchmakerCursors.kill);
        }
     }
 }

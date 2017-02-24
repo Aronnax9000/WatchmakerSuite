@@ -41,9 +41,11 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
-                        if(morphView instanceof PedigreeMorphView) {
-                            ((PedigreeMorphView) morphView).setMirrorType(MirrorType.NONE);
+                        MorphView morphView = appData.getMorphViewsTabbedPane()
+                                .getSelectedMorphView();
+                        if (morphView instanceof PedigreeMorphView) {
+                            ((PedigreeMorphView) morphView)
+                                    .setMirrorType(MirrorType.NONE);
                         }
 
                     }
@@ -57,9 +59,11 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
-                        if(morphView instanceof PedigreeMorphView) {
-                            ((PedigreeMorphView) morphView).setMirrorType(MirrorType.SINGLE);
+                        MorphView morphView = appData.getMorphViewsTabbedPane()
+                                .getSelectedMorphView();
+                        if (morphView instanceof PedigreeMorphView) {
+                            ((PedigreeMorphView) morphView)
+                                    .setMirrorType(MirrorType.SINGLE);
                         }
                     }
 
@@ -77,9 +81,11 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
-                        if(morphView instanceof PedigreeMorphView) {
-                            ((PedigreeMorphView) morphView).setMirrorType(MirrorType.DOUBLE);
+                        MorphView morphView = appData.getMorphViewsTabbedPane()
+                                .getSelectedMorphView();
+                        if (morphView instanceof PedigreeMorphView) {
+                            ((PedigreeMorphView) morphView)
+                                    .setMirrorType(MirrorType.DOUBLE);
                         }
 
                     }
@@ -87,13 +93,12 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                 }
 
         );
-        
+
         group.add(noMirrors);
         group.add(singleMirror);
         group.add(doubleMirrors);
         noMirrors.setSelected(true);
-        
-        
+
         viewBoundingBoxes = new SwingWatchmakerCheckBoxMenuItem(
                 new SwingWatchmakerAction(appData, "View Bounding Boxes") {
 
@@ -127,7 +132,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                         MorphView selectedMorphView = appData
                                 .getMorphViewsTabbedPane()
                                 .getSelectedMorphView();
-                        JPanel centrePanel = selectedMorphView.getCentrePanel();
+                        JPanel centrePanel = (JPanel) selectedMorphView
+                                .getPanels().firstElement();
                         if (((JCheckBoxMenuItem) highlightBiomorph)
                                 .isSelected()) {
                             centrePanel.setCursor(WatchmakerCursors.highlight);
@@ -306,7 +312,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
     SwingWatchmakerCheckBoxMenuItem noMirrors;
     SwingWatchmakerCheckBoxMenuItem singleMirror;
-    SwingWatchmakerCheckBoxMenuItem doubleMirrors; 
+    SwingWatchmakerCheckBoxMenuItem doubleMirrors;
     SwingWatchmakerMenuItem recordingFossils = new SwingWatchmakerMenuItem(
             "Recording Fossils");
     SwingWatchmakerMenuItem driftSweep = new SwingWatchmakerMenuItem(

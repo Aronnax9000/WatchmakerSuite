@@ -34,7 +34,7 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
         super(appData, "Hypodermic_PICT_03937_16x16", "Engineering", true,
                 appData.isGeneBoxToSide(), null);
         boxedMorphCollection.setBoxes(new GridBoxManager(1, 1));
-        ((Component) this.getCentrePanel())
+        panels.firstElement()
                 .setCursor(WatchmakerCursors.hypodermic);
         MorphConfig config = appData.getMorphConfig();
 
