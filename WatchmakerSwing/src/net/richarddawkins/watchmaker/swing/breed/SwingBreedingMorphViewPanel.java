@@ -39,12 +39,12 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
             BoxManager boxes = boxedMorphCollection.getBoxes();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             if (box != null) {
-                logger.info("processMouseMotion found box " + box);
+                logger.fine("processMouseMotion found box " + box);
 //                synchronized (boxedMorphVector) {
                     BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
 
                     if (boxedMorph != null) {
-                        logger.info("processMouseMotion found BoxedMorph " + boxedMorph);
+                        logger.fine("processMouseMotion found BoxedMorph " + boxedMorph);
                         if (box != selectedBox)
                             firePropertyChange("genome", null,
                                     boxedMorph.getMorph().getGenome());

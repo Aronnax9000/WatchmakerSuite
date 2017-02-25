@@ -21,17 +21,17 @@ public class ClassicImage {
         try {
             this.setImage(image);
             this.imageName = imageName;
-            StringTokenizer st = new StringTokenizer(imageName, "_");
-            description = st.nextToken();
-            resourceType = st.nextToken();
-            resourceId = st.nextToken();
-            resolution = st.nextToken();
-            st = new StringTokenizer(resolution, "x");
-            advertisedWidth = Integer.parseInt(st.nextToken());
-            advertisedHeight = Integer.parseInt(st.nextToken());
+//            StringTokenizer st = new StringTokenizer(imageName, "_");
+//            description = st.nextToken();
+//            resourceType = st.nextToken();
+//            resourceId = st.nextToken();
+//            resolution = st.nextToken();
+//            st = new StringTokenizer(resolution, "x");
+//            advertisedWidth = Integer.parseInt(st.nextToken());
+//            advertisedHeight = Integer.parseInt(st.nextToken());
         } catch (Exception e) {
             logger.log(Level.INFO, "Error while loading image " 
-                    + imageName);
+                    + imageName + " :" + e);
         }
     }
 
