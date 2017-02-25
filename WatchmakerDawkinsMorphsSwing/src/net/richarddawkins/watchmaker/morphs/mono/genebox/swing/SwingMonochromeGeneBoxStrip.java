@@ -12,6 +12,8 @@ import net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip;
 public class SwingMonochromeGeneBoxStrip extends SwingGeneBoxStrip {
 
 	private static final long serialVersionUID = 1L;
+    @Override
+    public boolean isReusable() { return true; }
 
 	public GeneBox getGeneBoxForGene(Gene gene) {
 		if(gene instanceof IntegerGradientGene)

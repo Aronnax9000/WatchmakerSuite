@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.app;
 
 import java.beans.PropertyChangeListener;
 
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
@@ -69,6 +70,7 @@ public interface AppData  {
 	public long getTickDelay();
 	void setTickDelay(long tickDelay);
     public void addPedigreeMorphView(Morph morph);
+    void addAlbumMorphView(Album album);
     
     
 

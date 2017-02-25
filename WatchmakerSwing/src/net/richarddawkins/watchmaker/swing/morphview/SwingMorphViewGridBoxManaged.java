@@ -17,30 +17,19 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
 
     private static final long serialVersionUID = 1L;
 
-    public SwingMorphViewGridBoxManaged(AppData appData, Album newAlbum, boolean engineeringMode) {
-        super(appData, newAlbum, engineeringMode);
-    }
 
-    public SwingMorphViewGridBoxManaged(AppData appData, String icon,
-            String name, Album album, boolean engineeringMode) {
-        super(appData, icon, name, album, engineeringMode);
-    }
-
-    public SwingMorphViewGridBoxManaged(AppData appData, String icon,
-            String name, boolean engineeringMode, boolean geneBoxToSide,
-            Album album) {
-        super(appData, icon, name, engineeringMode, geneBoxToSide, album);
+    public SwingMorphViewGridBoxManaged(SwingMorphViewConfig config) {
+        super(config);
     }
 
     @Override
     public void undo() {
+        BoxedMorphCollection boxedMorphCollection = getSelectedPanel().getBoxedMorphCollection();
         int level = album.indexOfPage(boxedMorphCollection);
         if (level > 0) {
             logger.info("Undo level: " + level + " size " + album.size());
             BoxedMorphCollection oldValue = boxedMorphCollection;
             boxedMorphCollection = album.getPage(level - 1);
-            pcs.firePropertyChange("boxedMorphCollection", oldValue,
-                    boxedMorphCollection);
             repaint();
         } else {
             // In Engineering, current boxedMorphCollection isn't part of
@@ -49,32 +38,28 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
             backup(true);
             BoxedMorphCollection oldValue = boxedMorphCollection;
             boxedMorphCollection = album.getPreviousPage(album.getLastPage());
-            pcs.firePropertyChange("boxedMorphCollection", oldValue,
-                    boxedMorphCollection);
-            
             repaint();
         }
     }
 
     @Override
     public void redo() {
+        BoxedMorphCollection boxedMorphCollection = album.firstElement();
+
         int level = album.indexOfPage(boxedMorphCollection);
         if (level < album.size() - 1) {
             logger.info("Redo level: " + level + " size " + album.size());
             BoxedMorphCollection oldValue = boxedMorphCollection;
             boxedMorphCollection = album.getPage(level + 1);
-            pcs.firePropertyChange("boxedMorphCollection", oldValue,
-                    boxedMorphCollection);
             repaint();
         }
     }
 
     @Override
     public void backup(boolean copyMorph) {
+
         logger.info("Backup " + copyMorph + " started " + album.size());
-//        if(album.contains(boxedMorphCollection)) {
-//            album.removePagesAfter(boxedMorphCollection);
-//        }
+        BoxedMorphCollection boxedMorphCollection = this.getSelectedPanel().getBoxedMorphCollection();
         GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
                 .getBoxes();
         GridBoxManager backupBoxManager = new GridBoxManager(oldBoxManager.cols,
@@ -111,4 +96,6 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
         }
         logger.info("Backup " + copyMorph + " finished " + album.size());
     }
+
+
 }

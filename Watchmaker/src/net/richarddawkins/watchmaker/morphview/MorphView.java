@@ -2,12 +2,11 @@ package net.richarddawkins.watchmaker.morphview;
 
 import java.util.Vector;
 
-import javax.swing.JPanel;
-
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
 public interface MorphView {
@@ -21,24 +20,25 @@ public interface MorphView {
 	String getToolTip();
 
 	void setToolTip(String toolTip);
-	void seed(Morph morph);
+	void seed();
 	Morph getMorphOfTheHour();
 	String getName();
 	void setName(String newName);
-	Vector<Morph> getMorphs();
 	void setShowBoxes(boolean showBoxes);
 	void setMorphDrawer(MorphDrawer morphDrawer);
-	
+	void addSeedMorph(Morph morph);
 
-	void setBoxedMorphCollection(BoxedMorphCollection boxedMorphVector);
 	void setAppData(AppData appData);
 	boolean isShowBoxes();
 	MorphDrawer getMorphDrawer();
 	Vector<MorphViewPanel> getPanels();
-	BoxedMorphCollection getBoxedMorphCollection();
-	void paintMorphViewPanel(Object graphicsContext, Dim size);
-	void updateCursor();
     void undo();
     void redo();
     void backup(boolean copyMorph);
+    MorphViewPanel getSelectedPanel();
+    void setSelectedPanel(MorphViewPanel selectedPanel);
+    Album getAlbum();
+    void setAlbum(Album album);
+    void addPanel(MorphViewPanel panel);
+    void removePanel(MorphViewPanel panel);
 }

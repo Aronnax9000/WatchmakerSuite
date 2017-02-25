@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
-import java.awt.Component;
+import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
@@ -19,7 +19,7 @@ public class BoxAnimator extends TimerTask {
 
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.breed.BoxAnimator");
 	protected int vacantBoxNumber = 0;
-	protected SwingBreedingMorphView breedingPanel;
+	protected SwingBreedingMorphViewPanel breedingPanel;
 	protected Morph newestOffspring;
 	protected BoxedMorph boxedNewestOffspring;
 	protected Phase phase;
@@ -28,9 +28,9 @@ public class BoxAnimator extends TimerTask {
 	protected BoxedMorph boxedMorphParent;
 	protected BoxManager boxes;
 
-	public BoxAnimator(SwingBreedingMorphView breedingPanel, Rect special) {
+	public BoxAnimator(SwingBreedingMorphViewPanel breedingPanel, Rect special) {
 		this.breedingPanel = breedingPanel;
-		AppData appData = breedingPanel.getAppData();
+		AppData appData = breedingPanel.morphView.getAppData();
 		MorphConfig config = appData.getMorphConfig();
 		this.boxedMorphVector = breedingPanel.getBoxedMorphCollection();
 		this.boxes = boxedMorphVector.getBoxes();
@@ -62,14 +62,23 @@ public class BoxAnimator extends TimerTask {
 				phase = Phase.reactivate_grid;
 			}
 		}
+        Timer timer = new Timer();
+        timer.schedule(this, 0, breedingPanel.morphView.getAppData().getTickDelay());
+
 	}
 
 	@Override
 	public void run() {
-	    logger.fine("BoxAnimator.run() " + phase);
+//	    synchronized(breedingPanel.getBoxedMorphCollection()) {
+	        doRun();
+//	    }
+	}
+	
+	protected void doRun() {
+	    logger.fine("BoxAnimator.doRun() " + phase);
 		switch (phase) {
 		case deactivate_grid:
-			breedingPanel.setShowBoxes(false);
+			breedingPanel.morphView.setShowBoxes(false);
 			phase = Phase.animate_mother;
 			break;
 		case animate_mother:
@@ -81,7 +90,7 @@ public class BoxAnimator extends TimerTask {
 			break;
 		case reactivate_grid:
 			logger.fine("Reactivate Grid");
-			breedingPanel.setShowBoxes(true);
+			breedingPanel.morphView.setShowBoxes(true);
 			boxedMorphParent.setBox(midBox);
 			boxedMorphParent.setDestinationBox(null);
 			boxedMorphParent.setProgress(0.0d);
@@ -134,7 +143,7 @@ public class BoxAnimator extends TimerTask {
 
 		case breed_complete:
 			this.cancel();
-			((Component)breedingPanel.getPanels().firstElement()).setCursor(WatchmakerCursors.breed);
+			breedingPanel.setCursor(WatchmakerCursors.breed);
 			breedingPanel.updateCursor();
 			logger.info("Breed Complete");
 			break;

@@ -2,10 +2,26 @@ package net.richarddawkins.watchmaker.album;
 
 import java.util.Vector;
 
+import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 
 public class Album {
 
+    public BoxedMorphCollection firstElement() {
+        return pages.firstElement();
+    }
+    
+    public Morph getFirstMorph() {
+        if(! pages.isEmpty()) {
+            BoxedMorphCollection page = pages.firstElement();
+            if(! page.isEmpty()) {
+                return page.firstElement().getMorph();
+            }
+        }
+        return null;
+    }
+    
     public static final int pageSize = 15;
 
     public static int MAX_PAGES = 1024;
@@ -13,6 +29,8 @@ public class Album {
     protected String name;
 
     protected final Vector<BoxedMorphCollection> pages = new Vector<BoxedMorphCollection>();
+
+    private AppData selectedPage;
      
     public Album(String name) {
         this.name = name;
@@ -95,5 +113,9 @@ public class Album {
             BoxedMorphCollection boxedMorphCollection) {
         
         return pages.get(pages.indexOf(boxedMorphCollection) - 1);
+    }
+
+    public AppData getSelectedPage() {
+        return selectedPage;
     }
 }

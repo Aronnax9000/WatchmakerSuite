@@ -86,8 +86,13 @@ public abstract class SwingGeneBoxStrip extends JPanel
 
     public void setGenome(Genome newGenome) {
         logger.fine("SwingGeneBoxStrip.setGenome(" + newGenome + ")");
-        this.removeAll();
-
+        boolean reusing = true;
+        if (this.getComponentCount() == 0 || !isReusable()) {
+            reusing = false;
+        }
+        if (!reusing) {
+            this.removeAll();
+        }
         if (newGenome != null) {
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridx = 0;
@@ -95,24 +100,33 @@ public abstract class SwingGeneBoxStrip extends JPanel
             constraints.weightx = 1;
             constraints.weighty = 0;
             constraints.fill = GridBagConstraints.HORIZONTAL;
-
+            int n = 0;
             for (Gene gene : newGenome.toGeneArray()) {
-                SwingGeneBox geneBox = (SwingGeneBox) getGeneBoxForGene(gene);
+                
+                GeneBox geneBox;
+                if (reusing) {
+                    geneBox = (GeneBox)this.getComponent(n++);
+                } else {
+                    geneBox = (GeneBox)getGeneBoxForGene(gene);
+                }
                 if (engineeringMode) {
                     geneBox.setEngineeringMode();
                     geneBox.setGene(gene);
                 }
                 applyGeneSpecificConstraints(constraints, gene);
-                add((Component) geneBox, constraints);
-                if (this.geneBoxToSide) {
-                    constraints.gridy++;
-                } else {
-                    constraints.gridx++;
+                if (!reusing) {
+                    add((Component) geneBox, constraints);
+                    if (this.geneBoxToSide) {
+                        constraints.gridy++;
+                    } else {
+                        constraints.gridx++;
+                    }
                 }
             }
         } else {
             logger.warning("SwingGeneBoxStrip: new genome is null.");
         }
+
         this.genome = newGenome;
         if (genome != null) {
             Component[] components = this.getComponents();
@@ -136,7 +150,8 @@ public abstract class SwingGeneBoxStrip extends JPanel
         if (evt.getPropertyName().equals("genome")) {
             setGenome((Genome) evt.getNewValue());
         } else if (evt.getPropertyName().equals("boxedMorphCollection")) {
-            setGenome(((BoxedMorphCollection) evt.getNewValue()).firstElement().getMorph().getGenome());
+            setGenome(((BoxedMorphCollection) evt.getNewValue()).firstElement()
+                    .getMorph().getGenome());
         }
     }
 }

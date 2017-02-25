@@ -1,92 +1,60 @@
 package net.richarddawkins.watchmaker.swing.album;
 
-import java.awt.Component;
+import java.awt.GridLayout;
+import java.util.Vector;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.album.Album;
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Dim;
-import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
 public class SwingAlbumMorphView extends SwingMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView");
 
-    public SwingAlbumMorphView(AppData appData,
-            Album album) {
-        super(appData, "IconAlbum_ALAN_32x32",
-                album.getName() + " Album", false,
-                appData.isGeneBoxToSide(), album);
-        this.setBoxedMorphCollection(album.getPage(0));
-        boxedMorphCollection.getBoxes().setAccentuateMidBox(false);
-//        this.remove(centrePanel);
-//
-//        JScrollPane scrollPane = new JScrollPane(centrePanel);
-//        this.add(scrollPane, BorderLayout.CENTER);
-        ((Component) panels.firstElement()).setCursor(WatchmakerCursors.highlight);
-        updateCursor();
-    }
-
-    @Override
-    public void processMouseClicked(Point myPt, Dim size) {
-        BoxManager boxes = boxedMorphCollection.getBoxes();
-        if (((Component)panels.firstElement()).getCursor() == WatchmakerCursors.highlight) {
-            Rect box = boxes.getBoxNoContainingPoint(myPt, size);
-            // SwingGeom.toWatchmakerDim(centrePanel.getSize())
-            BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
-            this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
-            pcs.firePropertyChange("genome", null,
-                    boxedMorph.getMorph().getGenome());
-            repaint();
+    public SwingAlbumMorphView(SwingMorphViewConfig config) {
+        super(config);
+        this.setLayout(new GridLayout(2, 2));
+        for (BoxedMorphCollection page : album.getPages()) {
+            MorphViewPanel panel = new SwingAlbumMorphViewPanel(this, page);
+            addPanel(panel);
         }
-    }
-
-    protected Rect selectedBox = null;
-
-    @Override
-    public void processMouseMotion(Point myPt, Dim size) {
-        // logger.info("SwingAlbumMorphView.processMouseMotion(" + myPt + ", " +
-        // size + ")");
-
-        BoxManager boxes = boxedMorphCollection.getBoxes();
-        Rect box = boxes.getBoxNoContainingPoint(myPt, size);
-        if (box != null && box != selectedBox) {
-            synchronized (boxedMorphCollection) {
-                BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
-
-                if (boxedMorph != null) {
-                    logger.fine("SwingAlbumMorphView.processMouseMotion(" + myPt
-                            + ", " + size + ") firing genome change");
-                    pcs.firePropertyChange("genome", null,
-                            boxedMorph.getMorph().getGenome());
-                    selectedBox = box;
-
-                }
-            }
-        } else {
-            logger.warning("boxNo is -1");
-        }
-
     }
 
     @Override
     public Morph getMorphOfTheHour() {
-        return boxedMorphCollection.getSelectedBoxedMorph().getMorph();
+        return album.getSelectedPage().getMorphOfTheHour();
     }
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 8224824610112892419L;
 
     @Override
-    public void seed(Morph morph) {
+    public void seed() {
+        synchronized (seedMorphs) {
+            Vector<Morph> seededMorphs = new Vector<Morph>();
+            for (Morph seedMorph : seedMorphs) {
+                findEmptyBox: for (BoxedMorphCollection page : this.album
+                        .getPages()) {
+                    BoxManager boxes = page.getBoxes();
+                    for (Rect rect : boxes.getBoxes()) {
+                        if (page.getBoxedMorph(rect) == null) {
+                            BoxedMorph boxedMorph = new BoxedMorph(boxes,
+                                    seedMorph, rect);
+                            page.add(boxedMorph);
+                            seededMorphs.add(seedMorph);
+                            break findEmptyBox;
+                        }
+                    }
+                }
+            }
+            seedMorphs.removeAll(seededMorphs);
+            
+        }
         // TODO Auto-generated method stub
 
     }

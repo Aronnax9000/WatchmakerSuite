@@ -11,7 +11,11 @@ import net.richarddawkins.watchmaker.morph.Morph;
  */
 public class BoxedMorph extends LocatedMorph {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxedMorph");
-
+    @Override
+    public String toString() {
+        return "BoxedMorph box:" + box + " morph:" + morph;
+    }
+    
 	protected Rect box;
 	protected Rect destinationBox = null;
 	protected BoxManager boxes;

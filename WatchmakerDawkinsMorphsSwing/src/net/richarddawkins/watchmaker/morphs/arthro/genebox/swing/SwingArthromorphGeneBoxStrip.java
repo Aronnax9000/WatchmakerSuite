@@ -11,7 +11,8 @@ import net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip;
 public class SwingArthromorphGeneBoxStrip extends SwingGeneBoxStrip {
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingArthromorphGeneBoxStrip");
-
+	@Override
+	public boolean isReusable() { return false; }
 	private static final long serialVersionUID = 550977251971215966L;
 
 	protected void applyGeneSpecificConstraints(GridBagConstraints constraints, Gene gene) {

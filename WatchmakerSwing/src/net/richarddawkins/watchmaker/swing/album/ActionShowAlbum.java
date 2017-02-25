@@ -32,8 +32,7 @@ public class ActionShowAlbum extends SwingWatchmakerAction {
         Vector<Album> albums = config.getAlbums();
         if (albums != null) {
             for (Album album : albums) {
-                appData.getMorphViewsTabbedPane()
-                        .addMorphView(new SwingAlbumMorphView(appData, album));
+                appData.addAlbumMorphView(album);
             }
         }
     }

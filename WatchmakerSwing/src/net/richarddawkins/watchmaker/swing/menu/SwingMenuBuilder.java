@@ -139,7 +139,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                             centrePanel.setCursor(WatchmakerCursors.highlight);
                         } else {
                             centrePanel.setCursor(null);
-                            BoxedMorphCollection boxedMorphs = selectedMorphView
+                            BoxedMorphCollection boxedMorphs = selectedMorphView.getSelectedPanel()
                                     .getBoxedMorphCollection();
                             if (boxedMorphs.getSelectedBoxedMorph() != null) {
                                 boxedMorphs.setSelectedBoxedMorph(null);
@@ -279,7 +279,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                 morph.setGenome(genome);
                 MorphView morphView = appData.getMorphViewsTabbedPane()
                         .getSelectedMorphView();
-                morphView.seed(morph);
+                morphView.addSeedMorph(morph);
             }
         }));
         menu.add(new SwingWatchmakerMenuItem("Initialize Fossil Record"));

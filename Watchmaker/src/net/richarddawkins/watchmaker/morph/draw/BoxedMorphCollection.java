@@ -32,6 +32,7 @@ public class BoxedMorphCollection {
         return true;
 	}
 	
+	public BoxedMorph lastElement() { return boxedMorphs.lastElement(); }
 	protected BoxedMorph selectedBoxedMorph = null;
 	protected String name;
     public BoxedMorphCollection() {
