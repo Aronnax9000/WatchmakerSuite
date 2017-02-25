@@ -22,11 +22,20 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
 public abstract class SwingAppData implements AppData {
 
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(name);
+        if(breedRightAway) buffer.append(" breedRightAway");
+        if(saltOnEmptyBreedingBoxClick) buffer.append(" saltOnEmptyBreedingBoxClick");
+        if(geneBoxToSide) buffer.append(" geneBoxToSide");
+        if(highlighting) buffer.append(" highlighting");
+        buffer.append(" " + defaultBreedingCols + "x" + defaultBreedingRows);
+        return buffer.toString();
+    }
+    
     protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
     protected boolean breedRightAway = true;
-
     protected MorphConfig config;
-
     protected int defaultBreedingCols = 5;
     protected int defaultBreedingRows = 3;
     protected boolean geneBoxToSide;
@@ -34,19 +43,21 @@ public abstract class SwingAppData implements AppData {
     protected String icon;
     protected MenuBuilder menuBuilder;
     protected MorphViewsTabbedPanel morphViewsTabbedPane;
-
     protected String name;
     protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-
     protected PhenotypeDrawer phenotypeDrawer;
-
     protected boolean saltOnEmptyBreedingBoxClick = false;
-    // protected long tickDelay = 5;
-
     protected long tickDelay = 4;
     protected String toolTip;
 
     public SwingAppData() {
+    }
+
+    @Override
+    public void addAlbumMorphView(Album album) {
+        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
+                MorphViewType.pedigree, null));        
+
     }
 
     @Override
@@ -73,6 +84,15 @@ public abstract class SwingAppData implements AppData {
     }
 
     @Override
+    public void addPedigreeMorphView(Morph morph) {
+        Vector<Morph> seedMorphs = new Vector<Morph>();
+        seedMorphs.add(morph);
+        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
+                MorphViewType.pedigree, seedMorphs));        
+
+    }
+
+    @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
     }
@@ -82,7 +102,6 @@ public abstract class SwingAppData implements AppData {
             PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(propertyName, listener);
     }
-
     @Override
 	public void addTriangleMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -91,21 +110,6 @@ public abstract class SwingAppData implements AppData {
 		        MorphViewType.triangle, seedMorphs));
 		
 	}
-
-    @Override
-    public void addAlbumMorphView(Album album) {
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
-                MorphViewType.pedigree, null));        
-
-    }
-    @Override
-    public void addPedigreeMorphView(Morph morph) {
-        Vector<Morph> seedMorphs = new Vector<Morph>();
-        seedMorphs.add(morph);
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
-                MorphViewType.pedigree, seedMorphs));        
-
-    }
 
     @Override
     public BoxesDrawer getBoxesDrawer() {

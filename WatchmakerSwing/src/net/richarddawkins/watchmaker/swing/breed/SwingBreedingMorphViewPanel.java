@@ -104,7 +104,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
 
     
     public void breedFromSpecial() {
-        logger.log(Level.INFO, "Breeding from box " + special);
+        logger.info("Breeding from box " + special);
         this.setCursor(WatchmakerCursors.watchCursor);
         
         

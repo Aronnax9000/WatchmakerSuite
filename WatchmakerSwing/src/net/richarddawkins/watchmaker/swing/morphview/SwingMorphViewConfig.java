@@ -20,4 +20,18 @@ public class SwingMorphViewConfig {
     public SwingMorphViewConfig(MorphViewType type) {
         this.type = type;
     }
+    
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(type);
+        if(name != null) buffer.append(" " + name);
+        if(icon != null) buffer.append(" " + icon);
+        if(appData != null) buffer.append(" " + appData);
+        if(engineeringMode) buffer.append(" engineering");
+        if(geneBoxToSide) buffer.append(" geneBoxToSide");
+        if(copyMorphsOnBackup) buffer.append(" copyMorphsOnBackup");
+        if(album != null) buffer.append(" " + album);
+        
+        return buffer.toString();
+    }
 }

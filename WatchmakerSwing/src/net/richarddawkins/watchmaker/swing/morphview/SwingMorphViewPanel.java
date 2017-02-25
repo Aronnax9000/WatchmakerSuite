@@ -165,6 +165,8 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
+        // Add any pending morphs
+        morphView.seed();
         synchronized (boxedMorphCollection) {
             if (morphView.isShowBoxes()) {
                 drawBoxes(graphicsContext, size);

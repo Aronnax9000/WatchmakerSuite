@@ -51,6 +51,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
         synchronized (seedMorphs) {
 
             if (! seedMorphs.isEmpty()) {
+                logger.info("Seeding");
                 Morph morph = seedMorphs.firstElement();
                 Morph parent;
                 if (morph == null) {
@@ -68,7 +69,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
                 boxedMorphCollection.removeAllElements();
                 boxedMorphCollection.add(boxedMorph);
-
+                logger.info("Added boxedMorph: " + boxedMorph);
                 // Trigger first breeding
 
                 SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) panels

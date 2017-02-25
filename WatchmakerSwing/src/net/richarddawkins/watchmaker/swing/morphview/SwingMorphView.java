@@ -63,6 +63,7 @@ public abstract class SwingMorphView extends JPanel
         seedMorphs.add(seedMorph);
     }
     public SwingMorphView(SwingMorphViewConfig config) {
+        logger.info("SwingMorphView(config): " + config);
         this.appData = config.appData;
         this.setIcon(config.icon);
         this.setName(config.name);
