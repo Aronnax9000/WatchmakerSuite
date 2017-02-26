@@ -3,7 +3,7 @@ package net.richarddawkins.watchmaker.swing.breed;
 import java.util.Vector;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
@@ -12,9 +12,10 @@ import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
-import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
 
@@ -25,45 +26,52 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     protected BoxedMorph boxedMorphSpecial;
 
     Vector<Morph> litter;
-
-    public SwingBreedingMorphView(SwingMorphViewConfig config) {
-        super(config);
+    @Override
+    public void addPanels() {
 
         SwingBreedingMorphViewPanel panel = new SwingBreedingMorphViewPanel(
                 this, album.getPage(0));
         addPanel(panel);
-        album.firstElement()
-                .setBoxes(new GridBoxManager(appData.getDefaultBreedingCols(),
-                        appData.getDefaultBreedingRows()));
-        Morph morph = album.getFirstMorph();
-        if (morph != null) {
-            MorphConfig morphConfig = appData.getMorphConfig();
-            Morph copy = morphConfig.newMorph();
-            Genome genome = morphConfig.newGenome();
-            morph.getGenome().copy(genome);
-            copy.setGenome(genome);
-            seedMorphs.add(copy);
-        }
     }
+    @Override
+    public BoxManager newBoxManager() {
+        return new GridBoxManager(appData.getDefaultBreedingCols(),
+                appData.getDefaultBreedingRows());
+    }
+    @Override
+    public void initBoxedMorphCollection(Album newAlbum, boolean engineeringMode) {
+        super.initBoxedMorphCollection(newAlbum, engineeringMode);
+        album.firstElement()
+                .setBoxes(newBoxManager());
+    }
+    @Override
+    public void addSeedMorphs(Vector<Morph> seedMorphs) {
+        MorphConfig morphConfig = appData.getMorphConfig();
+        this.addSeedMorph(
+                morphConfig.newMorph(morphConfig.getStartingMorphBasicType()));
+    }
+
+    public SwingBreedingMorphView(SwingMorphViewConfig config) {
+        super(config);
+    }
+
+    boolean freshlySeeded = false;
 
     @Override
     public void seed() {
         synchronized (seedMorphs) {
 
-            if (! seedMorphs.isEmpty()) {
+            if (!seedMorphs.isEmpty()) {
                 logger.info("Seeding");
-                Morph morph = seedMorphs.firstElement();
-                Morph parent;
-                if (morph == null) {
-                    MorphConfig config = appData.getMorphConfig();
-                    parent = config
-                            .newMorph(config.getStartingMorphBasicType());
-                } else {
-                    parent = morph;
-                }
-                BoxedMorphCollection boxedMorphCollection = album
+
+                Morph parent = seedMorphs.firstElement();
+                SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) panels
                         .firstElement();
+                BoxedMorphCollection boxedMorphCollection = panel
+                        .getBoxedMorphCollection();
                 BoxManager boxes = boxedMorphCollection.getBoxes();
+
+                boxedMorphCollection.clear();
 
                 Rect midBox = boxes.getMidBox();
                 BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
@@ -72,8 +80,6 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 logger.info("Added boxedMorph: " + boxedMorph);
                 // Trigger first breeding
 
-                SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) panels
-                        .firstElement();
                 panel.setSpecial(midBox);
                 if (appData.isBreedRightAway()) {
                     ((SwingBreedingMorphViewPanel) panels.firstElement())
@@ -81,6 +87,16 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 }
                 parent.setImage(null);
 
+                Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
+                Dim parentMorphDim = parent.getPhenotype().getMargin().getDim();
+                logger.info(" PanelDim:" + panel.getDim() + " BoxDim:" + boxDim
+                        + " ParentMorphDim:" + parentMorphDim);
+                int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
+                DrawingPreferences drawingPreferences = appData
+                        .getPhenotypeDrawer().getDrawingPreferences();
+                if (scale != boxes.getScale()) {
+                    boxes.setScale(scale);
+                }
                 seedMorphs.removeElementAt(0);
             }
 

@@ -22,7 +22,7 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel {
     SwingAlbumMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
         GridBoxManager gridBoxManager = new GridBoxManager(5,3);
-        setBoxManager(gridBoxManager);
+//        setBoxManager(gridBoxManager);
         setCursor(WatchmakerCursors.highlight);
         // TODO Auto-generated constructor stub
     }

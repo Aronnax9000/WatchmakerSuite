@@ -110,4 +110,10 @@ public class FreeBoxManager extends BoxManager {
         return doubleBoxes.size();
     }
 
+    @Override
+    public Rect firstElement() {
+        
+        return getBox(0);
+    }
+
 }

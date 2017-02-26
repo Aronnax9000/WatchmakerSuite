@@ -17,6 +17,8 @@ public class BoxedMorphCollection {
 
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
+
+	
 	public boolean genomicallyEquals(BoxedMorphCollection those) {
 	    Vector<BoxedMorph> thoseMorphs = those.getBoxedMorphs();
 	    if(thoseMorphs.size() != boxedMorphs.size()) {

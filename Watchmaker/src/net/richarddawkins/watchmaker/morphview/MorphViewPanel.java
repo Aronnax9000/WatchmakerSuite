@@ -1,14 +1,14 @@
 package net.richarddawkins.watchmaker.morphview;
 
 import java.awt.Cursor;
+import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
-import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 
-public interface MorphViewPanel   {
+public interface MorphViewPanel extends PropertyChangeListener  {
 
     void setCursor(Cursor cursor);
 
@@ -23,8 +23,6 @@ public interface MorphViewPanel   {
     void setBoxedMorphCollection(BoxedMorphCollection boxedMorphVector);
 
     void updateCursor();
-
-    void setBoxManager(BoxManager boxManager);
 
     Morph getMorphOfTheHour();
 

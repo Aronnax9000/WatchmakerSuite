@@ -18,9 +18,12 @@ public class SwingWatchmakerFrame extends JFrame {
 		if(frame == null) {
 	 		frame = new SwingWatchmakerFrame();
 			// Display the window.
+	 		logger.info("Maximizing Window");
 			frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 			frame.pack();
 			frame.setVisible(true);
+			logger.info("Finished setting visible");
+            
 		}
 		return frame;
 	}

@@ -1,11 +1,11 @@
 package net.richarddawkins.watchmaker.morphview;
 
+import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
@@ -41,4 +41,13 @@ public interface MorphView {
     void setAlbum(Album album);
     void addPanel(MorphViewPanel panel);
     void removePanel(MorphViewPanel panel);
+    void setCopyMorphsOnBackup(boolean copyMorphsOnBackup);
+    void addPanels();
+    void addSliders();
+    void initBoxedMorphCollection(Album album, boolean engineeringMode);
+    BoxManager newBoxManager();
+    void addGeneBoxStrip(boolean engineeringMode, boolean geneBoxToSide);
+    void addSeedMorphs(Vector<Morph> seedMorphs);
+    void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
+    void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
 }

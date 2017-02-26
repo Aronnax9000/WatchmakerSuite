@@ -4,9 +4,9 @@ import java.beans.PropertyChangeEvent;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -21,18 +21,27 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 
     protected BoxedMorphCollection boxedMorphCollection;
-
-    public SwingEngineeringMorphView(SwingMorphViewConfig config) {
-        super(config);
+    @Override
+    public void initBoxedMorphCollection (Album newAlbum, boolean engineeringMode) {
+        super.initBoxedMorphCollection(newAlbum, engineeringMode);
+        
+       
+    }
+    
+    @Override
+    public BoxManager newBoxManager() {
         BoxManager boxManager = new GridBoxManager(1, 1);
-        boxedMorphCollection = new BoxedMorphCollection("backing", boxManager);
+        return boxManager;
+    }
+    
+    @Override
+    public void addPanels() {
         MorphViewPanel panel = new SwingEngineeringMorphViewPanel(this,
                 boxedMorphCollection);
-        addPanel(panel);
-        if (seedMorphs.isEmpty()) {
-            MorphConfig morphConfig = appData.getMorphConfig();
-            seedMorphs.add(morphConfig.newMorph(0));
-        }
+        addPanel(panel);   
+    }
+    public SwingEngineeringMorphView(SwingMorphViewConfig config) {
+        super(config);
     }
 
     @Override
@@ -91,5 +100,14 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
      * 
      */
     private static final long serialVersionUID = 8224824610112892419L;
+    @Override
+    public void addSeedMorphs(Vector<Morph> seedMorphs) {
+        super.addSeedMorphs(seedMorphs);
+        if (seedMorphs.isEmpty()) {
+            MorphConfig morphConfig = appData.getMorphConfig();
+            seedMorphs.add(morphConfig.newMorph(0));
+        }
+        
+    }
 
 }

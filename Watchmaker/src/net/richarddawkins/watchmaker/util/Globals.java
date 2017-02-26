@@ -15,4 +15,5 @@ public class Globals {
 		// TODO Auto-generated method stub
 		
 	}
+	public static double zoomBase = Math.sqrt(2);
 }

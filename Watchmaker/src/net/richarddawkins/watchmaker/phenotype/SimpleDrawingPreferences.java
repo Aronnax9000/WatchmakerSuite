@@ -9,7 +9,7 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.phenotype.SimpleDrawingPreferences");
 
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	protected int scale = 0;
+
 	protected boolean showBoundingBoxes = false;
 
 	protected boolean spinBabyMorphs;
@@ -19,10 +19,7 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	}
 
 
-	@Override
-	public int getScale() {
-		return scale;
-	}
+
 
 	@Override
 	public boolean isShowBoundingBoxes() {
@@ -42,13 +39,6 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 	}
 
 
-    @Override
-	public void setScale(int newValue) {
-		int oldValue = this.scale;
-		this.scale = newValue;
-		logger.info("New DrawingPreferences scale " + this.scale);
-		pcs.firePropertyChange(new PropertyChangeEvent(this, "scale", oldValue, newValue));
-	}
 
 	@Override
 	public void setShowBoundingBoxes(boolean newValue) {
@@ -74,4 +64,11 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 		pcs.firePropertyChange(new PropertyChangeEvent(this, "spinBabyMorphs", oldValue, newValue));
 		
 	}
+
+
+    @Override
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(propertyName, listener);
+        
+    }
 }

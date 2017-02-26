@@ -10,6 +10,7 @@ import java.util.logging.Logger;
  *
  */
 public class GridBoxManager extends BoxManager {
+    
     private static Logger logger = Logger
             .getLogger("net.richarddawkins.watchmaker.geom.Boxes");
 
@@ -187,6 +188,12 @@ public class GridBoxManager extends BoxManager {
 
         Rect rect = super.getBox(boxNo);
         return rect;
+    }
+
+    @Override
+    public Rect firstElement() {
+        
+        return boxes.firstElement();
     }
 
 }

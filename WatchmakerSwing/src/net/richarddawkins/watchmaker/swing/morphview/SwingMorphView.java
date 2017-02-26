@@ -9,6 +9,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -19,22 +20,22 @@ import javax.swing.JScrollPane;
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
-import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.components.SwingScaleSlider;
 import net.richarddawkins.watchmaker.swing.components.SwingSpeedSlider;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 
 public abstract class SwingMorphView extends JPanel
         implements MorphView, PropertyChangeListener {
-    
+
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphView");
-    
+
     protected Vector<Morph> seedMorphs = new Vector<Morph>();
     private static final long serialVersionUID = 5555392236002752598L;
 
@@ -54,56 +55,94 @@ public abstract class SwingMorphView extends JPanel
 
     protected String toolTip;
 
-    public SwingMorphView(AppData appData, String icon, String name, Album newAlbum,
-            boolean engineeringMode) {
+    public SwingMorphView(AppData appData, String icon, String name,
+            Album newAlbum, boolean engineeringMode) {
 
     }
 
+    @Override
     public void addSeedMorph(Morph seedMorph) {
         seedMorphs.add(seedMorph);
+        
     }
-    public SwingMorphView(SwingMorphViewConfig config) {
-        logger.info("SwingMorphView(config): " + config);
-        this.appData = config.appData;
-        this.setIcon(config.icon);
-        this.setName(config.name);
-        seedMorphs.addAll(config.seedMorphs);
-        this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
-        this.setLayout(new BorderLayout());
-        if (config.album != null) {
-            this.album = config.album;
+
+
+    @Override
+    public void initBoxedMorphCollection(Album newAlbum, boolean engineeringMode) {
+        if (newAlbum != null) {
+            this.album = newAlbum;
         } else {
             this.album = new Album("backing");
         }
         BoxedMorphCollection boxedMorphCollection;
         if (album.size() == 0) {
-            boxedMorphCollection = new BoxedMorphCollection();
-            if (!config.engineeringMode) {
+            boxedMorphCollection = new BoxedMorphCollection("backing", newBoxManager());
+            if (! engineeringMode) {
                 album.addPage(boxedMorphCollection);
             }
         } else {
-            boxedMorphCollection = album.getPage(0);
+            boxedMorphCollection = album.firstElement();
         }
 
+    }
+
+    protected SwingScaleSlider scaleSlider;
+
+    public SwingMorphView(SwingMorphViewConfig config) {
+        logger.info("SwingMorphView(config): " + config);
+        this.appData = config.appData;
+        this.setIcon(config.icon);
+        this.setName(config.name);
         // this.setPreferredSize(new Dimension(640, 480));
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
-        morphDrawer = new SwingMorphDrawer(phenotypeDrawer);
-        phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
+        this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
+        this.setLayout(new BorderLayout());
 
-        JPanel sliders = new JPanel(new GridLayout(1,0));
-        SwingScaleSlider scaleSlider = new SwingScaleSlider(
-                appData.getPhenotypeDrawer().getDrawingPreferences());
-        sliders.add(scaleSlider.getPanel());
-        SwingSpeedSlider speedSlider = new SwingSpeedSlider(appData);
-        sliders.add(speedSlider.getPanel());
+        this.setMorphDrawer(new SwingMorphDrawer(appData.getPhenotypeDrawer()));
+        // Do we need this? Was probably just for scale
+//        phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
+
         
-        this.add(sliders, BorderLayout.PAGE_END);
-        GeneBoxStrip geneBoxStrip = appData.newGeneBoxStrip(config.engineeringMode);
+        initBoxedMorphCollection(config.album, config.engineeringMode);
+        addSeedMorphs(config.seedMorphs);
+        addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide); 
+        addPanels();
+        addSliders();
+        setSelectedPanel(panels.firstElement());
+    }
+    @Override
+    public void seed() {
+        // TODO Auto-generated method stub
         
+    }
+
+    @Override
+    public void addPanels() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void addSeedMorphs(Vector<Morph> seedMorphs) {
+        if (seedMorphs != null) {
+            seedMorphs.addAll(seedMorphs);
+            seedMorphs.clear();
+        }
+    }
+
+    @Override
+    public BoxManager newBoxManager() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void addGeneBoxStrip(boolean engineeringMode, boolean geneBoxToSide) {
+        GeneBoxStrip geneBoxStrip = appData
+                .newGeneBoxStrip(engineeringMode);
         JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel();
         geneBoxStripPanel.setLayout(new GridBagLayout());
-        if (config.geneBoxToSide) {
+        if (geneBoxToSide) {
             // Nassty nassty JScrollPane will center our content otherwise
             JPanel dummy = new JPanel();
             dummy.add(geneBoxStripPanel);
@@ -112,27 +151,39 @@ public abstract class SwingMorphView extends JPanel
         } else {
             this.add(geneBoxStripPanel, BorderLayout.PAGE_START);
         }
-
     }
+
+    @Override
+    public void addSliders() {
+        JPanel sliders = new JPanel(new GridLayout(1, 0));
+        scaleSlider = new SwingScaleSlider(this);
+        sliders.add(scaleSlider.getPanel());
+        SwingSpeedSlider speedSlider = new SwingSpeedSlider(appData);
+        sliders.add(speedSlider.getPanel());
+    
+        this.add(sliders, BorderLayout.PAGE_END);
+        
+    }
+    
     @Override
     public void addPanel(MorphViewPanel panel) {
         panels.add(panel);
         ((Container) this).add((Component) panel);
-        setSelectedPanel(panel);
     }
+
     public void backup(boolean copyMorph) {
     }
-
-
 
     @Override
     public Album getAlbum() {
         return album;
     }
 
+    @Override
     public AppData getAppData() {
         return appData;
     }
+
     @Override
     public String getIcon() {
         return icon;
@@ -145,7 +196,7 @@ public abstract class SwingMorphView extends JPanel
 
     @Override
     public Morph getMorphOfTheHour() {
-        return null;
+        return this.getSelectedPanel().getMorphOfTheHour();
     }
 
     @Override
@@ -157,7 +208,6 @@ public abstract class SwingMorphView extends JPanel
     public MorphViewPanel getSelectedPanel() {
         return selectedPanel;
     }
-
 
     @Override
     public String getToolTip() {
@@ -175,15 +225,15 @@ public abstract class SwingMorphView extends JPanel
         super.paintComponent(g);
     }
 
-
     public void propertyChange(PropertyChangeEvent event) {
         String propertyName = event.getPropertyName();
         if (propertyName.equals("showBoundingBoxes")
                 || propertyName.equals("scale")
                 || propertyName.equals("phenotype")) {
             logger.info("SwingMorphViewPanel propertyChange:" + propertyName);
-            
-            for (Morph morph : selectedPanel.getBoxedMorphCollection().getMorphs()) {
+
+            for (Morph morph : selectedPanel.getBoxedMorphCollection()
+                    .getMorphs()) {
                 morph.setImage(null);
             }
             selectedPanel.repaint();
@@ -196,8 +246,9 @@ public abstract class SwingMorphView extends JPanel
     @Override
     public void removePanel(MorphViewPanel panel) {
         ((Container) this).remove((Component) panel);
-        if (selectedPanel == panel)
-            selectedPanel = null;
+        if (selectedPanel == panel) {
+            setSelectedPanel(null);
+        }
         panels.remove(panel);
     }
 
@@ -211,11 +262,13 @@ public abstract class SwingMorphView extends JPanel
         this.appData = appData;
     }
 
+    @Override
     public void setCopyMorphsOnBackup(boolean copyMorphsOnBackup) {
         this.copyMorphsOnBackup = copyMorphsOnBackup;
-        
+
     }
 
+    @Override
     public void setIcon(String icon) {
         this.icon = icon;
     }
@@ -225,9 +278,20 @@ public abstract class SwingMorphView extends JPanel
         this.morphDrawer = morphDrawer;
     }
 
+    protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     @Override
-    public void setSelectedPanel(MorphViewPanel selectedPanel) {
-        this.selectedPanel = selectedPanel;
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(propertyName, listener);
+    }
+    @Override
+    public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(propertyName, listener);
+    }
+    @Override
+    public void setSelectedPanel(MorphViewPanel newValue) {
+        MorphViewPanel oldValue = selectedPanel;
+        this.selectedPanel = newValue;
+        pcs.firePropertyChange("selectedPanel", oldValue, newValue);
     }
 
     @Override
@@ -240,6 +304,7 @@ public abstract class SwingMorphView extends JPanel
         this.toolTip = toolTip;
     }
 
+    @Override
     public void undo() {
     }
 

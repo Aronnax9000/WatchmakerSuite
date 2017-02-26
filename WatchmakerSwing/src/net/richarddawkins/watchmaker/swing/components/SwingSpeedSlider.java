@@ -46,8 +46,9 @@ public class SwingSpeedSlider implements MorphViewWidget, ChangeListener {
 	    JSlider slider = (JSlider) e.getSource();
 		if(! slider.getValueIsAdjusting()) {
 			int speed = slider.getValue();
-			logger.info("New speed slider value: " + speed);
-			appData.setTickDelay(Math.round(Math.pow(speed,2)));
+			long tickDelay = Math.round(Math.pow(2,speed));
+            logger.info("New speed slider value: " + speed + " -> tickDelay: " + tickDelay);
+			appData.setTickDelay(tickDelay);
 		}
 		
 	}

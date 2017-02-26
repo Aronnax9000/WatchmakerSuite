@@ -60,7 +60,7 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         for (Lin line : ((Pic) phenotype).lines) {
             limb(g2, phenotype, line);
         }
-        logger.info("SwingPicDrawer.getImage() complete");
+        logger.fine("SwingPicDrawer.getImage() complete");
 		return bufferedImage;
     }
 

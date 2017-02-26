@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Vector;
 
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
@@ -33,12 +34,14 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
  */
 public interface Morph {
 
+    
 	public void setGenome(Genome genome);
 	public Genome getGenome();
 
 	public void setPhenotype(Phenotype phenotype);
 	public Phenotype getPhenotype();
 
+	public Vector<Morph> getMorphAndChildren();
 
     public Pedigree getPedigree();
     

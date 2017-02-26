@@ -4,6 +4,7 @@ package net.richarddawkins.watchmaker.morph;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Vector;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.genome.Genome;
@@ -19,6 +20,22 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
         
         return genome.genomicallyEquals(thatMorph.getGenome());
     }
+
+	
+
+    @Override
+    public Vector<Morph> getMorphAndChildren() {
+        Vector<Morph> morphs = new Vector<Morph>();
+        morphs.add(this);
+        Morph child = this.getPedigree().firstBorn;
+        while(child != null) {
+            morphs.addElement(child);
+            child = child.getPedigree().youngerSib;
+        }
+        return morphs;
+        
+    }
+
 
 
     protected String name;

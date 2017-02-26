@@ -9,6 +9,7 @@ import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -65,8 +66,17 @@ public abstract class SwingAppData implements AppData {
         Vector<Morph> seedMorphs = new Vector<Morph>();
         seedMorphs.add(morph);
         MorphView morphView = SwingMorphViewFactory.getMorphView(this,
-                MorphViewType.breeding, seedMorphs);
+                MorphViewType.breeding, null);
         morphViewsTabbedPane.addMorphView(morphView);
+        if (morph != null) {
+            Morph copy = config.newMorph();
+            Genome genome = config.newGenome();
+            morph.getGenome().copy(genome);
+            copy.setGenome(genome);
+            seedMorphs.add(copy);
+        } else {
+            
+        }
     }
 
     @Override

@@ -4,29 +4,23 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.AbstractAction;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
-import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
-import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.pedigree.MirrorType;
 import net.richarddawkins.watchmaker.pedigree.PedigreeMorphView;
 import net.richarddawkins.watchmaker.swing.album.ActionShowAlbum;
-import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public abstract class SwingMenuBuilder implements MenuBuilder {
@@ -262,26 +256,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         menu.add(new SwingWatchmakerMenuItem("Drift"));
         menu.add(new ActionEngineering(appData));
         menu.add(new ActionTriangle(appData));
-
-        Icon newRandomStartIcon = new ImageIcon(ClassicImageLoader
-                .getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32")
-                .getImage());
-
-        menu.add(new SwingWatchmakerMenuItem(new AbstractAction(
-                "Hopeful Monster (New Random Start)", newRandomStartIcon) {
-            private static final long serialVersionUID = 1L;
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MorphConfig config = appData.getMorphConfig();
-                Morph morph = appData.getMorphOfTheHour();
-                Genome genome = config.getGenomeFactory().deliverSaltation();
-                morph.setGenome(genome);
-                MorphView morphView = appData.getMorphViewsTabbedPane()
-                        .getSelectedMorphView();
-                morphView.addSeedMorph(morph);
-            }
-        }));
+        menu.add(new ActionNewRandomStart(appData));
         menu.add(new SwingWatchmakerMenuItem("Initialize Fossil Record"));
         menu.add(new SwingWatchmakerMenuItem("Play Back Fossils"));
         menu.add(new SwingWatchmakerMenuItem("Recording Fossils"));

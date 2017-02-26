@@ -17,13 +17,18 @@ public class SwingAlbumMorphView extends SwingMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView");
 
-    public SwingAlbumMorphView(SwingMorphViewConfig config) {
-        super(config);
-        this.setLayout(new GridLayout(2, 2));
+    @Override
+    public void addPanels() {
         for (BoxedMorphCollection page : album.getPages()) {
             MorphViewPanel panel = new SwingAlbumMorphViewPanel(this, page);
             addPanel(panel);
         }
+        
+    }
+    
+    public SwingAlbumMorphView(SwingMorphViewConfig config) {
+        super(config);
+        this.setLayout(new GridLayout(2, 2));
     }
 
     @Override
@@ -55,8 +60,9 @@ public class SwingAlbumMorphView extends SwingMorphView {
             seedMorphs.removeAll(seededMorphs);
             
         }
-        // TODO Auto-generated method stub
 
     }
+
+
 
 }

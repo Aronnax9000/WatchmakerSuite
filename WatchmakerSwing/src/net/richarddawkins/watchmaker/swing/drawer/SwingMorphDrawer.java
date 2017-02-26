@@ -15,6 +15,7 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphDrawer implements MorphDrawer {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer");
@@ -39,7 +40,7 @@ public class SwingMorphDrawer implements MorphDrawer {
 			scale = boxedMorph.getProgress();
 			logger.fine("Scale: " + scale);
 		}
-		scale *= Math.pow(2, picDrawer.getDrawingPreferences().getScale());
+		scale *= Math.pow(Globals.zoomBase, boxedMorph.getBoxes().getScale());
 		logger.fine("Scale: " + scale);
 		
 		Morph morph = boxedMorph.getMorph();

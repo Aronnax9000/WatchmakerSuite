@@ -43,10 +43,28 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         return SwingGeom.toWatchmakerDim(super.getSize());
     }
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    protected BoxManager boxManager;
+    @Override
+    public void propertyChange(PropertyChangeEvent event) {
+        if(event.getPropertyName().equals("scale")) {
+            clearMorphImages();
+        }
+    }
+    
+    public void clearMorphImages() {
+        for (Morph morph : boxedMorphCollection
+                .getMorphs()) {
+            morph.setImage(null);
+        }
+        repaint();
+    }
+    
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
+        
+        
+        
         this.morphView = morphView;
-        this.boxedMorphCollection = page;
+        setBoxedMorphCollection(page);
+        
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -147,8 +165,15 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
                 backgroundColors);
     }    
     @Override
-    public void setBoxedMorphCollection(BoxedMorphCollection boxedMorphVector) {
-        this.boxedMorphCollection = boxedMorphVector;
+    public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
+        BoxedMorphCollection oldValue = this.boxedMorphCollection;
+        if(oldValue != null) {
+            oldValue.getBoxes().removePropertyChangeListener("scale", this);
+        }
+        this.boxedMorphCollection = newValue;
+        if(newValue != null) {
+            newValue.getBoxes().addPropertyChangeListener("scale", this);
+        }
     }
     /**
      * Draw the MorphView's breeding box outlines (if showBoxes is set) and its
@@ -166,6 +191,9 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
         // Add any pending morphs
+        if(getCursor() == null) {
+            updateCursor();
+        }
         morphView.seed();
         synchronized (boxedMorphCollection) {
             if (morphView.isShowBoxes()) {
@@ -237,16 +265,12 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         logger.fine("Converted point " + p);
         if (p.x > -1 && p.y > -1) {
             Dim size = SwingGeom.toWatchmakerDim(this.getSize());
-            logger.fine("processMouseMotion called");
+            logger.fine("updateCursor called");
             processMouseMotion(SwingGeom.toWatchmakerPoint(p), size);
-            logger.fine("processMouseMotion returned");
+            logger.fine("updateCursor returned");
         }
 
     }
 
-    @Override
-    public void setBoxManager(BoxManager boxManager) {
-        this.boxManager = boxManager;
-        
-    }
+
 }
