@@ -67,6 +67,7 @@ public abstract class SwingMorphView extends JPanel
     @Override
     public void addSeedMorph(Morph seedMorph) {
         seedMorphs.add(seedMorph);
+        panels.firstElement().repaint();
     }
 
     @Override

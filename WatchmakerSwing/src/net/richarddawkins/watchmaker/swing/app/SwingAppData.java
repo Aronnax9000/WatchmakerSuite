@@ -35,7 +35,6 @@ public abstract class SwingAppData implements AppData {
         MorphView morphView = getMorphViewsTabbedPane()
                 .getSelectedMorphView();
         morphView.addSeedMorph(morph);
-        
     }
 
     public String toString() {

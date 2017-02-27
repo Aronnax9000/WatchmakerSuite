@@ -50,4 +50,5 @@ public interface MorphView {
     void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
     void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
     void initAlbum(Album newAlbum);
+    void repaint();
 }
