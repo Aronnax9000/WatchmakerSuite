@@ -15,6 +15,21 @@ import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
+/**
+ * The Macintosh II, the first color model, had a screen resolution of
+ * 512x384. Richard's display area was (apparently, based on his own source code)
+ * 512x342 a, difference of 42 pixels in height. RIP Douglas Adams (1952-2001) - ABC
+ * 
+ * <pre>
+ *      a.h := round(234 * ScreenWidth / 512);
+ *      a.v := round(51 * ScreenHeight / 342);
+ *      b.h := round(134 * ScreenWidth / 512);
+ *      b.v := round(250 * ScreenHeight / 342);
+ *      c.h := round(333 * ScreenWidth / 512);
+ *      c.v := round(250 * ScreenHeight / 342);
+ * </pre>
+ * 
+ */
 public class SwingTriangleMorphView extends SwingMorphView {
     protected static final Point[] trianglePoints = new Point[] { new Point(234, 51),
             new Point(134, 250), new Point(333, 250) };
@@ -30,22 +45,6 @@ public class SwingTriangleMorphView extends SwingMorphView {
     }
 
     
-    /**
-     * The Macintosh II, the first color model, had a screen resolution of
-     * 512x384.
-     * 
-     * <pre>
-     * 		a.h := round(234 * ScreenWidth / 512);
-     * 		a.v := round(51 * ScreenHeight / 342);
-     * 		b.h := round(134 * ScreenWidth / 512);
-     * 		b.v := round(250 * ScreenHeight / 342);
-     * 		c.h := round(333 * ScreenWidth / 512);
-     * 		c.v := round(250 * ScreenHeight / 342);
-     * </pre>
-     * 
-     * @param appData
-     *            the appData for the morph type which owns this morph view.
-     */
     public SwingTriangleMorphView(SwingMorphViewConfig config) {
         super(config);
     }

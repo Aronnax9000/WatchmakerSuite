@@ -32,10 +32,21 @@ public class Dim {
 		return "Dim:" + width + "x" + height;
 	}
 	
+	/**
+	 * 
+	 * @param dim a Dim to be added with this one for purposes of determining an enclosing Dim.
+	 * @return a new Dim whose width and height are the greater of those of this dim and
+	 * the provided dim.
+	 */
 	public Dim union(Dim dim) {
 	    return new Dim(Math.max(width, dim.width), Math.max(height, dim.height));
 	}
-	
+	/**
+	 * Return a dim that is at least as large in width and height as all of the provided Dims.
+	 * @param dims a list of dims, to calculate the enclosing dimension
+	 * @return a Dim whose width and height are equal to the greatest width and height of the
+	 * provided collection of dims.
+	 */
 	public static Dim getLargest(Collection<Dim> dims) {
 	    Dim largestDim = new Dim(0,0);
 	    for(Dim dim: dims) {
@@ -44,11 +55,12 @@ public class Dim {
 	    return largestDim;
 	}
     /**
-     * Returns the binary logarithm of the scale multiplier required to ensure
-     * that the second dimension fits within the first.
-     * @param boxDim
-     * @param largestMorphDim
-     * @return
+     * Returns the logarithm of the scale multiplier required to ensure
+     * that the second dimension fits within the first, to the given logarithmic base.
+     * @param dimToFit the dimension to fit inside this dimension. 
+     * @param zoomBase the logarithm base (example 2.0 gives a multiplier of 2 for each integral zoom step.) Values greater than 1 are meaningful.
+     * @return the smallest integer that is not larger than the logarithm of the scale
+     * required to fit the given dimension inside this dimension, to the given logarithmic base.
      */
     public int getScale(Dim dimToFit, double zoomBase) {
         
