@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
+import java.util.Arrays;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
@@ -42,6 +43,7 @@ public class SwingMorphViewFactory {
             break;
         case triangle:
             config.name = "Triangle";
+            config.seedMorphs.addAll(Arrays.asList(appData.getMorphConfig().getTriangleMorphs()));
             morphView = new SwingTriangleMorphView(config);
             break;
         case album:

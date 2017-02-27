@@ -10,6 +10,7 @@ import net.richarddawkins.watchmaker.geom.FreeBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.pedigree.MirrorType;
 import net.richarddawkins.watchmaker.pedigree.PedigreeMorphView;
@@ -55,18 +56,27 @@ public class SwingPedigreeMorphView extends SwingMorphView
      */
     public SwingPedigreeMorphView(SwingMorphViewConfig config) {
         super(config);
-        BoxManager boxes = new FreeBoxManager();
-        MorphViewPanel panel = new SwingPedigreeMorphViewPanel(this,
-                album.firstElement());
-        album.firstElement().setBoxes(boxes);
-        panels.firstElement().setCursor(WatchmakerCursors.pedigree);
     }
 
     @Override
+    public void addPanels() {
+        BoxedMorphCollection boxedMorphs = new BoxedMorphCollection("Pedigree Backing", newBoxManager());
+        album.addPage(boxedMorphs);
+        MorphViewPanel panel = new SwingPedigreeMorphViewPanel(this,
+                boxedMorphs);
+        panels.add(panel);
+    }
+    
+    @Override
+    public BoxManager newBoxManager() {
+        return new FreeBoxManager();
+    }
+    
+    @Override
     public void seed() {
         synchronized (seedMorphs) {
+            logger.info("SwingPedigreeMorphView.seed() with " + seedMorphs.size() + " seedMorphs");
             Morph morph = seedMorphs.firstElement();
-            
             // Dim dim = new Dim(512, 342);
             BoxManager boxes = album.firstElement().getBoxes();
             BufferedImage image = (BufferedImage) morph.getImage();
@@ -81,7 +91,7 @@ public class SwingPedigreeMorphView extends SwingMorphView
             upperLeft = upperLeft.subtract(new Point(width / 2, height / 2));
             Rect newRect = new Rect(upperLeft.h, upperLeft.v,
                     upperLeft.h + width / 2, upperLeft.v + height / 2);
-
+            logger.info("Adding rect " + newRect +" with screen size: " + size);
             boxes.addBox(newRect, size);
             BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
             album.firstElement().add(boxedMorph);

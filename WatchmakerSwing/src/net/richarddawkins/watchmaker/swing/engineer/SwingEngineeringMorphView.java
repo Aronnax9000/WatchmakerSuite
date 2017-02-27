@@ -4,7 +4,6 @@ import java.beans.PropertyChangeEvent;
 import java.util.Vector;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
@@ -20,19 +19,19 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 
-    
     @Override
     public BoxManager newBoxManager() {
         BoxManager boxManager = new GridBoxManager(1, 1);
         return boxManager;
     }
-    
+
     @Override
     public void addPanels() {
         MorphViewPanel panel = new SwingEngineeringMorphViewPanel(this,
                 new BoxedMorphCollection("backing", newBoxManager()));
-        addPanel(panel);   
+        addPanel(panel);
     }
+
     public SwingEngineeringMorphView(SwingMorphViewConfig config) {
         super(config);
     }
@@ -41,10 +40,10 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
     public void seed() {
         if (!seedMorphs.isEmpty()) {
             synchronized (seedMorphs) {
-                BoxedMorphCollection boxedMorphs = panels.firstElement().getBoxedMorphCollection();
+                BoxedMorphCollection boxedMorphs = panels.firstElement()
+                        .getBoxedMorphCollection();
                 if (!boxedMorphs.isEmpty()) {
-                    for (BoxedMorph boxedMorph : boxedMorphs
-                            .getBoxedMorphs()) {
+                    for (BoxedMorph boxedMorph : boxedMorphs.getBoxedMorphs()) {
                         boxedMorph.getMorph()
                                 .removePropertyChangeListener(this);
                     }
@@ -52,12 +51,13 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
                 }
                 BoxManager boxes = boxedMorphs.getBoxes();
                 int index = 0;
-                for (Morph morph : seedMorphs) {
-                    BoxedMorph boxedMorph = new BoxedMorph(boxes, morph,
-                            boxes.getBox(index++));
-                    morph.addPropertyChangeListener(this);
-                    boxedMorphs.add(boxedMorph);
-                }
+                Morph morph = seedMorphs.firstElement();
+                BoxedMorph boxedMorph = new BoxedMorph(boxes, morph,
+                        boxes.getBox(index++));
+                morph.addPropertyChangeListener(this);
+                boxedMorphs.add(boxedMorph);
+                seedMorphs.remove(morph);
+
                 // GEneBoxStrip shouldbe told? How does Breeding do it?
             }
         }
@@ -95,6 +95,7 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
      * 
      */
     private static final long serialVersionUID = 8224824610112892419L;
+
     @Override
     public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
         super.addSeedMorphs(seedMorphsToAdd);
@@ -102,7 +103,7 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
             MorphConfig morphConfig = appData.getMorphConfig();
             this.seedMorphs.add(morphConfig.newMorph(0));
         }
-        
+
     }
 
 }

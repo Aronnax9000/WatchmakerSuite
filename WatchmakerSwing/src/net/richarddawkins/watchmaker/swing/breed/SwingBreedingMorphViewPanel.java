@@ -1,9 +1,5 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.beans.PropertyChangeEvent;
-import java.util.Vector;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
@@ -14,11 +10,9 @@ import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
-import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     private static Logger logger = Logger.getLogger(

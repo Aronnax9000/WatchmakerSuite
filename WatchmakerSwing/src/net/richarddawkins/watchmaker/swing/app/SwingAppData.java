@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Arrays;
 import java.util.Vector;
+import java.util.logging.Logger;
 
 import javax.swing.JTabbedPane;
 
@@ -22,6 +23,8 @@ import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
 public abstract class SwingAppData implements AppData {
+    private static Logger logger = Logger.getLogger(
+            "net.richarddawkins.watchmaker.swing.app.SwingAppData");
 
     @Override
     public void newRandomStart() {
@@ -76,10 +79,6 @@ public abstract class SwingAppData implements AppData {
     @Override
     public void addBreedingMorphView(Morph morph) {
         Vector<Morph> seedMorphs = new Vector<Morph>();
-        seedMorphs.add(morph);
-        MorphView morphView = SwingMorphViewFactory.getMorphView(this,
-                MorphViewType.breeding, null);
-        morphViewsTabbedPane.addMorphView(morphView);
         if (morph != null) {
             Morph copy = config.newMorph();
             Genome genome = config.newGenome();
@@ -87,8 +86,13 @@ public abstract class SwingAppData implements AppData {
             copy.setGenome(genome);
             seedMorphs.add(copy);
         } else {
-            
-        }
+            logger.info("addBreedingMorphView Seeding basic type");
+            seedMorphs.addElement(config.newMorph(config.getStartingMorphBasicType()));
+        }        
+        MorphView morphView = SwingMorphViewFactory.getMorphView(this,
+                MorphViewType.breeding, seedMorphs);
+        morphViewsTabbedPane.addMorphView(morphView);
+
     }
 
     @Override
@@ -106,9 +110,9 @@ public abstract class SwingAppData implements AppData {
     }
 
     @Override
-    public void addPedigreeMorphView(Morph morph) {
+    public void addPedigreeMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
-        seedMorphs.add(morph);
+        seedMorphs.add(getMorphOfTheHour());
         morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
                 MorphViewType.pedigree, seedMorphs));        
 

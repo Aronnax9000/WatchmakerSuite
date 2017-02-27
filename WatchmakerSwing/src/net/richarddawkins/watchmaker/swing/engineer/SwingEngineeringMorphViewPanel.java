@@ -10,9 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
-import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
@@ -46,6 +44,16 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel {
         JOptionPane.showOptionDialog(this, new HypodermicWarning(), null,
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 options, options[0]);
+    }
+
+
+
+    @Override
+    public synchronized void paintMorphViewPanel(Object graphicsContext,
+            Dim size) {
+        autoScaleBasedOnMorphs(boxedMorphCollection.getBoxes().getBox(0),
+                getIncludeChildrenInAutoScale());
+        super.paintMorphViewPanel(graphicsContext, size);
     }
 
 

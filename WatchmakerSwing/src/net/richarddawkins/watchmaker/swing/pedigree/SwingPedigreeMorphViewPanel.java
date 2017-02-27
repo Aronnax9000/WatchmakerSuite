@@ -31,6 +31,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel {
 
     public SwingPedigreeMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
+        setCursor(WatchmakerCursors.pedigree);
     }
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,

@@ -69,7 +69,7 @@ public interface AppData  {
 	public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
 	public long getTickDelay();
 	void setTickDelay(long tickDelay);
-    public void addPedigreeMorphView(Morph morph);
+    public void addPedigreeMorphView();
     void addAlbumMorphView(Album album);
     public void newRandomStart();
     

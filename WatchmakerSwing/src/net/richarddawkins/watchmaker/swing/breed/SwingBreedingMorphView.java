@@ -10,11 +10,10 @@ import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
-import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
@@ -27,12 +26,13 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
 
     boolean freshlySeeded = false;
     Vector<Morph> litter;
-    
+
     public SwingBreedingMorphView(SwingMorphViewConfig config) {
         super(config);
     }
+
     @Override
-    
+
     public void addPanels() {
         SwingBreedingMorphViewPanel panel = new SwingBreedingMorphViewPanel(
                 this, album.getPage(0));
@@ -40,17 +40,11 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     }
 
     @Override
-    public void addSeedMorphs(Vector<Morph> seedMorphs) {
-        MorphConfig morphConfig = appData.getMorphConfig();
-        this.addSeedMorph(
-                morphConfig.newMorph(morphConfig.getStartingMorphBasicType()));
-    }
-
-    @Override
     public void initAlbum(Album newAlbum) {
         super.initAlbum(newAlbum);
-        if(album.size() == 0) {
-            BoxedMorphCollection page = new BoxedMorphCollection("backing", newBoxManager());
+        if (album.size() == 0) {
+            BoxedMorphCollection page = new BoxedMorphCollection("backing",
+                    newBoxManager());
             album.addPage(page);
         }
     }
@@ -61,50 +55,6 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 appData.getDefaultBreedingRows());
     }
 
-    @Override
-    public void seed() {
-        synchronized (seedMorphs) {
 
-            if (!seedMorphs.isEmpty()) {
-                logger.info("Seeding");
-
-                Morph seedMorph = seedMorphs.firstElement();
-                SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) panels
-                        .firstElement();
-                BoxedMorphCollection boxedMorphCollection = panel
-                        .getBoxedMorphCollection();
-                BoxManager boxes = boxedMorphCollection.getBoxes();
-                
-                boxedMorphCollection.clear();
-                panel.setSelectedBox(null);
-                Rect midBox = boxes.getMidBox();
-                BoxedMorph boxedMorph = new BoxedMorph(boxes, seedMorph, midBox);
-                boxedMorphCollection.removeAllElements();
-                boxedMorphCollection.add(boxedMorph);
-                logger.info("Added boxedMorph: " + boxedMorph);
-                // Trigger first breeding
-
-                panel.setSpecial(midBox);
-                if (appData.isBreedRightAway()) {
-                    ((SwingBreedingMorphViewPanel) panels.firstElement())
-                            .breedFromSpecial();
-                }
-                seedMorph.setImage(null);
-
-                Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
-                Dim parentMorphDim = seedMorph.getPhenotype().getMargin().getDim();
-                logger.info(" PanelDim:" + panel.getDim() + " BoxDim:" + boxDim
-                        + " ParentMorphDim:" + parentMorphDim);
-                int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
-
-                if (scale != boxes.getScale()) {
-                    boxes.setScale(scale);
-                }
-                panel.setSelectedBox(midBox);
-                seedMorphs.remove(seedMorph);
-            }
-            repaint();
-        }
-    }
 
 }

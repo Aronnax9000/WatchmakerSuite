@@ -248,6 +248,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
+        logger.info("paintMorphViewPanel");
         // Add any pending morphs
         if(getCursor() == null) {
             updateCursor();

@@ -20,7 +20,7 @@ public class ActionPedigree  extends SwingWatchmakerAction {
     
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        Morph morph = appData.getMorphOfTheHour();
-        appData.addPedigreeMorphView(morph);
+        
+        appData.addPedigreeMorphView();
     }
 }

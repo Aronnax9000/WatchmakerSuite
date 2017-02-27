@@ -21,14 +21,19 @@ import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.components.SwingScaleSlider;
 import net.richarddawkins.watchmaker.swing.components.SwingSpeedSlider;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public abstract class SwingMorphView extends JPanel
         implements MorphView, PropertyChangeListener {
@@ -71,6 +76,7 @@ public abstract class SwingMorphView extends JPanel
         } else {
             this.album = new Album("backing");
         }
+        
     }
 
 
@@ -95,8 +101,51 @@ public abstract class SwingMorphView extends JPanel
     }
     @Override
     public void seed() {
-        // TODO Auto-generated method stub
-        
+
+        if (!seedMorphs.isEmpty()) {
+            synchronized (seedMorphs) {
+                logger.info("Seeding");
+
+                Morph seedMorph = seedMorphs.firstElement();
+                SwingMorphViewPanel panel = (SwingMorphViewPanel) panels
+                        .firstElement();
+                BoxedMorphCollection boxedMorphCollection = panel
+                        .getBoxedMorphCollection();
+                BoxManager boxes = boxedMorphCollection.getBoxes();
+
+                boxedMorphCollection.clear();
+                panel.setSelectedBox(null);
+                Rect midBox = boxes.getMidBox();
+                BoxedMorph boxedMorph = new BoxedMorph(boxes, seedMorph,
+                        midBox);
+                boxedMorphCollection.removeAllElements();
+                boxedMorphCollection.add(boxedMorph);
+                logger.info("Added boxedMorph: " + boxedMorph);
+                // Trigger first breeding
+
+                panel.setSpecial(midBox);
+                if (appData.isBreedRightAway()) {
+                    ((SwingBreedingMorphViewPanel) panels.firstElement())
+                            .breedFromSpecial();
+                }
+                seedMorph.setImage(null);
+
+                Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
+                Dim parentMorphDim = seedMorph.getPhenotype().getMargin()
+                        .getDim();
+                logger.info(" PanelDim:" + panel.getDim() + " BoxDim:" + boxDim
+                        + " ParentMorphDim:" + parentMorphDim);
+                int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
+
+                if (scale != boxes.getScale()) {
+                    boxes.setScale(scale);
+                }
+                panel.setSelectedBox(midBox);
+                seedMorphs.remove(seedMorph);
+
+            }
+            repaint();
+        }
     }
 
     @Override
