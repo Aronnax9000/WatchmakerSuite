@@ -57,7 +57,10 @@ public class GridBoxManager extends BoxManager {
         
         if (boxCount >= rows * cols / 2) {
             midBox = boxes.elementAt(boxCount / 2);
+        } else if(boxCount == 1) {
+            midBox = boxes.firstElement();
         } else {
+        
             midBox = null;
         }
 

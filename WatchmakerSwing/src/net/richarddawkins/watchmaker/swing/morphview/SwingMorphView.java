@@ -42,7 +42,7 @@ public abstract class SwingMorphView extends JPanel
     protected Album album;
 
     protected AppData appData;
-    private boolean copyMorphsOnBackup;
+    protected boolean copyMorphsOnBackup;
 
     protected String icon;
 
@@ -57,34 +57,22 @@ public abstract class SwingMorphView extends JPanel
 
     public SwingMorphView(AppData appData, String icon, String name,
             Album newAlbum, boolean engineeringMode) {
-
     }
 
     @Override
     public void addSeedMorph(Morph seedMorph) {
         seedMorphs.add(seedMorph);
-        
     }
 
-
     @Override
-    public void initBoxedMorphCollection(Album newAlbum, boolean engineeringMode) {
+    public void initAlbum(Album newAlbum) {
         if (newAlbum != null) {
             this.album = newAlbum;
         } else {
             this.album = new Album("backing");
         }
-        BoxedMorphCollection boxedMorphCollection;
-        if (album.size() == 0) {
-            boxedMorphCollection = new BoxedMorphCollection("backing", newBoxManager());
-            if (! engineeringMode) {
-                album.addPage(boxedMorphCollection);
-            }
-        } else {
-            boxedMorphCollection = album.firstElement();
-        }
-
     }
+
 
     protected SwingScaleSlider scaleSlider;
 
@@ -93,19 +81,14 @@ public abstract class SwingMorphView extends JPanel
         this.appData = config.appData;
         this.setIcon(config.icon);
         this.setName(config.name);
-        // this.setPreferredSize(new Dimension(640, 480));
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
         this.setLayout(new BorderLayout());
 
         this.setMorphDrawer(new SwingMorphDrawer(appData.getPhenotypeDrawer()));
-        // Do we need this? Was probably just for scale
-//        phenotypeDrawer.getDrawingPreferences().addPropertyChangeListener(this);
-
-        
-        initBoxedMorphCollection(config.album, config.engineeringMode);
-        addSeedMorphs(config.seedMorphs);
+        initAlbum(config.album);
         addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide); 
+        addSeedMorphs(config.seedMorphs);
         addPanels();
         addSliders();
         setSelectedPanel(panels.firstElement());
@@ -122,10 +105,10 @@ public abstract class SwingMorphView extends JPanel
     }
 
     @Override
-    public void addSeedMorphs(Vector<Morph> seedMorphs) {
-        if (seedMorphs != null) {
-            seedMorphs.addAll(seedMorphs);
-            seedMorphs.clear();
+    public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
+        if (this.seedMorphs != null) {
+            this.seedMorphs.addAll(seedMorphsToAdd);
+            seedMorphsToAdd.clear();
         }
     }
 

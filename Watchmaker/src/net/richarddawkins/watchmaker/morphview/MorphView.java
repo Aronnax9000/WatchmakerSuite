@@ -44,10 +44,10 @@ public interface MorphView {
     void setCopyMorphsOnBackup(boolean copyMorphsOnBackup);
     void addPanels();
     void addSliders();
-    void initBoxedMorphCollection(Album album, boolean engineeringMode);
     BoxManager newBoxManager();
     void addGeneBoxStrip(boolean engineeringMode, boolean geneBoxToSide);
     void addSeedMorphs(Vector<Morph> seedMorphs);
     void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
     void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
+    void initAlbum(Album newAlbum);
 }

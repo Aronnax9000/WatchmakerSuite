@@ -23,31 +23,23 @@ import net.richarddawkins.watchmaker.util.Globals;
 public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel");
-    protected Rect selectedBox = null;
     public Rect special = null;
     private static final long serialVersionUID = 1L;
 
     public SwingBreedingMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         super(morphView, page);
-        this.addComponentListener(new ResizeListener());
-        // if(morphView.getAppData().isBreedRightAway()) {
-        // setCursor(WatchmakerCursors.breed);
-        // } else {
-        // setCursor(WatchmakerCursors.random);
-        // }
+
     }
 
     @Override
     public void processMouseMotion(Point myPt, Dim size) {
         logger.fine("processMouseMotion(" + myPt + ", " + size);
+        super.processMouseMotion(myPt, size);
         if (!(this.getCursor() == WatchmakerCursors.highlight
                 && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
             BoxManager boxes = boxedMorphCollection.getBoxes();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
-            if (box != selectedBox) {
-                setSelectedBox(box);
-            }
             if (box != null) {
                 logger.fine("processMouseMotion found box " + box);
                 // synchronized (boxedMorphVector) {
@@ -75,12 +67,6 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                 logger.warning("No box found under cursor");
             }
         }
-    }
-
-    public void setSelectedBox(Rect newValue) {
-        Rect oldValue = this.selectedBox;
-        this.selectedBox = newValue;
-        firePropertyChange("selectedBox", oldValue, newValue);
     }
 
     @Override
@@ -151,48 +137,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
         }
     }
 
-    public void setSpecial(Rect midBox) {
-        special = midBox;
 
-    }
 
-    public Rect getSpecial() {
-        return special;
-    }
-
-    class ResizeListener extends ComponentAdapter {
-        public void componentResized(ComponentEvent e) {
-            autoScaleBasedOnMorphs();
-        }
-    }
-
-    public void autoScaleBasedOnMorphs() {
-        Vector<Dim> dims = new Vector<Dim>();
-
-        BoxManager boxes = boxedMorphCollection.getBoxes();
-        BoxedMorph boxedMorphSpecial = boxedMorphCollection
-                .getBoxedMorph(special);
-        if (boxedMorphSpecial != null) {
-            Morph specialMorph = boxedMorphSpecial.getMorph();
-            Vector<Morph> morphs = specialMorph.getMorphAndChildren();
-            for (Morph morph : morphs) {
-                Dim dim = morph.getPhenotype().getMargin().getDim();
-                logger.fine("Adding dim " + dim);
-                dims.add(dim);
-            }
-
-            Dim largestMorphDim = Dim.getLargest(dims);
-
-            Dim boxDim = boxes.firstElement().getDim();
-            int newScale = boxDim.getScale(largestMorphDim, Globals.zoomBase);
-            DrawingPreferences drawingPreferences = morphView.getAppData()
-                    .getPhenotypeDrawer().getDrawingPreferences();
-            if (newScale != boxes.getScale()) {
-                boxes.setScale(newScale);
-            }
-        } else {
-            logger.warning("autoScaleBasedOnMorphs: no special boxed morph");
-        }
-    }
 
 }

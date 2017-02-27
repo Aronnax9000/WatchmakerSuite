@@ -14,7 +14,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
 import net.richarddawkins.watchmaker.util.Globals;
 
@@ -79,7 +81,10 @@ public class SwingScaleSlider
             this.scale = (Integer) evt.getNewValue();
             slider.setValue(scale);
         } else if (evt.getPropertyName().equals("selectedPanel")) {
-            BoxManager selectedPanelBoxManager = ((MorphView)evt.getSource()).getSelectedPanel().getBoxedMorphCollection().getBoxes();
+            MorphView morphView = (MorphView)evt.getSource();
+            MorphViewPanel morphViewPanel = morphView.getSelectedPanel();
+            BoxedMorphCollection boxedMorphCollection = morphViewPanel.getBoxedMorphCollection();
+            BoxManager selectedPanelBoxManager = boxedMorphCollection.getBoxes();
             this.setBoxManager(selectedPanelBoxManager);
         }
     }

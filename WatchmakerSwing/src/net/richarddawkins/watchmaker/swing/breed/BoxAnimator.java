@@ -57,7 +57,7 @@ public class BoxAnimator extends TimerTask {
         // Get the eldest child of a new litter of offspring of the parent
         // morph
 
-        breedingPanel.autoScaleBasedOnMorphs();
+        breedingPanel.autoScaleBasedOnMorphs(special, breedingPanel.getIncludeChildrenInAutoScale());
 
         // We don't box it yet, because we still have to animate the parent.
         this.boxedNewestOffspring = null;

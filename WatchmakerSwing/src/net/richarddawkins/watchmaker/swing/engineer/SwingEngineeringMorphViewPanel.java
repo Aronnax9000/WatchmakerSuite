@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
@@ -26,12 +27,18 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel {
 
     private static final long serialVersionUID = 1L;
 
-    public SwingEngineeringMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
-        super(morphView, page);
-        boxedMorphCollection.setBoxes(new GridBoxManager(1, 1));
+    @Override
+    public boolean getIncludeChildrenInAutoScale() {
+        return false;
+    }
+
+    public SwingEngineeringMorphViewPanel(MorphView morphView,
+            BoxedMorphCollection page) {
+        super(morphView,
+                new BoxedMorphCollection("backing", morphView.newBoxManager()));
         setCursor(WatchmakerCursors.hypodermic);
     }
-    
+
     @Override
     protected void processMouseClicked(Point point, Dim size) {
         logger.info("Showing hypodermic message dialog");
@@ -39,15 +46,9 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel {
         JOptionPane.showOptionDialog(this, new HypodermicWarning(), null,
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 options, options[0]);
-
     }
 
-    @Override
-    protected void processMouseMotion(Point myPt, Dim size) {
-        // TODO Auto-generated method stub
 
-    }
-    
 
     class HypodermicWarning extends JPanel {
         private static final long serialVersionUID = 1L;

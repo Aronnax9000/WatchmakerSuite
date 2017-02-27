@@ -25,25 +25,20 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
 
     protected BoxedMorph boxedMorphSpecial;
 
+    boolean freshlySeeded = false;
     Vector<Morph> litter;
+    
+    public SwingBreedingMorphView(SwingMorphViewConfig config) {
+        super(config);
+    }
     @Override
+    
     public void addPanels() {
-
         SwingBreedingMorphViewPanel panel = new SwingBreedingMorphViewPanel(
                 this, album.getPage(0));
         addPanel(panel);
     }
-    @Override
-    public BoxManager newBoxManager() {
-        return new GridBoxManager(appData.getDefaultBreedingCols(),
-                appData.getDefaultBreedingRows());
-    }
-    @Override
-    public void initBoxedMorphCollection(Album newAlbum, boolean engineeringMode) {
-        super.initBoxedMorphCollection(newAlbum, engineeringMode);
-        album.firstElement()
-                .setBoxes(newBoxManager());
-    }
+
     @Override
     public void addSeedMorphs(Vector<Morph> seedMorphs) {
         MorphConfig morphConfig = appData.getMorphConfig();
@@ -51,11 +46,20 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 morphConfig.newMorph(morphConfig.getStartingMorphBasicType()));
     }
 
-    public SwingBreedingMorphView(SwingMorphViewConfig config) {
-        super(config);
+    @Override
+    public void initAlbum(Album newAlbum) {
+        super.initAlbum(newAlbum);
+        if(album.size() == 0) {
+            BoxedMorphCollection page = new BoxedMorphCollection("backing", newBoxManager());
+            album.addPage(page);
+        }
     }
 
-    boolean freshlySeeded = false;
+    @Override
+    public BoxManager newBoxManager() {
+        return new GridBoxManager(appData.getDefaultBreedingCols(),
+                appData.getDefaultBreedingRows());
+    }
 
     @Override
     public void seed() {
@@ -92,8 +96,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 logger.info(" PanelDim:" + panel.getDim() + " BoxDim:" + boxDim
                         + " ParentMorphDim:" + parentMorphDim);
                 int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
-                DrawingPreferences drawingPreferences = appData
-                        .getPhenotypeDrawer().getDrawingPreferences();
+
                 if (scale != boxes.getScale()) {
                     boxes.setScale(scale);
                 }

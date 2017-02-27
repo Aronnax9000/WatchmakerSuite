@@ -4,6 +4,8 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MouseInfo;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
@@ -25,45 +27,35 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
+import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel.ResizeListener;
+import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
-    protected Point lastMouseDown;
-    protected Dim lastMouseDownSize;
-    protected Point lastMouseDrag;
-    protected Dim lastMouseDragSize;
-    private static final long serialVersionUID = 1L;
-    protected BoxedMorphCollection boxedMorphCollection;
+    protected class ResizeListener extends ComponentAdapter {
+        public void componentResized(ComponentEvent e) {
+            autoScaleBasedOnMorphs(special, getIncludeChildrenInAutoScale());
+        }
 
+    }
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel");
+    private static final long serialVersionUID = 1L;
+    protected BoxedMorphCollection boxedMorphCollection;
+    protected Point lastMouseDown;
+    protected Dim lastMouseDownSize;
+
+    protected Point lastMouseDrag;
+    protected Dim lastMouseDragSize;
     public MorphView morphView;
-    @Override
-    public Dim getDim() {
-        return SwingGeom.toWatchmakerDim(super.getSize());
-    }
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    @Override
-    public void propertyChange(PropertyChangeEvent event) {
-        if(event.getPropertyName().equals("scale")) {
-            clearMorphImages();
-        }
-    }
-    
-    public void clearMorphImages() {
-        for (Morph morph : boxedMorphCollection
-                .getMorphs()) {
-            morph.setImage(null);
-        }
-        repaint();
-    }
-    
+    protected Rect selectedBox = null;
+    protected Rect special;
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         
-        
-        
         this.morphView = morphView;
-        setBoxedMorphCollection(page);
         
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
@@ -107,35 +99,51 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         };
         addMouseListener(mouseAdapter);
         addMouseMotionListener(mouseAdapter);
+        addComponentListener(new ResizeListener());
         
-    }
+        setBoxedMorphCollection(page);
 
-    @Override
-    public void paintComponent(Graphics g) {
-        logger.fine("centrePanel.paintComponent()");
-        super.paintComponent(g);
-        paintMorphViewPanel((Graphics2D) g,
-                SwingGeom.toWatchmakerDim(this.getSize()));
     }
-    
-    @Override
-    public BoxedMorphCollection getBoxedMorphCollection() {
-        return boxedMorphCollection;
-    }
-    @Override
-    public Morph getMorphOfTheHour() {
-        Morph morph = boxedMorphCollection.getSelectedBoxedMorph().getMorph();
-        
-        if(morph == null) {
-            Rect midBox = boxedMorphCollection.getBoxes().getMidBox();
-            if(midBox != null)
-                morph = boxedMorphCollection.getBoxedMorph(midBox).getMorph();
-            else
-                morph = boxedMorphCollection.lastElement().getMorph();
+    public void autoScaleBasedOnMorphs(Rect special, boolean includeChildren) {
+
+        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxedMorph boxedMorphSpecial = boxedMorphCollection
+                .getBoxedMorph(special);
+        if (boxedMorphSpecial != null) {
+            Morph specialMorph = boxedMorphSpecial.getMorph();
+
+            Dim largestMorphDim;
+            
+            if(includeChildren) {
+            Vector<Morph> morphs = specialMorph.getMorphAndChildren();
+            Vector<Dim> dims = new Vector<Dim>();
+            for (Morph morph : morphs) {
+                Dim dim = morph.getPhenotype().getMargin().getDim();
+                logger.fine("Adding dim " + dim);
+                dims.add(dim);
+            }            
+            largestMorphDim = Dim.getLargest(dims);
+            } else {
+                largestMorphDim = specialMorph.getPhenotype().getMargin().getDim();
+            }
+            Dim boxDim = boxes.firstElement().getDim();
+            int newScale = boxDim.getScale(largestMorphDim, Globals.zoomBase);
+            DrawingPreferences drawingPreferences = morphView.getAppData()
+                    .getPhenotypeDrawer().getDrawingPreferences();
+            if (newScale != boxes.getScale()) {
+                boxes.setScale(newScale);
+            }
+        } else {
+            logger.warning("autoScaleBasedOnMorphs: no special boxed morph");
         }
-        return morph;
     }
-
+    public void clearMorphImages() {
+        for (Morph morph : boxedMorphCollection
+                .getMorphs()) {
+            morph.setImage(null);
+        }
+        repaint();
+    }
     /**
      * Draw boxes in box order (not in boxed Morph order.)
      * 
@@ -163,18 +171,68 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         boolean midBoxOnly = boxedMorphCollection.getBoxedMorphs().size() == 1;
         boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
                 backgroundColors);
-    }    
-    @Override
-    public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
-        BoxedMorphCollection oldValue = this.boxedMorphCollection;
-        if(oldValue != null) {
-            oldValue.getBoxes().removePropertyChangeListener("scale", this);
+    } 
+    protected void drawMorphs(Object graphicsContext, Dim size) {
+
+        int counter = 0;
+        Iterator<BoxedMorph> iter = boxedMorphCollection.iterator();
+        logger.fine("Boxed morphs to paint: "
+                + boxedMorphCollection.getBoxedMorphs().size());
+        while (iter.hasNext()) {
+            logger.fine(
+                    "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
+                            + counter);
+            BoxedMorph boxedMorph = iter.next();
+            morphView.getMorphDrawer().draw(boxedMorph, graphicsContext, size,
+                    boxedMorph == this.boxedMorphCollection
+                            .getSelectedBoxedMorph());
+            counter++;
         }
-        this.boxedMorphCollection = newValue;
-        if(newValue != null) {
-            newValue.getBoxes().addPropertyChangeListener("scale", this);
-        }
+
     }
+    
+    @Override
+    public BoxedMorphCollection getBoxedMorphCollection() {
+        return boxedMorphCollection;
+    }
+
+    @Override
+    public Dim getDim() {
+        return SwingGeom.toWatchmakerDim(super.getSize());
+    }
+    
+    public boolean getIncludeChildrenInAutoScale() {
+        return true;
+    }
+    @Override
+    public Morph getMorphOfTheHour() {
+        Morph morph = boxedMorphCollection.getBoxedMorph(selectedBox).getMorph();
+        
+        if(morph == null) {
+            Rect midBox = boxedMorphCollection.getBoxes().getMidBox();
+            if(midBox != null)
+                morph = boxedMorphCollection.getBoxedMorph(midBox).getMorph();
+            else
+                morph = boxedMorphCollection.lastElement().getMorph();
+        }
+        return morph;
+    }
+
+    @Override
+    public Vector<Morph> getMorphs() {
+        return boxedMorphCollection.getMorphs();
+    }    
+    public Rect getSpecial() {
+        return special;
+    }
+    @Override
+    public void paintComponent(Graphics g) {
+        logger.fine("centrePanel.paintComponent()");
+        super.paintComponent(g);
+        paintMorphViewPanel((Graphics2D) g,
+                SwingGeom.toWatchmakerDim(this.getSize()));
+    }
+
     /**
      * Draw the MorphView's breeding box outlines (if showBoxes is set) and its
      * morphs, on the MorphView's centre panel.
@@ -205,8 +263,23 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
     protected void processMouseClicked(Point point, Dim size) {
     }
-
+    protected void processMouseDragged(Point watchmakerPoint,
+            Dim watchmakerDim) {
+        this.lastMouseDrag = watchmakerPoint;
+        this.lastMouseDragSize = watchmakerDim;
+        repaint();
+    }
+    
     protected void processMouseMotion(Point myPt, Dim size) {
+        logger.fine("processMouseMotion(" + myPt + ", " + size);
+        if (!(this.getCursor() == WatchmakerCursors.highlight
+                && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
+            BoxManager boxes = boxedMorphCollection.getBoxes();
+            Rect box = boxes.getBoxNoContainingPoint(myPt, size);
+            if (box != selectedBox) {
+                setSelectedBox(box);
+            }
+        }
     }
 
     protected void processMousePressed(Point watchmakerPoint,
@@ -214,13 +287,6 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         this.lastMouseDown = watchmakerPoint;
         this.lastMouseDownSize = watchmakerDim;
 
-    }
-
-    protected void processMouseDragged(Point watchmakerPoint,
-            Dim watchmakerDim) {
-        this.lastMouseDrag = watchmakerPoint;
-        this.lastMouseDragSize = watchmakerDim;
-        repaint();
     }
 
     protected void processMouseReleased(Point watchmakerPoint,
@@ -232,30 +298,34 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         repaint();
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent event) {
+        if(event.getPropertyName().equals("scale")) {
+            clearMorphImages();
+        }
+    }
+
 
 
     @Override
-    public Vector<Morph> getMorphs() {
-        return boxedMorphCollection.getMorphs();
+    public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
+        BoxedMorphCollection oldValue = this.boxedMorphCollection;
+        if(oldValue != null) {
+            oldValue.getBoxes().removePropertyChangeListener("scale", this);
+        }
+        this.boxedMorphCollection = newValue;
+        if(newValue != null) {
+            newValue.getBoxes().addPropertyChangeListener("scale", this);
+        }
     }
 
-    protected void drawMorphs(Object graphicsContext, Dim size) {
-
-        int counter = 0;
-        Iterator<BoxedMorph> iter = boxedMorphCollection.iterator();
-        logger.fine("Boxed morphs to paint: "
-                + boxedMorphCollection.getBoxedMorphs().size());
-        while (iter.hasNext()) {
-            logger.fine(
-                    "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
-                            + counter);
-            BoxedMorph boxedMorph = iter.next();
-            morphView.getMorphDrawer().draw(boxedMorph, graphicsContext, size,
-                    boxedMorph == this.boxedMorphCollection
-                            .getSelectedBoxedMorph());
-            counter++;
-        }
-
+    public void setSelectedBox(Rect newValue) {
+        Rect oldValue = this.selectedBox;
+        this.selectedBox = newValue;
+        firePropertyChange("selectedBox", oldValue, newValue);
+    }
+    public void setSpecial(Rect newValue) {
+        this.special = newValue;
     }
     @Override
     public void updateCursor() {
