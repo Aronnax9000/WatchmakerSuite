@@ -39,7 +39,7 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel {
 
     @Override
     protected void processMouseClicked(Point point, Dim size) {
-        logger.info("Showing hypodermic message dialog");
+        logger.fine("Showing hypodermic message dialog");
         Object[] options = { "Okay" };
         JOptionPane.showOptionDialog(this, new HypodermicWarning(), null,
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,

@@ -42,9 +42,7 @@ public class BoxAnimator extends TimerTask {
         } else {
             prepareBoxAnimator(special);
         }
-        Timer timer = new Timer();
-        timer.schedule(this, 0,
-                breedingPanel.morphView.getAppData().getTickDelay());
+
 
     }
 
@@ -163,10 +161,20 @@ public class BoxAnimator extends TimerTask {
             this.cancel();
             breedingPanel.setCursor(WatchmakerCursors.breed);
             breedingPanel.updateCursor();
-            logger.info("Breed Complete");
+            logger.fine("Breed Complete");
             break;
         }
         breedingPanel.repaint();
+    }
+
+    /**
+     * Start the animation. ("Laugh a-while you can, monkey boy.") - LJW
+     */
+    public void feetDoYourStuff() {
+        Timer timer = new Timer();
+        timer.schedule(this, 0,
+                breedingPanel.morphView.getAppData().getTickDelay());
+        
     }
 
 }

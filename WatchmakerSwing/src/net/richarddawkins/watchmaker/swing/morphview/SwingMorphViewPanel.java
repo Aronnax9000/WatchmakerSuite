@@ -30,7 +30,6 @@ import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel.ResizeListener;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
@@ -39,6 +38,18 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
             autoScaleBasedOnMorphs(special, getIncludeChildrenInAutoScale());
         }
 
+    }
+    @Override
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("MorphViewPanel " + this.getName());
+        BoxedMorphCollection boxedMorphs = this.getBoxedMorphCollection();
+        if(boxedMorphs != null) {
+            stringBuffer.append(" backed by " + boxedMorphs.getName());
+        } else {
+            stringBuffer.append(" with null boxed morph collection.");
+        }
+        return stringBuffer.toString();
     }
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel");
@@ -67,7 +78,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                logger.info("mouseDragged");
+                logger.fine("mouseDragged");
                 processMouseDragged(SwingGeom.toWatchmakerPoint(e.getPoint()),
                         SwingGeom.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
@@ -82,7 +93,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                logger.info("mousePressed");
+                logger.fine("mousePressed");
                 processMousePressed(SwingGeom.toWatchmakerPoint(e.getPoint()),
                         SwingGeom.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
@@ -90,7 +101,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                logger.info("mouseReleased");
+                logger.fine("mouseReleased");
                 processMouseReleased(SwingGeom.toWatchmakerPoint(e.getPoint()),
                         SwingGeom.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));

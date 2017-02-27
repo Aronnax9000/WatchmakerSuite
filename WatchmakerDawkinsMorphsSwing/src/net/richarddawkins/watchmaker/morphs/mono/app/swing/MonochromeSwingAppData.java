@@ -18,6 +18,7 @@ public class MonochromeSwingAppData extends SwingAppData implements AppData {
 	public MonochromeSwingAppData() {
 		setMenuBuilder(new SwingMonochromeMenuBuilder(this));
 		setPhenotypeDrawer(new SwingMonoPicDrawer());
+		this.setBreedRightAway(true);
 		this.setIcon(MorphType.MONOCHROME_BIOMORPH.getIconFilename());
 		this.setMorphConfig(new MonochromeMorphConfig());
 	}

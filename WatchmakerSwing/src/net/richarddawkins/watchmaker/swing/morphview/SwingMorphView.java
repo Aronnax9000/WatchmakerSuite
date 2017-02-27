@@ -84,7 +84,7 @@ public abstract class SwingMorphView extends JPanel
     protected SwingScaleSlider scaleSlider;
 
     public SwingMorphView(SwingMorphViewConfig config) {
-        logger.info("SwingMorphView(config): " + config);
+        logger.fine("SwingMorphView(config): " + config);
         this.appData = config.appData;
         this.setIcon(config.icon);
         this.setName(config.name);
@@ -105,7 +105,7 @@ public abstract class SwingMorphView extends JPanel
 
         if (!seedMorphs.isEmpty()) {
             synchronized (seedMorphs) {
-                logger.info("Seeding");
+                logger.fine("Seeding");
 
                 Morph seedMorph = seedMorphs.firstElement();
                 SwingMorphViewPanel panel = (SwingMorphViewPanel) panels
@@ -121,11 +121,13 @@ public abstract class SwingMorphView extends JPanel
                         midBox);
                 boxedMorphCollection.removeAllElements();
                 boxedMorphCollection.add(boxedMorph);
-                logger.info("Added boxedMorph: " + boxedMorph);
+                logger.fine("SwingMorphView.seed() Added boxedMorph: " + boxedMorph);
                 // Trigger first breeding
 
                 panel.setSpecial(midBox);
                 if (appData.isBreedRightAway()) {
+                    logger.fine("Setting panel special to " + midBox);
+                    
                     panel.setSpecial(midBox);
                     ((SwingBreedingMorphViewPanel) panel)
                             .breedFromSpecial();
@@ -135,7 +137,7 @@ public abstract class SwingMorphView extends JPanel
                 Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
                 Dim parentMorphDim = seedMorph.getPhenotype().getMargin()
                         .getDim();
-                logger.info(" PanelDim:" + panel.getDim() + " BoxDim:" + boxDim
+                logger.fine("SwingMorphView.seed():" + panel.getDim() + " BoxDim:" + boxDim
                         + " ParentMorphDim:" + parentMorphDim);
                 int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
 
@@ -264,7 +266,7 @@ public abstract class SwingMorphView extends JPanel
         if (propertyName.equals("showBoundingBoxes")
                 || propertyName.equals("scale")
                 || propertyName.equals("phenotype")) {
-            logger.info("SwingMorphViewPanel propertyChange:" + propertyName);
+            logger.fine("SwingMorphViewPanel propertyChange:" + propertyName);
 
             for (Morph morph : selectedPanel.getBoxedMorphCollection()
                     .getMorphs()) {

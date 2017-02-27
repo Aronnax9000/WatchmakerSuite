@@ -58,7 +58,7 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
     @Override
     public void backup(boolean copyMorph) {
 
-        logger.info("Backup " + copyMorph + " started " + album.size());
+        logger.fine("Backup " + copyMorph + " started " + album.size());
         BoxedMorphCollection boxedMorphCollection = this.getSelectedPanel().getBoxedMorphCollection();
         GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
                 .getBoxes();
@@ -94,7 +94,7 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
         if (album.size() > Album.MAX_PAGES) {
             album.removePage(0);
         }
-        logger.info("Backup " + copyMorph + " finished " + album.size());
+        logger.fine("Backup " + copyMorph + " finished " + album.size());
     }
 
 

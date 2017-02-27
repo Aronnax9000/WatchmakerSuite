@@ -84,8 +84,12 @@ public class SwingScaleSlider
             MorphView morphView = (MorphView)evt.getSource();
             MorphViewPanel morphViewPanel = morphView.getSelectedPanel();
             BoxedMorphCollection boxedMorphCollection = morphViewPanel.getBoxedMorphCollection();
-            BoxManager selectedPanelBoxManager = boxedMorphCollection.getBoxes();
-            this.setBoxManager(selectedPanelBoxManager);
+            if(boxedMorphCollection == null) {
+                logger.warning("SwingScaleSlider.propertyChange(): BoxedMorphCollection is null for morphViewPanel " + morphViewPanel + ". Scale slider not setting box manager.");
+            } else {
+                BoxManager selectedPanelBoxManager = boxedMorphCollection.getBoxes();
+                this.setBoxManager(selectedPanelBoxManager);
+            }
         }
     }
 

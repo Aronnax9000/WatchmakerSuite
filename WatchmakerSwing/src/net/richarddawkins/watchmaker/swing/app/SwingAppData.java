@@ -85,7 +85,7 @@ public abstract class SwingAppData implements AppData {
             copy.setGenome(genome);
             seedMorphs.add(copy);
         } else {
-            logger.info("addBreedingMorphView Seeding basic type");
+            logger.fine("addBreedingMorphView Seeding basic type");
             seedMorphs.addElement(config.newMorph(config.getStartingMorphBasicType()));
         }        
         MorphView morphView = SwingMorphViewFactory.getMorphView(this,

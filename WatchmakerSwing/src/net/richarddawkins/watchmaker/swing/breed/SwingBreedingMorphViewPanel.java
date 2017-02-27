@@ -17,7 +17,6 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel");
-    public Rect special = null;
     private static final long serialVersionUID = 1L;
 
     public SwingBreedingMorphViewPanel(MorphView morphView,
@@ -65,7 +64,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
 
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
-        logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
+        logger.fine("SwingBreedingMorphView.boxClicked(" + myPt + ")");
         BoxManager boxes = boxedMorphCollection.getBoxes();
         if (this.getCursor() == WatchmakerCursors.breed) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
@@ -93,7 +92,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     }
 
     public void breedFromSpecial() {
-        logger.info("Breeding from box " + special);
+        logger.fine("Breeding from box " + special);
         this.setCursor(WatchmakerCursors.watchCursor);
         morphView.backup(false);
         // Get the morph associated with the box
@@ -107,14 +106,19 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
             try {
                 BoxAnimator animator = new BoxAnimator(this, special,
                         boxedMorphParent, newestOffspring);
+                animator.feetDoYourStuff();
             } catch (IllegalStateException e) {
                 logger.warning("SwingBreedingMorphView.breedFromSpecial() "
                         + e.getMessage());
+                this.setCursor(null);
+                this.updateCursor();
             }
         } else {
             logger.warning(
                     "SwingBreedingMorphViewPanel.breedFromSpecial: no boxed morph parent at special "
                             + special);
+            this.setCursor(null);
+            this.updateCursor();
         }
     }
 
