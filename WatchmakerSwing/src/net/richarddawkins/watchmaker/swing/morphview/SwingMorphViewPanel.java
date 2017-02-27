@@ -67,7 +67,11 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         
         this.morphView = morphView;
-        
+        if(page == null) {
+            logger.warning("SwingMorphViewPanel(" + morphView.toString() + ", page) has null page.");
+        } else {
+            this.setBoxedMorphCollection(page);
+        }
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -111,8 +115,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         addMouseListener(mouseAdapter);
         addMouseMotionListener(mouseAdapter);
         addComponentListener(new ResizeListener());
-        
-        setBoxedMorphCollection(page);
+
 
     }
     public void autoScaleBasedOnMorphs(Rect special, boolean includeChildren) {

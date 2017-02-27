@@ -35,6 +35,9 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
+
+        super.paintMorphViewPanel(graphicsContext, size);
+        logger.fine("SwingTriangleMorphViewPanel.paintMorphViewPanel() size " + size);
         Graphics2D g2 = (Graphics2D) graphicsContext;
         Vector<Point> points = new Vector<Point>();
         BoxManager boxes = boxedMorphCollection.getBoxes();
@@ -50,7 +53,6 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
                 points.elementAt(2).h, points.elementAt(2).v);
         g2.drawLine(points.elementAt(2).h, points.elementAt(2).v,
                 points.elementAt(0).h, points.elementAt(0).v);
-        super.paintMorphViewPanel(graphicsContext, size);
 
     }
 

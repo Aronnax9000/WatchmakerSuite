@@ -71,13 +71,18 @@ public abstract class SwingMorphView extends JPanel
     }
 
     @Override
-    public void initAlbum(Album newAlbum) {
+    public void initAlbum(Album newAlbum, boolean copyMorphsOnBackup) {
         if (newAlbum != null) {
             this.album = newAlbum;
         } else {
             this.album = new Album("backing");
         }
         
+        if (! copyMorphsOnBackup && album.size() == 0) {
+            BoxedMorphCollection page = new BoxedMorphCollection("backing",
+                    newBoxManager());
+            album.addPage(page);
+        }
     }
 
 
@@ -93,7 +98,7 @@ public abstract class SwingMorphView extends JPanel
         this.setLayout(new BorderLayout());
 
         this.setMorphDrawer(new SwingMorphDrawer(appData.getPhenotypeDrawer()));
-        initAlbum(config.album);
+        initAlbum(config.album, this.copyMorphsOnBackup);
         addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide); 
         addSeedMorphs(config.seedMorphs);
         addPanels();

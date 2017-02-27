@@ -20,8 +20,7 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
 public class SwingPedigreeMorphView extends SwingMorphView
         implements PedigreeMorphView {
-    protected static Point[] trianglePoints = new Point[] { new Point(234, 51),
-            new Point(134, 250), new Point(333, 250) };
+    ;
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView");
 
@@ -60,42 +59,46 @@ public class SwingPedigreeMorphView extends SwingMorphView
 
     @Override
     public void addPanels() {
-        BoxedMorphCollection boxedMorphs = new BoxedMorphCollection("Pedigree Backing", newBoxManager());
-        album.addPage(boxedMorphs);
+
         MorphViewPanel panel = new SwingPedigreeMorphViewPanel(this,
-                boxedMorphs);
-        panels.add(panel);
+                album.getPage(0));
+        addPanel(panel);
     }
-    
+
     @Override
     public BoxManager newBoxManager() {
         return new FreeBoxManager();
     }
-    
+
     @Override
     public void seed() {
-        synchronized (seedMorphs) {
-            logger.info("SwingPedigreeMorphView.seed() with " + seedMorphs.size() + " seedMorphs");
-            Morph morph = seedMorphs.firstElement();
-            // Dim dim = new Dim(512, 342);
-            BoxManager boxes = album.firstElement().getBoxes();
-            BufferedImage image = (BufferedImage) morph.getImage();
-            MorphViewPanel panel = panels.firstElement();
-            Dim size = panel.getDim();
-            // Point upperLeft = new Point(255, 170);
-            Point upperLeft = new Point(size.width / 2, size.height / 2);
-            Rect margin = morph.getPhenotype().getMargin();
-            int boxPad = 4;
-            int width = margin.getWidth() + boxPad;
-            int height = margin.getHeight() + boxPad;
-            upperLeft = upperLeft.subtract(new Point(width / 2, height / 2));
-            Rect newRect = new Rect(upperLeft.h, upperLeft.v,
-                    upperLeft.h + width / 2, upperLeft.v + height / 2);
-            logger.info("Adding rect " + newRect +" with screen size: " + size);
-            boxes.addBox(newRect, size);
-            BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
-            album.firstElement().add(boxedMorph);
-            seedMorphs.clear();
+        if (!seedMorphs.isEmpty()) {
+            synchronized (seedMorphs) {
+                logger.info("SwingPedigreeMorphView.seed() with "
+                        + seedMorphs.size() + " seedMorphs");
+                Morph morph = seedMorphs.firstElement();
+                // Dim dim = new Dim(512, 342);
+                BoxManager boxes = album.firstElement().getBoxes();
+                BufferedImage image = (BufferedImage) morph.getImage();
+                MorphViewPanel panel = panels.firstElement();
+                Dim size = panel.getDim();
+                // Point upperLeft = new Point(255, 170);
+                Point upperLeft = new Point(size.width / 2, size.height / 2);
+                Rect margin = morph.getPhenotype().getMargin();
+                int boxPad = 4;
+                int width = margin.getWidth() + boxPad;
+                int height = margin.getHeight() + boxPad;
+                upperLeft = upperLeft
+                        .subtract(new Point(width / 2, height / 2));
+                Rect newRect = new Rect(upperLeft.h, upperLeft.v,
+                        upperLeft.h + width / 2, upperLeft.v + height / 2);
+                logger.info("Adding rect " + newRect + " with screen size: "
+                        + size);
+                boxes.addBox(newRect, size);
+                BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
+                album.firstElement().add(boxedMorph);
+                seedMorphs.clear();
+            }
         }
     }
 

@@ -40,16 +40,6 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     }
 
     @Override
-    public void initAlbum(Album newAlbum) {
-        super.initAlbum(newAlbum);
-        if (album.size() == 0) {
-            BoxedMorphCollection page = new BoxedMorphCollection("backing",
-                    newBoxManager());
-            album.addPage(page);
-        }
-    }
-
-    @Override
     public BoxManager newBoxManager() {
         return new GridBoxManager(appData.getDefaultBreedingCols(),
                 appData.getDefaultBreedingRows());

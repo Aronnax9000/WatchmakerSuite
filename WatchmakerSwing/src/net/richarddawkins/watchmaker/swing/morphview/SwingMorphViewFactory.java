@@ -43,7 +43,7 @@ public class SwingMorphViewFactory {
             break;
         case triangle:
             config.name = "Triangle";
-            config.seedMorphs.addAll(Arrays.asList(appData.getMorphConfig().getTriangleMorphs()));
+//            config.seedMorphs.addAll(Arrays.asList(appData.getMorphConfig().getTriangleMorphs()));
             morphView = new SwingTriangleMorphView(config);
             break;
         case album:

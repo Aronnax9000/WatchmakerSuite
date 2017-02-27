@@ -49,6 +49,7 @@ public interface MorphView {
     void addSeedMorphs(Vector<Morph> seedMorphs);
     void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
     void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
-    void initAlbum(Album newAlbum);
+;
     void repaint();
+    void initAlbum(Album newAlbum, boolean copyMorphsOnBackup);
 }

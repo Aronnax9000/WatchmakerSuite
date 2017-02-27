@@ -55,8 +55,8 @@ public class SwingTriangleMorphView extends SwingMorphView {
 
     @Override
     public void addPanels() {
-        MorphViewPanel morphViewPanel = new SwingTriangleMorphViewPanel(this, null);
-        panels.add(morphViewPanel);
+        MorphViewPanel morphViewPanel = new SwingTriangleMorphViewPanel(this, album.getPage(0));
+        addPanel(morphViewPanel);
     }
 
     @Override
@@ -69,15 +69,20 @@ public class SwingTriangleMorphView extends SwingMorphView {
                 for (int i = 0; i < 3; i++) {
                     Morph morph = triangleMorphs[i];
                     BufferedImage image = (BufferedImage) morph.getImage();
-                    Point upperLeft = new Point(SwingTriangleMorphView.trianglePoints[i].h,
-                            SwingTriangleMorphView.trianglePoints[i].v);
+                    Point trianglePoint = SwingTriangleMorphView.trianglePoints[i];
+                    Point upperLeft = new Point(trianglePoint.h,
+                            trianglePoint.v);
                     Rect margin = morph.getPhenotype().getMargin();
-                    Rect newRect = new Rect(upperLeft.h, upperLeft.v,
-                            upperLeft.h + margin.getWidth(),
-                            upperLeft.v + margin.getHeight());
+                    int halfMarginWidth = margin.getWidth() / 2;
+                    int halfMarginHeight = margin.getHeight() / 2;
+                    Rect newRect = new Rect(upperLeft.h, 
+                            upperLeft.v - 2,
+                            upperLeft.h + halfMarginWidth + 2,
+                            upperLeft.v + halfMarginHeight + 4);
     
                     boxes.addBox(newRect, SwingTriangleMorphView.traditionalMacDim);
                     BoxedMorph boxedMorph = new BoxedMorph(boxes, morph, newRect);
+                    logger.info("SwingTriangleMorphView.seed() adding boxedMorph " + boxedMorph);
                     boxedMorphs.add(boxedMorph);
                     seedMorphs.remove(0);
                 }
