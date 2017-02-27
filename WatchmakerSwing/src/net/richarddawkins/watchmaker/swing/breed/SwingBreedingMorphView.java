@@ -64,17 +64,17 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
             if (!seedMorphs.isEmpty()) {
                 logger.info("Seeding");
 
-                Morph parent = seedMorphs.firstElement();
+                Morph seedMorph = seedMorphs.firstElement();
                 SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) panels
                         .firstElement();
                 BoxedMorphCollection boxedMorphCollection = panel
                         .getBoxedMorphCollection();
                 BoxManager boxes = boxedMorphCollection.getBoxes();
-
+                
                 boxedMorphCollection.clear();
-
+                panel.setSelectedBox(null);
                 Rect midBox = boxes.getMidBox();
-                BoxedMorph boxedMorph = new BoxedMorph(boxes, parent, midBox);
+                BoxedMorph boxedMorph = new BoxedMorph(boxes, seedMorph, midBox);
                 boxedMorphCollection.removeAllElements();
                 boxedMorphCollection.add(boxedMorph);
                 logger.info("Added boxedMorph: " + boxedMorph);
@@ -85,10 +85,10 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                     ((SwingBreedingMorphViewPanel) panels.firstElement())
                             .breedFromSpecial();
                 }
-                parent.setImage(null);
+                seedMorph.setImage(null);
 
                 Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
-                Dim parentMorphDim = parent.getPhenotype().getMargin().getDim();
+                Dim parentMorphDim = seedMorph.getPhenotype().getMargin().getDim();
                 logger.info(" PanelDim:" + panel.getDim() + " BoxDim:" + boxDim
                         + " ParentMorphDim:" + parentMorphDim);
                 int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
@@ -97,9 +97,9 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
                 if (scale != boxes.getScale()) {
                     boxes.setScale(scale);
                 }
-                seedMorphs.removeElementAt(0);
+                panel.setSelectedBox(midBox);
+                seedMorphs.remove(seedMorph);
             }
-
             repaint();
         }
     }

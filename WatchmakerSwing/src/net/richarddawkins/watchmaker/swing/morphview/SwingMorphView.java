@@ -118,8 +118,7 @@ public abstract class SwingMorphView extends JPanel
 
     @Override
     public void addPanels() {
-        // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -135,10 +134,10 @@ public abstract class SwingMorphView extends JPanel
         // TODO Auto-generated method stub
         return null;
     }
-
+    protected GeneBoxStrip geneBoxStrip;
     @Override
     public void addGeneBoxStrip(boolean engineeringMode, boolean geneBoxToSide) {
-        GeneBoxStrip geneBoxStrip = appData
+        geneBoxStrip = appData
                 .newGeneBoxStrip(engineeringMode);
         JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel();
         geneBoxStripPanel.setLayout(new GridBagLayout());
@@ -169,6 +168,7 @@ public abstract class SwingMorphView extends JPanel
     public void addPanel(MorphViewPanel panel) {
         panels.add(panel);
         ((Container) this).add((Component) panel);
+       panel.addPropertyChangeListener(geneBoxStrip);
     }
 
     public void backup(boolean copyMorph) {
@@ -250,6 +250,7 @@ public abstract class SwingMorphView extends JPanel
             setSelectedPanel(null);
         }
         panels.remove(panel);
+        panel.removePropertyChangeListener(geneBoxStrip);
     }
 
     @Override

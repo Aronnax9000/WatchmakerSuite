@@ -71,6 +71,7 @@ public interface AppData  {
 	void setTickDelay(long tickDelay);
     public void addPedigreeMorphView(Morph morph);
     void addAlbumMorphView(Album album);
+    public void newRandomStart();
     
     
 

@@ -28,12 +28,7 @@ public class ActionNewRandomStart extends SwingWatchmakerAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        MorphConfig config = appData.getMorphConfig();
-        Morph morph = appData.getMorphOfTheHour();
-        Genome genome = config.getGenomeFactory().deliverSaltation();
-        morph.setGenome(genome);
-        MorphView morphView = appData.getMorphViewsTabbedPane()
-                .getSelectedMorphView();
-        morphView.addSeedMorph(morph);
+        appData.newRandomStart();
+
     }
 }

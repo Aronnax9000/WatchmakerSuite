@@ -16,9 +16,12 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
-import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
 public abstract class SwingGeneBoxStrip extends JPanel
         implements GeneBoxStrip, PropertyChangeListener {
@@ -90,7 +93,7 @@ public abstract class SwingGeneBoxStrip extends JPanel
         if (this.getComponentCount() == 0 || !isReusable()) {
             reusing = false;
         }
-        if (!reusing) {
+        if (!reusing || newGenome == null) {
             this.removeAll();
         }
         if (newGenome != null) {
@@ -102,12 +105,12 @@ public abstract class SwingGeneBoxStrip extends JPanel
             constraints.fill = GridBagConstraints.HORIZONTAL;
             int n = 0;
             for (Gene gene : newGenome.toGeneArray()) {
-                
+
                 GeneBox geneBox;
                 if (reusing) {
-                    geneBox = (GeneBox)this.getComponent(n++);
+                    geneBox = (GeneBox) this.getComponent(n++);
                 } else {
-                    geneBox = (GeneBox)getGeneBoxForGene(gene);
+                    geneBox = (GeneBox) getGeneBoxForGene(gene);
                 }
                 if (engineeringMode) {
                     geneBox.setEngineeringMode();
@@ -142,13 +145,20 @@ public abstract class SwingGeneBoxStrip extends JPanel
 
     protected void applyGeneSpecificConstraints(GridBagConstraints constraints,
             Gene gene) {
-
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("genome")) {
-            setGenome((Genome) evt.getNewValue());
+        if (evt.getPropertyName().equals("selectedBox")) {
+            SwingMorphViewPanel panel = (SwingMorphViewPanel) evt.getSource();
+            BoxedMorph boxedMorph = panel.getBoxedMorphCollection()
+                    .getBoxedMorph((Rect) evt.getNewValue());
+            if(boxedMorph != null) {
+                Morph morph = boxedMorph.getMorph();
+                setGenome(morph.getGenome());
+            } else {
+                setGenome(null);
+            }
         } else if (evt.getPropertyName().equals("boxedMorphCollection")) {
             setGenome(((BoxedMorphCollection) evt.getNewValue()).firstElement()
                     .getMorph().getGenome());

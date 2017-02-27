@@ -23,6 +23,18 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
 public abstract class SwingAppData implements AppData {
 
+    @Override
+    public void newRandomStart() {
+        // TODO Auto-generated method stub        MorphConfig config = appData.getMorphConfig();
+        Morph morph = getMorphOfTheHour();
+        Genome genome = config.getGenomeFactory().deliverSaltation();
+        morph.setGenome(genome);
+        MorphView morphView = getMorphViewsTabbedPane()
+                .getSelectedMorphView();
+        morphView.addSeedMorph(morph);
+        
+    }
+
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append(name);

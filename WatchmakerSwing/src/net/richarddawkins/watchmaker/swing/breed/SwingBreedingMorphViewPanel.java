@@ -45,6 +45,9 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                 && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
             BoxManager boxes = boxedMorphCollection.getBoxes();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
+            if (box != selectedBox) {
+                setSelectedBox(box);
+            }
             if (box != null) {
                 logger.fine("processMouseMotion found box " + box);
                 // synchronized (boxedMorphVector) {
@@ -53,10 +56,6 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                 if (boxedMorph != null) {
                     logger.fine("processMouseMotion found BoxedMorph "
                             + boxedMorph);
-                    if (box != selectedBox)
-                        firePropertyChange("genome", null,
-                                boxedMorph.getMorph().getGenome());
-                    selectedBox = box;
 
                     if (this.getCursor() != WatchmakerCursors.watchCursor
                             && this.getCursor() != WatchmakerCursors.highlight) {
@@ -73,9 +72,15 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                         "processMouseMotion leaving formerly synchronized section");
 
             } else {
-                // logger.warning("No box selected");
+                logger.warning("No box found under cursor");
             }
         }
+    }
+
+    public void setSelectedBox(Rect newValue) {
+        Rect oldValue = this.selectedBox;
+        this.selectedBox = newValue;
+        firePropertyChange("selectedBox", oldValue, newValue);
     }
 
     @Override
@@ -111,21 +116,25 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
         logger.info("Breeding from box " + special);
         this.setCursor(WatchmakerCursors.watchCursor);
         morphView.backup(false);
-     // Get the morph associated with the box
-        BoxedMorph boxedMorphParent= boxedMorphCollection.getBoxedMorph(special);
-        if(boxedMorphParent != null) {
+        // Get the morph associated with the box
+        BoxedMorph boxedMorphParent = boxedMorphCollection
+                .getBoxedMorph(special);
+        if (boxedMorphParent != null) {
             Morph parent = boxedMorphParent.getMorph();
-            Morph newestOffspring = morphView.getAppData().getMorphConfig().getLitter(parent,
-                    boxedMorphCollection.getBoxes().getBoxCount() - 1);
+            Morph newestOffspring = morphView.getAppData().getMorphConfig()
+                    .getLitter(parent,
+                            boxedMorphCollection.getBoxes().getBoxCount() - 1);
             try {
-                BoxAnimator animator = new BoxAnimator(this, special, boxedMorphParent,
-                        newestOffspring);
+                BoxAnimator animator = new BoxAnimator(this, special,
+                        boxedMorphParent, newestOffspring);
             } catch (IllegalStateException e) {
                 logger.warning("SwingBreedingMorphView.breedFromSpecial() "
                         + e.getMessage());
             }
         } else {
-            logger.warning("SwingBreedingMorphViewPanel.breedFromSpecial: no boxed morph parent at special " + special);
+            logger.warning(
+                    "SwingBreedingMorphViewPanel.breedFromSpecial: no boxed morph parent at special "
+                            + special);
         }
     }
 

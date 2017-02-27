@@ -10,6 +10,9 @@ import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 
 public interface MorphViewPanel extends PropertyChangeListener  {
 
+    void addPropertyChangeListener(PropertyChangeListener listener);
+    void removePropertyChangeListener(PropertyChangeListener listener);
+    
     void setCursor(Cursor cursor);
 
     Cursor getCursor();
