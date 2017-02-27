@@ -27,7 +27,7 @@ public class Main {
 			}
 		}
 	}
-
+	public static boolean doClassicMac = false;
 	public static void main(String[] args) {
 		try {
 			
@@ -36,19 +36,21 @@ public class Main {
 			
 	        Preferences prefs = Preferences.userRoot().node("net/richarddawkins/watchmaker/ui");
 
-	        String fontName = prefs.get("font", "");
-			
-	        logger.info("Loading font from resource:" + fontName);
-			
-			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			InputStream fontStream = Main.class.getResourceAsStream("/net/richarddawkins/watchmaker/font/" + fontName + ".ttf");
-			
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
-			logger.info("Created font: " + font.getName());
-			ge.registerFont(font);
-			FontUIResource fontUIResource = new javax.swing.plaf.FontUIResource(fontName, Font.PLAIN, 12);
-			logger.info("FontUIResource " + fontUIResource);
-			setUIFont(fontUIResource);
+	        if(doClassicMac) {
+    	        String fontName = prefs.get("font", "");
+    			
+    	        logger.info("Loading font from resource:" + fontName);
+    			
+    			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    			InputStream fontStream = Main.class.getResourceAsStream("/net/richarddawkins/watchmaker/font/" + fontName + ".ttf");
+    			
+    			Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+    			logger.info("Created font: " + font.getName());
+    			ge.registerFont(font);
+    			FontUIResource fontUIResource = new javax.swing.plaf.FontUIResource(fontName, Font.PLAIN, 12);
+    			logger.info("FontUIResource " + fontUIResource);
+    			setUIFont(fontUIResource);
+	        }
 		} catch (IOException e) {
 			logger.warning(e.getMessage());
 		} catch (FontFormatException e) {

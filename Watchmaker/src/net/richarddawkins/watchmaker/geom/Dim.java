@@ -64,7 +64,7 @@ public class Dim {
      */
     public int getScale(Dim dimToFit, double zoomBase) {
         
-        logger.info("Comparing dim " + this + " to dim-to-fit "
+        logger.fine("Comparing dim " + this + " to dim-to-fit "
                 + dimToFit);
         // > 1 if box is bigger than largest morph (need more positive scale to
         // see morph at all)

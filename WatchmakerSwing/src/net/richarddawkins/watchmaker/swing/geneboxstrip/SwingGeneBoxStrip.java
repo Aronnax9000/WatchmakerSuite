@@ -127,7 +127,7 @@ public abstract class SwingGeneBoxStrip extends JPanel
                 }
             }
         } else {
-            logger.warning("SwingGeneBoxStrip: new genome is null.");
+            logger.fine("SwingGeneBoxStrip: new genome is null.");
         }
 
         this.genome = newGenome;

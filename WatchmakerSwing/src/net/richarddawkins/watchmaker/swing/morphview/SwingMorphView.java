@@ -125,7 +125,8 @@ public abstract class SwingMorphView extends JPanel
 
                 panel.setSpecial(midBox);
                 if (appData.isBreedRightAway()) {
-                    ((SwingBreedingMorphViewPanel) panels.firstElement())
+                    panel.setSpecial(midBox);
+                    ((SwingBreedingMorphViewPanel) panel)
                             .breedFromSpecial();
                 }
                 seedMorph.setImage(null);
