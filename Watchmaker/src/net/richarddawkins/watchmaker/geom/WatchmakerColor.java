@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -116,22 +117,23 @@ public class WatchmakerColor {
         searchExpressions.add("Library" + File.separator + "Application Support"
                 + File.separator + "GIMP" + File.separator + "2.8"
                 + File.separator + "palettes");
-
         for (String dirToSearch : searchExpressions) {
             loadPalettesSearch(dirToSearch);
         }
-
     }
 
     private void loadPalettesSearch(String searchString) {
-        loadPalettes(System.getProperty("user.home") + File.separator
-                + searchString);
-        
+        Vector<String> potentialPaletteDirectories = new Vector<String>();
+        potentialPaletteDirectories.add(System.getProperty("user.home")
+                + File.separator + searchString);
+        for (String potentialPaletteDirectory : potentialPaletteDirectories) {
+            StringTokenizer st = new StringTokenizer(File.separator);
+            loadPalettes(potentialPaletteDirectory);
+        }
     }
 
     public void loadPalettes(String path) {
         try {
-
             logger.info("WatchmakerColor.loadPalette " + path);
             File dir = new File(path);
             Vector<File> files = getAllFiles(dir);
