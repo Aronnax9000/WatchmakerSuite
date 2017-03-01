@@ -48,7 +48,9 @@ public class Palette {
             while (reader.ready()) {
                 try {
                     String line = reader.readLine();
-                    if (line.startsWith("#")) {
+                    if (line.startsWith("Name: ")) {
+                        setName(line.substring(line.indexOf(" ") + 1));
+                    } else if (line.startsWith("#")) {
                         break;
                     }
                 } catch (IOException e) {

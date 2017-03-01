@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -17,6 +18,8 @@ public class SwingAlbumMorphView extends SwingMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView");
 
+    
+    
     @Override
     public void addPanels() {
         for (BoxedMorphCollection page : album.getPages()) {
@@ -61,6 +64,11 @@ public class SwingAlbumMorphView extends SwingMorphView {
             
         }
 
+    }
+
+    @Override
+    public BoxManager newBoxManager() {
+        return new GridBoxManager(5,3);
     }
 
 

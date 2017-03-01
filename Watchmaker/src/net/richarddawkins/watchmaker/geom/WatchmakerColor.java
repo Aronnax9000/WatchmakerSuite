@@ -34,20 +34,21 @@ public class WatchmakerColor {
     public static final String DEFAULT_PALETTE = "Classic Mac";
 
     private static WatchmakerColor singleton = null;
+
     public static int getColorIndexByRGB666Coordinates(int r, int g, int b) {
         return r * 36 + g * 6 + b;
     }
 
-    public static final int[] allowedLevels = new int[] { 0, 51, 102, 153, 204, 255 };
-    
-    
+    public static final int[] allowedLevels = new int[] { 0, 51, 102, 153, 204,
+            255 };
+
     public static synchronized WatchmakerColor getInstance() {
-        if(singleton == null) {
+        if (singleton == null) {
             singleton = new WatchmakerColor();
         }
         return singleton;
     }
-    
+
     public static Palette generateMacPalette() {
         RGBTriple[] colors = new RGBTriple[256];
         for (int i = 0; i < 256; i++) {
@@ -75,13 +76,10 @@ public class WatchmakerColor {
         return new Palette("Classic Mac", colors);
     }
 
-
-    
-    protected WatchmakerColor() {}
-    
+    protected WatchmakerColor() {
+    }
 
     protected Palette palette = null;
-
 
     private Vector<File> getAllFiles(File curDir) {
 
@@ -113,9 +111,27 @@ public class WatchmakerColor {
     }
 
     public void loadPalettes() {
+        Vector<String> searchExpressions = new Vector<String>();
+        searchExpressions.add(".gimp-2.8" + File.separator + "palettes");
+        searchExpressions.add("Library" + File.separator + "Application Support"
+                + File.separator + "GIMP" + File.separator + "2.8"
+                + File.separator + "palettes");
+
+        for (String dirToSearch : searchExpressions) {
+            loadPalettesSearch(dirToSearch);
+        }
+
+    }
+
+    private void loadPalettesSearch(String searchString) {
+        loadPalettes(System.getProperty("user.home") + File.separator
+                + searchString);
+        
+    }
+
+    public void loadPalettes(String path) {
         try {
-            String path = System.getProperty("user.home") + File.separator
-                    + ".gimp-2.8" + File.separator + "palettes";
+
             logger.info("WatchmakerColor.loadPalette " + path);
             File dir = new File(path);
             Vector<File> files = getAllFiles(dir);
@@ -132,7 +148,6 @@ public class WatchmakerColor {
             logger.warning(
                     "WatchmakerColor.loadPalette couldn't obtain current working directory");
         }
-
     }
 
     private void loadPalette(File file) {
@@ -152,36 +167,33 @@ public class WatchmakerColor {
         }
     }
 
-    
-
     public void switchToPalette(String name) {
         palette = palettes.get(name);
-        if(palette != null) {
-            logger.info("Switched to palette " + name + " with " + palette.getColors().length + " colors ");
+        if (palette != null) {
+            logger.info("Switched to palette " + name + " with "
+                    + palette.getColors().length + " colors ");
         }
     }
-    private static Map<String,Palette> palettes = null;
+
+    private static Map<String, Palette> palettes = null;
 
     public Palette getPalette() {
-        if(palette == null) {
+        if (palette == null) {
             palette = getPalettes().get(DEFAULT_PALETTE);
         }
         return palette;
     }
-    
-    
-    public synchronized Map<String,Palette> getPalettes() {
-        if(palettes == null) {
-            palettes = new HashMap<String,Palette>();
+
+    public synchronized Map<String, Palette> getPalettes() {
+        if (palettes == null) {
+            palettes = new HashMap<String, Palette>();
             Palette defaultPalette = generateMacPalette();
             palettes.put(defaultPalette.getName(), defaultPalette);
             loadPalettes();
         }
         return palettes;
     }
-    
 
-    
     public synchronized RGBTriple getRGBTripleForIndex(int index) {
         return getPalette().getColors()[index];
     }

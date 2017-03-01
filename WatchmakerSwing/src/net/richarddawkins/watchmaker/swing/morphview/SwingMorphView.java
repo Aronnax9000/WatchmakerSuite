@@ -162,11 +162,7 @@ public abstract class SwingMorphView extends JPanel
         }
     }
 
-    @Override
-    public BoxManager newBoxManager() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+
     protected GeneBoxStrip geneBoxStrip;
     @Override
     public void addGeneBoxStrip(boolean engineeringMode, boolean geneBoxToSide) {
