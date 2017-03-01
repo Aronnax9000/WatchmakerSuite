@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -37,27 +36,20 @@ import net.richarddawkins.watchmaker.util.Globals;
 
 public abstract class SwingMorphView extends JPanel
         implements MorphView, PropertyChangeListener {
+    private static final long serialVersionUID = 5555392236002752598L;
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphView");
 
     protected Vector<Morph> seedMorphs = new Vector<Morph>();
-    private static final long serialVersionUID = 5555392236002752598L;
-
     protected Album album;
-
     protected AppData appData;
     protected boolean copyMorphsOnBackup;
-
     protected String icon;
-
     protected MorphDrawer morphDrawer;
     protected final Vector<MorphViewPanel> panels = new Vector<MorphViewPanel>();
-
     protected MorphViewPanel selectedPanel;
-
     protected boolean showBoxes = true;
-
     protected String toolTip;
 
     public SwingMorphView(AppData appData, String icon, String name,
@@ -181,7 +173,6 @@ public abstract class SwingMorphView extends JPanel
         geneBoxStrip = appData
                 .newGeneBoxStrip(engineeringMode);
         JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel();
-        geneBoxStripPanel.setLayout(new GridBagLayout());
         if (geneBoxToSide) {
             // Nassty nassty JScrollPane will center our content otherwise
             JPanel dummy = new JPanel();

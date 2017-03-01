@@ -1,8 +1,8 @@
 package net.richarddawkins.watchmaker.swing.geneboxstrip;
 
 import java.awt.Component;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -23,19 +23,15 @@ import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
-public abstract class SwingGeneBoxStrip extends JPanel
+public abstract class SwingGeneBoxStrip
         implements GeneBoxStrip, PropertyChangeListener {
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip");
 
-    @Override
-    public void paintComponent(Graphics g) {
-        logger.fine("SwingGeneBoxStrip.paintComponent() Genome:" + genome);
-        super.paintComponent(g);
-    }
 
-    protected JPanel panel = (JPanel) this;
+
+    protected JPanel panel = new JPanel(new GridBagLayout());
 
     protected boolean geneBoxToSide = false;
 
@@ -77,7 +73,7 @@ public abstract class SwingGeneBoxStrip extends JPanel
     }
 
     public void setGeneBoxCount(int geneBoxCount) {
-        this.setLayout(new GridLayout(1, geneBoxCount));
+        panel.setLayout(new GridLayout(1, geneBoxCount));
 
     }
 
@@ -90,11 +86,11 @@ public abstract class SwingGeneBoxStrip extends JPanel
     public void setGenome(Genome newGenome) {
         logger.fine("SwingGeneBoxStrip.setGenome(" + newGenome + ")");
         boolean reusing = true;
-        if (this.getComponentCount() == 0 || !isReusable()) {
+        if (panel.getComponentCount() == 0 || !isReusable()) {
             reusing = false;
         }
         if (!reusing || newGenome == null) {
-            this.removeAll();
+            panel.removeAll();
         }
         if (newGenome != null) {
             GridBagConstraints constraints = new GridBagConstraints();
@@ -108,7 +104,7 @@ public abstract class SwingGeneBoxStrip extends JPanel
 
                 GeneBox geneBox;
                 if (reusing) {
-                    geneBox = (GeneBox) this.getComponent(n++);
+                    geneBox = (GeneBox) panel.getComponent(n++);
                 } else {
                     geneBox = (GeneBox) getGeneBoxForGene(gene);
                 }
@@ -118,7 +114,7 @@ public abstract class SwingGeneBoxStrip extends JPanel
                 }
                 applyGeneSpecificConstraints(constraints, gene);
                 if (!reusing) {
-                    add((Component) geneBox, constraints);
+                    panel.add((Component) geneBox, constraints);
                     if (this.geneBoxToSide) {
                         constraints.gridy++;
                     } else {
@@ -132,15 +128,15 @@ public abstract class SwingGeneBoxStrip extends JPanel
 
         this.genome = newGenome;
         if (genome != null) {
-            Component[] components = this.getComponents();
+            Component[] components = panel.getComponents();
             Gene[] genes = genome.toGeneArray();
             for (int i = 0; i < components.length; i++) {
                 GeneBox geneBox = (GeneBox) components[i];
                 geneBox.setGene(genes[i]);
             }
         }
-        revalidate();
-        repaint();
+        panel.revalidate();
+        panel.repaint();
     }
 
     protected void applyGeneSpecificConstraints(GridBagConstraints constraints,
