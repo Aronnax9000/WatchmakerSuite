@@ -28,4 +28,10 @@ public class SwingWatchmakerMenu extends JMenu implements WatchmakerMenu {
 	public void add(WatchmakerAction action) {
 		super.add((Action)action);
 	}
+
+    @Override
+    public void add(WatchmakerMenu menu) {
+        super.add((JMenu) menu);
+        
+    }
 }

@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.album.Album;
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Rect;

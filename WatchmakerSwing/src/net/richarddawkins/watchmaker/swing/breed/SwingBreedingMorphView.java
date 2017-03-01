@@ -3,18 +3,12 @@ package net.richarddawkins.watchmaker.swing.breed;
 import java.util.Vector;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
-import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
-import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
 

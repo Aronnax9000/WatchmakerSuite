@@ -15,6 +15,10 @@ public class WatchmakerCursors {
       ClassicImageLoader.getPicture(
           "CursorLeftArrow_CURS_00135_48x16").getImage().getSubimage(0, 0, 16, 16), 
       hotspot, "Left arrow");
+  
+  public static final Cursor magnify = toolkit.createCustomCursor(
+          ClassicImageLoader.getPicture("CursorMagnifyingGlass_CURS_00150_48x16").getImage().getSubimage(0, 0, 16, 16), 
+          hotspot, "Magnify");
   public static final Cursor kill = toolkit.createCustomCursor(
           ClassicImageLoader.getPicture("CursorGun_CURS_00149_48x16").getImage().getSubimage(0, 0, 16, 16), 
           hotspot, "Kill");

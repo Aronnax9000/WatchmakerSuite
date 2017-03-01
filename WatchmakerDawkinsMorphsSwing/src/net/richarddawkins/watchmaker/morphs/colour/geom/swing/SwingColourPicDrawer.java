@@ -32,7 +32,7 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
     @Override
     protected void picSpecifics(Graphics2D g2, Phenotype pic) {
     	Rect margin = pic.getMargin();
-    	g2.setColor(SwingColor.rgbColorPalette[pic.getBackgroundColor()]);
+    	g2.setColor(SwingColor.toColor(pic.getBackgroundColor()));
     	g2.fillRect(margin.left, margin.top, margin.getWidth(), margin.getHeight());
     	g2.setStroke(new BasicStroke(((ColourPic)pic).getThickness()));
 
@@ -42,7 +42,7 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
     protected void limb(Graphics2D g2, Phenotype pic, Lin line) {
     	ColourPic colourPic = (ColourPic) pic;
     	ColourLin colourLin = (ColourLin) line;
-        g2.setColor(SwingColor.rgbColorPalette[colourLin.color]);
+        g2.setColor(SwingColor.toColor(colourLin.color));
         Rectangle square = new Rectangle(Math.min(line.startPt.h, line.endPt.h), Math.min(line.startPt.v, line.endPt.v),
                 Math.abs(line.endPt.h - line.startPt.h), Math.abs(line.endPt.v - line.startPt.v));
 

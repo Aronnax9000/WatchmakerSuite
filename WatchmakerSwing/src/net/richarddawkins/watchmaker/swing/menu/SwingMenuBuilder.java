@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.swing.menu;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Set;
 
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
@@ -12,6 +13,7 @@ import javax.swing.JPanel;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
+import net.richarddawkins.watchmaker.geom.WatchmakerColor;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
@@ -133,7 +135,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                             centrePanel.setCursor(WatchmakerCursors.highlight);
                         } else {
                             centrePanel.setCursor(null);
-                            BoxedMorphCollection boxedMorphs = selectedMorphView.getSelectedPanel()
+                            BoxedMorphCollection boxedMorphs = selectedMorphView
+                                    .getSelectedPanel()
                                     .getBoxedMorphCollection();
                             if (boxedMorphs.getSelectedBoxedMorph() != null) {
                                 boxedMorphs.setSelectedBoxedMorph(null);
@@ -187,8 +190,18 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         return menu;
     }
 
+    protected WatchmakerMenu buildPaletteMenu() {
+        WatchmakerMenu paletteMenu = new SwingWatchmakerMenu("Palettes");
+        Set<String> paletteNames = WatchmakerColor.getInstance().getPalettes().keySet(); 
+        for(String paletteName: paletteNames) {
+            paletteMenu.add(new ActionSwitchPalette(appData, paletteName));
+        }
+        return paletteMenu;
+        
+    }
+
     protected WatchmakerMenu buildWatchmakerMenu() {
-        WatchmakerMenu watchMakerMenu = new SwingWatchmakerMenu("Watchmaker");
+        WatchmakerMenu menu = new SwingWatchmakerMenu("Watchmaker");
         AppDataFactory factory = AppDataFactoryService.getInstance()
                 .getFactory();
         for (String morphType : factory.getMorphTypes()) {
@@ -197,10 +210,14 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                     morphType, (Icon) factory.getIcon());
             // if (morphType.equals("Snails"))
             // morphTypeAction.setEnabled(false);
-            watchMakerMenu.add(morphTypeAction);
+            menu.add(morphTypeAction);
         }
-        addFileQuitAction(watchMakerMenu);
-        return watchMakerMenu;
+
+        menu.add(buildPaletteMenu());
+
+        menu.add(new ActionColorSwatch(appData));
+        addFileQuitAction(menu);
+        return menu;
     }
 
     protected WatchmakerCheckBoxMenuItem viewBoundingBoxes;

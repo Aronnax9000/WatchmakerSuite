@@ -12,6 +12,8 @@ public class SwingIntegerGeneBox extends SwingTextGeneBox implements IntegerGene
 	 */
 	private static final long serialVersionUID = 143109406407187838L;
 
+	protected boolean displayAsHex = false;
+	
 	public SwingIntegerGeneBox() {
 
 	}
@@ -21,7 +23,13 @@ public class SwingIntegerGeneBox extends SwingTextGeneBox implements IntegerGene
 	}
 
 	public void setValue(int value) {
-		setText((value > 0 && ((IntegerGene) gene).isShowPositiveSign() ? "+" : "") + new Integer(value).toString());
+	    String valueString;
+	    if(displayAsHex) {
+	        valueString = Integer.toHexString(value).toUpperCase();
+	    } else {
+	        valueString = new Integer(value).toString();
+	    }
+		setText((value > 0 && ((IntegerGene) gene).isShowPositiveSign() ? "+" : "") + valueString);
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.swing.images;
 
 import java.awt.image.BufferedImage;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

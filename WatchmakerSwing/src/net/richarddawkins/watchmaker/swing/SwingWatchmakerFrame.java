@@ -33,7 +33,7 @@ public class SwingWatchmakerFrame extends JFrame {
 
 	protected SwingWatchmakerFrame() {
 		super("Watchmaker Suite by Richard Dawkins");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		WatchmakerMenuBar menuBar = SwingWatchmakerMenuBar.getInstance();
 		setJMenuBar((JMenuBar) menuBar);
 		getContentPane().setLayout(new BorderLayout());

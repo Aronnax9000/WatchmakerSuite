@@ -8,10 +8,6 @@ import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.genome.Genome;
-import net.richarddawkins.watchmaker.morph.Morph;
-import net.richarddawkins.watchmaker.morph.MorphConfig;
-import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
 public class ActionNewRandomStart extends SwingWatchmakerAction {

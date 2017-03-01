@@ -49,7 +49,7 @@ public class SwingBoxesDrawer implements BoxesDrawer {
 			int backgroundColor = backgroundColorIterator.next();
 			if(! midBoxOnly || (r == midBox && accentuateMidBox)) {
 				if(backgroundColor != -1) {
-					g2.setColor(SwingColor.rgbColorPalette[backgroundColor]);
+					g2.setColor(SwingColor.toColor(backgroundColor));
 					g2.fillRect(r.left, r.top, r.getWidth(), r.getHeight());
 				}
 				g2.setColor(Color.BLACK);

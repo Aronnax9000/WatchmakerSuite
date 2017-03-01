@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.Icon;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.morph.Morph;
 
 public class ActionPedigree  extends SwingWatchmakerAction {
     private static final long serialVersionUID = 4121419685469500509L;

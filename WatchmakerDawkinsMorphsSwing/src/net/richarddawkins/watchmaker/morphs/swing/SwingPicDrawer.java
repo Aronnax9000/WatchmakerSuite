@@ -15,19 +15,19 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 
-
-
 public abstract class SwingPicDrawer implements PhenotypeDrawer {
-	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer");
+    private static Logger logger = Logger.getLogger(
+            "net.richarddawkins.watchmaker.morphs.swing.SwingPicDrawer");
 
-	protected DrawingPreferences drawingPreferences;
-	@Override
-	public DrawingPreferences getDrawingPreferences() {
-		return this.drawingPreferences;
-	}
-    
+    protected DrawingPreferences drawingPreferences;
+
+    @Override
+    public DrawingPreferences getDrawingPreferences() {
+        return this.drawingPreferences;
+    }
+
     protected abstract void limb(Graphics2D g2, Phenotype pic, Lin limb);
-    
+
     protected void picSpecifics(Graphics2D g2, Phenotype pic) {
         // Default no-op
     }
@@ -36,9 +36,12 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
     public Object getImage(Phenotype phenotype, double scale) {
     	Rect margin = phenotype.getMargin();
     	
-    	BufferedImage bufferedImage = new BufferedImage((int) (margin.getWidth() * scale + 1)
-    			, 
-    			(int) (margin.getHeight() * scale + 1),
+    	BufferedImage bufferedImage = null;
+
+        int width = (int)(margin.getWidth() * scale + 1);
+        int height = (int)(margin.getHeight() * scale + 1);
+    	try {
+    	bufferedImage = new BufferedImage(width, height,
     			BufferedImage.TYPE_INT_ARGB);
     	Graphics2D g2 = bufferedImage.createGraphics();
     	
@@ -61,6 +64,9 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
             limb(g2, phenotype, line);
         }
         logger.fine("SwingPicDrawer.getImage() complete");
+    	} catch(IllegalArgumentException e) {
+            logger.warning("SwingPicDrawer.getImage failed because of widthXheight: " + width + "x" + height + " scale " + scale);
+        }
 		return bufferedImage;
     }
 
