@@ -7,10 +7,11 @@ public class IntegerGeneOneOrGreater extends IntegerGene {
 
 	public IntegerGeneOneOrGreater(Genome genome, String name) {
 		super(genome, name);
+		setValue(1);
 	}
 
 	public IntegerGeneOneOrGreater(Genome genome, String name, int value) {
-		super(genome, name);
+		this(genome, name);
 		setValue(value);
 	}
 

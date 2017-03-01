@@ -151,7 +151,7 @@ public class MonochromeGenomeFactory extends BiomorphGenomeFactory {
 				int newMutSizeGeneValue = trickleGene.getValue() / 2;
 				genome.getMutSizeGene().setValue(newMutSizeGeneValue);
 			} else {
-				logger.warning("MutSizeGene not set by deliverSaltation.");
+				logger.warning("MutSizeGene not set by deliverSaltation because TrickleGene not greater than 1.");
 			}
 		}
 
@@ -223,7 +223,7 @@ public class MonochromeGenomeFactory extends BiomorphGenomeFactory {
 		IntegerGradientGene gene9 = genome.getGene9();
 		gene9.setValue(Random.randInt(5) + 1); // 2..6
 		gene9.setGradient(SwellType.Same);
-		logger.fine("ColourGenomeFactory.deliverSaltation():" + genome.toString());
+		logger.fine("MonochromeGenomeFactory.deliverSaltation():" + genome.toString());
 	}
 
 	@Override
