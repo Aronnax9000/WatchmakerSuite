@@ -1,7 +1,7 @@
 package net.richarddawkins.watchmaker.morph;
 
 import java.beans.PropertyChangeListener;
-import java.util.Vector;
+import java.util.Collection;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
@@ -11,6 +11,7 @@ import net.richarddawkins.watchmaker.genome.GenomeFactory;
 import net.richarddawkins.watchmaker.genome.Triangler;
 import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
+import net.richarddawkins.watchmaker.morph.selector.MorphSelector;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 
 /**
@@ -85,9 +86,11 @@ public interface MorphConfig {
 	void setMutagen(Mutagen mutagen);
 	void setRecordingFossils(boolean newValue);
 	void setStartingMorphBasicType(int startingMorphBasicType);
-	Vector<Album> getAlbums();
+	Collection<Album> getAlbums();
 	String[] getSavedAnimals();
     Triangler getTriangler();
+    MorphSelector getSelector();
+    void setSelector(MorphSelector selector);
 
 
 }

@@ -1,6 +1,6 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
-import java.awt.Event;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -15,7 +15,7 @@ public class ActionUndo extends SwingWatchmakerAction {
     private static final long serialVersionUID = 4121419685469500509L;
 
     public ActionUndo(AppData appData) {
-        super(appData, "Undo", null, KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.ALT_MASK));
+        super(appData, "Undo", null, KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
     }
 
     @Override

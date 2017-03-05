@@ -167,4 +167,9 @@ public class ColourGenome extends MonochromeGenome {
         theGenes[27] = thicknessGene;
         return theGenes;
     }
+    
+    @Override
+    public int getSizeInBytes() {
+        return super.getSizeInBytes() + 40;
+    }
 }

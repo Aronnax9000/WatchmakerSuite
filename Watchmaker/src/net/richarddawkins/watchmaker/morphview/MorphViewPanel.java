@@ -29,6 +29,7 @@ public interface MorphViewPanel extends PropertyChangeListener  {
 
     Morph getMorphOfTheHour();
 
+    MorphView getMorphView();
 
 
     Dim getDim();

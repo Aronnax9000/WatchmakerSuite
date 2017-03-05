@@ -56,6 +56,7 @@ public class ArthromorphGenome extends SimpleGenome {
 		return animalTrunk.toVector().toArray(new Gene[0]);
 	}
 
+	
 	@Override
 	public void readFromByteBuffer(ByteBuffer byteBuffer) {
 		Vector<Atom> atoms = new Vector<Atom>();
@@ -93,5 +94,10 @@ public class ArthromorphGenome extends SimpleGenome {
 	public void writeToByteBuffer(ByteBuffer byteBuffer) {
 		
 	}
+
+    @Override
+    public int getSizeInBytes() {
+        return 17 * this.getAtomCount();
+    }
 
 }

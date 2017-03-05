@@ -1,14 +1,22 @@
 package net.richarddawkins.watchmaker.swing.app;
 
+import java.awt.Component;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import javax.swing.JFileChooser;
 import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.album.Album;
+import net.richarddawkins.watchmaker.album.AlbumSerializer;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
@@ -19,35 +27,212 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewType;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
+import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
+import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
 public abstract class SwingAppData implements AppData {
     private static Logger logger = Logger.getLogger(
+
             "net.richarddawkins.watchmaker.swing.app.SwingAppData");
+
+    protected boolean showBoundingBox = true;
+    @Override
+    public boolean isShowBoundingBox() {
+        return showBoundingBox;
+    }
+    @Override
+    public void setShowBoundingBox(boolean newValue) {
+        boolean oldValue = this.showBoundingBox;
+        this.showBoundingBox = newValue;
+        pcs.firePropertyChange("showBoundingBox", oldValue, newValue);
+    }
+
+    class WatchmakerTask extends TimerTask {
+
+        protected AppData appData;
+
+        public WatchmakerTask(AppData appData) {
+            this.appData = appData;
+        }
+
+        @Override
+        public void run() {
+            appData.actionBreedFromSelector();
+        }
+    };
+
+    protected WatchmakerTask task = null;
+
+    @Override
+    public synchronized void startTimedBreed() {
+        if (task == null) {
+            task = new WatchmakerTask(this);
+            Timer timer = new Timer();
+            int seconds = 5;
+            timer.schedule(task, 0, seconds * 1000);
+        }
+    }
+
+    @Override
+    public void stopTimedBreed() {
+        if (task != null) {
+            task.cancel();
+            task = null;
+        }
+    }
+
+    @Override
+    public void albumNew() {
+        currentAlbum = new Album("Untitled");
+        this.addAlbumMorphView(currentAlbum);
+    }
+
+    JFileChooser fileChooser = new JFileChooser();
+
+    @Override
+    public void albumOpen() {
+        int returnVal = fileChooser
+                .showOpenDialog((Component) this.getMorphViewsTabbedPane());
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            // This is where a real application would open the file.
+            logger.info("Opening: " + file.getName() + ".");
+        } else {
+            logger.info("Open command cancelled by user.");
+        }
+    }
+
+    public void actionBreedFromSelector() {
+        // Find the topmost breeding panel and breed from it.
+        SwingBreedingMorphView morphView = (SwingBreedingMorphView) this
+                .getBreedingMorphViews().elementAt(0);
+        morphView.breedFromSelector();
+    }
+
+    @Override
+    public void albumSave() {
+        if (currentAlbum.isDirty()) {
+            if (currentAlbum.getFileName() == null) {
+                albumSaveAs();
+            } else {
+                new AlbumSerializer(config).putAlbumToFile(currentAlbum,
+                        new File(currentAlbum.getFileName()));
+            }
+
+        }
+    }
+
+    @Override
+    public void albumSaveAs() {
+        if (currentAlbum.isDirty()) {
+            int returnVal = fileChooser
+                    .showSaveDialog((Component) this.getMorphViewsTabbedPane());
+
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                new AlbumSerializer(config).putAlbumToFile(currentAlbum, file);
+                logger.info("Saving: " + file.getName() + ".");
+            } else {
+                logger.info("Save command cancelled by user.");
+            }
+        }
+    }
+
+    Album currentAlbum = null;
+
+    public Album getCurrentAlbum() {
+        return currentAlbum;
+    }
+
+    public void setCurrentAlbum(Album currentAlbum) {
+        this.currentAlbum = currentAlbum;
+    }
+
+    @Override
+    public void albumExport() {
+
+    }
+
+    @Override
+    public void albumDelete() {
+        String fileName = currentAlbum.getFileName();
+        if (fileName != null) {
+            new File(fileName).delete();
+        }
+    }
+
+    @Override
+    public void addClassicAlbums() {
+        Collection<Album> albums = config.getAlbums();
+        if (albums != null) {
+            for (Album album : albums) {
+                addAlbumMorphView(album);
+            }
+        }
+    }
+
+    @Override
+    public Vector<MorphView> getBreedingMorphViews() {
+        Vector<MorphView> morphViews = new Vector<MorphView>();
+        for (MorphView morphView : getMorphViewsTabbedPane().getMorphViews()) {
+            if (morphView instanceof SwingBreedingMorphView) {
+                morphViews.add(morphView);
+            }
+        }
+        Collections.reverse(morphViews);
+        return morphViews;
+    }
+
+    @Override
+    public Vector<MorphView> getAlbumMorphViews() {
+        Vector<MorphView> morphViews = new Vector<MorphView>();
+        for (MorphView morphView : getMorphViewsTabbedPane().getMorphViews()) {
+            if (morphView instanceof SwingAlbumMorphView) {
+                morphViews.add(morphView);
+            }
+        }
+        Collections.reverse(morphViews);
+        return morphViews;
+    }
+
+    public MorphView getMostRecentWritableAlbumMorphView() {
+        for (MorphView morphView : getAlbumMorphViews()) {
+            if (morphView.getAlbum().isWritable()) {
+                return morphView;
+            }
+        }
+        return null;
+    }
 
     @Override
     public void newRandomStart() {
-        // TODO Auto-generated method stub        MorphConfig config = appData.getMorphConfig();
+        // TODO Auto-generated method stub MorphConfig config =
+        // appData.getMorphConfig();
         Morph morph = getMorphOfTheHour();
         Genome genome = config.getGenomeFactory().deliverSaltation();
         morph.setGenome(genome);
-        MorphView morphView = getMorphViewsTabbedPane()
-                .getSelectedMorphView();
+        MorphView morphView = getMorphViewsTabbedPane().getSelectedMorphView();
         morphView.addSeedMorph(morph);
     }
 
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append(name);
-        if(breedRightAway) buffer.append(" breedRightAway");
-        if(saltOnEmptyBreedingBoxClick) buffer.append(" saltOnEmptyBreedingBoxClick");
-        if(geneBoxToSide) buffer.append(" geneBoxToSide");
-        if(highlighting) buffer.append(" highlighting");
+        if (breedRightAway)
+            buffer.append(" breedRightAway");
+        if (saltOnEmptyBreedingBoxClick)
+            buffer.append(" saltOnEmptyBreedingBoxClick");
+        if (geneBoxToSide)
+            buffer.append(" geneBoxToSide");
+        if (highlighting)
+            buffer.append(" highlighting");
         buffer.append(" " + defaultBreedingCols + "x" + defaultBreedingRows);
         return buffer.toString();
     }
-    
+
     protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
     protected boolean breedRightAway = true;
     protected MorphConfig config;
@@ -70,9 +255,20 @@ public abstract class SwingAppData implements AppData {
 
     @Override
     public void addAlbumMorphView(Album album) {
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
-                MorphViewType.pedigree, null));        
+        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
+                .getMorphView(this, MorphViewType.album, null));
 
+    }
+
+    @Override
+    public void addMorphToAlbum() {
+        Morph morph = this.getMorphOfTheHour();
+        Vector<MorphView> albumMorphViews = this.getAlbumMorphViews();
+        if (!albumMorphViews.isEmpty()) {
+            MorphView albumMorphView = albumMorphViews.firstElement();
+            albumMorphView.addSeedMorph(morph);
+            albumMorphView.repaint();
+        }
     }
 
     @Override
@@ -86,8 +282,9 @@ public abstract class SwingAppData implements AppData {
             seedMorphs.add(copy);
         } else {
             logger.fine("addBreedingMorphView Seeding basic type");
-            seedMorphs.addElement(config.newMorph(config.getStartingMorphBasicType()));
-        }        
+            seedMorphs.addElement(
+                    config.newMorph(config.getStartingMorphBasicType()));
+        }
         MorphView morphView = SwingMorphViewFactory.getMorphView(this,
                 MorphViewType.breeding, seedMorphs);
         morphViewsTabbedPane.addMorphView(morphView);
@@ -112,8 +309,8 @@ public abstract class SwingAppData implements AppData {
     public void addPedigreeMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
         seedMorphs.add(getMorphOfTheHour());
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
-                MorphViewType.pedigree, seedMorphs));        
+        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
+                .getMorphView(this, MorphViewType.pedigree, seedMorphs));
 
     }
 
@@ -127,14 +324,16 @@ public abstract class SwingAppData implements AppData {
             PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(propertyName, listener);
     }
+
     @Override
-	public void addTriangleMorphView() {
+    public void addTriangleMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
-        seedMorphs.addAll(Arrays.asList( this.getMorphConfig().getTriangleMorphs()));
-		morphViewsTabbedPane.addMorphView(SwingMorphViewFactory.getMorphView(this, 
-		        MorphViewType.triangle, seedMorphs));
-		
-	}
+        seedMorphs.addAll(
+                Arrays.asList(this.getMorphConfig().getTriangleMorphs()));
+        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
+                .getMorphView(this, MorphViewType.triangle, seedMorphs));
+
+    }
 
     @Override
     public BoxesDrawer getBoxesDrawer() {

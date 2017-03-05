@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.app;
 
 import java.beans.PropertyChangeListener;
+import java.util.Vector;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
@@ -8,6 +9,7 @@ import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
@@ -23,8 +25,17 @@ import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
  */
 public interface AppData  {
 
+    
+    public void startTimedBreed();
+    public void stopTimedBreed();
+    /**
+     * Returns a list of AlbumMorphViews, in reverse order of tab order (most recently opened first)
+     * @return a list of AlbumMorphViews, in reverse order of tab order (most recently opened first)
+     */
+    public Vector<MorphView> getAlbumMorphViews();
 	public boolean isBreedRightAway();
 	public void setBreedRightAway(boolean newValue);
+	public void actionBreedFromSelector();
 	
 	public boolean isSaltOnEmptyBreedingBoxClick();
 	public void setSaltOnEmptyBreedingBoxClick(boolean newValue);
@@ -72,7 +83,19 @@ public interface AppData  {
     public void addPedigreeMorphView();
     void addAlbumMorphView(Album album);
     public void newRandomStart();
-    
+    public void addClassicAlbums();
+    public Album getCurrentAlbum();
+    public void setCurrentAlbum(Album album);
+    void albumDelete();
+    void albumSaveAs();
+    void albumSave();
+    void albumOpen();
+    void albumNew();
+    public void albumExport();
+    void addMorphToAlbum();
+    Vector<MorphView> getBreedingMorphViews();
+    public boolean isShowBoundingBox();
+    public void setShowBoundingBox(boolean newValue); 
     
 
 }

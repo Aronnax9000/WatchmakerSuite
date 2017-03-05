@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.swing.album;
 
-import java.awt.GridLayout;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -18,25 +17,25 @@ public class SwingAlbumMorphView extends SwingMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView");
 
-    
+
     
     @Override
     public void addPanels() {
         for (BoxedMorphCollection page : album.getPages()) {
+            page.setBoxManager(newBoxManager());
             MorphViewPanel panel = new SwingAlbumMorphViewPanel(this, page);
             addPanel(panel);
+            album.setSelectedPage(page);
         }
-        
     }
     
     public SwingAlbumMorphView(SwingMorphViewConfig config) {
         super(config);
-        this.setLayout(new GridLayout(2, 2));
     }
 
     @Override
     public Morph getMorphOfTheHour() {
-        return album.getSelectedPage().getMorphOfTheHour();
+        return this.getSelectedPanel().getMorphOfTheHour();
     }
 
     private static final long serialVersionUID = 8224824610112892419L;
@@ -55,15 +54,17 @@ public class SwingAlbumMorphView extends SwingMorphView {
                                     seedMorph, rect);
                             page.add(boxedMorph);
                             seededMorphs.add(seedMorph);
+                            logger.info("SwingAlbumMorphView.seed Boxed morph:" + boxedMorph);
                             break findEmptyBox;
                         }
                     }
                 }
             }
-            seedMorphs.removeAll(seededMorphs);
-            
+            for(Morph morph: seededMorphs) {
+                seedMorphs.remove(morph);
+            }
         }
-
+        repaint();
     }
 
     @Override

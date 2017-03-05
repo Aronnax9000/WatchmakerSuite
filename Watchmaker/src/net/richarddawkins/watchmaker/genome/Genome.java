@@ -21,4 +21,7 @@ public interface Genome extends PropertyChangeListener {
 
     boolean genomicallyEquals(Genome genome);
 
+
+    int getSizeInBytes();
+
 }

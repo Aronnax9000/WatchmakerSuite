@@ -55,36 +55,41 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
 public abstract class Pic implements Phenotype {
 
     /**
-     * PICSIZEMAX is 4 * 4095, which is 4 times the original (Pascal) value, since the
-     * current implementation stores each component of a symmetry separately, instead
-     * of calculating them as they're drawn.
+     * PICSIZEMAX is 4 * 4095, which is 4 times the original (Pascal) value,
+     * since the current implementation stores each component of a symmetry
+     * separately, instead of calculating them as they're drawn.
      */
-    public final static int PICSIZEMAX = 4* 4095;
+    public final static int PICSIZEMAX = 4 * 4095;
 
     public Vector<Lin> lines = new Vector<Lin>();
     protected final Rect margin = new Rect();
+    public Morph morph;
 
-    @Override
-	public Rect getMargin() {
-		return margin;
-	}
-
-
-
-	public Morph morph;
     public Pic() {
         super();
     }
 
-    @Override
-    public int size() { return lines.size(); }
     public void addLin(Lin lin) {
         lines.add(lin);
     }
-    
+
+    @Override
+    public Rect getMargin() {
+        return margin;
+    }
+
+    @Override
+    public int size() {
+        return lines.size();
+    }
+
     public void zero() {
         lines.clear();
         margin.zero();
+    }
+    @Override
+    public String toString() {
+        return "Margin:" + margin.toString();
     }
 
 }

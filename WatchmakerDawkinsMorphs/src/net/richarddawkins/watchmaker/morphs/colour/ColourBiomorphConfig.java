@@ -45,4 +45,9 @@ public class ColourBiomorphConfig extends SimpleMorphConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+    @Override
+    public String[] getSavedAnimals() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

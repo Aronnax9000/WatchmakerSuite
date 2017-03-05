@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
-import java.awt.Event;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
@@ -21,7 +20,7 @@ public class ActionCopy extends SwingWatchmakerAction {
 	private static final long serialVersionUID = 4121419685469500509L;
 	
 	public ActionCopy(AppData appData) {
-		super(appData, "Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_C, Event.ALT_MASK));
+		super(appData, "Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 	
 	@Override

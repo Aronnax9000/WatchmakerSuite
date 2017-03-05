@@ -10,7 +10,7 @@ public class SimpleDrawingPreferences implements DrawingPreferences, PropertyCha
 
 	protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
-	protected boolean showBoundingBoxes = false;
+	protected boolean showBoundingBoxes = true;
 
 	protected boolean spinBabyMorphs;
 	@Override

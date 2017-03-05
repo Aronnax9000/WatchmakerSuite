@@ -6,6 +6,6 @@ import net.richarddawkins.watchmaker.geom.Dim;
 public interface MorphDrawer {
 
 
-	void draw(BoxedMorph locatedMorph, Object graphicsContext, Dim d, boolean selectionState);
+	void draw(BoxedMorph locatedMorph, Object graphicsContext, Dim d, boolean selectionState, boolean isShowBoundingBoxes);
 
 }

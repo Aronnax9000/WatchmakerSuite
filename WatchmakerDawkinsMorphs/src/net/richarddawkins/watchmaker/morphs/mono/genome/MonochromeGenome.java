@@ -358,5 +358,10 @@ public class MonochromeGenome extends SimpleGenome implements TriangleAble {
 		mutProbGene.writeValueToByteBuffer(byteBuffer);
     }
 
+    @Override
+    public int getSizeInBytes() {
+        return 40;
+    }
+
 	
 }

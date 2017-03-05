@@ -11,32 +11,32 @@ import net.richarddawkins.watchmaker.morph.Morph;
  */
 public class BoxedMorph extends LocatedMorph {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxedMorph");
-    @Override
-    public String toString() {
-        return "BoxedMorph box:" + box + " morph:" + morph;
-    }
-    
-	protected Rect box;
+    protected BoxManager boxes;
+    protected Rect box;
 	protected Rect destinationBox = null;
-	protected BoxManager boxes;
-
-	public BoxManager getBoxes() {
-		return boxes;
-	}
-
-	public void setBoxes(BoxManager boxes) {
-		this.boxes = boxes;
-	}
-
-	public Rect getDestinationBox() {
-		return destinationBox;
-	}
-
 	public BoxedMorph(BoxManager boxes, Morph morph, Rect box) {
 		logger.info("Adding morph to box  " + box);
 		this.boxes = boxes;
 		this.morph = morph;
 		this.box = box;
+	}
+
+	public boolean genomicallyEquals(BoxedMorph thatBoxedMorph) {
+        Morph thatMorph = thatBoxedMorph.getMorph();
+        
+        return morph.genomicallyEquals(thatMorph);
+    }
+
+	public Rect getBox() {
+		return box;
+	}
+
+	public BoxManager getBoxes() {
+		return boxes;
+	}
+
+	public Rect getDestinationBox() {
+		return destinationBox;
 	}
 
 	public Point getPosition(Dim dimension) {
@@ -52,14 +52,14 @@ public class BoxedMorph extends LocatedMorph {
 		}
 	}
 
-	public Rect getBox() {
-		return box;
-	}
-
 	public void setBox(Rect newValue) {
 	    Rect oldValue = this.box;
 		this.box = newValue;
 		firePropertyChange("Box", oldValue, newValue);
+	}
+
+	public void setBoxes(BoxManager boxes) {
+		this.boxes = boxes;
 	}
 
 	public void setDestinationBox(Rect newValue) {
@@ -69,10 +69,9 @@ public class BoxedMorph extends LocatedMorph {
 		firePropertyChange("destinationBox", oldValue, newValue);
 	}
 
-    public boolean genomicallyEquals(BoxedMorph thatBoxedMorph) {
-        Morph thatMorph = thatBoxedMorph.getMorph();
-        
-        return morph.genomicallyEquals(thatMorph);
+    @Override
+    public String toString() {
+        return "BoxedMorph box:" + box + " morph:" + morph;
     }
 
 }

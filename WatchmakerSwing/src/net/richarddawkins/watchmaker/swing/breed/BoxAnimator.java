@@ -11,74 +11,94 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
-public class BoxAnimator extends TimerTask {
+public class BoxAnimator  {
     enum Phase {
-        deactivate_grid, animate_mother, reactivate_grid, box_next_offspring, draw_out_offspring, breed_complete;
+        deactivate_grid, animate_mother, reactivate_grid, box_next_offspring, draw_out_offspring, breed_complete, idle;
     }
 
     private static Logger logger = Logger
             .getLogger("net.richarddawkins.watchmaker.swing.breed.BoxAnimator");
-    protected int vacantBoxNumber = 0;
+    protected int vacantBoxNumber;
     protected SwingBreedingMorphViewPanel breedingPanel;
     protected Morph newestOffspring;
     protected BoxedMorph boxedNewestOffspring;
-    protected Phase phase;
+    protected Phase phase = Phase.idle;
     protected BoxedMorphCollection boxedMorphVector;
     protected Rect midBox;
     protected BoxedMorph boxedMorphParent;
     protected BoxManager boxes;
 
-    public BoxAnimator(SwingBreedingMorphViewPanel breedingPanel, Rect special,
-            BoxedMorph boxedMorphParent, Morph newestOffspring) {
+    public BoxAnimator(SwingBreedingMorphViewPanel breedingPanel) {
         this.breedingPanel = breedingPanel;
+        logger.info("BoxAnimator constructed");
+
+    }
+
+    public void setupBoxAnimator(Rect special, BoxedMorph boxedMorphParent,
+            Morph newestOffspring) {
         this.boxedMorphVector = breedingPanel.getBoxedMorphCollection();
         this.boxes = boxedMorphVector.getBoxes();
         this.midBox = boxes.getMidBox();
+
         this.boxedMorphParent = boxedMorphParent;
         this.newestOffspring = newestOffspring;
-        if (boxedMorphParent == null) {
-            cancel();
-        } else {
+        if (boxedMorphParent != null) {
             prepareBoxAnimator(special);
+        } else {
+            logger.warning("BoxAnimator setupBoxAnimator called with no boxedMorphParent.");
         }
-
+        
 
     }
 
     private void prepareBoxAnimator(Rect special) {
+        if (phase == Phase.idle) {
+            // Clear out the breeding panel's collection of morphs
+            boxedMorphVector.removeAllElements();
+            // Put the parent morph back in collection, still in the same box.
+            boxedMorphVector.add(boxedMorphParent);
+            // Get the eldest child of a new litter of offspring of the parent
+            // morph
 
-        // Clear out the breeding panel's collection of morphs
-        boxedMorphVector.removeAllElements();
-        // Put the parent morph back in collection, still in the same box.
-        boxedMorphVector.add(boxedMorphParent);
-        // Get the eldest child of a new litter of offspring of the parent
-        // morph
+            breedingPanel.autoScaleBasedOnMorphs(special,
+                    breedingPanel.getIncludeChildrenInAutoScale());
 
-        breedingPanel.autoScaleBasedOnMorphs(special, breedingPanel.getIncludeChildrenInAutoScale());
+            // We don't box it yet, because we still have to animate the parent.
+            this.boxedNewestOffspring = null;
 
-        // We don't box it yet, because we still have to animate the parent.
-        this.boxedNewestOffspring = null;
-
-        if (special != midBox) {
-            // Need to animate mother
-            boxedMorphParent.setDestinationBox(midBox);
-            boxedMorphParent.setProgress(0.0d);
-            boxedMorphParent.setScaleWithProgress(false);
-            phase = Phase.deactivate_grid;
+            if (special != midBox) {
+                // Need to animate mother
+                boxedMorphParent.setDestinationBox(midBox);
+                boxedMorphParent.setProgress(0.0d);
+                boxedMorphParent.setScaleWithProgress(false);
+                phase = Phase.deactivate_grid;
+            } else {
+                phase = Phase.reactivate_grid;
+                // if
+                // (breedingPanel.getMorphView().getAppData().isBreedRightAway())
+                // {
+                // phase = Phase.reactivate_grid;
+                // } else {
+                // phase = Phase.breed_complete;
+                // }
+            }
         } else {
-            phase = Phase.reactivate_grid;
+            logger.warning(
+                    "prepareBoxAnimator skipped, because not breed_complete. Phase was "
+                            + phase);
         }
 
     }
 
-    @Override
-    public void run() {
-        // synchronized(breedingPanel.getBoxedMorphCollection()) {
-        doRun();
-        // }
-    }
+
 
     protected void doRun() {
+        synchronized (boxedMorphVector) {
+            doSynchronizedRun();
+        }
+    }
+
+    protected void doSynchronizedRun() {
         logger.fine("BoxAnimator.doRun() " + phase);
         switch (phase) {
         case deactivate_grid:
@@ -99,6 +119,7 @@ public class BoxAnimator extends TimerTask {
             breedingPanel.setSpecial(midBox);
             boxedMorphParent.setDestinationBox(null);
             boxedMorphParent.setProgress(0.0d);
+            vacantBoxNumber = 0;
             phase = Phase.box_next_offspring;
             break;
         case box_next_offspring:
@@ -132,7 +153,7 @@ public class BoxAnimator extends TimerTask {
                     boxedMorphVector.add(vacantBoxNumber - 1,
                             boxedNewestOffspring);
                 }
-//                breedingPanel.autoScaleBasedOnMorphs();
+                // breedingPanel.autoScaleBasedOnMorphs();
                 phase = Phase.draw_out_offspring;
             } else {
                 phase = Phase.breed_complete;
@@ -157,23 +178,44 @@ public class BoxAnimator extends TimerTask {
             break;
 
         case breed_complete:
-            this.cancel();
             breedingPanel.setCursor(WatchmakerCursors.breed);
             breedingPanel.updateCursor();
             logger.fine("Breed Complete");
+            phase = Phase.idle;
+            break;
+        case idle:
+            timerTask.cancel();
+            timer = null;
+            logger.info("Finished idle");
             break;
         }
         breedingPanel.repaint();
     }
 
+    Timer timer = null;
+    TimerTask timerTask = null;
     /**
      * Start the animation. ("Laugh a-while you can, monkey boy.") - LJW
      */
     public void feetDoYourStuff() {
-        Timer timer = new Timer();
-        timer.schedule(this, 0,
-                breedingPanel.morphView.getAppData().getTickDelay());
-        
+        logger.info("FeetDoYourStuff");
+        if (timer == null) {
+            timer = new Timer();
+            timerTask = new TimerTask() {
+
+                @Override
+                public void run() {
+                    // synchronized(breedingPanel.getBoxedMorphCollection()) {
+                    doRun();
+                    // }
+                }
+            };
+            timer.schedule(timerTask, 0, breedingPanel.morphView.getAppData().getTickDelay());
+        } else {
+            logger.warning(
+                    "BoxAnimator.feetDoYourStuff not running because animator is not idle. Phase was "
+                            + phase);
+        }
     }
 
 }

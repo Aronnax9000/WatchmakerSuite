@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
@@ -15,26 +16,13 @@ public class BoxedMorphCollection {
 	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morph.draw.BoxedMorphVector");
 
+	protected Album album;
+	
 	protected Vector<BoxedMorph> boxedMorphs = new Vector<BoxedMorph>();
 	
-	public boolean genomicallyEquals(BoxedMorphCollection those) {
-	    Vector<BoxedMorph> thoseMorphs = those.getBoxedMorphs();
-	    if(thoseMorphs.size() != boxedMorphs.size()) {
-	        return false;
-	    }
-        Iterator<BoxedMorph> theseBoxedMorphs = boxedMorphs.iterator();
-        Iterator<BoxedMorph> thoseBoxedMorphs = thoseMorphs.iterator();
-        while(theseBoxedMorphs.hasNext()) {
-            if(! theseBoxedMorphs.next().genomicallyEquals(thoseBoxedMorphs.next())) {
-                return false;
-            }
-        }
-        return true;
-	}
-	
-	public BoxedMorph lastElement() { return boxedMorphs.lastElement(); }
-	protected BoxedMorph selectedBoxedMorph = null;
+	protected BoxManager boxes;
 	protected String name;
+	protected BoxedMorph selectedBoxedMorph = null;
     public BoxedMorphCollection() {
         
     }
@@ -45,85 +33,27 @@ public class BoxedMorphCollection {
     }
 
 
-    public int size() { return boxedMorphs.size(); }
-	protected BoxManager boxes;
-	
-	public BoxManager getBoxes() {
-		return boxes;
+	public void setAlbumDirty(boolean dirty) {
+	    if(album != null) {
+	        album.setDirty(true);
+	    }
 	}
 	
-
+    public void add(BoxedMorph boxedMorph) {
+		boxedMorphs.add(boxedMorph);
+		setAlbumDirty(true);
+	}
+	public void add(int index, BoxedMorph boxedNewestOffspring) {
+        boxedMorphs.add(index, boxedNewestOffspring);
+        setAlbumDirty(true);
+    }
+	
 	public void clear() {
 	    boxedMorphs.clear();
-	}
-
-	public void setBoxes(BoxManager boxes) {
-		this.boxes = boxes;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public BoxedMorph getSelectedBoxedMorph() {
-		return selectedBoxedMorph;
-	}
-
-	public void setSelectedBoxedMorph(BoxedMorph selectedBoxedMorph) {
-		this.selectedBoxedMorph = selectedBoxedMorph;
-	}
-
-	public Vector<Morph> getMorphs() {
-		Vector<Morph> morphs = new Vector<Morph>();
-		for(BoxedMorph boxedMorph: boxedMorphs) {
-			morphs.add(boxedMorph.getMorph());
-		}
-		return morphs;
-	}
-	
-	public boolean isEmpty() {
-		return boxedMorphs.isEmpty();
-	}
-	
-	public void add(BoxedMorph boxedMorph) {
-		boxedMorphs.add(boxedMorph);
-	}
-	public void remove(BoxedMorph boxedMorphVictim) {
-		if(selectedBoxedMorph == boxedMorphVictim) {
-			selectedBoxedMorph = null;
-		}
-		boxes.removeBox(boxedMorphVictim.getBox());
-		boxedMorphs.remove(boxedMorphVictim);
-	}
-	public void removeAllElements() {
-		selectedBoxedMorph = null;
-		boxedMorphs.removeAllElements();
-	}
-	public Iterator<BoxedMorph> iterator() {
-		return boxedMorphs.iterator();
-	}
-	
-	public BoxedMorph getBoxedMorph(Rect box) {
-		for(BoxedMorph boxedMorph: boxedMorphs) 
-			if(boxedMorph.getBox() == box)
-				return boxedMorph;
-		return null;
+        setAlbumDirty(true);
 	}
 	
 
-	
-	public Vector<BoxedMorph> getBoxedMorphs() {
-		return boxedMorphs;
-	}
-
-	public void setBoxedMorphs(Vector<BoxedMorph> boxedMorphs) {
-		this.boxedMorphs = boxedMorphs;
-	}
-	
 	public BoxedMorph findBoxedMorphForMorph(Morph morph) {
 	    for(BoxedMorph boxedMorph: boxedMorphs) {
 	        if(boxedMorph.getMorph() == morph) {
@@ -157,23 +87,114 @@ public class BoxedMorphCollection {
 	    return boxedMorphAndDescendents;
 	}
 
-    public void moveToEnd(BoxedMorph boxedMorph) {
+	public LocatedMorph firstElement() {
+        
+        return boxedMorphs.firstElement();
+    }
+
+	public boolean genomicallyEquals(BoxedMorphCollection those) {
+	    Vector<BoxedMorph> thoseMorphs = those.getBoxedMorphs();
+	    if(thoseMorphs.size() != boxedMorphs.size()) {
+	        return false;
+	    }
+        Iterator<BoxedMorph> theseBoxedMorphs = boxedMorphs.iterator();
+        Iterator<BoxedMorph> thoseBoxedMorphs = thoseMorphs.iterator();
+        while(theseBoxedMorphs.hasNext()) {
+            if(! theseBoxedMorphs.next().genomicallyEquals(thoseBoxedMorphs.next())) {
+                return false;
+            }
+        }
+        return true;
+	}
+
+	public Album getAlbum() {
+        return album;
+    }
+
+	public BoxedMorph getBoxedMorph(Rect box) {
+		for(BoxedMorph boxedMorph: boxedMorphs) 
+			if(boxedMorph.getBox() == box)
+				return boxedMorph;
+		return null;
+	}
+
+	public Vector<BoxedMorph> getBoxedMorphs() {
+		return boxedMorphs;
+	}
+	
+	public BoxManager getBoxes() {
+		return boxes;
+	}
+	
+	public Vector<Morph> getMorphs() {
+		Vector<Morph> morphs = new Vector<Morph>();
+		for(BoxedMorph boxedMorph: boxedMorphs) {
+			morphs.add(boxedMorph.getMorph());
+		}
+		return morphs;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+    public BoxedMorph getSelectedBoxedMorph() {
+		return selectedBoxedMorph;
+	}
+
+    public boolean isEmpty() {
+		return boxedMorphs.isEmpty();
+	}
+	public Iterator<BoxedMorph> iterator() {
+		return boxedMorphs.iterator();
+	}
+	public BoxedMorph lastElement() { return boxedMorphs.lastElement(); }
+	public void moveToEnd(BoxedMorph boxedMorph) {
         synchronized(boxedMorphs) {
             boxedMorphs.remove(boxedMorph);
             boxedMorphs.add(boxedMorph);
             boxes.moveToEnd(boxedMorph.getBox());
         }
-        
+        setAlbumDirty(true);
     }
+	
+	public void remove(BoxedMorph boxedMorphVictim) {
+		if(selectedBoxedMorph == boxedMorphVictim) {
+			selectedBoxedMorph = null;
+		}
+		boxes.removeBox(boxedMorphVictim.getBox());
+		boxedMorphs.remove(boxedMorphVictim);
+		album.setDirty(true);
+	}
+	
 
-    public void add(int index, BoxedMorph boxedNewestOffspring) {
-        boxedMorphs.add(index, boxedNewestOffspring);
-        
-    }
+	
+	public void removeAllElements() {
+		selectedBoxedMorph = null;
+		boxedMorphs.removeAllElements();
+		album.setDirty(true);
+	}
 
-    public LocatedMorph firstElement() {
-        
-        return boxedMorphs.firstElement();
+	public void setAlbum(Album album) {
+        this.album = album;
     }
+	
+	public void setBoxedMorphs(Vector<BoxedMorph> boxedMorphs) {
+		this.boxedMorphs = boxedMorphs;
+	}
+
+	public void setBoxManager(BoxManager boxes) {
+		this.boxes = boxes;
+	}
+
+    public void setName(String name) {
+		this.name = name;
+	}
+
+    public void setSelectedBoxedMorph(BoxedMorph selectedBoxedMorph) {
+		this.selectedBoxedMorph = selectedBoxedMorph;
+	}
+
+    public int size() { return boxedMorphs.size(); }
 	
 }

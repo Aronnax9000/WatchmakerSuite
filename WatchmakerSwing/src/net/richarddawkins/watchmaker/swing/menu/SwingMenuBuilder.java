@@ -22,7 +22,13 @@ import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.pedigree.MirrorType;
 import net.richarddawkins.watchmaker.pedigree.PedigreeMorphView;
-import net.richarddawkins.watchmaker.swing.album.ActionShowAlbum;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumDelete;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumExport;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumNew;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumOpen;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumOpenClassics;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumSave;
+import net.richarddawkins.watchmaker.swing.album.ActionAlbumSaveAs;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public abstract class SwingMenuBuilder implements MenuBuilder {
@@ -244,8 +250,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         menu.addSeparator();
         menu.add(highlightBiomorph);
 
-        menu.add(new SwingWatchmakerMenuItem("Add Biomorph to Album"));
-        menu.add(new ActionShowAlbum(appData));
+        menu.add(new ActionAlbumAddBiomorph(appData));
+        menu.add(new ActionAlbumOpenClassics(appData));
         return menu;
     }
 
@@ -257,12 +263,24 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
      */
     protected WatchmakerMenu buildFileMenu() {
         WatchmakerMenu menu = new SwingWatchmakerMenu("File");
-        menu.add(new SwingWatchmakerMenuItem("Load to Album..."));
-        menu.add(new SwingWatchmakerMenuItem("Load as Fossils"));
-        menu.add(new SwingWatchmakerMenuItem("Save Biomoprh..."));
-        menu.add(new SwingWatchmakerMenuItem("Save Fossils..."));
-        menu.add(new SwingWatchmakerMenuItem("Save Album..."));
-        menu.add(new SwingWatchmakerMenuItem("Close Album"));
+        
+//        menu.add(new SwingWatchmakerMenuItem("Load to Album..."));
+//        menu.add(new SwingWatchmakerMenuItem("Load as Fossils"));
+//        menu.add(new SwingWatchmakerMenuItem("Save Biomorph..."));
+//        menu.add(new SwingWatchmakerMenuItem("Save Fossils..."));
+//        menu.add(new SwingWatchmakerMenuItem("Save Album..."));
+//        menu.add(new SwingWatchmakerMenuItem("Close Album"));
+        menu.addSeparator();
+        menu.add(new ActionAlbumNew(appData));
+        menu.add(new ActionAlbumOpen(appData));
+        menu.add(new ActionAlbumSave(appData));
+        menu.add(new ActionAlbumSaveAs(appData));
+        menu.add(new ActionAlbumDelete(appData));
+        menu.add(new ActionAlbumExport(appData));
+        menu.addSeparator();
+        menu.add(new ActionStartTimer(appData));
+        menu.add(new ActionStopTimer(appData));
+        
 
         return menu;
     }

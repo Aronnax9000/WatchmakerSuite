@@ -118,6 +118,14 @@ public class WatchmakerColor {
                 + File.separator + "GIMP" + File.separator + "2.8"
                 + File.separator + "palettes");
         for (String dirToSearch : searchExpressions) {
+            logger.info("dirToSearch:" + dirToSearch);
+            File[] files = new File(System.getProperty("user.home")
+                    + File.separator + dirToSearch).listFiles();
+            if(files != null) {
+                for(File file: files) {
+                    logger.info(dirToSearch + ": " + file.getName());
+                }
+            }
             loadPalettesSearch(dirToSearch);
         }
     }
@@ -128,6 +136,7 @@ public class WatchmakerColor {
                 + File.separator + searchString);
         for (String potentialPaletteDirectory : potentialPaletteDirectories) {
             StringTokenizer st = new StringTokenizer(File.separator);
+            
             loadPalettes(potentialPaletteDirectory);
         }
     }

@@ -125,5 +125,10 @@ public class SnailGenome extends SimpleGenome {
 		byteBuffer.get();
 		
 	}
+
+    @Override
+    public int getSizeInBytes() {
+        return 32;
+    }
 	
 }

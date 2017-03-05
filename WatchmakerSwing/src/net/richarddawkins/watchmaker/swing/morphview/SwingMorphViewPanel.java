@@ -33,24 +33,32 @@ import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
+    
+    @Override
+    public MorphView getMorphView() {
+        return morphView;
+         
+    }
     protected class ResizeListener extends ComponentAdapter {
         public void componentResized(ComponentEvent e) {
             autoScaleBasedOnMorphs(special, getIncludeChildrenInAutoScale());
         }
 
     }
+
     @Override
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("MorphViewPanel " + this.getName());
         BoxedMorphCollection boxedMorphs = this.getBoxedMorphCollection();
-        if(boxedMorphs != null) {
+        if (boxedMorphs != null) {
             stringBuffer.append(" backed by " + boxedMorphs.getName());
         } else {
             stringBuffer.append(" with null boxed morph collection.");
         }
         return stringBuffer.toString();
     }
+
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel");
     private static final long serialVersionUID = 1L;
@@ -64,11 +72,13 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     protected Rect selectedBox = null;
     protected Rect special;
+
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
-        
+
         this.morphView = morphView;
-        if(page == null) {
-            logger.warning("SwingMorphViewPanel(" + morphView.toString() + ", page) has null page.");
+        if (page == null) {
+            logger.warning("SwingMorphViewPanel(" + morphView.toString()
+                    + ", page) has null page.");
         } else {
             this.setBoxedMorphCollection(page);
         }
@@ -116,9 +126,49 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         addMouseMotionListener(mouseAdapter);
         addComponentListener(new ResizeListener());
 
-
     }
+
     public void autoScaleBasedOnMorphs(Rect special, boolean includeChildren) {
+        Vector<Dim> dims = new Vector<Dim>();
+
+        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxedMorph boxedMorphSpecial = boxedMorphCollection
+                .getBoxedMorph(special);
+        if (boxedMorphSpecial != null) {
+            Morph specialMorph = boxedMorphSpecial.getMorph();
+
+            if (includeChildren) {
+                Vector<Morph> morphs = specialMorph.getMorphAndChildren();
+                for (Morph morph : morphs) {
+                    Dim dim = morph.getPhenotype().getMargin().getDim();
+                    logger.fine("Adding dim " + dim);
+                    dims.add(dim);
+                }
+            } else {
+                dims.add(specialMorph.getPhenotype().getMargin().getDim());
+            }
+        } else {
+            logger.warning(
+                    "autoScaleBasedOnMorphs: no special boxed morph. Defaulting to entire boxedMorphCollection");
+            for (BoxedMorph boxedMorph : boxedMorphCollection
+                    .getBoxedMorphs()) {
+                dims.addElement(boxedMorph.getMorph().getPhenotype().getMargin()
+                        .getDim());
+            }
+
+        }
+        Dim largestMorphDim;
+        largestMorphDim = Dim.getLargest(dims);
+        Dim boxDim = boxes.firstElement().getDim();
+        int newScale = boxDim.getScale(largestMorphDim, Globals.zoomBase);
+        DrawingPreferences drawingPreferences = morphView.getAppData()
+                .getPhenotypeDrawer().getDrawingPreferences();
+        if (newScale != boxes.getScale()) {
+            boxes.setScale(newScale);
+        }
+    }
+
+    public void autoScaleBasedOnMorphs2(Rect special, boolean includeChildren) {
 
         BoxManager boxes = boxedMorphCollection.getBoxes();
         BoxedMorph boxedMorphSpecial = boxedMorphCollection
@@ -127,18 +177,19 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
             Morph specialMorph = boxedMorphSpecial.getMorph();
 
             Dim largestMorphDim;
-            
-            if(includeChildren) {
-            Vector<Morph> morphs = specialMorph.getMorphAndChildren();
-            Vector<Dim> dims = new Vector<Dim>();
-            for (Morph morph : morphs) {
-                Dim dim = morph.getPhenotype().getMargin().getDim();
-                logger.fine("Adding dim " + dim);
-                dims.add(dim);
-            }            
-            largestMorphDim = Dim.getLargest(dims);
+
+            if (includeChildren) {
+                Vector<Morph> morphs = specialMorph.getMorphAndChildren();
+                Vector<Dim> dims = new Vector<Dim>();
+                for (Morph morph : morphs) {
+                    Dim dim = morph.getPhenotype().getMargin().getDim();
+                    logger.fine("Adding dim " + dim);
+                    dims.add(dim);
+                }
+                largestMorphDim = Dim.getLargest(dims);
             } else {
-                largestMorphDim = specialMorph.getPhenotype().getMargin().getDim();
+                largestMorphDim = specialMorph.getPhenotype().getMargin()
+                        .getDim();
             }
             Dim boxDim = boxes.firstElement().getDim();
             int newScale = boxDim.getScale(largestMorphDim, Globals.zoomBase);
@@ -151,13 +202,14 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
             logger.warning("autoScaleBasedOnMorphs: no special boxed morph");
         }
     }
+
     public void clearMorphImages() {
-        for (Morph morph : boxedMorphCollection
-                .getMorphs()) {
+        for (Morph morph : boxedMorphCollection.getMorphs()) {
             morph.setImage(null);
         }
         repaint();
     }
+
     /**
      * Draw boxes in box order (not in boxed Morph order.)
      * 
@@ -185,26 +237,32 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         boolean midBoxOnly = boxedMorphCollection.getBoxedMorphs().size() == 1;
         boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
                 backgroundColors);
-    } 
+    }
+
+    
+    
     protected void drawMorphs(Object graphicsContext, Dim size) {
 
-        int counter = 0;
-        Iterator<BoxedMorph> iter = boxedMorphCollection.iterator();
-        logger.fine("Boxed morphs to paint: "
-                + boxedMorphCollection.getBoxedMorphs().size());
-        while (iter.hasNext()) {
-            logger.fine(
-                    "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
-                            + counter);
-            BoxedMorph boxedMorph = iter.next();
-            morphView.getMorphDrawer().draw(boxedMorph, graphicsContext, size,
-                    boxedMorph == this.boxedMorphCollection
-                            .getSelectedBoxedMorph());
-            counter++;
+        synchronized (boxedMorphCollection) {
+            int counter = 0;
+            Iterator<BoxedMorph> iter = boxedMorphCollection.iterator();
+            logger.fine("Boxed morphs to paint: "
+                    + boxedMorphCollection.getBoxedMorphs().size());
+            while (iter.hasNext()) {
+                logger.fine(
+                        "SwingMorphView.paintMorphViewPanel() Getting BoxedMorph "
+                                + counter);
+                BoxedMorph boxedMorph = iter.next();
+                boolean isSelected = boxedMorph == this.boxedMorphCollection
+                        .getSelectedBoxedMorph();
+                boolean isShowBoundingBox = morphView.getAppData().isShowBoundingBox();
+                morphView.getMorphDrawer().draw(boxedMorph, graphicsContext,
+                        size, isSelected, isShowBoundingBox);
+                counter++;
+            }
         }
-
     }
-    
+
     @Override
     public BoxedMorphCollection getBoxedMorphCollection() {
         return boxedMorphCollection;
@@ -214,17 +272,26 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public Dim getDim() {
         return SwingGeom.toWatchmakerDim(super.getSize());
     }
-    
+
     public boolean getIncludeChildrenInAutoScale() {
         return true;
     }
+
     @Override
     public Morph getMorphOfTheHour() {
-        Morph morph = boxedMorphCollection.getBoxedMorph(selectedBox).getMorph();
-        
-        if(morph == null) {
+        BoxedMorph boxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
+        if (boxedMorph == null && selectedBox != null) {
+            boxedMorph = boxedMorphCollection.getBoxedMorph(selectedBox);
+        }
+
+        Morph morph = null;
+
+        if (boxedMorph != null)
+            morph = boxedMorph.getMorph();
+
+        if (morph == null) {
             Rect midBox = boxedMorphCollection.getBoxes().getMidBox();
-            if(midBox != null)
+            if (midBox != null)
                 morph = boxedMorphCollection.getBoxedMorph(midBox).getMorph();
             else
                 morph = boxedMorphCollection.lastElement().getMorph();
@@ -235,10 +302,12 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     @Override
     public Vector<Morph> getMorphs() {
         return boxedMorphCollection.getMorphs();
-    }    
+    }
+
     public Rect getSpecial() {
         return special;
     }
+
     @Override
     public void paintComponent(Graphics g) {
         logger.fine("centrePanel.paintComponent()");
@@ -264,7 +333,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
             Dim size) {
         logger.fine("SwingMorphViewPanel.paintMorphViewPanel()");
         // Add any pending morphs
-        if(getCursor() == null) {
+        if (getCursor() == null) {
             updateCursor();
         }
         morphView.seed();
@@ -278,13 +347,14 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
     protected void processMouseClicked(Point point, Dim size) {
     }
+
     protected void processMouseDragged(Point watchmakerPoint,
             Dim watchmakerDim) {
         this.lastMouseDrag = watchmakerPoint;
         this.lastMouseDragSize = watchmakerDim;
         repaint();
     }
-    
+
     protected void processMouseMotion(Point myPt, Dim size) {
         logger.fine("processMouseMotion(" + myPt + ", " + size);
         if (!(this.getCursor() == WatchmakerCursors.highlight
@@ -315,21 +385,19 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
     @Override
     public void propertyChange(PropertyChangeEvent event) {
-        if(event.getPropertyName().equals("scale")) {
+        if (event.getPropertyName().equals("scale")) {
             clearMorphImages();
         }
     }
 
-
-
     @Override
     public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
         BoxedMorphCollection oldValue = this.boxedMorphCollection;
-        if(oldValue != null) {
+        if (oldValue != null) {
             oldValue.getBoxes().removePropertyChangeListener("scale", this);
         }
         this.boxedMorphCollection = newValue;
-        if(newValue != null) {
+        if (newValue != null) {
             newValue.getBoxes().addPropertyChangeListener("scale", this);
         }
     }
@@ -339,9 +407,11 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         this.selectedBox = newValue;
         firePropertyChange("selectedBox", oldValue, newValue);
     }
+
     public void setSpecial(Rect newValue) {
         this.special = newValue;
     }
+
     @Override
     public void updateCursor() {
         java.awt.Point p = MouseInfo.getPointerInfo().getLocation();
@@ -356,6 +426,5 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         }
 
     }
-
 
 }

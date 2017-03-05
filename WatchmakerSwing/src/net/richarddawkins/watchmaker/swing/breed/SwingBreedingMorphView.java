@@ -1,12 +1,10 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
-import java.util.Vector;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
@@ -19,7 +17,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     protected BoxedMorph boxedMorphSpecial;
 
     boolean freshlySeeded = false;
-    Vector<Morph> litter;
+//    Vector<Morph> litter;
 
     public SwingBreedingMorphView(SwingMorphViewConfig config) {
         super(config);
@@ -37,6 +35,12 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
     public BoxManager newBoxManager() {
         return new GridBoxManager(appData.getDefaultBreedingCols(),
                 appData.getDefaultBreedingRows());
+    }
+
+    public void breedFromSelector() {
+        SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) this.getSelectedPanel();
+        panel.breedFromSelector();
+        
     }
 
 

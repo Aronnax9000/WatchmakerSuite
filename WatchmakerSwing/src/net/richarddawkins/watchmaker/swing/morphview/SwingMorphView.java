@@ -56,11 +56,7 @@ public abstract class SwingMorphView extends JPanel
             Album newAlbum, boolean engineeringMode) {
     }
 
-    @Override
-    public void addSeedMorph(Morph seedMorph) {
-        seedMorphs.add(seedMorph);
-        panels.firstElement().repaint();
-    }
+
 
     @Override
     public void initAlbum(Album newAlbum, boolean copyMorphsOnBackup) {
@@ -89,7 +85,7 @@ public abstract class SwingMorphView extends JPanel
         this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
         this.setLayout(new BorderLayout());
 
-        this.setMorphDrawer(new SwingMorphDrawer(appData.getPhenotypeDrawer()));
+        this.setMorphDrawer(new SwingMorphDrawer(appData));
         initAlbum(config.album, this.copyMorphsOnBackup);
         addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide); 
         addSeedMorphs(config.seedMorphs);
@@ -155,8 +151,14 @@ public abstract class SwingMorphView extends JPanel
     }
 
     @Override
+    public void addSeedMorph(Morph seedMorph) {
+        seedMorphs.add(seedMorph);
+        panels.firstElement().repaint();
+    }    
+    
+    @Override
     public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
-        if (this.seedMorphs != null) {
+        if (seedMorphsToAdd != null) {
             this.seedMorphs.addAll(seedMorphsToAdd);
             seedMorphsToAdd.clear();
         }
@@ -196,7 +198,8 @@ public abstract class SwingMorphView extends JPanel
     public void addPanel(MorphViewPanel panel) {
         panels.add(panel);
         ((Container) this).add((Component) panel);
-       panel.addPropertyChangeListener(geneBoxStrip);
+        this.setSelectedPanel(panel);
+        
     }
 
     public void backup(boolean copyMorph) {
@@ -319,7 +322,13 @@ public abstract class SwingMorphView extends JPanel
     @Override
     public void setSelectedPanel(MorphViewPanel newValue) {
         MorphViewPanel oldValue = selectedPanel;
+        if(oldValue != null) {
+            oldValue.removePropertyChangeListener(geneBoxStrip);
+        }
         this.selectedPanel = newValue;
+        if(newValue != null) {
+            newValue.addPropertyChangeListener(geneBoxStrip);
+        }
         pcs.firePropertyChange("selectedPanel", oldValue, newValue);
     }
 

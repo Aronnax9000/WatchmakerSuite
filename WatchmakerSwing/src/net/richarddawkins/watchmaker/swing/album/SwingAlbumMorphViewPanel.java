@@ -42,9 +42,12 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel {
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
+            
             this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
-            pcs.firePropertyChange("genome", null,
-                    boxedMorph.getMorph().getGenome());
+            if(boxedMorph != null) {
+                pcs.firePropertyChange("genome", null,
+                        boxedMorph.getMorph().getGenome());
+            }
             repaint();
         }
     }

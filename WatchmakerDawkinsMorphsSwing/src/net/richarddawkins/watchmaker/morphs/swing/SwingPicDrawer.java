@@ -1,9 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.swing;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
@@ -13,7 +10,6 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.Pic;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
-import net.richarddawkins.watchmaker.swing.SwingGeom;
 
 public abstract class SwingPicDrawer implements PhenotypeDrawer {
     private static Logger logger = Logger.getLogger(
@@ -33,41 +29,34 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
     }
 
     @Override
-    public Object getImage(Phenotype phenotype, double scale) {
-    	Rect margin = phenotype.getMargin();
-    	
-    	BufferedImage bufferedImage = null;
+    public Object getImage(Phenotype phenotype) {
+        Rect margin = phenotype.getMargin();
 
-        int width = (int)(margin.getWidth() * scale + 1);
-        int height = (int)(margin.getHeight() * scale + 1);
-    	try {
-    	bufferedImage = new BufferedImage(width, height,
-    			BufferedImage.TYPE_INT_ARGB);
-    	Graphics2D g2 = bufferedImage.createGraphics();
-    	
-    	
-        if (drawingPreferences.isShowBoundingBoxes()) {
-            g2.setStroke(new BasicStroke(1));
-            g2.setColor(Color.BLUE);
-            Rectangle rectangle = SwingGeom.toRectangle(phenotype.getMargin());
-            g2.drawRect(rectangle.x, rectangle.y, (int) (rectangle.width * scale), (int)(rectangle.height * scale));
-        }
-        
-    	g2.translate(- margin.left * scale, - margin.top * scale);
-    	g2.scale(scale, scale);
-    	this.picSpecifics(g2, phenotype);
+        BufferedImage bufferedImage = null;
 
-    	if (drawingPreferences.isSpinBabyMorphs()) {
-    		g2.rotate(-Math.PI * 4 * scale);
-    	}
-        for (Lin line : ((Pic) phenotype).lines) {
-            limb(g2, phenotype, line);
+        int width = margin.getWidth();
+        int height = margin.getHeight();
+        try {
+            bufferedImage = new BufferedImage(width, height,
+                    BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2 = bufferedImage.createGraphics();
+
+            g2.translate(-margin.left, -margin.top);
+            this.picSpecifics(g2, phenotype);
+
+            if (drawingPreferences.isSpinBabyMorphs()) {
+                g2.rotate(-Math.PI * 4);
+            }
+            for (Lin line : ((Pic) phenotype).lines) {
+                limb(g2, phenotype, line);
+            }
+            logger.fine("SwingPicDrawer.getImage() complete");
+        } catch (IllegalArgumentException e) {
+            logger.warning(
+                    "SwingPicDrawer.getImage failed because of widthXheight: "
+                            + width + "x" + height );
         }
-        logger.fine("SwingPicDrawer.getImage() complete");
-    	} catch(IllegalArgumentException e) {
-            logger.warning("SwingPicDrawer.getImage failed because of widthXheight: " + width + "x" + height + " scale " + scale);
-        }
-		return bufferedImage;
+        return bufferedImage;
     }
 
 }

@@ -32,7 +32,9 @@ public class SwingColourPicDrawer extends SwingPicDrawer {
     @Override
     protected void picSpecifics(Graphics2D g2, Phenotype pic) {
     	Rect margin = pic.getMargin();
+    	
     	g2.setColor(SwingColor.toColor(pic.getBackgroundColor()));
+    	g2.clearRect(margin.left, margin.top, margin.getWidth(), margin.getHeight());
     	g2.fillRect(margin.left, margin.top, margin.getWidth(), margin.getHeight());
     	g2.setStroke(new BasicStroke(((ColourPic)pic).getThickness()));
 
