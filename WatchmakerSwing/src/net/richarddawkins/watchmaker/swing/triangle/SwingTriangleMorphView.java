@@ -12,6 +12,7 @@ import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.morphview.triangle.TriangleMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
@@ -30,7 +31,7 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
  * </pre>
  * 
  */
-public class SwingTriangleMorphView extends SwingMorphView {
+public class SwingTriangleMorphView extends SwingMorphView implements TriangleMorphView {
     protected static final Point[] trianglePoints = new Point[] { new Point(234, 51),
             new Point(134, 250), new Point(333, 250) };
     protected static final Dim traditionalMacDim = new Dim(512,342);

@@ -12,10 +12,11 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.morphview.engineer.EngineeringMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
-public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
+public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged implements EngineeringMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 

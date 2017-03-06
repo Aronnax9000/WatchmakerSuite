@@ -5,10 +5,11 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
+import net.richarddawkins.watchmaker.morphview.breed.BreedingMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
-public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged {
+public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged implements BreedingMorphView {
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView");

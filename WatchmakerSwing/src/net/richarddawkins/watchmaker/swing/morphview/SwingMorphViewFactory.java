@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.morphview.MorphViewType;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView;
-import net.richarddawkins.watchmaker.swing.fossil.SwingFossilMorphView;
+import net.richarddawkins.watchmaker.swing.fossil.SwingFossilRecordMorphView;
 import net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView;
 import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 
@@ -52,7 +52,7 @@ public class SwingMorphViewFactory {
             break;
         case fossil:
             config.name = "Fossil Record";
-            morphView = new SwingFossilMorphView(config);
+            morphView = new SwingFossilRecordMorphView(config);
             break;
         }
         

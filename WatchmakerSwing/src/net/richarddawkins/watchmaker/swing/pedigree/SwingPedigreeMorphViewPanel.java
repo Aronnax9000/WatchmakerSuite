@@ -18,10 +18,11 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.pedigree.PedigreeMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
-public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel {
+public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements PedigreeMorphViewPanel {
     /**
      * 
      */

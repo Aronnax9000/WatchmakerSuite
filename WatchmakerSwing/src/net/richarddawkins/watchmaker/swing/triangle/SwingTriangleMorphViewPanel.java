@@ -17,9 +17,10 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.triangle.TriangleMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
-public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
+public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel implements TriangleMorphViewPanel {
     public SwingTriangleMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
         showBoundingBoxes = true;

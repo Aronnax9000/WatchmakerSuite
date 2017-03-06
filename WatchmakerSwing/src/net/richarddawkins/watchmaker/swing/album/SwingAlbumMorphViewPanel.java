@@ -10,10 +10,11 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.album.AlbumMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
-public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel {
+public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements AlbumMorphViewPanel {
 
     private static final long serialVersionUID = 1L;
     private static Logger logger = Logger.getLogger(
