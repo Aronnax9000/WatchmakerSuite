@@ -11,8 +11,8 @@ import net.richarddawkins.watchmaker.morph.Morph;
  */
 public class BoxedMorph extends LocatedMorph {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.geom.BoxedMorph");
-    protected BoxManager boxes;
     protected Rect box;
+    protected BoxManager boxes;
 	protected Rect destinationBox = null;
 	public BoxedMorph(BoxManager boxes, Morph morph, Rect box) {
 		logger.info("Adding morph to box  " + box);
@@ -52,6 +52,15 @@ public class BoxedMorph extends LocatedMorph {
 		}
 	}
 
+	@Override
+    public void kill() {
+	    box = null;
+	    destinationBox = null;
+	    boxes = null;
+        super.kill();
+        
+    }
+
 	public void setBox(Rect newValue) {
 	    Rect oldValue = this.box;
 		this.box = newValue;
@@ -62,13 +71,12 @@ public class BoxedMorph extends LocatedMorph {
 		this.boxes = boxes;
 	}
 
-	public void setDestinationBox(Rect newValue) {
+    public void setDestinationBox(Rect newValue) {
 		logger.info("Destination box number " + newValue);
 		Rect oldValue = this.destinationBox;
 		this.destinationBox = newValue;
 		firePropertyChange("destinationBox", oldValue, newValue);
 	}
-
     @Override
     public String toString() {
         return "BoxedMorph box:" + box + " morph:" + morph;

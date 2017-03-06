@@ -12,6 +12,16 @@ public abstract class SimpleGene implements Gene {
 	}
 	
 	@Override
+	public void kill() {
+	    
+	    
+	    removePropertyChangeListener(genome);
+	    
+	    genome = null;
+	    name = null;
+	}
+	
+	@Override
 	public void readValueFromByteBuffer(ByteBuffer byteBuffer) {
 		readIndexedValueFromByteBuffer(byteBuffer, 0);
 	}

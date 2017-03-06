@@ -32,12 +32,12 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel {
     @Override
     public void setBoxedMorphCollection(BoxedMorphCollection newBoxedMorphCollection) {
         super.setBoxedMorphCollection(newBoxedMorphCollection);
-        newBoxedMorphCollection.getBoxes().setAccentuateMidBox(false);
+        newBoxedMorphCollection.getBoxManager().setAccentuateMidBox(false);
     }
     
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
-        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (this.getCursor() == WatchmakerCursors.highlight) {
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
@@ -57,7 +57,7 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel {
         // logger.info("SwingAlbumMorphView.processMouseMotion(" + myPt + ", " +
         // size + ")");
 
-        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxManager();
         Rect box = boxes.getBoxNoContainingPoint(myPt, size);
         if (box != null && box != selectedBox) {
             synchronized (boxedMorphCollection) {

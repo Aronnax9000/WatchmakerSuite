@@ -60,7 +60,7 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
         logger.fine("Backup " + copyMorph + " started " + album.size());
         BoxedMorphCollection boxedMorphCollection = this.getSelectedPanel().getBoxedMorphCollection();
         GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
-                .getBoxes();
+                .getBoxManager();
         GridBoxManager backupBoxManager = new GridBoxManager(oldBoxManager.cols,
                 oldBoxManager.rows);
         BoxedMorphCollection backupBoxedMorphs = new BoxedMorphCollection(

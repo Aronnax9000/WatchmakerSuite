@@ -27,6 +27,28 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
     protected Rect pRect;
 
     @Override
+    public void kill() {
+        image = null;
+        Vector<Pedigree> closet = new Vector<Pedigree>();
+        
+        for(Morph morph: this.getMorphAndChildren()) {
+            closet.add(morph.getPedigree());
+        };
+        for(Pedigree skeleton: closet) {
+            skeleton.kill();
+        }
+        
+//        pedigree = null;
+
+        genome.kill();
+        genome = null;
+        
+        pic.zero();
+        pic = null;
+        
+    }
+    
+    @Override
     public void genomeChange(GenomeChangeEvent evt) {
         pcs.firePropertyChange("genome", null, genome);
     }
@@ -53,7 +75,12 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
         Morph child = this.getPedigree().firstBorn;
         while (child != null) {
             morphs.addElement(child);
-            child = child.getPedigree().youngerSib;
+            Pedigree childPedigree = child.getPedigree();
+            if(childPedigree != null) {
+                child = childPedigree.youngerSib;
+            } else {
+                break;
+            }
         }
         return morphs;
 
@@ -104,7 +131,7 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
     
     @Override
     public String toString() {
-        return "Morph Phenotype:" + this.getPhenotype().toString() + "Genome:" + this.getGenome().toString();
+        return "Morph Phenotype:" + this.getPhenotype() + "Genome:" + this.getGenome();
     }
     
     @Override

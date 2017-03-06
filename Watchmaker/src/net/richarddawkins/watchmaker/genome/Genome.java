@@ -24,4 +24,7 @@ public interface Genome extends PropertyChangeListener {
 
     int getSizeInBytes();
 
+
+    void kill();
+
 }

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.album;
+package net.richarddawkins.watchmaker.swing.album.menu;
 
 import java.awt.event.ActionEvent;
 

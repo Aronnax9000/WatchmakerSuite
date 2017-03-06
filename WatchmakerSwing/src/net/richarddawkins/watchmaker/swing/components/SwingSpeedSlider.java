@@ -18,8 +18,7 @@ public class SwingSpeedSlider implements MorphViewWidget, ChangeListener {
 	
 	private static final long serialVersionUID = 1L;
 	static final int SCALE_MIN = 0;
-	static final int SCALE_MAX = +15;
-	static final int SCALE_INIT = 2; // initial frames per second
+	static final int SCALE_MAX = +5;
 	protected AppData appData;
 	public SwingSpeedSlider(AppData appData) {
         this.appData = appData;
@@ -31,8 +30,8 @@ public class SwingSpeedSlider implements MorphViewWidget, ChangeListener {
 	    JLabel label = new JLabel("Tick Delay (2^n)");
 	    panel.add(label, constraints);
 	    constraints.gridy = 1;
-        
-		JSlider slider = new JSlider(JSlider.HORIZONTAL, SCALE_MIN, SCALE_MAX, SCALE_INIT);
+        int speed = (int) Math.round(Math.log(appData.getTickDelay())/Math.log(2));
+		JSlider slider = new JSlider(JSlider.HORIZONTAL, SCALE_MIN, SCALE_MAX, speed);
 		slider.addChangeListener(this);
 		// Turn on labels at major tick marks.
 		slider.setMajorTickSpacing(1);

@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.menu;
+package net.richarddawkins.watchmaker.swing.album.menu;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ActionAlbumAddBiomorph extends SwingWatchmakerAction {
 

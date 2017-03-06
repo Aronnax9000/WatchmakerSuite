@@ -3,6 +3,8 @@ package net.richarddawkins.watchmaker.swing.triangle;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.album.Album;
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
@@ -47,6 +49,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
     
     public SwingTriangleMorphView(SwingMorphViewConfig config) {
         super(config);
+        this.showBoxes = false;
     }
     @Override
     public Morph getMorphOfTheHour() {
@@ -65,7 +68,7 @@ public class SwingTriangleMorphView extends SwingMorphView {
             synchronized(seedMorphs) {
                 Morph[] triangleMorphs = seedMorphs.toArray(new Morph[0]);
                 BoxedMorphCollection boxedMorphs = selectedPanel.getBoxedMorphCollection();
-                BoxManager boxes = boxedMorphs.getBoxes();
+                BoxManager boxes = boxedMorphs.getBoxManager();
                 for (int i = 0; i < 3; i++) {
                     Morph morph = triangleMorphs[i];
                     BufferedImage image = (BufferedImage) morph.getImage();

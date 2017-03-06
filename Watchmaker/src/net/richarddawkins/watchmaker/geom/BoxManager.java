@@ -27,6 +27,7 @@ abstract public class BoxManager implements PropertyChangeListener {
         if (evt.getPropertyName().equals("scale")) {
             int newScale = (Integer) evt.getNewValue();
             setScale(newScale);
+            logger.info("BoxManager " + toString() + " scale changed to " + newScale);
         }
     }
 

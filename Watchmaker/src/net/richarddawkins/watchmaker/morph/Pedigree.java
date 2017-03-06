@@ -6,7 +6,7 @@ public class Pedigree {
         this.me = me;
     }
     
-    public final Morph me;
+    public Morph me;
     public Morph parent;
     public Morph youngerSib;
     public Morph elderSib;
@@ -52,4 +52,14 @@ public class Pedigree {
 		}
 		
 	}
+
+    public void kill() {
+        youngerSib = null;
+        elderSib = null;
+        prec = null;
+        next = null;
+        firstBorn = null;
+        lastBorn = null;
+        me = null;
+    }
 }

@@ -26,7 +26,7 @@ public class SwingScaleSlider
             "net.richarddawkins.watchmaker.swing.components.SwingScaleSlider");
 
     static final int SCALE_INIT = 0; // initial frames per second
-    static final int SCALE_MAX = +16;
+    static final int SCALE_MAX = +8;
     static final int SCALE_MIN = -SCALE_MAX;
     private static final long serialVersionUID = 1L;
     protected BoxManager boxManager;
@@ -35,6 +35,12 @@ public class SwingScaleSlider
 
     protected int scale = SCALE_INIT;
     protected JSlider slider;
+    JLabel label = new JLabel();
+
+    public void updateLabel(double scale) {
+        label.setText("Scale " + Math.pow(Globals.zoomBase, scale) * 100 + "% (" + Globals.zoomBase + "^" + scale + ")");
+    }
+    
     public SwingScaleSlider(MorphView morphView) {
         morphView.addPropertyChangeListener("selectedPanel", this);
         this.panel = new JPanel();
@@ -42,7 +48,6 @@ public class SwingScaleSlider
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        JLabel label = new JLabel("Scale (" + Globals.zoomBase + "^n)");
         panel.add(label, constraints);
         constraints.gridy = 1;
 
@@ -72,7 +77,6 @@ public class SwingScaleSlider
     @Override
     public void setPanel(Object newValue) {
         panel = (JPanel) newValue;
-
     }
 
     @Override
@@ -80,6 +84,7 @@ public class SwingScaleSlider
         if (evt.getPropertyName().equals("scale")) {
             this.scale = (Integer) evt.getNewValue();
             slider.setValue(scale);
+            updateLabel(scale);
         } else if (evt.getPropertyName().equals("selectedPanel")) {
             MorphView morphView = (MorphView)evt.getSource();
             MorphViewPanel morphViewPanel = morphView.getSelectedPanel();
@@ -87,7 +92,7 @@ public class SwingScaleSlider
             if(boxedMorphCollection == null) {
                 logger.warning("SwingScaleSlider.propertyChange(): BoxedMorphCollection is null for morphViewPanel " + morphViewPanel + ". Scale slider not setting box manager.");
             } else {
-                BoxManager selectedPanelBoxManager = boxedMorphCollection.getBoxes();
+                BoxManager selectedPanelBoxManager = boxedMorphCollection.getBoxManager();
                 this.setBoxManager(selectedPanelBoxManager);
             }
         }

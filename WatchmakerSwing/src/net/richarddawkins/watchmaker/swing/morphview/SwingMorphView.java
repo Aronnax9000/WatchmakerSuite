@@ -89,8 +89,8 @@ public abstract class SwingMorphView extends JPanel
         initAlbum(config.album, this.copyMorphsOnBackup);
         addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide); 
         addSeedMorphs(config.seedMorphs);
-        addPanels();
         addSliders();
+        addPanels();
         setSelectedPanel(panels.firstElement());
     }
     @Override
@@ -105,7 +105,7 @@ public abstract class SwingMorphView extends JPanel
                         .firstElement();
                 BoxedMorphCollection boxedMorphCollection = panel
                         .getBoxedMorphCollection();
-                BoxManager boxes = boxedMorphCollection.getBoxes();
+                BoxManager boxes = boxedMorphCollection.getBoxManager();
 
                 boxedMorphCollection.clear();
                 panel.setSelectedBox(null);
@@ -189,9 +189,7 @@ public abstract class SwingMorphView extends JPanel
         sliders.add(scaleSlider.getPanel());
         SwingSpeedSlider speedSlider = new SwingSpeedSlider(appData);
         sliders.add(speedSlider.getPanel());
-    
         this.add(sliders, BorderLayout.PAGE_END);
-        
     }
     
     @Override
@@ -199,7 +197,6 @@ public abstract class SwingMorphView extends JPanel
         panels.add(panel);
         ((Container) this).add((Component) panel);
         this.setSelectedPanel(panel);
-        
     }
 
     public void backup(boolean copyMorph) {
@@ -329,6 +326,8 @@ public abstract class SwingMorphView extends JPanel
         if(newValue != null) {
             newValue.addPropertyChangeListener(geneBoxStrip);
         }
+        BoxManager boxes = newValue.getBoxedMorphCollection().getBoxManager();
+        scaleSlider.setBoxManager(boxes);
         pcs.firePropertyChange("selectedPanel", oldValue, newValue);
     }
 

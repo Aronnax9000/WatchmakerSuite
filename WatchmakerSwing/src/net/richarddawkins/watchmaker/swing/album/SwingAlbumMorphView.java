@@ -47,7 +47,7 @@ public class SwingAlbumMorphView extends SwingMorphView {
             for (Morph seedMorph : seedMorphs) {
                 findEmptyBox: for (BoxedMorphCollection page : this.album
                         .getPages()) {
-                    BoxManager boxes = page.getBoxes();
+                    BoxManager boxes = page.getBoxManager();
                     for (Rect rect : boxes.getBoxes()) {
                         if (page.getBoxedMorph(rect) == null) {
                             BoxedMorph boxedMorph = new BoxedMorph(boxes,

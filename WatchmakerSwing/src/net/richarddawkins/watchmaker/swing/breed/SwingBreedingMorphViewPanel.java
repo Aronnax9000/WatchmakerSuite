@@ -9,6 +9,7 @@ import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
@@ -24,6 +25,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     public SwingBreedingMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         super(morphView, page);
+        includeChildrenInAutoScale = true;
 
     }
 
@@ -33,7 +35,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
         super.processMouseMotion(myPt, size);
         if (!(this.getCursor() == WatchmakerCursors.highlight
                 && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
-            BoxManager boxes = boxedMorphCollection.getBoxes();
+            BoxManager boxes = boxedMorphCollection.getBoxManager();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             if (box != null) {
                 logger.fine("processMouseMotion found box " + box);
@@ -67,7 +69,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
         logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
-        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (this.getCursor() == WatchmakerCursors.breed) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
                     SwingGeom.toWatchmakerDim(this.getSize()));
@@ -105,14 +107,14 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                     .getBoxedMorph(special);
             if (boxedMorphParent != null) {
                 Morph parent = boxedMorphParent.getMorph();
-                Morph newestOffspring = morphView.getAppData().getMorphConfig()
-                        .getLitter(parent,
-                                boxedMorphCollection.getBoxes().getBoxCount()
-                                        - 1);
+                MorphConfig config = morphView.getAppData().getMorphConfig();
+                int litterSize = boxedMorphCollection.getBoxManager().getBoxCount()
+                        - 1;
+                Morph newestOffspring = config.getLitter(parent, litterSize);
                 try {
                     animator.setupBoxAnimator(special, boxedMorphParent,
                             newestOffspring);
-                    animator.feetDoYourStuff();
+                    animator.startAnimation();
                 } catch (IllegalStateException e) {
                     logger.warning("SwingBreedingMorphView.breedFromSpecial() "
                             + e.getMessage());
@@ -127,7 +129,8 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                 this.updateCursor();
             }
         } else {
-            logger.warning("Skipping breed from special, animator is not idle.");
+            logger.warning(
+                    "Skipping breed from special, animator is not idle.");
         }
     }
 
@@ -137,7 +140,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
         if (boxedMorph != null) {
             return boxedMorph.getMorph();
         } else {
-            BoxManager boxes = boxedMorphCollection.getBoxes();
+            BoxManager boxes = boxedMorphCollection.getBoxManager();
 
             return boxedMorphCollection.getBoxedMorph(boxes.getMidBox())
                     .getMorph();
@@ -145,7 +148,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
     }
 
     public synchronized void breedFromSelector() {
-        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxManager();
         Rect midBox = boxes.getMidBox();
         BoxedMorph centreBoxedMorph = boxedMorphCollection
                 .getBoxedMorph(midBox);

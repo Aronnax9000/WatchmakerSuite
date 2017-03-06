@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.menu;
+package net.richarddawkins.watchmaker.swing.engineer.menu;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ActionEngineering extends SwingWatchmakerAction {
 

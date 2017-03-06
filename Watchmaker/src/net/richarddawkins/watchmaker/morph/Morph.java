@@ -33,8 +33,6 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
  *
  */
 public interface Morph {
-
-    
 	public void setGenome(Genome genome);
 	public Genome getGenome();
 
@@ -53,4 +51,5 @@ public interface Morph {
 	void setName(String name);
 	String getName();
     public boolean genomicallyEquals(Morph thatMorph);
+    public void kill();
 }

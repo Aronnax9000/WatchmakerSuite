@@ -22,14 +22,27 @@ import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.pedigree.MirrorType;
 import net.richarddawkins.watchmaker.pedigree.PedigreeMorphView;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumDelete;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumExport;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumNew;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumOpen;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumOpenClassics;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumSave;
-import net.richarddawkins.watchmaker.swing.album.ActionAlbumSaveAs;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumAddBiomorph;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumDelete;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumExport;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumNew;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumOpen;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumOpenClassics;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumSave;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumSaveAs;
+import net.richarddawkins.watchmaker.swing.breed.menu.SwingActionBreed;
+import net.richarddawkins.watchmaker.swing.engineer.menu.ActionColorSwatch;
+import net.richarddawkins.watchmaker.swing.engineer.menu.ActionEngineering;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
+import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigree;
+import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigreeDetach;
+import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigreeDrawOutOffspring;
+import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigreeKill;
+import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigreeMove;
+import net.richarddawkins.watchmaker.swing.triangle.menu.ActionTriangle;
+import net.richarddawkins.watchmaker.swing.triangle.menu.ActionTriangleMakeLeft;
+import net.richarddawkins.watchmaker.swing.triangle.menu.ActionTriangleMakeRight;
+import net.richarddawkins.watchmaker.swing.triangle.menu.ActionTriangleMakeTop;
 
 public abstract class SwingMenuBuilder implements MenuBuilder {
 

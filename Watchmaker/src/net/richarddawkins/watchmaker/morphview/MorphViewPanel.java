@@ -21,7 +21,6 @@ public interface MorphViewPanel extends PropertyChangeListener  {
 
     BoxedMorphCollection getBoxedMorphCollection();
 
-    void paintMorphViewPanel(Object graphicsContext, Dim size);
 
     void setBoxedMorphCollection(BoxedMorphCollection boxedMorphVector);
 
@@ -35,5 +34,8 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     Dim getDim();
 
     void repaint();
+    void paintMorphViewPanel(Object graphicsContext, Dim size);
+    boolean isAutoScale();
+    void setAutoScale(boolean autoScale);
 
 }

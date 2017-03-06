@@ -49,9 +49,10 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
                     }
                     boxedMorphs.removeAllElements();
                 }
-                BoxManager boxes = boxedMorphs.getBoxes();
+                BoxManager boxes = boxedMorphs.getBoxManager();
                 int index = 0;
-                Morph morph = seedMorphs.firstElement();
+                MorphConfig config = appData.getMorphConfig();
+                Morph morph = config.copyMorph(seedMorphs.firstElement());
                 BoxedMorph boxedMorph = new BoxedMorph(boxes, morph,
                         boxes.getBox(index++));
                 morph.addPropertyChangeListener(this);

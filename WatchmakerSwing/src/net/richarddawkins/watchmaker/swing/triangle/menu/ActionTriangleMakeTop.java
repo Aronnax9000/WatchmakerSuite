@@ -1,10 +1,11 @@
-package net.richarddawkins.watchmaker.swing.menu;
+package net.richarddawkins.watchmaker.swing.triangle.menu;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.Icon;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ActionTriangleMakeTop  extends SwingWatchmakerAction {
     private static final long serialVersionUID = 4121419685469500509L;

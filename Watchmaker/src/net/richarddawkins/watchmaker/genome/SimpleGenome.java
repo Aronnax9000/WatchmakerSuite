@@ -4,6 +4,14 @@ import java.beans.PropertyChangeEvent;
 import java.nio.ByteBuffer;
 
 public abstract class SimpleGenome implements Genome, Cloneable {
+    
+    @Override
+    public void kill() {
+        for(Gene gene: this.toGeneArray()) {
+            gene.kill();
+        }
+    }
+    
 	@Override
     public boolean genomicallyEquals(Genome thatGenome) {
         Gene[] thoseGenes = thatGenome.toGeneArray();

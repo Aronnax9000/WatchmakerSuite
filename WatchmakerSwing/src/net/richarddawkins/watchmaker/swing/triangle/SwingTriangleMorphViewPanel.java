@@ -22,6 +22,9 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
     public SwingTriangleMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
+        showBoundingBoxes = true;
+
+        includeChildrenInAutoScale = false;
     }
 
     protected static Point[] trianglePoints = new Point[] { new Point(234, 51),
@@ -36,23 +39,28 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
 
-        super.paintMorphViewPanel(graphicsContext, size);
         logger.fine("SwingTriangleMorphViewPanel.paintMorphViewPanel() size " + size);
         Graphics2D g2 = (Graphics2D) graphicsContext;
         Vector<Point> points = new Vector<Point>();
-        BoxManager boxes = boxedMorphCollection.getBoxes();
-        for (Rect box: boxes.getBoxes(size)) {
-            Point midPoint = boxes.getMidPoint(size, box);
-            points.add(midPoint);
+        BoxManager boxes = boxedMorphCollection.getBoxManager();
+        if(boxes.getBoxCount() > 2) {
+            for (Rect box: boxes.getBoxes(size)) {
+                Point midPoint = boxes.getMidPoint(size, box);
+                points.add(midPoint);
+            }
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(1));
+            Point point0 = points.elementAt(0);
+            Point point1 = points.elementAt(1);
+            Point point2 = points.elementAt(2);
+            g2.drawLine(point0.h, point0.v,
+                    point1.h, point1.v);
+            g2.drawLine(point1.h, point1.v,
+                    point2.h, point2.v);
+            g2.drawLine(point2.h, point2.v,
+                    point0.h, point0.v);
         }
-        g2.setColor(Color.BLACK);
-        g2.setStroke(new BasicStroke(1));
-        g2.drawLine(points.elementAt(0).h, points.elementAt(0).v,
-                points.elementAt(1).h, points.elementAt(1).v);
-        g2.drawLine(points.elementAt(1).h, points.elementAt(1).v,
-                points.elementAt(2).h, points.elementAt(2).v);
-        g2.drawLine(points.elementAt(2).h, points.elementAt(2).v,
-                points.elementAt(0).h, points.elementAt(0).v);
+        super.paintMorphViewPanel(graphicsContext, size);
 
     }
 
@@ -128,7 +136,7 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel {
         triangler.concoct(genome, dists, genomes);
         Morph morph = config.newMorph();
         morph.setGenome(genome);
-        BoxManager boxes = boxedMorphCollection.getBoxes();
+        BoxManager boxes = boxedMorphCollection.getBoxManager();
         Rect margin = morph.getPhenotype().getMargin();
         int width = margin.getWidth();
         int height = margin.getHeight();

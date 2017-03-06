@@ -75,9 +75,11 @@ public class Dim {
 
         double worst = (widthRatio < heightRatio) ? widthRatio : heightRatio;
 
-        int scale = (int) Math.floor(Math.log(worst) / Math.log(zoomBase));
+        int scale = (int) Math.ceil(Math.log(worst) / Math.log(zoomBase));
         logger.fine("Worst:" + worst + " scale " + scale);
 
+        scale = scale - 1;
+        
         return scale;
     }
 }

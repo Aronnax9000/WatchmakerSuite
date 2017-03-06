@@ -42,12 +42,15 @@ public class LocatedMorph {
 		return scaleWithProgress;
 	}
 
-	
-	public void nudge() {
-		if(Math.abs(1.0d - progress) < 0.1d) {
+	/**
+	 * 
+	 * @param factor a number between zero and one: fraction of the remaining distance to cover.
+	 */
+	public void nudge(double factor) {
+		if(Math.abs(1.0d - progress) < factor) {
     		progress = 1.0d;
     	} else {
-    		progress += (1.0d - progress) * 0.1;
+    		progress += (1.0d - progress) * factor;
     	}
 	}
 
@@ -69,6 +72,10 @@ public class LocatedMorph {
 	public void setScaleWithProgress(boolean scaleWithProgress) {
 		this.scaleWithProgress = scaleWithProgress;
 	}
+    public void kill() {
+        morph.kill();
+        morph = null;
+    }
 
 
 }

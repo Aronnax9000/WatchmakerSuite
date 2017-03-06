@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.swing.menu;
+package net.richarddawkins.watchmaker.swing.engineer.menu;
 
 import java.awt.Event;
 import java.awt.event.ActionEvent;
@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ActionColorSwatch extends SwingWatchmakerAction {
 

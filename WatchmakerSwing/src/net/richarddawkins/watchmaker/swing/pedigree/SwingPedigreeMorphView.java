@@ -53,6 +53,7 @@ public class SwingPedigreeMorphView extends SwingMorphView
      */
     public SwingPedigreeMorphView(SwingMorphViewConfig config) {
         super(config);
+        this.showBoxes = false;
     }
 
     @Override
@@ -76,7 +77,7 @@ public class SwingPedigreeMorphView extends SwingMorphView
                         + seedMorphs.size() + " seedMorphs");
                 Morph morph = seedMorphs.firstElement();
                 // Dim dim = new Dim(512, 342);
-                BoxManager boxes = album.firstElement().getBoxes();
+                BoxManager boxes = album.firstElement().getBoxManager();
                 BufferedImage image = (BufferedImage) morph.getImage();
                 MorphViewPanel panel = panels.firstElement();
                 Dim size = panel.getDim();

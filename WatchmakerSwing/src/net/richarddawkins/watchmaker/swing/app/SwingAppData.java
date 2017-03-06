@@ -33,22 +33,6 @@ import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
 public abstract class SwingAppData implements AppData {
-    private static Logger logger = Logger.getLogger(
-
-            "net.richarddawkins.watchmaker.swing.app.SwingAppData");
-
-    protected boolean showBoundingBox = true;
-    @Override
-    public boolean isShowBoundingBox() {
-        return showBoundingBox;
-    }
-    @Override
-    public void setShowBoundingBox(boolean newValue) {
-        boolean oldValue = this.showBoundingBox;
-        this.showBoundingBox = newValue;
-        pcs.firePropertyChange("showBoundingBox", oldValue, newValue);
-    }
-
     class WatchmakerTask extends TimerTask {
 
         protected AppData appData;
@@ -61,48 +45,51 @@ public abstract class SwingAppData implements AppData {
         public void run() {
             appData.actionBreedFromSelector();
         }
-    };
-
-    protected WatchmakerTask task = null;
-
-    @Override
-    public synchronized void startTimedBreed() {
-        if (task == null) {
-            task = new WatchmakerTask(this);
-            Timer timer = new Timer();
-            int seconds = 5;
-            timer.schedule(task, 0, seconds * 1000);
-        }
     }
 
-    @Override
-    public void stopTimedBreed() {
-        if (task != null) {
-            task.cancel();
-            task = null;
-        }
-    }
+    private static Logger logger = Logger.getLogger(
 
-    @Override
-    public void albumNew() {
-        currentAlbum = new Album("Untitled");
-        this.addAlbumMorphView(currentAlbum);
-    }
+            "net.richarddawkins.watchmaker.swing.app.SwingAppData");
+    protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
+    protected boolean breedRightAway = true;
+
+    protected MorphConfig config;;
+
+    Album currentAlbum = null;
+
+    protected int defaultBreedingCols = 5;
+
+    protected int defaultBreedingRows = 3;
 
     JFileChooser fileChooser = new JFileChooser();
 
-    @Override
-    public void albumOpen() {
-        int returnVal = fileChooser
-                .showOpenDialog((Component) this.getMorphViewsTabbedPane());
+    protected boolean geneBoxToSide;
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            // This is where a real application would open the file.
-            logger.info("Opening: " + file.getName() + ".");
-        } else {
-            logger.info("Open command cancelled by user.");
-        }
+    protected boolean highlighting = false;
+
+    protected String icon;
+
+    protected MenuBuilder menuBuilder;
+
+    protected MorphViewsTabbedPanel morphViewsTabbedPane;
+
+    protected String name;
+
+    protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+    protected PhenotypeDrawer phenotypeDrawer;
+
+    protected boolean saltOnEmptyBreedingBoxClick = false;
+
+    protected boolean showBoundingBox = true;
+
+    protected WatchmakerTask task = null;
+
+    protected long tickDelay = 4;
+
+    protected String toolTip;
+
+    public SwingAppData() {
     }
 
     public void actionBreedFromSelector() {
@@ -113,162 +100,10 @@ public abstract class SwingAppData implements AppData {
     }
 
     @Override
-    public void albumSave() {
-        if (currentAlbum.isDirty()) {
-            if (currentAlbum.getFileName() == null) {
-                albumSaveAs();
-            } else {
-                new AlbumSerializer(config).putAlbumToFile(currentAlbum,
-                        new File(currentAlbum.getFileName()));
-            }
-
-        }
-    }
-
-    @Override
-    public void albumSaveAs() {
-        if (currentAlbum.isDirty()) {
-            int returnVal = fileChooser
-                    .showSaveDialog((Component) this.getMorphViewsTabbedPane());
-
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                new AlbumSerializer(config).putAlbumToFile(currentAlbum, file);
-                logger.info("Saving: " + file.getName() + ".");
-            } else {
-                logger.info("Save command cancelled by user.");
-            }
-        }
-    }
-
-    Album currentAlbum = null;
-
-    public Album getCurrentAlbum() {
-        return currentAlbum;
-    }
-
-    public void setCurrentAlbum(Album currentAlbum) {
-        this.currentAlbum = currentAlbum;
-    }
-
-    @Override
-    public void albumExport() {
-
-    }
-
-    @Override
-    public void albumDelete() {
-        String fileName = currentAlbum.getFileName();
-        if (fileName != null) {
-            new File(fileName).delete();
-        }
-    }
-
-    @Override
-    public void addClassicAlbums() {
-        Collection<Album> albums = config.getAlbums();
-        if (albums != null) {
-            for (Album album : albums) {
-                addAlbumMorphView(album);
-            }
-        }
-    }
-
-    @Override
-    public Vector<MorphView> getBreedingMorphViews() {
-        Vector<MorphView> morphViews = new Vector<MorphView>();
-        for (MorphView morphView : getMorphViewsTabbedPane().getMorphViews()) {
-            if (morphView instanceof SwingBreedingMorphView) {
-                morphViews.add(morphView);
-            }
-        }
-        Collections.reverse(morphViews);
-        return morphViews;
-    }
-
-    @Override
-    public Vector<MorphView> getAlbumMorphViews() {
-        Vector<MorphView> morphViews = new Vector<MorphView>();
-        for (MorphView morphView : getMorphViewsTabbedPane().getMorphViews()) {
-            if (morphView instanceof SwingAlbumMorphView) {
-                morphViews.add(morphView);
-            }
-        }
-        Collections.reverse(morphViews);
-        return morphViews;
-    }
-
-    public MorphView getMostRecentWritableAlbumMorphView() {
-        for (MorphView morphView : getAlbumMorphViews()) {
-            if (morphView.getAlbum().isWritable()) {
-                return morphView;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void newRandomStart() {
-        // TODO Auto-generated method stub MorphConfig config =
-        // appData.getMorphConfig();
-        Morph morph = getMorphOfTheHour();
-        Genome genome = config.getGenomeFactory().deliverSaltation();
-        morph.setGenome(genome);
-        MorphView morphView = getMorphViewsTabbedPane().getSelectedMorphView();
-        morphView.addSeedMorph(morph);
-    }
-
-    public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(name);
-        if (breedRightAway)
-            buffer.append(" breedRightAway");
-        if (saltOnEmptyBreedingBoxClick)
-            buffer.append(" saltOnEmptyBreedingBoxClick");
-        if (geneBoxToSide)
-            buffer.append(" geneBoxToSide");
-        if (highlighting)
-            buffer.append(" highlighting");
-        buffer.append(" " + defaultBreedingCols + "x" + defaultBreedingRows);
-        return buffer.toString();
-    }
-
-    protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
-    protected boolean breedRightAway = true;
-    protected MorphConfig config;
-    protected int defaultBreedingCols = 5;
-    protected int defaultBreedingRows = 3;
-    protected boolean geneBoxToSide;
-    protected boolean highlighting = false;
-    protected String icon;
-    protected MenuBuilder menuBuilder;
-    protected MorphViewsTabbedPanel morphViewsTabbedPane;
-    protected String name;
-    protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    protected PhenotypeDrawer phenotypeDrawer;
-    protected boolean saltOnEmptyBreedingBoxClick = false;
-    protected long tickDelay = 4;
-    protected String toolTip;
-
-    public SwingAppData() {
-    }
-
-    @Override
     public void addAlbumMorphView(Album album) {
         morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
                 .getMorphView(this, MorphViewType.album, null));
 
-    }
-
-    @Override
-    public void addMorphToAlbum() {
-        Morph morph = this.getMorphOfTheHour();
-        Vector<MorphView> albumMorphViews = this.getAlbumMorphViews();
-        if (!albumMorphViews.isEmpty()) {
-            MorphView albumMorphView = albumMorphViews.firstElement();
-            albumMorphView.addSeedMorph(morph);
-            albumMorphView.repaint();
-        }
     }
 
     @Override
@@ -290,12 +125,19 @@ public abstract class SwingAppData implements AppData {
         morphViewsTabbedPane.addMorphView(morphView);
 
     }
-
+    @Override
+    public void addClassicAlbums() {
+        Collection<Album> albums = config.getAlbums();
+        if (albums != null) {
+            for (Album album : albums) {
+                addAlbumMorphView(album);
+            }
+        }
+    }
     @Override
     public void addDefaultMorphView() {
         addBreedingMorphView(null);
     }
-
     @Override
     public void addEngineeringMorphView(Morph morph) {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -304,7 +146,16 @@ public abstract class SwingAppData implements AppData {
                 MorphViewType.engineering, seedMorphs);
         morphViewsTabbedPane.addMorphView(morphView);
     }
-
+    @Override
+    public void addMorphToAlbum() {
+        Morph morph = this.getMorphOfTheHour();
+        Vector<MorphView> albumMorphViews = this.getAlbumMorphViews();
+        if (!albumMorphViews.isEmpty()) {
+            MorphView albumMorphView = albumMorphViews.firstElement();
+            albumMorphView.addSeedMorph(morph);
+            albumMorphView.repaint();
+        }
+    }
     @Override
     public void addPedigreeMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -313,18 +164,15 @@ public abstract class SwingAppData implements AppData {
                 .getMorphView(this, MorphViewType.pedigree, seedMorphs));
 
     }
-
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
     }
-
     @Override
     public void addPropertyChangeListener(String propertyName,
             PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(propertyName, listener);
     }
-
     @Override
     public void addTriangleMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -334,10 +182,93 @@ public abstract class SwingAppData implements AppData {
                 .getMorphView(this, MorphViewType.triangle, seedMorphs));
 
     }
+    @Override
+    public void albumDelete() {
+        String fileName = currentAlbum.getFileName();
+        if (fileName != null) {
+            new File(fileName).delete();
+        }
+    }
+    @Override
+    public void albumExport() {
+
+    }
+    @Override
+    public void albumNew() {
+        currentAlbum = new Album("Untitled");
+        this.addAlbumMorphView(currentAlbum);
+    }
+    @Override
+    public void albumOpen() {
+        int returnVal = fileChooser
+                .showOpenDialog((Component) this.getMorphViewsTabbedPane());
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            // This is where a real application would open the file.
+            logger.info("Opening: " + file.getName() + ".");
+        } else {
+            logger.info("Open command cancelled by user.");
+        }
+    }
+    @Override
+    public void albumSave() {
+        if (currentAlbum.isDirty()) {
+            if (currentAlbum.getFileName() == null) {
+                albumSaveAs();
+            } else {
+                new AlbumSerializer(config).putAlbumToFile(currentAlbum,
+                        new File(currentAlbum.getFileName()));
+            }
+
+        }
+    }
+    @Override
+    public void albumSaveAs() {
+        if (currentAlbum.isDirty()) {
+            int returnVal = fileChooser
+                    .showSaveDialog((Component) this.getMorphViewsTabbedPane());
+
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                new AlbumSerializer(config).putAlbumToFile(currentAlbum, file);
+                logger.info("Saving: " + file.getName() + ".");
+            } else {
+                logger.info("Save command cancelled by user.");
+            }
+        }
+    }
+    @Override
+    public Vector<MorphView> getAlbumMorphViews() {
+        Vector<MorphView> morphViews = new Vector<MorphView>();
+        for (MorphView morphView : getMorphViewsTabbedPane().getMorphViews()) {
+            if (morphView instanceof SwingAlbumMorphView) {
+                morphViews.add(morphView);
+            }
+        }
+        Collections.reverse(morphViews);
+        return morphViews;
+    }
 
     @Override
     public BoxesDrawer getBoxesDrawer() {
         return boxesDrawer;
+    }
+
+    @Override
+    public Vector<MorphView> getBreedingMorphViews() {
+        Vector<MorphView> morphViews = new Vector<MorphView>();
+        for (MorphView morphView : getMorphViewsTabbedPane().getMorphViews()) {
+            if (morphView instanceof SwingBreedingMorphView) {
+                morphViews.add(morphView);
+            }
+        }
+        Collections.reverse(morphViews);
+        return morphViews;
+    }
+
+    public Album getCurrentAlbum() {
+        return currentAlbum;
     }
 
     @Override
@@ -382,6 +313,15 @@ public abstract class SwingAppData implements AppData {
         return this.morphViewsTabbedPane;
     }
 
+    public MorphView getMostRecentWritableAlbumMorphView() {
+        for (MorphView morphView : getAlbumMorphViews()) {
+            if (morphView.getAlbum().isWritable()) {
+                return morphView;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -418,8 +358,28 @@ public abstract class SwingAppData implements AppData {
         return saltOnEmptyBreedingBoxClick;
     }
 
+    @Override
+    public boolean isShowBoundingBox() {
+        return showBoundingBox;
+    }
+
+    @Override
+    public void newRandomStart() {
+        // TODO Auto-generated method stub MorphConfig config =
+        // appData.getMorphConfig();
+        Morph morph = getMorphOfTheHour();
+        Genome genome = config.getGenomeFactory().deliverSaltation();
+        morph.setGenome(genome);
+        MorphView morphView = getMorphViewsTabbedPane().getSelectedMorphView();
+        morphView.addSeedMorph(morph);
+    }
+
     public void setBreedRightAway(boolean breedRightAway) {
         this.breedRightAway = breedRightAway;
+    }
+
+    public void setCurrentAlbum(Album currentAlbum) {
+        this.currentAlbum = currentAlbum;
     }
 
     @Override
@@ -482,6 +442,13 @@ public abstract class SwingAppData implements AppData {
     }
 
     @Override
+    public void setShowBoundingBox(boolean newValue) {
+        boolean oldValue = this.showBoundingBox;
+        this.showBoundingBox = newValue;
+        pcs.firePropertyChange("showBoundingBox", oldValue, newValue);
+    }
+
+    @Override
     public void setTickDelay(long tickDelay) {
         this.tickDelay = tickDelay;
     }
@@ -489,5 +456,38 @@ public abstract class SwingAppData implements AppData {
     @Override
     public void setToolTip(String toolTip) {
         this.toolTip = toolTip;
+    }
+
+    @Override
+    public synchronized void startTimedBreed() {
+        if (task == null) {
+            task = new WatchmakerTask(this);
+            Timer timer = new Timer();
+            int seconds = 5;
+            timer.schedule(task, 0, seconds * 1000);
+        }
+    }
+
+    @Override
+    public void stopTimedBreed() {
+        if (task != null) {
+            task.cancel();
+            task = null;
+        }
+    }
+
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(name);
+        if (breedRightAway)
+            buffer.append(" breedRightAway");
+        if (saltOnEmptyBreedingBoxClick)
+            buffer.append(" saltOnEmptyBreedingBoxClick");
+        if (geneBoxToSide)
+            buffer.append(" geneBoxToSide");
+        if (highlighting)
+            buffer.append(" highlighting");
+        buffer.append(" " + defaultBreedingCols + "x" + defaultBreedingRows);
+        return buffer.toString();
     }
 }

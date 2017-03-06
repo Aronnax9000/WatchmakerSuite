@@ -46,17 +46,15 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel {
                 options, options[0]);
     }
 
-
-
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
-        autoScaleBasedOnMorphs(boxedMorphCollection.getBoxes().getBox(0),
-                getIncludeChildrenInAutoScale());
+        if (autoScale) {
+            autoScaleBasedOnMorphs(
+                    boxedMorphCollection.getBoxManager().getBox(0));
+        }
         super.paintMorphViewPanel(graphicsContext, size);
     }
-
-
 
     class HypodermicWarning extends JPanel {
         private static final long serialVersionUID = 1L;
