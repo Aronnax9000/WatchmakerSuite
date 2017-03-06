@@ -10,7 +10,7 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
-public class SimpleMorphView implements MorphView {
+public abstract class SimpleMorphView implements MorphView {
 
     @Override
     public String getIcon() {

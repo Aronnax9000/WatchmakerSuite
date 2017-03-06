@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 
-public class SimpleMorphViewPanel implements MorphViewPanel {
+public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
