@@ -17,11 +17,11 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
-import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
+import net.richarddawkins.watchmaker.morphview.ScaleSlider;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingScaleSlider
-        implements MorphViewWidget, ChangeListener, PropertyChangeListener {
+        implements ScaleSlider, ChangeListener, PropertyChangeListener {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.components.SwingScaleSlider");
 

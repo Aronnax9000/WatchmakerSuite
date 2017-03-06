@@ -12,12 +12,13 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.breed.BreedingMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.breed.BoxAnimator.Phase;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
-public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
+public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel implements BreedingMorphViewPanel {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel");
     private static final long serialVersionUID = 1L;
@@ -95,13 +96,25 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
         }
     }
 
+    
+    
+    @Override
+    public synchronized void paintMorphViewPanel(Object graphicsContext,
+            Dim size) {
+        this.checkBreedFromMidBoxOnNextRepaint();
+        super.paintMorphViewPanel(graphicsContext, size);
+    }
+
+
+
     protected final BoxAnimator animator = new BoxAnimator(this);
 
+    @Override
     public synchronized void breedFromSpecial() {
         if (animator.phase == Phase.idle) {
             logger.info("Breeding from box " + special);
             this.setCursor(WatchmakerCursors.watchCursor);
-            morphView.backup(false);
+//            morphView.backup(false);
             // Get the morph associated with the box
             BoxedMorph boxedMorphParent = boxedMorphCollection
                     .getBoxedMorph(special);
@@ -146,7 +159,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
                     .getMorph();
         }
     }
-
+    @Override
     public synchronized void breedFromSelector() {
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         Rect midBox = boxes.getMidBox();
@@ -179,5 +192,26 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel {
         } else {
             logger.warning("No centre boxedMorph for rect ");
         }
+    }
+
+    protected void checkBreedFromMidBoxOnNextRepaint() {
+        synchronized(this) {
+            if(breedFromMidBoxOnNextRepaint) {
+                breedFromMidBoxOnNextRepaint = false;
+                Rect midBox = boxedMorphCollection.getBoxManager()
+                        .getMidBox();
+                logger.fine("Setting panel special to " + midBox);
+
+                setSpecial(midBox);
+                breedFromSpecial();
+            }
+        }
+    }
+    
+    protected boolean breedFromMidBoxOnNextRepaint = false;
+    @Override
+    public void setBreedFromMidBoxOnNextRepaint(boolean b) {
+        breedFromMidBoxOnNextRepaint = b;
+        
     }
 }

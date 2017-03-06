@@ -50,11 +50,11 @@ public class ArthromorphConfig extends SimpleMorphConfig {
 	public Genome newGenome() {
 		return new ArthromorphGenome();
 	}
+    @Override
+    public Morph newMorph() {
+        Morph morph = new Arthromorph();
+        initMorph(morph);
+        return morph;
+    }
 
-	@Override
-	public Morph newMorph() {
-		Arthromorph arthromorph = new Arthromorph();
-		wireMorphEvents(arthromorph);
-		return arthromorph;
-	}
 }

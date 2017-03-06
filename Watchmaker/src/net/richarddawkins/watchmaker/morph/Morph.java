@@ -4,8 +4,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
+import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
+import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 /**
  * Morph is the superinterface of all biomorph instances.
@@ -33,23 +35,38 @@ import net.richarddawkins.watchmaker.phenotype.Phenotype;
  *
  */
 public interface Morph {
-	public void setGenome(Genome genome);
-	public Genome getGenome();
-
-	public void setPhenotype(Phenotype phenotype);
-	public Phenotype getPhenotype();
-
-	public Vector<Morph> getMorphAndChildren();
-
-    public Pedigree getPedigree();
     
-    public Object getImage();
-    public void setImage(Object object);
+    /* PropertyChange */
+    
 	void addPropertyChangeListener(PropertyChangeListener listener);
-	void removePropertyChangeListener(PropertyChangeListener listener);
-	public void firePropertyChange(PropertyChangeEvent event);
-	void setName(String name);
+    void removePropertyChangeListener(PropertyChangeListener listener);
+    void firePropertyChange(PropertyChangeEvent event);
+
+    /* Functions */
+    
+    boolean genomicallyEquals(Morph thatMorph);
+
+	/* Actions */
+	
+    void kill();
+	
+	/* Getters */
+	
+	Embryology getEmbryology();
+	Genome getGenome();
+	Object getImage();
+	Vector<Morph> getMorphAndChildren();
 	String getName();
-    public boolean genomicallyEquals(Morph thatMorph);
-    public void kill();
+	Pedigree getPedigree();
+    Phenotype getPhenotype();
+    PhenotypeDrawer getPhenotypeDrawer();
+	
+	/* Setters */
+	
+    void setEmbryology(Embryology newValue);
+	void setGenome(Genome newValue);
+	void setImage(Object newValue);
+	void setName(String newValue);
+    void setPhenotype(Phenotype newValue);
+    void setPhenotypeDrawer(PhenotypeDrawer newValue);
 }

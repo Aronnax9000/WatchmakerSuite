@@ -15,6 +15,8 @@ public class SimpleEmbryology implements Embryology {
 	@Override
 	public void develop(Morph morph) {
 		morph.getPhenotype().zero();
+		// Invalidate the morph's image.
+		morph.setImage(null);
 	}
 
 	@Override

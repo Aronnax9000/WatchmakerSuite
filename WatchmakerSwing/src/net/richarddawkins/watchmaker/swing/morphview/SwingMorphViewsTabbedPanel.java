@@ -80,7 +80,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 			int selectedIndex = getSelectedIndex();
 			if (selectedIndex != -1) {
 				MorphView morphView = morphViews.get(getSelectedIndex());
-				
+				morphView.getSelectedPanel().gainFocus();
 				appData.setHighlighting(((JComponent) morphView).getCursor() 
 						== WatchmakerCursors.highlight);
 

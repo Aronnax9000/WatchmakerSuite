@@ -40,7 +40,8 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
     public void seed() {
         if (!seedMorphs.isEmpty()) {
             synchronized (seedMorphs) {
-                BoxedMorphCollection boxedMorphs = panels.firstElement()
+                SwingEngineeringMorphViewPanel panel = (SwingEngineeringMorphViewPanel)panels.firstElement();
+                BoxedMorphCollection boxedMorphs = panel
                         .getBoxedMorphCollection();
                 if (!boxedMorphs.isEmpty()) {
                     for (BoxedMorph boxedMorph : boxedMorphs.getBoxedMorphs()) {
@@ -55,7 +56,7 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
                 Morph morph = config.copyMorph(seedMorphs.firstElement());
                 BoxedMorph boxedMorph = new BoxedMorph(boxes, morph,
                         boxes.getBox(index++));
-                morph.addPropertyChangeListener(this);
+                morph.addPropertyChangeListener(panel);
                 boxedMorphs.add(boxedMorph);
                 seedMorphs.remove(morph);
 
@@ -85,11 +86,10 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // too late?
-        if (evt.getPropertyName().equals("genome")) {
-            backup(true);
-        }
         super.propertyChange(evt);
+        if(evt.getPropertyName() == "genome") {
+            repaint();
+        }
     }
 
     /**

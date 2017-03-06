@@ -20,6 +20,7 @@ import net.richarddawkins.watchmaker.album.AlbumSerializer;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -29,6 +30,7 @@ import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
+import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
@@ -120,11 +122,20 @@ public abstract class SwingAppData implements AppData {
             seedMorphs.addElement(
                     config.newMorph(config.getStartingMorphBasicType()));
         }
-        MorphView morphView = SwingMorphViewFactory.getMorphView(this,
-                MorphViewType.breeding, seedMorphs);
+        SwingBreedingMorphView morphView = (SwingBreedingMorphView) SwingMorphViewFactory
+                .getMorphView(this, MorphViewType.breeding, seedMorphs);
         morphViewsTabbedPane.addMorphView(morphView);
+        
+        if (isBreedRightAway()) {
+            SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) morphView
+                    .getPanels().firstElement();
+        
+            panel.setBreedFromMidBoxOnNextRepaint(true);
+
+        }
 
     }
+
     @Override
     public void addClassicAlbums() {
         Collection<Album> albums = config.getAlbums();
@@ -134,10 +145,12 @@ public abstract class SwingAppData implements AppData {
             }
         }
     }
+
     @Override
     public void addDefaultMorphView() {
         addBreedingMorphView(null);
     }
+
     @Override
     public void addEngineeringMorphView(Morph morph) {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -146,6 +159,7 @@ public abstract class SwingAppData implements AppData {
                 MorphViewType.engineering, seedMorphs);
         morphViewsTabbedPane.addMorphView(morphView);
     }
+
     @Override
     public void addMorphToAlbum() {
         Morph morph = this.getMorphOfTheHour();
@@ -156,6 +170,7 @@ public abstract class SwingAppData implements AppData {
             albumMorphView.repaint();
         }
     }
+
     @Override
     public void addPedigreeMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -164,15 +179,18 @@ public abstract class SwingAppData implements AppData {
                 .getMorphView(this, MorphViewType.pedigree, seedMorphs));
 
     }
+
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
     }
+
     @Override
     public void addPropertyChangeListener(String propertyName,
             PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(propertyName, listener);
     }
+
     @Override
     public void addTriangleMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
@@ -182,6 +200,7 @@ public abstract class SwingAppData implements AppData {
                 .getMorphView(this, MorphViewType.triangle, seedMorphs));
 
     }
+
     @Override
     public void albumDelete() {
         String fileName = currentAlbum.getFileName();
@@ -189,15 +208,18 @@ public abstract class SwingAppData implements AppData {
             new File(fileName).delete();
         }
     }
+
     @Override
     public void albumExport() {
 
     }
+
     @Override
     public void albumNew() {
         currentAlbum = new Album("Untitled");
         this.addAlbumMorphView(currentAlbum);
     }
+
     @Override
     public void albumOpen() {
         int returnVal = fileChooser
@@ -211,6 +233,7 @@ public abstract class SwingAppData implements AppData {
             logger.info("Open command cancelled by user.");
         }
     }
+
     @Override
     public void albumSave() {
         if (currentAlbum.isDirty()) {
@@ -223,6 +246,7 @@ public abstract class SwingAppData implements AppData {
 
         }
     }
+
     @Override
     public void albumSaveAs() {
         if (currentAlbum.isDirty()) {
@@ -238,6 +262,7 @@ public abstract class SwingAppData implements AppData {
             }
         }
     }
+
     @Override
     public Vector<MorphView> getAlbumMorphViews() {
         Vector<MorphView> morphViews = new Vector<MorphView>();

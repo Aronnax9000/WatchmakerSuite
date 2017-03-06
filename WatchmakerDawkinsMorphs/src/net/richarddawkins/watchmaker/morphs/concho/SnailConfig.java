@@ -55,7 +55,7 @@ public class SnailConfig extends SimpleMorphConfig {
 	@Override
 	public Morph newMorph() {
 		Morph morph = new Snail();
-		wireMorphEvents(morph);
+		initMorph(morph);
 		return morph;
 	}
 

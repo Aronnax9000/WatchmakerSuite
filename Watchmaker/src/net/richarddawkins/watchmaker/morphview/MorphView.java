@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
@@ -52,4 +53,7 @@ public interface MorphView {
 ;
     void repaint();
     void initAlbum(Album newAlbum, boolean copyMorphsOnBackup);
+    GeneBoxStrip getGeneBoxStrip();
+    void setGeneBoxStrip(GeneBoxStrip geneBoxStrip);
+    ScaleSlider getScaleSlider();
 }

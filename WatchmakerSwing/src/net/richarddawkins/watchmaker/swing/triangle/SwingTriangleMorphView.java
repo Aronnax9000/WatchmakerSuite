@@ -3,8 +3,6 @@ package net.richarddawkins.watchmaker.swing.triangle;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.album.Album;
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;

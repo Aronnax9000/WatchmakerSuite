@@ -37,5 +37,7 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void paintMorphViewPanel(Object graphicsContext, Dim size);
     boolean isAutoScale();
     void setAutoScale(boolean autoScale);
+    void gainFocus();
+    void loseFocus();
 
 }

@@ -91,6 +91,7 @@ public interface MorphConfig {
     Triangler getTriangler();
     MorphSelector getSelector();
     void setSelector(MorphSelector selector);
+    void initMorph(Morph morph);
 
 
 }

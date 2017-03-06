@@ -11,8 +11,8 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
-import net.richarddawkins.watchmaker.pedigree.MirrorType;
-import net.richarddawkins.watchmaker.pedigree.PedigreeMorphView;
+import net.richarddawkins.watchmaker.morphview.pedigree.MirrorType;
+import net.richarddawkins.watchmaker.morphview.pedigree.PedigreeMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 

@@ -1,11 +1,9 @@
 package net.richarddawkins.watchmaker.morph;
 
-import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Collection;
 import java.util.Vector;
-import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.album.AlbumSerializer;
@@ -18,11 +16,10 @@ import net.richarddawkins.watchmaker.genome.mutation.AllowedMutations;
 import net.richarddawkins.watchmaker.genome.mutation.Mutagen;
 import net.richarddawkins.watchmaker.morph.selector.MorphSelector;
 import net.richarddawkins.watchmaker.morph.selector.MorphZillaSelector;
-import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-    private static Logger logger = Logger
-            .getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
+    // private static Logger logger = Logger
+    // .getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
     protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
     protected AllowedMutations allowedMutations;
@@ -33,6 +30,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     protected boolean recordingFossils;
 
     protected MorphSelector selector = new MorphZillaSelector();
+
     public MorphSelector getSelector() {
         return selector;
     }
@@ -54,7 +52,7 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     public Collection<Album> getAlbums() {
         return new AlbumSerializer(this).getBuiltInAlbums();
     }
-    
+
     int startingMorphBasicType;
     protected Morph[] triangleMorphs = null;
 
@@ -124,17 +122,16 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     }
 
     @Override
-    public Morph newMorph(int type) {
-        Genome genome = genomeFactory.getBasicType(type);
-        Morph morph = newMorph();
-        morph.setPhenotype(newPhenotype());
-        morph.setGenome(genome);
-        wireMorphEvents(morph);
+    public void initMorph(Morph morph) {
+        morph.setEmbryology(getEmbryology());
+        morph.setPhenotypeDrawer(appData.getPhenotypeDrawer());
+    }
 
-        PhenotypeDrawer phenotypeDrawer = appData.getPhenotypeDrawer();
-        BufferedImage bufferedImage = (BufferedImage) phenotypeDrawer
-                .getImage(morph.getPhenotype());
-        morph.setImage(bufferedImage);
+    @Override
+    public Morph newMorph(int type) {
+        Morph morph = newMorph();
+        Genome genome = genomeFactory.getBasicType(type);
+        morph.setGenome(genome);
         return morph;
     }
 
@@ -145,12 +142,15 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
     @Override
     public Morph reproduce(Morph parentMorph) {
+        Morph childMorph = newMorph();
+
         Genome childGenome = newGenome();
         parentMorph.getGenome().copy(childGenome);
         getMutagen().mutate(childGenome);
-        Morph childMorph = newMorph();
         childMorph.setGenome(childGenome);
+
         parentMorph.getPedigree().addOffspring(childMorph);
+
         return childMorph;
     }
 
@@ -190,10 +190,5 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     public void setStartingMorphBasicType(int startingMorphBasicType) {
         this.startingMorphBasicType = startingMorphBasicType;
     }
-
-    protected void wireMorphEvents(Morph morph) {
-        morph.addPropertyChangeListener(getEmbryology());
-    }
-
 
 }

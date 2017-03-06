@@ -33,7 +33,7 @@ public class ColourBiomorphConfig extends SimpleMorphConfig {
 	@Override
 	public Morph newMorph() {
 		Morph morph = new ColourBiomorph();
-		wireMorphEvents(morph);
+		initMorph(morph);
 		return morph;
 	}
 	@Override

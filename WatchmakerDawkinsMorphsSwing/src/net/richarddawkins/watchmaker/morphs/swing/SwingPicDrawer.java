@@ -54,7 +54,8 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
         } catch (IllegalArgumentException e) {
             logger.warning(
                     "SwingPicDrawer.getImage failed because of widthXheight: "
-                            + width + "x" + height );
+                            + width + "x" + height + " for phenotype "
+                            + phenotype);
         }
         return bufferedImage;
     }

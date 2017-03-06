@@ -35,6 +35,17 @@ import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
+    @Override
+    public void gainFocus() {
+        addPropertyChangeListener(morphView.getGeneBoxStrip());
+        morphView.getScaleSlider().setBoxManager(boxedMorphCollection.getBoxManager());
+
+    }
+    @Override
+    public void loseFocus() {
+        removePropertyChangeListener(morphView.getGeneBoxStrip());
+    }
+    
     protected boolean autoScale = false;
     @Override
     public boolean isAutoScale() {

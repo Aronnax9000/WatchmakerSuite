@@ -11,8 +11,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
-public class SwingSpeedSlider implements MorphViewWidget, ChangeListener {
+import net.richarddawkins.watchmaker.morphview.SpeedSlider;
+public class SwingSpeedSlider implements SpeedSlider, ChangeListener {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.components.SwingScaleSlider");
 
 	
