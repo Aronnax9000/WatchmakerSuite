@@ -7,6 +7,11 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
 public class SwingFossilRecordMorphViewPanel extends SwingMorphViewPanel implements FossilRecordMorphViewPanel {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     public SwingFossilRecordMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         super(morphView, page);
