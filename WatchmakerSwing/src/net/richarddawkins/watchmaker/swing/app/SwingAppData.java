@@ -20,7 +20,7 @@ import net.richarddawkins.watchmaker.album.AlbumSerializer;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
-import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.geom.GeometryManager;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -28,6 +28,7 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewType;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
+import net.richarddawkins.watchmaker.swing.AWTGeometryManager;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
@@ -49,6 +50,7 @@ public abstract class SwingAppData implements AppData {
         }
     }
 
+    
     private static Logger logger = Logger.getLogger(
 
             "net.richarddawkins.watchmaker.swing.app.SwingAppData");
@@ -66,6 +68,17 @@ public abstract class SwingAppData implements AppData {
     JFileChooser fileChooser = new JFileChooser();
 
     protected boolean geneBoxToSide;
+
+    protected GeometryManager geometryManager;
+    @Override
+    public GeometryManager getGeometryManager() {
+        return geometryManager;
+    }
+
+    @Override
+    public void setGeometryManager(GeometryManager geometryManager) {
+        this.geometryManager = geometryManager;
+    }
 
     protected boolean highlighting = false;
 
@@ -92,6 +105,7 @@ public abstract class SwingAppData implements AppData {
     protected String toolTip;
 
     public SwingAppData() {
+        geometryManager = new AWTGeometryManager();
     }
 
     public void actionBreedFromSelector() {

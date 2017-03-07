@@ -21,6 +21,7 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.GeometryManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -29,12 +30,11 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
-import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
-
+    protected GeometryManager geometryManager;
     @Override
     public void gainFocus() {
         addPropertyChangeListener(morphView.getGeneBoxStrip());
@@ -100,6 +100,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
 
         this.morphView = morphView;
+        this.geometryManager = morphView.getAppData().getGeometryManager();
         if (page == null) {
             logger.warning("SwingMorphViewPanel(" + morphView.toString()
                     + ", page) has null page.");
@@ -109,39 +110,39 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                processMouseClicked(SwingGeom.toWatchmakerPoint(e.getPoint()),
-                        SwingGeom.toWatchmakerDim(
+                processMouseClicked(geometryManager.toWatchmakerPoint(e.getPoint()),
+                        geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
 
             @Override
             public void mouseDragged(MouseEvent e) {
                 logger.fine("mouseDragged");
-                processMouseDragged(SwingGeom.toWatchmakerPoint(e.getPoint()),
-                        SwingGeom.toWatchmakerDim(
+                processMouseDragged(geometryManager.toWatchmakerPoint(e.getPoint()),
+                        geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                processMouseMotion(SwingGeom.toWatchmakerPoint(e.getPoint()),
-                        SwingGeom.toWatchmakerDim(
+                processMouseMotion(geometryManager.toWatchmakerPoint(e.getPoint()),
+                        geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 logger.fine("mousePressed");
-                processMousePressed(SwingGeom.toWatchmakerPoint(e.getPoint()),
-                        SwingGeom.toWatchmakerDim(
+                processMousePressed(geometryManager.toWatchmakerPoint(e.getPoint()),
+                        geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
                 logger.fine("mouseReleased");
-                processMouseReleased(SwingGeom.toWatchmakerPoint(e.getPoint()),
-                        SwingGeom.toWatchmakerDim(
+                processMouseReleased(geometryManager.toWatchmakerPoint(e.getPoint()),
+                        geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
 
@@ -273,7 +274,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
     @Override
     public Dim getDim() {
-        return SwingGeom.toWatchmakerDim(super.getSize());
+        return geometryManager.toWatchmakerDim(super.getSize());
     }
     protected boolean includeChildrenInAutoScale = false;
     public void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale) {
@@ -320,7 +321,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         logger.fine("centrePanel.paintComponent()");
         super.paintComponent(g);
         paintMorphViewPanel((Graphics2D) g,
-                SwingGeom.toWatchmakerDim(this.getSize()));
+                geometryManager.toWatchmakerDim(this.getSize()));
     }
     protected boolean showBoundingBoxes = false;
 
@@ -437,9 +438,9 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         SwingUtilities.convertPointFromScreen(p, this);
         logger.fine("Converted point " + p);
         if (p.x > -1 && p.y > -1) {
-            Dim size = SwingGeom.toWatchmakerDim(this.getSize());
+            Dim size = geometryManager.toWatchmakerDim(this.getSize());
             logger.fine("updateCursor called");
-            processMouseMotion(SwingGeom.toWatchmakerPoint(p), size);
+            processMouseMotion(geometryManager.toWatchmakerPoint(p), size);
             logger.fine("updateCursor returned");
         }
 

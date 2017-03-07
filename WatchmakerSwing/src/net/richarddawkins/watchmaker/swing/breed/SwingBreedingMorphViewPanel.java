@@ -13,7 +13,6 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.breed.BreedingMorphViewPanel;
-import net.richarddawkins.watchmaker.swing.SwingGeom;
 import net.richarddawkins.watchmaker.swing.breed.BoxAnimator.Phase;
 import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
@@ -23,6 +22,8 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel implements 
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel");
     private static final long serialVersionUID = 1L;
 
+
+    
     public SwingBreedingMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         super(morphView, page);
@@ -73,7 +74,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel implements 
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (this.getCursor() == WatchmakerCursors.breed) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
-                    SwingGeom.toWatchmakerDim(this.getSize()));
+                    geometryManager.toWatchmakerDim(this.getSize()));
             if (box != null) {
                 special = box;
                 breedFromSpecial();
@@ -86,7 +87,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel implements 
             updateCursor();
         } else if (this.getCursor() == WatchmakerCursors.highlight) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
-                    SwingGeom.toWatchmakerDim(this.getSize()));
+                    geometryManager.toWatchmakerDim(this.getSize()));
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
             this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
             pcs.firePropertyChange("genome", null,

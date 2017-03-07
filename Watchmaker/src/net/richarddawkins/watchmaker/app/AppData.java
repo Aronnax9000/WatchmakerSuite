@@ -6,6 +6,7 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
+import net.richarddawkins.watchmaker.geom.GeometryManager;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -95,7 +96,9 @@ public interface AppData  {
     void addMorphToAlbum();
     Vector<MorphView> getBreedingMorphViews();
     public boolean isShowBoundingBox();
-    public void setShowBoundingBox(boolean newValue); 
+    public void setShowBoundingBox(boolean newValue);
+    GeometryManager getGeometryManager();
+    void setGeometryManager(GeometryManager geometryManager); 
     
 
 }
