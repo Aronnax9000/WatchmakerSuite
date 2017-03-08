@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.genebox;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.IntegerGeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -14,8 +15,8 @@ public class SwingIntegerGeneBox extends SwingTextGeneBox implements IntegerGene
 
 	protected boolean displayAsHex = false;
 	
-	public SwingIntegerGeneBox() {
-
+	public SwingIntegerGeneBox(AppData appData) {
+	    super(appData);
 	}
 
 	public void setEngineeringMode() {

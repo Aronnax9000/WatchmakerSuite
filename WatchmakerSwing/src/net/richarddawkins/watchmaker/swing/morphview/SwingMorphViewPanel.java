@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MouseInfo;
@@ -17,6 +18,9 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
@@ -35,6 +39,7 @@ import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     protected GeometryManager geometryManager;
+    protected WatchmakerCursorFactory cursors = null;
     @Override
     public void gainFocus() {
         addPropertyChangeListener(morphView.getGeneBoxStrip());
@@ -44,6 +49,10 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     @Override
     public void loseFocus() {
         removePropertyChangeListener(morphView.getGeneBoxStrip());
+    }
+    @Override
+    public void setCursor(Object cursor) {
+        super.setCursor((Cursor) cursor);
     }
     
     protected boolean autoScale = false;
@@ -100,7 +109,9 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
 
         this.morphView = morphView;
-        this.geometryManager = morphView.getAppData().getGeometryManager();
+        AppData appData = morphView.getAppData();
+        this.geometryManager = appData.getGeometryManager();
+        this.cursors = appData.getWatchmakerCursorFactory();
         if (page == null) {
             logger.warning("SwingMorphViewPanel(" + morphView.toString()
                     + ", page) has null page.");
@@ -374,12 +385,16 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     }
 
     protected void processMouseMotion(Point myPt, Dim size) {
-        logger.fine("processMouseMotion(" + myPt + ", " + size);
-        if (!(this.getCursor() == WatchmakerCursors.highlight
-                && boxedMorphCollection.getSelectedBoxedMorph() != null)) {
+        Cursor cursor = this.getCursor();
+        boolean cursorTypeIsntHighlight = ! cursors.isCursorType(WatchmakerCursor.highlight, cursor);
+        BoxedMorph selectedBoxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
+        boolean selectedBoxedMorphIsntNull = selectedBoxedMorph != null;
+        if (cursorTypeIsntHighlight && selectedBoxedMorphIsntNull)  {
             BoxManager boxes = boxedMorphCollection.getBoxManager();
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             if (box != selectedBox) {
+                logger.info("Setting SelectedBox to box " + box + " containing boxed morph " + 
+            selectedBoxedMorph);
                 setSelectedBox(box);
             }
         }

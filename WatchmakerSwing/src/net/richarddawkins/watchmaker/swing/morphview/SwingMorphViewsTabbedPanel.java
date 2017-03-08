@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
 import java.awt.Component;
+import java.awt.Cursor;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,9 +12,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphViewsTabbedPanel {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane");
@@ -81,8 +82,9 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 			if (selectedIndex != -1) {
 				MorphView morphView = morphViews.get(getSelectedIndex());
 				morphView.getSelectedPanel().gainFocus();
-				appData.setHighlighting(((JComponent) morphView).getCursor() 
-						== WatchmakerCursors.highlight);
+				Cursor cursor = ((JComponent) morphView).getCursor();
+				appData.setHighlighting(appData.getWatchmakerCursorFactory()
+				        .isCursorType(WatchmakerCursor.highlight, cursor));
 
 			}
 		}

@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.genome.Gene;
@@ -58,15 +59,15 @@ public abstract class SwingGeneBoxStrip
     protected Genome genome;
 
     private static final long serialVersionUID = 1L;
-
-    public SwingGeneBoxStrip() {
-        // this.setBorder(new LineBorder(Color.GREEN));
+    protected AppData appData ;
+    public SwingGeneBoxStrip(AppData appData) {
+        this.appData = appData;
     }
 
     @Override
-    public GeneBox getGeneBoxForGene(Gene gene) {
+    public GeneBox getGeneBoxForGene(Gene gene, AppData appData) {
         if (gene instanceof IntegerGene)
-            return new SwingIntegerGeneBox();
+            return new SwingIntegerGeneBox(appData);
         else {
             return null;
         }
@@ -106,7 +107,7 @@ public abstract class SwingGeneBoxStrip
                 if (reusing) {
                     geneBox = (GeneBox) panel.getComponent(n++);
                 } else {
-                    geneBox = (GeneBox) getGeneBoxForGene(gene);
+                    geneBox = (GeneBox) getGeneBoxForGene(gene, appData);
                 }
                 if (engineeringMode) {
                     geneBox.setEngineeringMode();

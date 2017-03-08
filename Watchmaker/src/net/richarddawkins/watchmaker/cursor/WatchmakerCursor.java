@@ -1,4 +1,4 @@
-package net.richarddawkins.watchmaker.util;
+package net.richarddawkins.watchmaker.cursor;
 
 public enum WatchmakerCursor {
 
@@ -14,7 +14,9 @@ public enum WatchmakerCursor {
     watchCursor("CursorWatch_CURS_-15776_48x16", "Watch"), 
     hypodermic("CursorHypodermic_CURS_00140_48x16", "Hypodermic"), 
     breed("CursorBreed_CURS_00145_48x16", "Breed"), 
-    random("CursorCentreDie_CURS_00144_48x16", "Random"), 
+//    random("CursorCentreDie_CURS_00144_48x16", "Random"), 
+    random("CursorDie_CURS_15208_48x16", "Random"), 
+    
     highlight("CursorBlackMonolith_CURS_00142_48x16", "Highlight"), 
     pedigree("CursorPedigreeMaybe_CURS_00147_48x16", "Pedigree"),
     custom(null, "Custom");
@@ -26,5 +28,10 @@ public enum WatchmakerCursor {
     WatchmakerCursor(String imageName, String label) {
         this.imageName = imageName;
         this.label = label;
+    }
+    
+    @Override
+    public String toString() {
+        return this.name() + " " + this.label + " " + this.imageName;
     }
 }

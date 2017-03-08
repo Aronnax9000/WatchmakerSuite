@@ -18,6 +18,7 @@ import javax.swing.JTabbedPane;
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.album.AlbumSerializer;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.GeometryManager;
@@ -32,6 +33,7 @@ import net.richarddawkins.watchmaker.swing.AWTGeometryManager;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.cursor.SwingWatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
@@ -104,8 +106,20 @@ public abstract class SwingAppData implements AppData {
 
     protected String toolTip;
 
+    protected WatchmakerCursorFactory watchmakerCursorFactory;
+    @Override
+    public WatchmakerCursorFactory getWatchmakerCursorFactory() {
+        return watchmakerCursorFactory;
+    }
+    @Override
+    public void setWatchmakerCursorFactory(
+            WatchmakerCursorFactory watchmakerCursorFactory) {
+        this.watchmakerCursorFactory = watchmakerCursorFactory;
+    }
+
     public SwingAppData() {
-        geometryManager = new AWTGeometryManager();
+        this.geometryManager = new AWTGeometryManager();
+        this.watchmakerCursorFactory = new SwingWatchmakerCursorFactory();
     }
 
     public void actionBreedFromSelector() {

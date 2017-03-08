@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
@@ -9,21 +10,25 @@ import net.richarddawkins.watchmaker.morphs.mono.genebox.swing.SwingMonochromeGe
 
 public class SwingColorGeneBoxStrip extends SwingMonochromeGeneBoxStrip {
 
-	private static final long serialVersionUID = 1L;
+	public SwingColorGeneBoxStrip(AppData appData) {
+        super(appData);
+        
+    }
+
+    private static final long serialVersionUID = 1L;
 
 	public GeneBox getGeneBoxForGene(Gene gene) {
 		if(gene instanceof ColorGene) 
-			return new SwingColorGeneBox();
+			return new SwingColorGeneBox(appData);
 		else if(gene instanceof LimbShapeGene) 
-			return new SwingLimbShapeGeneBox();
+			return new SwingLimbShapeGeneBox(appData);
 		else if(gene instanceof LimbFillGene)
-			return new SwingLimbFillGeneBox();
+			return new SwingLimbFillGeneBox(appData);
 		else 
-			return super.getGeneBoxForGene(gene);
+			return super.getGeneBoxForGene(gene, appData);
 		
 	}
 	
-	public SwingColorGeneBoxStrip() {
-	}
+
 
 }

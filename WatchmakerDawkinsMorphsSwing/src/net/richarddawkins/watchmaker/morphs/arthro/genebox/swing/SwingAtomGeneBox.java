@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.SwingConstants;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.arthro.genome.Atom;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
@@ -17,7 +18,8 @@ public class SwingAtomGeneBox extends SwingGeneBox {
 	private static final long serialVersionUID = 1L;
 
 
-	public SwingAtomGeneBox() {
+	public SwingAtomGeneBox(AppData appData) {
+	    super(appData);
 		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		this.setBorder(null);
 		valueLabel.setVerticalAlignment(SwingConstants.TOP);

@@ -79,7 +79,7 @@ public class Palette {
                             Integer.parseInt(st.nextToken()),
                             Integer.parseInt(st.nextToken()), st.nextToken());
                     rgbTriples.add(rgbTriple);
-                    logger.info("Loaded color " + rgbTriple);
+                    logger.fine("Loaded color " + rgbTriple);
                 } catch (NoSuchElementException e) {
                     logger.warning(
                             "NoSuchElementException while parsing color palette tokens from "

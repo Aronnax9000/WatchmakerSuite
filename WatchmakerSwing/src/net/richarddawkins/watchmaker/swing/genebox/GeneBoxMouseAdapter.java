@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genome.GeneManipulationAdapter;
 import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.GeneManipulationListener;
@@ -27,9 +29,12 @@ public class GeneBoxMouseAdapter extends MouseAdapter
     enum VertPos {
         TopRung, MidRung, BottomRung
     }
+    
+    protected WatchmakerCursorFactory cursors;
 
-    public GeneBoxMouseAdapter(GeneBoxType geneBoxType) {
+    public GeneBoxMouseAdapter(GeneBoxType geneBoxType, WatchmakerCursorFactory cursors) {
         this.geneBoxType = geneBoxType;
+        this.cursors = cursors;
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         if (toolkit != null) {
             Object multiClickInterval = toolkit
@@ -48,6 +53,7 @@ public class GeneBoxMouseAdapter extends MouseAdapter
     long doubleClickInterval = 500;
     protected GeneBoxType geneBoxType;
 
+    
     @Override
     public void mouseMoved(MouseEvent e) {
 
@@ -59,7 +65,7 @@ public class GeneBoxMouseAdapter extends MouseAdapter
 
         VertPos mouseVert = null;
         if (geneBoxType == GeneBoxType.clickForPicker) {
-            component.setCursor(WatchmakerCursors.magnify);
+            component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.magnify));
         } else {
             if (geneBoxType == GeneBoxType.leftRightOnly) {
                 int halfWidth = component.getWidth() / 2;
@@ -94,27 +100,27 @@ public class GeneBoxMouseAdapter extends MouseAdapter
             switch (mouseHoriz) {
             case LeftThird:
             case LeftHalf:
-                component.setCursor(WatchmakerCursors.leftArrow);
+                component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.leftArrow));
                 break;
             case RightThird:
             case RightHalf:
-                component.setCursor(WatchmakerCursors.rightArrow);
+                component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.rightArrow));
                 break;
             case MidThird:
                 if (mouseVert != null) {
                     switch (mouseVert) {
                     case TopRung:
-                        component.setCursor(WatchmakerCursors.upArrow);
+                        component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.upArrow));
                         break;
                     case BottomRung:
-                        component.setCursor(WatchmakerCursors.downArrow);
+                        component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.downArrow));
                         break;
                     case MidRung:
                     default:
-                        component.setCursor(WatchmakerCursors.equalsSign);
+                        component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.equalsSign));
                     }
                 } else {
-                    component.setCursor(WatchmakerCursors.equalsSign);
+                    component.setCursor((Cursor)cursors.getCursor(WatchmakerCursor.equalsSign));
                 }
             }
         }
@@ -150,18 +156,19 @@ public class GeneBoxMouseAdapter extends MouseAdapter
 
         Cursor cursor = e.getComponent().getCursor();
 
+
         GooseDirection direction = null;
-        if (cursor == WatchmakerCursors.magnify) {
+        if (cursors.isCursorType(WatchmakerCursor.magnify, cursor)) {
             direction = GooseDirection.launchPicker;
-        } else if (cursor == WatchmakerCursors.leftArrow)
+        } else if (cursors.isCursorType(WatchmakerCursor.leftArrow, cursor))
             direction = GooseDirection.leftArrow;
-        else if (cursor == WatchmakerCursors.rightArrow)
+        else if (cursors.isCursorType(WatchmakerCursor.rightArrow, cursor))
             direction = GooseDirection.rightArrow;
-        else if (cursor == WatchmakerCursors.upArrow)
+        else if (cursors.isCursorType(WatchmakerCursor.upArrow, cursor))
             direction = GooseDirection.upArrow;
-        else if (cursor == WatchmakerCursors.downArrow)
+        else if (cursors.isCursorType(WatchmakerCursor.downArrow, cursor))
             direction = GooseDirection.downArrow;
-        else if (cursor == WatchmakerCursors.equalsSign)
+        else if (cursors.isCursorType(WatchmakerCursor.equalsSign, cursor))
             direction = GooseDirection.equalsSign;
         if (direction != null)
             fireGeneManipulationEvent(new GeneManipulationEvent(direction));

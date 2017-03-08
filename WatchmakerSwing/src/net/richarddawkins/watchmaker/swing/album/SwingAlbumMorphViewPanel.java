@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.swing.album;
 
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
@@ -11,7 +12,6 @@ import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.album.AlbumMorphViewPanel;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
 public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements AlbumMorphViewPanel {
@@ -22,9 +22,9 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements Alb
     
     SwingAlbumMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
-        GridBoxManager gridBoxManager = new GridBoxManager(5,3);
+//        GridBoxManager gridBoxManager = new GridBoxManager(5,3);
 //        setBoxManager(gridBoxManager);
-        setCursor(WatchmakerCursors.highlight);
+        setCursor(cursors.getCursor(WatchmakerCursor.highlight));
         // TODO Auto-generated constructor stub
     }
 
@@ -39,7 +39,7 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements Alb
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
         BoxManager boxes = boxedMorphCollection.getBoxManager();
-        if (this.getCursor() == WatchmakerCursors.highlight) {
+        if (cursors.isCursorType(WatchmakerCursor.highlight, this.getCursor())) {
             Rect box = boxes.getBoxNoContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);

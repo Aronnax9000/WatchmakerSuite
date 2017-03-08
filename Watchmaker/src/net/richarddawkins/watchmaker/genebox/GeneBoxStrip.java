@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.genebox;
 
 import java.beans.PropertyChangeListener;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morphview.MorphViewWidget;
@@ -10,7 +11,7 @@ public interface GeneBoxStrip extends MorphViewWidget, PropertyChangeListener {
 
 	void setGenome(Genome genome);
 	
-	GeneBox getGeneBoxForGene(Gene gene);
+	GeneBox getGeneBoxForGene(Gene gene, AppData appData);
 
 	void setEngineeringMode(boolean engineeringMode);
 

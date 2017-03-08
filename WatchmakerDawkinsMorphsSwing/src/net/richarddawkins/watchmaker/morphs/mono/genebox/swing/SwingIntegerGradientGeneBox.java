@@ -8,6 +8,7 @@ import java.beans.PropertyChangeEvent;
 
 import javax.swing.JPanel;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs. mono.genebox.IntegerGradientGeneBox;
 import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGradientGene;
@@ -25,8 +26,8 @@ public class SwingIntegerGradientGeneBox extends SwingIntegerGeneBox implements 
 	protected SwellType gradient = null;
 	private static final long serialVersionUID = 1631776161817013885L;
 
-	public SwingIntegerGradientGeneBox() {
-		super();
+	public SwingIntegerGradientGeneBox(AppData appData) {
+		super(appData);
 		JPanel gradientPanel = new JPanel() {
 			private static final long serialVersionUID = 1L;
 

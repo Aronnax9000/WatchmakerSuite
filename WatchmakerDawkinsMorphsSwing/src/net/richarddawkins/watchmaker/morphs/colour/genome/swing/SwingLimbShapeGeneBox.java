@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.LimbShapeGene;
 import net.richarddawkins.watchmaker.morphs.colour.genome.type.LimbShapeType;
@@ -12,7 +13,8 @@ public class SwingLimbShapeGeneBox extends SwingTextGeneBox {
 
 	private static final long serialVersionUID = 7130996645391902520L;
 
-	public SwingLimbShapeGeneBox() {
+	public SwingLimbShapeGeneBox(AppData appData) {
+	    super(appData);
 	}
 
 	public void setLimbShapeType(LimbShapeType limbShapeType) {

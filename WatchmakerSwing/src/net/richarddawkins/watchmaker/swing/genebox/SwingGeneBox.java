@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 
@@ -19,11 +20,12 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 		valueLabel.setText(newValue);
 		repaint();
 	}
-	
-	public SwingGeneBox() {
-		valueLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	protected AppData appData;
+	public SwingGeneBox(AppData appData) {
+	    this.appData = appData;
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		this.setLayout(new BorderLayout());
+        valueLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 	}
 	
@@ -54,7 +56,7 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 	}
 	
 	public void setEngineeringMode(GeneBoxType geneBoxType) {
-        geneBoxMouseAdapter = new GeneBoxMouseAdapter(geneBoxType);
+        geneBoxMouseAdapter = new GeneBoxMouseAdapter(geneBoxType, appData.getWatchmakerCursorFactory());
 		this.addMouseMotionListener(geneBoxMouseAdapter);
 		this.addMouseListener(geneBoxMouseAdapter);
 	}

@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Set;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.geom.WatchmakerColor;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
@@ -33,7 +35,6 @@ import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumSaveAs;
 import net.richarddawkins.watchmaker.swing.breed.menu.SwingActionBreed;
 import net.richarddawkins.watchmaker.swing.engineer.menu.ActionColorSwatch;
 import net.richarddawkins.watchmaker.swing.engineer.menu.ActionEngineering;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigree;
 import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigreeDetach;
 import net.richarddawkins.watchmaker.swing.pedigree.menu.ActionPedigreeDrawOutOffspring;
@@ -151,7 +152,8 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                                 .getPanels().firstElement();
                         if (((JCheckBoxMenuItem) highlightBiomorph)
                                 .isSelected()) {
-                            centrePanel.setCursor(WatchmakerCursors.highlight);
+                            centrePanel.setCursor((Cursor)appData.getWatchmakerCursorFactory()
+                                    .getCursor(WatchmakerCursor.highlight));
                         } else {
                             centrePanel.setCursor(null);
                             BoxedMorphCollection boxedMorphs = selectedMorphView

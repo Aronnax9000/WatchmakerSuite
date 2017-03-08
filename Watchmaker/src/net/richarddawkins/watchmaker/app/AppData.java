@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.album.Album;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.GeometryManager;
@@ -98,7 +99,10 @@ public interface AppData  {
     public boolean isShowBoundingBox();
     public void setShowBoundingBox(boolean newValue);
     GeometryManager getGeometryManager();
-    void setGeometryManager(GeometryManager geometryManager); 
+    void setGeometryManager(GeometryManager geometryManager);
+    void setWatchmakerCursorFactory(
+            WatchmakerCursorFactory watchmakerCursorFactory);
+    WatchmakerCursorFactory getWatchmakerCursorFactory(); 
     
 
 }

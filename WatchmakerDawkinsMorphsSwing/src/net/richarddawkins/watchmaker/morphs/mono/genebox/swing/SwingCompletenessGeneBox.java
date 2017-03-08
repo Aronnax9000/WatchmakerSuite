@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.mono.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs. mono.genebox.CompletenessGeneBox;
 import net.richarddawkins.watchmaker.morphs.mono.genome.CompletenessGene;
@@ -17,7 +18,9 @@ public class SwingCompletenessGeneBox extends SwingTextGeneBox implements Comple
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public SwingCompletenessGeneBox() { }
+	public SwingCompletenessGeneBox(AppData appData) {
+	    super(appData);
+	}
 	
 	@Override
 	public void setEngineeringMode() {

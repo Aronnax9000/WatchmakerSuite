@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.mono.genebox.swing;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
@@ -11,21 +12,25 @@ import net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip;
 
 public class SwingMonochromeGeneBoxStrip extends SwingGeneBoxStrip {
 
-	private static final long serialVersionUID = 1L;
+	public SwingMonochromeGeneBoxStrip(AppData appData) {
+        super(appData);
+    }
+
+    private static final long serialVersionUID = 1L;
     @Override
     public boolean isReusable() { return true; }
 
-	public GeneBox getGeneBoxForGene(Gene gene) {
+	public GeneBox getGeneBoxForGene(Gene gene, AppData appData) {
 		if(gene instanceof IntegerGradientGene)
-			return new SwingIntegerGradientGeneBox();
+			return new SwingIntegerGradientGeneBox(appData);
 		else if(gene instanceof IntegerGene)
-			return new SwingIntegerGeneBox();
+			return new SwingIntegerGeneBox(appData);
 		else if(gene instanceof CompletenessGene)
-			return new SwingCompletenessGeneBox();
+			return new SwingCompletenessGeneBox(appData);
 		else if(gene instanceof SpokesGene)
-			return new SwingSpokesGeneBox();
+			return new SwingSpokesGeneBox(appData);
 		else
-			return super.getGeneBoxForGene(gene);
+			return super.getGeneBoxForGene(gene, appData);
 	}
 	
 	

@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.concho.genebox.swing;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBox;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.concho.genome.DoubleGene;
@@ -14,15 +15,16 @@ public class SwingSnailGeneBoxStrip extends SwingGeneBoxStrip {
 
 	public GeneBox getGeneBoxForGene(Gene gene) {
 		if (gene instanceof DoubleGene)
-			return new SwingDoubleGeneBox();
+			return new SwingDoubleGeneBox(appData);
 		else if (gene instanceof HandednessGene)
-			return new SwingHandednessGeneBox();
+			return new SwingHandednessGeneBox(appData);
 		else
-			return super.getGeneBoxForGene(gene);
+			return super.getGeneBoxForGene(gene, appData);
 
 	}
 
-	public SwingSnailGeneBoxStrip() {
+	public SwingSnailGeneBoxStrip(AppData appData) {
+	    super(appData);
 	}
 
 }

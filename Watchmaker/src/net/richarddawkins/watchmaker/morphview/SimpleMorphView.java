@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -18,6 +19,8 @@ public abstract class SimpleMorphView implements MorphView {
         return null;
     }
 
+
+    
     @Override
     public void setIcon(String icon) {
         // TODO Auto-generated method stub

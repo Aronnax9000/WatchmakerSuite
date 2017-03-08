@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.mono.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs. mono.genebox.SpokesGeneBox;
 import net.richarddawkins.watchmaker.morphs.mono.genome.SpokesGene;
@@ -14,8 +15,8 @@ public class SwingSpokesGeneBox extends SwingTextGeneBox implements SpokesGeneBo
 
 	private static final long serialVersionUID = -1299862384921350925L;
 
-	public SwingSpokesGeneBox() {
-		super();
+	public SwingSpokesGeneBox(AppData appData) {
+		super(appData);
 	}
 	
 	private void setSpokes(SpokesType spokes) {

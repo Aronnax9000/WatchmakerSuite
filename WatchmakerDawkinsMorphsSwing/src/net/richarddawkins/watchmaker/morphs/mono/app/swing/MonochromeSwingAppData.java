@@ -23,7 +23,7 @@ public class MonochromeSwingAppData extends SwingAppData  {
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		GeneBoxStrip geneBoxStrip = new SwingMonochromeGeneBoxStrip();
+		GeneBoxStrip geneBoxStrip = new SwingMonochromeGeneBoxStrip(this);
 		geneBoxStrip.setEngineeringMode(engineeringMode);
 		geneBoxStrip.setGeneBoxToSide(false);
 		return geneBoxStrip;

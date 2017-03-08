@@ -21,7 +21,7 @@ public class ArthromorphSwingAppData extends SwingAppData {
 	}
 	@Override
 	public GeneBoxStrip newGeneBoxStrip(boolean engineeringMode) {
-		GeneBoxStrip geneBoxStrip = new SwingArthromorphGeneBoxStrip();
+		GeneBoxStrip geneBoxStrip = new SwingArthromorphGeneBoxStrip(this);
 		geneBoxStrip.setEngineeringMode(engineeringMode); 
 		geneBoxStrip.setGeneBoxToSide(true);
 		return geneBoxStrip;

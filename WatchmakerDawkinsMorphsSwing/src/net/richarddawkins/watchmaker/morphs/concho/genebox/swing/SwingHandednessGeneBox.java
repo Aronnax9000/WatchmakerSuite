@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.concho.genebox.swing;
 
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.morphs.concho.genome.HandednessGene;
 import net.richarddawkins.watchmaker.morphs.concho.genome.type.HandednessType;
@@ -11,7 +12,10 @@ import net.richarddawkins.watchmaker.swing.genebox.SwingTextGeneBox;
 public class SwingHandednessGeneBox extends SwingTextGeneBox {
 
 
-	private static final long serialVersionUID = 1L;
+	public SwingHandednessGeneBox(AppData appData) {
+        super(appData);
+    }
+    private static final long serialVersionUID = 1L;
 
 	@Override
 	public void setEngineeringMode() {

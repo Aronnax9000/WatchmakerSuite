@@ -1,15 +1,17 @@
 package net.richarddawkins.watchmaker.swing.breed;
 
+import java.awt.Cursor;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public class BoxAnimator {
     enum Phase {
@@ -27,9 +29,11 @@ public class BoxAnimator {
     protected Rect midBox;
     protected BoxedMorph boxedMorphParent;
     protected BoxManager boxes;
+    protected WatchmakerCursorFactory cursors;
 
     public BoxAnimator(SwingBreedingMorphViewPanel breedingPanel) {
         this.breedingPanel = breedingPanel;
+        this.cursors = breedingPanel.getMorphView().getCursors();
 //        logger.info("BoxAnimator constructed");
 
     }
@@ -173,7 +177,7 @@ public class BoxAnimator {
             break;
 
         case breed_complete:
-            breedingPanel.setCursor(WatchmakerCursors.breed);
+            breedingPanel.setCursor((Cursor) cursors.getCursor(WatchmakerCursor.breed));
             breedingPanel.updateCursor();
 //            logger.fine("Breed Complete");
             phase = Phase.idle;

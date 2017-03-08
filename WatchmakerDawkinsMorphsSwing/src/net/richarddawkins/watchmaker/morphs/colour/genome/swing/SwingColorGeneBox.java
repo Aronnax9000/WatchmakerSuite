@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;
 import net.richarddawkins.watchmaker.swing.SwingColor;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
@@ -12,7 +13,8 @@ public class SwingColorGeneBox extends SwingIntegerGeneBox {
 
     private static final long serialVersionUID = -5076715671424518452L;
 
-    public SwingColorGeneBox() {
+    public SwingColorGeneBox(AppData appData) {
+        super(appData);
         displayAsHex = true;
     }
 

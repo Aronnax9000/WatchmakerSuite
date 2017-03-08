@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
@@ -42,6 +43,12 @@ public abstract class SwingMorphView extends JPanel
 
     private static final long serialVersionUID = 5555392236002752598L;
 
+    protected WatchmakerCursorFactory cursors;
+    @Override
+    public WatchmakerCursorFactory getCursors() {
+        return cursors;
+    }
+
     protected Album album;
     protected AppData appData;
     protected boolean copyMorphsOnBackup;
@@ -52,19 +59,10 @@ public abstract class SwingMorphView extends JPanel
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     protected SwingScaleSlider scaleSlider;
     protected Vector<Morph> seedMorphs = new Vector<Morph>();
-
     protected MorphViewPanel selectedPanel;
-
-
-
     protected boolean showBoxes = true;
-
-
     protected String toolTip;
 
-    public SwingMorphView(AppData appData, String icon, String name,
-            Album newAlbum, boolean engineeringMode) {
-    }
     public SwingMorphView(SwingMorphViewConfig config) {
         logger.fine("SwingMorphView(config): " + config);
         this.appData = config.appData;
@@ -73,7 +71,7 @@ public abstract class SwingMorphView extends JPanel
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
         this.setLayout(new BorderLayout());
-
+        this.cursors = appData.getWatchmakerCursorFactory();
         this.setMorphDrawer(new SwingMorphDrawer(appData));
         initAlbum(config.album, this.copyMorphsOnBackup);
         addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide); 
@@ -291,12 +289,12 @@ public abstract class SwingMorphView extends JPanel
                         .getDim();
                 logger.fine("SwingMorphView.seed():" + panel.getDim() + " BoxDim:" + boxDim
                         + " ParentMorphDim:" + parentMorphDim);
-                int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
-
-                if (scale != boxes.getScale()) {
-                    boxes.setScale(scale);
-                }
-                panel.setSelectedBox(midBox);
+//                int scale = boxDim.getScale(parentMorphDim, Globals.zoomBase);
+//
+//                if (scale != boxes.getScale()) {
+//                    boxes.setScale(scale);
+//                }
+//                panel.setSelectedBox(midBox);
                 seedMorphs.remove(seedMorph);
 
             }

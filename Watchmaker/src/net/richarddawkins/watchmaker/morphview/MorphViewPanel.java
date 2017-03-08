@@ -39,5 +39,6 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void setAutoScale(boolean autoScale);
     void gainFocus();
     void loseFocus();
+    void setCursor(Object cursor);
 
 }
