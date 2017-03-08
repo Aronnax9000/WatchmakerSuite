@@ -22,7 +22,6 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
         implements BreedingMorphViewPanel {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel");
-    private static final long serialVersionUID = 1L;
 
     public SwingBreedingMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
