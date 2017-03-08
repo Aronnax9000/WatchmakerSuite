@@ -33,11 +33,12 @@ import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
+import net.richarddawkins.watchmaker.morphview.SimpleMorphViewPanel;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.util.Globals;
 
-public class SwingMorphViewPanel  implements MorphViewPanel {
+public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphViewPanel {
     
     
     protected JPanel panel;
