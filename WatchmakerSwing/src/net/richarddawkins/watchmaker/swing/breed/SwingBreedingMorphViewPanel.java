@@ -52,12 +52,12 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
                     if (!cursors.isCursorType(WatchmakerCursor.watchCursor,
                             cursor)) {
                         if (boxedMorph != null) {
-                            logger.info("setting cursor to breed "
-                                    + boxedMorph);
+//                            logger.info("setting cursor to breed "
+//                                    + boxedMorph);
                             this.setCursor((Cursor) cursors
                                     .getCursor(WatchmakerCursor.breed));
                         } else {
-                            logger.info("setting cursor to random");
+//                            logger.info("setting cursor to random");
                             this.setCursor((Cursor) cursors
                                     .getCursor(WatchmakerCursor.random));
                         }
@@ -81,7 +81,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (cursors.isCursorType(WatchmakerCursor.breed, cursor)) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
-                    geometryManager.toWatchmakerDim(this.getSize()));
+                    geometryManager.toWatchmakerDim(panel.getSize()));
             if (box != null) {
                 special = box;
                 breedFromSpecial();
@@ -95,7 +95,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
             updateCursor();
         } else if (cursors.isCursorType(WatchmakerCursor.highlight, cursor)) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
-                    geometryManager.toWatchmakerDim(this.getSize()));
+                    geometryManager.toWatchmakerDim(panel.getSize()));
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
             this.boxedMorphCollection.setSelectedBoxedMorph(boxedMorph);
             pcs.firePropertyChange("genome", null,

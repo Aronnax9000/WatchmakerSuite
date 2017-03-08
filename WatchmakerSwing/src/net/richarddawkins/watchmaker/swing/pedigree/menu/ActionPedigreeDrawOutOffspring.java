@@ -9,7 +9,6 @@ import javax.swing.Icon;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 import net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView;
 

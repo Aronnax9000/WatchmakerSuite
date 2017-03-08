@@ -10,6 +10,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Iterator;
 import java.util.Vector;
@@ -34,10 +35,15 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.phenotype.DrawingPreferences;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 import net.richarddawkins.watchmaker.util.Globals;
 
-public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
+public class SwingMorphViewPanel  implements MorphViewPanel {
+    
+    
+    protected JPanel panel;
+    public JPanel getPanel() { return panel; }
+    
+    
     protected GeometryManager geometryManager;
     protected WatchmakerCursorFactory cursors = null;
     @Override
@@ -52,7 +58,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     }
     @Override
     public void setCursor(Object cursor) {
-        super.setCursor((Cursor) cursor);
+        panel.setCursor((Cursor) cursor);
     }
     
     protected boolean autoScale = false;
@@ -78,11 +84,21 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         }
 
     }
+    
+    protected String name;
 
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
     @Override
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("MorphViewPanel " + this.getName());
+        stringBuffer.append("MorphViewPanel " + name);
         BoxedMorphCollection boxedMorphs = this.getBoxedMorphCollection();
         if (boxedMorphs != null) {
             stringBuffer.append(" backed by " + boxedMorphs.getName());
@@ -107,17 +123,29 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     protected Rect special;
 
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
-
-        this.morphView = morphView;
         AppData appData = morphView.getAppData();
-        this.geometryManager = appData.getGeometryManager();
-        this.cursors = appData.getWatchmakerCursorFactory();
+        this.morphView = morphView;
         if (page == null) {
             logger.warning("SwingMorphViewPanel(" + morphView.toString()
                     + ", page) has null page.");
         } else {
             this.setBoxedMorphCollection(page);
         }
+        this.geometryManager = appData.getGeometryManager();
+        this.cursors = appData.getWatchmakerCursorFactory();
+
+        this.panel = new JPanel() {
+
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public void paintComponent(Graphics g) {
+                logger.fine("centrePanel.paintComponent()");
+                super.paintComponent(g);
+                paintMorphViewPanel((Graphics2D) g,
+                        geometryManager.toWatchmakerDim(this.getSize()));
+            }
+        };
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -158,9 +186,9 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
             }
 
         };
-        addMouseListener(mouseAdapter);
-        addMouseMotionListener(mouseAdapter);
-        addComponentListener(new ResizeListener());
+        panel.addMouseListener(mouseAdapter);
+        panel.addMouseMotionListener(mouseAdapter);
+        panel.addComponentListener(new ResizeListener());
 
     }
 
@@ -285,7 +313,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
 
     @Override
     public Dim getDim() {
-        return geometryManager.toWatchmakerDim(super.getSize());
+        return geometryManager.toWatchmakerDim(panel.getSize());
     }
     protected boolean includeChildrenInAutoScale = false;
     public void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale) {
@@ -327,13 +355,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
         return special;
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
-        logger.fine("centrePanel.paintComponent()");
-        super.paintComponent(g);
-        paintMorphViewPanel((Graphics2D) g,
-                geometryManager.toWatchmakerDim(this.getSize()));
-    }
+
     protected boolean showBoundingBoxes = false;
 
     public boolean isShowBoundingBoxes() {
@@ -439,7 +461,7 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public void setSelectedBox(Rect newValue) {
         Rect oldValue = this.selectedBox;
         this.selectedBox = newValue;
-        firePropertyChange("selectedBox", oldValue, newValue);
+        pcs.firePropertyChange("selectedBox", oldValue, newValue);
     }
 
     public void setSpecial(Rect newValue) {
@@ -450,15 +472,35 @@ public class SwingMorphViewPanel extends JPanel implements MorphViewPanel {
     public void updateCursor() {
         java.awt.Point p = MouseInfo.getPointerInfo().getLocation();
         logger.fine("Raw point " + p);
-        SwingUtilities.convertPointFromScreen(p, this);
+        SwingUtilities.convertPointFromScreen(p, panel);
         logger.fine("Converted point " + p);
         if (p.x > -1 && p.y > -1) {
-            Dim size = geometryManager.toWatchmakerDim(this.getSize());
+            Dim size = geometryManager.toWatchmakerDim(panel.getSize());
             logger.fine("updateCursor called");
             processMouseMotion(geometryManager.toWatchmakerPoint(p), size);
             logger.fine("updateCursor returned");
         }
 
+    }
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
+        
+    }
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+        
+    }
+
+    @Override
+    public Cursor getCursor() {
+        return panel.getCursor();
+    }
+    @Override
+    public void repaint() {
+        panel.repaint();
+        
     }
 
 }

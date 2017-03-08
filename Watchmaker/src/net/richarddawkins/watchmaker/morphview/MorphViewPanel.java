@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morphview;
 
-import java.awt.Cursor;
 import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
@@ -13,9 +12,9 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void addPropertyChangeListener(PropertyChangeListener listener);
     void removePropertyChangeListener(PropertyChangeListener listener);
     
-    void setCursor(Cursor cursor);
+    void setCursor(Object cursor);
 
-    Cursor getCursor();
+    Object getCursor();
 
     Vector<Morph> getMorphs();
 
@@ -39,6 +38,8 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void setAutoScale(boolean autoScale);
     void gainFocus();
     void loseFocus();
-    void setCursor(Object cursor);
+    Object getPanel();
+    String getName();
+    void setName(String name);
 
 }

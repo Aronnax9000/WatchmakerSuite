@@ -30,11 +30,9 @@ import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.ScaleSlider;
-import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.components.SwingScaleSlider;
 import net.richarddawkins.watchmaker.swing.components.SwingSpeedSlider;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
-import net.richarddawkins.watchmaker.util.Globals;
 
 public abstract class SwingMorphView extends JPanel
         implements MorphView, PropertyChangeListener {
@@ -100,7 +98,7 @@ public abstract class SwingMorphView extends JPanel
     @Override
     public void addPanel(MorphViewPanel panel) {
         panels.add(panel);
-        ((Container) this).add((Component) panel);
+        ((Container) this).add((Component) panel.getPanel());
         this.setSelectedPanel(panel);
     }    
     

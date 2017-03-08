@@ -18,6 +18,11 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 public class SwingArrayMorphView extends SwingMorphView
         implements ArrayMorphView {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     public SwingArrayMorphView(SwingMorphViewConfig config) {
         super(config);
         // TODO Auto-generated constructor stub

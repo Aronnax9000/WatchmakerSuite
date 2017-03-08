@@ -15,7 +15,6 @@ import net.richarddawkins.watchmaker.genome.GeneManipulationEvent;
 import net.richarddawkins.watchmaker.genome.GeneManipulationListener;
 import net.richarddawkins.watchmaker.genome.GeneManipulationSupport;
 import net.richarddawkins.watchmaker.genome.GooseDirection;
-import net.richarddawkins.watchmaker.swing.images.WatchmakerCursors;
 
 public class GeneBoxMouseAdapter extends MouseAdapter
         implements GeneManipulationSupport {

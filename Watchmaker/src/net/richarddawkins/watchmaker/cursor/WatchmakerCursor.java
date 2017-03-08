@@ -14,7 +14,6 @@ public enum WatchmakerCursor {
     watchCursor("CursorWatch_CURS_-15776_48x16", "Watch"), 
     hypodermic("CursorHypodermic_CURS_00140_48x16", "Hypodermic"), 
     breed("CursorBreed_CURS_00145_48x16", "Breed"), 
-//    random("CursorCentreDie_CURS_00144_48x16", "Random"), 
     random("CursorDie_CURS_15208_48x16", "Random"), 
     
     highlight("CursorBlackMonolith_CURS_00142_48x16", "Highlight"), 

@@ -8,6 +8,11 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 public class SwingDriftMorphView extends SwingMorphView
         implements DriftMorphView {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     public SwingDriftMorphView(SwingMorphViewConfig config) {
         super(config);
         // TODO Auto-generated constructor stub

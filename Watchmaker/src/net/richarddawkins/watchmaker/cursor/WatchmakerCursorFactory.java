@@ -56,7 +56,7 @@ public abstract class WatchmakerCursorFactory {
             cursor = newCursor(cursorType);
             cursors.put(cursorType, cursor);
         } else {
-            logger.info("getCursor cache hit " + cursorType + " cursor: " + cursor);
+//            logger.fine("getCursor cache hit " + cursorType + " cursor: " + cursor);
         }
         return cursor;
     }
