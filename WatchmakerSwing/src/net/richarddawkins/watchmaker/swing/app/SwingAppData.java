@@ -13,7 +13,6 @@ import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.JFileChooser;
-import javax.swing.JTabbedPane;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.album.AlbumSerializer;
@@ -359,14 +358,25 @@ public abstract class SwingAppData implements AppData {
 
     @Override
     public Morph getMorphOfTheHour() {
-        MorphViewsTabbedPanel pane = this.getMorphViewsTabbedPane();
-        MorphView morphView = (MorphView) ((JTabbedPane) pane)
-                .getSelectedComponent();
+        MorphView morphView = getSelectedMorphView();
         if (morphView != null) {
             return morphView.getMorphOfTheHour();
         } else {
             return null;
         }
+    }
+    
+    protected MorphView selectedMorphView;
+    
+
+    @Override
+    public MorphView getSelectedMorphView() {
+        return selectedMorphView;
+    }
+
+    @Override
+    public void setSelectedMorphView(MorphView selectedMorphView) {
+        this.selectedMorphView = selectedMorphView;
     }
 
     @Override
@@ -431,7 +441,7 @@ public abstract class SwingAppData implements AppData {
         Morph morph = getMorphOfTheHour();
         Genome genome = config.getGenomeFactory().deliverSaltation();
         morph.setGenome(genome);
-        MorphView morphView = getMorphViewsTabbedPane().getSelectedMorphView();
+        MorphView morphView = this.getSelectedMorphView();
         morphView.addSeedMorph(morph);
     }
 

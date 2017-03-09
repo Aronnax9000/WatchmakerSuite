@@ -78,7 +78,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
     public void processMousePressed(Point point, Dim size) {
         logger.info("Pedigree box pressed at " + point);
         BoxManager boxes = this.boxedMorphCollection.getBoxManager();
-        selectedBox = boxes.getBoxNoContainingPoint(point, size);
+        selectedBox = boxes.getBoxContainingPoint(point, size);
         
         if (selectedBox != null) {
             
@@ -183,7 +183,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
 
     protected void spawn(Point point, Dim size) {
         BoxManager boxes = this.boxedMorphCollection.getBoxManager();
-        Rect releasedInRect = boxes.getBoxNoContainingPoint(point, size);
+        Rect releasedInRect = boxes.getBoxContainingPoint(point, size);
         // Cancel spawn if released in same rectangle.
         if (selectedBox != releasedInRect) {
             Morph parentMorph = boxedMorphCollection.getBoxedMorph(selectedBox)

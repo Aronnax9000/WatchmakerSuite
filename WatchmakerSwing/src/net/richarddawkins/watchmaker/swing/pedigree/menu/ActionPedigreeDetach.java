@@ -25,7 +25,7 @@ public class ActionPedigreeDetach  extends SwingWatchmakerAction {
     
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        MorphView morphView = appData.getMorphViewsTabbedPane().getSelectedMorphView();
+        MorphView morphView = appData.getSelectedMorphView();
         if(morphView instanceof SwingPedigreeMorphView) {
             ((Component)morphView.getPanels().firstElement()).setCursor((Cursor) appData.getWatchmakerCursorFactory().getCursor(WatchmakerCursor.detach));
         }       

@@ -20,7 +20,8 @@ public class SwingMonochromeGeneBoxStrip extends SwingGeneBoxStrip {
     @Override
     public boolean isReusable() { return true; }
 
-	public GeneBox getGeneBoxForGene(Gene gene, AppData appData) {
+	@Override
+    public GeneBox getGeneBoxForGene(Gene gene, AppData appData) {
 		if(gene instanceof IntegerGradientGene)
 			return new SwingIntegerGradientGeneBox(appData);
 		else if(gene instanceof IntegerGene)

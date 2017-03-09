@@ -9,36 +9,34 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.beans.PropertyChangeListener;
-import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
-import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
-import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.SimpleMorphViewPanel;
 
-public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphViewPanel {
+public class SwingMorphViewPanel extends SimpleMorphViewPanel
+        implements MorphViewPanel {
     protected class ResizeListener extends ComponentAdapter {
         public void componentResized(ComponentEvent e) {
             autoScaleBasedOnMorphs(special);
         }
 
     }
+
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel");
-    
+
     protected JPanel panel;
+
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
 
@@ -57,7 +55,8 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                processMouseClicked(geometryManager.toWatchmakerPoint(e.getPoint()),
+                processMouseClicked(
+                        geometryManager.toWatchmakerPoint(e.getPoint()),
                         geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
@@ -65,14 +64,16 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
             @Override
             public void mouseDragged(MouseEvent e) {
                 logger.fine("mouseDragged");
-                processMouseDragged(geometryManager.toWatchmakerPoint(e.getPoint()),
+                processMouseDragged(
+                        geometryManager.toWatchmakerPoint(e.getPoint()),
                         geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                processMouseMotion(geometryManager.toWatchmakerPoint(e.getPoint()),
+                processMouseMotion(
+                        geometryManager.toWatchmakerPoint(e.getPoint()),
                         geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
@@ -80,7 +81,8 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
             @Override
             public void mousePressed(MouseEvent e) {
                 logger.fine("mousePressed");
-                processMousePressed(geometryManager.toWatchmakerPoint(e.getPoint()),
+                processMousePressed(
+                        geometryManager.toWatchmakerPoint(e.getPoint()),
                         geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
@@ -88,7 +90,8 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
             @Override
             public void mouseReleased(MouseEvent e) {
                 logger.fine("mouseReleased");
-                processMouseReleased(geometryManager.toWatchmakerPoint(e.getPoint()),
+                processMouseReleased(
+                        geometryManager.toWatchmakerPoint(e.getPoint()),
                         geometryManager.toWatchmakerDim(
                                 ((Component) e.getSource()).getSize()));
             }
@@ -98,12 +101,11 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
         panel.addMouseMotionListener(mouseAdapter);
         panel.addComponentListener(new ResizeListener());
     }
+
     @Override
     public Cursor getCursor() {
         return panel.getCursor();
     }
-    
-
 
     @Override
     public Dim getDim() {
@@ -111,20 +113,25 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
     }
 
     @Override
-    public Object getPanel() { return panel; }
+    public Object getPanel() {
+        return panel;
+    }
 
-    protected void processMouseMotion(Point myPt, Dim size) {
+    public void processMouseMotion(Point myPt, Dim size) {
         Cursor cursor = (Cursor) this.getCursor();
-        boolean cursorTypeIsntHighlight = ! cursors.isCursorType(WatchmakerCursor.highlight, cursor);
-        BoxedMorph selectedBoxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
-        boolean selectedBoxedMorphIsntNull = selectedBoxedMorph != null;
-        if (cursorTypeIsntHighlight && selectedBoxedMorphIsntNull)  {
-            BoxManager boxes = boxedMorphCollection.getBoxManager();
-            Rect box = boxes.getBoxNoContainingPoint(myPt, size);
-            if (box != selectedBox) {
-                logger.info("Setting SelectedBox to box " + box + " containing boxed morph " + 
-            selectedBoxedMorph);
-                setSelectedBox(box);
+        boolean cursorTypeIsntHighlight = !cursors
+                .isCursorType(WatchmakerCursor.highlight, cursor);
+        // boolean selectedBoxedMorphIsntNull = selectedBoxedMorph != null;
+        // if (cursorTypeIsntHighlight && selectedBoxedMorphIsntNull) {
+        if (cursorTypeIsntHighlight) {
+            BoxedMorph boxedMorphUnderCursor = boxedMorphCollection.getBoxedMorph(myPt, size);
+
+            if (boxedMorphUnderCursor != selectedBoxedMorph) {
+                if (boxedMorphUnderCursor != null) {
+                    logger.info("Setting selectedBoxMorph to boxed morph "
+                            + boxedMorphUnderCursor);
+                    setSelectedBoxedMorph(boxedMorphUnderCursor);
+                }
             }
         }
     }
@@ -132,13 +139,13 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
     @Override
     public void repaint() {
         panel.repaint();
-        
+
     }
+
     @Override
     public void setCursor(Object cursor) {
         panel.setCursor((Cursor) cursor);
     }
-
 
     @Override
     public void updateCursor() {
@@ -154,7 +161,5 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
         }
 
     }
-
-
 
 }

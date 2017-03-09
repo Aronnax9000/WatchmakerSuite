@@ -18,7 +18,7 @@ public class ActionRedo extends SwingWatchmakerAction {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-	    appData.getMorphViewsTabbedPane().getSelectedMorphView().redo();
+	    appData.getSelectedMorphView().redo();
 	}
 
 }

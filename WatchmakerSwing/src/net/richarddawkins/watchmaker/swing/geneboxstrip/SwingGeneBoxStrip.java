@@ -18,7 +18,6 @@ import net.richarddawkins.watchmaker.genome.Gene;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.IntegerGene;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
@@ -105,21 +104,32 @@ public abstract class SwingGeneBoxStrip
 
                 GeneBox geneBox;
                 if (reusing) {
-                    geneBox = (GeneBox) panel.getComponent(n++);
+                    geneBox = (GeneBox) panel.getComponent(n);
+                    if(geneBox == null) {
+                        logger.warning("Reused GeneBox is null for n=" + n);
+                    }
+                    n++;
                 } else {
-                    geneBox = (GeneBox) getGeneBoxForGene(gene, appData);
+                    geneBox = getGeneBoxForGene(gene, appData);
+                    if(geneBox == null) {
+                        logger.warning("getGeneBoxForGene returned null for gene " + gene);
+                    }
                 }
                 if (engineeringMode) {
                     geneBox.setEngineeringMode();
                     geneBox.setGene(gene);
                 }
                 applyGeneSpecificConstraints(constraints, gene);
-                if (!reusing) {
-                    panel.add((Component) geneBox, constraints);
-                    if (this.geneBoxToSide) {
-                        constraints.gridy++;
+                if (! reusing) {
+                    if(geneBox != null) {
+                        panel.add((Component) geneBox, constraints);
+                        if (this.geneBoxToSide) {
+                            constraints.gridy++;
+                        } else {
+                            constraints.gridx++;
+                        }
                     } else {
-                        constraints.gridx++;
+                        logger.warning("SwingGeneBoxStrip.setGenome geneBox was null for gene " + gene);
                     }
                 }
             }
@@ -146,10 +156,9 @@ public abstract class SwingGeneBoxStrip
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("selectedBox")) {
+        if (evt.getPropertyName().equals("selectedBoxedMorph")) {
             SwingMorphViewPanel panel = (SwingMorphViewPanel) evt.getSource();
-            BoxedMorph boxedMorph = panel.getBoxedMorphCollection()
-                    .getBoxedMorph((Rect) evt.getNewValue());
+            BoxedMorph boxedMorph = (BoxedMorph) evt.getNewValue();
             if(boxedMorph != null) {
                 Morph morph = boxedMorph.getMorph();
                 setGenome(morph.getGenome());

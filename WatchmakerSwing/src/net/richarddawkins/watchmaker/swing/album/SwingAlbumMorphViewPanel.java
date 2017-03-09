@@ -39,7 +39,7 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements Alb
     public void processMouseClicked(Point myPt, Dim size) {
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (cursors.isCursorType(WatchmakerCursor.highlight, this.getCursor())) {
-            Rect box = boxes.getBoxNoContainingPoint(myPt, size);
+            Rect box = boxes.getBoxContainingPoint(myPt, size);
             // SwingGeom.toWatchmakerDim(centrePanel.getSize())
             BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);
             
@@ -58,7 +58,7 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements Alb
         // size + ")");
 
         BoxManager boxes = boxedMorphCollection.getBoxManager();
-        Rect box = boxes.getBoxNoContainingPoint(myPt, size);
+        Rect box = boxes.getBoxContainingPoint(myPt, size);
         if (box != null && box != selectedBox) {
             synchronized (boxedMorphCollection) {
                 BoxedMorph boxedMorph = boxedMorphCollection.getBoxedMorph(box);

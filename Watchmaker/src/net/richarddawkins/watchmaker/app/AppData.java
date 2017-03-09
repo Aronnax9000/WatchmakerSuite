@@ -104,7 +104,9 @@ public interface AppData  {
     void setWatchmakerCursorFactory(
             WatchmakerCursorFactory watchmakerCursorFactory);
     WatchmakerCursorFactory getWatchmakerCursorFactory();
-    public MorphDrawer newMorphDrawer(); 
+    public MorphDrawer newMorphDrawer();
+    MorphView getSelectedMorphView();
+    void setSelectedMorphView(MorphView selectedMorphView); 
     
 
 }

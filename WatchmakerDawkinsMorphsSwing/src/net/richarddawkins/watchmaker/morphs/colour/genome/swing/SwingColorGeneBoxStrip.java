@@ -17,7 +17,8 @@ public class SwingColorGeneBoxStrip extends SwingMonochromeGeneBoxStrip {
 
     private static final long serialVersionUID = 1L;
 
-	public GeneBox getGeneBoxForGene(Gene gene) {
+    @Override
+	public GeneBox getGeneBoxForGene(Gene gene, AppData appData) {
 		if(gene instanceof ColorGene) 
 			return new SwingColorGeneBox(appData);
 		else if(gene instanceof LimbShapeGene) 

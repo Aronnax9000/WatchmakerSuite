@@ -8,7 +8,7 @@ public interface MorphViewsTabbedPanel {
 
 	void addMorphView(MorphView morphView);
 
-	MorphView getSelectedMorphView();
+//	MorphView getSelectedMorphView();
 
 	AppData getAppData();
 

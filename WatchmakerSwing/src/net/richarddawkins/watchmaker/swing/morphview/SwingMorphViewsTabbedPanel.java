@@ -80,6 +80,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 			int selectedIndex = getSelectedIndex();
 			if (selectedIndex != -1) {
 				MorphView morphView = morphViews.get(getSelectedIndex());
+				morphView.gainFocus();
 				morphView.getSelectedPanel().gainFocus();
 				Cursor cursor = ((JComponent) morphView.getPanel()).getCursor();
 				appData.setHighlighting(appData.getWatchmakerCursorFactory()
@@ -89,11 +90,11 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		}
 	}
 
-	@Override
-	public MorphView getSelectedMorphView() {
-		MorphView selectedMorphView = (MorphView) this.getSelectedComponent();
-		return selectedMorphView;
-	}
+//	@Override
+//	public MorphView getSelectedMorphView() {
+//		MorphView selectedMorphView = (MorphView) this.getSelectedComponent();
+//		return selectedMorphView;
+//	}
     @Override
     public Vector<MorphView> getMorphViews() {
         return morphViews;

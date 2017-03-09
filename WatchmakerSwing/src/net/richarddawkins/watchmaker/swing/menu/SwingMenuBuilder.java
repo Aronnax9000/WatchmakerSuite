@@ -57,8 +57,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MorphView morphView = appData.getMorphViewsTabbedPane()
-                                .getSelectedMorphView();
+                        MorphView morphView = appData.getSelectedMorphView();
                         if (morphView instanceof PedigreeMorphView) {
                             ((PedigreeMorphView) morphView)
                                     .setMirrorType(MirrorType.NONE);
@@ -75,7 +74,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MorphView morphView = appData.getMorphViewsTabbedPane()
+                        MorphView morphView = appData
                                 .getSelectedMorphView();
                         if (morphView instanceof PedigreeMorphView) {
                             ((PedigreeMorphView) morphView)
@@ -97,8 +96,7 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MorphView morphView = appData.getMorphViewsTabbedPane()
-                                .getSelectedMorphView();
+                        MorphView morphView = appData.getSelectedMorphView();
                         if (morphView instanceof PedigreeMorphView) {
                             ((PedigreeMorphView) morphView)
                                     .setMirrorType(MirrorType.DOUBLE);
@@ -146,13 +144,13 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         MorphView selectedMorphView = appData
-                                .getMorphViewsTabbedPane()
                                 .getSelectedMorphView();
                         JPanel centrePanel = (JPanel) selectedMorphView
                                 .getPanels().firstElement();
                         if (((JCheckBoxMenuItem) highlightBiomorph)
                                 .isSelected()) {
-                            centrePanel.setCursor((Cursor)appData.getWatchmakerCursorFactory()
+                            centrePanel.setCursor((Cursor) appData
+                                    .getWatchmakerCursorFactory()
                                     .getCursor(WatchmakerCursor.highlight));
                         } else {
                             centrePanel.setCursor(null);
@@ -213,12 +211,13 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
 
     protected WatchmakerMenu buildPaletteMenu() {
         WatchmakerMenu paletteMenu = new SwingWatchmakerMenu("Palettes");
-        Set<String> paletteNames = WatchmakerColor.getInstance().getPalettes().keySet(); 
-        for(String paletteName: paletteNames) {
+        Set<String> paletteNames = WatchmakerColor.getInstance().getPalettes()
+                .keySet();
+        for (String paletteName : paletteNames) {
             paletteMenu.add(new ActionSwitchPalette(appData, paletteName));
         }
         return paletteMenu;
-        
+
     }
 
     protected WatchmakerMenu buildWatchmakerMenu() {
@@ -278,13 +277,13 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
      */
     protected WatchmakerMenu buildFileMenu() {
         WatchmakerMenu menu = new SwingWatchmakerMenu("File");
-        
-//        menu.add(new SwingWatchmakerMenuItem("Load to Album..."));
-//        menu.add(new SwingWatchmakerMenuItem("Load as Fossils"));
-//        menu.add(new SwingWatchmakerMenuItem("Save Biomorph..."));
-//        menu.add(new SwingWatchmakerMenuItem("Save Fossils..."));
-//        menu.add(new SwingWatchmakerMenuItem("Save Album..."));
-//        menu.add(new SwingWatchmakerMenuItem("Close Album"));
+
+        // menu.add(new SwingWatchmakerMenuItem("Load to Album..."));
+        // menu.add(new SwingWatchmakerMenuItem("Load as Fossils"));
+        // menu.add(new SwingWatchmakerMenuItem("Save Biomorph..."));
+        // menu.add(new SwingWatchmakerMenuItem("Save Fossils..."));
+        // menu.add(new SwingWatchmakerMenuItem("Save Album..."));
+        // menu.add(new SwingWatchmakerMenuItem("Close Album"));
         menu.addSeparator();
         menu.add(new ActionAlbumNew(appData));
         menu.add(new ActionAlbumOpen(appData));
@@ -295,7 +294,6 @@ public abstract class SwingMenuBuilder implements MenuBuilder {
         menu.addSeparator();
         menu.add(new ActionStartTimer(appData));
         menu.add(new ActionStopTimer(appData));
-        
 
         return menu;
     }

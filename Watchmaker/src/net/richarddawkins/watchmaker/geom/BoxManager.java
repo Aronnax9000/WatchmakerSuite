@@ -77,7 +77,7 @@ abstract public class BoxManager implements PropertyChangeListener {
      * @return the box number containing the given point.
      */
 
-    public Rect getBoxNoContainingPoint(Point p, Dim d) {
+    public Rect getBoxContainingPoint(Point p, Dim d) {
         Vector<Rect> boxes = getBoxesReversed(d);
         for (Rect box : boxes) {
             if (box.contains(p)) {

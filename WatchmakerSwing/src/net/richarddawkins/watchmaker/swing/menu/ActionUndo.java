@@ -8,7 +8,6 @@ import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 
 public class ActionUndo extends SwingWatchmakerAction {
 
@@ -20,8 +19,7 @@ public class ActionUndo extends SwingWatchmakerAction {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        MorphViewsTabbedPanel pane = appData.getMorphViewsTabbedPane();
-        MorphView morphView = pane.getSelectedMorphView();
+        MorphView morphView = appData.getSelectedMorphView();
         morphView.undo();
     }
 

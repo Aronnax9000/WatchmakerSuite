@@ -153,8 +153,8 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel implements 
     }
 
     @Override
-    protected void processMouseMotion(Point myPt, Dim size) {
-        // TODO Auto-generated method stub
+    public void processMouseMotion(Point myPt, Dim size) {
+        // TODO make cursor from triangled morph here.
 
     }
 

@@ -28,7 +28,22 @@ public abstract class SimpleMorphView implements MorphView {
     protected boolean copyMorphsOnBackup;
 
     protected WatchmakerCursorFactory cursors;
+    protected GeneBoxStrip geneBoxStrip;
+    protected String icon;
+    protected MorphDrawer morphDrawer;
     protected String name;
+    protected final Vector<MorphViewPanel> panels = new Vector<MorphViewPanel>();
+    protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    protected ScaleSlider scaleSlider;
+    protected Vector<Morph> seedMorphs = new Vector<Morph>();
+    protected MorphViewPanel selectedPanel;
+    protected boolean showBoxes = true;
+    protected String toolTip;
+    
+    public void gainFocus() {
+        this.appData.setSelectedMorphView(this);
+    }
+    
     public SimpleMorphView(MorphViewConfig config) {
         logger.fine("SwingMorphView(config): " + config);
         this.appData = config.appData;
@@ -45,22 +60,27 @@ public abstract class SimpleMorphView implements MorphView {
         addPanels();
         setSelectedPanel(panels.firstElement());
     }
-    public String getName() {
-        return name;
+    @Override
+    public void addPropertyChangeListener(String propertyName,
+            PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(propertyName, listener);
     }
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public void addSeedMorph(Morph seedMorph) {
+        seedMorphs.add(seedMorph);
+        panels.firstElement().repaint();
     }
-    protected GeneBoxStrip geneBoxStrip;
-    protected String icon;
-    protected MorphDrawer morphDrawer;
-    protected final Vector<MorphViewPanel> panels = new Vector<MorphViewPanel>();
-    protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    protected ScaleSlider scaleSlider;
-    protected Vector<Morph> seedMorphs = new Vector<Morph>();
-    protected MorphViewPanel selectedPanel;
-    protected boolean showBoxes = true;
-    protected String toolTip;
+    @Override
+    public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
+        if (seedMorphsToAdd != null) {
+            this.seedMorphs.addAll(seedMorphsToAdd);
+            seedMorphsToAdd.clear();
+        }
+    }
+
+    public void backup(boolean copyMorph) {
+    }
+
     @Override
     public Album getAlbum() {
         return album;
@@ -94,6 +114,10 @@ public abstract class SimpleMorphView implements MorphView {
     @Override
     public Morph getMorphOfTheHour() {
         return this.getSelectedPanel().getMorphOfTheHour();
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -153,93 +177,13 @@ public abstract class SimpleMorphView implements MorphView {
 
     public void redo() {
     }
-
-    @Override
-    public void setSelectedPanel(MorphViewPanel newValue) {
-        MorphViewPanel oldValue = selectedPanel;
-        if (oldValue != null) {
-            oldValue.loseFocus();
-        }
-        this.selectedPanel = newValue;
-        if (newValue != null) {
-            newValue.gainFocus();
-        }
-        pcs.firePropertyChange("selectedPanel", oldValue, newValue);
-    }
-
-    @Override
-    public void setShowBoxes(boolean showBoxes) {
-        this.showBoxes = showBoxes;
-    }
-
-    @Override
-    public void setToolTip(String toolTip) {
-        this.toolTip = toolTip;
-    }
     
-    @Override
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
-
-    @Override
-    public void setAppData(AppData appData) {
-        this.appData = appData;
-    }
-
-    @Override
-    public void setCopyMorphsOnBackup(boolean copyMorphsOnBackup) {
-        this.copyMorphsOnBackup = copyMorphsOnBackup;
-
-    }
-
-    @Override
-    public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
-        this.geneBoxStrip = geneBoxStrip;
-    }
-
-    @Override
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    @Override
-    public void setMorphDrawer(MorphDrawer morphDrawer) {
-        this.morphDrawer = morphDrawer;
-    }
     @Override
     public void removePropertyChangeListener(String propertyName,
             PropertyChangeListener listener) {
         pcs.removePropertyChangeListener(propertyName, listener);
     }
 
-
-
-    @Override
-    public void undo() {
-    }
-    public void backup(boolean copyMorph) {
-    }
-
-    @Override
-    public void addPropertyChangeListener(String propertyName,
-            PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(propertyName, listener);
-    }
-
-    @Override
-    public void addSeedMorph(Morph seedMorph) {
-        seedMorphs.add(seedMorph);
-        panels.firstElement().repaint();
-    }
-
-    @Override
-    public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
-        if (seedMorphsToAdd != null) {
-            this.seedMorphs.addAll(seedMorphsToAdd);
-            seedMorphsToAdd.clear();
-        }
-    }
     @Override
     public void seed() {
 
@@ -255,7 +199,7 @@ public abstract class SimpleMorphView implements MorphView {
                 BoxManager boxes = boxedMorphCollection.getBoxManager();
 
                 boxedMorphCollection.clear();
-                panel.setSelectedBox(null);
+                panel.setSelectedBoxedMorph(null);
                 Rect midBox = boxes.getMidBox();
                 BoxedMorph boxedMorph = new BoxedMorph(boxes, seedMorph,
                         midBox);
@@ -287,6 +231,67 @@ public abstract class SimpleMorphView implements MorphView {
             }
             repaint();
         }
+    }
+
+    @Override
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    @Override
+    public void setAppData(AppData appData) {
+        this.appData = appData;
+    }
+
+    @Override
+    public void setCopyMorphsOnBackup(boolean copyMorphsOnBackup) {
+        this.copyMorphsOnBackup = copyMorphsOnBackup;
+
+    }
+
+    @Override
+    public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
+        this.geneBoxStrip = geneBoxStrip;
+    }
+    @Override
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+
+
+    @Override
+    public void setMorphDrawer(MorphDrawer morphDrawer) {
+        this.morphDrawer = morphDrawer;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void setSelectedPanel(MorphViewPanel newValue) {
+        MorphViewPanel oldValue = selectedPanel;
+        if (oldValue != null) {
+            oldValue.loseFocus();
+        }
+        this.selectedPanel = newValue;
+        if (newValue != null) {
+            newValue.gainFocus();
+        }
+        pcs.firePropertyChange("selectedPanel", oldValue, newValue);
+    }
+
+    @Override
+    public void setShowBoxes(boolean showBoxes) {
+        this.showBoxes = showBoxes;
+    }
+
+    @Override
+    public void setToolTip(String toolTip) {
+        this.toolTip = toolTip;
+    }
+    @Override
+    public void undo() {
     }
 
 

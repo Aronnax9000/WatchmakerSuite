@@ -81,7 +81,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
     }
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    protected Rect selectedBox = null;
+    protected BoxedMorph selectedBoxedMorph = null;
     protected boolean showBoundingBoxes = false;
     protected Rect special;
     @Override
@@ -208,8 +208,8 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     @Override
     public Morph getMorphOfTheHour() {
         BoxedMorph boxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
-        if (boxedMorph == null && selectedBox != null) {
-            boxedMorph = boxedMorphCollection.getBoxedMorph(selectedBox);
+        if (boxedMorph == null && selectedBoxedMorph != null) {
+            boxedMorph = selectedBoxedMorph;
         }
 
         Morph morph = null;
@@ -307,10 +307,10 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     }
 
     @Override
-    public void setSelectedBox(Rect newValue) {
-        Rect oldValue = this.selectedBox;
-        this.selectedBox = newValue;
-        pcs.firePropertyChange("selectedBox", oldValue, newValue);
+    public void setSelectedBoxedMorph(BoxedMorph newValue) {
+        BoxedMorph oldValue = this.selectedBoxedMorph;
+        this.selectedBoxedMorph = newValue;
+        pcs.firePropertyChange("selectedBoxedMorph", oldValue, newValue);
     }
     @Override
     public void setShowBoundingBoxes(boolean showBoundingBoxes) {

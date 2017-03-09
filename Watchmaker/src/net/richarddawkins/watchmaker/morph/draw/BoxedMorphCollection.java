@@ -7,7 +7,9 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
+import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.Pedigree;
@@ -25,6 +27,26 @@ public class BoxedMorphCollection {
     protected String name;
     protected BoxedMorph selectedBoxedMorph = null;
 
+
+    /**
+     * 
+     * Calls BoxManager.getBoxContainingPoint() to find the box at the given point
+     * with the given dimensions for the region, then calls getBoxedMorph with
+     * the box to return the BoxedMorph inside it (if any.)
+     * @param p a point inside the region managed by the BoxedMorphCollection's BoxManager
+     * @param d the dimensions of the region managed by the BoxedMorphCollection's BoxManager
+     * @return the box containing the BoxedMorph
+     */
+    public BoxedMorph getBoxedMorph(Point p, Dim d) {
+        BoxedMorph boxedMorph = null;
+        Rect box = boxes.getBoxContainingPoint(p, d);
+        if(box != null) {
+            boxedMorph = this.getBoxedMorph(box);
+        }
+        return boxedMorph;
+    }
+    
+    
     public BoxedMorphCollection() {
 
     }

@@ -60,4 +60,5 @@ public interface MorphView extends PropertyChangeListener {
     WatchmakerCursorFactory getCursors();
     Object getPanel();
     void createPanel();
+    void gainFocus();
 }
