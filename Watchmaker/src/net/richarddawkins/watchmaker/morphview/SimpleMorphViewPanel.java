@@ -90,6 +90,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         
     }
 
+    @Override
     public void autoScaleBasedOnMorphs(Rect special) {
 //        logger.fine("autoScaleBasedOnMorphs " + special + " includeChildren "
 //                + this.includeChildrenInAutoScale);
@@ -136,6 +137,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
     }
 
+    @Override
     public void clearMorphImages() {
         for (Morph morph : boxedMorphCollection.getMorphs()) {
             morph.setImage(null);
@@ -171,7 +173,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
                 backgroundColors);
     }
-
+    
     protected void drawMorphs(Object graphicsContext, Dim size, boolean showBoundingBoxes) {
 
         synchronized (boxedMorphCollection) {
@@ -199,7 +201,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     public BoxedMorphCollection getBoxedMorphCollection() {
         return boxedMorphCollection;
     }
-
+    @Override
     public boolean getIncludeChildrenInAutoScale() {
         return includeChildrenInAutoScale;
     }
@@ -234,12 +236,12 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     public String getName() {
         return name;
     }
-
+    @Override
     public Rect getSpecial() {
         return special;
     }
 
-
+    @Override
     public boolean isShowBoundingBoxes() {
         return showBoundingBoxes;
     }
@@ -272,28 +274,29 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             drawMorphs(graphicsContext, size, showBoundingBoxes);
         }
     }
-
-    protected void processMouseClicked(Point point, Dim size) {
+    @Override
+    public void processMouseClicked(Point point, Dim size) {
     }
-
-    protected void processMouseDragged(Point watchmakerPoint,
+    @Override
+    public void processMouseDragged(Point watchmakerPoint,
             Dim watchmakerDim) {
         this.lastMouseDrag = watchmakerPoint;
         this.lastMouseDragSize = watchmakerDim;
         repaint();
     }
 
-
+    @Override
     public void setSpecial(Rect newValue) {
         this.special = newValue;
     }
-
-    protected void processMousePressed(Point watchmakerPoint,
+    @Override
+    public void processMousePressed(Point watchmakerPoint,
             Dim watchmakerDim) {
         this.lastMouseDown = watchmakerPoint;
         this.lastMouseDownSize = watchmakerDim;
 
     }
+    @Override
     public void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale) {
         this.includeChildrenInAutoScale = includeChildrenInAutoScale;
     }
@@ -303,11 +306,13 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         this.name = name;
     }
 
+    @Override
     public void setSelectedBox(Rect newValue) {
         Rect oldValue = this.selectedBox;
         this.selectedBox = newValue;
         pcs.firePropertyChange("selectedBox", oldValue, newValue);
     }
+    @Override
     public void setShowBoundingBoxes(boolean showBoundingBoxes) {
         this.showBoundingBoxes = showBoundingBoxes;
         repaint();

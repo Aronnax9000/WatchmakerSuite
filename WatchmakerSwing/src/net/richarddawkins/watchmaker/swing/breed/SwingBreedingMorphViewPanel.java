@@ -76,7 +76,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
         Cursor cursor = this.getCursor();
-        logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
+//        logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (cursors.isCursorType(WatchmakerCursor.breed, cursor)) {
             Rect box = boxes.getBoxNoContainingPoint(myPt,
@@ -184,8 +184,8 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
                         .getBoxedMorphs()) {
                     if (boxedMorph.getMorph() == best) {
                         bestBoxedMorph = boxedMorph;
-                        logger.fine(
-                                "Found best boxed morph: " + bestBoxedMorph);
+//                        logger.fine(
+//                                "Found best boxed morph: " + bestBoxedMorph);
                     }
 
                 }
@@ -205,7 +205,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
             if (breedFromMidBoxOnNextRepaint) {
                 breedFromMidBoxOnNextRepaint = false;
                 Rect midBox = boxedMorphCollection.getBoxManager().getMidBox();
-                logger.fine("Setting panel special to " + midBox);
+//                logger.fine("Setting panel special to " + midBox);
 
                 setSpecial(midBox);
                 breedFromSpecial();

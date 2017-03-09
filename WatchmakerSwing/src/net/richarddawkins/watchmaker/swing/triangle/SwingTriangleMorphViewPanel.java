@@ -124,7 +124,7 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel implements 
     }
 
     @Override
-    protected void processMouseClicked(Point point, Dim size) {
+    public void processMouseClicked(Point point, Dim size) {
         logger.info("Triangle box clicked at " + point);
         MorphConfig config = morphView.getAppData().getMorphConfig();
         Genome genome = config.newGenome();

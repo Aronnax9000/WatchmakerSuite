@@ -11,7 +11,7 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
-public interface MorphView {
+public interface MorphView extends PropertyChangeListener {
 
     
 	String getIcon();
@@ -59,4 +59,5 @@ public interface MorphView {
     ScaleSlider getScaleSlider();
     WatchmakerCursorFactory getCursors();
     Object getPanel();
+    void createPanel();
 }

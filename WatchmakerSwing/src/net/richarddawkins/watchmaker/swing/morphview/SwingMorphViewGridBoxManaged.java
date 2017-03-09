@@ -9,6 +9,7 @@ import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 
 public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
     private static Logger logger = Logger.getLogger(
@@ -17,7 +18,7 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
     private static final long serialVersionUID = 1L;
 
 
-    public SwingMorphViewGridBoxManaged(SwingMorphViewConfig config) {
+    public SwingMorphViewGridBoxManaged(MorphViewConfig config) {
         super(config);
     }
 

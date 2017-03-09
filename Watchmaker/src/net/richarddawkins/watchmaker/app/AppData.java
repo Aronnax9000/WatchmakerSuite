@@ -11,6 +11,7 @@ import net.richarddawkins.watchmaker.geom.GeometryManager;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
@@ -102,7 +103,8 @@ public interface AppData  {
     void setGeometryManager(GeometryManager geometryManager);
     void setWatchmakerCursorFactory(
             WatchmakerCursorFactory watchmakerCursorFactory);
-    WatchmakerCursorFactory getWatchmakerCursorFactory(); 
+    WatchmakerCursorFactory getWatchmakerCursorFactory();
+    public MorphDrawer newMorphDrawer(); 
     
 
 }

@@ -9,10 +9,10 @@ import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.album.AlbumMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
 public class SwingAlbumMorphView extends SwingMorphView implements AlbumMorphView {
     private static Logger logger = Logger.getLogger(
@@ -30,7 +30,7 @@ public class SwingAlbumMorphView extends SwingMorphView implements AlbumMorphVie
         }
     }
     
-    public SwingAlbumMorphView(SwingMorphViewConfig config) {
+    public SwingAlbumMorphView(MorphViewConfig config) {
         super(config);
     }
 

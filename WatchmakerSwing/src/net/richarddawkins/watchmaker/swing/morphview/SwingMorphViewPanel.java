@@ -9,6 +9,8 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
@@ -20,6 +22,7 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
@@ -151,5 +154,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel  implements MorphV
         }
 
     }
+
+
 
 }

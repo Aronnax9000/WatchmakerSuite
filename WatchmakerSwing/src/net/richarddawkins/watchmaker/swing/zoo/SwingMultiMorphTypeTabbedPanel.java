@@ -104,7 +104,9 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 	}
 
 	public void changeToTab(int selectedIndex) {
+	    if(selectedIndex != -1) {
 		appDatas.elementAt(selectedIndex).getMenuBuilder().buildMenu(SwingWatchmakerMenuBar.getInstance());
+	    }
 	}
 
 	class TabChangeListener implements ChangeListener {

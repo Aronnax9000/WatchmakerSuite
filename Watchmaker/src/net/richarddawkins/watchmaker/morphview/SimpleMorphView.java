@@ -1,248 +1,293 @@
 package net.richarddawkins.watchmaker.morphview;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Vector;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
+import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
 public abstract class SimpleMorphView implements MorphView {
+    private static Logger logger = Logger
+            .getLogger("net.richarddawkins.watchmaker.morphview.SimpleMorphView");
+    protected Album album;
 
-    @Override
-    public String getIcon() {
-        // TODO Auto-generated method stub
-        return null;
+    protected AppData appData;
+
+    protected boolean copyMorphsOnBackup;
+
+    protected WatchmakerCursorFactory cursors;
+    protected String name;
+    public SimpleMorphView(MorphViewConfig config) {
+        logger.fine("SwingMorphView(config): " + config);
+        this.appData = config.appData;
+        this.setIcon(config.icon);
+        this.setName(config.name);
+        this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
+        this.createPanel();
+        this.cursors = appData.getWatchmakerCursorFactory();
+        this.setMorphDrawer(appData.newMorphDrawer());
+        initAlbum(config.album, this.copyMorphsOnBackup);
+        addGeneBoxStrip(config.engineeringMode, config.geneBoxToSide);
+        addSeedMorphs(config.seedMorphs);
+        addSliders();
+        addPanels();
+        setSelectedPanel(panels.firstElement());
     }
-
-
-    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    protected GeneBoxStrip geneBoxStrip;
+    protected String icon;
+    protected MorphDrawer morphDrawer;
+    protected final Vector<MorphViewPanel> panels = new Vector<MorphViewPanel>();
+    protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    protected ScaleSlider scaleSlider;
+    protected Vector<Morph> seedMorphs = new Vector<Morph>();
+    protected MorphViewPanel selectedPanel;
+    protected boolean showBoxes = true;
+    protected String toolTip;
     @Override
-    public void setIcon(String icon) {
-        // TODO Auto-generated method stub
-
+    public Album getAlbum() {
+        return album;
     }
 
     @Override
     public AppData getAppData() {
-        // TODO Auto-generated method stub
-        return null;
+        return appData;
     }
 
     @Override
-    public String getToolTip() {
-        // TODO Auto-generated method stub
-        return null;
+    public WatchmakerCursorFactory getCursors() {
+        return cursors;
     }
 
     @Override
-    public void setToolTip(String toolTip) {
-        // TODO Auto-generated method stub
-
+    public GeneBoxStrip getGeneBoxStrip() {
+        return geneBoxStrip;
     }
 
     @Override
-    public void seed() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public Morph getMorphOfTheHour() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public String getName() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void setName(String newName) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setShowBoxes(boolean showBoxes) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setMorphDrawer(MorphDrawer morphDrawer) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void addSeedMorph(Morph morph) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setAppData(AppData appData) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public boolean isShowBoxes() {
-        // TODO Auto-generated method stub
-        return false;
+    public String getIcon() {
+        return icon;
     }
 
     @Override
     public MorphDrawer getMorphDrawer() {
-        // TODO Auto-generated method stub
-        return null;
+        return morphDrawer;
+    }
+
+    @Override
+    public Morph getMorphOfTheHour() {
+        return this.getSelectedPanel().getMorphOfTheHour();
     }
 
     @Override
     public Vector<MorphViewPanel> getPanels() {
-        // TODO Auto-generated method stub
-        return null;
+        return panels;
     }
 
     @Override
-    public void undo() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void redo() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void backup(boolean copyMorph) {
-        // TODO Auto-generated method stub
-
+    public ScaleSlider getScaleSlider() {
+        return scaleSlider;
     }
 
     @Override
     public MorphViewPanel getSelectedPanel() {
-        // TODO Auto-generated method stub
-        return null;
+        return selectedPanel;
     }
 
     @Override
-    public void setSelectedPanel(MorphViewPanel selectedPanel) {
-        // TODO Auto-generated method stub
-
+    public String getToolTip() {
+        return toolTip;
     }
 
     @Override
-    public Album getAlbum() {
-        // TODO Auto-generated method stub
-        return null;
+    public void initAlbum(Album newAlbum, boolean copyMorphsOnBackup) {
+        if (newAlbum != null) {
+            this.album = newAlbum;
+        } else {
+            this.album = new Album("backing");
+        }
+
+        if (!copyMorphsOnBackup && album.size() == 0) {
+            BoxedMorphCollection page = new BoxedMorphCollection("backing",
+                    newBoxManager());
+            album.addPage(page);
+        }
     }
 
+    @Override
+    public boolean isShowBoxes() {
+        return showBoxes;
+    }
+
+    public void propertyChange(PropertyChangeEvent event) {
+        String propertyName = event.getPropertyName();
+        if (propertyName.equals("showBoundingBoxes")
+                || propertyName.equals("scale")
+                || propertyName.equals("phenotype")) {
+            logger.fine("SwingMorphViewPanel propertyChange:" + propertyName);
+
+            for (Morph morph : selectedPanel.getBoxedMorphCollection()
+                    .getMorphs()) {
+                morph.setImage(null);
+            }
+            selectedPanel.repaint();
+        }
+    }
+
+    public void redo() {
+    }
+
+    @Override
+    public void setSelectedPanel(MorphViewPanel newValue) {
+        MorphViewPanel oldValue = selectedPanel;
+        if (oldValue != null) {
+            oldValue.loseFocus();
+        }
+        this.selectedPanel = newValue;
+        if (newValue != null) {
+            newValue.gainFocus();
+        }
+        pcs.firePropertyChange("selectedPanel", oldValue, newValue);
+    }
+
+    @Override
+    public void setShowBoxes(boolean showBoxes) {
+        this.showBoxes = showBoxes;
+    }
+
+    @Override
+    public void setToolTip(String toolTip) {
+        this.toolTip = toolTip;
+    }
+    
     @Override
     public void setAlbum(Album album) {
-        // TODO Auto-generated method stub
-
+        this.album = album;
     }
 
     @Override
-    public void addPanel(MorphViewPanel panel) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void removePanel(MorphViewPanel panel) {
-        // TODO Auto-generated method stub
-
+    public void setAppData(AppData appData) {
+        this.appData = appData;
     }
 
     @Override
     public void setCopyMorphsOnBackup(boolean copyMorphsOnBackup) {
-        // TODO Auto-generated method stub
+        this.copyMorphsOnBackup = copyMorphsOnBackup;
 
     }
 
     @Override
-    public void addPanels() {
-        // TODO Auto-generated method stub
-
+    public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
+        this.geneBoxStrip = geneBoxStrip;
     }
 
     @Override
-    public void addSliders() {
-        // TODO Auto-generated method stub
-
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     @Override
-    public BoxManager newBoxManager() {
-        // TODO Auto-generated method stub
-        return null;
+    public void setMorphDrawer(MorphDrawer morphDrawer) {
+        this.morphDrawer = morphDrawer;
+    }
+    @Override
+    public void removePropertyChangeListener(String propertyName,
+            PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(propertyName, listener);
     }
 
-    @Override
-    public void addGeneBoxStrip(boolean engineeringMode,
-            boolean geneBoxToSide) {
-        // TODO Auto-generated method stub
 
+
+    @Override
+    public void undo() {
     }
-
-    @Override
-    public void addSeedMorphs(Vector<Morph> seedMorphs) {
-        // TODO Auto-generated method stub
-
+    public void backup(boolean copyMorph) {
     }
 
     @Override
     public void addPropertyChangeListener(String propertyName,
             PropertyChangeListener listener) {
-        // TODO Auto-generated method stub
-
+        pcs.addPropertyChangeListener(propertyName, listener);
     }
 
     @Override
-    public void removePropertyChangeListener(String propertyName,
-            PropertyChangeListener listener) {
-        // TODO Auto-generated method stub
-
+    public void addSeedMorph(Morph seedMorph) {
+        seedMorphs.add(seedMorph);
+        panels.firstElement().repaint();
     }
 
     @Override
-    public void repaint() {
-        // TODO Auto-generated method stub
-
+    public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
+        if (seedMorphsToAdd != null) {
+            this.seedMorphs.addAll(seedMorphsToAdd);
+            seedMorphsToAdd.clear();
+        }
     }
-
     @Override
-    public void initAlbum(Album newAlbum, boolean copyMorphsOnBackup) {
-        // TODO Auto-generated method stub
+    public void seed() {
 
+        if (!seedMorphs.isEmpty()) {
+            synchronized (seedMorphs) {
+                logger.fine("Seeding");
+
+                Morph seedMorph = seedMorphs.firstElement();
+                MorphViewPanel panel = (MorphViewPanel) panels
+                        .firstElement();
+                BoxedMorphCollection boxedMorphCollection = panel
+                        .getBoxedMorphCollection();
+                BoxManager boxes = boxedMorphCollection.getBoxManager();
+
+                boxedMorphCollection.clear();
+                panel.setSelectedBox(null);
+                Rect midBox = boxes.getMidBox();
+                BoxedMorph boxedMorph = new BoxedMorph(boxes, seedMorph,
+                        midBox);
+                boxedMorphCollection.removeAllElements();
+                boxedMorphCollection.add(boxedMorph);
+                logger.fine("SwingMorphView.seed() Added boxedMorph: "
+                        + boxedMorph);
+                // Trigger first breeding
+
+                panel.setSpecial(midBox);
+                // if (appData.isBreedRightAway()) {
+                // logger.fine("Setting panel special to " + midBox);
+                //
+                // panel.setSpecial(midBox);
+                // ((SwingBreedingMorphViewPanel) panel)
+                // .breedFromSpecial();
+                // }
+                seedMorph.setImage(null);
+
+                Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
+                Dim parentMorphDim = seedMorph.getPhenotype().getMargin()
+                        .getDim();
+                logger.fine(
+                        "SwingMorphView.seed():" + panel.getDim() + " BoxDim:"
+                                + boxDim + " ParentMorphDim:" + parentMorphDim);
+
+                seedMorphs.remove(seedMorph);
+
+            }
+            repaint();
+        }
     }
 
-    @Override
-    public GeneBoxStrip getGeneBoxStrip() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public ScaleSlider getScaleSlider() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
 }

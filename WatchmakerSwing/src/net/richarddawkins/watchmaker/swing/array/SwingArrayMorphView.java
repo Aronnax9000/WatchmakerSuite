@@ -9,11 +9,11 @@ import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.ScaleSlider;
 import net.richarddawkins.watchmaker.morphview.array.ArrayMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
 public class SwingArrayMorphView extends SwingMorphView
         implements ArrayMorphView {
@@ -23,7 +23,7 @@ public class SwingArrayMorphView extends SwingMorphView
      */
     private static final long serialVersionUID = 1L;
 
-    public SwingArrayMorphView(SwingMorphViewConfig config) {
+    public SwingArrayMorphView(MorphViewConfig config) {
         super(config);
         // TODO Auto-generated constructor stub
     }

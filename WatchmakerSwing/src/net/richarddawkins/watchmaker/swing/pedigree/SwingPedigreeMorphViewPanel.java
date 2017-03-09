@@ -75,7 +75,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
 
     }
     @Override
-    protected void processMousePressed(Point point, Dim size) {
+    public void processMousePressed(Point point, Dim size) {
         logger.info("Pedigree box pressed at " + point);
         BoxManager boxes = this.boxedMorphCollection.getBoxManager();
         selectedBox = boxes.getBoxNoContainingPoint(point, size);
@@ -112,7 +112,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
     }
 
     @Override
-    protected void processMouseDragged(Point point, Dim size) {
+    public void processMouseDragged(Point point, Dim size) {
        Cursor cursor = this.getCursor();
         
         if(cursors.isCursorType(WatchmakerCursor.move, cursor)) {

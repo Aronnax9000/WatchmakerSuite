@@ -12,6 +12,7 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.morphview.MorphView;
 
 public class BoxAnimator {
     enum Phase {
@@ -33,7 +34,8 @@ public class BoxAnimator {
 
     public BoxAnimator(SwingBreedingMorphViewPanel breedingPanel) {
         this.breedingPanel = breedingPanel;
-        this.cursors = breedingPanel.getMorphView().getCursors();
+        MorphView morphView = breedingPanel.getMorphView();
+        this.cursors = morphView.getCursors();
 //        logger.info("BoxAnimator constructed");
 
     }

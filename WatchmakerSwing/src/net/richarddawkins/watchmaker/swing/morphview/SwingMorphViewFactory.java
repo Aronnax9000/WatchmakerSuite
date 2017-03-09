@@ -5,6 +5,7 @@ import java.util.Vector;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewType;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
@@ -16,7 +17,7 @@ import net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView;
 public class SwingMorphViewFactory {
     public static MorphView getMorphView(AppData appData, MorphViewType type, Vector<Morph> seedMorphs) {
         
-        SwingMorphViewConfig config = new SwingMorphViewConfig(type);
+        MorphViewConfig config = new MorphViewConfig(type);
         config.appData = appData;
         config.geneBoxToSide = appData.isGeneBoxToSide();
         config.seedMorphs = seedMorphs;

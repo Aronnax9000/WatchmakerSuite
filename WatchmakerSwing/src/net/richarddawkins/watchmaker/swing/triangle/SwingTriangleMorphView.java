@@ -11,10 +11,10 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.triangle.TriangleMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 
 /**
  * The Macintosh II, the first color model, had a screen resolution of
@@ -46,7 +46,7 @@ public class SwingTriangleMorphView extends SwingMorphView implements TriangleMo
     }
 
     
-    public SwingTriangleMorphView(SwingMorphViewConfig config) {
+    public SwingTriangleMorphView(MorphViewConfig config) {
         super(config);
         this.showBoxes = false;
     }

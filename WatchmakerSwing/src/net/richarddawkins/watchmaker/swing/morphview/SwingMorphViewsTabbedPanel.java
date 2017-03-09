@@ -17,7 +17,7 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 
 public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphViewsTabbedPanel {
-	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.MorphViewsTabbedPane");
+	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel");
 
 	protected AppData appData;
 	@Override

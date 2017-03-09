@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.breed.BreedingMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewConfig;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
 public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged implements BreedingMorphView {
@@ -20,7 +20,7 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged impleme
     boolean freshlySeeded = false;
 //    Vector<Morph> litter;
 
-    public SwingBreedingMorphView(SwingMorphViewConfig config) {
+    public SwingBreedingMorphView(MorphViewConfig config) {
         super(config);
     }
 

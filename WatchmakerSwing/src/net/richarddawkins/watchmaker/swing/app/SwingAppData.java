@@ -25,6 +25,7 @@ import net.richarddawkins.watchmaker.geom.GeometryManager;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewType;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
@@ -35,9 +36,15 @@ import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.cursor.SwingWatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
+import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
 
 public abstract class SwingAppData implements AppData {
+
+    public MorphDrawer newMorphDrawer() {
+        return new SwingMorphDrawer(this);
+    }
+
     class WatchmakerTask extends TimerTask {
 
         protected AppData appData;
@@ -52,10 +59,8 @@ public abstract class SwingAppData implements AppData {
         }
     }
 
-    
-    private static Logger logger = Logger.getLogger(
-
-            "net.richarddawkins.watchmaker.swing.app.SwingAppData");
+    private static Logger logger = Logger
+            .getLogger("net.richarddawkins.watchmaker.swing.app.SwingAppData");
     protected BoxesDrawer boxesDrawer = new SwingBoxesDrawer();
     protected boolean breedRightAway = true;
 
@@ -72,6 +77,7 @@ public abstract class SwingAppData implements AppData {
     protected boolean geneBoxToSide;
 
     protected GeometryManager geometryManager;
+
     @Override
     public GeometryManager getGeometryManager() {
         return geometryManager;
@@ -107,10 +113,12 @@ public abstract class SwingAppData implements AppData {
     protected String toolTip;
 
     protected WatchmakerCursorFactory watchmakerCursorFactory;
+
     @Override
     public WatchmakerCursorFactory getWatchmakerCursorFactory() {
         return watchmakerCursorFactory;
     }
+
     @Override
     public void setWatchmakerCursorFactory(
             WatchmakerCursorFactory watchmakerCursorFactory) {
@@ -153,11 +161,11 @@ public abstract class SwingAppData implements AppData {
         SwingBreedingMorphView morphView = (SwingBreedingMorphView) SwingMorphViewFactory
                 .getMorphView(this, MorphViewType.breeding, seedMorphs);
         morphViewsTabbedPane.addMorphView(morphView);
-        
+
         if (isBreedRightAway()) {
             SwingBreedingMorphViewPanel panel = (SwingBreedingMorphViewPanel) morphView
                     .getPanels().firstElement();
-        
+
             panel.setBreedFromMidBoxOnNextRepaint(true);
 
         }
