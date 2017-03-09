@@ -64,7 +64,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		view.setName(uniquify(view.getName()));
 		morphViews.add(view);
 
-		addTab(view.getName(), null, (Component) view, view.getToolTip());
+		addTab(view.getName(), null, (Component) view.getPanel(), view.getToolTip());
 
 		SwingMorphViewTabComponent tabComponent = new SwingMorphViewTabComponent();
 		tabComponent.setSwingMorphViewsTabbedPanel(this);
@@ -77,12 +77,11 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 
 	class TabChangeListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
-			JTabbedPane source = (JTabbedPane) e.getSource();
 			int selectedIndex = getSelectedIndex();
 			if (selectedIndex != -1) {
 				MorphView morphView = morphViews.get(getSelectedIndex());
 				morphView.getSelectedPanel().gainFocus();
-				Cursor cursor = ((JComponent) morphView).getCursor();
+				Cursor cursor = ((JComponent) morphView.getPanel()).getCursor();
 				appData.setHighlighting(appData.getWatchmakerCursorFactory()
 				        .isCursorType(WatchmakerCursor.highlight, cursor));
 

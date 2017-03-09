@@ -58,4 +58,5 @@ public interface MorphView {
     void setGeneBoxStrip(GeneBoxStrip geneBoxStrip);
     ScaleSlider getScaleSlider();
     WatchmakerCursorFactory getCursors();
+    Object getPanel();
 }
