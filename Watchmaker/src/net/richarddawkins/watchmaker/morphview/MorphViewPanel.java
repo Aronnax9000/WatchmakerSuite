@@ -39,7 +39,9 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void paintMorphViewPanel(Object graphicsContext, Dim size);
     void processMouseClicked(Point point, Dim size);
     void processMouseDragged(Point watchmakerPoint, Dim watchmakerDim);
+    void processMouseMotion(Point myPt, Dim size);
     void processMousePressed(Point watchmakerPoint, Dim watchmakerDim);
+    void processMouseReleased(Point watchmakerPoint, Dim watchmakerDim);
     void removePropertyChangeListener(PropertyChangeListener listener);
     void repaint();
     void setAutoScale(boolean autoScale);
@@ -48,7 +50,9 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale);
     void setName(String name);
     void setSelectedBoxedMorph(BoxedMorph newValue);
+
     void setShowBoundingBoxes(boolean showBoundingBoxes);
+
     void setSpecial(Rect newValue);
 
     void updateCursor();

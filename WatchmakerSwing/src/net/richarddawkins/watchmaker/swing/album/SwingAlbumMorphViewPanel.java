@@ -15,7 +15,7 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
 public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements AlbumMorphViewPanel {
 
-    private static final long serialVersionUID = 1L;
+
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphViewPanel");
     

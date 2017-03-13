@@ -39,7 +39,6 @@ public class SwingAlbumMorphView extends SwingMorphView implements AlbumMorphVie
         return this.getSelectedPanel().getMorphOfTheHour();
     }
 
-    private static final long serialVersionUID = 8224824610112892419L;
 
     @Override
     public void seed() {

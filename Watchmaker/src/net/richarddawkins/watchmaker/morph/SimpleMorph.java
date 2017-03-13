@@ -9,11 +9,10 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.genome.GenomeChangeEvent;
-import net.richarddawkins.watchmaker.genome.GenomeChangeListener;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
-public abstract class SimpleMorph implements Morph, GenomeChangeListener {
+public abstract class SimpleMorph implements Morph {
 
 
     private static Logger logger = Logger
@@ -69,7 +68,10 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
     @Override
     public void genomeChange(GenomeChangeEvent evt) {
-        pcs.firePropertyChange("genome", null, genome);
+        this.setImage(null);
+        if(embryology != null) {
+            embryology.develop(this);
+        }
     }
 
     @Override
@@ -120,6 +122,7 @@ public abstract class SimpleMorph implements Morph, GenomeChangeListener {
 
     @Override
     public void setGenome(Genome newValue) {
+        logger.info("Morph.setGenome");
         Genome oldValue = this.genome;
         if (oldValue != null) {
             oldValue.removeGenomeChangeListener(this);

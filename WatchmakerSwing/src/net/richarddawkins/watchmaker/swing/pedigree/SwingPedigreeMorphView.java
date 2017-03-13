@@ -18,11 +18,10 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingPedigreeMorphView extends SwingMorphView
         implements PedigreeMorphView {
-    ;
+    
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphView");
 
-    private static final long serialVersionUID = -5445629768562940527L;
 
     protected MirrorType mirrorType = MirrorType.NONE;
 

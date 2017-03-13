@@ -18,10 +18,6 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 public class SwingArrayMorphView extends SwingMorphView
         implements ArrayMorphView {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
 
     public SwingArrayMorphView(MorphViewConfig config) {
         super(config);

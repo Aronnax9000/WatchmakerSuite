@@ -13,7 +13,6 @@ public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged impleme
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView");
-    private static final long serialVersionUID = -5445629768562940527L;
 
     protected BoxedMorph boxedMorphSpecial;
 

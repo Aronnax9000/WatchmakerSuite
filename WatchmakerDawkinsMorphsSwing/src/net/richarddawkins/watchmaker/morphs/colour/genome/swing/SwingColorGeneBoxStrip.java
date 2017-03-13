@@ -15,7 +15,6 @@ public class SwingColorGeneBoxStrip extends SwingMonochromeGeneBoxStrip {
         
     }
 
-    private static final long serialVersionUID = 1L;
 
     @Override
 	public GeneBox getGeneBoxForGene(Gene gene, AppData appData) {

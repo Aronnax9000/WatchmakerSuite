@@ -8,10 +8,7 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 public abstract class SwingArrayMorphViewPanel extends SwingMorphViewPanel
         implements ArrayMorphView {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
+
 
     public SwingArrayMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {

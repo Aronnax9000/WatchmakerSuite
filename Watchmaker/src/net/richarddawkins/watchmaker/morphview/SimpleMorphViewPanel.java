@@ -26,19 +26,26 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.morphview.SimpleMorphViewPanel");
+    protected boolean autoScale = false;
+
     protected BoxedMorphCollection boxedMorphCollection;
+    protected WatchmakerCursorFactory cursors = null;
+    protected GeometryManager geometryManager;
 
     protected boolean includeChildrenInAutoScale = false;
     protected Point lastMouseDown;
     protected Dim lastMouseDownSize;
-
     protected Point lastMouseDrag;
+    
     protected Dim lastMouseDragSize;
     public MorphView morphView;
     protected String name;
-    
-    protected GeometryManager geometryManager;
-    protected WatchmakerCursorFactory cursors = null;
+    protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    protected BoxedMorph selectedBoxedMorph = null;
+
+    protected boolean showBoundingBoxes = false;
+    protected Rect special;
+
     public SimpleMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         AppData appData = morphView.getAppData();
@@ -53,43 +60,12 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         this.cursors = appData.getWatchmakerCursorFactory();
 
     }
-    @Override
-    public void gainFocus() {
-        addPropertyChangeListener(morphView.getGeneBoxStrip());
-        morphView.getScaleSlider().setBoxManager(boxedMorphCollection.getBoxManager());
 
-    }
-    @Override
-    public void loseFocus() {
-        removePropertyChangeListener(morphView.getGeneBoxStrip());
-    }
-
-    protected boolean autoScale = false;
-    @Override
-    public boolean isAutoScale() {
-        return autoScale;
-    }
-
-    @Override
-    public void setAutoScale(boolean autoScale) {
-        this.autoScale = autoScale;
-    }
-
-    @Override
-    public MorphView getMorphView() {
-        return morphView;
-
-    }
-    protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    protected BoxedMorph selectedBoxedMorph = null;
-    protected boolean showBoundingBoxes = false;
-    protected Rect special;
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
         
     }
-
     @Override
     public void autoScaleBasedOnMorphs(Rect special) {
 //        logger.fine("autoScaleBasedOnMorphs " + special + " includeChildren "
@@ -136,7 +112,6 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             }
         }
     }
-
     @Override
     public void clearMorphImages() {
         for (Morph morph : boxedMorphCollection.getMorphs()) {
@@ -144,7 +119,6 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
         repaint();
     }
-    
     /**
      * Draw boxes in box order (not in boxed Morph order.)
      * 
@@ -173,7 +147,6 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
                 backgroundColors);
     }
-    
     protected void drawMorphs(Object graphicsContext, Dim size, boolean showBoundingBoxes) {
 
         synchronized (boxedMorphCollection) {
@@ -196,15 +169,23 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             }
         }
     }
-    
+    @Override
+    public void gainFocus() {
+        addPropertyChangeListener(morphView.getGeneBoxStrip());
+        morphView.getScaleSlider().setBoxManager(boxedMorphCollection.getBoxManager());
+
+    }
+
     @Override
     public BoxedMorphCollection getBoxedMorphCollection() {
         return boxedMorphCollection;
     }
+
     @Override
     public boolean getIncludeChildrenInAutoScale() {
         return includeChildrenInAutoScale;
     }
+    
     @Override
     public Morph getMorphOfTheHour() {
         BoxedMorph boxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
@@ -226,12 +207,17 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
         return morph;
     }
-
+    
     @Override
     public Vector<Morph> getMorphs() {
         return boxedMorphCollection.getMorphs();
     }
+    
+    @Override
+    public MorphView getMorphView() {
+        return morphView;
 
+    }
     @Override
     public String getName() {
         return name;
@@ -242,8 +228,17 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     }
 
     @Override
+    public boolean isAutoScale() {
+        return autoScale;
+    }
+
+    @Override
     public boolean isShowBoundingBoxes() {
         return showBoundingBoxes;
+    }
+    @Override
+    public void loseFocus() {
+        removePropertyChangeListener(morphView.getGeneBoxStrip());
     }
 
     /**
@@ -274,6 +269,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             drawMorphs(graphicsContext, size, showBoundingBoxes);
         }
     }
+
     @Override
     public void processMouseClicked(Point point, Dim size) {
     }
@@ -284,17 +280,51 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         this.lastMouseDragSize = watchmakerDim;
         repaint();
     }
-
-    @Override
-    public void setSpecial(Rect newValue) {
-        this.special = newValue;
-    }
     @Override
     public void processMousePressed(Point watchmakerPoint,
             Dim watchmakerDim) {
         this.lastMouseDown = watchmakerPoint;
         this.lastMouseDownSize = watchmakerDim;
 
+    }
+
+    @Override
+    public void processMouseReleased(Point watchmakerPoint,
+            Dim watchmakerDim) {
+        this.lastMouseDown = null;
+        this.lastMouseDownSize = null;
+        this.lastMouseDrag = null;
+        this.lastMouseDragSize = null;
+        repaint();
+    }
+    @Override
+    public void propertyChange(PropertyChangeEvent event) {
+        if (event.getPropertyName().equals("scale")) {
+            clearMorphImages();
+        }
+    }
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+        
+    }
+
+    @Override
+    public void setAutoScale(boolean autoScale) {
+        this.autoScale = autoScale;
+    }
+
+    @Override
+    public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
+        BoxedMorphCollection oldValue = this.boxedMorphCollection;
+        if (oldValue != null) {
+            oldValue.getBoxManager().removePropertyChangeListener("scale",
+                    this);
+        }
+        this.boxedMorphCollection = newValue;
+        if (newValue != null) {
+            newValue.getBoxManager().addPropertyChangeListener("scale", this);
+        }
     }
     @Override
     public void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale) {
@@ -319,16 +349,8 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     }
 
     @Override
-    public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
-        BoxedMorphCollection oldValue = this.boxedMorphCollection;
-        if (oldValue != null) {
-            oldValue.getBoxManager().removePropertyChangeListener("scale",
-                    this);
-        }
-        this.boxedMorphCollection = newValue;
-        if (newValue != null) {
-            newValue.getBoxManager().addPropertyChangeListener("scale", this);
-        }
+    public void setSpecial(Rect newValue) {
+        this.special = newValue;
     }
 
     @Override
@@ -342,27 +364,6 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             stringBuffer.append(" with null boxed morph collection.");
         }
         return stringBuffer.toString();
-    }
-    protected void processMouseReleased(Point watchmakerPoint,
-            Dim watchmakerDim) {
-        this.lastMouseDown = null;
-        this.lastMouseDownSize = null;
-        this.lastMouseDrag = null;
-        this.lastMouseDragSize = null;
-        repaint();
-    }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent event) {
-        if (event.getPropertyName().equals("scale")) {
-            clearMorphImages();
-        }
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(listener);
-        
     }
 
 

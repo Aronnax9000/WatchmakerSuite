@@ -38,7 +38,6 @@ public class SwingTriangleMorphView extends SwingMorphView implements TriangleMo
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView");
 
-    private static final long serialVersionUID = -5445629768562940527L;
 
     @Override
     public BoxManager newBoxManager() {

@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -21,14 +20,13 @@ import net.richarddawkins.watchmaker.morphview.ScaleSlider;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class SwingScaleSlider
-        implements ScaleSlider, ChangeListener, PropertyChangeListener {
+        implements ScaleSlider {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.components.SwingScaleSlider");
 
     static final int SCALE_INIT = 0; // initial frames per second
     static final int SCALE_MAX = +8;
     static final int SCALE_MIN = -SCALE_MAX;
-    private static final long serialVersionUID = 1L;
     protected BoxManager boxManager;
     protected JPanel panel;
     protected PropertyChangeSupport pcs = new PropertyChangeSupport(this);

@@ -33,7 +33,6 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel implements 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.triangle.SwingTriangleMorphView");
 
-    private static final long serialVersionUID = -5445629768562940527L;
 
 
     @Override

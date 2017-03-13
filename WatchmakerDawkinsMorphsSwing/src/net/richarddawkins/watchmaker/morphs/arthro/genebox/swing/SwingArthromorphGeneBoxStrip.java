@@ -18,7 +18,7 @@ public class SwingArthromorphGeneBoxStrip extends SwingGeneBoxStrip {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingArthromorphGeneBoxStrip");
 	@Override
 	public boolean isReusable() { return false; }
-	private static final long serialVersionUID = 550977251971215966L;
+
 
 	protected void applyGeneSpecificConstraints(GridBagConstraints constraints, Gene gene) {
 		constraints.insets.left = 10 * ((Atom)gene).depthBelow((Atom)gene.getGenome().getGene(0), (Atom) gene);

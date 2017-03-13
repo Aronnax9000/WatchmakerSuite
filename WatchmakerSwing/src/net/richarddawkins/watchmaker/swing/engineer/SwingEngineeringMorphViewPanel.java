@@ -24,8 +24,6 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel implemen
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphViewPanel");
 
-    private static final long serialVersionUID = 1L;
-
     @Override
     public boolean getIncludeChildrenInAutoScale() {
         return false;

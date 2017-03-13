@@ -93,10 +93,6 @@ public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged impl
         }
     }
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 8224824610112892419L;
 
     @Override
     public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {

@@ -9,7 +9,7 @@ import net.richarddawkins.watchmaker.swing.geneboxstrip.SwingGeneBoxStrip;
 
 public class SwingSnailGeneBoxStrip extends SwingGeneBoxStrip {
 
-	private static final long serialVersionUID = 1L;
+
     @Override
     public boolean isReusable() { return true; }
 

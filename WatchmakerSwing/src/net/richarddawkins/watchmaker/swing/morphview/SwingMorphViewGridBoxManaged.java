@@ -15,9 +15,6 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged");
 
-    private static final long serialVersionUID = 1L;
-
-
     public SwingMorphViewGridBoxManaged(MorphViewConfig config) {
         super(config);
     }
@@ -58,43 +55,43 @@ public abstract class SwingMorphViewGridBoxManaged extends SwingMorphView {
     @Override
     public void backup(boolean copyMorph) {
 
-        logger.fine("Backup " + copyMorph + " started " + album.size());
-        BoxedMorphCollection boxedMorphCollection = this.getSelectedPanel().getBoxedMorphCollection();
-        GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
-                .getBoxManager();
-        GridBoxManager backupBoxManager = new GridBoxManager(oldBoxManager.cols,
-                oldBoxManager.rows);
-        BoxedMorphCollection backupBoxedMorphs = new BoxedMorphCollection(
-                "backing", backupBoxManager);
-        Iterator<Rect> boxIterator = backupBoxManager.getBoxes().iterator();
-        for (BoxedMorph boxedMorph : boxedMorphCollection.getBoxedMorphs()) {
-            Rect box;
-            if (boxedMorphCollection.size() == 1) {
-                box = backupBoxManager.getMidBox();
-            } else {
-                box = boxIterator.next();
-            }
-
-            Morph newMorph;
-            if (copyMorph) {
-                newMorph = appData.getMorphConfig()
-                        .copyMorph(boxedMorph.getMorph());
-                
-            } else {
-                newMorph = boxedMorph.getMorph();
-            }
-            BoxedMorph newBoxedMorph = new BoxedMorph(backupBoxManager,
-                    newMorph, box);
-
-            backupBoxedMorphs.add(newBoxedMorph);
-        }
-        // Add the backup just behind the one on the end (so we still work on
-        // the original)
-        album.addPage(album.size() - 1, backupBoxedMorphs);
-        if (album.size() > Album.MAX_PAGES) {
-            album.removePage(0);
-        }
-        logger.fine("Backup " + copyMorph + " finished " + album.size());
+//        logger.fine("Backup " + copyMorph + " started " + album.size());
+//        BoxedMorphCollection boxedMorphCollection = this.getSelectedPanel().getBoxedMorphCollection();
+//        GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
+//                .getBoxManager();
+//        GridBoxManager backupBoxManager = new GridBoxManager(oldBoxManager.cols,
+//                oldBoxManager.rows);
+//        BoxedMorphCollection backupBoxedMorphs = new BoxedMorphCollection(
+//                "backing", backupBoxManager);
+//        Iterator<Rect> boxIterator = backupBoxManager.getBoxes().iterator();
+//        for (BoxedMorph boxedMorph : boxedMorphCollection.getBoxedMorphs()) {
+//            Rect box;
+//            if (boxedMorphCollection.size() == 1) {
+//                box = backupBoxManager.getMidBox();
+//            } else {
+//                box = boxIterator.next();
+//            }
+//
+//            Morph newMorph;
+//            if (copyMorph) {
+//                newMorph = appData.getMorphConfig()
+//                        .copyMorph(boxedMorph.getMorph());
+//                
+//            } else {
+//                newMorph = boxedMorph.getMorph();
+//            }
+//            BoxedMorph newBoxedMorph = new BoxedMorph(backupBoxManager,
+//                    newMorph, box);
+//
+//            backupBoxedMorphs.add(newBoxedMorph);
+//        }
+//        // Add the backup just behind the one on the end (so we still work on
+//        // the original)
+//        album.addPage(album.size() - 1, backupBoxedMorphs);
+//        if (album.size() > Album.MAX_PAGES) {
+//            album.removePage(0);
+//        }
+//        logger.fine("Backup " + copyMorph + " finished " + album.size());
     }
 
 

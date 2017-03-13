@@ -2,7 +2,6 @@ package net.richarddawkins.watchmaker.swing.pedigree;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -23,10 +22,7 @@ import net.richarddawkins.watchmaker.morphview.pedigree.PedigreeMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
 public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements PedigreeMorphViewPanel {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
+
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.pedigree.SwingPedigreeMorphViewPanel");
 
@@ -43,7 +39,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
         Graphics2D g2 = (Graphics2D) graphicsContext;
         g2.setColor(Color.BLACK);
         g2.setStroke(new BasicStroke(1));
-        Cursor cursor = this.getCursor();
+        Object cursor = this.getCursor();
         if (cursors.isCursorType(WatchmakerCursor.move, cursor)
                 && this.lastMouseDown != null && this.lastMouseDrag != null) {
             Point midPoint = selectedBox.getMidPoint();
@@ -87,7 +83,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
             if(boxedMorph != boxedMorphCollection.getBoxedMorphs().lastElement()) {
                 boxedMorphCollection.moveToEnd(boxedMorph);
             }
-            Cursor cursor = this.getCursor();
+            Object cursor = this.getCursor();
             this.lastMouseDown = point;
             this.lastMouseDownSize = size;
             if(cursors.isCursorType(WatchmakerCursor.pedigree, cursor)) {
@@ -113,7 +109,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
 
     @Override
     public void processMouseDragged(Point point, Dim size) {
-       Cursor cursor = this.getCursor();
+       Object cursor = this.getCursor();
         
         if(cursors.isCursorType(WatchmakerCursor.move, cursor)) {
             if (selectedBox != null) {
@@ -142,9 +138,9 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
     }
 
     @Override
-    protected void processMouseReleased(Point point, Dim size) {
+    public void processMouseReleased(Point point, Dim size) {
         logger.info("Pedigree box released at " + point);
-        Cursor cursor = this.getCursor();
+        Object cursor = this.getCursor();
         if(cursors.isCursorType(WatchmakerCursor.move, cursor)) {
         } else if(cursors.isCursorType(WatchmakerCursor.detach, cursor)) {
         } else if(cursors.isCursorType(WatchmakerCursor.kill, cursor)) {

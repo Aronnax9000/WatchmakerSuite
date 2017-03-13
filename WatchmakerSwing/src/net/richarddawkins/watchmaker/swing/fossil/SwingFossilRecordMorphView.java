@@ -8,9 +8,6 @@ import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManage
 
 public class SwingFossilRecordMorphView extends SwingMorphViewGridBoxManaged implements FossilRecordMorphView {
 
-
-    private static final long serialVersionUID = 1L;
-
     public SwingFossilRecordMorphView(MorphViewConfig config) {
         super(config);
         // TODO Auto-generated constructor stub

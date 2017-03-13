@@ -33,17 +33,7 @@ public abstract class SimpleGenome implements Genome, Cloneable {
         return super.clone();
     }
 
-    //
-	// protected Morph morph;
-	// @Override
-	// public Morph getMorph() {
-	// return morph;
-	// }
-	//
-	// @Override
-	// public void setMorph(Morph morph) {
-	// this.morph = morph;
-	// }
+
 	protected GenomeChangeSupport gcs = new GenomeChangeSupport(this);
 
 	@Override

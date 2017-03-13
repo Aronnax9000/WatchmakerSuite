@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import net.richarddawkins.watchmaker.embryo.Embryology;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.genome.GenomeChangeListener;
 import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
 
@@ -34,7 +35,7 @@ import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
  * @author Alan Canon
  *
  */
-public interface Morph {
+public interface Morph extends GenomeChangeListener {
     
     /* PropertyChange */
     

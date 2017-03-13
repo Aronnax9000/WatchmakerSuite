@@ -57,7 +57,7 @@ public abstract class SwingGeneBoxStrip
 
     protected Genome genome;
 
-    private static final long serialVersionUID = 1L;
+
     protected AppData appData ;
     public SwingGeneBoxStrip(AppData appData) {
         this.appData = appData;

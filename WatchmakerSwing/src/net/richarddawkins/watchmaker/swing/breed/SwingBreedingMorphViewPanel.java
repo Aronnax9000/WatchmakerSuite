@@ -34,7 +34,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
     public void processMouseMotion(Point myPt, Dim size) {
         logger.fine("processMouseMotion(" + myPt + ", " + size);
         super.processMouseMotion(myPt, size);
-        Cursor cursor = this.getCursor();
+        Object cursor = this.getCursor();
         boolean highlightingMode = cursors
                 .isCursorType(WatchmakerCursor.highlight, cursor);
         if (!highlightingMode) {
@@ -75,7 +75,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
 
     @Override
     public void processMouseClicked(Point myPt, Dim size) {
-        Cursor cursor = this.getCursor();
+        Object cursor = this.getCursor();
 //        logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (cursors.isCursorType(WatchmakerCursor.breed, cursor)) {

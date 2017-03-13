@@ -103,7 +103,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
     }
 
     @Override
-    public Cursor getCursor() {
+    public Object getCursor() {
         return panel.getCursor();
     }
 
@@ -117,6 +117,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
         return panel;
     }
 
+    @Override
     public void processMouseMotion(Point myPt, Dim size) {
         Cursor cursor = (Cursor) this.getCursor();
         boolean cursorTypeIsntHighlight = !cursors

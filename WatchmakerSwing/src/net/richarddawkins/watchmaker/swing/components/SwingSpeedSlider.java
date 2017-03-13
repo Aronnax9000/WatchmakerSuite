@@ -15,8 +15,6 @@ import net.richarddawkins.watchmaker.morphview.SpeedSlider;
 public class SwingSpeedSlider implements SpeedSlider, ChangeListener {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.components.SwingScaleSlider");
 
-	
-	private static final long serialVersionUID = 1L;
 	static final int SCALE_MIN = 0;
 	static final int SCALE_MAX = +5;
 	protected AppData appData;

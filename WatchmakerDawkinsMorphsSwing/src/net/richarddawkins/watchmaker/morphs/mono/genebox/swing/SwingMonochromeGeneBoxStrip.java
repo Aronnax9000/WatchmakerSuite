@@ -16,7 +16,7 @@ public class SwingMonochromeGeneBoxStrip extends SwingGeneBoxStrip {
         super(appData);
     }
 
-    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean isReusable() { return true; }
 

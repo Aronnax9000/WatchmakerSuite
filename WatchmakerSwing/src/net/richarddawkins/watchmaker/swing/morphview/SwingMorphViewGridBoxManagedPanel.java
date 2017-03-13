@@ -7,7 +7,6 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 
 public class SwingMorphViewGridBoxManagedPanel extends SwingMorphViewPanel {
 
-    private static final long serialVersionUID = 1L;
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManagedPanel");
 
