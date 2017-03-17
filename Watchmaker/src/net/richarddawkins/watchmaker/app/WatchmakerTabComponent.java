@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.app;
 
-public interface WatchmakerTabComponent {
+import net.richarddawkins.watchmaker.component.WatchPanel;
+
+public interface WatchmakerTabComponent extends WatchPanel {
 
 }

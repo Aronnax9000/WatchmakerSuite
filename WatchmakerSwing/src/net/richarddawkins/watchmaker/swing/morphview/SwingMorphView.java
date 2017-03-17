@@ -9,9 +9,10 @@ import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
-import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.component.WatchContainer;
+import net.richarddawkins.watchmaker.component.WatchPanel;
+import net.richarddawkins.watchmaker.component.WatchScrollPane;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.SimpleMorphView;
@@ -25,7 +26,7 @@ public abstract class SwingMorphView extends SimpleMorphView {
   private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphView");
 
-    protected JPanel panel;
+    protected WatchPanel panel;
 
     public SwingMorphView(MorphViewConfig config) {
         super(config);
@@ -40,9 +41,9 @@ public abstract class SwingMorphView extends SimpleMorphView {
         JPanel geneBoxStripPanel = (JPanel) geneBoxStrip.getPanel();
         if (geneBoxToSide) {
             // Nassty nassty JScrollPane will center our content otherwise
-            JPanel dummy = new JPanel();
+            WatchPanel dummy = appData.newWatchPanel();
             dummy.add(geneBoxStripPanel);
-            JScrollPane scrollPane = new JScrollPane(dummy);
+            WatchScrollPane scrollPane = new SwingWatchScrollPane(dummy);
             panel.add(scrollPane, BorderLayout.LINE_END);
         } else {
             panel.add(geneBoxStripPanel, BorderLayout.PAGE_START);
@@ -52,8 +53,8 @@ public abstract class SwingMorphView extends SimpleMorphView {
     @Override
     public void addPanel(MorphViewPanel morphViewPanel) {
         panels.add(morphViewPanel);
-        Container container = (Container) this.panel;
-        container.add((Component) morphViewPanel.getPanel());
+        WatchContainer container = (WatchContainer) this.panel;
+        container.add(morphViewPanel.getPanel());
         this.setSelectedPanel(morphViewPanel);
     }
 
@@ -74,7 +75,7 @@ public abstract class SwingMorphView extends SimpleMorphView {
 
     @Override
     public void createPanel() {
-        panel = new JPanel();
+        panel = appData.newWatchPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
 

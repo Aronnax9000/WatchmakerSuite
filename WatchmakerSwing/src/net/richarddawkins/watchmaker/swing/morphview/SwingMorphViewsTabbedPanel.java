@@ -1,22 +1,22 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
-import java.awt.Component;
 import java.awt.Cursor;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JComponent;
-import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.component.WatchComponent;
+import net.richarddawkins.watchmaker.component.WatchPanel;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 
-public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphViewsTabbedPanel {
+public class SwingMorphViewsTabbedPanel extends SwingWatchTabbedPane implements MorphViewsTabbedPanel {
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel");
 
 	protected AppData appData;
@@ -64,7 +64,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		view.setName(uniquify(view.getName()));
 		morphViews.add(view);
 
-		addTab(view.getName(), null, (Component) view.getPanel(), view.getToolTip());
+		addTab(view.getName(), null, (WatchComponent) view.getPanel(), view.getToolTip());
 
 		SwingMorphViewTabComponent tabComponent = new SwingMorphViewTabComponent();
 		tabComponent.setSwingMorphViewsTabbedPanel(this);
@@ -75,19 +75,26 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
 		setSelectedIndex(this.getTabCount() - 1);
 	}
 
-	class TabChangeListener implements ChangeListener {
+
+
+
+
+
+    class TabChangeListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
 			int selectedIndex = getSelectedIndex();
 			if (selectedIndex != -1) {
 				MorphView morphView = morphViews.get(getSelectedIndex());
 				morphView.gainFocus();
 				morphView.getSelectedPanel().gainFocus();
-				Cursor cursor = ((JComponent) morphView.getPanel()).getCursor();
+				WatchPanel morphViewPanel = (WatchPanel)morphView.getPanel();
+				Cursor cursor = ((JComponent) morphViewPanel.getComponent()).getCursor();
 				appData.setHighlighting(appData.getWatchmakerCursorFactory()
 				        .isCursorType(WatchmakerCursor.highlight, cursor));
 
 			}
 		}
+	    
 	}
 
 //	@Override
@@ -100,5 +107,7 @@ public class SwingMorphViewsTabbedPanel extends JTabbedPane implements MorphView
         return morphViews;
         
     }
+
+
 
 }

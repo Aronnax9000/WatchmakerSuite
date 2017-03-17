@@ -27,7 +27,7 @@ public class ActionPedigreeDrawOutOffspring  extends SwingWatchmakerAction {
     public void actionPerformed(ActionEvent arg0) {
         MorphView morphView = appData.getSelectedMorphView();
         if(morphView instanceof SwingPedigreeMorphView) {
-            ((Component)morphView.getPanels().firstElement()).setCursor((Cursor) appData.getWatchmakerCursorFactory().getCursor(WatchmakerCursor.pedigree));
+            ((Component)morphView.getPanels().firstElement().getPanel()).setCursor((Cursor) appData.getWatchmakerCursorFactory().getCursor(WatchmakerCursor.pedigree));
         }       
     }
 }

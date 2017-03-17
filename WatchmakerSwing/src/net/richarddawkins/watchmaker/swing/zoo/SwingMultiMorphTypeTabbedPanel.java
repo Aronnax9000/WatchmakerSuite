@@ -5,7 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
-import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -16,8 +15,9 @@ import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuBar;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
+import net.richarddawkins.watchmaker.swing.morphview.SwingWatchTabbedPane;
 
-public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements MultiMorphTypeTabbedPanel {
+public class SwingMultiMorphTypeTabbedPanel extends SwingWatchTabbedPane implements MultiMorphTypeTabbedPanel {
 
 	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.gui.WatchmakerTabbedPane");
 	@Override
@@ -26,7 +26,9 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 	}
 
 
-	private static final long serialVersionUID = -9105080336982806166L;
+
+
+    private static final long serialVersionUID = -9105080336982806166L;
 	private static SwingMultiMorphTypeTabbedPanel instance;
 	
 	public static synchronized SwingMultiMorphTypeTabbedPanel getInstance() {
@@ -103,7 +105,8 @@ public class SwingMultiMorphTypeTabbedPanel extends JTabbedPane implements Multi
 		setSelectedIndex(this.getTabCount() - 1);
 	}
 
-	public void changeToTab(int selectedIndex) {
+
+    public void changeToTab(int selectedIndex) {
 	    if(selectedIndex != -1) {
 		appDatas.elementAt(selectedIndex).getMenuBuilder().buildMenu(SwingWatchmakerMenuBar.getInstance());
 	    }

@@ -21,7 +21,6 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
 public abstract class SwingGeneBoxStrip
         implements GeneBoxStrip, PropertyChangeListener {

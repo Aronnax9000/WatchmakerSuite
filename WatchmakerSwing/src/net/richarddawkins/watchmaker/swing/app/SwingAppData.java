@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.album.AlbumSerializer;
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.component.WatchPanel;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
@@ -33,6 +34,7 @@ import net.richarddawkins.watchmaker.swing.AWTGeometryManager;
 import net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView;
 import net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphViewPanel;
+import net.richarddawkins.watchmaker.swing.components.SwingWatchPanel;
 import net.richarddawkins.watchmaker.swing.cursor.SwingWatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
@@ -43,6 +45,15 @@ public abstract class SwingAppData implements AppData {
     public MorphDrawer newMorphDrawer() {
         return new SwingMorphDrawer(this);
     }
+
+    
+    
+    @Override
+    public WatchPanel newWatchPanel() {
+        return new SwingWatchPanel();
+    }
+
+
 
     class WatchmakerTask extends TimerTask {
 

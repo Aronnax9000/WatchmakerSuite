@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.swing;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.util.logging.Logger;
 
 import javax.swing.JFrame;
@@ -39,7 +40,7 @@ public class SwingWatchmakerFrame extends JFrame {
 		getContentPane().setLayout(new BorderLayout());
 		morphTypePane = SwingMultiMorphTypeTabbedPanel.getInstance();
 
-		getContentPane().add(morphTypePane);
+		getContentPane().add((Component)morphTypePane.getComponent());
 	}
 
 }

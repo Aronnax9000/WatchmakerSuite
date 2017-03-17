@@ -1,5 +1,7 @@
 package net.richarddawkins.watchmaker.morphview;
 
-public interface MorphViewTabComponent {
+import net.richarddawkins.watchmaker.component.WatchComponent;
+
+public interface MorphViewTabComponent extends WatchComponent {
 
 }

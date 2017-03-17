@@ -40,7 +40,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
         g2.setColor(Color.BLACK);
         g2.setStroke(new BasicStroke(1));
         Object cursor = this.getCursor();
-        if (cursors.isCursorType(WatchmakerCursor.move, cursor)
+        if (! cursors.isCursorType(WatchmakerCursor.move, cursor)
                 && this.lastMouseDown != null && this.lastMouseDrag != null) {
             Point midPoint = selectedBox.getMidPoint();
             Vector<Point> endPoints = getEndPoints(midPoint, lastMouseDrag);
@@ -48,6 +48,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
                 g2.drawLine(midPoint.h, midPoint.v, endPoint.h, endPoint.v);
             }
         }
+        
         for (BoxedMorph putativeParent : boxedMorphCollection
                 .getBoxedMorphs()) {
             Morph putativeParentMorph = putativeParent.getMorph();
@@ -87,9 +88,10 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
             this.lastMouseDown = point;
             this.lastMouseDownSize = size;
             if(cursors.isCursorType(WatchmakerCursor.pedigree, cursor)) {
-                BufferedImage rawImage = (BufferedImage) morph.getImage();
-                BufferedImage scaledImage = (BufferedImage) rawImage.getScaledInstance(16,
+                BufferedImage image = (BufferedImage)morph.getImage();
+                Image img = image.getScaledInstance(16,
                         16, Image.SCALE_DEFAULT);
+                BufferedImage scaledImage = toBufferedImage(img);
                 
                 this.setCursor(cursors.newCustomCursor(scaledImage));
             } else if(cursors.isCursorType(WatchmakerCursor.detach, cursor)) {

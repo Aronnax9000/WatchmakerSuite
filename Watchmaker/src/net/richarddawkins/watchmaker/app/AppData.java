@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.album.Album;
+import net.richarddawkins.watchmaker.component.WatchPanel;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
@@ -106,7 +107,8 @@ public interface AppData  {
     WatchmakerCursorFactory getWatchmakerCursorFactory();
     public MorphDrawer newMorphDrawer();
     MorphView getSelectedMorphView();
-    void setSelectedMorphView(MorphView selectedMorphView); 
+    void setSelectedMorphView(MorphView selectedMorphView);
+    public WatchPanel newWatchPanel(); 
     
 
 }

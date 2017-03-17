@@ -4,11 +4,13 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
@@ -31,7 +33,32 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
         }
 
     }
+    /**
+     * Converts a given Image into a BufferedImage
+     *
+     * @param image The Image to be converted
+     * @return The converted BufferedImage
+     */
+    public static BufferedImage toBufferedImage(Object image)
+    {
+        if (image instanceof BufferedImage)
+        {
+            return (BufferedImage) image;
+        }
 
+        Image img = (Image) image;
+        
+        // Create a buffered image with transparency
+        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+        // Draw the image on to the buffered image
+        Graphics2D bGr = bimage.createGraphics();
+        bGr.drawImage(img, 0, 0, null);
+        bGr.dispose();
+
+        // Return the buffered image
+        return bimage;
+    }
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel");
 

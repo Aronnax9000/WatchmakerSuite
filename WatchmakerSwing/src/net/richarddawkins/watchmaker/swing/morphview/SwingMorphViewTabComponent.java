@@ -9,15 +9,17 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import net.richarddawkins.watchmaker.morphview.MorphViewTabComponent;
+import net.richarddawkins.watchmaker.app.WatchmakerTabComponent;
+import net.richarddawkins.watchmaker.swing.components.SwingWatchPanel;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 
-public class SwingMorphViewTabComponent extends JPanel implements MorphViewTabComponent {
+public class SwingMorphViewTabComponent extends SwingWatchPanel implements WatchmakerTabComponent {
 	/**
 	 * 
 	 */
+    
+    
 	private static final long serialVersionUID = -5284721564837850902L;
 
 	public void setIcon(String filename) {
@@ -55,7 +57,9 @@ public class SwingMorphViewTabComponent extends JPanel implements MorphViewTabCo
 		add(btnClose, gbc);
 	}
 
-	public class MyCloseActionHandler implements ActionListener {
+
+
+    public class MyCloseActionHandler implements ActionListener {
 
 		private String tabName;
 

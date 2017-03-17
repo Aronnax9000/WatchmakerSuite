@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.swing;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import javax.swing.JApplet;
 import javax.swing.JMenuBar;
@@ -29,7 +30,7 @@ public class WatchmakerApplet extends JApplet {
 					setJMenuBar((JMenuBar) menuBar);
 					getContentPane().setLayout(new BorderLayout());
 					morphTypePane = SwingMultiMorphTypeTabbedPanel.getInstance();
-					getContentPane().add(morphTypePane);
+					getContentPane().add((Component)morphTypePane.getComponent());
 				}
 			});
 		} catch (Exception e) {

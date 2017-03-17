@@ -10,7 +10,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.MultiMorphTypeTabbedPanel;
@@ -20,7 +19,7 @@ import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuBar;
 
-public class SwingMultiMorphTypeTabComponent extends JPanel implements WatchmakerTabComponent {
+public class SwingMultiMorphTypeTabComponent extends SwingTabComponent implements WatchmakerTabComponent {
 	/**
 	 * 
 	 */
