@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.logging.Logger;
 
 public abstract class WatchmakerCursorFactory {
-    private static Logger logger = Logger.getLogger(
+    @SuppressWarnings("unused")
+private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory");
 
     public abstract Object newCustomCursor(BufferedImage image);

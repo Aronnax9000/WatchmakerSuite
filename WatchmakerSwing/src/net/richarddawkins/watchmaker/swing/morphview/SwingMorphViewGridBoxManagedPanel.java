@@ -7,7 +7,8 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 
 public class SwingMorphViewGridBoxManagedPanel extends SwingMorphViewPanel {
 
-    private static Logger logger = Logger.getLogger(
+    @SuppressWarnings("unused")
+   private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManagedPanel");
 
 

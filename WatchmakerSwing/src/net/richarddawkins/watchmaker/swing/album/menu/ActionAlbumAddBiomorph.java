@@ -13,6 +13,7 @@ import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 public class ActionAlbumAddBiomorph extends SwingWatchmakerAction {
 
     private static final long serialVersionUID = 4121419685469500509L;
+    @SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.menu.ActionAlbumAddBiomorph");
     public ActionAlbumAddBiomorph(AppData appData) {

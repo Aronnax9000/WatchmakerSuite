@@ -1,13 +1,7 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
-import java.util.Iterator;
 import java.util.logging.Logger;
 
-import net.richarddawkins.watchmaker.album.Album;
-import net.richarddawkins.watchmaker.geom.BoxedMorph;
-import net.richarddawkins.watchmaker.geom.GridBoxManager;
-import net.richarddawkins.watchmaker.geom.Rect;
-import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 

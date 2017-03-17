@@ -17,7 +17,8 @@ import net.richarddawkins.watchmaker.morphview.engineer.EngineeringMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
 public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged implements EngineeringMorphView {
-    private static Logger logger = Logger.getLogger(
+    @SuppressWarnings("unused")
+   private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");
 
     @Override

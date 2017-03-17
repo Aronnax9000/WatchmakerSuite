@@ -68,9 +68,11 @@ public abstract class SimpleMorph implements Morph {
 
     @Override
     public void genomeChange(GenomeChangeEvent evt) {
-        this.setImage(null);
+        logger.info("SimpleMorph.genomeChange " + evt);
+ 
         if(embryology != null) {
             embryology.develop(this);
+            pcs.firePropertyChange("phenotype", null, this.getPhenotype());
         }
     }
 

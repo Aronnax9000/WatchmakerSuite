@@ -20,7 +20,8 @@ import net.richarddawkins.watchmaker.swing.components.SwingSpeedSlider;
 
 public abstract class SwingMorphView extends SimpleMorphView {
 
-    private static Logger logger = Logger.getLogger(
+    @SuppressWarnings("unused")
+  private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphView");
 
     protected JPanel panel;

@@ -10,6 +10,7 @@ import net.richarddawkins.watchmaker.morphview.breed.BreedingMorphView;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
 
 public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged implements BreedingMorphView {
+    @SuppressWarnings("unused")
 
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.breed.SwingBreedingMorphView");

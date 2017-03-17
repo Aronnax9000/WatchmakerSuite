@@ -374,7 +374,6 @@ public class Atom extends SimpleGene {
 
 	@Override
 	public String toString() {
-		ArthromorphGenome arthGenome = (ArthromorphGenome) genome;
 		return kind.toString() + " w:" + width + " h:" + height + " a:" + angle + " g:" + gradientGene + " segNo:"
 				+ segmentNumber;
 	}

@@ -157,7 +157,6 @@ public abstract class SwingGeneBoxStrip
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getPropertyName().equals("selectedBoxedMorph")) {
-            SwingMorphViewPanel panel = (SwingMorphViewPanel) evt.getSource();
             BoxedMorph boxedMorph = (BoxedMorph) evt.getNewValue();
             if(boxedMorph != null) {
                 Morph morph = boxedMorph.getMorph();

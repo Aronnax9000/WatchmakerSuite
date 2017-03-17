@@ -13,45 +13,41 @@ import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingGeneBox;
 
 public class SwingAtomGeneBox extends SwingGeneBox {
-	private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingAtomGeneBox");
-	
-	private static final long serialVersionUID = 1L;
+    @SuppressWarnings("unused")
+    private static Logger logger = Logger.getLogger(
+            "net.richarddawkins.watchmaker.morphs.arthro.genome.swing.SwingAtomGeneBox");
 
+    private static final long serialVersionUID = 1L;
 
-	public SwingAtomGeneBox(AppData appData) {
-	    super(appData);
-		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		this.setBorder(null);
-		valueLabel.setVerticalAlignment(SwingConstants.TOP);
-		valueLabel.setHorizontalAlignment(SwingConstants.LEFT);
-//		valueLabel.setBorder(new LineBorder(Color.RED));
-		this.add(valueLabel);
-	}
-	
+    public SwingAtomGeneBox(AppData appData) {
+        super(appData);
+        this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        this.setBorder(null);
+        valueLabel.setVerticalAlignment(SwingConstants.TOP);
+        valueLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        // valueLabel.setBorder(new LineBorder(Color.RED));
+        this.add(valueLabel);
+    }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        setValue((Atom) evt.getNewValue());
+    }
 
-	
-	
-	@Override
-	public void propertyChange(PropertyChangeEvent evt) {
-		setValue((Atom)evt.getNewValue());
-	}
+    @Override
+    public void setEngineeringMode() {
+        super.setEngineeringMode(GeneBoxType.leftRightUpDownEquals);
+    }
 
-	@Override
-	public void setEngineeringMode() {
-		super.setEngineeringMode(GeneBoxType.leftRightUpDownEquals);
-	}
+    @Override
+    public void setGene(Gene gene) {
+        super.setGene(gene);
+        Atom atom = (Atom) gene;
+        setValue(atom);
+    }
 
-	@Override
-	public void setGene(Gene gene) {
-		super.setGene(gene);
-		Atom atom = (Atom) gene;
-		setValue(atom);
-	}
-	private void setValue(Atom newValue) {
-		setText(newValue.toString());
-	}
-
-
+    private void setValue(Atom newValue) {
+        setText(newValue.toString());
+    }
 
 }
