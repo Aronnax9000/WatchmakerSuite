@@ -13,10 +13,9 @@ import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
-import net.richarddawkins.watchmaker.morphview.engineer.EngineeringMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
-public class SwingEngineeringMorphView extends SwingMorphViewGridBoxManaged implements EngineeringMorphView {
+public class SwingEngineeringMorphView extends SwingMorphView {
     @SuppressWarnings("unused")
    private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphView");

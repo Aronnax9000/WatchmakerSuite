@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.SimpleMorphView;
@@ -29,6 +30,8 @@ public abstract class SwingMorphView extends SimpleMorphView {
     public SwingMorphView(MorphViewConfig config) {
         super(config);
     }
+
+
 
     @Override
     public void addGeneBoxStrip(boolean engineeringMode,

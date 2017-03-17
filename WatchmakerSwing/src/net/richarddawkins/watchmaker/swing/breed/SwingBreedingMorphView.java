@@ -7,9 +7,9 @@ import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.breed.BreedingMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
-public class SwingBreedingMorphView extends SwingMorphViewGridBoxManaged implements BreedingMorphView {
+public class SwingBreedingMorphView extends SwingMorphView implements BreedingMorphView {
     @SuppressWarnings("unused")
 
     private static Logger logger = Logger.getLogger(

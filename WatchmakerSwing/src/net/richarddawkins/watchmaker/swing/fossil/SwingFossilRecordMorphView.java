@@ -4,9 +4,9 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.fossil.FossilRecordMorphView;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewGridBoxManaged;
+import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
-public class SwingFossilRecordMorphView extends SwingMorphViewGridBoxManaged implements FossilRecordMorphView {
+public class SwingFossilRecordMorphView extends SwingMorphView implements FossilRecordMorphView {
 
     public SwingFossilRecordMorphView(MorphViewConfig config) {
         super(config);

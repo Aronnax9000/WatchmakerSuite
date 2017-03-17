@@ -1,7 +1,13 @@
 package net.richarddawkins.watchmaker.morphview.engineer;
 
-import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
+import net.richarddawkins.watchmaker.morphview.SimpleMorphView;
 
-public interface EngineeringMorphView extends MorphView {
+public abstract class EngineeringMorphView extends SimpleMorphView {
+
+    public EngineeringMorphView(MorphViewConfig config) {
+        super(config);
+        
+    }
 
 }
