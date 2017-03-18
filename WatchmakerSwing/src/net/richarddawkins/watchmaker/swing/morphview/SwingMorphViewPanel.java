@@ -78,8 +78,9 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
             public void paintComponent(Graphics g) {
                 logger.fine("centrePanel.paintComponent()");
                 super.paintComponent(g);
-                paintMorphViewPanel((Graphics2D) g,
-                        geometryManager.toWatchmakerDim(this.getSize()));
+                Dim size = geometryManager.toWatchmakerDim(this.getSize());
+                paintMorphViewPanel((Graphics2D) g,size);
+                        
             }
         };
         MouseAdapter mouseAdapter = new MouseAdapter() {
@@ -171,7 +172,6 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
     @Override
     public void repaint() {
         panel.repaint();
-
     }
 
     @Override

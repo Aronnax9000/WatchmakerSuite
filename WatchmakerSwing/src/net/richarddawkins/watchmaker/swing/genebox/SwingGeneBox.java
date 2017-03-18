@@ -16,7 +16,13 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 
 	protected JLabel valueLabel = new JLabel("X");
 	
-	public void setText(String newValue) {
+	@Override
+    public void launchPicker() {
+       
+        
+    }
+
+    public void setText(String newValue) {
 		valueLabel.setText(newValue);
 		repaint();
 	}
@@ -56,8 +62,10 @@ abstract public class SwingGeneBox extends JPanel implements GeneBox {
 	}
 	
 	public void setEngineeringMode(GeneBoxType geneBoxType) {
-        geneBoxMouseAdapter = new GeneBoxMouseAdapter(geneBoxType, appData.getWatchmakerCursorFactory());
-		this.addMouseMotionListener(geneBoxMouseAdapter);
-		this.addMouseListener(geneBoxMouseAdapter);
+	    if(geneBoxMouseAdapter == null) {
+            geneBoxMouseAdapter = new GeneBoxMouseAdapter(this, geneBoxType, appData.getWatchmakerCursorFactory());
+    		this.addMouseMotionListener(geneBoxMouseAdapter);
+    		this.addMouseListener(geneBoxMouseAdapter);
+	    }
 	}
 }

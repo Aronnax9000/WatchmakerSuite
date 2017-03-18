@@ -29,23 +29,10 @@ public class SwingColorGeneBox extends SwingIntegerGeneBox {
         super.setValue(value);
     }
 
-    
-
-    public void raiseColorPicker() {
+    public void launchPicker() {
         SwingColorPicker picker = SwingColorPicker.getInstance();
         picker.setGene((ColorGene) gene);
         picker.setVisible(true);
         picker.repaint();
     }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent event) {
-        if (event.getPropertyName().equals("launchPicker")) {
-            raiseColorPicker();
-        } else {
-            super.propertyChange(event);
-        }
-
-    }
-
 }

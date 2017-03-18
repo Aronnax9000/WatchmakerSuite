@@ -13,5 +13,7 @@ public interface GeneBox extends PropertyChangeListener {
 	public void setEngineeringMode();
 	
 	public void setText(String text);
+
+    void launchPicker();
 	
 }

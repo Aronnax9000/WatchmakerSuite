@@ -37,36 +37,36 @@ public class SwingEngineeringMorphView extends SwingMorphView {
         super(config);
     }
 
-    @Override
-    public void seed() {
-        if (!seedMorphs.isEmpty()) {
-            synchronized (seedMorphs) {
-                SwingEngineeringMorphViewPanel panel = (SwingEngineeringMorphViewPanel)panels.firstElement();
-                BoxedMorphCollection boxedMorphs = panel
-                        .getBoxedMorphCollection();
-                if (!boxedMorphs.isEmpty()) {
-                    for (BoxedMorph boxedMorph : boxedMorphs.getBoxedMorphs()) {
-                        boxedMorph.getMorph()
-                                .removePropertyChangeListener(this);
-                    }
-                    boxedMorphs.removeAllElements();
-                }
-                BoxManager boxes = boxedMorphs.getBoxManager();
-                int index = 0;
-                MorphConfig config = appData.getMorphConfig();
-                Morph morph = config.copyMorph(seedMorphs.firstElement());
-                BoxedMorph boxedMorph = new BoxedMorph(boxes, morph,
-                        boxes.getBox(index++));
-                morph.addPropertyChangeListener(panel);
-                boxedMorphs.add(boxedMorph);
-                seedMorphs.remove(morph);
-
-                // GEneBoxStrip shouldbe told? How does Breeding do it?
-            }
-        }
-        backup(true);
-
-    }
+//    @Override
+//    public void seed() {
+//        if (!seedMorphs.isEmpty()) {
+//            synchronized (seedMorphs) {
+//                SwingEngineeringMorphViewPanel panel = (SwingEngineeringMorphViewPanel)panels.firstElement();
+//                BoxedMorphCollection boxedMorphs = panel
+//                        .getBoxedMorphCollection();
+//                if (!boxedMorphs.isEmpty()) {
+//                    for (BoxedMorph boxedMorph : boxedMorphs.getBoxedMorphs()) {
+//                        boxedMorph.getMorph()
+//                                .removePropertyChangeListener(this);
+//                    }
+//                    boxedMorphs.removeAllElements();
+//                }
+//                BoxManager boxes = boxedMorphs.getBoxManager();
+//                int index = 0;
+//                MorphConfig config = appData.getMorphConfig();
+//                Morph morph = config.copyMorph(seedMorphs.firstElement());
+//                BoxedMorph boxedMorph = new BoxedMorph(boxes, morph,
+//                        boxes.getBox(index++));
+//                morph.addPropertyChangeListener(panel);
+//                boxedMorphs.add(boxedMorph);
+//                seedMorphs.remove(morph);
+//
+//                // GEneBoxStrip shouldbe told? How does Breeding do it?
+//            }
+//        }
+//        backup(true);
+//
+//    }
 
     @Override
     public void undo() {

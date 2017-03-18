@@ -46,14 +46,6 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel
                 options, options[0]);
     }
 
-    @Override
-    public synchronized void paintMorphViewPanel(Object graphicsContext,
-            Dim size) {
-        if (autoScale) {
-            autoScaleBasedOnMorphs();
-        }
-        super.paintMorphViewPanel(graphicsContext, size);
-    }
 
     class HypodermicWarning extends JPanel {
         private static final long serialVersionUID = 1L;

@@ -19,8 +19,8 @@ import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
 public abstract class SimpleMorphView implements MorphView {
-    private static Logger logger = Logger
-            .getLogger("net.richarddawkins.watchmaker.morphview.SimpleMorphView");
+    private static Logger logger = Logger.getLogger(
+            "net.richarddawkins.watchmaker.morphview.SimpleMorphView");
     protected Album album;
 
     protected AppData appData;
@@ -39,11 +39,11 @@ public abstract class SimpleMorphView implements MorphView {
     protected MorphViewPanel selectedPanel;
     protected boolean showBoxes = true;
     protected String toolTip;
-    
+
     public void gainFocus() {
         this.appData.setSelectedMorphView(this);
     }
-    
+
     public SimpleMorphView(MorphViewConfig config) {
         logger.fine("SwingMorphView(config): " + config);
         this.appData = config.appData;
@@ -60,16 +60,19 @@ public abstract class SimpleMorphView implements MorphView {
         addPanels();
         setSelectedPanel(panels.firstElement());
     }
+
     @Override
     public void addPropertyChangeListener(String propertyName,
             PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(propertyName, listener);
     }
+
     @Override
     public void addSeedMorph(Morph seedMorph) {
         seedMorphs.add(seedMorph);
         panels.firstElement().repaint();
     }
+
     @Override
     public void addSeedMorphs(Vector<Morph> seedMorphsToAdd) {
         if (seedMorphsToAdd != null) {
@@ -172,8 +175,6 @@ public abstract class SimpleMorphView implements MorphView {
         }
     }
 
-
-    
     @Override
     public void removePropertyChangeListener(String propertyName,
             PropertyChangeListener listener) {
@@ -181,15 +182,20 @@ public abstract class SimpleMorphView implements MorphView {
     }
 
     @Override
-    public void seed() {
+    public synchronized void seed() {
+            if (!seedMorphs.isEmpty()) {
+                synchronized (seedMorphs) {
 
-        if (!seedMorphs.isEmpty()) {
-            synchronized (seedMorphs) {
                 logger.fine("Seeding");
 
-                Morph seedMorph = seedMorphs.firstElement();
-                MorphViewPanel panel = (MorphViewPanel) panels
-                        .firstElement();
+                Morph seedMorphOriginal = seedMorphs.firstElement();
+
+                Morph seedMorph = appData.getMorphConfig()
+                        .copyMorph(seedMorphOriginal);
+                MorphViewPanel panel = (MorphViewPanel) panels.firstElement();
+
+                seedMorph.addPropertyChangeListener(panel);
+
                 BoxedMorphCollection boxedMorphCollection = panel
                         .getBoxedMorphCollection();
                 BoxManager boxes = boxedMorphCollection.getBoxManager();
@@ -203,16 +209,9 @@ public abstract class SimpleMorphView implements MorphView {
                 boxedMorphCollection.add(boxedMorph);
                 logger.fine("SwingMorphView.seed() Added boxedMorph: "
                         + boxedMorph);
-                // Trigger first breeding
 
                 panel.setSpecial(midBox);
-                // if (appData.isBreedRightAway()) {
-                // logger.fine("Setting panel special to " + midBox);
-                //
-                // panel.setSpecial(midBox);
-                // ((SwingBreedingMorphViewPanel) panel)
-                // .breedFromSpecial();
-                // }
+
                 seedMorph.setImage(null);
 
                 Dim boxDim = boxes.getBox(0, panel.getDim()).getDim();
@@ -222,7 +221,7 @@ public abstract class SimpleMorphView implements MorphView {
                         "SwingMorphView.seed():" + panel.getDim() + " BoxDim:"
                                 + boxDim + " ParentMorphDim:" + parentMorphDim);
 
-                seedMorphs.remove(seedMorph);
+                seedMorphs.remove(seedMorphOriginal);
 
             }
             repaint();
@@ -249,17 +248,17 @@ public abstract class SimpleMorphView implements MorphView {
     public void setGeneBoxStrip(GeneBoxStrip geneBoxStrip) {
         this.geneBoxStrip = geneBoxStrip;
     }
+
     @Override
     public void setIcon(String icon) {
         this.icon = icon;
     }
 
-
-
     @Override
     public void setMorphDrawer(MorphDrawer morphDrawer) {
         this.morphDrawer = morphDrawer;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -286,52 +285,55 @@ public abstract class SimpleMorphView implements MorphView {
     public void setToolTip(String toolTip) {
         this.toolTip = toolTip;
     }
+
     @Override
-   public void backup(boolean copyMorph) {
+    public void backup(boolean copyMorph) {
 
-//       logger.fine("Backup " + copyMorph + " started " + album.size());
-//       BoxedMorphCollection boxedMorphCollection = this.getSelectedPanel().getBoxedMorphCollection();
-//       GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
-//               .getBoxManager();
-//       GridBoxManager backupBoxManager = new GridBoxManager(oldBoxManager.cols,
-//               oldBoxManager.rows);
-//       BoxedMorphCollection backupBoxedMorphs = new BoxedMorphCollection(
-//               "backing", backupBoxManager);
-//       Iterator<Rect> boxIterator = backupBoxManager.getBoxes().iterator();
-//       for (BoxedMorph boxedMorph : boxedMorphCollection.getBoxedMorphs()) {
-//           Rect box;
-//           if (boxedMorphCollection.size() == 1) {
-//               box = backupBoxManager.getMidBox();
-//           } else {
-//               box = boxIterator.next();
-//           }
-//
-//           Morph newMorph;
-//           if (copyMorph) {
-//               newMorph = appData.getMorphConfig()
-//                       .copyMorph(boxedMorph.getMorph());
-//               
-//           } else {
-//               newMorph = boxedMorph.getMorph();
-//           }
-//           BoxedMorph newBoxedMorph = new BoxedMorph(backupBoxManager,
-//                   newMorph, box);
-//
-//           backupBoxedMorphs.add(newBoxedMorph);
-//       }
-//       // Add the backup just behind the one on the end (so we still work on
-//       // the original)
-//       album.addPage(album.size() - 1, backupBoxedMorphs);
-//       if (album.size() > Album.MAX_PAGES) {
-//           album.removePage(0);
-//       }
-//       logger.fine("Backup " + copyMorph + " finished " + album.size());
-   }
-
+        // logger.fine("Backup " + copyMorph + " started " + album.size());
+        // BoxedMorphCollection boxedMorphCollection =
+        // this.getSelectedPanel().getBoxedMorphCollection();
+        // GridBoxManager oldBoxManager = (GridBoxManager) boxedMorphCollection
+        // .getBoxManager();
+        // GridBoxManager backupBoxManager = new
+        // GridBoxManager(oldBoxManager.cols,
+        // oldBoxManager.rows);
+        // BoxedMorphCollection backupBoxedMorphs = new BoxedMorphCollection(
+        // "backing", backupBoxManager);
+        // Iterator<Rect> boxIterator = backupBoxManager.getBoxes().iterator();
+        // for (BoxedMorph boxedMorph : boxedMorphCollection.getBoxedMorphs()) {
+        // Rect box;
+        // if (boxedMorphCollection.size() == 1) {
+        // box = backupBoxManager.getMidBox();
+        // } else {
+        // box = boxIterator.next();
+        // }
+        //
+        // Morph newMorph;
+        // if (copyMorph) {
+        // newMorph = appData.getMorphConfig()
+        // .copyMorph(boxedMorph.getMorph());
+        //
+        // } else {
+        // newMorph = boxedMorph.getMorph();
+        // }
+        // BoxedMorph newBoxedMorph = new BoxedMorph(backupBoxManager,
+        // newMorph, box);
+        //
+        // backupBoxedMorphs.add(newBoxedMorph);
+        // }
+        // // Add the backup just behind the one on the end (so we still work on
+        // // the original)
+        // album.addPage(album.size() - 1, backupBoxedMorphs);
+        // if (album.size() > Album.MAX_PAGES) {
+        // album.removePage(0);
+        // }
+        // logger.fine("Backup " + copyMorph + " finished " + album.size());
+    }
 
     @Override
     public void undo() {
-        BoxedMorphCollection boxedMorphCollection = getSelectedPanel().getBoxedMorphCollection();
+        BoxedMorphCollection boxedMorphCollection = getSelectedPanel()
+                .getBoxedMorphCollection();
         int level = album.indexOfPage(boxedMorphCollection);
         if (level > 0) {
             logger.info("Undo level: " + level + " size " + album.size());

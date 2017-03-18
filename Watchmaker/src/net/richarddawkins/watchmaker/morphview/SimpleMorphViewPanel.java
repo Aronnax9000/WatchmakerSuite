@@ -18,6 +18,7 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
+import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public abstract class SimpleMorphViewPanel implements MorphViewPanel {
@@ -143,7 +144,6 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         for (Morph morph : boxedMorphCollection.getMorphs()) {
             morph.setImage(null);
         }
-        repaint();
     }
 
     /**
@@ -190,8 +190,8 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
                 BoxedMorph boxedMorph = iter.next();
                 boolean isSelected = boxedMorph == this.boxedMorphCollection
                         .getSelectedBoxedMorph();
-
-                morphView.getMorphDrawer().draw(boxedMorph, graphicsContext,
+                MorphDrawer drawer = morphView.getMorphDrawer();
+                drawer.draw(boxedMorph, graphicsContext,
                         size, isSelected, showBoundingBoxes, clip);
                 counter++;
             }
@@ -332,9 +332,13 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
     @Override
     public void propertyChange(PropertyChangeEvent event) {
-        if (event.getPropertyName().equals("scale")) {
+        String propertyName = event.getPropertyName();
+        if (propertyName.equals("scale") || propertyName.equals("phenotype")) {
+            logger.info("SimpleMorphViewPanel received property change event " + propertyName);
             clearMorphImages();
+            repaint();
         }
+        
     }
 
     @Override
