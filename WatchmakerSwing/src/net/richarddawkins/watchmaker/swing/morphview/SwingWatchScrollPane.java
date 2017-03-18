@@ -1,12 +1,17 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
+import java.awt.Component;
+
+import javax.swing.JScrollPane;
+
 import net.richarddawkins.watchmaker.component.WatchPanel;
 import net.richarddawkins.watchmaker.component.WatchScrollPane;
+import net.richarddawkins.watchmaker.swing.components.SwingWatchComponent;
 
-public class SwingWatchScrollPane implements WatchScrollPane {
+public class SwingWatchScrollPane extends SwingWatchComponent implements WatchScrollPane {
 
     public SwingWatchScrollPane(WatchPanel dummy) {
-        // TODO Auto-generated constructor stub
+        component = new JScrollPane((Component)dummy.getComponent());
     }
 
 }

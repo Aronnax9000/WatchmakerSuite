@@ -58,11 +58,11 @@ public class FreeBoxManager extends BoxManager {
     }
     
     @Override
-    public Vector<Rect> getBoxes(Dim scale) {
+    public Vector<Rect> getBoxes(Dim screenSize) {
         Iterator<Rect> rects = boxes.iterator();
         for (DoubleRect doubleRect : doubleBoxes) {
             Rect rect = rects.next();
-            Rect r = doubleRect.toRect(scale);
+            Rect r = doubleRect.getScaled(scale).toRect(screenSize);
             rect.setRect(r.left, r.top, r.right, r.bottom);
         }
         return boxes;

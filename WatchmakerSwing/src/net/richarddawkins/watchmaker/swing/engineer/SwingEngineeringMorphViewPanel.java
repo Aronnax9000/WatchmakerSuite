@@ -20,7 +20,8 @@ import net.richarddawkins.watchmaker.resourceloader.Messages;
 import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel;
 
-public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel implements EngineeringMorphViewPanel {
+public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel
+        implements EngineeringMorphViewPanel {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphViewPanel");
 
@@ -49,8 +50,7 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel implemen
     public synchronized void paintMorphViewPanel(Object graphicsContext,
             Dim size) {
         if (autoScale) {
-            autoScaleBasedOnMorphs(
-                    boxedMorphCollection.getBoxManager().getBox(0));
+            autoScaleBasedOnMorphs();
         }
         super.paintMorphViewPanel(graphicsContext, size);
     }

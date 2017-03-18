@@ -44,7 +44,7 @@ public abstract class SwingMorphView extends SimpleMorphView {
             WatchPanel dummy = appData.newWatchPanel();
             dummy.add(geneBoxStripPanel);
             WatchScrollPane scrollPane = new SwingWatchScrollPane(dummy);
-            panel.add(scrollPane, BorderLayout.LINE_END);
+            panel.add(scrollPane.getComponent(), BorderLayout.LINE_END);
         } else {
             panel.add(geneBoxStripPanel, BorderLayout.PAGE_START);
         }

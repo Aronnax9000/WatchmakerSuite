@@ -26,6 +26,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
     public SwingBreedingMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         super(morphView, page);
+        autoScale = true;
         includeChildrenInAutoScale = true;
 
     }

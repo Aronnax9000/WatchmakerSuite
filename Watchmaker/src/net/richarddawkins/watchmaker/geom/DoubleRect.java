@@ -1,5 +1,6 @@
 package net.richarddawkins.watchmaker.geom;
 
+import net.richarddawkins.watchmaker.util.Globals;
 
 /**
  * Java class to simulate a QuickDraw Rect (rectangle) with double coordinates
@@ -208,4 +209,21 @@ public class DoubleRect implements Cloneable {
 		return !(p.h < left || p.h > right || p.v < top || p.v > bottom);
 
 	}
+
+    public DoubleRect getScaled(int scale) {
+        double scaleFactor = Math.pow(Globals.zoomBase, scale);
+        DoublePoint midPoint = this.getMidPoint();
+        double newHalfWidth = this.getWidth() * scaleFactor / 2;
+        double newHalfHeight = this.getHeight() * scaleFactor / 2;
+        
+        
+        DoubleRect scaledRect = new DoubleRect();
+        scaledRect.left = midPoint.h - newHalfWidth;
+        scaledRect.right = midPoint.h + newHalfWidth;
+        scaledRect.top = midPoint.v - newHalfHeight;
+        scaledRect.bottom = midPoint.v + newHalfHeight;
+        
+        
+        return scaledRect;
+    }
 }

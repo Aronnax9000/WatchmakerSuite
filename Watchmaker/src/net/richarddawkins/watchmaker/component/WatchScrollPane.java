@@ -1,5 +1,5 @@
 package net.richarddawkins.watchmaker.component;
 
-public interface WatchScrollPane {
+public interface WatchScrollPane extends WatchComponent {
 
 }

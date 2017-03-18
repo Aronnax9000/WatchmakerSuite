@@ -60,7 +60,7 @@ public class BoxAnimator {
             // parent
             // morph
 
-            breedingPanel.autoScaleBasedOnMorphs(special);
+            breedingPanel.autoScaleBasedOnMorphs();
             tickDelay = breedingPanel.morphView.getAppData().getTickDelay();
             nudgeFactor = 1.0 / (tickDelay + 1);
             // We don't box it yet, because we still have to animate the
@@ -120,7 +120,7 @@ public class BoxAnimator {
             boxedMorphParent.setDestinationBox(null);
             boxedMorphParent.setProgress(0.0d);
             vacantBoxNumber = 0;
-            breedingPanel.autoScaleBasedOnMorphs(midBox);
+            breedingPanel.autoScaleBasedOnMorphs();
             phase = Phase.box_next_offspring;
             break;
         case box_next_offspring:
@@ -188,7 +188,7 @@ public class BoxAnimator {
             timerTask.cancel();
             timer = null;
 //            logger.info("Finished idle");
-            breedingPanel.autoScaleBasedOnMorphs(midBox);
+            breedingPanel.autoScaleBasedOnMorphs();
 
             break;
         }

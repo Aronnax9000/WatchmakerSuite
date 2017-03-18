@@ -1,6 +1,5 @@
 package net.richarddawkins.watchmaker.morphview;
 
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -19,7 +18,6 @@ import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
-import net.richarddawkins.watchmaker.phenotype.Phenotype;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public abstract class SimpleMorphViewPanel implements MorphViewPanel {
@@ -36,7 +34,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     protected Point lastMouseDown;
     protected Dim lastMouseDownSize;
     protected Point lastMouseDrag;
-    
+
     protected Dim lastMouseDragSize;
     public MorphView morphView;
     protected String name;
@@ -64,54 +62,82 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
-        
+
     }
+
     @Override
-    public void autoScaleBasedOnMorphs(Rect special) {
-//        logger.fine("autoScaleBasedOnMorphs " + special + " includeChildren "
-//                + this.includeChildrenInAutoScale);
-        Vector<Dim> dims = new Vector<Dim>();
+    public void autoScaleBasedOnMorphs() {
+        if (autoScale) {
+            Vector<Dim> dims = new Vector<Dim>();
 
-        BoxManager boxes = boxedMorphCollection.getBoxManager();
-        if (special != null) {
-            BoxedMorph boxedMorphSpecial = boxedMorphCollection
-                    .getBoxedMorph(special);
-            if (boxedMorphSpecial != null) {
-                Morph specialMorph = boxedMorphSpecial.getMorph();
-
-                if (includeChildrenInAutoScale) {
-                    Vector<Morph> morphs = specialMorph.getMorphAndChildren();
-                    for (Morph morph : morphs) {
-                        Phenotype phenotype = morph.getPhenotype();
-                        if (phenotype != null) {
-                            Rect margin = phenotype.getMargin();
-                            Dim dim = margin.getDim();
-                            dims.add(dim);
-                        } else {
-                        }
-                    }
-                } else {
-                    dims.add(specialMorph.getPhenotype().getMargin().getDim());
-                }
-            }
-        } else {
+            BoxManager boxes = boxedMorphCollection.getBoxManager();
             for (BoxedMorph boxedMorph : boxedMorphCollection
                     .getBoxedMorphs()) {
                 dims.addElement(boxedMorph.getMorph().getPhenotype().getMargin()
                         .getDim());
             }
 
-        }
-        Dim largestMorphDim;
-        largestMorphDim = Dim.getLargest(dims);
-        if(boxes.getBoxCount() > 0) {
-            Dim boxDim = boxes.firstElement().getDim();
-            int newScale = boxDim.getScale(largestMorphDim, Globals.zoomBase);
-            if (newScale != boxes.getScale()) {
-                boxes.setScale(newScale);
+            Dim largestMorphDim;
+            largestMorphDim = Dim.getLargest(dims);
+
+            if (boxes.getBoxCount() > 0) {
+                // Get a typical box dimension from GridboxManager
+                Dim boxDim = boxes.firstElement().getDim();
+                int newScale = boxDim.getScale(largestMorphDim,
+                        Globals.zoomBase);
+                if (newScale != boxes.getScale()) {
+                    boxes.setScale(newScale);
+                }
             }
         }
     }
+
+    // @Override
+    // public void autoScaleBasedOnMorphs(Rect special) {
+    // logger.fine("autoScaleBasedOnMorphs " + special + " includeChildren "
+    // + this.includeChildrenInAutoScale);
+    // Vector<Dim> dims = new Vector<Dim>();
+    //
+    // BoxManager boxes = boxedMorphCollection.getBoxManager();
+    // if (special != null) {
+    // BoxedMorph boxedMorphSpecial = boxedMorphCollection
+    // .getBoxedMorph(special);
+    // if (boxedMorphSpecial != null) {
+    // Morph specialMorph = boxedMorphSpecial.getMorph();
+    //
+    // if (includeChildrenInAutoScale) {
+    // Vector<Morph> morphs = specialMorph.getMorphAndChildren();
+    // for (Morph morph : morphs) {
+    // Phenotype phenotype = morph.getPhenotype();
+    // if (phenotype != null) {
+    // Rect margin = phenotype.getMargin();
+    // Dim dim = margin.getDim();
+    // dims.add(dim);
+    // } else {
+    // }
+    // }
+    // } else {
+    // dims.add(specialMorph.getPhenotype().getMargin().getDim());
+    // }
+    // }
+    // } else {
+    // for (BoxedMorph boxedMorph : boxedMorphCollection
+    // .getBoxedMorphs()) {
+    // dims.addElement(boxedMorph.getMorph().getPhenotype().getMargin()
+    // .getDim());
+    // }
+    //
+    // }
+    // Dim largestMorphDim;
+    // largestMorphDim = Dim.getLargest(dims);
+    // if(boxes.getBoxCount() > 0) {
+    // Dim boxDim = boxes.firstElement().getDim();
+    // int newScale = boxDim.getScale(largestMorphDim, Globals.zoomBase);
+    // if (newScale != boxes.getScale()) {
+    // boxes.setScale(newScale);
+    // }
+    // }
+    // }
     @Override
     public void clearMorphImages() {
         for (Morph morph : boxedMorphCollection.getMorphs()) {
@@ -119,6 +145,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
         repaint();
     }
+
     /**
      * Draw boxes in box order (not in boxed Morph order.)
      * 
@@ -147,7 +174,9 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         boxesDrawer.draw(graphicsContext, size, boxes, midBoxOnly,
                 backgroundColors);
     }
-    protected void drawMorphs(Object graphicsContext, Dim size, boolean showBoundingBoxes) {
+
+    protected void drawMorphs(Object graphicsContext, Dim size,
+            boolean showBoundingBoxes, boolean clip) {
 
         synchronized (boxedMorphCollection) {
             int counter = 0;
@@ -161,18 +190,19 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
                 BoxedMorph boxedMorph = iter.next();
                 boolean isSelected = boxedMorph == this.boxedMorphCollection
                         .getSelectedBoxedMorph();
-                
 
                 morphView.getMorphDrawer().draw(boxedMorph, graphicsContext,
-                        size, isSelected, showBoundingBoxes);
+                        size, isSelected, showBoundingBoxes, clip);
                 counter++;
             }
         }
     }
+
     @Override
     public void gainFocus() {
         addPropertyChangeListener(morphView.getGeneBoxStrip());
-        morphView.getScaleSlider().setBoxManager(boxedMorphCollection.getBoxManager());
+        morphView.getScaleSlider()
+                .setBoxManager(boxedMorphCollection.getBoxManager());
 
     }
 
@@ -185,7 +215,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     public boolean getIncludeChildrenInAutoScale() {
         return includeChildrenInAutoScale;
     }
-    
+
     @Override
     public Morph getMorphOfTheHour() {
         BoxedMorph boxedMorph = boxedMorphCollection.getSelectedBoxedMorph();
@@ -207,21 +237,23 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
         return morph;
     }
-    
+
     @Override
     public Vector<Morph> getMorphs() {
         return boxedMorphCollection.getMorphs();
     }
-    
+
     @Override
     public MorphView getMorphView() {
         return morphView;
 
     }
+
     @Override
     public String getName() {
         return name;
     }
+
     @Override
     public Rect getSpecial() {
         return special;
@@ -236,6 +268,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     public boolean isShowBoundingBoxes() {
         return showBoundingBoxes;
     }
+
     @Override
     public void loseFocus() {
         removePropertyChangeListener(morphView.getGeneBoxStrip());
@@ -266,47 +299,48 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             if (morphView.isShowBoxes()) {
                 drawBoxes(graphicsContext, size);
             }
-            drawMorphs(graphicsContext, size, showBoundingBoxes);
+            drawMorphs(graphicsContext, size, showBoundingBoxes, autoScale);
         }
     }
 
     @Override
     public void processMouseClicked(Point point, Dim size) {
     }
+
     @Override
-    public void processMouseDragged(Point watchmakerPoint,
-            Dim watchmakerDim) {
+    public void processMouseDragged(Point watchmakerPoint, Dim watchmakerDim) {
         this.lastMouseDrag = watchmakerPoint;
         this.lastMouseDragSize = watchmakerDim;
         repaint();
     }
+
     @Override
-    public void processMousePressed(Point watchmakerPoint,
-            Dim watchmakerDim) {
+    public void processMousePressed(Point watchmakerPoint, Dim watchmakerDim) {
         this.lastMouseDown = watchmakerPoint;
         this.lastMouseDownSize = watchmakerDim;
 
     }
 
     @Override
-    public void processMouseReleased(Point watchmakerPoint,
-            Dim watchmakerDim) {
+    public void processMouseReleased(Point watchmakerPoint, Dim watchmakerDim) {
         this.lastMouseDown = null;
         this.lastMouseDownSize = null;
         this.lastMouseDrag = null;
         this.lastMouseDragSize = null;
         repaint();
     }
+
     @Override
     public void propertyChange(PropertyChangeEvent event) {
         if (event.getPropertyName().equals("scale")) {
             clearMorphImages();
         }
     }
+
     @Override
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         pcs.removePropertyChangeListener(listener);
-        
+
     }
 
     @Override
@@ -326,8 +360,10 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
             newValue.getBoxManager().addPropertyChangeListener("scale", this);
         }
     }
+
     @Override
-    public void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale) {
+    public void setIncludeChildrenInAutoScale(
+            boolean includeChildrenInAutoScale) {
         this.includeChildrenInAutoScale = includeChildrenInAutoScale;
     }
 
@@ -342,6 +378,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         this.selectedBoxedMorph = newValue;
         pcs.firePropertyChange("selectedBoxedMorph", oldValue, newValue);
     }
+
     @Override
     public void setShowBoundingBoxes(boolean showBoundingBoxes) {
         this.showBoundingBoxes = showBoundingBoxes;
@@ -365,7 +402,5 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
         return stringBuffer.toString();
     }
-
-
 
 }

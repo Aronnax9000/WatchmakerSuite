@@ -29,27 +29,29 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
         implements MorphViewPanel {
     protected class ResizeListener extends ComponentAdapter {
         public void componentResized(ComponentEvent e) {
-            autoScaleBasedOnMorphs(special);
+
+                autoScaleBasedOnMorphs();
         }
 
     }
+
     /**
      * Converts a given Image into a BufferedImage
      *
-     * @param image The Image to be converted
+     * @param image
+     *            The Image to be converted
      * @return The converted BufferedImage
      */
-    public static BufferedImage toBufferedImage(Object image)
-    {
-        if (image instanceof BufferedImage)
-        {
+    public static BufferedImage toBufferedImage(Object image) {
+        if (image instanceof BufferedImage) {
             return (BufferedImage) image;
         }
 
         Image img = (Image) image;
-        
+
         // Create a buffered image with transparency
-        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bimage = new BufferedImage(img.getWidth(null),
+                img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 
         // Draw the image on to the buffered image
         Graphics2D bGr = bimage.createGraphics();
@@ -59,6 +61,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
         // Return the buffered image
         return bimage;
     }
+
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewPanel");
 
@@ -152,7 +155,8 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
         // boolean selectedBoxedMorphIsntNull = selectedBoxedMorph != null;
         // if (cursorTypeIsntHighlight && selectedBoxedMorphIsntNull) {
         if (cursorTypeIsntHighlight) {
-            BoxedMorph boxedMorphUnderCursor = boxedMorphCollection.getBoxedMorph(myPt, size);
+            BoxedMorph boxedMorphUnderCursor = boxedMorphCollection
+                    .getBoxedMorph(myPt, size);
 
             if (boxedMorphUnderCursor != selectedBoxedMorph) {
                 if (boxedMorphUnderCursor != null) {

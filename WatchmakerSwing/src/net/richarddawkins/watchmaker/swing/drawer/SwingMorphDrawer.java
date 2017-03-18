@@ -68,7 +68,7 @@ public class SwingMorphDrawer implements MorphDrawer {
 
     @Override
     public void draw(BoxedMorph boxedMorph, Object graphicsContext, Dim size,
-            boolean selectionState, boolean showBoundingBox) {
+            boolean selectionState, boolean showBoundingBox, boolean clip) {
         Phenotype phenotype = boxedMorph.getMorph().getPhenotype();
         Graphics2D g2 = (Graphics2D) ((Graphics2D) graphicsContext).create();
 //        Graphics2D g2 = (Graphics2D) graphicsContext;
@@ -76,7 +76,7 @@ public class SwingMorphDrawer implements MorphDrawer {
         Shape saveClip = g2.getClip();
         
         logger.fine("Draw BoxedMorph, saved transform and clip");
-        if(boxedMorph.getDestinationBox() == null) {
+        if(boxedMorph.getDestinationBox() == null && clip) {
             // not going anywhere, clip the home box.
             Rect box = boxedMorph.getBox();
             g2.setClip(box.left + 2, box.top + 2, box.getWidth() - 4,

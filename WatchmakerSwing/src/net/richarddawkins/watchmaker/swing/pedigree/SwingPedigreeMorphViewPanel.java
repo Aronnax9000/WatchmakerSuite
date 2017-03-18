@@ -29,6 +29,7 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
     public SwingPedigreeMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
         setCursor(cursors.getCursor(WatchmakerCursor.pedigree));
+        this.autoScale = false;
         includeChildrenInAutoScale = false;
         showBoundingBoxes = true;
     }

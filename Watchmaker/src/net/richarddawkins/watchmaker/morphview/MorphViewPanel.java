@@ -15,7 +15,7 @@ public interface MorphViewPanel extends PropertyChangeListener  {
 
     void addPropertyChangeListener(PropertyChangeListener listener);
 
-    void autoScaleBasedOnMorphs(Rect special);
+    void autoScaleBasedOnMorphs();
 
 
     void clearMorphImages();

@@ -96,18 +96,18 @@ public class SwingScaleSlider
         }
     }
 
-    public void setBoxManager(BoxManager newValue) {
-        BoxManager oldValue = boxManager;
-        if(oldValue != null) {
-            oldValue.removePropertyChangeListener("scale", this);
-            pcs.removePropertyChangeListener("scale", oldValue);
+    public void setBoxManager(BoxManager newBoxManager) {
+        BoxManager oldBoxManager = boxManager;
+        if(oldBoxManager != null) {
+            oldBoxManager.removePropertyChangeListener("scale", this);
+            pcs.removePropertyChangeListener("scale", oldBoxManager);
         }
-        if(newValue != null) {
-            newValue.addPropertyChangeListener("scale", this);
-            pcs.addPropertyChangeListener("scale", newValue);
+        if(newBoxManager != null) {
+            newBoxManager.addPropertyChangeListener("scale", this);
+            pcs.addPropertyChangeListener("scale", newBoxManager);
         }
-        boxManager = newValue;
-        this.scale = newValue.getScale();
+        boxManager = newBoxManager;
+        this.scale = newBoxManager.getScale();
         slider.setValue(scale);
     }
 
