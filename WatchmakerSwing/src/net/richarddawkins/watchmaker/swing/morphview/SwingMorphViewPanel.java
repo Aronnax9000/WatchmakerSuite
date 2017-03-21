@@ -27,10 +27,12 @@ import net.richarddawkins.watchmaker.morphview.SimpleMorphViewPanel;
 
 public class SwingMorphViewPanel extends SimpleMorphViewPanel
         implements MorphViewPanel {
+
+    protected boolean isDraggable = false;
+
     protected class ResizeListener extends ComponentAdapter {
         public void componentResized(ComponentEvent e) {
-
-                autoScaleBasedOnMorphs();
+            autoScaleBasedOnMorphs();
         }
 
     }
@@ -79,8 +81,8 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
                 logger.fine("centrePanel.paintComponent()");
                 super.paintComponent(g);
                 Dim size = geometryManager.toWatchmakerDim(this.getSize());
-                paintMorphViewPanel((Graphics2D) g,size);
-                        
+                paintMorphViewPanel((Graphics2D) g, size);
+
             }
         };
         MouseAdapter mouseAdapter = new MouseAdapter() {
@@ -95,10 +97,18 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
             @Override
             public void mouseDragged(MouseEvent e) {
                 logger.fine("mouseDragged");
-                processMouseDragged(
-                        geometryManager.toWatchmakerPoint(e.getPoint()),
-                        geometryManager.toWatchmakerDim(
-                                ((Component) e.getSource()).getSize()));
+                if(isDraggable) {
+                    processMouseDragged(
+                            geometryManager.toWatchmakerPoint(e.getPoint()),
+                            geometryManager.toWatchmakerDim(
+                                    ((Component) e.getSource()).getSize()));
+                } else {
+                    processMousePressed(
+                            geometryManager.toWatchmakerPoint(e.getPoint()),
+                            geometryManager.toWatchmakerDim(
+                                    ((Component) e.getSource()).getSize()));
+                    
+                }
             }
 
             @Override

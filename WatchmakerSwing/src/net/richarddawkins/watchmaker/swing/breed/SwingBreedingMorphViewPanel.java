@@ -27,7 +27,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
             BoxedMorphCollection page) {
         super(morphView, page);
         autoScale = true;
-        includeChildrenInAutoScale = true;
+//        includeChildrenInAutoScale = true;
 
     }
 
@@ -75,7 +75,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
     }
 
     @Override
-    public void processMouseClicked(Point myPt, Dim size) {
+    public void processMousePressed(Point myPt, Dim size) {
         Object cursor = this.getCursor();
 //        logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
         BoxManager boxes = boxedMorphCollection.getBoxManager();

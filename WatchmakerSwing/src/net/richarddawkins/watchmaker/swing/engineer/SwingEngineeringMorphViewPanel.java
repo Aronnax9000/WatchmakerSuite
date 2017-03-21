@@ -25,10 +25,10 @@ public class SwingEngineeringMorphViewPanel extends SwingMorphViewPanel
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.engineer.SwingEngineeringMorphViewPanel");
 
-    @Override
-    public boolean getIncludeChildrenInAutoScale() {
-        return false;
-    }
+//    @Override
+//    public boolean getIncludeChildrenInAutoScale() {
+//        return false;
+//    }
 
     public SwingEngineeringMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {

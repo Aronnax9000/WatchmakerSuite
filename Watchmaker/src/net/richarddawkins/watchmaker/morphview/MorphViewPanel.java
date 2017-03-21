@@ -26,7 +26,7 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     BoxedMorphCollection getBoxedMorphCollection();
     Object getCursor();
     Dim getDim();
-    boolean getIncludeChildrenInAutoScale();
+//    boolean getIncludeChildrenInAutoScale();
     Morph getMorphOfTheHour();
     Vector<Morph> getMorphs();
     MorphView getMorphView();
@@ -47,7 +47,7 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void setAutoScale(boolean autoScale);
     void setBoxedMorphCollection(BoxedMorphCollection newValue);
     void setCursor(Object cursor);
-    void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale);
+//    void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale);
     void setName(String name);
     void setSelectedBoxedMorph(BoxedMorph newValue);
 

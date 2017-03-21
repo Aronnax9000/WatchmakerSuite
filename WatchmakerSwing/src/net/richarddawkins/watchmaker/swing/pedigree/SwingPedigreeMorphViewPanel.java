@@ -30,8 +30,9 @@ public class SwingPedigreeMorphViewPanel extends SwingMorphViewPanel implements 
         super(morphView, page);
         setCursor(cursors.getCursor(WatchmakerCursor.pedigree));
         this.autoScale = false;
-        includeChildrenInAutoScale = false;
+//        includeChildrenInAutoScale = false;
         showBoundingBoxes = true;
+        isDraggable = true;
     }
     @Override
     public synchronized void paintMorphViewPanel(Object graphicsContext,

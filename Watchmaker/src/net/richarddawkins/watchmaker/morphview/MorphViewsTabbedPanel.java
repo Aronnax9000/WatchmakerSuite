@@ -3,8 +3,9 @@ package net.richarddawkins.watchmaker.morphview;
 import java.util.Vector;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.component.WatchComponent;
 
-public interface MorphViewsTabbedPanel {
+public interface MorphViewsTabbedPanel extends WatchComponent  {
 
 	void addMorphView(MorphView morphView);
 

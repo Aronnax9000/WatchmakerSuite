@@ -31,7 +31,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     protected WatchmakerCursorFactory cursors = null;
     protected GeometryManager geometryManager;
 
-    protected boolean includeChildrenInAutoScale = false;
+//    protected boolean includeChildrenInAutoScale = false;
     protected Point lastMouseDown;
     protected Dim lastMouseDownSize;
     protected Point lastMouseDrag;
@@ -211,10 +211,10 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         return boxedMorphCollection;
     }
 
-    @Override
-    public boolean getIncludeChildrenInAutoScale() {
-        return includeChildrenInAutoScale;
-    }
+//    @Override
+//    public boolean getIncludeChildrenInAutoScale() {
+//        return includeChildrenInAutoScale;
+//    }
 
     @Override
     public Morph getMorphOfTheHour() {
@@ -365,11 +365,11 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
     }
 
-    @Override
-    public void setIncludeChildrenInAutoScale(
-            boolean includeChildrenInAutoScale) {
-        this.includeChildrenInAutoScale = includeChildrenInAutoScale;
-    }
+//    @Override
+//    public void setIncludeChildrenInAutoScale(
+//            boolean includeChildrenInAutoScale) {
+//        this.includeChildrenInAutoScale = includeChildrenInAutoScale;
+//    }
 
     @Override
     public void setName(String name) {

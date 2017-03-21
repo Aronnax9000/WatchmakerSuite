@@ -269,7 +269,7 @@ public abstract class SwingAppData implements AppData {
     @Override
     public void albumOpen() {
         int returnVal = fileChooser
-                .showOpenDialog((Component) this.getMorphViewsTabbedPane());
+                .showOpenDialog((Component) this.getMorphViewsTabbedPane().getComponent());
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();

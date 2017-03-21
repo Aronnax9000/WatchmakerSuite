@@ -71,12 +71,12 @@ public class SwingMorphDrawer implements MorphDrawer {
             boolean selectionState, boolean showBoundingBox, boolean clip) {
         Phenotype phenotype = boxedMorph.getMorph().getPhenotype();
         Graphics2D g2 = (Graphics2D) ((Graphics2D) graphicsContext).create();
-//        Graphics2D g2 = (Graphics2D) graphicsContext;
+        // Graphics2D g2 = (Graphics2D) graphicsContext;
         AffineTransform saveTransform = g2.getTransform();
         Shape saveClip = g2.getClip();
-        
+
         logger.fine("Draw BoxedMorph, saved transform and clip");
-        if(boxedMorph.getDestinationBox() == null && clip) {
+        if (boxedMorph.getDestinationBox() == null && clip) {
             // not going anywhere, clip the home box.
             Rect box = boxedMorph.getBox();
             g2.setClip(box.left + 2, box.top + 2, box.getWidth() - 4,
@@ -120,7 +120,12 @@ public class SwingMorphDrawer implements MorphDrawer {
                 g2.drawImage(bufferedImage, 0, 0, null);
                 if (showBoundingBox) {
                     g2.setColor(Color.BLACK);
-                    g2.setStroke(new BasicStroke(1));
+                    if (morph.getPedigree().parent == null) {
+                        // Emphasize Adams (morphs without parent.)
+                        g2.setStroke(new BasicStroke(2));
+                    } else {
+                        g2.setStroke(new BasicStroke(1));
+                    }
                     g2.drawRect(0, 0, bufferedImage.getWidth() - 1,
                             bufferedImage.getHeight() - 1);
                 }
