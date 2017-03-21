@@ -371,6 +371,8 @@ public abstract class SwingAppData implements AppData {
     public Morph getMorphOfTheHour() {
         MorphView morphView = getSelectedMorphView();
         if (morphView != null) {
+            Morph morphOfTheHour = morphView.getMorphOfTheHour();
+            logger.info("getMorphOfTheHour" + morphOfTheHour);
             return morphView.getMorphOfTheHour();
         } else {
             return null;
@@ -382,12 +384,14 @@ public abstract class SwingAppData implements AppData {
 
     @Override
     public MorphView getSelectedMorphView() {
+        logger.info("getSelectedMorphView: " + selectedMorphView);
         return selectedMorphView;
     }
 
     @Override
-    public void setSelectedMorphView(MorphView selectedMorphView) {
-        this.selectedMorphView = selectedMorphView;
+    public void setSelectedMorphView(MorphView newValue) {
+        logger.info("setSelectedMorphView: " + newValue);
+        this.selectedMorphView = newValue;
     }
 
     @Override

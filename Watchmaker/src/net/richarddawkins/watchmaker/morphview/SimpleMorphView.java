@@ -363,4 +363,8 @@ public abstract class SimpleMorphView implements MorphView {
             repaint();
         }
     }
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

@@ -1,6 +1,7 @@
 package net.richarddawkins.watchmaker.swing.menu;
 
 import java.awt.Event;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -19,7 +20,7 @@ public class ActionNewRandomStart extends SwingWatchmakerAction {
                 new ImageIcon(ClassicImageLoader
                         .getPicture("SixSidedDieShowsFiveIcon_ICON_00257_32x32")
                         .getImage()),
-                KeyStroke.getKeyStroke(KeyEvent.VK_N, Event.ALT_MASK));
+                KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
     }
 
     @Override
