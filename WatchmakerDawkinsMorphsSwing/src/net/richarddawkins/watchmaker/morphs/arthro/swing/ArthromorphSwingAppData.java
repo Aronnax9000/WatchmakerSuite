@@ -15,7 +15,6 @@ public class ArthromorphSwingAppData extends SwingAppData {
 		this.setPhenotypeDrawer(new SwingArthromorphPicDrawer());
 		
 		this.setIcon(MorphType.ARTHROMORPH.getIconFilename());
-		menuBuilder.setAppData(this);
 		
 		this.setMorphConfig(new ArthromorphConfig());
 	}

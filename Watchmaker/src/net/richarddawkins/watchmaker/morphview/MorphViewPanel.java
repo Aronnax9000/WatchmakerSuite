@@ -46,7 +46,14 @@ public interface MorphViewPanel extends PropertyChangeListener  {
     void repaint();
     void setAutoScale(boolean autoScale);
     void setBoxedMorphCollection(BoxedMorphCollection newValue);
+    void initPanel();
     void setCursor(Object cursor);
+    /**
+     *  Initialize the cursor to the state appropriate for the MorphViewPanel, once
+     *  its other initialization is complete.
+     */
+    
+    void initCursor();
 //    void setIncludeChildrenInAutoScale(boolean includeChildrenInAutoScale);
     void setName(String name);
     void setSelectedBoxedMorph(BoxedMorph newValue);

@@ -6,7 +6,6 @@ import javax.swing.Icon;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeListener;
 
-import net.richarddawkins.watchmaker.app.WatchmakerTabComponent;
 import net.richarddawkins.watchmaker.component.WatchComponent;
 import net.richarddawkins.watchmaker.component.WatchTabbedPane;
 import net.richarddawkins.watchmaker.swing.components.SwingWatchComponent;
@@ -14,6 +13,11 @@ import net.richarddawkins.watchmaker.swing.components.SwingWatchComponent;
 public class SwingWatchTabbedPane extends SwingWatchComponent implements WatchTabbedPane {
 
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     public SwingWatchTabbedPane() {
         component = new JTabbedPane();
     }
@@ -34,7 +38,7 @@ public class SwingWatchTabbedPane extends SwingWatchComponent implements WatchTa
     }
     @Override
     public void setTabComponentAt(int i,
-            WatchmakerTabComponent tabComponent) {
+            WatchComponent tabComponent) {
         ((JTabbedPane)component).setTabComponentAt(i, (Component)tabComponent.getComponent());
         
     }
@@ -49,7 +53,8 @@ public class SwingWatchTabbedPane extends SwingWatchComponent implements WatchTa
     @Override
     public void addTab(String name, Object icon, WatchComponent newTab,
             String toolTip) {
-        ((JTabbedPane)component).addTab(name, (Icon)icon, (Component)newTab.getComponent(), toolTip);
+        Component newTabComponent = (Component)newTab.getComponent();
+        ((JTabbedPane)component).addTab(name, (Icon)icon, newTabComponent, toolTip);
         
     }
     @Override

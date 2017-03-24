@@ -2,11 +2,11 @@ package net.richarddawkins.watchmaker.morphs.concho.menu.swing;
 
 import java.awt.event.ActionEvent;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morphs.concho.embryo.SnailEmbryologyPreferences;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.menu.SwingMenuBuilder;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerCheckBoxMenuItem;
@@ -39,9 +39,9 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
-	public SnailMenuBuilder(SwingAppData swingAppData) {
+	public SnailMenuBuilder(AppData swingAppData) {
 		super(swingAppData);
-		changeView = new SwingWatchmakerCheckBoxMenuItem(new SwingWatchmakerAction(appData, "Change View") {
+		changeView = new SwingWatchmakerCheckBoxMenuItem(new SwingWatchmakerAction("Change View") {
 
 			private static final long serialVersionUID = 1L;
 
@@ -56,38 +56,17 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 
 	@Override
 	public void buildMenu(WatchmakerMenuBar menuBar) {
-		super.buildMenu(menuBar);
-		menuBar.add(buildAnimalMenu());
-		menuBar.repaint();
+        WatchmakerMenu menu;
+        menu = menuBar.getMenu("Operation");
+        menu.add(new SwingWatchmakerMenuItem("Array"));		
+        menu = menuBar.getMenu("View");
+        menu.add(changeView);
+        
+        
+        menuBar.add(buildAnimalMenu());
 
 	}
 
-
-	/**
-	 * * Operation (Breed, Drift, Engineering, Hopeful Monster, Initialize
-	 * Fossil Record, Play Back Fossils, Recording Fossils, Triangle, Array)
-	 * (Note: Array is not in Mono)
-	 * 
-	 * @return the new Operation menu
-	 */
-	public WatchmakerMenu buildOperationMenu() {
-		WatchmakerMenu menu = super.buildOperationMenu();
-		menu.add(new SwingWatchmakerMenuItem("Array"));
-		return menu;
-	}
-
-	/**
-	 * View (More Rows, Fewer Rows, More Columns, Fewer Columns, Change View,
-	 * Drift Sweep, Make top of triangle) Make left of triangle, Make right of
-	 * triangle, View Pedigree)
-	 * 
-	 * @return the new View menu
-	 */
-	public WatchmakerMenu buildViewMenu() {
-		WatchmakerMenu menu = super.buildViewMenu();
-		menu.add(changeView);
-		return menu;
-	}
 
 	/**
 	 * Animal (Customise, Snail, Turritella, Bivalve, Ammonite, Nautilus,
@@ -121,4 +100,16 @@ public class SnailMenuBuilder extends SwingMenuBuilder {
 	}
 	
 	protected WatchmakerCheckBoxMenuItem changeView;
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
 }

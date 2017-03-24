@@ -141,7 +141,7 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel
     }
 
     @Override
-    public void processMousePressed(Point point, Dim size) {
+    public void processMouseClicked(Point point, Dim size) {
         logger.info("Triangle box clicked at " + point);
         Morph morph = this.getTriangledMorph(point, size);
         BoxManager boxes = boxedMorphCollection.getBoxManager();
@@ -162,12 +162,14 @@ public class SwingTriangleMorphViewPanel extends SwingMorphViewPanel
     @Override
     public void processMouseMotion(Point point, Dim size) {
         PhenotypeDrawer drawer = morphView.getAppData().getPhenotypeDrawer();
-        Morph morph = this.getTriangledMorph(point, size);
-        BufferedImage image = (BufferedImage) drawer.getImage(morph.getPhenotype());
-        Image img = image.getScaledInstance(16, 16, Image.SCALE_DEFAULT);
-        BufferedImage scaledImage = toBufferedImage(img);
-
-        this.setCursor(cursors.newCustomCursor(scaledImage));
+        if(size.height * size.width != 0) {
+            Morph morph = this.getTriangledMorph(point, size);
+            BufferedImage image = (BufferedImage) drawer.getImage(morph.getPhenotype());
+            Image img = image.getScaledInstance(16, 16, Image.SCALE_DEFAULT);
+            BufferedImage scaledImage = toBufferedImage(img);
+    
+            this.setCursor(cursors.newCustomCursor(scaledImage));
+        }
     }
 
 }

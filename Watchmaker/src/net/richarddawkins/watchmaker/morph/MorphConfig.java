@@ -92,6 +92,7 @@ public interface MorphConfig {
     MorphSelector getSelector();
     void setSelector(MorphSelector selector);
     void initMorph(Morph morph);
+    void setTriangleMorph(int i, Morph morph);
 
 
 }

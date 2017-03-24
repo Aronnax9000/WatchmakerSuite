@@ -10,7 +10,6 @@ public class AppDataFactoryService {
     private ServiceLoader<AppDataFactory> loader;
 
     private AppDataFactoryService() {
-    	
         loader = ServiceLoader.load(AppDataFactory.class);
     }
 
@@ -37,8 +36,5 @@ public class AppDataFactoryService {
         }
         return factory;
     }
-
-
-	
 
 }

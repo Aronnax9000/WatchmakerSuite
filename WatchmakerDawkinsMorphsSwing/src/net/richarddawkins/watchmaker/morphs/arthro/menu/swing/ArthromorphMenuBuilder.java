@@ -2,6 +2,7 @@ package net.richarddawkins.watchmaker.morphs.arthro.menu.swing;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.AboutArthromorphsAction;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.EngineerAction;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.PreferencesAction;
@@ -24,25 +25,30 @@ public class ArthromorphMenuBuilder extends SwingMenuBuilder  {
 	private static final long serialVersionUID = 1L;
 	public ArthromorphMenuBuilder(AppData appData) { super(appData);}
 
+
 	@Override
-	public WatchmakerMenu buildOperationMenu() {
-		WatchmakerMenu menu = super.buildOperationMenu();
-		menu.add(new SwingWatchmakerMenuItem(new ShowAsTextAction(appData)));
-		menu.add(new SwingWatchmakerMenuItem(new EngineerAction(appData)));
-		return menu;
-	}
-	@Override
-	public WatchmakerMenu buildViewMenu() {
-		WatchmakerMenu menu = super.buildViewMenu();
-		PreferencesAction preferencesAction = new PreferencesAction(appData); 
-		menu.add(preferencesAction);
-		return menu;
-	}
-	@Override
-	public WatchmakerMenu buildHelpMenu() {
-		WatchmakerMenu menu = super.buildHelpMenu();
-		menu.add(new AboutArthromorphsAction(appData));
-		return menu;
-	}
+    public void buildMenu(WatchmakerMenuBar menuBar) {
+        WatchmakerMenu menu;
+        menu = menuBar.getMenu("Help");
+        menu.add(new AboutArthromorphsAction());
+        menu = menuBar.getMenu("Operation");
+        menu.add(new SwingWatchmakerMenuItem(new ShowAsTextAction()));
+        menu.add(new SwingWatchmakerMenuItem(new EngineerAction()));
+        menu = menuBar.getMenu("View");
+        PreferencesAction preferencesAction = new PreferencesAction(); 
+        menu.add(preferencesAction);
+    }
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
 	
 }

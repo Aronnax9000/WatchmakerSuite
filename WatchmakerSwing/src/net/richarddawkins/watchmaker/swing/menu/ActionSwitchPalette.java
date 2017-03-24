@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.geom.WatchmakerColor;
 
 public class ActionSwitchPalette extends SwingWatchmakerAction {
@@ -14,8 +13,8 @@ public class ActionSwitchPalette extends SwingWatchmakerAction {
      */
     private static final long serialVersionUID = 1L;
 
-    public ActionSwitchPalette(AppData appData, String name) {
-        super(appData, name);
+    public ActionSwitchPalette(String paletteName) {
+        super(paletteName);
         
     }
 

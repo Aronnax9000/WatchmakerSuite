@@ -10,17 +10,21 @@ import javax.swing.JPanel;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genome.Gene;
+import net.richarddawkins.watchmaker.image.ClassicImageLoader;
+import net.richarddawkins.watchmaker.image.ClassicImageLoaderService;
 import net.richarddawkins.watchmaker.morphs. mono.genebox.IntegerGradientGeneBox;
 import net.richarddawkins.watchmaker.morphs.mono.genome.IntegerGradientGene;
 import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.swing.genebox.GeneBoxType;
 import net.richarddawkins.watchmaker.swing.genebox.SwingIntegerGeneBox;
-import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
+import net.richarddawkins.watchmaker.swing.images.AWTClassicImage;
 
 public class SwingIntegerGradientGeneBox extends SwingIntegerGeneBox implements IntegerGradientGeneBox {
 	static BufferedImage BULLET;
 	static {
-		BULLET = ClassicImageLoader.getPicture("BulletChar165_ALAN_0015_5x5").getImage();
+	    ClassicImageLoader loader = ClassicImageLoaderService.getInstance().getClassicImageLoader();
+	    AWTClassicImage classicImage = (AWTClassicImage)loader.getPicture("BulletChar165_ALAN_0015_5x5");
+		BULLET = classicImage.getImage();
 	}
 
 	protected SwellType gradient = null;

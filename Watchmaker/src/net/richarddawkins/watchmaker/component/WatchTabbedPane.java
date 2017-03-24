@@ -1,7 +1,5 @@
 package net.richarddawkins.watchmaker.component;
 
-import net.richarddawkins.watchmaker.app.WatchmakerTabComponent;
-
 public interface WatchTabbedPane extends WatchComponent {
     void addChangeListener(Object listener);
 
@@ -13,6 +11,6 @@ public interface WatchTabbedPane extends WatchComponent {
     void setSelectedIndex(int i);
     int getSelectedIndex();
 
-    void setTabComponentAt(int i, WatchmakerTabComponent tabComponent);
+    void setTabComponentAt(int i, WatchComponent tabComponent);
 }
 

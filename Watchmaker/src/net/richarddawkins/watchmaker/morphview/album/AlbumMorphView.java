@@ -4,4 +4,6 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 
 public interface AlbumMorphView extends MorphView {
 
+    void showIndex();
+    void showPage(int page);
 }

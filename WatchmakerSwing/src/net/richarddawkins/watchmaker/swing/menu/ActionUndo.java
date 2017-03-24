@@ -6,20 +6,19 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.KeyStroke;
 
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 
 public class ActionUndo extends SwingWatchmakerAction {
 
     private static final long serialVersionUID = 4121419685469500509L;
 
-    public ActionUndo(AppData appData) {
-        super(appData, "Undo", null, KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+    public ActionUndo() {
+        super("Undo", null, KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
     }
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        MorphView morphView = appData.getSelectedMorphView();
+        MorphView morphView = getAppData().getSelectedMorphView();
         morphView.undo();
     }
 

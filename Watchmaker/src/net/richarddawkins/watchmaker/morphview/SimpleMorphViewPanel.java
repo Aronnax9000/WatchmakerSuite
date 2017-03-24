@@ -44,7 +44,14 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
     protected boolean showBoundingBoxes = false;
     protected Rect special;
-
+/**
+ * Implementations may override this to specify initial cursor state.
+ * This implementation simply calls updateCursor(); 
+ */
+    public void initCursor() {
+        updateCursor();
+    }
+    
     public SimpleMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         AppData appData = morphView.getAppData();
@@ -57,7 +64,8 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
         this.geometryManager = appData.getGeometryManager();
         this.cursors = appData.getWatchmakerCursorFactory();
-
+        initPanel();
+        initCursor();
     }
 
     @Override
@@ -352,6 +360,17 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         this.autoScale = autoScale;
     }
 
+    /**
+     * Sets the boxed morph collection that is the model for this morph view panel.
+     * The morph view panel adds itself as a property change listener for the property named
+     * "scale" on the boxed morph collection's box manager.
+     * If the morph view panel already has a boxed morph collection,
+     * the old boxed morphed collection's boxed manager is first informed to no
+     * longer notify this morph view panel of changes to its scale property, before
+     * changing to the new boxed morph collection, and adding the scale property change
+     * listener registration as described above.
+     * @param newValue the new boxed morph collection.
+     */
     @Override
     public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
         BoxedMorphCollection oldValue = this.boxedMorphCollection;

@@ -11,55 +11,62 @@ import java.io.IOException;
 
 import javax.swing.KeyStroke;
 
-import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.morph.Morph;
 
 public class ActionCopy extends SwingWatchmakerAction {
 
+    private static final long serialVersionUID = 4121419685469500509L;
 
-	private static final long serialVersionUID = 4121419685469500509L;
-	
-	public ActionCopy(AppData appData) {
-		super(appData, "Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-	    Morph morph = appData.getMorphOfTheHour();
-	    Image image = (Image) morph.getImage();
-	    ImageSelection imgSel = new ImageSelection(image);
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(imgSel, null);
-	}
-	 class ImageSelection implements Transferable
-	 {
-	   private Image image;
+    public ActionCopy() {
+        super("Copy", null, KeyStroke.getKeyStroke(KeyEvent.VK_C,
+                Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+    }
 
-	   public ImageSelection(Image image)
-	   {
-	     this.image = image;
-	   }
+    @Override
+    public void actionPerformed(ActionEvent arg0) {
+        
+        Morph morph = getAppData().getMorphOfTheHour();
+        Image image = (Image) morph.getImage();
+        MorphSelection imgSel = new MorphSelection(image, morph.getGenome());
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(imgSel,
+                null);
+    }
 
-	   // Returns supported flavors
-	   public DataFlavor[] getTransferDataFlavors()
-	   {
-	     return new DataFlavor[] { DataFlavor.imageFlavor };
-	   }
+    static DataFlavor genomeFlavor = new DataFlavor(Genome.class, "Genome");
 
-	   // Returns true if flavor is supported
-	   public boolean isDataFlavorSupported(DataFlavor flavor)
-	   {
-	     return DataFlavor.imageFlavor.equals(flavor);
-	   }
+    class MorphSelection implements Transferable {
 
-	   // Returns image
-	   public Object getTransferData(DataFlavor flavor)
-	       throws UnsupportedFlavorException, IOException
-	   {
-	     if (!DataFlavor.imageFlavor.equals(flavor))
-	     {
-	       throw new UnsupportedFlavorException(flavor);
-	     }
-	     return image;
-	   }
-	 }
+        private Image image;
+        private Genome genome;
+
+        public MorphSelection(Image image, Genome genome) {
+            this.image = image;
+            this.genome = genome;
+        }
+
+        // Returns supported flavors
+        public DataFlavor[] getTransferDataFlavors() {
+            return new DataFlavor[] { DataFlavor.imageFlavor,
+                    ActionCopy.genomeFlavor };
+        }
+
+        // Returns true if flavor is supported
+        public boolean isDataFlavorSupported(DataFlavor flavor) {
+            return DataFlavor.imageFlavor.equals(flavor)
+                    || ActionCopy.genomeFlavor.equals(flavor);
+        }
+
+        // Returns image
+        public Object getTransferData(DataFlavor flavor)
+                throws UnsupportedFlavorException, IOException {
+            if (DataFlavor.imageFlavor.equals(flavor)) {
+                return image;
+            } else if (ActionCopy.genomeFlavor.equals(flavor)) {
+                return genome;
+            } else {
+                throw new UnsupportedFlavorException(flavor);
+            }
+        }
+    }
 }

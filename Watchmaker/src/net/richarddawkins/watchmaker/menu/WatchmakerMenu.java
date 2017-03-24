@@ -1,9 +1,7 @@
 package net.richarddawkins.watchmaker.menu;
 
-public interface WatchmakerMenu {
+public interface WatchmakerMenu extends WatchmakerMenuItem {
 
-    void add(WatchmakerMenuItem menuItem);
-    void add(WatchmakerMenu menu);
 
 	void add(WatchmakerAction action);
 

@@ -44,22 +44,12 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		super(appData);
 
 	}
-
-	public void buildMenu(WatchmakerMenuBar menuBar) {
-		super.buildMenu(menuBar);
-		menuBar.add(buildMutationsMenu());
-		menuBar.repaint();
-	}
-	/**
-	 * Help (Help with current operation , Miscellaneous Help)
-	 * 
-	 * @return
-	 */
 	@Override
-	protected WatchmakerMenu buildHelpMenu() {
-		WatchmakerMenu menu = super.buildHelpMenu();
+	public void buildMenu(WatchmakerMenuBar menuBar) {
+		menuBar.add(buildMutationsMenu());
+        WatchmakerMenu menu = menuBar.getMenu("Help");
 		menu.add(new SwingWatchmakerMenuItem(new AboutMonochromeAction(menu)));
-		return menu;
+		menuBar.repaint();
 	}
 
 
@@ -81,5 +71,17 @@ public class SwingMonochromeMenuBuilder extends SwingMenuBuilder {
 		return menu;
 
 	}
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
 
 }

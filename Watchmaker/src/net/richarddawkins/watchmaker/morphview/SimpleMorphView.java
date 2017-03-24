@@ -14,6 +14,8 @@ import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
@@ -42,6 +44,7 @@ public abstract class SimpleMorphView implements MorphView {
 
     public void gainFocus() {
         this.appData.setSelectedMorphView(this);
+
     }
 
     public SimpleMorphView(MorphViewConfig config) {
@@ -59,6 +62,9 @@ public abstract class SimpleMorphView implements MorphView {
         addSliders();
         addPanels();
         setSelectedPanel(panels.firstElement());
+
+        this.menuBuilder = MorphViewFactoryService.getInstance().getFactory()
+                .getMorphViewMenuBuilder(config.type.getName());
     }
 
     @Override
@@ -144,9 +150,11 @@ public abstract class SimpleMorphView implements MorphView {
     public void initAlbum(Album newAlbum, boolean copyMorphsOnBackup) {
         if (newAlbum != null) {
             this.album = newAlbum;
+            logger.info("SimpleMorphView.initAlbum " + album);
         } else {
             this.album = new Album("backing");
         }
+        logger.info("SimpleMorphView.initAlbum " + album);
 
         if (!copyMorphsOnBackup && album.size() == 0) {
             BoxedMorphCollection page = new BoxedMorphCollection("backing",
@@ -183,8 +191,8 @@ public abstract class SimpleMorphView implements MorphView {
 
     @Override
     public synchronized void seed() {
-            if (!seedMorphs.isEmpty()) {
-                synchronized (seedMorphs) {
+        if (!seedMorphs.isEmpty()) {
+            synchronized (seedMorphs) {
 
                 logger.fine("Seeding");
 
@@ -363,8 +371,37 @@ public abstract class SimpleMorphView implements MorphView {
             repaint();
         }
     }
+
     @Override
     public String toString() {
         return this.name;
+    }
+
+    protected MenuBuilder menuBuilder;
+
+    public MenuBuilder getMenuBuilder() {
+        return menuBuilder;
+    }
+
+    public void setMenuBuilder(MenuBuilder menuBuilder) {
+        this.menuBuilder = menuBuilder;
+    }
+
+    @Override
+    public void buildMenu(WatchmakerMenuBar menuBar) {
+        menuBuilder.buildMenu(menuBar);
+
+    }
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        menuBuilder.cleanMenu(menuBar);
+
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        menuBuilder.updateMenu(menuBar);
+
     }
 }

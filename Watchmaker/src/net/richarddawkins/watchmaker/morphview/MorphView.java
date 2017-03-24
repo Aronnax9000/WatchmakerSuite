@@ -8,11 +8,13 @@ import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 
-public interface MorphView extends PropertyChangeListener {
+public interface MorphView extends PropertyChangeListener, MenuBuilder {
 
+    
     
 	String getIcon();
 	void setIcon(String icon);

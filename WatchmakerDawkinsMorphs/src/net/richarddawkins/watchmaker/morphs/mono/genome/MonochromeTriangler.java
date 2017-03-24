@@ -11,7 +11,8 @@ import net.richarddawkins.watchmaker.morphs.mono.genome.type.SwellType;
 import net.richarddawkins.watchmaker.util.Globals;
 
 public class MonochromeTriangler implements Triangler {
-    private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeTriangler");
+    private static Logger logger = Logger.getLogger(
+            "net.richarddawkins.watchmaker.morphs.mono.genome.MonochromeTriangler");
 
     private static MonochromeTriangler instance;
 
@@ -135,13 +136,17 @@ public class MonochromeTriangler implements Triangler {
      *        end
      *end; {concoct}
      * </pre>
-     * @param genericTarget the genome to alter.
-     * @param r array of weights
-     * @param genomes array of genomes to triangle
+     * 
+     * @param genericTarget
+     *            the genome to alter.
+     * @param r
+     *            array of weights
+     * @param genomes
+     *            array of genomes to triangle
      */
     @Override
     public void concoct(Genome genericTarget, double[] r, Genome[] genomes) {
-        
+
         MonochromeGenome target = (MonochromeGenome) genericTarget;
         double r1 = r[0];
         double r2 = r[1];
@@ -221,11 +226,11 @@ public class MonochromeTriangler implements Triangler {
                         + r2 * b.getSegDistGene().getGradient().ordinal() + r3
                                 * c.getSegDistGene().getGradient().ordinal())]);
         double rSum = 0;
-        for(int i = 0; i < genomes.length; i++) {
+        for (int i = 0; i < genomes.length; i++) {
             logger.info("Triangle: " + r[i] + " " + genomes[i]);
             rSum += r[i];
         }
         logger.info("Triangle result: " + rSum + " " + target);
-        
+
     }
 }

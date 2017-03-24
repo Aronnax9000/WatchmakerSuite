@@ -8,24 +8,29 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import net.richarddawkins.watchmaker.app.AppData;
-import net.richarddawkins.watchmaker.swing.images.ClassicImageLoader;
+import net.richarddawkins.watchmaker.image.ClassicImageLoader;
+import net.richarddawkins.watchmaker.image.ClassicImageLoaderService;
+import net.richarddawkins.watchmaker.swing.images.AWTClassicImage;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
-public class AboutArthromorphsAction extends SwingWatchmakerAction  {
+public class AboutArthromorphsAction extends SwingWatchmakerAction {
 
-  private static final long serialVersionUID = 1L;
-  
-  public AboutArthromorphsAction(AppData appData) {
-    super(appData, "About Arthromorphs");
-  }
+    private static final long serialVersionUID = 1L;
 
-  @Override
-  public void actionPerformed(ActionEvent e) {
-	  Window window = SwingUtilities.getWindowAncestor((Component)e.getSource());
-	  JOptionPane.showMessageDialog(window,
-        new ImageIcon(
-            ClassicImageLoader.getPicture("AboutArthromorphs_PICT_00001_282x107").getImage()),
-        "About Blind Watchmaker", JOptionPane.PLAIN_MESSAGE, null);
-  }
+    public AboutArthromorphsAction() {
+        super("About Arthromorphs");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Window window = SwingUtilities
+                .getWindowAncestor((Component) e.getSource());
+        ClassicImageLoader loader = ClassicImageLoaderService.getInstance()
+                .getClassicImageLoader();
+        AWTClassicImage classicImage = (AWTClassicImage) loader
+                .getPicture("AboutArthromorphs_PICT_00001_282x107");
+        JOptionPane.showMessageDialog(window,
+                new ImageIcon(classicImage.getImage()),
+                "About Blind Watchmaker", JOptionPane.PLAIN_MESSAGE, null);
+    }
 }

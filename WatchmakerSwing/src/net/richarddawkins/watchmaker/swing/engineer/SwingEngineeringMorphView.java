@@ -5,9 +5,9 @@ import java.util.Vector;
 import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.geom.BoxManager;
-import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.LocatedMorph;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -102,6 +102,24 @@ public class SwingEngineeringMorphView extends SwingMorphView {
             this.seedMorphs.add(morphConfig.newMorph(0));
         }
 
+    }
+
+    @Override
+    public void buildMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

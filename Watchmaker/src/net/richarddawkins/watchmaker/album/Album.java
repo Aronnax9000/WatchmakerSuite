@@ -20,7 +20,11 @@ public class Album {
     private BoxedMorphCollection selectedPage;
 
     private boolean writable;
-
+    @Override
+    public String toString() {
+        return name + (writable ? "" : " ro ") + pages.size() + "pp"; 
+    }
+    
     public Album(String name) {
         this.name = name;
     }

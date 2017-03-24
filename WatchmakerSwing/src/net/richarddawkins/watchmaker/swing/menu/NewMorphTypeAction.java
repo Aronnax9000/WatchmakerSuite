@@ -13,8 +13,8 @@ public class NewMorphTypeAction extends SwingWatchmakerAction {
 	private static final long serialVersionUID = -4736552636289435148L;
 
 	
-	public NewMorphTypeAction(AppData appData, String morphType, Icon icon) {
-		super(appData, morphType, icon);
+	public NewMorphTypeAction(String morphType, Icon icon) {
+		super(morphType, icon);
 	}
 
 	@Override
@@ -25,7 +25,6 @@ public class NewMorphTypeAction extends SwingWatchmakerAction {
 		factory.setMorphType((String)this.getValue(NAME));
 		AppData newSwingAppData = factory.newAppData();
 		SwingMultiMorphTypeTabbedPanel.getInstance().addAppData(newSwingAppData);
-		
 	}
 	
 }

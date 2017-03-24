@@ -4,7 +4,9 @@ import java.awt.image.BufferedImage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ClassicImage {
+import net.richarddawkins.watchmaker.image.ClassicImage;
+
+public class AWTClassicImage implements ClassicImage {
     private static Logger logger = Logger.getLogger("net.richarddawkins.watchmaker.resourceloader.ClassicImage");
 
     protected BufferedImage image;
@@ -16,7 +18,7 @@ public class ClassicImage {
     protected int advertisedWidth;
     protected int advertisedHeight;
 
-    public ClassicImage(BufferedImage image, String imageName) {
+    public AWTClassicImage(BufferedImage image, String imageName) {
         try {
             this.setImage(image);
             this.imageName = imageName;
@@ -40,5 +42,21 @@ public class ClassicImage {
 
     public void setImage(BufferedImage image) {
         this.image = image;
+    }
+
+    @Override
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    @Override
+    public String getResourceId() {
+        return resourceId;
+    }
+
+    @Override
+    public String getImageName() {
+        
+        return imageName;
     }
 }

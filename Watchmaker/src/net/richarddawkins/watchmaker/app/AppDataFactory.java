@@ -7,11 +7,8 @@ public interface AppDataFactory {
 	String getMorphType();
 	Object getIcon();
 	AppData newAppData();
-
 	void setMorphType(String name);
-
 	Vector<String> getMorphTypes();
-
 	String getName();
 
 }

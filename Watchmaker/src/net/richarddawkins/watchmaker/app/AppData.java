@@ -9,6 +9,7 @@ import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.GeometryManager;
+import net.richarddawkins.watchmaker.image.ClassicImageLoader;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
@@ -108,7 +109,11 @@ public interface AppData  {
     public MorphDrawer newMorphDrawer();
     MorphView getSelectedMorphView();
     void setSelectedMorphView(MorphView selectedMorphView);
-    public WatchPanel newWatchPanel(); 
+    public WatchPanel newWatchPanel();
+    public ClassicImageLoader getClassicImageLoader();
+    public void setRecordingFossils(boolean selected);
+    boolean isRecordingFossils();
+    public void rebuildMenuBar(); 
     
 
 }

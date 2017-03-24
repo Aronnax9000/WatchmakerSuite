@@ -1,34 +1,44 @@
 package net.richarddawkins.watchmaker.swing.album;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import javax.swing.AbstractAction;
+
+import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Rect;
+import net.richarddawkins.watchmaker.menu.WatchmakerAction;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.album.AlbumMorphView;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumAddBiomorph;
+import net.richarddawkins.watchmaker.swing.album.menu.ActionAlbumOpenClassics;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingAlbumMorphView extends SwingMorphView implements AlbumMorphView {
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphView");
-
-
-    
     @Override
     public void addPanels() {
         for (BoxedMorphCollection page : album.getPages()) {
             page.setBoxManager(newBoxManager());
             MorphViewPanel panel = new SwingAlbumMorphViewPanel(this, page);
             addPanel(panel);
-            album.setSelectedPage(page);
         }
+
+        album.setSelectedPage(album.firstElement());
     }
+    
     
     public SwingAlbumMorphView(MorphViewConfig config) {
         super(config);
@@ -70,6 +80,44 @@ public class SwingAlbumMorphView extends SwingMorphView implements AlbumMorphVie
     @Override
     public BoxManager newBoxManager() {
         return new GridBoxManager(5,3);
+    }
+
+    @Override
+    public void showIndex() {
+        
+        
+    }
+
+    @Override
+    public void showPage(int page) {
+        
+        
+    }
+
+    WatchmakerAction addBiomorph = new ActionAlbumAddBiomorph();
+    WatchmakerAction openClassics = new ActionAlbumOpenClassics();
+    
+    
+    @Override
+    public void buildMenu(WatchmakerMenuBar menuBar) {
+        WatchmakerMenu menu = menuBar.getMenu("Edit");
+        menu.add(addBiomorph);
+        menu.add(openClassics);
+    }
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        
+        ((AbstractAction)addBiomorph).setEnabled(clipboard.isDataFlavorAvailable(new DataFlavor(Genome.class, "Genome")));
+        
+        
     }
 
 

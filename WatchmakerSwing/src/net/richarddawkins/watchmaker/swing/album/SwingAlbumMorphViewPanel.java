@@ -19,15 +19,13 @@ public class SwingAlbumMorphViewPanel extends SwingMorphViewPanel implements Alb
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.album.SwingAlbumMorphViewPanel");
     
+    public void initCursor() {
+        setCursor(cursors.getCursor(WatchmakerCursor.highlight));
+    }
+    
     SwingAlbumMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
-//        GridBoxManager gridBoxManager = new GridBoxManager(5,3);
-//        setBoxManager(gridBoxManager);
-        setCursor(cursors.getCursor(WatchmakerCursor.highlight));
-        // TODO Auto-generated constructor stub
     }
-
-
 
     @Override
     public void setBoxedMorphCollection(BoxedMorphCollection newBoxedMorphCollection) {

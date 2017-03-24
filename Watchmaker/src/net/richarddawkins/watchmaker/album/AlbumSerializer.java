@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.GridBoxManager;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
@@ -75,7 +76,7 @@ public class AlbumSerializer {
         return rawAlbums;
 
     }
-    
+
     public void putAlbumToFile(Album album, File file) {
         OutputStream os = null;
         try {
@@ -84,8 +85,8 @@ public class AlbumSerializer {
             logger.warning("IOException while opening output stream to "
                     + file.getAbsolutePath() + ": " + e.getMessage());
         }
-        if(os != null) {
-            for(BoxedMorphCollection boxedMorphs: album.getPages()) {
+        if (os != null) {
+            for (BoxedMorphCollection boxedMorphs : album.getPages()) {
                 putBoxedMorphCollectionToOutputStream(boxedMorphs, os);
             }
         }
@@ -95,10 +96,11 @@ public class AlbumSerializer {
             logger.warning("IOException while closing output stream to "
                     + file.getAbsolutePath() + ": " + e.getMessage());
         }
-        
+
     }
 
-    public void putBoxedMorphCollectionToFile(BoxedMorphCollection boxedMorphs, File file) {
+    public void putBoxedMorphCollectionToFile(BoxedMorphCollection boxedMorphs,
+            File file) {
         OutputStream os = null;
         try {
             os = new FileOutputStream(file);
@@ -106,7 +108,7 @@ public class AlbumSerializer {
             logger.warning("IOException while opening output stream to "
                     + file.getAbsolutePath() + ": " + e.getMessage());
         }
-        if(os != null) {
+        if (os != null) {
             putBoxedMorphCollectionToOutputStream(boxedMorphs, os);
         }
         try {
@@ -162,11 +164,10 @@ public class AlbumSerializer {
             genome.readFromByteBuffer(byteBuffer);
             Morph morph = config.newMorph();
             morph.setGenome(genome);
-            logger.info(
-                    name + " box:" + boxNo + " Genome:" + genome.toString());
-
-            BoxedMorph boxedMorph = new BoxedMorph(boxManager, morph,
-                    boxManager.getBox(boxNo++));
+            logger.info("AlbumSerializer.getBoxedMorphCollectionFromByteBuffer " + 
+                    rawName + " box:" + boxNo + " Genome:" + genome.toString());
+            Rect rect = boxManager.getBox(boxNo++);
+            BoxedMorph boxedMorph = new BoxedMorph(boxManager, morph, rect);
             boxedMorphs.add(boxedMorph);
         }
         // boxManager.setRows((boxNo + 1) / 5);
@@ -296,13 +297,16 @@ public class AlbumSerializer {
     protected void condenseSingletons(
             Collection<BoxedMorphCollection> masterCollections,
             Collection<BoxedMorphCollection> singletonCollections) {
-        GridBoxManager boxManager = new GridBoxManager(5);
+        GridBoxManager boxManager = new GridBoxManager(5, 3);
         BoxedMorphCollection singletonCollection = new BoxedMorphCollection(
                 "Singleton", boxManager);
+        int boxNo = 0;
         for (BoxedMorphCollection rawAlbum : singletonCollections) {
             for (BoxedMorph boxedMorph : rawAlbum.getBoxedMorphs()) {
                 boxedMorph.setBoxes(boxManager);
-                boxManager.addBox(boxedMorph.getBox());
+                logger.info("condenseSingletons boxNo " + boxNo);
+                Rect box = boxManager.getBox(boxNo++);
+                boxedMorph.setBox(box);
                 singletonCollection.add(boxedMorph);
             }
             masterCollections.remove(rawAlbum);

@@ -10,6 +10,10 @@ import net.richarddawkins.watchmaker.component.WatchComponent;
 
 public class SwingWatchComponent implements WatchComponent {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     protected JComponent component;
     
     @Override
@@ -23,9 +27,6 @@ public class SwingWatchComponent implements WatchComponent {
         
     }
 
-
-
-
     @Override
     public void add(Object newComponent, Object constraints) {
         component.add((Component) newComponent, constraints);
@@ -37,14 +38,10 @@ public class SwingWatchComponent implements WatchComponent {
     }
 
 
-
     @Override
     public void setLayout(Object layout) {
         component.setLayout((LayoutManager) layout);
-        
     }
-
-
 
     @Override
     public void setBorder(Object border) {
@@ -52,11 +49,14 @@ public class SwingWatchComponent implements WatchComponent {
         
     }
 
-
-
     @Override
     public void repaint() {
         component.repaint();
+        
+    }
+    @Override
+    public void removeAll() {
+        component.removeAll();
         
     }
 

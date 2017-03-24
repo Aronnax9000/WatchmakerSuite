@@ -30,9 +30,8 @@ public abstract class SwingMorphView extends SimpleMorphView {
 
     public SwingMorphView(MorphViewConfig config) {
         super(config);
+        
     }
-
-
 
     @Override
     public void addGeneBoxStrip(boolean engineeringMode,

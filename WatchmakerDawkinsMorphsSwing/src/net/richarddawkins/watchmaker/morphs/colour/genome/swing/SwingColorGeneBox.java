@@ -1,7 +1,6 @@
 package net.richarddawkins.watchmaker.morphs.colour.genome.swing;
 
 import java.awt.Color;
-import java.beans.PropertyChangeEvent;
 
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.morphs.colour.genome.ColorGene;

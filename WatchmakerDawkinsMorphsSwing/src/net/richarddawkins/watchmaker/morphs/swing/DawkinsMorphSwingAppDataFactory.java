@@ -4,12 +4,12 @@ import java.util.Vector;
 
 import javax.swing.Icon;
 
+import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.morphs.arthro.swing.ArthromorphSwingAppData;
 import net.richarddawkins.watchmaker.morphs.colour.swing.ColourSwingAppData;
 import net.richarddawkins.watchmaker.morphs.concho.app.swing.SnailSwingAppData;
 import net.richarddawkins.watchmaker.morphs.mono.app.swing.MonochromeSwingAppData;
-import net.richarddawkins.watchmaker.swing.app.SwingAppData;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewsTabbedPanel;
 
 public class DawkinsMorphSwingAppDataFactory implements AppDataFactory {
@@ -91,8 +91,8 @@ public class DawkinsMorphSwingAppDataFactory implements AppDataFactory {
 	 * @return a new SwingAppData depending on the value of MorphType (Arthromorphs, Colour, Snails, Monochrome)
 	 */
 	@Override
-	public SwingAppData newAppData() {
-		SwingAppData swingAppData = null;
+	public AppData newAppData() {
+		AppData swingAppData = null;
 		if(morphType.equals("Arthromorphs")) {
 			swingAppData = new ArthromorphSwingAppData();
 		} else if(morphType.equals("Colour")) {

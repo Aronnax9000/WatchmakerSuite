@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
 
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ShowAsTextAction extends SwingWatchmakerAction {
@@ -15,8 +14,8 @@ public class ShowAsTextAction extends SwingWatchmakerAction {
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame = null;
 
-	public ShowAsTextAction(AppData appData) {
-		super(appData, "Show as Text");
+	public ShowAsTextAction() {
+		super("Show as Text");
 	}
 
 	@Override

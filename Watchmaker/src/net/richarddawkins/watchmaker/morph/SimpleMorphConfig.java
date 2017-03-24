@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Collection;
 import java.util.Vector;
+import java.util.logging.Logger;
 
 import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.album.AlbumSerializer;
@@ -18,8 +19,8 @@ import net.richarddawkins.watchmaker.morph.selector.MorphSelector;
 import net.richarddawkins.watchmaker.morph.selector.MorphZillaSelector;
 
 public abstract class SimpleMorphConfig implements MorphConfig {
-    // private static Logger logger = Logger
-    // .getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
+     private static Logger logger = Logger
+     .getLogger("net.richarddawkins.watchmaker.morph.SimpleMorphConfig");
     protected final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
     protected AllowedMutations allowedMutations;
@@ -29,6 +30,13 @@ public abstract class SimpleMorphConfig implements MorphConfig {
     protected Mutagen mutagen;
     protected boolean recordingFossils;
 
+    
+    public void setTriangleMorph(int index, Morph morph) {
+        getTriangleMorphs()[index] = morph;    
+    }
+    
+
+    
     protected MorphSelector selector = new MorphZillaSelector();
 
     public MorphSelector getSelector() {
@@ -50,7 +58,11 @@ public abstract class SimpleMorphConfig implements MorphConfig {
 
     @Override
     public Collection<Album> getAlbums() {
-        return new AlbumSerializer(this).getBuiltInAlbums();
+        Collection<Album> albums = new AlbumSerializer(this).getBuiltInAlbums();
+        for(Album album: albums) {
+            logger.info("SimpleMorphConfig.getAlbums: " + album);
+        }
+        return albums;
     }
 
     int startingMorphBasicType;

@@ -1,12 +1,23 @@
 package net.richarddawkins.watchmaker.menu;
 
-public interface WatchmakerMenuBar {
+import net.richarddawkins.watchmaker.component.WatchComponent;
+
+public interface WatchmakerMenuBar extends WatchComponent {
 
 	void add(WatchmakerMenu menu);
 
 	void repaint();
 
-	void removeAll();
 
 
+	/**
+	 * Remove the named component from the menu bar.
+	 * @param string the name of the component to remove.
+	 */
+    void remove(String string);
+
+    WatchmakerMenu getMenu(String string);
+    
+
+    
 }

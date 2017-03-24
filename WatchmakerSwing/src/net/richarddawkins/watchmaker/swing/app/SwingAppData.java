@@ -22,11 +22,17 @@ import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genome.Genome;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.GeometryManager;
+import net.richarddawkins.watchmaker.image.ClassicImageLoader;
+import net.richarddawkins.watchmaker.image.ClassicImageLoaderService;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBuilderService;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
+import net.richarddawkins.watchmaker.morphview.MorphViewFactory;
+import net.richarddawkins.watchmaker.morphview.MorphViewFactoryService;
 import net.richarddawkins.watchmaker.morphview.MorphViewType;
 import net.richarddawkins.watchmaker.morphview.MorphViewsTabbedPanel;
 import net.richarddawkins.watchmaker.phenotype.PhenotypeDrawer;
@@ -38,22 +44,34 @@ import net.richarddawkins.watchmaker.swing.components.SwingWatchPanel;
 import net.richarddawkins.watchmaker.swing.cursor.SwingWatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.swing.drawer.SwingBoxesDrawer;
 import net.richarddawkins.watchmaker.swing.drawer.SwingMorphDrawer;
-import net.richarddawkins.watchmaker.swing.morphview.SwingMorphViewFactory;
+import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerMenuBar;
 
 public abstract class SwingAppData implements AppData {
+
+    public SwingAppData() {
+        this.geometryManager = new AWTGeometryManager();
+        this.watchmakerCursorFactory = new SwingWatchmakerCursorFactory();
+        this.classicImageLoader = ClassicImageLoaderService.getInstance()
+                .getClassicImageLoader();
+        this.morphViewFactory = MorphViewFactoryService.getInstance()
+                .getFactory();
+    }
 
     public MorphDrawer newMorphDrawer() {
         return new SwingMorphDrawer(this);
     }
 
-    
-    
     @Override
     public WatchPanel newWatchPanel() {
         return new SwingWatchPanel();
     }
 
+    protected ClassicImageLoader classicImageLoader;
 
+    @Override
+    public ClassicImageLoader getClassicImageLoader() {
+        return classicImageLoader;
+    }
 
     class WatchmakerTask extends TimerTask {
 
@@ -135,11 +153,6 @@ public abstract class SwingAppData implements AppData {
         this.watchmakerCursorFactory = watchmakerCursorFactory;
     }
 
-    public SwingAppData() {
-        this.geometryManager = new AWTGeometryManager();
-        this.watchmakerCursorFactory = new SwingWatchmakerCursorFactory();
-    }
-
     public void actionBreedFromSelector() {
         // Find the topmost breeding panel and breed from it.
         SwingBreedingMorphView morphView = (SwingBreedingMorphView) this
@@ -147,11 +160,13 @@ public abstract class SwingAppData implements AppData {
         morphView.breedFromSelector();
     }
 
+    protected MorphViewFactory morphViewFactory;
+
     @Override
     public void addAlbumMorphView(Album album) {
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
-                .getMorphView(this, MorphViewType.album, null));
-
+        MorphView newAlbumMorphView = morphViewFactory.getMorphView(this,
+                "Album", null, album);
+        morphViewsTabbedPane.addMorphView(newAlbumMorphView);
     }
 
     @Override
@@ -168,8 +183,9 @@ public abstract class SwingAppData implements AppData {
             seedMorphs.addElement(
                     config.newMorph(config.getStartingMorphBasicType()));
         }
-        SwingBreedingMorphView morphView = (SwingBreedingMorphView) SwingMorphViewFactory
-                .getMorphView(this, MorphViewType.breeding, seedMorphs);
+        SwingBreedingMorphView morphView = (SwingBreedingMorphView) morphViewFactory
+                .getMorphView(this, MorphViewType.breeding.getName(),
+                        seedMorphs, null);
         morphViewsTabbedPane.addMorphView(morphView);
 
         if (isBreedRightAway()) {
@@ -179,6 +195,7 @@ public abstract class SwingAppData implements AppData {
             panel.setBreedFromMidBoxOnNextRepaint(true);
 
         }
+        
 
     }
 
@@ -201,8 +218,8 @@ public abstract class SwingAppData implements AppData {
     public void addEngineeringMorphView(Morph morph) {
         Vector<Morph> seedMorphs = new Vector<Morph>();
         seedMorphs.add(morph);
-        MorphView morphView = SwingMorphViewFactory.getMorphView(this,
-                MorphViewType.engineering, seedMorphs);
+        MorphView morphView = morphViewFactory.getMorphView(this,
+                MorphViewType.engineering.getName(), seedMorphs, null);
         morphViewsTabbedPane.addMorphView(morphView);
     }
 
@@ -221,8 +238,8 @@ public abstract class SwingAppData implements AppData {
     public void addPedigreeMorphView() {
         Vector<Morph> seedMorphs = new Vector<Morph>();
         seedMorphs.add(getMorphOfTheHour());
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
-                .getMorphView(this, MorphViewType.pedigree, seedMorphs));
+        morphViewsTabbedPane.addMorphView(morphViewFactory.getMorphView(this,
+                MorphViewType.pedigree.getName(), seedMorphs, null));
 
     }
 
@@ -242,9 +259,20 @@ public abstract class SwingAppData implements AppData {
         Vector<Morph> seedMorphs = new Vector<Morph>();
         seedMorphs.addAll(
                 Arrays.asList(this.getMorphConfig().getTriangleMorphs()));
-        morphViewsTabbedPane.addMorphView(SwingMorphViewFactory
-                .getMorphView(this, MorphViewType.triangle, seedMorphs));
+        morphViewsTabbedPane.addMorphView(morphViewFactory.getMorphView(this,
+                MorphViewType.triangle.getName(), seedMorphs, null));
 
+    }
+
+    protected boolean recordingFossils;
+
+    @Override
+    public boolean isRecordingFossils() {
+        return recordingFossils;
+    }
+
+    public void setRecordingFossils(boolean recordingFossils) {
+        this.recordingFossils = recordingFossils;
     }
 
     @Override
@@ -268,8 +296,8 @@ public abstract class SwingAppData implements AppData {
 
     @Override
     public void albumOpen() {
-        int returnVal = fileChooser
-                .showOpenDialog((Component) this.getMorphViewsTabbedPane().getComponent());
+        int returnVal = fileChooser.showOpenDialog(
+                (Component) this.getMorphViewsTabbedPane().getComponent());
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
@@ -378,9 +406,8 @@ public abstract class SwingAppData implements AppData {
             return null;
         }
     }
-    
+
     protected MorphView selectedMorphView;
-    
 
     @Override
     public MorphView getSelectedMorphView() {
@@ -390,8 +417,32 @@ public abstract class SwingAppData implements AppData {
 
     @Override
     public void setSelectedMorphView(MorphView newValue) {
+        if (selectedMorphView != null) {
+            selectedMorphView.cleanMenu(SwingWatchmakerMenuBar.getInstance());
+        }
         logger.info("setSelectedMorphView: " + newValue);
-        this.selectedMorphView = newValue;
+        selectedMorphView = newValue;
+        rebuildMenuBar();
+    }
+
+    @Override
+    public void rebuildMenuBar() {
+        WatchmakerMenuBar menuBar = SwingWatchmakerMenuBar.getInstance();
+        WatchmakerMenuBuilderService.getInstance().getWatchmakerMenuBuilder()
+                .buildMenu(menuBar);
+        MenuBuilder speciesSpecificMenuBuilder = this.getMenuBuilder();
+        speciesSpecificMenuBuilder.buildMenu(menuBar);
+        // Let the available morph view modules have a crack at installing their own
+        // Menu items.
+        MorphViewFactory morphViewFactory = MorphViewFactoryService
+                .getInstance().getFactory();
+        for (String morphViewType : morphViewFactory.getMorphViewTypes()) {
+            morphViewFactory.getMenuBuilder(morphViewType)
+                    .buildMenu(menuBar);
+        }
+        
+        selectedMorphView.buildMenu(menuBar);
+        menuBar.repaint();
     }
 
     @Override
@@ -451,8 +502,7 @@ public abstract class SwingAppData implements AppData {
 
     @Override
     public void newRandomStart() {
-        // TODO Auto-generated method stub MorphConfig config =
-        // appData.getMorphConfig();
+
         Morph morph = getMorphOfTheHour();
         Genome genome = config.getGenomeFactory().deliverSaltation();
         morph.setGenome(genome);

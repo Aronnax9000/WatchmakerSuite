@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="create_run_jar" name="Create Runnable Jar for Project WatchmakerSwingStandalone">
-    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
-    <!--ANT 1.7 is required                                        -->
-    <!--define folder properties-->
-    <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="/home/alan/workspace"/>
-    <property name="dir.jarfile" value="/home/alan/git/WatchmakerSuite/docs/jars"/>
-    <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/WatchmakerSuite.jar" filesetmanifest="mergewithoutmain">
-            <manifest>
-                <attribute name="Main-Class" value="net.richarddawkins.watchmaker.standalone.Watchmaker"/>
-                <attribute name="Class-Path" value="."/>
-            </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphsSwing/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/Watchmaker/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerSwing/bin"/>
-            <fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphs/bin"/>
-        </jar>
-    	<ant dir="../WatchmakerSwing" antfile="javadoc.xml" />
-    	 
-    </target>
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<!--define folder properties-->
+	<property name="dir.buildfile" value="." />
+	<property name="dir.workspace" value="/home/alan/workspace" />
+	<property name="dir.jarfile" value="/home/alan/git/WatchmakerSuite/docs/jars" />
+	<property name="version.num" value="75.9" />
+	<tstamp>
+		<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
+	</tstamp>
+	<buildnumber file="build.num" />
+	<target name="create_run_jar">
+
+		<jar destfile="${dir.jarfile}/WatchmakerSuite.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="net.richarddawkins.watchmaker.standalone.Watchmaker" />
+				<attribute name="Class-Path" value="." />
+				<attribute name="Implementation-Version" value="${version.num}-b${build.number}" />
+
+				<attribute name="Built-Date" value="${TODAY}" />
+			</manifest>
+			<fileset dir="${dir.buildfile}/bin" />
+			<fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphsSwing/bin" />
+			<fileset dir="/home/alan/git/WatchmakerSuite/Watchmaker/bin" />
+			<fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerSwing/bin" />
+			<fileset dir="/home/alan/git/WatchmakerSuite/WatchmakerDawkinsMorphs/bin" />
+		</jar>
+		<echo message="${version.num}-b${build.number}" />
+		<copy file="${dir.jarfile}/WatchmakerSuite.jar" toFile="${dir.jarfile}/WatchmakerSuite${version.num}-b${build.number}.jar" />
+		<ant dir="../WatchmakerSwing" antfile="javadoc.xml" />
+		
+	</target>
 </project>

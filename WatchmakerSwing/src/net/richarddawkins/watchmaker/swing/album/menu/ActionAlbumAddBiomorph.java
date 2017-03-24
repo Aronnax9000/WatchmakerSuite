@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 import javax.swing.KeyStroke;
 
-import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.swing.menu.SwingWatchmakerAction;
 
 public class ActionAlbumAddBiomorph extends SwingWatchmakerAction {
@@ -16,15 +15,14 @@ public class ActionAlbumAddBiomorph extends SwingWatchmakerAction {
     @SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger(
             "net.richarddawkins.watchmaker.swing.menu.ActionAlbumAddBiomorph");
-    public ActionAlbumAddBiomorph(AppData appData) {
-        super(appData, "Add Biomorph to Album", null, KeyStroke.getKeyStroke(KeyEvent.VK_A, 
+    public ActionAlbumAddBiomorph() {
+        super("Add Biomorph to Album", null, KeyStroke.getKeyStroke(KeyEvent.VK_A, 
                 Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
     }
     
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        appData.addMorphToAlbum();
+        getAppData().addMorphToAlbum();
     }
-     
 
 }

@@ -25,7 +25,7 @@ import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.SimpleMorphViewPanel;
 
-public class SwingMorphViewPanel extends SimpleMorphViewPanel
+public abstract class SwingMorphViewPanel extends SimpleMorphViewPanel
         implements MorphViewPanel {
 
     protected boolean isDraggable = false;
@@ -69,8 +69,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
 
     protected JPanel panel;
 
-    public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
-        super(morphView, page);
+    public void initPanel() {
 
         this.panel = new JPanel() {
 
@@ -97,7 +96,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
             @Override
             public void mouseDragged(MouseEvent e) {
                 logger.fine("mouseDragged");
-                if(isDraggable) {
+                if (isDraggable) {
                     processMouseDragged(
                             geometryManager.toWatchmakerPoint(e.getPoint()),
                             geometryManager.toWatchmakerDim(
@@ -107,7 +106,7 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
                             geometryManager.toWatchmakerPoint(e.getPoint()),
                             geometryManager.toWatchmakerDim(
                                     ((Component) e.getSource()).getSize()));
-                    
+
                 }
             }
 
@@ -141,6 +140,10 @@ public class SwingMorphViewPanel extends SimpleMorphViewPanel
         panel.addMouseListener(mouseAdapter);
         panel.addMouseMotionListener(mouseAdapter);
         panel.addComponentListener(new ResizeListener());
+    }
+
+    public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
+        super(morphView, page);
     }
 
     @Override

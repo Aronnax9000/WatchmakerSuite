@@ -6,19 +6,17 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.KeyStroke;
 
-import net.richarddawkins.watchmaker.app.AppData;
-
 public class ActionRedo extends SwingWatchmakerAction {
 
 	private static final long serialVersionUID = 4121419685469500509L;
 
-	public ActionRedo(AppData appData) {
-		super(appData, "Redo", null, KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+	public ActionRedo() {
+		super("Redo", null, KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-	    appData.getSelectedMorphView().redo();
+	    getAppData().getSelectedMorphView().redo();
 	}
 
 }

@@ -14,6 +14,7 @@ import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
 import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.pedigree.MirrorType;
 import net.richarddawkins.watchmaker.morphview.pedigree.PedigreeMorphView;
+import net.richarddawkins.watchmaker.morphview.pedigree.PedigreeMorphViewPanel;
 import net.richarddawkins.watchmaker.swing.morphview.SwingMorphView;
 
 public class SwingPedigreeMorphView extends SwingMorphView
@@ -31,6 +32,8 @@ public class SwingPedigreeMorphView extends SwingMorphView
 
     public void setMirrorType(MirrorType mirrorType) {
         this.mirrorType = mirrorType;
+        PedigreeMorphViewPanel currentPanel = (PedigreeMorphViewPanel)this.getSelectedPanel();
+        
     }
 
     /**
@@ -99,5 +102,6 @@ public class SwingPedigreeMorphView extends SwingMorphView
             }
         }
     }
+
 
 }

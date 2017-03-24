@@ -7,6 +7,7 @@ import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.genebox.GeneBoxStrip;
 import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphViewConfig;
@@ -21,7 +22,6 @@ public class SwingArrayMorphView extends SwingMorphView
 
     public SwingArrayMorphView(MorphViewConfig config) {
         super(config);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -253,6 +253,24 @@ public class SwingArrayMorphView extends SwingMorphView
     public ScaleSlider getScaleSlider() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void buildMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void cleanMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void updateMenu(WatchmakerMenuBar menuBar) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

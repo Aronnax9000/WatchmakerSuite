@@ -6,33 +6,41 @@ import javax.swing.Icon;
 import javax.swing.KeyStroke;
 
 import net.richarddawkins.watchmaker.app.AppData;
+import net.richarddawkins.watchmaker.image.ClassicImageLoader;
+import net.richarddawkins.watchmaker.image.ClassicImageLoaderService;
 import net.richarddawkins.watchmaker.menu.WatchmakerAction;
+import net.richarddawkins.watchmaker.swing.zoo.SwingMultiMorphTypeTabbedPanel;
 
 abstract public class SwingWatchmakerAction extends AbstractAction implements WatchmakerAction {
 
 private static final long serialVersionUID = 1L;
 
-	protected AppData appData;
-
-    public SwingWatchmakerAction(AppData appData, String name) {
+	public AppData getAppData() {
+	    return SwingMultiMorphTypeTabbedPanel.getInstance().getSelectedAppData();
+	}
+	
+	public ClassicImageLoader getClassicImageLoader() {
+	    return ClassicImageLoaderService.getInstance().getClassicImageLoader();
+	}
+	
+    public SwingWatchmakerAction(String name) {
         super(name);
-        this.appData = appData;
     }
- 
-    public SwingWatchmakerAction(AppData appData, String name, Icon icon) {
+    
+    public SwingWatchmakerAction(String name, Icon icon) {
         super(name, icon);
-        this.appData = appData;
     }
  
-    public SwingWatchmakerAction(AppData appData, String name, Integer mnemonic) {
-        this(appData, name);
+    public SwingWatchmakerAction(String name, Integer mnemonic) {
+        this(name);
         putValue(MNEMONIC_KEY, mnemonic);
     }
 
-    public SwingWatchmakerAction(AppData appData, String name, Icon icon, KeyStroke accelerator) {
-        this(appData, name, icon);
+    public SwingWatchmakerAction(String name, Icon icon, KeyStroke accelerator) {
+        this(name, icon);
         putValue(Action.ACCELERATOR_KEY, accelerator);
     }
 
+    
 
 }
