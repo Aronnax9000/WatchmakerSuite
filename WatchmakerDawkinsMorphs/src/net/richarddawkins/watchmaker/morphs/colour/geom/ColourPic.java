@@ -12,7 +12,7 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.Lin;
 public class ColourPic extends BiomorphPic {
 
 
-	protected int backgroundColor = WatchmakerColor.WhiteColor;
+	protected int backgroundColor = -1;
     public int getBackgroundColor() {
         return backgroundColor;
     }
