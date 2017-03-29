@@ -71,17 +71,6 @@ public abstract class SwingMenuBuilder extends SimpleMenuBuilder implements Menu
 
         return menu;
     }
-    protected WatchmakerMenu buildPaletteMenu() {
-        WatchmakerMenu paletteMenu = new SwingWatchmakerMenu("Palettes");
-        Set<String> paletteNames = WatchmakerColor.getInstance().getPalettes()
-                .keySet();
-        for (String paletteName : paletteNames) {
-            paletteMenu.add(new ActionSwitchPalette(paletteName));
-        }
-        return paletteMenu;
-
-    }
-
 
 
 

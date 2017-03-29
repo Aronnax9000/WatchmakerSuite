@@ -3,6 +3,7 @@ package net.richarddawkins.watchmaker.swing.menu;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
+import java.util.Set;
 
 import javax.swing.Icon;
 import javax.swing.JCheckBoxMenuItem;
@@ -13,6 +14,7 @@ import net.richarddawkins.watchmaker.app.AppDataFactory;
 import net.richarddawkins.watchmaker.app.AppDataFactoryService;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
+import net.richarddawkins.watchmaker.geom.WatchmakerColor;
 import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
@@ -65,9 +67,23 @@ public class SwingWatchmakerMenuBuilder implements WatchmakerMenuBuilder {
         WatchmakerMenu menu = new SwingWatchmakerMenu("Operation");
         return menu;
     }
+    
+    protected WatchmakerMenu buildPaletteMenu() {
+        WatchmakerMenu paletteMenu = new SwingWatchmakerMenu("Palettes");
+        Set<String> paletteNames = WatchmakerColor.getInstance().getPalettes()
+                .keySet();
+        for (String paletteName : paletteNames) {
+            paletteMenu.add(new ActionSwitchPalette(paletteName));
+        }
+        return paletteMenu;
+
+    }
+
+
 
     protected WatchmakerMenu buildViewMenu() {
         WatchmakerMenu menu = new SwingWatchmakerMenu("View");
+        menu.add(buildPaletteMenu());
         menu.add(viewBoundingBoxes);
         menu.add(spinBabyMorphs);
         return menu;
