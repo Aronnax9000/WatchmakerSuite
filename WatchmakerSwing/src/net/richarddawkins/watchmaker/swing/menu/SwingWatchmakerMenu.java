@@ -8,8 +8,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.border.Border;
 
+import net.richarddawkins.watchmaker.component.WatchComponent;
 import net.richarddawkins.watchmaker.menu.WatchmakerAction;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenu;
+import net.richarddawkins.watchmaker.menu.WatchmakerMenuItem;
 
 public class SwingWatchmakerMenu extends JMenu implements WatchmakerMenu {
 	/**
@@ -59,5 +61,38 @@ public class SwingWatchmakerMenu extends JMenu implements WatchmakerMenu {
     @Override
     public void setBorder(Object border) {
         super.setBorder((Border)border);
+    }
+
+    
+    
+    @Override
+    public WatchComponent getMenu(String name) {
+        
+        int menuCount = this.getMenuComponentCount();
+        for(int i = 0; i < menuCount; i++) {
+            Component menu = this.getMenuComponent(i);
+            if(((JMenuItem)menu).getText().equals(name)) {
+                return (WatchmakerMenuItem) menu;
+            }
+        }
+
+        return null;
+    }
+
+    
+//    @Override
+//    public WatchmakerMenu getMenu(String text) {
+//        for(Component component: this.getComponents()) {
+//            if(((JMenu)component).getText().equals(text)) {
+//                return (WatchmakerMenu)component;
+//            }
+//        }
+//        return null;
+//    }
+    
+    @Override
+    public void removeMenu(String string) {
+        WatchComponent menu = getMenu(string);
+        this.remove((Component) menu);
     }
 }

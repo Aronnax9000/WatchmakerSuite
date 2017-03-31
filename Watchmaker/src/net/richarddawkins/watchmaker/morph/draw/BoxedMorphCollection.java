@@ -194,7 +194,7 @@ public class BoxedMorphCollection {
         if (selectedBoxedMorph == boxedMorphVictim) {
             selectedBoxedMorph = null;
         }
-        boxes.removeBox(boxedMorphVictim.getBox());
+//        boxes.removeBox(boxedMorphVictim.getBox());
         boxedMorphs.remove(boxedMorphVictim);
         setAlbumDirty(true);
     }

@@ -37,14 +37,14 @@ public class SwingMultiMorphTypeTabbedPanel extends SwingWatchTabbedPane
     public static synchronized SwingMultiMorphTypeTabbedPanel getInstance() {
         if (instance == null) {
             instance = new SwingMultiMorphTypeTabbedPanel();
+            instance.initAppDatas();
         }
         return instance;
     }
 
-    protected SwingMultiMorphTypeTabbedPanel() {
+    protected Preferences prefs;
 
-        Preferences prefs = Preferences.userRoot()
-                .node("net/richarddawkins/watchmaker/startup");
+    protected void initAppDatas() {
         String morphs = prefs.get("morphs",
                 "Monochrome,Colour,Arthromorphs,Snails");
         AppDataFactoryService service = AppDataFactoryService.getInstance();
@@ -59,10 +59,14 @@ public class SwingMultiMorphTypeTabbedPanel extends SwingWatchTabbedPane
                 addAppData(appData);
             }
         }
-        if (this.getTabCount() != 0)
-            changeToTab(0);
+    }
+
+    protected SwingMultiMorphTypeTabbedPanel() {
+
+        this.prefs = Preferences.userRoot()
+                .node("net/richarddawkins/watchmaker/startup");
+
         addChangeListener(new TabChangeListener());
-        setSelectedIndex(0);
     }
 
     protected Vector<AppData> appDatas = new Vector<AppData>();
@@ -104,10 +108,9 @@ public class SwingMultiMorphTypeTabbedPanel extends SwingWatchTabbedPane
                 newAppData.getToolTip());
 
         setTabComponentAt(this.getTabCount() - 1, tabComponent);
-
-        setSelectedIndex(this.getTabCount() - 1);
+        
+        this.setSelectedIndex(this.getTabCount() - 1);
     }
-
 
     public void changeToTab(int selectedIndex) {
         WatchmakerMenuBar menuBar = SwingWatchmakerMenuBar.getInstance();
@@ -126,7 +129,11 @@ public class SwingMultiMorphTypeTabbedPanel extends SwingWatchTabbedPane
     }
 
     public AppData getSelectedAppData() {
-        return appDatas.elementAt(this.getSelectedIndex());
+        int selectedIndex = this.getSelectedIndex();
+        if (selectedIndex == -1)
+            return null;
+        else
+            return appDatas.elementAt(selectedIndex);
     }
 
 }

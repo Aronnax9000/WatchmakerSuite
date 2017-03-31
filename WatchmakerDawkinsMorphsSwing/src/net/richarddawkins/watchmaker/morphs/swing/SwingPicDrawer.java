@@ -30,32 +30,37 @@ public abstract class SwingPicDrawer implements PhenotypeDrawer {
 
     @Override
     public Object getImage(Phenotype phenotype) {
-        Rect margin = phenotype.getMargin();
 
         BufferedImage bufferedImage = null;
 
-        int width = margin.getWidth();
-        int height = margin.getHeight();
-        try {
-            bufferedImage = new BufferedImage(width, height,
-                    BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2 = bufferedImage.createGraphics();
+        if (phenotype != null) {
+            Rect margin = phenotype.getMargin();
 
-            g2.translate(-margin.left, -margin.top);
-            this.picSpecifics(g2, phenotype);
+            int width = margin.getWidth();
+            int height = margin.getHeight();
+            try {
+                bufferedImage = new BufferedImage(width, height,
+                        BufferedImage.TYPE_INT_ARGB);
+                Graphics2D g2 = bufferedImage.createGraphics();
 
-            if (drawingPreferences.isSpinBabyMorphs()) {
-                g2.rotate(-Math.PI * 4);
+                g2.translate(-margin.left, -margin.top);
+                this.picSpecifics(g2, phenotype);
+
+                if (drawingPreferences.isSpinBabyMorphs()) {
+                    g2.rotate(-Math.PI * 4);
+                }
+                for (Lin line : ((Pic) phenotype).lines) {
+                    limb(g2, phenotype, line);
+                }
+                logger.fine("SwingPicDrawer.getImage() complete");
+            } catch (IllegalArgumentException e) {
+                logger.warning(
+                        "SwingPicDrawer.getImage failed because of widthXheight: "
+                                + width + "x" + height + " for phenotype "
+                                + phenotype);
             }
-            for (Lin line : ((Pic) phenotype).lines) {
-                limb(g2, phenotype, line);
-            }
-            logger.fine("SwingPicDrawer.getImage() complete");
-        } catch (IllegalArgumentException e) {
-            logger.warning(
-                    "SwingPicDrawer.getImage failed because of widthXheight: "
-                            + width + "x" + height + " for phenotype "
-                            + phenotype);
+        } else {
+            logger.warning("SwingPicDrawer.getImage phenotype was null");
         }
         return bufferedImage;
     }

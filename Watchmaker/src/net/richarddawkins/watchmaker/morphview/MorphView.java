@@ -63,4 +63,6 @@ public interface MorphView extends PropertyChangeListener, MenuBuilder {
     Object getPanel();
     void createPanel();
     void gainFocus();
+    void setIndexed(boolean newIndexMode);
+    boolean isIndexed();
 }

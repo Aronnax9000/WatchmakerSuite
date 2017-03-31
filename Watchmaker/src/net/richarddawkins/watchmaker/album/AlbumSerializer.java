@@ -245,7 +245,7 @@ public class AlbumSerializer {
             if (page == null) {
                 boxes = new GridBoxManager(5);
                 boxes.setAccentuateMidBox(false);
-                page = new BoxedMorphCollection("Page " + (size / 15 + 1),
+                page = new BoxedMorphCollection("Album Page " + (size / 15 + 1),
                         boxes);
                 album.addPage(page);
             }
@@ -276,7 +276,6 @@ public class AlbumSerializer {
         Collection<Album> albums = new Vector<Album>();
 
         for (BoxedMorphCollection rawAlbum : rawCollections) {
-
             albums.add(paginateBoxedMorphCollectionIntoAlbum(rawAlbum));
 
         }

@@ -31,7 +31,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     protected WatchmakerCursorFactory cursors = null;
     protected GeometryManager geometryManager;
 
-//    protected boolean includeChildrenInAutoScale = false;
+    // protected boolean includeChildrenInAutoScale = false;
     protected Point lastMouseDown;
     protected Dim lastMouseDownSize;
     protected Point lastMouseDrag;
@@ -44,14 +44,15 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
     protected boolean showBoundingBoxes = false;
     protected Rect special;
-/**
- * Implementations may override this to specify initial cursor state.
- * This implementation simply calls updateCursor(); 
- */
+
+    /**
+     * Implementations may override this to specify initial cursor state. This
+     * implementation simply calls updateCursor();
+     */
     public void initCursor() {
         updateCursor();
     }
-    
+
     public SimpleMorphViewPanel(MorphView morphView,
             BoxedMorphCollection page) {
         AppData appData = morphView.getAppData();
@@ -61,6 +62,7 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
                     + ", page) has null page.");
         } else {
             this.setBoxedMorphCollection(page);
+            this.name = page.getName();
         }
         this.geometryManager = appData.getGeometryManager();
         this.cursors = appData.getWatchmakerCursorFactory();
@@ -199,8 +201,8 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
                 boolean isSelected = boxedMorph == this.boxedMorphCollection
                         .getSelectedBoxedMorph();
                 MorphDrawer drawer = morphView.getMorphDrawer();
-                drawer.draw(boxedMorph, graphicsContext,
-                        size, isSelected, showBoundingBoxes, clip);
+                drawer.draw(boxedMorph, graphicsContext, size, isSelected,
+                        showBoundingBoxes, clip);
                 counter++;
             }
         }
@@ -219,10 +221,10 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         return boxedMorphCollection;
     }
 
-//    @Override
-//    public boolean getIncludeChildrenInAutoScale() {
-//        return includeChildrenInAutoScale;
-//    }
+    // @Override
+    // public boolean getIncludeChildrenInAutoScale() {
+    // return includeChildrenInAutoScale;
+    // }
 
     @Override
     public Morph getMorphOfTheHour() {
@@ -238,10 +240,15 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
 
         if (morph == null) {
             Rect midBox = boxedMorphCollection.getBoxManager().getMidBox();
-            if (midBox != null)
-                morph = boxedMorphCollection.getBoxedMorph(midBox).getMorph();
-            else
+
+            if (midBox != null) {
+                boxedMorph = boxedMorphCollection.getBoxedMorph(midBox);
+                if (boxedMorph != null) {
+                    morph = boxedMorph.getMorph();
+                }
+            } else {
                 morph = boxedMorphCollection.lastElement().getMorph();
+            }
         }
         return morph;
     }
@@ -342,11 +349,12 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     public void propertyChange(PropertyChangeEvent event) {
         String propertyName = event.getPropertyName();
         if (propertyName.equals("scale") || propertyName.equals("phenotype")) {
-            logger.info("SimpleMorphViewPanel received property change event " + propertyName);
+            logger.info("SimpleMorphViewPanel received property change event "
+                    + propertyName);
             clearMorphImages();
             repaint();
         }
-        
+
     }
 
     @Override
@@ -361,15 +369,17 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
     }
 
     /**
-     * Sets the boxed morph collection that is the model for this morph view panel.
-     * The morph view panel adds itself as a property change listener for the property named
-     * "scale" on the boxed morph collection's box manager.
-     * If the morph view panel already has a boxed morph collection,
-     * the old boxed morphed collection's boxed manager is first informed to no
-     * longer notify this morph view panel of changes to its scale property, before
-     * changing to the new boxed morph collection, and adding the scale property change
-     * listener registration as described above.
-     * @param newValue the new boxed morph collection.
+     * Sets the boxed morph collection that is the model for this morph view
+     * panel. The morph view panel adds itself as a property change listener for
+     * the property named "scale" on the boxed morph collection's box manager.
+     * If the morph view panel already has a boxed morph collection, the old
+     * boxed morphed collection's boxed manager is first informed to no longer
+     * notify this morph view panel of changes to its scale property, before
+     * changing to the new boxed morph collection, and adding the scale property
+     * change listener registration as described above.
+     * 
+     * @param newValue
+     *            the new boxed morph collection.
      */
     @Override
     public void setBoxedMorphCollection(BoxedMorphCollection newValue) {
@@ -384,11 +394,11 @@ public abstract class SimpleMorphViewPanel implements MorphViewPanel {
         }
     }
 
-//    @Override
-//    public void setIncludeChildrenInAutoScale(
-//            boolean includeChildrenInAutoScale) {
-//        this.includeChildrenInAutoScale = includeChildrenInAutoScale;
-//    }
+    // @Override
+    // public void setIncludeChildrenInAutoScale(
+    // boolean includeChildrenInAutoScale) {
+    // this.includeChildrenInAutoScale = includeChildrenInAutoScale;
+    // }
 
     @Override
     public void setName(String name) {

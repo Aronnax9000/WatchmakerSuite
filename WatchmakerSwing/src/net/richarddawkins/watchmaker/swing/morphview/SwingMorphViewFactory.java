@@ -78,6 +78,7 @@ public class SwingMorphViewFactory implements MorphViewFactory {
                     + "Album";
             config.icon = "IconAlbum_ALAN_32x32";
             config.seedMorphs = null;
+            config.indexed = true;
             morphView = new SwingAlbumMorphView(config);
             break;
         case fossil:

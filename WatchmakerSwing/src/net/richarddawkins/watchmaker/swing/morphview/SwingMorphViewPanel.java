@@ -1,10 +1,14 @@
 package net.richarddawkins.watchmaker.swing.morphview;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.LayoutManager;
 import java.awt.MouseInfo;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -13,22 +17,88 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
+import net.richarddawkins.watchmaker.component.WatchPanel;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morphview.MorphView;
-import net.richarddawkins.watchmaker.morphview.MorphViewPanel;
 import net.richarddawkins.watchmaker.morphview.SimpleMorphViewPanel;
 
 public abstract class SwingMorphViewPanel extends SimpleMorphViewPanel
-        implements MorphViewPanel {
+        implements WatchPanel {
+
+    @Override
+    public Object getComponent() {
+
+        return panel;
+    }
+
+    @Override
+    public void loseFocus() {
+        super.loseFocus();
+        if (morphView.isIndexed()) {
+            this.setBorder(null);
+        }
+    }
+
+    @Override
+    public void gainFocus() {
+        super.gainFocus();
+        if (morphView.isIndexed()) {
+            this.setBorder(new LineBorder(Color.BLACK, 3));
+        }
+    }
+
+    @Override
+    public void setLayout(Object mgr) {
+        panel.setLayout((LayoutManager) mgr);
+
+    }
+
+    @Override
+    public void setBorder(Object border) {
+        panel.setBorder((Border) border);
+
+    }
+
+    @Override
+    public void setOpaque(boolean isOpaque) {
+        panel.setOpaque(isOpaque);
+
+    }
+
+    @Override
+    public void add(Object newComponent) {
+        panel.add((Component) newComponent);
+
+    }
+
+    @Override
+    public void add(Object newComponent, Object constraints) {
+        panel.add((Component) newComponent, constraints);
+
+    }
+
+    @Override
+    public void removeAll() {
+        panel.removeAll();
+
+    }
 
     protected boolean isDraggable = false;
+
+    @Override
+    public Object getCursor() {
+        return panel.getCursor();
+    }
 
     protected class ResizeListener extends ComponentAdapter {
         public void componentResized(ComponentEvent e) {
@@ -140,15 +210,20 @@ public abstract class SwingMorphViewPanel extends SimpleMorphViewPanel
         panel.addMouseListener(mouseAdapter);
         panel.addMouseMotionListener(mouseAdapter);
         panel.addComponentListener(new ResizeListener());
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        constraints.anchor = GridBagConstraints.FIRST_LINE_START;
+        if (name != null) {
+            add(new JLabel(name), constraints);
+        }
     }
 
     public SwingMorphViewPanel(MorphView morphView, BoxedMorphCollection page) {
         super(morphView, page);
-    }
-
-    @Override
-    public Object getCursor() {
-        return panel.getCursor();
     }
 
     @Override
@@ -162,21 +237,42 @@ public abstract class SwingMorphViewPanel extends SimpleMorphViewPanel
     }
 
     @Override
-    public void processMouseMotion(Point myPt, Dim size) {
-        Cursor cursor = (Cursor) this.getCursor();
-        boolean cursorTypeIsntHighlight = !cursors
-                .isCursorType(WatchmakerCursor.highlight, cursor);
-        // boolean selectedBoxedMorphIsntNull = selectedBoxedMorph != null;
-        // if (cursorTypeIsntHighlight && selectedBoxedMorphIsntNull) {
-        if (cursorTypeIsntHighlight) {
-            BoxedMorph boxedMorphUnderCursor = boxedMorphCollection
-                    .getBoxedMorph(myPt, size);
+    public void processMouseClicked(Point myPt, Dim Size) {
+        if (morphView.isIndexed()) {
+            Cursor cursor = (Cursor) this.getCursor();
+            boolean cursorTypeIsMagnify = cursors
+                    .isCursorType(WatchmakerCursor.magnify, cursor);
+            if(cursorTypeIsMagnify) {
+                morphView.setSelectedPanel(this);
+                morphView.setIndexed(false);
+            }
+        } else {
+        }
+    }
 
-            if (boxedMorphUnderCursor != selectedBoxedMorph) {
-                if (boxedMorphUnderCursor != null) {
-                    logger.info("Setting selectedBoxMorph to boxed morph "
-                            + boxedMorphUnderCursor);
-                    setSelectedBoxedMorph(boxedMorphUnderCursor);
+    @Override
+    public void processMouseMotion(Point myPt, Dim size) {
+        if (morphView.isIndexed()) {
+
+            this.setCursor(
+                    (Cursor) cursors.getCursor(WatchmakerCursor.magnify));
+            morphView.setSelectedPanel(this);
+        } else {
+            Cursor cursor = (Cursor) this.getCursor();
+            boolean cursorTypeIsntHighlight = !cursors
+                    .isCursorType(WatchmakerCursor.highlight, cursor);
+            // boolean selectedBoxedMorphIsntNull = selectedBoxedMorph != null;
+            // if (cursorTypeIsntHighlight && selectedBoxedMorphIsntNull) {
+            if (cursorTypeIsntHighlight) {
+                BoxedMorph boxedMorphUnderCursor = boxedMorphCollection
+                        .getBoxedMorph(myPt, size);
+
+                if (boxedMorphUnderCursor != selectedBoxedMorph) {
+                    if (boxedMorphUnderCursor != null) {
+                        logger.info("Setting selectedBoxMorph to boxed morph "
+                                + boxedMorphUnderCursor);
+                        setSelectedBoxedMorph(boxedMorphUnderCursor);
+                    }
                 }
             }
         }

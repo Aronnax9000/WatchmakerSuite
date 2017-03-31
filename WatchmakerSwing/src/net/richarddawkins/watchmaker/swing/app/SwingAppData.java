@@ -18,17 +18,24 @@ import net.richarddawkins.watchmaker.album.Album;
 import net.richarddawkins.watchmaker.album.AlbumSerializer;
 import net.richarddawkins.watchmaker.app.AppData;
 import net.richarddawkins.watchmaker.component.WatchPanel;
+import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.cursor.WatchmakerCursorFactory;
 import net.richarddawkins.watchmaker.genome.Genome;
+import net.richarddawkins.watchmaker.geom.BoxManager;
+import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.BoxesDrawer;
 import net.richarddawkins.watchmaker.geom.GeometryManager;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
+import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.image.ClassicImageLoader;
 import net.richarddawkins.watchmaker.image.ClassicImageLoaderService;
 import net.richarddawkins.watchmaker.menu.MenuBuilder;
+import net.richarddawkins.watchmaker.menu.WatchmakerCheckBoxMenuItem;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBar;
 import net.richarddawkins.watchmaker.menu.WatchmakerMenuBuilderService;
 import net.richarddawkins.watchmaker.morph.Morph;
 import net.richarddawkins.watchmaker.morph.MorphConfig;
+import net.richarddawkins.watchmaker.morph.draw.BoxedMorphCollection;
 import net.richarddawkins.watchmaker.morph.draw.MorphDrawer;
 import net.richarddawkins.watchmaker.morphview.MorphView;
 import net.richarddawkins.watchmaker.morphview.MorphViewFactory;
@@ -166,6 +173,7 @@ public abstract class SwingAppData implements AppData {
     public void addAlbumMorphView(Album album) {
         MorphView newAlbumMorphView = morphViewFactory.getMorphView(this,
                 "Album", null, album);
+
         morphViewsTabbedPane.addMorphView(newAlbumMorphView);
     }
 
@@ -195,8 +203,19 @@ public abstract class SwingAppData implements AppData {
             panel.setBreedFromMidBoxOnNextRepaint(true);
 
         }
-        
 
+    }
+
+    @Override
+    public void addClassicAlbum(String albumName) {
+        Collection<Album> albums = config.getAlbums();
+        if (albums != null) {
+            for (Album album : albums) {
+                if (album.getName().equals(albumName)) {
+                    addAlbumMorphView(album);
+                }
+            }
+        }
     }
 
     @Override
@@ -227,10 +246,22 @@ public abstract class SwingAppData implements AppData {
     public void addMorphToAlbum() {
         Morph morph = this.getMorphOfTheHour();
         Vector<MorphView> albumMorphViews = this.getAlbumMorphViews();
-        if (!albumMorphViews.isEmpty()) {
-            MorphView albumMorphView = albumMorphViews.firstElement();
+        MorphView albumMorphView;
+        if (albumMorphViews.isEmpty()) {
+            Album album = new Album("Untitled");
+            BoxedMorphCollection boxedMorphs = new BoxedMorphCollection();
+            BoxManager boxManager = new GridBoxManager(5,3);
+            boxedMorphs.setBoxManager(boxManager);
+            album.addPage(boxedMorphs);
+            Rect rect = boxManager.getBox(boxManager.getBoxCount());
+            BoxedMorph boxedMorph = new BoxedMorph(boxManager, morph, rect);
+            boxedMorphs.add(boxedMorph);
+            this.addAlbumMorphView(album);
+        } else {
+            albumMorphView = albumMorphViews.firstElement();
             albumMorphView.addSeedMorph(morph);
             albumMorphView.repaint();
+
         }
     }
 
@@ -423,6 +454,39 @@ public abstract class SwingAppData implements AppData {
         logger.info("setSelectedMorphView: " + newValue);
         selectedMorphView = newValue;
         rebuildMenuBar();
+
+    }
+
+    @Override
+    public void updateMenuBar() {
+        WatchmakerMenuBar menuBar = SwingWatchmakerMenuBar.getInstance();
+        MenuBuilder watchmakerMenuBuilder = WatchmakerMenuBuilderService
+                .getInstance().getWatchmakerMenuBuilder();
+
+        watchmakerMenuBuilder.updateMenu(menuBar);
+        MenuBuilder speciesSpecificMenuBuilder = this.getMenuBuilder();
+        speciesSpecificMenuBuilder.updateMenu(menuBar);
+        // Let the available morph view modules have a crack at installing their
+        // own
+        // Menu items.
+        MorphViewFactory morphViewFactory = MorphViewFactoryService
+                .getInstance().getFactory();
+        for (String morphViewType : morphViewFactory.getMorphViewTypes()) {
+            morphViewFactory.getMenuBuilder(morphViewType).updateMenu(menuBar);
+        }
+
+        selectedMorphView.updateMenu(menuBar);
+
+        WatchmakerCursorFactory cursors = this.getWatchmakerCursorFactory();
+        WatchmakerCheckBoxMenuItem highlightBiomorph = (WatchmakerCheckBoxMenuItem) menuBar
+                .getMenu("Edit").getMenu("Highlight biomorph");
+        if (highlightBiomorph != null) {
+            boolean isHighlight = cursors.isCursorType(
+                    WatchmakerCursor.highlight,
+                    this.getSelectedMorphView().getSelectedPanel().getCursor());
+            highlightBiomorph.setSelected(isHighlight);
+        }
+        menuBar.repaint();
     }
 
     @Override
@@ -432,16 +496,18 @@ public abstract class SwingAppData implements AppData {
                 .buildMenu(menuBar);
         MenuBuilder speciesSpecificMenuBuilder = this.getMenuBuilder();
         speciesSpecificMenuBuilder.buildMenu(menuBar);
-        // Let the available morph view modules have a crack at installing their own
+        // Let the available morph view modules have a crack at installing their
+        // own
         // Menu items.
         MorphViewFactory morphViewFactory = MorphViewFactoryService
                 .getInstance().getFactory();
         for (String morphViewType : morphViewFactory.getMorphViewTypes()) {
-            morphViewFactory.getMenuBuilder(morphViewType)
-                    .buildMenu(menuBar);
+            morphViewFactory.getMenuBuilder(morphViewType).buildMenu(menuBar);
         }
-        
+
         selectedMorphView.buildMenu(menuBar);
+
+        updateMenuBar();
         menuBar.repaint();
     }
 

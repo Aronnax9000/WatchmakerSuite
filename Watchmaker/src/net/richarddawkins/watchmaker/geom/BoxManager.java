@@ -134,8 +134,6 @@ abstract public class BoxManager implements PropertyChangeListener {
     }
 
     public void setBox(Rect box, Rect newBox, Dim size) {
-        // TODO Auto-generated method stub
-
     }
 
     public Rect getBox(int boxNo, Dim size) {
@@ -143,7 +141,7 @@ abstract public class BoxManager implements PropertyChangeListener {
     }
 
     public void removeBox(Rect boxedMorphBox) {
-        // TODO Auto-generated method stub
+        boxes.remove(boxedMorphBox);
 
     }
 

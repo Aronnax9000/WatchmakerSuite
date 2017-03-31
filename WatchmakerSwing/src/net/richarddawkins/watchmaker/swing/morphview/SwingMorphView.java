@@ -27,6 +27,7 @@ public abstract class SwingMorphView extends SimpleMorphView {
             "net.richarddawkins.watchmaker.swing.morphview.SwingMorphView");
 
     protected WatchPanel panel;
+    protected WatchPanel centrePanel;
 
     public SwingMorphView(MorphViewConfig config) {
         super(config);
@@ -52,7 +53,7 @@ public abstract class SwingMorphView extends SimpleMorphView {
     @Override
     public void addPanel(MorphViewPanel morphViewPanel) {
         panels.add(morphViewPanel);
-        WatchContainer container = (WatchContainer) this.panel;
+        WatchContainer container = (WatchContainer) this.centrePanel;
         container.add(morphViewPanel.getPanel());
         this.setSelectedPanel(morphViewPanel);
     }
@@ -60,6 +61,29 @@ public abstract class SwingMorphView extends SimpleMorphView {
     @Override
     public void addPanels() {
 
+    }
+    
+
+    
+    public void setIndexed(boolean newIndexMode) {
+        if(indexed != newIndexMode) {
+            indexed = newIndexMode;
+            if(newIndexMode) {
+                centrePanel.removeAll();
+                centrePanel.setLayout(new GridLayout(0,2));
+                for(MorphViewPanel morphViewPanel: panels) {
+                    centrePanel.add(morphViewPanel.getPanel());
+                }
+            } else {
+                centrePanel.removeAll();
+                centrePanel.setLayout(new GridLayout(1,1));
+                if(panels.size() != 0) {
+                    centrePanel.add(this.getSelectedPanel().getPanel());
+                }
+            }
+            repaint();
+        }
+        
     }
 
     @Override
@@ -72,12 +96,16 @@ public abstract class SwingMorphView extends SimpleMorphView {
         panel.add(sliders, BorderLayout.PAGE_END);
     }
 
+
+    
     @Override
     public void createPanel() {
         panel = appData.newWatchPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
-
+        centrePanel = appData.newWatchPanel();
+        centrePanel.setLayout(new GridLayout(1,1));
+        panel.add(centrePanel.getComponent(), BorderLayout.CENTER);
     }
 
 
@@ -87,13 +115,13 @@ public abstract class SwingMorphView extends SimpleMorphView {
     }
 
     @Override
-    public void removePanel(MorphViewPanel panel) {
-        ((Container) panel).remove((Component) panel);
-        if (selectedPanel == panel) {
+    public void removePanel(MorphViewPanel penelToRemove) {
+        ((Container) centrePanel).remove((Component) penelToRemove);
+        if (selectedPanel == penelToRemove) {
             setSelectedPanel(null);
         }
-        panels.remove(panel);
-        panel.removePropertyChangeListener(geneBoxStrip);
+        panels.remove(penelToRemove);
+        penelToRemove.removePropertyChangeListener(geneBoxStrip);
     }
 
     @Override

@@ -113,7 +113,9 @@ public interface AppData  {
     public ClassicImageLoader getClassicImageLoader();
     public void setRecordingFossils(boolean selected);
     boolean isRecordingFossils();
-    public void rebuildMenuBar(); 
+    public void rebuildMenuBar();
+    public void addClassicAlbum(String albumName);
+    void updateMenuBar(); 
     
 
 }

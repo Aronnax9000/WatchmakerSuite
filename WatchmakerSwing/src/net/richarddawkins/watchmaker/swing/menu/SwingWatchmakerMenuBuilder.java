@@ -177,12 +177,7 @@ public class SwingWatchmakerMenuBuilder implements WatchmakerMenuBuilder {
 
     @Override
     public void updateMenu(WatchmakerMenuBar menuBar) {
-        AppData appData = SwingMultiMorphTypeTabbedPanel.getInstance()
-                .getSelectedAppData();
-        WatchmakerCursorFactory cursors = appData.getWatchmakerCursorFactory();
-        boolean isHighlight = cursors.isCursorType(WatchmakerCursor.highlight,
-                appData.getSelectedMorphView().getSelectedPanel().getCursor());
-        highlightBiomorph.setSelected(isHighlight);
+
 
     }
 

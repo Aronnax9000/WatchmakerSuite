@@ -16,55 +16,59 @@ public class GridBoxManager extends BoxManager {
 
     @Override
     public int getBoxCount() {
-        return boxCount;
+        return boxes.size();
     }
 
     @Override
     public Rect getMidBox() {
-        return midBox;
+        return getBox(getRows() * getCols() / 2);
     }
 
     public int getCols() {
-        return cols;
+        if(cols != 0) {
+            return cols;
+        } else {
+            return getBoxCount() / rows + (getBoxCount() % rows == 0 ? 0 : 1); 
+        }
     }
 
     public void setCols(int cols) {
         if (cols > 0) {
             this.cols = cols;
-            update();
         }
     }
 
     public int getRows() {
-        return rows;
+        if(rows != 0) {
+            return rows;
+        } else {
+            return getBoxCount() / cols + (getBoxCount() % cols == 0 ? 0 : 1); 
+        }
     }
 
     public void setRows(int rows) {
         if (rows > 0) {
             this.rows = rows;
-            update();
         }
     }
 
-    public int cols = 0;
-    public int rows = 0;
-    public int boxCount;
-    public Rect midBox;
+    protected int cols = 0;
+    protected int rows = 0;
+//    public Rect midBox;
 
-    public void update() {
-        boxCount = boxes.size();
-        rows = boxCount / cols + (boxCount % cols == 0 ? 0 : 1);
-        
-        if (boxCount >= rows * cols / 2) {
-            midBox = boxes.elementAt(boxCount / 2);
-        } else if(boxCount == 1) {
-            midBox = boxes.firstElement();
-        } else {
-        
-            midBox = null;
-        }
-
-    }
+//    public void update() {
+//        int boxCount = boxes.size();
+//        
+//        if (boxCount >= getRows() * getCols() / 2) {
+//            midBox = boxes.elementAt(boxCount / 2);
+//        } else if(boxCount == 1) {
+//            midBox = boxes.firstElement();
+//        } else {
+//        
+//            midBox = null;
+//        }
+//
+//    }
 
     public GridBoxManager(int cols) {
         this.cols = cols;
@@ -85,8 +89,7 @@ public class GridBoxManager extends BoxManager {
         for (int i = 0; i < cols * rows; i++) {
             boxes.add(new Rect());
         }
-        this.boxCount = cols * rows;
-        this.midBox = boxes.elementAt(boxCount / 2);
+//        update();
     }
 
     public GridBoxManager() {
@@ -106,6 +109,8 @@ public class GridBoxManager extends BoxManager {
 
     @Override
     public Vector<Rect> getBoxes(Dim dimension) {
+        int cols = getCols();
+        int rows = getRows();
         int boxwidth = (int) dimension.width / cols;
         int boxheight = (int) dimension.height / rows;
         Iterator<Rect> rects = boxes.iterator();
@@ -113,17 +118,18 @@ public class GridBoxManager extends BoxManager {
             for (int i = 0; i < cols; i++) {
                 if (!rects.hasNext()) {
                     break rowloop;
+                } else {
+                    int x = i * boxwidth;
+                    int y = j * boxheight;
+    
+                    Rect rect = rects.next();
+                    rect.left = x;
+                    rect.right = x + boxwidth;
+                    rect.top = y;
+                    rect.bottom = y + boxheight;
+                    logger.info(
+                            "GetBoxes " + (i + j * cols) + ": " + rect.toString());
                 }
-                int x = i * boxwidth;
-                int y = j * boxheight;
-
-                Rect rect = rects.next();
-                rect.left = x;
-                rect.right = x + boxwidth;
-                rect.top = y;
-                rect.bottom = y + boxheight;
-                logger.fine(
-                        "GetBoxes " + (i + j * cols) + ": " + rect.toString());
             }
         }
         return boxes;
@@ -132,6 +138,8 @@ public class GridBoxManager extends BoxManager {
     @Override
     public Point getMidPoint(Dim dimension, Rect box) {
         int boxNo = boxes.indexOf(box);
+        int cols = getCols();
+        int rows = getRows();
         int col = boxNo % cols;
         int row = boxNo / cols;
         int boxwidth = dimension.width / cols;
@@ -170,7 +178,7 @@ public class GridBoxManager extends BoxManager {
     @Override
     public void addBox(Rect box) {
         boxes.add(box);
-        update();
+//        update();
     }
 
     @Override
@@ -181,13 +189,10 @@ public class GridBoxManager extends BoxManager {
     @Override
     public Rect getBox(int boxNo) {
         // Add a row of boxes to make sure there's enough.
-        if (boxNo >= boxCount) {
-            for (int i = 0; i < cols; i++) {
+        while(boxNo >= getBoxCount()) {
                 boxes.add(new Rect());
-            }
-            rows++;
-            update();
         }
+//        update();
 
         Rect rect = super.getBox(boxNo);
         return rect;

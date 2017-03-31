@@ -32,6 +32,7 @@ public abstract class SimpleMorphView implements MorphView {
     protected WatchmakerCursorFactory cursors;
     protected GeneBoxStrip geneBoxStrip;
     protected String icon;
+    protected boolean indexed;
     protected MorphDrawer morphDrawer;
     protected String name;
     protected final Vector<MorphViewPanel> panels = new Vector<MorphViewPanel>();
@@ -47,6 +48,8 @@ public abstract class SimpleMorphView implements MorphView {
 
     }
 
+    public boolean isIndexed() { return indexed; }
+    
     public SimpleMorphView(MorphViewConfig config) {
         logger.fine("SwingMorphView(config): " + config);
         this.appData = config.appData;
@@ -54,6 +57,7 @@ public abstract class SimpleMorphView implements MorphView {
         this.setName(config.name);
         this.setCopyMorphsOnBackup(config.copyMorphsOnBackup);
         this.createPanel();
+        this.setIndexed(config.indexed);
         this.cursors = appData.getWatchmakerCursorFactory();
         this.setMorphDrawer(appData.newMorphDrawer());
         initAlbum(config.album, this.copyMorphsOnBackup);
@@ -62,7 +66,6 @@ public abstract class SimpleMorphView implements MorphView {
         addSliders();
         addPanels();
         setSelectedPanel(panels.firstElement());
-
         this.menuBuilder = MorphViewFactoryService.getInstance().getFactory()
                 .getMorphViewMenuBuilder(config.type.getName());
     }

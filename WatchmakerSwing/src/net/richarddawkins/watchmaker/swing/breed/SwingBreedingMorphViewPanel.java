@@ -8,6 +8,7 @@ import net.richarddawkins.watchmaker.cursor.WatchmakerCursor;
 import net.richarddawkins.watchmaker.geom.BoxManager;
 import net.richarddawkins.watchmaker.geom.BoxedMorph;
 import net.richarddawkins.watchmaker.geom.Dim;
+import net.richarddawkins.watchmaker.geom.GridBoxManager;
 import net.richarddawkins.watchmaker.geom.Point;
 import net.richarddawkins.watchmaker.geom.Rect;
 import net.richarddawkins.watchmaker.morph.Morph;
@@ -27,7 +28,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
             BoxedMorphCollection page) {
         super(morphView, page);
         autoScale = true;
-//        includeChildrenInAutoScale = true;
+        // includeChildrenInAutoScale = true;
 
     }
 
@@ -48,16 +49,16 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
                     // synchronized (boxedMorphVector) {
                     BoxedMorph boxedMorph = boxedMorphCollection
                             .getBoxedMorph(box);
-                    
+
                     if (!cursors.isCursorType(WatchmakerCursor.watchCursor,
                             cursor)) {
                         if (boxedMorph != null) {
-//                            logger.info("setting cursor to breed "
-//                                    + boxedMorph);
+                            // logger.info("setting cursor to breed "
+                            // + boxedMorph);
                             this.setCursor((Cursor) cursors
                                     .getCursor(WatchmakerCursor.breed));
                         } else {
-//                            logger.info("setting cursor to random");
+                            // logger.info("setting cursor to random");
                             this.setCursor((Cursor) cursors
                                     .getCursor(WatchmakerCursor.random));
                         }
@@ -77,7 +78,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
     @Override
     public void processMousePressed(Point myPt, Dim size) {
         Object cursor = this.getCursor();
-//        logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
+        // logger.info("SwingBreedingMorphView.boxClicked(" + myPt + ")");
         BoxManager boxes = boxedMorphCollection.getBoxManager();
         if (cursors.isCursorType(WatchmakerCursor.breed, cursor)) {
             Rect box = boxes.getBoxContainingPoint(myPt,
@@ -127,8 +128,10 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
             if (boxedMorphParent != null) {
                 Morph parent = boxedMorphParent.getMorph();
                 MorphConfig config = morphView.getAppData().getMorphConfig();
-                int litterSize = boxedMorphCollection.getBoxManager()
-                        .getBoxCount() - 1;
+                GridBoxManager boxManager = (GridBoxManager) boxedMorphCollection
+                        .getBoxManager();
+                int litterSize = boxManager.getRows() * boxManager.getCols()
+                        - 1;
                 Morph newestOffspring = config.getLitter(parent, litterSize);
                 try {
                     animator.setupBoxAnimator(special, boxedMorphParent,
@@ -185,8 +188,8 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
                         .getBoxedMorphs()) {
                     if (boxedMorph.getMorph() == best) {
                         bestBoxedMorph = boxedMorph;
-//                        logger.fine(
-//                                "Found best boxed morph: " + bestBoxedMorph);
+                        // logger.fine(
+                        // "Found best boxed morph: " + bestBoxedMorph);
                     }
 
                 }
@@ -206,7 +209,7 @@ public class SwingBreedingMorphViewPanel extends SwingMorphViewPanel
             if (breedFromMidBoxOnNextRepaint) {
                 breedFromMidBoxOnNextRepaint = false;
                 Rect midBox = boxedMorphCollection.getBoxManager().getMidBox();
-//                logger.fine("Setting panel special to " + midBox);
+                // logger.fine("Setting panel special to " + midBox);
 
                 setSpecial(midBox);
                 breedFromSpecial();

@@ -16,6 +16,7 @@ public class MorphViewConfig {
     public boolean copyMorphsOnBackup = false;
     public Album album = null;
     public Vector<Morph> seedMorphs = new Vector<Morph>();
+    public boolean indexed = false;
     public MorphViewConfig(MorphViewType type) {
         this.type = type;
     }
