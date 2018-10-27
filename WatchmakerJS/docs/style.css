@@ -1,0 +1,29 @@
+body {font-family: sans-serif}
+.wrapper {
+    display: table;
+    table-layout: fixed;
+    font-family: monospace;
+//    font-size: 0.75em;
+    white-space: pre;
+
+    width:90%;
+
+    background-color:aqua;
+}
+.wrapper div {
+    display: table-cell;
+}
+.headerwrapper {
+    display: table;
+    table-layout: fixed;
+    font-family: sans-serif;
+    font-size: 1.25em;
+    white-space: normal;
+
+    width:90%;
+
+    background-color:aqua;
+}
+.headerwrapper div {
+    display: table-cell;
+}

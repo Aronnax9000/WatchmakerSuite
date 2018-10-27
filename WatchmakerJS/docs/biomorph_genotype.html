@@ -1,0 +1,376 @@
+<html>
+<head>
+<title>The Biomorph Genome</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="biomorph_genotype.js"></script>
+</head>
+<body>
+<h1>The Biomorph Genome</h1>
+<p>
+In this section we'll explore the data structure of the biomorph genotype. We'll look at the original Pascal sources, 
+side by side with a JavaScript implementation. We'll see how genotype are created and initialized, and explore the three
+sample biomorph genotypes which are hard-coded into the original Pascal sources. We'll develop a routine to render
+biomorph genomes in a human readable format. Finally, we'll put our new JavaScript routines to a test, interactively rendering
+each of the three sample biomorph genotypes as HTML.</p>
+<h2>Components of the biomorph genotype</h2>
+<p>
+The constant, enumerated types, and data structure which define the Biomorph Chromosome are given in the original Pascal source file,
+"Globals", lines 204-220. Removing a few unrelated lines, here are the definitions in Pascal, side by side with an equivalent implementation in JavaScript.
+</p>
+<h3>Trickle</h3>
+<p>Trickle is a constant defined in Globals, line 18:</p>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>CONST
+    trickle = 10;
+</div>
+<div>const TRICKLE = 10;
+</div>
+</section>
+<h3>SwellType</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>TYPE
+    SwellType = (Swell, Same, Shrink);
+</div>
+<div>var SwellType = {
+        Swell: 1,
+        Shrink: 2,
+        Same: 3,
+          properties: {
+            1: {name: "Swell"},
+            2: {name: "Shrink"},
+            3: {name: "Same"}
+          }
+        };
+</div>
+</section>
+<h3>Chromosome</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>TYPE
+    chromosome = ARRAY[1..9] OF Integer;
+</div>
+<div>function Chromosome() {
+  return new Array(9); // indexed 0-8, unlike Pascal 1-based arrays.
+}
+</div>
+</section>
+<h3>CompletenessType</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>TYPE
+    CompletenessType = (Single, Double);
+</div>
+<div>var CompletenessType = {
+        Single: 1,
+        Double: 2,
+          properties: {
+            1: {name: "Single"},
+            2: {name: "Double"}
+          }
+        };
+</div>
+</section>
+<h3>SpokesType</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>TYPE
+    SpokesType = (NorthOnly, NSouth, Radial);
+</div>
+<div>var SpokesType = {
+        NorthOnly: 1,
+        NSouth: 2,
+        Radial: 3,
+          properties: {
+            1: {name: "NorthOnly"},
+            2: {name: "NSouth"},
+            3: {name: "Radial"}
+          }
+        };
+</div>
+</section>
+<h3>Person</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>TYPE
+    person = RECORD
+            gene: chromosome;
+            dgene: ARRAY[1..10] OF SwellType;
+            SegNoGene: Integer;
+            SegDistGene: Integer;
+            CompletenessGene: CompletenessType;
+            SpokesGene: SpokesType;
+            tricklegene, mutsizegene, mutprobgene: Integer;
+        END;
+</div>
+<div>function Person() {
+  this.gene = new Chromosome();
+  this.dGene = new Array(10);
+  this.segNoGene = 0;
+  this.segDistGene = 0;
+  this.completenessGene = CompletenessType.Single;
+  this.spokesGene = SpokesType.NorthOnly;
+  this.trickleGene = TRICKLE;
+  this.mutSizeGene = 0;
+  this.mutProbGene = 0;
+}
+</div>
+</section>
+<h2>Initializing Biomorph Genotypes: MakeGenes</h2>
+<p>
+Let's look at MakeGenes, a helper function which does
+basic initialization of an already-instanced biomorph, using nine supplied integers.
+</p>
+<p>Our JavaScript implementation is called "makeGenes()". Note that we are doing 0-based arrays.</p> 
+</p>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>PROCEDURE MakeGenes (VAR genotype: person; a, b, c, 
+    d, e, f, g, h, i: Integer);
+    VAR
+        j: Integer;
+    BEGIN
+        WITH genotype DO
+            BEGIN
+                FOR j := 1 TO 10 DO
+                    dgene[j] := same;
+                SegNoGene := 1;
+                SegDistGene := 150;
+                CompletenessGene := Double;
+                SpokesGene := NorthOnly;
+                TrickleGene := Trickle;
+                MutSizeGene := Trickle DIV 2;
+                MutProbGene := 10;
+                gene[1] := a;
+                gene[2] := b;
+                gene[3] := c;
+                gene[4] := d;
+                gene[5] := e;
+                gene[6] := f;
+                gene[7] := g;
+                gene[8] := h;
+                gene[9] := i;
+            END;
+    END; {makegenes}
+</div>
+<div>function makeGenes(genotype, a, b, c, 
+    d, e, f, g, h, i) {
+    for(j = 0; j<10; j++) {
+        genotype.dGene[j] = SwellType.Same;
+    }
+    genotype.segNoGene = 1;
+    genotype.SegDistGene = 150;
+    genotype.completenessGene = CompletenessType.Double;
+    genotype.spokesGene = SpokesType.NorthOnly;
+    genotype.trickleGene = TRICKLE;
+    genotype.mutSizeGene = (TRICKLE/2>>0) // Trickle div 2;
+    genotype.mutProbGene = 10;
+    genotype.gene[0] = a;
+    genotype.gene[1] = b;
+    genotype.gene[2] = c;
+    genotype.gene[3] = d;
+    genotype.gene[4] = e;
+    genotype.gene[5] = f;
+    genotype.gene[6] = g;
+    genotype.gene[7] = h;
+    genotype.gene[8] = i;
+}</div>
+</section>
+<h2>Hard-coded Genotypes: Chess, BasicTree, and Insect</h2>
+
+<p>Three default biomorphs are hard-coded in the original Pascal sources: Chess, BasicTree, and Insect. 
+BasicTree is the default biomorph shown on the breeding screen on startup. The other two
+are seen in Triangle mode, along with BasicTree.
+Here, from the Biomorphs source file, lines 1100-1156, is the initialization code.  
+Next we'll see how MakeGenes is used in the original Pascal source to create the three basic kinds of biomorph when the program starts up.
+</p>
+<h3>Chess</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>PROCEDURE Chess (VAR genotype: person);
+    BEGIN
+        makegenes(genotype, 
+            -trickle, 
+            3 * trickle, 
+            -3 * trickle, 
+            -3 * trickle, 
+             trickle, 
+             -2 * trickle, 
+             6 * trickle, 
+             -5 * trickle, 
+             7);
+    END; {chess}
+</div>
+<div>
+function chess (genotype) {
+    makeGenes(genotype, 
+    -TRICKLE, 
+    3 * TRICKLE, 
+    -3 * TRICKLE, 
+    -3 * TRICKLE, 
+    TRICKLE, 
+    -2 * TRICKLE, 
+    6 * TRICKLE, 
+    -5 * TRICKLE, 
+    7);
+}
+</div>
+</section>
+<h3>BasicTree</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>PROCEDURE BasicTree (VAR genotype: person);
+    VAR
+        j: Integer;
+    BEGIN
+        makegenes(genotype, -10, -20, -20, -15, -15, 0, 15, 15, 7);
+        WITH genotype DO
+            BEGIN
+                SegNoGene := 2;
+                SegDistGene := 150;
+                CompletenessGene := single;
+                dgene[4] := shrink;
+                dgene[5] := shrink;
+                dgene[6] := shrink;
+                dgene[9] := shrink;
+                tricklegene := 9;
+            END;
+    END; {root}
+</div>
+<div>function basicTree(genotype) {
+    makeGenes(genotype, -10, -20, -20, -15, -15, 0, 15, 15, 7);
+
+      genotype.SegNoGene = 2;
+    genotype.SegDistGene = 150;
+    genotype.CompletenessGene = CompletenessType.Single;
+    genotype.dGene[4] = SwellType.Shrink;
+    genotype.dGene[5] = SwellType.Shrink;
+    genotype.dGene[6] = SwellType.Shrink;
+    genotype.dGene[9] = SwellType.Shrink;
+    genotype.trickleGene = 9;
+}
+</div>
+</section>
+<h3>Insect</h3>
+<section class="headerwrapper">
+<div>Pascal</div>
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>PROCEDURE Insect (VAR genotype: person);
+    BEGIN
+        makegenes(
+            genotype, 
+            trickle, 
+            trickle, 
+            -4 * trickle, 
+            trickle, 
+            -trickle, 
+            -2 * trickle, 
+            8 * trickle, 
+            -4 * trickle, 
+            6);
+    END; {insect}
+</div>
+<div>function insect(genotype) {
+    makegenes(
+        genotype, 
+        TRICKLE, 
+        TRICKLE, 
+        -4 * TRICKLE, 
+        TRICKLE, 
+        -TRICKLE, 
+        -2 * TRICKLE, 
+        8 * TRICKLE, 
+        -4 * TRICKLE, 
+        6);
+}
+</div>
+</section>
+<h2>Rendering the Biomorph Genome in HTML</h2>
+<p>To test our JavaScript code, let's create a function, personToHtml(), that renders a biomorph genome in a human-readable format.</p> 
+<section class="headerwrapper">
+<div>JavaScript</div>
+</section>
+<section class="wrapper">
+<div>function personToHtml(genotype, name) {
+    var h4open = "&lt;h4>";
+    var h4close = "&lt;/h4>";
+    var breaktag = "&lt;br />";
+    var htmlResult = h4open + name + h4close + 
+        "Gene:" + genotype.gene + breaktag + "DGene:";
+    var htmlResult = h4open + name + h4close + 
+        "Gene: " + genotype.gene + breaktag + "DGene: ";
+    for(i = 0; i < 10; i++) {
+        htmlResult +=  SwellType.properties[genotype.dGene[i]].name; 
+        if(i<9) htmlResult += ",";
+    }
+    htmlResult += breaktag + "SegNoGene: " + genotype.segNoGene +  
+        breaktag + "SegDistGene: " + genotype.segDistGene +  
+        breaktag + "CompletenessGene: " + CompletenessType.properties[genotype.completenessGene].name +  
+        breaktag + "SpokesGene: " + SpokesType.properties[genotype.spokesGene].name +  
+        breaktag + "TrickleGene: " + genotype.trickleGene +  
+        breaktag + "MutSizeGene: " + genotype.mutSizeGene +  
+        breaktag + "MutProbGene: " + genotype.mutProbGene;
+    return htmlResult;
+}</div>
+</section>
+<h2>Testing the Biomorph Genome Code</h2>
+<p>Let's try rendering the three hard-coded biomorph genotypes in human readable form. 
+Click one of the buttons below to generate a biomorph genotype and display 
+it in the demo box.
+</p>
+<script type="text/javascript">
+
+var genotype;
+
+function doPerson(biomorphType) {
+  genotype = new Person();
+  switch(biomorphType) {
+    case "Chess": chess(genotype); break;
+    case "BasicTree": basicTree(genotype); break;
+    case "Insect": insect(genotype); break;
+  }
+  document.getElementById("demo").innerHTML = personToHtml(genotype, biomorphType);
+}
+</script>
+<section class="wrapper">
+<div style="white-space: normal;">
+<button onClick='doPerson("Chess");'>Chess</button>
+<button onClick='doPerson("BasicTree");'>BasicTree</button>
+<button onClick='doPerson("Insect");'>Insect</button>
+
+</div>
+<div style="height: 200px;" id="demo"></div>
+</section>
+<p>Next, we'll see how biomorph genomes are subject to <a href="biomorph_mutation.html">mutation</a>.</p>
+</body>
+</html>

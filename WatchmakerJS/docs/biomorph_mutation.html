@@ -1,0 +1,412 @@
+<html>
+<head>
+<title>Biomorph Mutation</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="biomorph_genotype.js"></script>
+<script src="biomorph_pic.js"></script>
+<script src="biomorph_develop.js"></script>
+</head>
+<body>
+<h1>Biomorph Mutation</h1>
+<p>Previously, we examined the structure of the <a href="biomorph_genotype.html">biomorph genotype</a>. 
+In this section we'll explore how biomorph mutation works to randomly alter the genotype of a particular biomorph.</p>
+<h2>Mutation Control: the Mut array</h2>
+<p>
+The Watchmaker application allows the user to switch different kinds of mutation on
+ and off.
+</p>
+<p>The Mut array is a array of 9 boolean (true or false) values, each controlling a different
+kind of mutation. In the original Pascal sources, it is declared in line 322 of "Globals",
+sized by a constant declared on line 31.
+</p>
+<section class="wrapper">
+<div>CONST 
+	MutTypeNo = 9;
+
+VAR
+	Mut: ARRAY[1..MutTypeNo] OF Boolean;
+</div>
+<div>const MutTypeNo = 9;
+
+var mut = new Array(MutTypeNo);
+</div>
+</section>
+<h3>Mut Initialization</h3>
+<p>
+The Mut array is initialized in lines 406-411 of the "Initialize" Pascal source module,
+in the procedure called "Initialize". For the JavaScript side, we'll create a function
+called "initializeMut()", which we'll be careful to call during application startup. As
+with all other arrays in WatchmakerJS, we switch from the 1-based arrays of the Pascal
+original to the 0-based arrays used by JavaScript.
+</p>
+<section class="wrapper">
+<div>
+    FOR j := 6 TO 7 DO
+        Mut[j] := FALSE;
+    Mut[8] := true;
+    Mut[9] := true;
+    FOR j := 1 TO 5 DO
+        Mut[j] := TRUE; {** changed 1.1 **}
+</div>
+<div>function initializeMut() {
+	mut[0] = true; // {** changed 1.1 **}
+	mut[1] = true; // {** changed 1.1 **}
+	mut[2] = true; // {** changed 1.1 **}
+	mut[3] = true; // {** changed 1.1 **}
+	mut[4] = true; // {** changed 1.1 **}
+	mut[5] = false;
+    mut[6] = false;
+    mut[7] = true;
+    mut[8] = true;
+}
+</div>
+</section>
+<h3>WorryMax</h3>
+<p>Defined in line 29 of "Globals"</p>
+<section class="wrapper">
+<div>
+CONST
+	WorryMax = 4095;
+</div>
+<div>
+  const WORRYMAX = 4095;
+</div>
+</section>
+<h2>TwoToThe</h2>
+<p>
+</p>
+<section class="wrapper">
+<div>FUNCTION TwoToThe (n: integer): integer;
+	VAR
+		t: integer;
+	BEGIN
+		CASE n OF
+			0: 
+				t := 1;
+			1: 
+				t := 2;
+			2: 
+				t := 4;
+			3: 
+				t := 8;
+			4: 
+				t := 16;
+			5: 
+				t := 32;
+			6: 
+				t := 64;
+			7: 
+				t := 128;
+			8: 
+				t := 256;
+			9: 
+				t := 512;
+			10: 
+				t := 1024;
+			11: 
+				t := 2048;
+			12: 
+				t := 4096;
+			OTHERWISE
+				t := 8192
+		END; {cases}
+		TwoToThe := t
+	END; {TwoToThe}
+</div>
+<div>
+function twoToThe(n) {
+    switch(n) {
+    case 0: 
+		return 1;
+    case 1: 
+		return 2;
+    case 2: 
+		return 4;
+    case 3: 
+		return 8;
+    case 4: 
+		return 16;
+    case 5: 
+		return 32;
+    case 6: 
+		return 64;
+    case 7: 
+		return 128;
+    case 8: 
+		return 256;
+    case 9: 
+		return 512;
+    case 10: 
+		return 1024;
+    case 11: 
+		return 2048;
+	case 12: 
+		return 4096;
+	default:
+		return 8192;
+    }
+}
+
+</div>
+</section>
+<h3>RandSwell</h3>
+
+<h2>Reproduce</h2>
+<p>The original source code for the Reproduce procedure is found in lines 179-282 of the "Biomorphs" Pascal source module.
+</p>
+<section class="wrapper">
+<div>
+PROCEDURE Reproduce (parent: person; VAR child: person);
+  VAR
+    RI, j: Integer;
+  FUNCTION Direction: Integer;
+    BEGIN
+      IF randint(2) = 2 THEN
+        direction := child.MutSizegene
+      ELSE
+        direction := -child.MutSizegene
+    END;
+  FUNCTION Direction9: Integer;
+    BEGIN
+      IF randint(2) = 2 THEN
+        direction9 := 1
+      ELSE
+        direction9 := -1
+    END;
+
+  BEGIN
+    child := parent;
+    WITH child DO
+      BEGIN
+        IF Mut[7] THEN
+          IF Randint(100) < MutProbGene THEN
+            BEGIN
+              REPEAT
+                MutProbGene := MutProbGene + direction9;
+              UNTIL (abs(MutProbGene) <= 100) AND (MutProbGene <> 0);
+            END;
+        FOR j := 1 TO 8 DO
+          IF Randint(100) < MutProbGene THEN
+            Gene[j] := Gene[j] + direction;
+        IF Randint(100) < MutProbGene THEN
+          Gene[9] := Gene[9] + direction9;
+        IF Gene[9] < 1 THEN
+          Gene[9] := 1;
+        SizeWorry := SegNoGene * TwoToThe(gene[9]);
+        IF SizeWorry > WorryMax THEN
+          Gene[9] := Gene[9] - 1;
+        IF Mut[1] THEN
+          IF RandInt(100) < MutProbGene THEN
+            BEGIN
+              j := direction9;
+              SegNoGene := SegNoGene + j;
+              IF j > 0 THEN
+                BEGIN
+                  SizeWorry := SegNoGene * TwoToThe(gene[9]);
+                  IF SizeWorry > WorryMax THEN
+                    SegNoGene := SegNoGene - 1;
+                END;
+            END;
+        IF SegNoGene < 1 THEN
+          SegNoGene := 1;
+        IF (Mut[2]) AND (SegNoGene > 1) THEN
+          BEGIN
+            FOR j := 1 TO 8 DO
+              IF Randint(100) < MutProbGene DIV 2 THEN
+                dGene[j] := RandSwell(dgene[j]);
+            IF Randint(100) < MutProbGene DIV 2 THEN
+              dGene[10] := RandSwell(dgene[10]);
+          END;
+        IF Mut[8] THEN
+          IF (Mut[9] AND (randint(100) < MutProbGene)) THEN
+            dGene[9] := RandSwell(dGene[9]);
+        IF (Mut[1]) AND (SegNoGene > 1) THEN
+          IF Randint(100) < MutProbGene THEN
+            SegDistGene := SegDistGene + Direction9;
+        IF Mut[3] THEN
+          IF Randint(100) < MutProbGene DIV 2 THEN
+            IF CompletenessGene = Single THEN
+              CompletenessGene := Double
+            ELSE
+              CompletenessGene := Single;
+        IF Mut[4] THEN
+          IF Randint(100) < MutProbGene DIV 2 THEN
+            CASE SpokesGene OF
+              NorthOnly: 
+                SpokesGene := NSouth;
+              NSouth: 
+                BEGIN
+                  IF Direction9 = 1 THEN
+                    SpokesGene := Radial
+                  ELSE
+                    SpokesGene := NorthOnly
+                END;
+              Radial: 
+                SpokesGene := NSouth
+            END;
+        IF Mut[5] THEN
+          IF Randint(100) < abs(MutProbGene) THEN
+            BEGIN
+              TrickleGene := Tricklegene + direction9;
+              IF TrickleGene < 1 THEN
+                TrickleGene := 1
+            END;
+        IF Mut[6] THEN
+          IF Randint(100) < abs(MutProbGene) THEN
+            BEGIN
+              MutSizeGene := MutSizeGene + direction9;
+              IF MutSizeGene < 1 THEN
+                MutSizeGene := 1
+            END;
+      END
+  END; {reproduce}
+
+</div>
+<div>function direction(child) {
+  if(randInt(2) == 2) 
+    return child.mutSizeGene;
+  else
+    return -child.mutSizeGene;
+}
+
+function direction9() {
+  if(randInt(2) == 2)
+    return 1;
+  else
+    return -1;
+}
+
+
+
+
+
+
+function reproduce(parent) {
+    var child = new Person();
+    copyBiomorph(child, parent);
+    if(mut[6]) 
+        if(randInt(100) &lt; child.mutProbGene) 
+            do {
+              child.mutProbGene += direction9();
+            } while ((Math.abs(child.mutProbGene) > 100) || (child.mutProbGene == 0));
+    for(j = 0; j&lt;8; j++) 
+        if(randInt(100) &lt; child.mutProbGene) 
+            child.gene[j] += direction(child);
+    if(randInt(100) &lt; child.mutProbGene) 
+        child.gene[8] += direction9();
+    if(child.gene[8] &lt; 1) 
+        child.gene[8] = 1;
+    var sizeWorry = child.segNoGene * twoToThe(child.gene[8]);
+    if(sizeWorry > WORRYMAX) 
+        child.gene[8]--;
+    if(mut[0]) 
+        if(randInt(100) &lt; child.mutProbGene) 
+            var j = direction9();
+            child.segNoGene += j;
+            if(j > 0) {
+                sizeWorry = child.segNoGene * twoToThe(gene[8]);
+                if(sizeWorry > WORRYMAX) 
+                    child.segNoGene--;
+            }
+    if(child.segNoGene &lt; 1) 
+        child.segNoGene = 1;
+    if((mut[1]) && (child.segNoGene > 1)) {
+        for(j = 0; j&lt;8; j++) 
+            if(randInt(100) &lt; child.mutProbGene/2>>0) 
+                child.dGene[j] = randSwell(child.dGene[j]);
+        if(randInt(100) &lt; child.mutProbGene/2>>0) 
+            child.dGene[9] = randSwell(child.dGene[9]);
+    }
+    if(mut[7])
+        if((mut[8] && (randInt(100) &lt; child.mutProbGene))) 
+            dGene[8] = randSwell(dGene[8]);
+    if((mut[0]) && (child.segNoGene > 1)) 
+        if(randInt(100) &lt; child.mutProbGene) 
+            child.segDistGene = child.segDistGene + direction9();
+    if(mut[2]) 
+        if(randInt(100) &lt; child.mutProbGene/2>>0) {
+            if(child.completenessGene == CompletenessType.Single) 
+                child.completenessGene = CompletenessType.Double;
+            else 
+                child.completenessGene = CompletenessType.Single;
+    if(mut[3]) 
+        if(randInt(100) &lt; child.mutProbGene/2>>0) 
+            switch(child.spokesGene) {
+            case SpokesType.NorthOnly: 
+                child.spokesGene = SpokesType.NSouth;
+            break;
+            case SpokesType.NSouth: 
+                if(direction9() == 1) {
+                    child.spokesGene = SpokesType.Radial;
+                } else {
+                    child.spokesGene = SpokesType.NorthOnly;
+                }
+            break;
+            case SpokesType.Radial: 
+                child.spokesGene = SpokesType.NSouth;
+            break;
+            }
+    if(mut[4]) 
+        if(randInt(100) &lt; Math.abs(child.mutProbGene)) {
+            child.trickleGene += direction9();
+            if(child.trickleGene &lt; 1) 
+                child.trickleGene = 1;
+        }
+    if(mut[5]) 
+        if(randInt(100) &lt; Math.abs(child.mutProbGene)) {
+            child.mutSizeGene += direction9();
+            if(child.mutSizeGene &lt; 1) 
+                child.mutSizeGene = 1;
+        }
+    return child;
+} // reproduce
+
+</div>
+</section>
+<h2>Testing the Mutation Code</h2>
+<p>Let's try rendering the three hard-coded biomorph genotypes in 
+human readable form. Click one of the buttons below to generate a
+ biomorph genotype and display it in the demo box.
+</p>
+<script type="text/javascript">
+var genotype;
+
+initializeMut();
+
+function doPerson(biomorphType) {
+  genotype = new Person();
+  switch(biomorphType) {
+    case "Chess": chess(genotype); break;
+    case "BasicTree": basicTree(genotype); break;
+    case "Insect": insect(genotype); break;
+  }
+  document.getElementById("demo").innerHTML = personToHtml(genotype, biomorphType);
+}
+
+function doReproduce() {
+    
+    if(genotype != null) 
+	    genotype = reproduce(genotype); 
+	else 
+	    alert("Genotype is null");
+	document.getElementById("demo").innerHTML = personToHtml(genotype, "Mutant");
+	var here = new Point();
+	here.h = 0;
+	here.v = 0;
+	var myPic = new Pic();
+	delayvelop(genotype, here, myPic);
+}
+</script>
+<section class="wrapper">
+<div style="white-space: normal;">
+<button onClick='doPerson("Chess");'>Chess</button>
+<button onClick='doPerson("BasicTree");'>BasicTree</button>
+<button onClick='doPerson("Insect");'>Insect</button>
+<button onClick='doReproduce();'>Reproduce</button>
+</div>
+<div style="height: 200px;" id="demo"></div>
+</section>
+
+<p>Next, we'll see how the biomorph genotype is expressed as a set of drawing primitives (line segments), in the section on <a href="biomorph_pic.html">Biomorph Pics</a>.</p>
+</body>
+</html>
