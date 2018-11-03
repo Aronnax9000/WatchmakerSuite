@@ -1,38 +1,3 @@
-function pointToString() {
-	return "(" + this.h + "," + this.v + ")";
-}
-
-function pointCopy() {
-	var child = new Point(this.h, this.v);
-	return child;
-}
-
-
-/* 
- * QuickDraw style point, with h (horizontal) and v (vertical) 
- */
-function Point(x,y) {
-   this.h = x;
-   this.v = y;
-   
-   this.toString = pointToString;
-   this.copy = pointCopy;
-   // // // // console.log("Point" + this.toString());
-}
-
-
-function rectToString() {
-	return "Rect (" + this.left + "," + this.top + "),(" + this.right + "," + this.bottom + ")";
-			
-}
-
-function Rect() {
-	this.left = 0;
-	this.right = 0;
-	this.top = 0;
-	this.bottom = 0;
-	this.toString = rectToString;
-}
 
 
 var myPenSize = 1;
@@ -169,23 +134,27 @@ function picLine(thisPic, x, y, xnew, ynew, thick) {
         var margin = thisPic.margin;
     	if(x < margin.left)
     		margin.left = x;
-    	if(x > margin.right)
+    	else if(x > margin.right)
     		margin.right = x;
     	if(y > margin.bottom)
     		margin.bottom = y;
-    	if(y < margin.top)
+    	else if(y < margin.top)
     		margin.top = y;
     	if(xnew < margin.left)
     		margin.left = xnew;
-    	if(xnew > margin.right)
+    	else if(xnew > margin.right)
     		margin.right = xnew;
     	if(ynew > margin.bottom)
     		margin.bottom = ynew;
-    	if(ynew < margin.top)
+    	else if(ynew < margin.top)
     		margin.top = ynew;
 
     }
 } // {PicLine}
+
+function newFunction() {
+	
+}
 
 function picToHtml() {
 	var html = PicStyleType.properties[this.picStyle].name;
@@ -213,19 +182,14 @@ var Compass = {NorthSouth:1, EastWest:2, properties: {
 
 var orientation = Compass.NorthSouth;
 
-function penSize(thickness, drawingContext) {
-    drawingContext.lineWidth = Math.trunc(thickness / 2);
-//    // console.log("thickness" + thickness + " penSize " + drawingContext.lineWidth);
-}
 
 
 function actualLine(picStyle, orientation, thisPic, drawingContext) {
 	var origin = thisPic.origin;
     var movePtr = thisPic.movePtr;
-//       // console.log("actualLine Style:" + PicStyleType.properties[picStyle].name + " movePtr:" + movePtr.toString() + " Origin:" + origin.toString() + " Place:" + place.toString());
+//    console.log("actualLine Style:" + PicStyleType.properties[picStyle].name + " movePtr:" + movePtr.toString() + " Origin:" + origin.toString() + " Place:" + place.toString());
     
-    var thickness = movePtr.thickness;
-    penSize(thickness, drawingContext);
+    drawingContext.lineWidth = movePtr.thickness;
     var x0;
     var x1;
     var y0;
@@ -238,10 +202,10 @@ function actualLine(picStyle, orientation, thisPic, drawingContext) {
         x0 = startPt.h;
         x1 = endPt.h;
     } else {
-        y0 = StartPt.h;
-        y1 = EndPt.h;
-        x0 = StartPt.v;
-        x1 = EndPt.v;
+        y0 = startPt.h;
+        y1 = endPt.h;
+        x0 = startPt.v;
+        x1 = endPt.v;
     }
     // console.log("PicStyleType " + PicStyleType.properties[picStyle].name);
     switch(picStyle) {
@@ -334,12 +298,12 @@ function drawPic(thisPic, place, biomorph, drawingContext) {
         }
         break;
     }
-    penSize(myPenSize, drawingContext);
+    drawingContext.lineWidth = myPenSize;
     // {reposition at base of grabbed space}
     thisPic.movePtr = thisPic.basePtr; 
     while(true) {
     	actualLine(picStyle, Compass.NorthSouth, thisPic, drawingContext); // {sometimes rangecheck error}
-        if(biomorph.SpokesGene == SpokesType.Radial) 
+        if(biomorph.spokesGene == SpokesType.Radial) 
         	if(biomorph.completenessGene = CompletenessType.Single) 
                 actualLine(PicStyleType.RUD, Compass.EastWest, thisPic, drawingContext);
             else
@@ -352,5 +316,5 @@ function drawPic(thisPic, place, biomorph, drawingContext) {
 	drawingContext.closePath();
 	drawingContext.strokeStyle = "black";
 	drawingContext.stroke();
-    penSize(1, drawingContext);
+	drawingContext.lineWidth = 1;
 } // {DrawPic}

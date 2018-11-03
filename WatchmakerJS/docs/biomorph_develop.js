@@ -96,12 +96,10 @@ function develop (biomorph, myPic, drawingContext, zeroMargin) {
 	var thick;
 
 	var oldHere;
-	var centre;
-	var incDistance;
-
+    
 	clipBoarding = false;
 	here = new Point(0,0);
-	centre = here.copy();
+	var centre = here.copy();
 	var order = plugIn(biomorph.gene, dx, dy); // Pass-by value workaround returns order as result.
 	// // // // console.log("develop order:" + order)
 	zeroPic(myPic, here);
@@ -116,13 +114,10 @@ function develop (biomorph, myPic, drawingContext, zeroMargin) {
 		extraDistance = -biomorph.trickleGene;
 	else
 		extraDistance = 0;
-
-	var	running = new Array();
-	// Should reimplement as hard-coded array.
-	for(i = 0; i < 9; i++) 
-		running[i] = biomorph.gene[i];
+	
+	var running = biomorph.gene.slice();
 	// // // console.log("biomorph.gene " + biomorph.gene + "running:" + running);
-	incDistance = 0;
+	var incDistance = 0;
 	// // console.log("biomorph.segNoGene " + biomorph.segNoGene);
 	for(seg = 0; seg < biomorph.segNoGene; seg++) {
 		var oddOne = (seg % 2) == 1;
@@ -166,31 +161,37 @@ function develop (biomorph, myPic, drawingContext, zeroMargin) {
 		// // console.log("call to tree order " + order + " gene8" + biomorph.gene[8]);
 		tree(here.h, here.v, order, 2, biomorph, dx, dy, thick, myPic, oddOne, order);
 	}
-	var margin = myPic.margin;
-	if(centre.h - margin.left > margin.right - centre.h)
-		margin.right = centre.h + (centre.h - margin.left)
-	else
-		margin.left = centre.h - (margin.right - centre.h);
-	upExtent = centre.v - margin.top; //{can be zero if biomorph goes down}
-	downExtent = margin.bottom - centre.v;
 	var spokesGene = biomorph.spokesGene;
 	
-	if(((spokesGene == SpokesType.NSouth) || (spokesGene == SpokesType.Radial)) || 
-			(theMode == Mode.Engineering)) // {Obscurely necessary to cope with erasing last Rect in Manipulation}
-		if(upExtent > downExtent)
-			margin.bottom = centre.v + upExtent;
-		else
-			margin.top = centre.v - downExtent;
 	
-	if(spokesGene == SpokesType.Radial) {
-		wid = margin.right - margin.left;
-		ht = margin.bottom - margin.top;
-		if(wid > ht) {
-			margin.top = centre.v - Math.trunc(wid/2) - 1;
-			margin.bottom = centre.v + Math.trunc(wid/2) + 1;
-		} else {
-			margin.left = centre.h - Math.trunc(ht/2) - 1;
-			margin.right = centre.h + Math.trunc(ht/2) + 1;
+	var margin = myPic.margin;
+	
+	if(! (spokesGene == SpokesType.NorthOnly && biomorph.completenessGene == CompletenessType.Single)) {
+	
+		if(centre.h - margin.left > margin.right - centre.h)
+			margin.right = centre.h + (centre.h - margin.left)
+		else
+			margin.left = centre.h - (margin.right - centre.h);
+		var upExtent = centre.v - margin.top; //{can be zero if biomorph goes down}
+		var downExtent = margin.bottom - centre.v;
+		
+		if(((spokesGene == SpokesType.NSouth) || (spokesGene == SpokesType.Radial)) || 
+				(theMode == Mode.Engineering)) // {Obscurely necessary to cope with erasing last Rect in Manipulation}
+			if(upExtent > downExtent)
+				margin.bottom = centre.v + upExtent;
+			else
+				margin.top = centre.v - downExtent;
+		
+		if(spokesGene == SpokesType.Radial) {
+			wid = margin.right - margin.left;
+			ht = margin.bottom - margin.top;
+			if(wid > ht) {
+				margin.top = centre.v - Math.trunc(wid/2) - 1;
+				margin.bottom = centre.v + Math.trunc(wid/2) + 1;
+			} else {
+				margin.left = centre.h - Math.trunc(ht/2) - 1;
+				margin.right = centre.h + Math.trunc(ht/2) + 1;
+			}
 		}
 	}
 	myPic.picPerson = biomorph;
