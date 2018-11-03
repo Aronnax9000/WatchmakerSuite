@@ -194,7 +194,7 @@ PROCEDURE Reproduce (parent: person; VAR child: person);
           Gene[9] := 1;
         SizeWorry := SegNoGene * TwoToThe(gene[9]);
         IF SizeWorry > WorryMax THEN
-          Gene[9] := Gene[9] - 1;
+          Gene[9] := Gene[9] - 1;biomorph
         IF Mut[1] THEN
           IF RandInt(100) < MutProbGene THEN
             BEGIN
@@ -323,7 +323,7 @@ function reproduce(parent) {
     if((mut[0]) && (child.segNoGene > 1)) 
         if(randInt(100) &lt; child.mutProbGene) 
             child.segDistGene = child.segDistGene + direction9();
-    if(mut[2]) 
+    if(mut[2]) biomorph
         if(randInt(100) &lt; child.mutProbGene/2>>0) {
             if(child.completenessGene == CompletenessType.Single) 
                 child.completenessGene = CompletenessType.Double;
@@ -372,30 +372,51 @@ human readable form. Click one of the buttons below to generate a
 var genotype;
 
 initializeMut();
-
-function doPerson(biomorphType) {
+  var here = new Point(40,25);
+//  here = new Point(0,0);
+  function doPerson(biomorphType) {
   genotype = new Person();
   switch(biomorphType) {
     case "Chess": chess(genotype); break;
     case "BasicTree": basicTree(genotype); break;
     case "Insect": insect(genotype); break;
   }
-  document.getElementById("demo").innerHTML = personToHtml(genotype, biomorphType);
+  document.getElementById("demo").innerHTML = genotype.toHtml();
+	drawingContext.fillStyle = "#FFFF00";
+	drawingContext.clearRect(0,0,200,200);
+	var myPic = new Pic();
+	eraseCanvas();
+	delayvelop(genotype, copyPoint(here), myPic, drawingContext); 
+
+}
+function eraseCanvas() {
+// Store the current transformation matrix
+drawingContext.save();
+
+// Use the identity matrix while clearing the canvas
+drawingContext.setTransform(1, 0, 0, 1, 0, 0);
+drawingContext.beginPath();
+drawingContext.clearRect(0, 0, canvas.width, canvas.height);
+
+// Restore the transform
+drawingContext.restore();
 }
 
 function doReproduce() {
-    
-    if(genotype != null) 
-	    genotype = reproduce(genotype); 
+
+	if(genotype != null) {
+	    genotype = reproduce(genotype, drawingContext); 
+	document.getElementById("demo").innerHTML = genotype.toHtml();
+	console.log("Here:" + here);
+	var myPic = new Pic();
+	eraseCanvas();
+	delayvelop(genotype, copyPoint(here), myPic, drawingContext); 
+	}
 	else 
 	    alert("Genotype is null");
-	document.getElementById("demo").innerHTML = personToHtml(genotype, "Mutant");
-	var here = new Point();
-	here.h = 0;
-	here.v = 0;
-	var myPic = new Pic();
-	delayvelop(genotype, here, myPic);
 }
+
+
 </script>
 <section class="wrapper">
 <div style="white-space: normal;">
@@ -403,10 +424,18 @@ function doReproduce() {
 <button onClick='doPerson("BasicTree");'>BasicTree</button>
 <button onClick='doPerson("Insect");'>Insect</button>
 <button onClick='doReproduce();'>Reproduce</button>
-</div>
 <div style="height: 200px;" id="demo"></div>
+<canvas onclick="doReproduce();"style="border: thick solid #0000FF;" id="myCanvas" width="400" height="400"></canvas>
+</div>
 </section>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var drawingContext = canvas.getContext("2d");   
+	//drawingContext.scale(2,2);
 
+doPerson("BasicTree");
+
+</script>
 <p>Next, we'll see how the biomorph genotype is expressed as a set of drawing primitives (line segments), in the section on <a href="biomorph_pic.html">Biomorph Pics</a>.</p>
 </body>
 </html>

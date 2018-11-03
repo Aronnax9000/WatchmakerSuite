@@ -14,7 +14,7 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
     protected void tree(MonoPic pic, 
     		int x, int y, int lgth, int dir, int[] dx, int[] dy, int order, 
     		boolean oddOne, IntegerGradientGene gene9, IntegerGene trickleGene) {
-
+//    	System.out.println("Tree: x" + x + " y" + y + " lgth" + lgth + " dir " + dir + " oddOne " + oddOne + " order " + order);
     	int thick;
         int xnew, ynew;
         if (dir < 0)
@@ -23,15 +23,24 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
             dir -= 8;
         if (trickleGene.getValue() < 1)
         	trickleGene.setValue(1);
+        
         xnew = x + lgth * dx[dir] / trickleGene.getValue();
+//        System.out.println("xnew " + xnew + " x " + x + "+" + lgth + "*(" +dx[dir] + "/" + trickleGene.getValue() + ">>0");
         ynew = y + lgth * dy[dir] / trickleGene.getValue();
+//  	  System.out.println("ynew " + ynew + " y " + y + "+" + lgth + "*(" +dy[dir] + "/" + trickleGene.getValue() + ">>0");
 
-        if (gene9.getGradient() == SwellType.Shrink)
-            thick = lgth;
-        else if (gene9.getGradient() == SwellType.Swell)
+        if (gene9.getGradient() == SwellType.Shrink) {
+//        	System.out.println("Gene9 Shrink lgth " + lgth);
+        	thick = lgth;
+        }
+        else if (gene9.getGradient() == SwellType.Swell) {
+//        	System.out.println("Gene9 Swelll gene9 " + gene9.getValue() + " lgth "+ lgth);
             thick = 1 + gene9.getValue() - lgth;
-        else
+        }
+        else {
+//        	System.out.println("Gene9 Same 1");
             thick = 1;
+        }
         pic.picLine(x, y, xnew, ynew, thick * Globals.myPenSize);
         if (lgth > 1) {
             if (oddOne) {
@@ -251,14 +260,19 @@ public class MonochromeEmbryology extends BiomorphEmbryology {
                     thick = 1;
                 pic.picLine(oldHere.h, oldHere.v, here.h, here.v, thick);
                 for (int j = 0; j < 8; j++) {
-                    if (dGene[j] == SwellType.Swell)
+    				System.out.println("SwellType[" + j + "] " + dGene[j]);
+
+                    if (dGene[j] == SwellType.Swell) {
+            			System.out.println("Swell[" + j + "] trickle: " + trickleGene.getValue());
                         running[j] += trickleGene.getValue();
-                    else if (dGene[j] == SwellType.Shrink)
-                        running[j] -= trickleGene.getValue();
+                    } else if (dGene[j] == SwellType.Shrink) {
+            			System.out.println("Shrink[" + j + "] trickle: " + trickleGene.getValue());
+                    	running[j] -= trickleGene.getValue();
+                    }
                 }
                 if (running[8] < 1)
                     running[8] = 1;
-                plugIn(running, dx, dy);
+                order = plugIn(running, dx, dy);
             }
             sizeWorry = segNoGene.getValue() * (1 << gene9.getValue());
             if (sizeWorry > Globals.worryMax)

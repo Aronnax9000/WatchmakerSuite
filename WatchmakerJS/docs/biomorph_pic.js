@@ -1,10 +1,43 @@
+function pointToString() {
+	return "(" + this.h + "," + this.v + ")";
+}
+
+function pointCopy() {
+	var child = new Point(this.h, this.v);
+	return child;
+}
+
+
 /* 
  * QuickDraw style point, with h (horizontal) and v (vertical) 
  */
-function Point() {
-   this.h = 0;
-   this.v = 0;
+function Point(x,y) {
+   this.h = x;
+   this.v = y;
+   
+   this.toString = pointToString;
+   this.copy = pointCopy;
+   // // // // console.log("Point" + this.toString());
 }
+
+
+function rectToString() {
+	return "Rect (" + this.left + "," + this.top + "),(" + this.right + "," + this.bottom + ")";
+			
+}
+
+function Rect() {
+	this.left = 0;
+	this.right = 0;
+	this.top = 0;
+	this.bottom = 0;
+	this.toString = rectToString;
+}
+
+
+var myPenSize = 1;
+
+
 
 /*
  * Globals, line 247.
@@ -16,11 +49,17 @@ function Point() {
  * LinPtr = ^Lin;
  * LinHandle = ^LinPtr;
  */
-function Lin() {
-    this.startPt = new Point();
-    this.endPt = new Point();
-    this.thickness = 1;
-    this.nextLin = null;
+
+function linToString() {
+	return "Lin " + this.startPt.toString() + " -> " + this.endPt.toString() + " thickness " + this.thickness;
+}
+
+function Lin(x, y, xnew, ynew, thick) {
+    this.startPt = new Point(x,y);
+    this.endPt = new Point(xnew,ynew);
+    this.thickness = thick;
+    this.nextLin = null;    
+    this.toString = linToString;
 }
 
 /*
@@ -35,13 +74,13 @@ function Lin() {
  *      
  * 
  */
-
 function Pic() {
     this.basePtr = null; // The first Lin
     this.movePtr = null; // The current Lin (used in walking the array)
-    this.origin = new Point(); // a Point
+    this.origin = new Point(0,0); // a Point
     this.picSize = 0; // Number of Lins
     this.picPerson = null; // the biomorph that this is a picture of.
+    this.margin = new Rect();
 }
 /*
  PROCEDURE ZeroPic (VAR thisPic: Pic; Here: Point);
@@ -69,6 +108,7 @@ function zeroPic(thisPic, here) {
         thisPic.picSize = 0;
         thisPic.origin = here;
     }
+    thisPic.margin = new Rect();
 }
 /*
  * Globals, line 28.
@@ -107,6 +147,7 @@ const PICSIZEMAX = 4095;
 
  */
 function picLine(thisPic, x, y, xnew, ynew, thick) {
+//	   // console.log("picLine (" + x + "," + y + ")>(" + xnew + "," + ynew + ")" + " thickness " + thick);
     if(thick > 8)
         thick = 8;
     if(thisPic.PicSize >= PICSIZEMAX) {
@@ -115,12 +156,7 @@ function picLine(thisPic, x, y, xnew, ynew, thick) {
         alert('Biomorph too large, or other problem');
         return;
     } else {
-        newLin = new Lin();
-        newLin.startPt.h = x;
-        newLin.startPt.v = y;
-        newLin.endPt.h = xnew;
-        newLin.endPt.v = ynew;
-        newLin.thickness = thick;
+        newLin = new Lin(x, y, xnew, ynew, thick);
         if(thisPic.basePtr == null) { // First Lin in the Pic.
             thisPic.basePtr = newLin; // set the base pointer to the new Lin
         } else { // Pic already has at least one Lin.
@@ -130,43 +166,66 @@ function picLine(thisPic, x, y, xnew, ynew, thick) {
         thisPic.movePtr = newLin; // Point to the new end of the list
 
         thisPic.picSize++;
+        var margin = thisPic.margin;
+    	if(x < margin.left)
+    		margin.left = x;
+    	if(x > margin.right)
+    		margin.right = x;
+    	if(y > margin.bottom)
+    		margin.bottom = y;
+    	if(y < margin.top)
+    		margin.top = y;
+    	if(xnew < margin.left)
+    		margin.left = xnew;
+    	if(xnew > margin.right)
+    		margin.right = xnew;
+    	if(ynew > margin.bottom)
+    		margin.bottom = ynew;
+    	if(ynew < margin.top)
+    		margin.top = ynew;
+
     }
 } // {PicLine}
 
-var PicStyleType = {LF: 1, RF: 2, FF: 3, LUD: 4, RUD:5, FUD:6, LSW:7, RSW:8, FSW:9};
-var Compass = {NorthSouth:1, EastWest:2};
-
-var thePenSize = new Point();
-var myPenSize = new Point();
-myPenSize.h = 1;
-myPenSize.v = 1;
-console.log("Initialized myPenSize");
-
-function penSize(hThickness, vThickness) {
-    thePenSize.h = hThickness;
-    thePenSize.v = vThickness;
-    console.log("penSize " + thePenSize.h + "," + thePenSize.v)
+function picToHtml() {
+	var html = PicStyleType.properties[this.picStyle].name;
+	return html;
 }
+
+var PicStyleType = {LF: 1, RF: 2, FF: 3, LUD: 4, RUD:5, FUD:6, LSW:7, RSW:8, FSW:9,
+		properties: {
+            1: {name: "LF"},
+            2: {name: "RF"},
+            3: {name: "FF"},
+            4: {name: "LUD"},
+            5: {name: "RUD"},
+            6: {name: "FUD"},
+            7: {name: "LSW"},
+            8: {name: "RSW"},
+            9: {name: "FSW"}
+          }
+};
+var Compass = {NorthSouth:1, EastWest:2, properties: {
+	1: {name: "NorthSouth"}, 2:{name: "EastWest"}
+}};
+
+
 
 var orientation = Compass.NorthSouth;
 
-function moveTo(h, v) {
-	console.log("moveTo " + h + "," + v);
-}
-function lineTo(h, v) {
-	console.log("lineTo " + h + "," + v);
-
+function penSize(thickness, drawingContext) {
+    drawingContext.lineWidth = Math.trunc(thickness / 2);
+//    // console.log("thickness" + thickness + " penSize " + drawingContext.lineWidth);
 }
 
-function actualLine(picStyle, orientation, thisPic, place, mid2, belly2) {
-	console.log("actualLine");
-    var origin = thisPic.origin;
+
+function actualLine(picStyle, orientation, thisPic, drawingContext) {
+	var origin = thisPic.origin;
     var movePtr = thisPic.movePtr;
+//       // console.log("actualLine Style:" + PicStyleType.properties[picStyle].name + " movePtr:" + movePtr.toString() + " Origin:" + origin.toString() + " Place:" + place.toString());
+    
     var thickness = movePtr.thickness;
-    console.log("actualLine thickness:" + thickness);
-    penSize(thickness, thickness);
-    var vertOffset;
-    var horizOffset;
+    penSize(thickness, drawingContext);
     var x0;
     var x1;
     var y0;
@@ -174,67 +233,79 @@ function actualLine(picStyle, orientation, thisPic, place, mid2, belly2) {
     var startPt = movePtr.startPt;
     var endPt = movePtr.endPt;
     if(orientation == Compass.NorthSouth) {
-        vertOffset = origin.v - place.v;
-        horizOffset = origin.h - place.h;
-        y0 = startPt.v - vertOffset;
-        y1 = endPt.v - vertOffset;
-        x0 = startPt.h - horizOffset;
-        x1 = endPt.h - horizOffset;
+        y0 = startPt.v;
+        y1 = endPt.v;
+        x0 = startPt.h;
+        x1 = endPt.h;
     } else {
-        vertOffset = thisPic.Origin.h - place.v;
-        horizOffset = thisPic.Origin.v - place.h;
-        y0 = StartPt.h - vertOffset;
-        y1 = EndPt.h - vertOffset;
-        x0 = StartPt.v - horizOffset;
-        x1 = EndPt.v - horizOffset;
+        y0 = StartPt.h;
+        y1 = EndPt.h;
+        x0 = StartPt.v;
+        x1 = EndPt.v;
     }
+    // console.log("PicStyleType " + PicStyleType.properties[picStyle].name);
     switch(picStyle) {
     case PicStyleType.LF: 
-        moveTo(x0, y0);
-        lineTo(x1, y1);
+        drawingContext.moveTo(x0, y0);
+        drawingContext.lineTo(x1, y1);
     break;
     case PicStyleType.RF: 
-	    moveTo(mid2 - x0, y0);
-        lineTo(mid2 - x1, y1);
+    	drawingContext.moveTo(-x0, y0);
+    	drawingContext.lineTo(-x1, y1);
     break;
     case PicStyleType.FF: 
-	    moveTo(x0, y0);
-	    lineTo(x1, y1);
-	    moveTo(mid2 - x0, y0);
-	    lineTo(mid2 - x1, y1);
+    	drawingContext.moveTo(x0, y0);
+    	drawingContext.lineTo(x1, y1);
+    	drawingContext.moveTo(-x0, y0);
+    	drawingContext.lineTo(-x1, y1);
     break;
     case PicStyleType.LUD: 
-        moveTo(x0, y0);
-        lineTo(x1, y1);
-        moveTo(mid2 - x0, belly2 - y0);
-        lineTo(mid2 - x1, belly2 - y1);
+    	drawingContext.moveTo(x0, y0);
+    	drawingContext.lineTo(x1, y1);
+    	drawingContext.moveTo(-x0, -y0);
+    	drawingContext.lineTo(-x1, -y1);
     break;
     case PicStyleType.RUD: 
-        moveTo(mid2 - x0, y0);
-        lineTo(mid2 - x1, y1);
-        moveTo(x0, belly2 - y0);
-        lineTo(x1, belly2 - y1);
+    	drawingContext.moveTo(-x0, y0);
+    	drawingContext.lineTo(-x1, y1);
+    	drawingContext.moveTo(x0, -y0);
+    	drawingContext.lineTo(x1, -y1);
     break;
     case PicStyleType.FUD: 
-    	moveTo(x0, y0);
-        lineTo(x1, y1);
-        moveTo(mid2 - x0, y0);
-        lineTo(mid2 - x1, y1);
-        moveTo(x0, belly2 - y0);
-        lineTo(x1, belly2 - y1);
-        moveTo(mid2 - x0, belly2 - y0);
-        lineTo(mid2 - x1, belly2 - y1);
+    	// console.log("FUD");
+    	drawingContext.moveTo(x0, y0);
+    	drawingContext.lineTo(x1, y1);
+    	drawingContext.moveTo(-x0, y0);
+    	drawingContext.lineTo(-x1, y1);
+    	drawingContext.moveTo(x0, -y0);
+    	drawingContext.lineTo(x1, -y1);
+    	drawingContext.moveTo(-x0, -y0);
+    	drawingContext.lineTo(-x1, -y1);
     break;
     } // {CASES}
 } // {ActualLine}
 
 //{Pic already contains its own origin, meaning the coordinates at which}
 //{ it was originally drawn. Now draw it at place}
-function drawPic(thisPic, place, biomorph) {
-	var mid2;
-	var belly2;
+
+function drawPic(thisPic, place, biomorph, drawingContext) {
 	// {To correct initialisation bug, due to call in DoUpdate}
+	drawingContext.save();
+	drawingContext.translate(-place.h,-place.v);
+	if(document.getElementById("crosshairs").checked) {
+		var margin = thisPic.margin;
+		drawingContext.beginPath();
+		drawingContext.strokeStyle = "red";
+		drawingContext.strokeRect(margin.left, margin.top, margin.right - margin.left, 
+				margin.bottom - margin.top);
+		
+		drawingContext.stroke();
+		drawingContext.closePath();
+	}
+	drawingContext.beginPath();
     var picStyle = PicStyleType.FF; 
+    // console.log("Completeness " + CompletenessType.properties[biomorph.completenessGene].name +
+//    		"SpokesType " + SpokesType.properties[biomorph.spokesGene].name);
     switch(biomorph.completenessGene) {
     case CompletenessType.Single: 
         switch(biomorph.spokesGene) {
@@ -263,23 +334,23 @@ function drawPic(thisPic, place, biomorph) {
         }
         break;
     }
-    penSize(myPenSize, myPenSize);
-    mid2 = 2 * place.h;
-    belly2 = 2 * place.v;
+    penSize(myPenSize, drawingContext);
     // {reposition at base of grabbed space}
     thisPic.movePtr = thisPic.basePtr; 
     while(true) {
-    	
-    	actualLine(picStyle, Compass.NorthSouth, thisPic, place, mid2, belly2); // {sometimes rangecheck error}
+    	actualLine(picStyle, Compass.NorthSouth, thisPic, drawingContext); // {sometimes rangecheck error}
         if(biomorph.SpokesGene == SpokesType.Radial) 
         	if(biomorph.completenessGene = CompletenessType.Single) 
-                actualLine(PicStyleType.RUD, Compass.EastWest, thisPic, place, mid2, belly2);
+                actualLine(PicStyleType.RUD, Compass.EastWest, thisPic, drawingContext);
             else
-            	actualLine(picStyle, Compass.EastWest, thisPic, place, mid2, belly2);
+            	actualLine(picStyle, Compass.EastWest, thisPic, drawingContext);
         if(thisPic.movePtr.nextLin == null)
         	break; // Leave iteration with thisPic.movePtr pointing to the last Lin.
         // Advance to next Lin.
         thisPic.movePtr = thisPic.movePtr.nextLin;
     }
-    penSize(1, 1);
+	drawingContext.closePath();
+	drawingContext.strokeStyle = "black";
+	drawingContext.stroke();
+    penSize(1, drawingContext);
 } // {DrawPic}

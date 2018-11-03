@@ -4,6 +4,7 @@ import net.richarddawkins.watchmaker.geom.Point;
 
 public class MonoPic extends BiomorphPic {
     public void picLine(int x, int y, int xnew, int ynew, int thick) {
+    	System.out.println("PicLine(" + x + "," + y + ")>(" + xnew + "," + ynew + ") t:" + thick);
         if (thick > 8) {
             thick = 8;
         }

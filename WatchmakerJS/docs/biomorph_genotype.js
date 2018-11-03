@@ -1,3 +1,4 @@
+
 const TRICKLE = 10;
 const MutTypeNo = 9;
 
@@ -27,6 +28,8 @@ var SwellType = {
         };
 
 
+
+
 function Chromosome() {
   return new Array(9); // indexed 0-8, unlike Pascal 1-based arrays.
 }
@@ -51,6 +54,170 @@ var SpokesType = {
           }
         };
 
+function personToString() {
+    var htmlResult = 
+        "Gene: " + this.gene + " DGene: ";
+    for(i = 0; i < 10; i++) {
+        htmlResult +=  SwellType.properties[this.dGene[i]].name; 
+        if(i<9) htmlResult += ",";
+    }
+    htmlResult +=  " SegNoGene: " + this.segNoGene +  
+        " SegDistGene: " + this.segDistGene +  
+        " CompletenessGene: " + CompletenessType.properties[this.completenessGene].name +  
+        " SpokesGene: " + SpokesType.properties[this.spokesGene].name +  
+        " TrickleGene: " + this.trickleGene +  
+        " MutSizeGene: " + this.mutSizeGene +  
+        " MutProbGene: " + this.mutProbGene;
+    return htmlResult;
+}
+
+function personToHtml() {
+    var h4open = "<h4>";
+    var h4close = "</h4>";
+    var breaktag = "<br />";
+    var htmlResult = h4open + name + h4close + 
+        "Gene: " + this.gene + breaktag + "DGene: ";
+    for(i = 0; i < 10; i++) {
+        htmlResult +=  SwellType.properties[this.dGene[i]].name; 
+        if(i<9) htmlResult += ",";
+    }
+    htmlResult += breaktag + "SegNoGene: " + this.segNoGene +  
+        breaktag + "SegDistGene: " + this.segDistGene +  
+        breaktag + "CompletenessGene: " + CompletenessType.properties[this.completenessGene].name +  
+        breaktag + "SpokesGene: " + SpokesType.properties[this.spokesGene].name +  
+        breaktag + "TrickleGene: " + this.trickleGene +  
+        breaktag + "MutSizeGene: " + this.mutSizeGene +  
+        breaktag + "MutProbGene: " + this.mutProbGene;
+    return htmlResult;
+}
+
+function personSetForm(form) {
+	var inputGene1 = form['gene1'];
+	var inputGene2 = form['gene2'];
+	var inputGene3 = form['gene3'];
+	var inputGene4 = form['gene4'];
+	var inputGene5 = form['gene5'];
+	var inputGene6 = form['gene6'];
+	var inputGene7 = form['gene7'];
+	var inputGene8 = form['gene8'];
+	var inputGene9 = form['gene9'];
+	var inputDGene1 = form['dGene1'];
+	var inputDGene2 = form['dGene2'];
+	var inputDGene3 = form['dGene3'];
+	var inputDGene4 = form['dGene4'];
+	var inputDGene5 = form['dGene5'];
+	var inputDGene6 = form['dGene6'];
+	var inputDGene7 = form['dGene7'];
+	var inputDGene8 = form['dGene8'];
+	var inputDGene9 = form['dGene9'];
+	var inputDGene10 = form['dGene10'];
+	var inputCompletenessGene = form['completenessGene'];
+	var inputSpokesGene = form['spokesGene'];
+	var inputSegNoGene = form['segNoGene'];
+	var inputSegDistGene = form['segDistGene'];
+	var inputTrickleGene = form['trickleGene'];
+	var inputMutSizeGene = form['mutSizeGene'];
+	var inputMutProbGene = form['mutProbGene'];
+
+	inputGene1.value = this.gene[0];
+	inputGene2.value = this.gene[1];
+	inputGene3.value = this.gene[2];
+	inputGene4.value = this.gene[3];
+	inputGene5.value = this.gene[4];
+	inputGene6.value = this.gene[5];
+	inputGene7.value = this.gene[6];
+	inputGene8.value = this.gene[7];
+	inputGene9.value = this.gene[8];
+	
+
+	inputDGene1.selectedIndex = this.dGene[0] - 1;
+	inputDGene2.selectedIndex = this.dGene[1] - 1;
+	inputDGene3.selectedIndex = this.dGene[2] - 1;
+	inputDGene4.selectedIndex = this.dGene[3] - 1;
+	inputDGene5.selectedIndex = this.dGene[4] - 1;
+	inputDGene6.selectedIndex = this.dGene[5] - 1;
+	inputDGene7.selectedIndex = this.dGene[6] - 1;
+	inputDGene8.selectedIndex = this.dGene[7] - 1;
+	inputDGene9.selectedIndex = this.dGene[8] - 1;
+	inputDGene10.selectedIndex = this.dGene[9] - 1;
+
+
+	inputCompletenessGene.selectedIndex = this.completenessGene - 1;
+	inputSpokesGene.selectedIndex = this.spokesGene - 1;
+
+	inputSegNoGene.value = this.segNoGene;
+	inputSegDistGene.value = this.segDistGene;
+	inputTrickleGene.value = this.trickleGene;
+	inputMutSizeGene.value = this.mutSizeGene;
+	inputMutProbGene.value = this.mutProbGene;
+
+}
+
+function personFromForm(form) {
+	var inputGene1 = form['gene1'];
+	var inputGene2 = form['gene2'];
+	var inputGene3 = form['gene3'];
+	var inputGene4 = form['gene4'];
+	var inputGene5 = form['gene5'];
+	var inputGene6 = form['gene6'];
+	var inputGene7 = form['gene7'];
+	var inputGene8 = form['gene8'];
+	var inputGene9 = form['gene9'];
+	
+	this.gene[0] = Number(inputGene1.value);
+	this.gene[1] = Number(inputGene2.value);
+	this.gene[2] = Number(inputGene3.value);
+	this.gene[3] = Number(inputGene4.value);
+	this.gene[4] = Number(inputGene5.value);
+	this.gene[5] = Number(inputGene6.value);
+	this.gene[6] = Number(inputGene7.value);
+	this.gene[7] = Number(inputGene8.value);
+	this.gene[8] = Number(inputGene9.value);
+	
+	var inputDGene1 = form['dGene1'];
+	var inputDGene2 = form['dGene2'];
+	var inputDGene3 = form['dGene3'];
+	var inputDGene4 = form['dGene4'];
+	var inputDGene5 = form['dGene5'];
+	var inputDGene6 = form['dGene6'];
+	var inputDGene7 = form['dGene7'];
+	var inputDGene8 = form['dGene8'];
+	var inputDGene9 = form['dGene9'];
+	var inputDGene10 = form['dGene10'];
+
+	this.dGene[0] = Number(inputDGene1.selectedIndex) + 1;
+	this.dGene[1] = Number(inputDGene2.selectedIndex) + 1;
+	this.dGene[2] = Number(inputDGene3.selectedIndex) + 1;
+	this.dGene[3] = Number(inputDGene4.selectedIndex) + 1;
+	this.dGene[4] = Number(inputDGene5.selectedIndex) + 1;
+	this.dGene[5] = Number(inputDGene6.selectedIndex) + 1;
+	this.dGene[6] = Number(inputDGene7.selectedIndex) + 1;
+	this.dGene[7] = Number(inputDGene8.selectedIndex) + 1;
+	this.dGene[8] = Number(inputDGene9.selectedIndex) + 1;
+	this.dGene[9] = Number(inputDGene10.selectedIndex) + 1;
+
+	
+	var inputCompletenessGene = form['completenessGene'];
+	var inputSpokesGene = form['spokesGene'];
+	
+	this.completenessGene = Number(inputCompletenessGene.selectedIndex) + 1;
+	this.spokesGene = Number(inputSpokesGene.selectedIndex) + 1;
+	
+	
+	var inputSegNoGene = form['segNoGene'];
+	var inputSegDistGene = form['segDistGene'];
+	var inputTrickleGene = form['trickleGene'];
+	var inputMutSizeGene = form['mutSizeGene'];
+	var inputMutProbGene = form['mutProbGene'];
+	
+	this.segNoGene = Number(inputSegNoGene.value);
+	this.segDistGene = Number(inputSegDistGene.value);
+	this.trickleGene = Number(inputTrickleGene.value);
+	this.mutSizeGene = Number(inputMutSizeGene.value);
+	this.mutProbGene = Number(inputMutProbGene.value);
+
+}
+
 function Person() {
   this.gene = new Chromosome();
   this.dGene = new Array(10);
@@ -61,6 +228,10 @@ function Person() {
   this.trickleGene = TRICKLE;
   this.mutSizeGene = 0;
   this.mutProbGene = 0;
+  this.toHtml = personToHtml;
+  this.toString = personToString;
+  this.setForm = personSetForm;
+  this.fromForm = personFromForm;
 }
 
 function makeGenes(genotype, a, b, c, d, e, f, g, h, i) {
@@ -103,10 +274,10 @@ function basicTree(genotype) {
     genotype.segNoGene = 2;
     genotype.segDistGene = 150;
     genotype.completenessGene = CompletenessType.Single;
+    genotype.dGene[3] = SwellType.Shrink;
     genotype.dGene[4] = SwellType.Shrink;
     genotype.dGene[5] = SwellType.Shrink;
-    genotype.dGene[6] = SwellType.Shrink;
-    genotype.dGene[9] = SwellType.Shrink;
+    genotype.dGene[8] = SwellType.Shrink;
     genotype.trickleGene = 9;
 }
 
@@ -124,25 +295,6 @@ function insect(genotype) {
         6);
 }
 
-function personToHtml(genotype, name) {
-    var h4open = "<h4>";
-    var h4close = "</h4>";
-    var breaktag = "<br />";
-    var htmlResult = h4open + name + h4close + 
-        "Gene: " + genotype.gene + breaktag + "DGene: ";
-    for(i = 0; i < 10; i++) {
-        htmlResult +=  SwellType.properties[genotype.dGene[i]].name; 
-        if(i<9) htmlResult += ",";
-    }
-    htmlResult += breaktag + "SegNoGene: " + genotype.segNoGene +  
-        breaktag + "SegDistGene: " + genotype.segDistGene +  
-        breaktag + "CompletenessGene: " + CompletenessType.properties[genotype.completenessGene].name +  
-        breaktag + "SpokesGene: " + SpokesType.properties[genotype.spokesGene].name +  
-        breaktag + "TrickleGene: " + genotype.trickleGene +  
-        breaktag + "MutSizeGene: " + genotype.mutSizeGene +  
-        breaktag + "MutProbGene: " + genotype.mutProbGene;
-    return htmlResult;
-}
 
 function randInt(ceiling) {
     return Math.floor(Math.random() * ceiling) + 1;  
@@ -225,7 +377,8 @@ function randSwell(indGene) {
 }
 
 
-function reproduce(parent) {
+function reproduce(parent, drawingContext) {
+    // // console.log("Reproduce");
     var child = new Person();
     copyBiomorph(child, parent);
     if(mut[6]) 
@@ -241,9 +394,11 @@ function reproduce(parent) {
     if(child.gene[8] < 1) 
         child.gene[8] = 1;
     var sizeWorry = child.segNoGene * twoToThe(child.gene[8]);
-    console.log("Gene9: " + child.gene[8] + "SegNoGene: " + child.segNoGene + " SizeWorry: " + sizeWorry);
+    // // console.log("Gene9: " + child.gene[8] + "SegNoGene: " + child.segNoGene + " SizeWorry: " + sizeWorry);
     if(sizeWorry > WORRYMAX)  
-        {child.gene[8]--; console.log("Decrementing segNoGene");}
+        {child.gene[8]--; 
+        // // console.log("Decrementing segNoGene");
+        }
     if(mut[0]) 
         if(randInt(100) < child.mutProbGene) {
             var j = direction9();

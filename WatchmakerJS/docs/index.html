@@ -1,0 +1,240 @@
+<html>
+<head>
+<title>Biomorph Mutation</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="biomorph_genotype.js"></script>
+<script src="biomorph_pic.js"></script>
+<script src="biomorph_develop.js"></script>
+<script type="text/javascript">
+var genotype;
+
+initializeMut();
+var autoRunning = false;
+function formChanged() {
+	var form = document.getElementById('engineering');
+	genotype.fromForm(form);
+	var myPic = new Pic();
+	eraseCanvas();
+	delayvelop(genotype, myPic, drawingContext); 
+}
+
+function runningChanged() {
+	var autoReproduce = document.getElementById("autoReproduce").checked;
+	if(! autoRunning && autoReproduce) { //Start
+		autoRunning = true;
+		doRepro();
+	} else if(! autoReproduce) { 
+		autoRunning = false;
+	}
+
+}
+
+function doPerson(biomorphType) {
+
+	genotype = new Person();
+  	switch(biomorphType) {
+    case "Chess": chess(genotype); break;
+    case "BasicTree": basicTree(genotype); break;
+    case "Insect": insect(genotype); break;
+  	}
+	var myPic = new Pic();
+	eraseCanvas();
+	delayvelop(genotype, myPic, drawingContext); 
+	genotype.setForm(document.getElementById('engineering'));
+}
+function eraseCanvas() {
+// Store the current transformation matrix
+//drawingContext.save();
+
+// Use the identity matrix while clearing the canvas
+drawingContext.setTransform(1, 0, 0, 1, 0, 0);
+drawingContext.clearRect(0, 0, canvas.width, canvas.height);
+drawingContext.translate(canvas.width / 2 + 0.5, canvas.height / 2 + 0.5);
+
+if(document.getElementById('crosshairs').checked) {
+	drawingContext.beginPath();
+	// Draw crosshairs
+	drawingContext.moveTo(-100, 0);
+	drawingContext.lineTo(100,0);
+	drawingContext.moveTo(0, -100);
+	drawingContext.lineTo(0,100);
+	drawingContext.closePath;
+	drawingContext.lineWidth = 0.5;
+	drawingContext.strokeStyle = "red";
+	drawingContext.stroke();
+}
+//drawingContext.strokeStyle = "rgb(0, 0, 0)";
+//drawingContext.fillStyle = "black";
+
+// Restore the transform
+//drawingContext.restore();
+}
+
+function doCanvasClicked() {
+	if(autoRunning) {
+		document.getElementById("autoReproduce").checked = false;
+		autoRunning = false;
+	} else {
+		doReproduce();
+	}
+}
+
+function doReproduce() {
+	if(genotype != null) {
+	    genotype = reproduce(genotype, drawingContext); 
+		//document.getElementById("demo").innerHTML = genotype.toHtml();
+		var myPic = new Pic();
+		eraseCanvas();
+		delayvelop(genotype, myPic, drawingContext); 
+		var form = document.getElementById('engineering');
+		genotype.setForm(form);
+	}
+	else 
+	    alert("Genotype is null");
+}
+
+
+</script>
+
+
+</head>
+<body>
+<h2>Testing Biomorph Embryology</h2>
+<p>Let's try rendering the three hard-coded biomorph genotypes in 
+human readable form. Click one of the buttons below to generate a
+ biomorph genotype and display it in the demo box. The one shown
+ by default is "BasicTree", the startup biomorph in the original 1986
+ version of Blind Watchmaker.
+</p>
+<p>
+If you click or tap the biomorph, it will be replaced by a mutant offspring.
+</p>
+<p>
+If you check the "Crosshairs" checkbox, crosshairs indicating the centre
+of the drawing area will be shown, together with the margin box calculated
+for the biomorph. This is being used to debug the centring algorithm.
+</p>
+<p>
+Checking the "Auto Reproduce" checkbox will cause the application to breed
+biomorphs as fast as it possibly can. You can stop this behavior by unchecking the
+Auto Reproduce checkbox, or by clicking the biomorph display area. You can set the
+delay between generations in the box to the right of the checkbox. 
+0 means "breed as fast as possible". A delay of 1000 milliseconds means that the
+biomorph will reproduce once per second, which might be a useful interval for demonstrating
+biomorph reproduction while explaining it conversationally.
+</p>
+<p>
+Below the biomorph is a display of the genes which control its embryology.
+You can adjust the value of these genes, and see the result in real time. 
+In the case of the fields where numbers are input directly, you will need
+to click or tap away from the field after you change it, in order to trigger
+the update of the displayed biomorph as the HTML input loses focus.
+</p>
+<div>
+<div style="white-space: normal;">
+<button onClick='doPerson("Chess");'>Chess</button>
+<button onClick='doPerson("BasicTree");'>BasicTree</button>
+<button onClick='doPerson("Insect");'>Insect</button><br>
+<input type="checkbox" id="crosshairs" onchange="formChanged();"/>Crosshairs
+<input type="checkbox" id="autoReproduce" onchange="runningChanged();"/>Auto Reproduce with delay of
+<input type="text" id="autoReproduceInterval" size="5" maxlength="10" value="0" /> milliseconds.
+</div>
+<canvas onclick="doCanvasClicked();"style="border: thick solid #0000FF;" id="myCanvas" width="950" height="950"></canvas>
+</div>
+<div>
+<form id="engineering">
+Genes:
+<input name="gene1" type="text" size="3" maxlength="3" onchange="formChanged();"/>
+<input name="gene2" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene3" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene4" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene5" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene6" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene7" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene8" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<input name="gene9" type="text" size="3" maxlength="3" onchange="formChanged();" />
+<br>
+Gradient Genes:
+<select name="dGene1" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene2" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene3" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene4" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene5" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene6" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene7" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene8" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene9" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<select name="dGene10" onchange="formChanged();">
+  <option value="Swell">Swell</option>
+  <option value="Shrink">Shrink</option>
+  <option value="Same">Same</option>
+</select>
+<br>
+Segment Number: <input name="segNoGene" type="text" size="3" maxlength="3" onchange="formChanged();" /><br>
+Segment Distance: <input name="segDistGene" type="text" size="3" maxlength="3" onchange="formChanged();" /><br>
+Completeness: 
+<select name="completenessGene" onchange="formChanged();">
+<option value="Single">Single</option>
+<option value="Double">Double</option>
+</select><br>
+Spokes: <select name="spokesGene" onchange="formChanged();">
+<option value="NorthOnly">NorthOnly</option>
+<option value="NSouth">NSouth</option>
+<option value="Double">Radial</option>
+</select><br>
+Trickle: <input name="trickleGene" type="text" size="3" maxlength="3" onchange="formChanged();" /><br>
+Mutation Size: <input name="mutSizeGene" type="text" size="3" maxlength="3" onchange="formChanged();" /><br>
+Mutation Probability: <input name="mutProbGene" type="text" size="3" maxlength="3" onchange="formChanged();" /><br>
+</form>
+</div>
+<script>
+var canvas = document.getElementById("myCanvas");
+var drawingContext = canvas.getContext("2d");   
+doPerson("BasicTree");
+function doRepro() {
+	doReproduce();
+	if(autoRunning)
+		setTimeout(doRepro, Number(document.getElementById("autoReproduceInterval").value));
+
+}
+</script>
+
+</body>
+</html>

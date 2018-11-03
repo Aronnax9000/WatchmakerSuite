@@ -9,6 +9,33 @@ import net.richarddawkins.watchmaker.morphs.mono.geom.BiomorphPic.PicStyleType;
 public class BiomorphEmbryology extends SimpleEmbryology {
 
     protected int plugIn(int[] gene, int[] dx, int[] dy) {
+    	System.out.println("before plugIn Gene " + 
+    		    gene[0] + "," + 
+    		    gene[1] + "," + 
+    		    gene[2] + "," + 
+    		    gene[3] + "," + 
+    		    gene[4] + "," + 
+    		    gene[5] + "," + 
+    		    gene[6] + "," + 
+    		    gene[7] + "," + 
+    		    gene[8] + " dx " + 
+    		    dx[0] + "," + 
+    		    dx[1] + ","  +
+    		    dx[2] + ","  +
+    		    dx[3] + ","  +
+    		    dx[4] + ","  +
+    		    dx[5] + ","  +
+    		    dx[6] + ","  +
+    		    dx[7] + ","  +
+    		    dy[0] + " dy " +
+    		    dy[1] + ","  +
+    		    dy[2] + ","  +
+    		    dy[3] + ","  +
+    		    dy[4] + ","  +
+    		    dy[5] + ","  +
+    		    dy[6] + ","  +
+    		    dy[7] +
+    ")");
         int order = gene[8];
         dx[3] = gene[0];
         dx[4] = gene[1];
@@ -26,6 +53,34 @@ public class BiomorphEmbryology extends SimpleEmbryology {
         dy[7] = dy[5];
         dx[2] = 0;
         dx[6] = 0;
+    	System.out.println("after plugIn Gene " + 
+    		    gene[0] + "," + 
+    		    gene[1] + "," + 
+    		    gene[2] + "," + 
+    		    gene[3] + "," + 
+    		    gene[4] + "," + 
+    		    gene[5] + "," + 
+    		    gene[6] + "," + 
+    		    gene[7] + "," + 
+    		    gene[8] + " dx " + 
+    		    dx[0] + "," + 
+    		    dx[1] + ","  +
+    		    dx[2] + ","  +
+    		    dx[3] + ","  +
+    		    dx[4] + ","  +
+    		    dx[5] + ","  +
+    		    dx[6] + ","  +
+    		    dx[7] + ","  +
+    		    dy[0] + " dy " +
+    		    dy[1] + ","  +
+    		    dy[2] + ","  +
+    		    dy[3] + ","  +
+    		    dy[4] + ","  +
+    		    dy[5] + ","  +
+    		    dy[6] + ","  +
+    		    dy[7] + ", order "  +
+    		    order +
+    ")");
         return order;
     }
 

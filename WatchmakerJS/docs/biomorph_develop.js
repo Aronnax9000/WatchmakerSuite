@@ -1,14 +1,4 @@
-var myPenSize = 1;
-function Rect() {
-	this.left = 0;
-	this.right = 0;
-	this.top = 0;
-	this.bottom = 0;
-}
-
-function tree(x, y, lgth, dir, biomorph, dx, dy, margin, thick, myPic) {
-	var xnew;
-	var ynew;
+function tree(x, y, lgth, dir, biomorph, dx, dy, thick, myPic, oddOne, order) {
 	if(dir < 0)
 		dir = dir + 8;
 	if(dir >= 8)
@@ -16,54 +6,48 @@ function tree(x, y, lgth, dir, biomorph, dx, dy, margin, thick, myPic) {
 	
 	if(biomorph.trickleGene < 1)
 		biomorph.trickleGene = 1;
-	xnew = x + lgth * (dx[dir]/biomorph.trickleGene>>0);
-	ynew = y + lgth * (dy[dir]/biomorph.trickleGene>>0);
-	if(x < margin.left)
-		margin.left = x;
-	if(x > margin.right)
-		margin.right = x;
-	if(y > margin.bottom)
-		margin.bottom = y;
-	if(y < margin.top)
-		margin.top = y;
-	if(xnew < margin.left)
-		margin.left = xnew;
-	if(xnew > margin.right)
-		margin.right = xnew;
-	if(ynew > margin.bottom)
-		margin.bottom = ynew;
-	if(ynew < margin.top)
-		margin.top = ynew;
-	// {if((x<>xnew) OR (y<>ynew)) }
-	if(biomorph.dGene[9] == SwellType.Shrink)
+
+	var xnew = x + Math.trunc(lgth * dx[dir] / biomorph.trickleGene);
+	var ynew = y + Math.trunc(lgth * dy[dir] / biomorph.trickleGene);
+	
+	if(biomorph.dGene[8] == SwellType.Shrink) 
 		thick = lgth;
-	else if(biomorph.dGene[9] == SwellType.Swell)
-		thick = 1 + biomorph.gene[9] - lgth;
-	else
+	else if(biomorph.dGene[8] == SwellType.Swell) 
+		thick = 1 + biomorph.gene[8] - lgth;
+	else {
 		thick = 1;
+	}
+
 	picLine(myPic, x, y, xnew, ynew, thick * myPenSize);
+
 	if(lgth > 1)
-		if(oddone) {
-			tree(xnew, ynew, lgth - 1, dir + 1, biomorph, dx, dy, margin, thick, myPic);
+		if(oddOne) {
+			tree(xnew, ynew, lgth - 1, dir + 1, biomorph, dx, dy, thick, myPic, oddOne, order);
 			if(lgth < order)
-				tree(xnew, ynew, lgth - 1, dir - 1, biomorph, dx, dy, margin, thick, myPic);
+				tree(xnew, ynew, lgth - 1, dir - 1, biomorph, dx, dy, thick, myPic, oddOne, order);
 		} else {
-			tree(xnew, ynew, lgth - 1, dir - 1, biomorph, dx, dy, margin, thick, myPic);
+			tree(xnew, ynew, lgth - 1, dir - 1, biomorph, dx, dy, thick, myPic, oddOne, order);
 			if(lgth < order)
-				tree(xnew, ynew, lgth - 1, dir + 1, biomorph, dx, dy, margin, thick, myPic);
+				tree(xnew, ynew, lgth - 1, dir + 1, biomorph, dx, dy, thick, myPic, oddOne, order);
 		}
 } // {tree}
-
+/*
+ Pascal original has order passed-by-reference.
+ Since JavaScript passes simple types by value,
+ the dirty workaround (in this and the Java edition) is to 
+ return the new value for order, and pray the calling
+ routine assigns the return value to order.
+*/
 function plugIn(gene, dx, dy) {
-	var order = gene[9]; // Pass-by-value bug: dirty workaround is return the value.
-	dx[3] = gene[1];
-	dx[4] = gene[2];
-	dx[5] = gene[3];
-	dy[2] = gene[4];
-	dy[3] = gene[5];
-	dy[4] = gene[6];
-	dy[5] = gene[7];
-	dy[6] = gene[8];
+	var order = gene[8]; 
+	dx[3] = gene[0];
+	dx[4] = gene[1];
+	dx[5] = gene[2];
+	dy[2] = gene[3];
+	dy[3] = gene[4];
+	dy[4] = gene[5];
+	dy[5] = gene[6];
+	dy[6] = gene[7];
 	dx[1] = -dx[3];
 	dy[1] = dy[3];
 	dx[0] = -dx[4];
@@ -76,14 +60,7 @@ function plugIn(gene, dx, dy) {
 } // {PlugIn}
 
 var clipBoarding = false;
-var zeroMargin = false;
 
-function copyPoint(parent) {
-	var child = new Point();
-	child.h = parent.h;
-	child.v = parent.v;
-	return child;
-}
 
 var Mode = {
 	Preliminary:1, 
@@ -104,8 +81,11 @@ var Mode = {
 
 var theMode = Mode.Breeding;
 
-function develop (biomorph, here, myPic, margin, delayedDrawing) {
-	var order; 
+function develop (biomorph, myPic, drawingContext, zeroMargin) {
+	// // // // console.log("Develop here:" + here.toString() + " Margin:" + margin.toString() + " Delayed:" + delayedDrawing);
+	var dx = [0,0,0,0,0,0,0,0];
+	var dy = [0,0,0,0,0,0,0,0];
+	
 	var x; 
 	var y; 
 	var seg; 
@@ -113,70 +93,80 @@ function develop (biomorph, here, myPic, margin, delayedDrawing) {
 	var downExtent;
 	var wid; 
 	var ht; 
-	var sizeWorry; 
 	var thick;
-	var dx = new Array(8);
-	var dy = new Array(8);
-	var	running;
+
 	var oldHere;
 	var centre;
-	var	oddOne;
-	var	extraDistance;
 	var incDistance;
 
 	clipBoarding = false;
-
-	if(zeroMargin) {
-		margin.left = here.h;
-		margin.right = here.h;
-		margin.right = here.h;
-		margin.top = here.v;
-		margin.bottom = here.v;
-	}
-	centre = copyPoint(here);
-	order = plugIn(biomorph.gene, dx, dy); // Pass-by value workaround returns order as result.
+	here = new Point(0,0);
+	centre = here.copy();
+	var order = plugIn(biomorph.gene, dx, dy); // Pass-by value workaround returns order as result.
+	// // // // console.log("develop order:" + order)
 	zeroPic(myPic, here);
 
 	if(biomorph.segNoGene < 1)
 		biomorph.segNoGene = 1;
+
+	var	extraDistance;
 	if(biomorph.dGene[9] == SwellType.Swell)
 		extraDistance = biomorph.trickleGene;
 	else if(biomorph.dGene[9] == SwellType.Shrink)
 		extraDistance = -biomorph.trickleGene;
 	else
 		extraDistance = 0;
-	running = biomorph.gene.splice();
+
+	var	running = new Array();
+	// Should reimplement as hard-coded array.
+	for(i = 0; i < 9; i++) 
+		running[i] = biomorph.gene[i];
+	// // // console.log("biomorph.gene " + biomorph.gene + "running:" + running);
 	incDistance = 0;
-	var segNoGenePlusOne = biomorph.segNoGene + 1;
-	for(seg = 1; seg < segNoGenePlusOne; seg++) {
-		oddOne = (seg % 2) == 1;
-		if(seg > 1) {
-			oldHere = copyPoint(here);
+	// // console.log("biomorph.segNoGene " + biomorph.segNoGene);
+	for(seg = 0; seg < biomorph.segNoGene; seg++) {
+		var oddOne = (seg % 2) == 1;
+		// // console.log("oddOne " + oddOne + " seg" + seg);
+		if(seg > 0) {
+			oldHere = here.copy();
 			here.v += (biomorph.segDistGene + incDistance)/biomorph.trickleGene>>0;
 			incDistance += extraDistance;
 			if(biomorph.dGene[8] == SwellType.Shrink)
 				thick = biomorph.gene[8];
 			else
 				thick = 1;
+			// // // // console.log("picLine A");
 			picLine(myPic, oldHere.h, oldHere.v, here.h, here.v, thick);
 			var dGene = biomorph.dGene;
 			for(j = 0; j<8; j++) {
-				if(dGene[j] == SwellType.Swell)
+				// // console.log("SwellType[" + j + "] " + SwellType.properties[dGene[j]].name);
+				if(dGene[j] == SwellType.Swell) {
+					// // console.log("Swell[" + j + "] trickle: " + biomorph.trickleGene);
 					running[j] += biomorph.trickleGene;
-				if(dGene[j] == SwellType.Shrink)
+				}
+				if(dGene[j] == SwellType.Shrink) {
+					// // console.log("Shrink[" + j + "] trickle: " + biomorph.trickleGene);
 					running[j] -= biomorph.trickleGene;
+				}
 			}
-			if(running[8] < 1)
+			if(running[8] < 1) {
 				running[8] = 1;
+			}
+			 // // console.log("before plugin running " + running + " dx" + dx + "dy " + dy + " order" + order);
+			
 			order = plugIn(running, dx, dy);
+			 // // console.log("running " + running + " dx" + dx + "dy " + dy + " order" + order);
 		}	
-		sizeWorry = biomorph.segNoGene * twoToThe(biomorph.gene[8]);
+		var sizeWorry = biomorph.segNoGene * twoToThe(biomorph.gene[8]);
 		if(sizeWorry > WORRYMAX)
 			biomorph.gene[8] = biomorph.gene[8] - 1;
-		if(biomorph.gene[8] < 1)
+		if(biomorph.gene[8] < 1) {
 			biomorph.gene[8] = 1;
-		tree(here.h, here.v, order, 2, biomorph, dx, dy, margin, thick, myPic);
+		}
+		// // console.log("call to tree order " + order + " gene8" + biomorph.gene[8]);
+		tree(here.h, here.v, order, 2, biomorph, dx, dy, thick, myPic, oddOne, order);
 	}
+	var margin = myPic.margin;
 	if(centre.h - margin.left > margin.right - centre.h)
 		margin.right = centre.h + (centre.h - margin.left)
 	else
@@ -184,6 +174,7 @@ function develop (biomorph, here, myPic, margin, delayedDrawing) {
 	upExtent = centre.v - margin.top; //{can be zero if biomorph goes down}
 	downExtent = margin.bottom - centre.v;
 	var spokesGene = biomorph.spokesGene;
+	
 	if(((spokesGene == SpokesType.NSouth) || (spokesGene == SpokesType.Radial)) || 
 			(theMode == Mode.Engineering)) // {Obscurely necessary to cope with erasing last Rect in Manipulation}
 		if(upExtent > downExtent)
@@ -195,34 +186,23 @@ function develop (biomorph, here, myPic, margin, delayedDrawing) {
 		wid = margin.right - margin.left;
 		ht = margin.bottom - margin.top;
 		if(wid > ht) {
-			margin.top = centre.v - wid/2>>0 - 1;
-			margin.bottom = centre.v + wid/2>>0 + 1;
+			margin.top = centre.v - Math.trunc(wid/2) - 1;
+			margin.bottom = centre.v + Math.trunc(wid/2) + 1;
 		} else {
-			margin.left = centre.h - ht/2>>0 - 1;
-			margin.right = centre.h + ht/2>>0 + 1;
+			margin.left = centre.h - Math.trunc(ht/2) - 1;
+			margin.right = centre.h + Math.trunc(ht/2) + 1;
 		}
 	}
 	myPic.picPerson = biomorph;
-	if(delayedDrawing)
-		drawPic(myPic, centre, biomorph);
 }// {develop}
 	
-function delayvelop (biomorph, here, myPic) {
-	console.log("DelayVelop called with biomorph " + biomorph);
-	var margcentre;
-	var offset;
-	var	offCentre = new Point();
-	var delayedDrawing = true;
-	var	zeroMargin = true;
-	var margin = new Rect();
-	develop(biomorph, here, myPic, margin, delayedDrawing);
-	delayedDrawing = false;
-	margcentre = margin.top + (margin.bottom - margin.top)/2>>0;
-	offset = margcentre - here.v;
-	margin.top -= offset;
-	margin.bottom -= offset;
-	offCentre.h = here.h; // Biomorphs are guaranteed equal width to left and right.
-	offCentre.v = here.v - offset;
-	drawPic(myPic, offCentre, biomorph);
+function delayvelop (biomorph, myPic, drawingContext) {
+	// // // // console.log("DelayVelop called with biomorph " + biomorph.toString() + " here:" + here.toString());
+	develop(biomorph, myPic);
+	var margin = myPic.margin;
+	// console.log("Margin " + margin.toString());
+	var	offCentre = new Point((margin.left + margin.right) / 2, (margin.top + margin.bottom) / 2);
+	// console.log("offCentre " + offCentre.toString());
+	drawPic(myPic, offCentre, biomorph, drawingContext);
 }
 

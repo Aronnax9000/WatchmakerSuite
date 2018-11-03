@@ -127,8 +127,8 @@ public class GridBoxManager extends BoxManager {
                     rect.right = x + boxwidth;
                     rect.top = y;
                     rect.bottom = y + boxheight;
-                    logger.info(
-                            "GetBoxes " + (i + j * cols) + ": " + rect.toString());
+//                    logger.info(
+//                            "GetBoxes " + (i + j * cols) + ": " + rect.toString());
                 }
             }
         }
